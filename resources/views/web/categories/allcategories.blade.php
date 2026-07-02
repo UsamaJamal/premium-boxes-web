@@ -3135,6 +3135,33 @@ body {
         padding: 20px !important;
     }
 }
+/* White Mode Fixes for dark theme components */
+.step-item { background-color: transparent !important; }
+.step-item h3 { color: var(--text-main) !important; }
+.step-item p { color: var(--text-muted) !important; }
+.instant-quote-form input, .instant-quote-form select, .instant-quote-form textarea, .file-upload-wrapper, .file-upload-wrapper input {
+  background-color: var(--bg-darker) !important;
+  color: var(--text-main) !important;
+}
+.instant-quote-form label { color: #ffffff !important; }
+.guide-col-one, .guide-col-one p, .guide-col-one span, .guide-col-one div, .guide-col-one li {
+  color: var(--text-muted) !important;
+  background-color: transparent !important;
+}
+.guide-col-one h1, .guide-col-one h2, .guide-col-one h3, .guide-col-one h4, .guide-col-one h5, .guide-col-one h6, .guide-col-one strong, .guide-col-one b {
+  color: var(--text-main) !important;
+  background-color: transparent !important;
+}
+.pg-accordion-item {
+  background-color: transparent !important;
+}
+.pg-accordion-q, .pg-accordion-btn {
+  color: var(--text-main) !important;
+  background-color: transparent !important;
+}
+.pg-accordion-body p {
+  color: var(--text-muted) !important;
+}
 </style>
 
 <body>
