@@ -1446,15 +1446,15 @@ img {
     width: 6px;
 }
 .pg-left::-webkit-scrollbar-track {
-    background: #2a2a2a; 
+    background: #2a2a2a;
     border-radius: 10px;
 }
 .pg-left::-webkit-scrollbar-thumb {
-    background: var(--gold); 
+    background: var(--gold);
     border-radius: 10px;
 }
 .pg-left::-webkit-scrollbar-thumb:hover {
-    background: #e6b13c; 
+    background: #e6b13c;
 }
 
 .pg-badge {
@@ -3314,7 +3314,7 @@ img {
                     <h2 class="product-section-title">What Our Customers Say</h2>
                     <p class="product-section-subtitle">But don't just take our word for it, read what our clients say.</p>
                 </div>
-                
+
                 <div class="testi-slider-wrap">
                 <div class="product-testimonials-grid" id="testimonialsGrid">
                     <!-- Original 3 Cards -->
@@ -3329,7 +3329,7 @@ img {
                         <h4 class="product-testimonial-name">Alice Smith</h4>
                         <span class="product-testimonial-role">CEO, Beauty Brand</span>
                     </div>
-                    
+
                     <div class="product-testimonial-card">
                         <div class="product-avatar-wrap">
                             <img src="{{ asset('admin/dist/img/avatar.png') }}" alt="John" class="product-avatar">
@@ -3341,7 +3341,7 @@ img {
                         <h4 class="product-testimonial-name">John Davis</h4>
                         <span class="product-testimonial-role">Marketing Director</span>
                     </div>
-                    
+
                     <div class="product-testimonial-card">
                         <div class="product-avatar-wrap">
                             <img src="{{ asset('admin/dist/img/avatar3.png') }}" alt="Sarah" class="product-avatar">
@@ -3392,7 +3392,7 @@ img {
                     </div>
                 </div>
                 </div><!-- /.testi-slider-wrap -->
-                
+
                 <div class="product-slider-nav">
                     <button class="product-nav-btn" id="prevTestimonialBtn"><i class="fas fa-chevron-left"></i></button>
                     <button class="product-nav-btn" id="nextTestimonialBtn"><i class="fas fa-chevron-right"></i></button>
@@ -3585,7 +3585,7 @@ img {
                     </div>
                     @endforeach
                 @endif
-                
+
                 <!-- Help box -->
                 <div class="pg-cta-box">
                     <h4 class="pg-cta-title">Need help choosing?</h4>
@@ -3799,7 +3799,7 @@ document.addEventListener('DOMContentLoaded', function () {
             requiredFields.forEach(field => {
                 let valid = true;
                 const val = field.value.trim();
-                
+
                 if (!val) {
                     valid = false;
                 } else if (field.type === 'email') {
@@ -3829,7 +3829,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             // Success state - you can add custom success message UI here if needed
-            
+
             quoteForm.reset();
             requiredFields.forEach(field => field.style.border = ""); // reset borders
 
