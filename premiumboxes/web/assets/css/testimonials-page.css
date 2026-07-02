@@ -1,0 +1,63 @@
+/* ======= ======= ======= 
+   testimonial_segment_view  CSS Area End
+======= ======= =======  */
+
+.La_testimonial_one {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.La_testimonial_one .media {
+  float: left;
+  display: block;
+  position: relative;
+  background-color: #ffffff;
+  border: 5px solid #f8f8f8;
+  margin: 0 30px 30px 0;
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .La_testimonial_one .media {
+    width: 100px;
+    height: 100px;
+    margin: 0 15px 30px 0;
+  }
+}
+
+.La_testimonial_one .media img {
+  border-radius: 50%;
+  transform: scale(1, 1);
+  transition: 0.4s all linear;
+}
+
+.La_testimonial_one .body {
+  overflow: hidden;
+  color: #999999;
+}
+
+.La_testimonial_one .title {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #b89b5e;
+}
+.La_testimonial_one .title:before {
+  content: "\2014 \00A0";
+}
+.La_testimonial_one .company {
+  margin-bottom: 20px;
+}
+
+.La_testimonial_one:hover .media img {
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+  transform: scale(1.05, 1.05);
+  transition-timing-function: ease-out;
+  transition-duration: 250ms;
+}
+/* ======= ======= ======= 
+    testimonial_segment_view  CSS Area End
+  ======= ======= =======  */
