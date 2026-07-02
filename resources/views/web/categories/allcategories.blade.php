@@ -3991,7 +3991,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Addons</label>
+                                <label>Select Product Name</label>
                                 <select>
                                     <option value="">Choose option</option>
                                 </select>

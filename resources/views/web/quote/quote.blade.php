@@ -518,7 +518,7 @@ html, body {
                         </select>
                     </div>
                     <div class="qu-field">
-                        <label>Addons</label>
+                        <label>Select Product Name</label>
                         <select>
                             <option value="">Choose option</option>
                             <option>Foil Stamping</option>
