@@ -81,7 +81,7 @@ public function deletecSlider($id)
 if($request->hasfile('image')){
                     $file=$request->file('image');
                     $extension=$file->getClientOriginalName();
-                    $filename=$extension;
+                    $filename= time() . '-' . $extension;
                     $file->move('images/',$filename);
                     $data['image']=$filename;
 
@@ -93,7 +93,7 @@ if($request->hasfile('image')){
              if($request->hasfile('image2')){
                     $file=$request->file('image2');
                     $extension=$file->getClientOriginalName();
-                    $filename=$extension;
+                    $filename= time() . '-1-' . $extension;
                     $file->move('images/',$filename);
                     $data['image2']=$filename;
 
@@ -105,7 +105,7 @@ if($request->hasfile('image')){
                 if($request->hasfile('image3')){
                     $file=$request->file('image3');
                     $extension=$file->getClientOriginalName();
-                    $filename=$extension;
+                    $filename= time() . '-2-' . $extension;
                     $file->move('images/',$filename);
                     $data['image3']=$filename;
 

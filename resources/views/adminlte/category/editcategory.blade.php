@@ -1,0 +1,339 @@
+
+@include('adminlte/header')
+@include('adminlte/sidebarlink')
+  <!-- Main Sidebar Container -->
+ 
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Edit Form</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{{ url('admin/dashboard').'/' }}" style="color: #234376;">Home</a></li>
+              <li class="breadcrumb-item active" style="color: #49d8f7;">Edit Form</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+  <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card">
+              <div class="card-header">
+                <h5>Edit Category</h5>
+              </div>
+
+              <div class="card-body">
+                  
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+               <form id="basic-form" method="post" action="{{url('admin/update_category'.'/'.$value[0]->cat_id).'/'}}" enctype="multipart/form-data"
+>@csrf
+
+            <input type="hidden" name="oldbaner" value="{{$value[0]->bimage}}">
+
+            <input type="hidden" name="oldfav-icon" value="{{$value[0]->icon}}">
+
+             <input type="hidden" name="oldimage" value="{{$value[0]->image}}">
+             <input type="hidden" name="old_hero_image" value="{{$value[0]->hero_image}}">
+
+             <input type="hidden" name="old_parent_cat" value="{{$value[0]->parent_category}}">
+
+                <div class="card" style="width: 66%; margin-left: 15px;">
+    <div class="card-header header-2">Update Category Data</div>
+    <div class="card-body">
+                   <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Name</label>
+                    <div class="col-sm-9">
+                    <input id="name" type="text" class="form-control"placeholder="Name" name="name" value="{{$value[0]->name}}" required>
+                  </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Category URL</label>
+                    <div class="col-sm-9">
+                    <input id="categoryurl" type="text" class="form-control"placeholder="Category URL" name="categoryurl" value="{{$value[0]->category_url}}" required>
+                  </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Description</label>
+                    <div class="col-sm-12">
+                     <textarea class="form-control" id="ckeditor" name="ckeditor" >
+                     <?php echo $value[0]->description ?>
+                       
+                     </textarea>
+                   </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Hero Title</label>
+                    <div class="col-sm-9">
+                    <input id="hero_title" type="text" class="form-control" placeholder="Hero Title" name="hero_title" value="{{$value[0]->hero_title}}">
+                  </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Hero Description</label>
+                    <div class="col-sm-9">
+                     <textarea class="form-control" rows="4" id="hero_desc" name="hero_desc" placeholder="Hero Description">{{$value[0]->hero_desc}}</textarea>
+                   </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card" style="width: 66%; margin-left: 15px;">
+              <div class="card-header header-2">Update Meta Data</div>
+              <div class="card-body">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Meta Title</label>
+                    <div class="col-sm-9">
+                    <input id="mtitle" type="text" class="form-control"placeholder="Meta Title" name="mtitle" value="{{$value[0]->meta_title}}" required>
+                  </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Meta Description</label>
+                    <div class="col-sm-9">
+                    <input id="mdescription" type="text" class="form-control"placeholder="Meta Description" name="mdescription" value="{{$value[0]->meta_description}}" required>
+                  </div>
+                  </div>
+
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Meta Tags</label>
+                    <div class="col-sm-9">
+                    <input id="mtags" type="text" class="form-control"placeholder="Meta Tags" name="mtags" value="{{$value[0]->meta_tags}}" required>
+                  </div>
+                  </div>
+                </div>
+              </div>
+                   
+
+                    
+
+                  <div class="card" style="width: 66%; margin-left: 15px;">
+              <div class="card-header header-2">Update Image</div>
+              <div class="card-body">
+                   <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Image</label>
+                    <div class="col-sm-9">
+                    <input style="padding-bottom: 35px;" type="file" class="form-control" name="image">
+                    @if($value[0]->image)
+                        <div class="mt-2">
+                            <img src="{{ asset('images/'.$value[0]->image) }}" width="100" alt="Current Image">
+                        </div>
+                    @endif
+                  </div>
+                  </div>
+
+               <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Category Banner</label>
+                    <div class="col-sm-9">
+                    <input style="padding-bottom: 35px;" type="file" class="form-control" name="bimage">
+                    @if($value[0]->bimage)
+                        <div class="mt-2">
+                            <img src="{{ asset('images/'.$value[0]->bimage) }}" width="100" alt="Current Banner">
+                        </div>
+                    @endif
+                  </div>
+                  </div>
+
+                <div class="form-group row">
+                     <label class="col-sm-3 col-form-label">Hero Image</label>
+                     <div class="col-sm-9">
+                     <input style="padding-bottom: 35px;" type="file" class="form-control" name="hero_image">
+                     @if($value[0]->hero_image)
+                        <div class="mt-2">
+                            <img src="{{ asset('images/'.$value[0]->hero_image) }}" width="100" alt="Current Hero Image">
+                        </div>
+                    @endif
+                   </div>
+                   </div>
+                 </div>
+               </div>
+
+              <div class="card" style="width: 66%; margin-left: 15px;">
+              <div class="card-header header-2">Other</div>
+              <div class="card-body">
+
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Parent Category</label>
+                    <div class="col-sm-9">
+                    <select type="text" class="form-control" id="" placeholder="" 
+                    name="parentcategory" value="0">
+                     <option value="0">Parent
+                  </option>
+                   @foreach ($category_data as $category) 
+                  
+                    <option  value="{{$category->cat_id}}"
+
+                   <?php if($category->cat_id == $value[0]->parent_category){echo "selected";} ?> >
+
+                    {{$category->name}}</option>
+
+                    @endforeach
+
+                 
+                  <!-- @foreach ($category_data as $category) 
+                  <option  value="{{$category->cat_id}}">{{$category->name}}</option>
+                  @endforeach
+                 -->
+                
+           
+                  </select>
+                </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Status</label>
+                    <div class="col-sm-9">
+                    <select type="text" class="form-control"id="" placeholder="" 
+                    name="status">
+                  
+                
+                    <option <?php if($value[0]->status==1){echo "selected";} ?> value="1">Active</option>
+                  <option <?php if($value[0]->status==0){echo "selected";} ?> value="0">Disable</option>
+                 
+                  
+           
+                  </select>
+                </div>
+                  </div>
+                  
+                      <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Show on Home</label>
+                    <div class="col-sm-9">
+                    <select type="text" class="form-control"id="" placeholder="" 
+                    name="show_home">
+                  
+                  <option <?php if($value[0]->show_home==0){echo "selected";} ?> value="0">Select</option>
+                  <option <?php if($value[0]->show_home==1){echo "selected";} ?> value="1">Section 2</option>
+
+                 
+                  
+           
+                  </select>
+                </div>
+                  </div>
+                  
+                    </div>
+                  
+                </div>
+
+              <!-- FAQs Section -->
+              <div class="card" style="width: 66%; margin-left: 15px;">
+                  <div class="card-header header-2">Frequently Asked Questions (FAQs)</div>
+                  <div class="card-body" id="faq-container">
+                      @if(isset($faqs) && count($faqs) > 0)
+                          @foreach($faqs as $faq)
+                          <div class="faq-item" style="border:1px solid #eee; padding: 15px; margin-bottom: 15px; position:relative;">
+                              <div class="form-group row">
+                                  <label class="col-sm-3 col-form-label">Question</label>
+                                  <div class="col-sm-9">
+                                      <input type="text" class="form-control" name="faq_question[]" value="{{$faq->question}}" placeholder="Enter FAQ Question">
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label class="col-sm-3 col-form-label">Answer</label>
+                                  <div class="col-sm-9">
+                                      <textarea class="form-control" name="faq_answer[]" rows="3" placeholder="Enter FAQ Answer">{{$faq->answer}}</textarea>
+                                  </div>
+                              </div>
+                              <div class="text-right">
+                                  <button type="button" class="btn btn-danger btn-sm" onclick="removeFaqRow(this)">Remove FAQ</button>
+                              </div>
+                          </div>
+                          @endforeach
+                      @endif
+                  </div>
+                  <div class="card-footer">
+                      <button type="button" class="btn btn-success btn-sm" onclick="addFaqRow()">Add Another FAQ</button>
+                  </div>
+              </div>                
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="save" name="submit">Update</button>
+                </div>
+              </form>
+            </div>
+           
+
+          
+
+
+          
+           
+         
+
+          </div>
+       
+          
+        </div>
+        
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  
+
+  <!-- Control Sidebar -->
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+
+<script src="{{URL::asset('ckeditor/ckeditor.js')}}"></script>
+<script>
+    CKEDITOR.replace('ckeditor', {
+        filebrowserUploadUrl: "{{URL::asset('ckeditor/ck_upload.php')}}",
+        filebrowserUploadMethod: 'form'
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script>
+$(document).ready(function() {
+    $("#basic-form").validate();
+});
+
+function addFaqRow() {
+    var faqHtml = '<div class="faq-item" style="border:1px solid #eee; padding: 15px; margin-bottom: 15px; position:relative;">' +
+                      '<div class="form-group row">' +
+                          '<label class="col-sm-3 col-form-label">Question</label>' +
+                          '<div class="col-sm-9">' +
+                              '<input type="text" class="form-control" name="faq_question[]" placeholder="Enter FAQ Question">' +
+                          '</div>' +
+                      '</div>' +
+                      '<div class="form-group row">' +
+                          '<label class="col-sm-3 col-form-label">Answer</label>' +
+                          '<div class="col-sm-9">' +
+                              '<textarea class="form-control" name="faq_answer[]" rows="3" placeholder="Enter FAQ Answer"></textarea>' +
+                          '</div>' +
+                      '</div>' +
+                      '<div class="text-right">' +
+                          '<button type="button" class="btn btn-danger btn-sm" onclick="removeFaqRow(this)">Remove FAQ</button>' +
+                      '</div>' +
+                  '</div>';
+    $('#faq-container').append(faqHtml);
+}
+
+function removeFaqRow(btn) {
+    $(btn).closest('.faq-item').remove();
+}
+</script>
+@include('adminlte/footer')
+

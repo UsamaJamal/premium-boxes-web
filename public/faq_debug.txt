@@ -1,0 +1,22 @@
+Array
+(
+    [_token] => PN60FYgXyLuY5TaPqZfDyX69AWd0xKpCbpnj08cl
+    [oldbaner] => 1782934612-b-Promotional-Items-.webp
+    [oldfav-icon] => 
+    [oldimage] => 1782934612-Promotional-Items-.webp
+    [old_hero_image] => 1782934612-h-Promotional-Items-.webp
+    [old_parent_cat] => 0
+    [name] => Promotional Product
+    [categoryurl] => promotional-product
+    [ckeditor] => <p>hahahah</p>
+
+    [hero_title] => Promotional product
+    [hero_desc] => promotional product
+    [mtitle] => promotional
+    [mdescription] => promotional
+    [mtags] => promotional
+    [parentcategory] => 0
+    [status] => 1
+    [show_home] => 0
+    [submit] => 
+)

@@ -61,14 +61,15 @@ public function deleteSlider($id)
  public function updateSlider(Request $request,$id) {
      $data=[
 
-'meta_title' => $request->get('homemtitle'),
- 'meta_description' => $request->get('homemdescrioption'),
-  'meta_tags' => $request->get('homemtags'),
-  'heading_1' => $request->get('homeheading1'),
-  'heading_2' => $request->get('homeheading2'),
-  'heading_3' => $request->get('homeheading3'),
-  'link' => $request->get('homelink'),
-   'description' => $request->get('ckeditor'), 
+  'image_tag' => $request->get('homemtitle') ?? '',
+  'meta_title' => $request->get('homemtitle') ?? '',
+ 'meta_description' => $request->get('homemdescrioption') ?? '',
+  'meta_tags' => $request->get('homemtags') ?? '',
+  'heading_1' => $request->get('homeheading1') ?? '',
+  'heading_2' => $request->get('homeheading2') ?? '',
+  'heading_3' => $request->get('homeheading3') ?? '',
+  'link' => $request->get('homelink') ?? '',
+   'description' => $request->get('ckeditor') ?? '', 
    
    
 ];
@@ -79,7 +80,7 @@ public function deleteSlider($id)
 if($request->hasfile('image')){
                     $file=$request->file('image');
                     $extension=$file->getClientOriginalName();
-                    $filename=$extension;
+                    $filename= time() . '-' . $extension;
                     $file->move('images/',$filename);
                     $data['image']=$filename;
 
@@ -99,15 +100,10 @@ if($request->hasfile('image')){
 public function addSlider(Request $request) {
 	$data=[
 
-//  'meta_title' => $request->get('homemtitle'),
-//  'meta_description' => $request->get('homemdescrioption'),
-//   'meta_tags' => $request->get('homemtags'),
-//   'heading_1' => $request->get('homeheading1'),
-//   'heading_2' => $request->get('homeheading2'),
-//   'heading_3' => $request->get('homeheading3'),
-  'image_tag' => $request->get('imagetag'),
-  'link' => $request->get('homelink'),
-//   'description' => $request->get('ckeditor'),
+  'heading_1' => $request->get('homeheading1') ?? '',
+  'image_tag' => $request->get('imagetag') ?? '',
+  'link' => $request->get('homelink') ?? '',
+  'description' => $request->get('ckeditor') ?? '',
      
 ];
 

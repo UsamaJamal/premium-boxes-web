@@ -1,0 +1,386 @@
+/* ======= ======= ======= ============== ======= ======= =======
+                  count_num-segment  Area CSS Start
+ ======= ======= ======= ============== ======= ======= ======= */
+
+#count_num-segment {
+  position: relative;
+  z-index: 0;
+}
+
+/* #count_num-segment:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      content: '';
+      z-index: -1;
+      opacity: .4;
+      background: #000000;
+  } */
+
+.La_inners_box.text span {
+  display: inline-block;
+  margin: 4px 0 0px 0;
+  font-size: 18px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.count-up.La_inners_box {
+  margin-left: 16px;
+  border-left: 1px solid #b89b5e;
+  padding-left: 20px;
+}
+
+@media (max-width: 480px) {
+  .La_inners_box.text span {
+    margin: 10px 0 0px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .La_inners_box.text span {
+    margin: 10px 0 0px 0;
+  }
+}
+.La_inners_box .number {
+  color: #ffffff !important;
+  font-size: 40px;
+  margin: 0 0 10px;
+  line-height: 1;
+  font-family: "Lora", serif;
+  font-weight: 700;
+}
+
+.La_inners_box i {
+  font-size: 40px;
+  color: #b89a5e;
+  vertical-align: baseline;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+@media (max-width: 768px) {
+  .La_inners_box i {
+    font-size: 30px;
+    flex: 1;
+  }
+}
+
+@media (max-width: 992px) {
+  .La_inners_box i {
+    margin-right: 15px;
+  }
+}
+.count_num .text strong.number {
+  font-weight: 700;
+  font-size: 36px;
+  color: #fff;
+  display: block;
+  line-height: 1;
+}
+@media (max-width: 480px) {
+  .count_num .text strong.number {
+    font-size: 28px;
+  }
+}
+
+.La_count {
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+.cmb_heading.head-2 h2 {
+  color: #0f65dc;
+  line-height: 1.4;
+}
+
+@media (max-width: 1199.98px) {
+  .count_num {
+    background-position: center center;
+  }
+}
+
+@media (max-width: 480px) {
+  .mob-mxwidth {
+    margin: 0 auto;
+    max-width: 260px;
+  }
+}
+
+.count_num .text span {
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgb(184 154 94);
+}
+
+@media (max-width: 480px) {
+  .count_num .text span {
+    font-size: 15px;
+  }
+}
+
+.cmb-animate {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@media (max-width: 767.98px) {
+  .count_num .counter-wrap {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .count_num {
+    padding: 80px 0;
+  }
+}
+
+.count_num .cmb-number {
+  display: block;
+  font-size: 72px;
+  font-weight: bold;
+  color: #daa592;
+}
+
+.counter {
+  text-align: center;
+}
+
+/* .number  counter-count
+  {
+      font-size: 50px;
+      font-weight: bold;
+      position: relative;
+      color: #000000;
+      text-align: center;
+      display: inline-block;
+  } */
+/* ======= ======= ======= ============== ======= ======= =======
+                  count_num-segment CSS End
+     ======= ======= ======= ============== ======= ======= ======= */
+
+/* ======= ======= ======= ============== ======= ======= =======
+                  La_testimoninal CSS Area Start
+  ======= ======= ======= ============== ======= ======= ======= */
+
+.La_testimoninal {
+  padding: 80px 0;
+  background-image: url(../img/la-testimony-bg.jpg);
+  background-position: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 992px) {
+  .La_testimoninal {
+    padding: 60px 0;
+  }
+}
+@media (max-width: 768px) {
+  .La_testimoninal {
+    padding: 40px 0;
+  }
+}
+
+@media (max-width: 578px) {
+  .La_testimoninal {
+    padding: 30px 0;
+  }
+}
+
+.testimonial .author img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.testimonial .author .author-info {
+  margin-top: 20px;
+}
+.testimonial .author .author-info p {
+  margin: 10px 0;
+}
+
+.testimonial .author h4 {
+  font-size: 18px;
+  margin-bottom: 0;
+}
+
+.testimonial .author p {
+  color: #fff;
+  font-size: 14px;
+}
+.owl-carousel .owl-dots {
+  text-align: center;
+  /* background: red; */
+}
+.owl-carousel .owl-dots .owl-dot {
+  width: 8px;
+  height: 8px;
+  margin: 5px;
+  border-radius: 50%;
+  display: inline-block;
+  /* width: 7px;
+                height: 7px;
+                background: #ccc;
+                -webkit-transition: 0.3s all ease-in-out;
+                -o-transition: 0.3s all ease-in-out;
+                transition: 0.3s all ease-in-out; */
+  /* opacity: 0.5; */
+  background-color: #f5f5f5;
+}
+.owl-carousel.LA-clients-Slide .owl-dots .owl-dot {
+  display: inline-block;
+}
+.owl-carousel .owl-dots .owl-dot.active {
+  opacity: 1;
+  background-color: #b89a5e;
+  width: 20px;
+  height: 8px;
+  margin: 5px;
+  border-radius: 20px;
+  /* background: #ff7404;
+                -webkit-box-shadow: 0 1px 5px 0px rgba(255, 116, 4, 0.3);
+                box-shadow: 0 1px 5px 0px rgba(255, 116, 4, 0.3); */
+}
+
+.owl-carousel .owl-dots .owl-dot:active,
+.owl-carousel .owl-dots .owl-dot:focus {
+  outline: none;
+  border: 0;
+}
+.owl-carousel.LA-clients-Slide .owl-dots {
+  margin-top: 50px;
+}
+
+.owl-carousel.LA-clients-Slide .owl-dots .owl-dot {
+  display: inline-block;
+}
+.rs-box-testimony blockquote.quote {
+  color: #ffffff;
+  font-size: 18px;
+}
+blockquote.quote {
+  padding: 15px 0;
+  background-color: transparent;
+  margin: 0 0 20px;
+  border-left: 0;
+  font-family: "Lora", serif;
+  font-style: italic;
+  font-size: 24px;
+  color: #b89b5e;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 40px 20px;
+  border-radius: 4px;
+}
+.quote.testimonial .author + p {
+  font-size: 18px;
+  font-weight: 100;
+  margin-top: 20px;
+  color: #fff;
+}
+
+@media (max-width: 992px) {
+  .quote.testimonial .author + p {
+    font-size: 14px;
+    font-weight: 100;
+    margin-top: 20px;
+  }
+}
+
+/* ======= ======= ======= ============== ======= ======= =======
+                       La_testimoninal CSS Area End
+    ====== ======= ======= ============== ======= ======= ======= */
+
+/* ======= ======= ======= 
+  our_Attorney_segment  CSS Area End
+======= ======= =======  */
+
+.our_Attorney_segment {
+}
+
+.La_team_view {
+  position: relative;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.La_team_view .media-box {
+  border-bottom: 3px solid #b89b5e;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.La_team_view .media-box a img {
+  width: 100%;
+}
+
+.La_team_view .title,
+.rs-team-single .title {
+  line-height: normal;
+  font-size: 1.286em;
+}
+.La_team_view .title {
+  color: #223555;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.La_team_view .body {
+  overflow: hidden;
+  color: #999999;
+}
+.La_team_view .title a {
+  font-family: "Lora", serif;
+  font-weight: 700;
+  color: #223555;
+}
+.La_team_view .position {
+  margin-bottom: 20px;
+  font-family: "Lora", serif;
+  font-style: italic;
+  font-size: 14px;
+  color: #b89b5e;
+}
+.sosmed-icon a {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 0;
+  border-radius: 4px;
+  color: #b89b5e;
+  background-color: #223555;
+  margin: 0 2px;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+}
+
+.La_team_view:hover .media-box {
+  background-color: transparent;
+  border-color: #223555;
+}
+.La_team_view:hover .media-box a img {
+  width: 100%;
+}
+
+.sosmed-icon.icon-bg-secondary a:hover {
+  color: #223555;
+  background-color: #b89b5e;
+  text-decoration: none;
+}
+.La_team_view:hover .media-box img {
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+  transform: scale(1.05, 1.05);
+  transition-timing-function: ease-out;
+  transition-duration: 250ms;
+}
+/* ======= ======= ======= 
+    our_Attorney_segment  CSS Area End
+======= ======= =======  */

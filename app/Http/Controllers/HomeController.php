@@ -58,6 +58,24 @@ return response()->view('web/404',$data,404);
      $data['show_on_index'] = DB::table('product')->where('show_home',1)->get(); 
     $data['all_category_popular'] = DB::table('add_category')->where('status',1)->get();
     $data['show_home_1'] = DB::table('home_sliderp')->limit(4)->get();
+
+    // Box By Industry products
+    $industry_cat = DB::table('add_category')->where('name', 'like', '%industry%')->orWhere('name', 'like', '%Industry%')->first();
+    if ($industry_cat) {
+        $sub_cats = DB::table('add_category')->where('parent_category', $industry_cat->cat_id)->pluck('cat_id')->toArray();
+        $data['industry_products'] = DB::table('product')->whereIn('cat_id', $sub_cats)->where('status', 1)->inRandomOrder()->take(8)->get();
+    } else {
+        $data['industry_products'] = [];
+    }
+
+    // Box By Style products
+    $style_cat = DB::table('add_category')->where('name', 'like', '%style%')->orWhere('name', 'like', '%Style%')->first();
+    if ($style_cat) {
+        $sub_cats_style = DB::table('add_category')->where('parent_category', $style_cat->cat_id)->pluck('cat_id')->toArray();
+        $data['style_products'] = DB::table('product')->whereIn('cat_id', $sub_cats_style)->where('status', 1)->inRandomOrder()->take(8)->get();
+    } else {
+        $data['style_products'] = [];
+    }
      $data['show_home_2'] = DB::table('home_sliderc')->orderBy('sliderc_id', 'DESC')->get();
     //  echo "<pre>";
     //  print_r($data['show_home_2']);
@@ -71,6 +89,13 @@ return response()->view('web/404',$data,404);
     $data['meta_tags'] = $data['meta']['0']->m_tag;
     $data['meta_description'] = $data['meta']['0']->m_des;
     
+    $data['home_faqs'] = DB::table('home_faqs')->where('status',1)->get();
+
+    $home_blogs = DB::table('blog')->where('status', 1)->where('set_home', 1)->orderBy('date', 'desc')->get();
+    if ($home_blogs->isEmpty()) {
+        $home_blogs = DB::table('blog')->where('status', 1)->orderBy('date', 'desc')->limit(4)->get();
+    }
+    $data['home_blogs'] = $home_blogs;
 
     return view ('web/home/index',$data);
 }

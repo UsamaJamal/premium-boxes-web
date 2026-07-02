@@ -248,10 +248,12 @@ public function deleteBlog($id)
    'meta_description' => $request->get('blogmdescrioption'),
    'meta_tags' => $request->get('blogmtags'),
    'author_name' => $request->get('bloganame'),
+   'author_description' => $request->get('author_description'),
    'tag_cloud' => $request->get('blogtcloud'),
    'long_description' => $request->get('ckeditor'),
     'alt_tag' => $request->get('blogalttag'), 
     'status' => $request->get('status'),
+    'set_home' => $request->get('set_home') ?? 0,
    
    
 ];
@@ -288,12 +290,14 @@ public function addBlog(Request $request) {
    'meta_description' => $request->get('blogmdescrioption'),
    'meta_tags' => $request->get('blogmtags'),
    'author_name' => $request->get('bloganame'),
+   'author_description' => $request->get('author_description'),
    'tag_cloud' => $request->get('blogtcloud'),
    'long_description' => $request->get('ckeditor'),
    'image' => $request->get('image'),
     'alt_tag' => $request->get('blogalttag'),  
     'date' => date('Y-m-d'), 
     'status' => $request->post('status'),
+    'set_home' => $request->post('set_home') ?? 0,
 ];
 
 if($request->hasfile('image')){

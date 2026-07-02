@@ -1,0 +1,366 @@
+
+
+
+.main---Color {
+    color: #e6a84c;
+    font-family: cursive;
+    font-size: 17px;
+}
+::-webkit-scrollbar-track:horizontal {
+    background: transparent;
+    border-width: 10px
+  }
+.jk-sidebaar {
+    float: left;
+    width: 100%;
+}
+
+.widget-dashboard .widget-title {
+    font-weight: 600;
+    font-size: 1.7rem;
+    /* margin-top: .2rem; */
+    font-size: 1.6rem;
+    line-height: 1.2;
+    font-weight: 600;
+    color: #2b2b2d;
+    margin: .5rem 0 1.3rem;
+}
+.list li {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+.widget-dashboard .list li a {
+    display: block;
+    position: relative;
+    padding: .9rem 0 .8rem 2rem;
+    border-bottom: 1px solid #EDEDDE;
+    color: #333333;
+    font-size: 16px;
+}
+.widget-dashboard .list li a::before {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 6px solid #e6a84c;
+    margin: .4rem 0 0 -1rem;
+    display: inline-block;
+
+}
+
+.DashboardContent h2 {
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.1;
+    font-size: 1.9rem;
+    color: #e6a84c;
+    margin-bottom: 2rem;
+    
+}
+
+.DashboardContent h3 {
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.1;
+    margin-bottom: 1.8rem;
+    color: #2b2b2d;
+    font-size: 18px;
+}
+
+/* changge profile styling */
+.jk---login-Register .card {
+    margin-top: 10px;
+    box-shadow: none ;
+    border: none;
+}
+.jk---login-Register .input-group-text {
+    color: #fff;
+    background-color: #e6a84c ;
+    border-color: #e6a84c ;
+    border-radius: 0px;
+}
+
+.p-0 {
+    padding: 0px;
+}
+
+.DashboardContent .card-body {
+    min-height: 150px;
+    padding: 2rem 1.5rem;
+    border-top: 0;
+    border-radius: 0;
+}
+.DashboardContent .form-control,
+.jk---login-Register .form-control {
+    background-color: #fff;
+    border: 1px solid #e6a84c;
+    border-radius: 0;
+    color: #333333;
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    height: 45px;
+    line-height: 1.5;
+    max-width: 480px;
+    transition: all .3s;
+}
+
+.btn-signup {
+    color: #fff;
+    font-size: 18px;
+    font-family: sans-serif;
+    background: #8b9931;
+    border-radius: 0px;
+}
+.jk---login-Register .btn-primary {
+    color: #fff;
+    background-color: #e6a84c;
+    border-color: #e6a84c;
+}
+
+
+.jk---login-Register {
+    width: 100%;
+    padding: 40px 0;
+}
+.jk---login-Register  .card-body p {
+    font-family: sans-serif;
+    font-weight: 600;
+    color: rgb(88, 89, 91);
+  
+}
+
+
+@media  (max-width:480px){
+    .DashboardContent h2 {
+        font-size: 21px;
+      white-space: nowrap;
+    }
+} 
+
+/* ================= Start Checkout page stylng=============== */
+.table-condensed thead {
+    background-color: #e6a84c;
+    color: #fff;
+}
+/* .family-sans-serif {
+    font-family: sans-serif ;
+} */
+.table th, .table td {
+    padding: 0.95rem;
+    border-top: 1px solid #dee2e6;
+    border-left: 1px solid transparent;
+    
+}
+.table  .table-body-management th, .table  .table-body-management td {
+    padding: 0.95rem;
+    border-top: 1px solid #dee2e6;
+    border-left: 1px solid transparent;
+   height: 100px;
+   vertical-align: middle;
+}  
+.cart-desc h5 .main---Color-2{
+    
+    font-family: cursive;
+    font-size: 17px;
+    color: #e6a84c;
+}
+
+.table .table-body-management td p{
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 2em;
+    color: #262626;
+    margin-bottom: 0px;
+}
+
+.btn--edit--cart--table {
+    border-radius: 0px ;
+    background-color: #e6a84c;
+    font-size: 15px;
+    margin-top: -2px;
+    padding: 2px 8px 2px 7px ;
+    color: #fff;
+}
+
+.btn--del--cart--table {
+    background-color: transparent;
+    color: #df2b3d;
+    border-radius: 0px ;
+    margin-top: -2px ;
+    font-size: 16px;
+    padding: 2px 8px 2px 8px;
+}
+
+
+.jk-cartChechoutHeading {
+    padding: 3px 13px;
+    background:  #e6a84c;
+    margin-bottom: 15px ;
+    color: #fff;
+
+}
+.jk-cartChechoutHeading h3 {
+    color: #fff;
+}
+.jk-cartChechoutHeading p {
+    font-family: sans-serif;
+    margin: 0px ;
+    color: #fff;
+    padding: 0px ;
+}
+
+.ls-1 {
+    letter-spacing: 1px ;
+}
+
+.chose_area {
+    padding-top: 30%;
+   padding-bottom: 20px;
+}
+
+.btnCheckout {
+    font-weight: 600;
+    font-family: sans-serif;
+    border-radius: 0px ;
+    padding: 3px 10px 3px 10px;
+    color: white;
+    font-size: 15px ;
+    background-color: #e6a84c;
+}
+
+
+.mLeft-10 {
+    margin-left: 10px ;
+}
+
+.cartTotal-sec{
+    background-color: #eee;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.total-cart-row {
+    margin: 0px 3px 10px 3px;
+}
+
+.row-bgWidth {
+    background-color: #fff ;
+
+}
+.cartTotal-sec p{
+    font-family: sans-serif;
+}
+.fw-400 {
+    font-weight: 400 ;
+}
+
+.m-0 {
+    margin: 0px;
+}
+
+
+
+@media  (max-width:480px){
+ #divUpdate  ::-webkit-scrollbar-thumb:horizontal {
+        background-color: rgb(220, 172, 0);
+        background-clip: padding-box;
+        border: solid transparent;
+        border-width: 1px 1px 1px 6px;
+        min-height: 28px;
+        padding: 100px 0 0;
+        box-shadow: inset 1px 1px 0 rgb(220, 172, 0), inset 0 -1px 0 rgb(220, 172, 0);
+      }
+} 
+
+
+/* ================= End Checkout page stylng=============== */
+
+/* ================= Start Category page stylng=============== */
+
+
+
+
+
+ .rating .rating-upper, .details .rating .rating-upper {
+    color: #fdcc0d;
+    padding: 0;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+
+
+.rating, .shop-products .details .rating{
+    display: inline-block;
+    unicode-bidi: bidi-override;
+    color: #888888;
+    font-size: 25px;
+    height: 25px;
+    margin-right: 10px;
+    width: auto;
+    position: relative;
+    padding: 0;
+  }
+  
+.rating .rating-upper,  .details .rating .rating-upper{
+    color: #fdcc0d;
+    padding: 0;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+  
+  .rating .rating-lower, .shop-products .details .rating .rating-lower{
+    padding: 0;
+    display: flex;
+    z-index: 0;
+  }
+  
+  
+  
+  .coffeeAndBakery---producta .review-not {
+      color: #333;
+  }
+  
+  .coffeeAndBakery---producta .shop-page-info {
+      padding-bottom: 0;
+      margin-bottom: 5px;
+      text-align: justify;
+      font-family: "Avenir Next", sans-serif;
+  }
+  
+  .coffeeAndBakery---producta .product-form {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      width: 100%;
+      -webkit-flex-wrap: wrap;
+      -moz-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -ms-flex-align: end;
+      -webkit-align-items: flex-end;
+      -moz-align-items: flex-end;
+      -ms-align-items: flex-end;
+      -o-align-items: flex-end;
+      align-items: flex-end;
+      width: auto;
+  }
+  
+  
+/* ================= Start Category page stylng=============== */

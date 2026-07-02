@@ -1,0 +1,25 @@
+/* ======= ======= ======= 
+   page_404 CSS Area Start
+======= ======= =======  */
+
+.page_404 .title {
+  line-height: 1;
+  font-family: "Lora", serif;
+  font-weight: 700;
+  color: #b89b5e;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 150px;
+}
+.page_404 .text-secondary {
+  line-height: normal;
+  font-family: "Lora", serif;
+  font-weight: 700;
+  color: #223555 !important;
+  font-size: 1.714em;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+/* ======= ======= ======= 
+    page_404 CSS Area End
+  ======= ======= =======  */

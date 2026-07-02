@@ -47,45 +47,45 @@ class ProductController extends Controller
     
     }
     
-  public function Search() {
-    $data['search_text'] = $_POST['query'];
-$data['check_pro']=0;
-       $data['searchproduct'] = DB::table('product')->where('title','LIKE','%'.$data['search_text'].'%')->where('status',1)->get();
-
-if(count($data['searchproduct'])<1){
+    public function Search() {
+        $data['search_text'] = $_POST['query'] ?? '';
+        
+        $data['search_categories'] = DB::table('add_category')
+            ->where('name', 'LIKE', '%' . $data['search_text'] . '%')
+            ->where('status', 1)
+            ->get();
+            
+        $data['search_products'] = DB::table('product')
+            ->where('title', 'LIKE', '%' . $data['search_text'] . '%')
+            ->where('status', 1)
+            ->get();
+            
+        $data['search_blogs'] = DB::table('blog')
+            ->where('blog_title', 'LIKE', '%' . $data['search_text'] . '%')
+            ->where('status', 1)
+            ->get();
+        
+        $data['all_category'] = DB::table('add_category')->where('parent_category',0)->where('status',1)->get();
+        $data['sub_category'] = DB::table('add_category')->where('parent_category','!=',0)->where('status',1)->get();
+        $data['sub_category_link'] = DB::table('add_category')->where('status',1)->get();
+        $data['all_product'] = DB::table('product')->where('status',1)->get();
+        
+        $meta = DB::table('dynamic')->where('page_url','search')->get();
+        if(count($meta) > 0) {
+            $data['meta_title'] = $meta[0]->m_title;
+            $data['meta_tags'] = $meta[0]->m_tag;
+            $data['meta_description'] = $meta[0]->m_des;
+        } else {
+            $data['meta_title'] = 'Search Results';
+            $data['meta_tags'] = '';
+            $data['meta_description'] = '';
+        }
   
-      $data['searchproduct'] = DB::table('add_category')->where('name','LIKE','%'.$data['search_text'].'%')->where('status',1)->get();
-
-      if(count($data['searchproduct'])>0){
-        $data['check_pro']=2;
-      }
-
-}
-else{
-    $data['check_pro']=1;
-}
-
-//  echo "<pre>";
-//  print_r($data['searchproduct']);
-//  die();
-    // $product['searchproduct'] = DB::table('product')->where('title','LIKE','%'.$search_text.'%')->where('status',1)->get();
-      $data['all_category'] = DB::table('add_category')->where('parent_category',0)->where('status',1)->get();
-      $data['sub_category'] = DB::table('add_category')->where('parent_category','!=',0)->where('status',1)->get();
-      $data['sub_category_link'] = DB::table('add_category')->where('status',1)->get();
-      $data['all_product'] = DB::table('product')->where('status',1)->get();
-      
-      $data['meta'] = DB::table('dynamic')->where('page_url','search')->get();
-      $data['meta_title'] = $data['meta']['0']->m_title;
-      $data['meta_tags'] = $data['meta']['0']->m_tag;
-    $data['meta_description'] = $data['meta']['0']->m_des;
-
-      $data['dynamic'] = DB::table('dynamic')->get();
-      $data['contact'] = DB::table('contact')->get();
-
-      return view ('web/search/search',$data);
-   
-   
-  }
+        $data['dynamic'] = DB::table('dynamic')->get();
+        $data['contact'] = DB::table('contact')->get();
+  
+        return view ('web/search/search',$data);
+    }
 //  search function 
    public function Product($url) {
        $data['contact'] = DB::table('contact')->get();
@@ -154,6 +154,8 @@ else{
                 $data['meta_title'] = $data['product']['0']->meta_title;
                 $data['meta_tags'] = $data['meta']['0']->meta_tags;
                 $data['meta_description'] = $data['meta']['0']->meta_description;
+                $data['product_faqs'] = DB::table('product_faqs')->where('product_id', $data['product'][0]->product_id)->get();
+                $data['reviews'] = DB::table('product_reviews')->where('product_id', $data['product'][0]->product_id)->where('status', 1)->orderBy('id', 'desc')->get();
                 
         //   print_r($data['meta_description']);
         //   die();
@@ -164,6 +166,33 @@ else{
                  else{
                      
                  $data['value'] = DB::table('add_category')->where('category_url',$url)->where('status',1)->get();
+
+                if (in_array($url, ['box-by-material', 'box-by-style', 'box-by-industry'])) {
+                    $data['all_category'] = DB::table('add_category')->where('parent_category',0)->where('status',1)->get();
+                    $data['sub_category_link'] = DB::table('add_category')->where('status',1)->get();
+                    $data['all_product'] = DB::table('product')->where('status',1)->get();
+                    $data['contact'] = DB::table('contact')->get();
+                    
+                    if(count($data['value'])>0) {
+                        $data['meta'] = DB::table('add_category')->where('category_url',$url)->get();
+                        $data['meta_title']=  $data['value'][0]->meta_title;
+                        $data['meta_tags'] = $data['meta']['0']->meta_tags;
+                        $data['meta_description'] = $data['meta']['0']->meta_description;
+                    } else {
+                        $data['meta_title'] = ucfirst(str_replace('-', ' ', $url));
+                        $data['meta_tags'] = ucfirst(str_replace('-', ' ', $url));
+                        $data['meta_description'] = ucfirst(str_replace('-', ' ', $url));
+                    }
+                    
+                    if (count($data['value']) > 0) {
+                        $data['faqs'] = DB::table('category_faqs')->where('category_id', $data['value'][0]->cat_id)->get();
+                    } else {
+                        $data['faqs'] = [];
+                    }
+                    
+                    $data['slug'] = $url;
+                    return view('web/categories/allcategories', $data);
+                }
                 
                 if(count($data['value'])>0){
                     
@@ -185,6 +214,11 @@ else{
                       $data['sub'] = DB::table('add_category')->where('parent_category',$data['value'][0]->cat_id)->where('status',1)->get();
                       
                       $data['sub_product'] = DB::table('product')->where('cat_id',$data['value'][0]->cat_id)->where('status',1)->get();
+                      
+                      $data['parent_cat'] = null;
+                      if ($data['value'][0]->parent_category != 0) {
+                          $data['parent_cat'] = DB::table('add_category')->where('cat_id', $data['value'][0]->parent_category)->first();
+                      }
 $data['meta'] = DB::table('add_category')->where('category_url',$url)->get();
                     $data['meta_title']=  $data['value'][0]->meta_title;
                     $data['meta_tags'] = $data['meta']['0']->meta_tags;
@@ -207,6 +241,8 @@ $data['meta'] = DB::table('add_category')->where('category_url',$url)->get();
                     // echo "<pre>";
                     // print_r($data['sub']);
                     // die();
+                    $data['faqs'] = DB::table('category_faqs')->where('category_id', $data['value'][0]->cat_id)->get();
+                    $data['slug'] = $url;
                     return view('web/categories/categories', $data);
                 }
                     else {
@@ -270,6 +306,29 @@ $data['meta'] = DB::table('add_category')->where('category_url',$url)->get();
         }
     }
 
+    public function submitReview(Request $request)
+    {
+        $request->validate([
+            'product_id' => 'required|integer',
+            'rating' => 'required|integer|min:1|max:5',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'review_text' => 'required|string'
+        ]);
+
+        DB::table('product_reviews')->insert([
+            'product_id' => $request->input('product_id'),
+            'rating' => $request->input('rating'),
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'review_text' => $request->input('review_text'),
+            'status' => 0,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        return redirect()->back()->with('review_success', 'Your review has been submitted successfully and is pending approval.');
+    }
 
 }
 

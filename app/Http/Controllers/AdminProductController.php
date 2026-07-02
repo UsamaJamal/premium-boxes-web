@@ -71,6 +71,32 @@ class AdminProductController extends Controller
                  // echo "<pre>";
                  // print_r($data);
                  // die();
+
+        // Process FAQs
+        $faqQuestions = $request->input('faq_question');
+        $faqAnswers = $request->input('faq_answer');
+        
+        // Delete existing FAQs
+        DB::table('product_faqs')->where('product_id', $id)->delete();
+        
+        if (!empty($faqQuestions) && is_array($faqQuestions)) {
+            $faqData = [];
+            foreach ($faqQuestions as $index => $question) {
+                if (!empty($question) && !empty($faqAnswers[$index])) {
+                    $faqData[] = [
+                        'product_id' => $id,
+                        'question' => $question,
+                        'answer' => $faqAnswers[$index],
+                        'created_at' => now(),
+                        'updated_at' => now()
+                    ];
+                }
+            }
+            if (count($faqData) > 0) {
+                DB::table('product_faqs')->insert($faqData);
+            }
+        }
+
           return redirect('admin/showproduct');
 	}
 	
@@ -129,10 +155,32 @@ if($request->hasfile('image')){
 
         }
         $data['images'] = json_encode($dae);
-// echo "<prev>";
 // print_r($data);
 // die();
-DB::table('product')->insert($data);
+$product_id = DB::table('product')->insertGetId($data);
+
+        // Process FAQs
+        $faqQuestions = $request->input('faq_question');
+        $faqAnswers = $request->input('faq_answer');
+        
+        if (!empty($faqQuestions) && is_array($faqQuestions)) {
+            $faqData = [];
+            foreach ($faqQuestions as $index => $question) {
+                if (!empty($question) && !empty($faqAnswers[$index])) {
+                    $faqData[] = [
+                        'product_id' => $product_id,
+                        'question' => $question,
+                        'answer' => $faqAnswers[$index],
+                        'created_at' => now(),
+                        'updated_at' => now()
+                    ];
+                }
+            }
+            if (count($faqData) > 0) {
+                DB::table('product_faqs')->insert($faqData);
+            }
+        }
+
 return redirect('admin/product'); 
    } 
 
@@ -155,6 +203,7 @@ return redirect('admin/product');
        	$data['value'] = DB::table('product')->get();
 
        	 $data['pro'] = DB::table('product')->where('product_id',$id)->get();
+         $data['faqs'] = DB::table('product_faqs')->where('product_id', $id)->get();
        	 // echo "<pre>";
        	 // print_r($data['value']);
        	 // die();

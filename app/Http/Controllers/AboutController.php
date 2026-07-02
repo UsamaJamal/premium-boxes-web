@@ -86,12 +86,16 @@ public function FAQuestion() {
     $meta = DB::table('frequently_ask_question')->get();
 
     $data['meta_title']= $meta[0]->meta_title;
+    $data['meta_description']= $meta[0]->meta_description;
+    $data['meta_tags']= $meta[0]->meta_tags;
     $data['all_category'] = DB::table('add_category')->where('parent_category',0)->where('status',1)->get();
     $data['sub_category_link'] = DB::table('add_category')->where('status',1)->get();
     $data['all_product'] = DB::table('product')->where('status',1)->get();
     $data['sub_category_link'] = DB::table('add_category')->where('status',1)->get();
     $data['all_product'] = DB::table('product')->where('status',1)->get(); 
     $data['frequently_ask_question'] = DB::table('frequently_ask_question')->get();
+    $data['dynamic'] = DB::table('dynamic')->get();
+    $data['contact'] = DB::table('contact')->get();
   
     return view ('web/faquestion/faskquestion',$data); 
 }

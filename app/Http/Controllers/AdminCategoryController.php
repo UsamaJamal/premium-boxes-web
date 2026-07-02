@@ -20,6 +20,7 @@ class AdminCategoryController extends Controller
 
    public function deleteData($id)
       {
+         DB::table('category_faqs')->where('category_id', $id)->delete();
          DB::table('add_category')->where('cat_id', $id)->delete();
          return redirect('admin/showcategory');
       }
@@ -37,6 +38,8 @@ class AdminCategoryController extends Controller
    'parent_category' => $request->post('parentcategory'),
    'status' => $request->post('status'),
    'show_home' => $request->post('show_home'),
+   'hero_title' => $request->post('hero_title'),
+   'hero_desc' => $request->post('hero_desc'),
 ];
 
 // print_r($data);
@@ -45,8 +48,8 @@ class AdminCategoryController extends Controller
 
 if($request->hasfile('image')){
                     $file=$request->file('image');
-                    $extension=$file->getClientOriginalName();
-                    $filename=$extension;
+                    $extension=str_replace(' ', '-', $file->getClientOriginalName());
+                    $filename= time() . '-' . $extension;
                     $file->move('images/',$filename);
                     $data['image']=$filename;
 
@@ -57,8 +60,8 @@ if($request->hasfile('image')){
 
              if($request->hasfile('bimage')){
                     $file=$request->file('bimage');
-                    $extension=$file->getClientOriginalName();
-                    $filename=$extension;
+                    $extension=str_replace(' ', '-', $file->getClientOriginalName());
+                    $filename= time() . '-b-' . $extension;
                     $file->move('images/',$filename);
                     $data['bimage']=$filename;
 
@@ -67,10 +70,21 @@ if($request->hasfile('image')){
                 $data['bimage']=$request->input('oldbaner');
              }
 
+             if($request->hasfile('hero_image')){
+                    $file=$request->file('hero_image');
+                    $extension=str_replace(' ', '-', $file->getClientOriginalName());
+                    $filename= time() . '-h-' . $extension;
+                    $file->move('images/',$filename);
+                    $data['hero_image']=$filename;
+             }
+             else{
+                $data['hero_image']=$request->input('old_hero_image');
+             }
+
              if($request->hasfile('icon')){
               $file=$request->file('icon');
-              $extension=$file->getClientOriginalName();
-              $filename=$extension;
+              $extension=str_replace(' ', '-', $file->getClientOriginalName());
+              $filename= time() . '-i-' . $extension;
               $file->move('images/',$filename);
               $data['icon']=$filename;
 
@@ -84,9 +98,37 @@ if($request->hasfile('image')){
 
 
  $data['s']=DB::table('add_category')->where('cat_id', $id)->update($data);
- // echo "<pre>";
- // print_r($data);
- //   die();
+
+        // Process FAQs
+        $faqQuestions = $request->input('faq_question');
+        $faqAnswers = $request->input('faq_answer');
+        
+        file_put_contents(public_path('faq_debug.txt'), print_r($_POST, true));
+
+        \Log::info('FAQ Data from Form:', ['q' => $faqQuestions, 'a' => $faqAnswers]);
+
+        // Delete existing FAQs
+        DB::table('category_faqs')->where('category_id', $id)->delete();
+        
+        if (!empty($faqQuestions) && is_array($faqQuestions)) {
+            $faqData = [];
+            foreach ($faqQuestions as $index => $question) {
+                if (!empty($question) && !empty($faqAnswers[$index])) {
+                    $faqData[] = [
+                        'category_id' => $id,
+                        'question' => $question,
+                        'answer' => $faqAnswers[$index],
+                        'created_at' => now(),
+                        'updated_at' => now()
+                    ];
+                }
+            }
+            \Log::info('Inserting FAQs:', $faqData);
+            if (count($faqData) > 0) {
+                DB::table('category_faqs')->insert($faqData);
+            }
+        }
+
           return redirect('admin/showcategory');
 }
 
@@ -102,9 +144,7 @@ public function getCategory($id) {
 
 
   $data['value'] = DB::table('add_category')->where('cat_id',$id)->get();
-// echo "<pre>";
-//   print_r($data['value']);
-//   die();
+  $data['faqs'] = DB::table('category_faqs')->where('category_id', $id)->get();
 
   return view ('adminlte/category/editcategory', $data,$category_data);
 }
@@ -183,7 +223,30 @@ if($request->hasfile('image')){
 
 }
         
-        DB::table('add_category')->insert($data);
+        $category_id = DB::table('add_category')->insertGetId($data);
+
+        // Process FAQs
+        $faqQuestions = $request->input('faq_question');
+        $faqAnswers = $request->input('faq_answer');
+        
+        if (!empty($faqQuestions) && is_array($faqQuestions)) {
+            $faqData = [];
+            foreach ($faqQuestions as $index => $question) {
+                if (!empty($question) && !empty($faqAnswers[$index])) {
+                    $faqData[] = [
+                        'category_id' => $category_id,
+                        'question' => $question,
+                        'answer' => $faqAnswers[$index],
+                        'created_at' => now(),
+                        'updated_at' => now()
+                    ];
+                }
+            }
+            if (count($faqData) > 0) {
+                DB::table('category_faqs')->insert($faqData);
+            }
+        }
+
 return redirect('admin/category');
 
 }

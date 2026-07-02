@@ -1,0 +1,187 @@
+/* ======= ======= ======= ============== ======= ======= =======
+                   La-video-secgment CSS Area Start
+   ======= ======= ======= ============== ======= ======= ======= */
+
+.vid-la {
+  width: 100%;
+  height: 300px;
+}
+
+@media (min-width: 992px) {
+  .vid-la {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* ======= ======= ======= ============== ======= ======= =======
+                   La-video-secgment CSS Area Start
+     ======= ======= ======= ============== ======= ======= ======= */
+
+.La_consultation_nav {
+  /* background-image: url(images/bg/cta-bg.jpg); */
+  padding: 15px 0px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.La_consultation_nav:before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #223555;
+}
+.La_consultation_nav.bg-new-service:before {
+  /* background-color: #b89a5e; */
+}
+.La_consultation_nav .cta-content h3 {
+  font-size: 22px;
+  line-height: 1.4;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.La_consultation_nav .cta-content h3.new-consult-font {
+  font-size: 40px;
+  text-transform: capitalize;
+}
+
+.La_consultation_nav .cta-content p {
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: bold;
+  color: #ffa54d;
+  margin: 0;
+  text-transform: capitalize;
+}
+.cta-button {
+  text-align: right;
+}
+@media (max-width: 578.98px) {
+  .La_consultation_nav .cta-content h3,
+  .La_consultation_nav .cta-content h3.new-consult-font {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+
+/* ======= ======= =======
+   project-tab CSS Area Start
+======= ======= =======  */
+
+/* .project-tab .new-border {
+  border: 4px solid #b89a5e;
+  border-radius: 0 0 20px 20px;
+  box-sizing: border-box;
+} */
+
+@media (min-width: 768px) {
+  .project-tab .new-border {
+    border: 4px solid #b89a5e;
+    border-radius: 0 0 20px 20px;
+    box-sizing: border-box;
+  }
+}
+.project-tab #tabs {
+  background: #007b5e;
+  color: #eee;
+}
+.project-tab #tabs h6.section-title {
+  color: #eee;
+}
+.project-tab #tabs .nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  color: #131e31;
+  background-color: transparent;
+  border-color: transparent transparent #f3f3f3;
+  border-bottom: 3px solid !important;
+  font-size: 20px;
+  font-weight: 900;
+  background: #b89a5e;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .project-tab #tabs .nav-tabs .nav-item.show .nav-link,
+  .nav-tabs .nav-link.active {
+    font-size: 18px;
+  }
+}
+
+.project-tab .nav-link {
+  border: 1px solid transparent;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  color: #b89a5e;
+  font-size: 20px;
+  font-weight: 600;
+  background: whitesmoke;
+  margin-left: 5px;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .project-tab .nav-link {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 620px) {
+  .project-tab .nav-link,
+  .project-tab #tabs .nav-tabs .nav-item.show .nav-link,
+  .nav-tabs .nav-link.active {
+    padding: 10px;
+    font-size: 16px;
+  }
+}
+
+.project-tab .nav-link:hover {
+  border: none;
+}
+
+/* ======= ======= ======= 
+    project-tab CSS Area End
+  ======= ======= =======  */
+
+/* ======= ======= ======= 
+  clietns-testimonial CSS Area Start
+======= ======= =======  */
+
+.clietns-testimonial {
+  background-color: #9999991a;
+}
+
+.clietns-testimonial p {
+  line-height: 1.6;
+  font-size: 22px;
+  color: #000;
+}
+
+@media (max-width: 767px) {
+  .clietns-testimonial p {
+    font-size: 16px;
+  }
+}
+
+.testimonial_title h5 {
+  font-size: 20px;
+  font-weight: 900;
+  color: #000;
+}
+
+.testimonial_title h6 {
+  font-size: 16px;
+  color: #000;
+}
+
+/* ======= ======= ======= 
+    clietns-testimonial CSS Area End
+  ======= ======= =======  */
