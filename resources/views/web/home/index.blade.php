@@ -85,6 +85,12 @@ h3 {
 .btn-primary {
   background-color: var(--accent-gold);
   color: var(--bg-darker);
+  border: none;
+  outline: none;
+  box-shadow: none;
+  padding: 16px 40px;
+  font-size: 1.1rem;
+  font-weight: 700;
 }
 .hero-buttons a {
   border-radius: 50px;
@@ -92,7 +98,20 @@ h3 {
 
 .btn-primary:hover {
   background-color: var(--accent-gold-hover);
+  color: var(--bg-darker);
   transform: translateY(-2px);
+  box-shadow: none;
+  outline: none;
+}
+
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:focus-visible {
+  background-color: var(--accent-gold) !important;
+  color: var(--bg-darker) !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .brand-logos img {
@@ -3502,16 +3521,67 @@ section + section {
 .pg-accordion-body {
     display: none;
     padding: 0 0 16px 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
 }
 .pg-accordion-body p {
     font-size: 13px;
     line-height: 1.65;
     color: rgba(255, 255, 255, 0.65);
     margin: 0;
+    padding-top: 8px;
 }
 .pg-accordion-item.open .pg-accordion-body {
     display: block;
+    max-height: 500px;
+    padding: 8px 0 16px 0;
 }
+
+/* CTA box inside FAQs */
+.pg-cta-box {
+    background: #1e1e1e;
+    border-radius: 12px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.pg-cta-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+}
+
+.pg-cta-sub {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 0 0 8px 0;
+}
+
+.pg-cta-btn {
+    display: inline-block;
+    background: #FFC107;
+    color: #111;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.pg-cta-btn:hover {
+    background: #e0a800;
+    transform: translateY(-2px);
+    color: #111;
+}
+
 /* --- TRUST BAR --- */
 .trust-bar {
   display: flex;
@@ -3523,6 +3593,7 @@ section + section {
   margin: 0 auto;
   padding: 0 60px;
   box-sizing: border-box;
+  gap: 60px;
 }
 .trust-reviews {
   display: flex;
@@ -3544,32 +3615,53 @@ section + section {
 }
 .trust-logos {
   display: flex;
-  gap: 10px;
   align-items: center;
-  justify-content: flex-end;
   width: auto;
+  max-width: 850px;
   height: 100%;
+  overflow: hidden;
+  position: relative;
+  flex: 1;
+  padding: 0 20px;
+}
+@keyframes scroll-logos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.trust-logos-track {
+  display: flex;
+  gap: 50px;
+  animation: scroll-logos 30s linear infinite;
+  will-change: transform;
+  padding-left: 0;
+}
+.trust-logos-track:hover {
+  animation-play-state: paused;
 }
 .logo-item {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 110px;
+  min-width: 100px;
+  width: 100px;
   height: 40px;
-  opacity: 1;
-  transition: opacity 0.3s ease, filter 0.3s ease;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  flex-shrink: 0;
 }
 .logo-item img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: brightness(0) invert(77%);
+  filter: grayscale(100%) brightness(0) invert(77%);
 }
 .logo-item:hover {
   opacity: 1;
-}
-.logo-item:hover img {
-  filter: grayscale(0%);
+  transform: scale(1.05);
 }
 @media (max-width: 768px) {
   .trust-bar {
@@ -3587,16 +3679,17 @@ section + section {
   }
   .trust-logos {
     display: flex !important;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap;
     width: 100%;
-    gap: 8px;
+    overflow: hidden;
+  }
+  .trust-logos-track {
+    display: flex;
+    gap: 30px;
+    animation: scroll-logos 25s linear infinite;
   }
   .logo-item {
-    flex: 1;
-    max-width: 75px;
+    flex: 0 0 auto;
+    width: 75px;
     height: 30px;
     opacity: 0.8;
   }
@@ -3847,7 +3940,24 @@ section + section {
   .quote-form-col {
     padding: 35px 20px;
   }
-  .dual-grid,
+  /* First 4 fields (Name, Email, Phone, Physical Address) - Full width in mobile */
+  .instant-quote-form > .form-row.dual-grid:nth-child(1),
+  .instant-quote-form > .form-row.dual-grid:nth-child(2) {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* All standalone form-groups stay full width */
+  .instant-quote-form > .form-group {
+    width: 100%;
+  }
+
+  /* All other dual-grid rows stay 2x2 */
+  .form-row.dual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
   .triple-grid,
   .dimensions-grid,
   .quantity-upload-grid {
@@ -3872,8 +3982,8 @@ section + section {
                 <h1>{!! (isset($home_banner[0]) && !empty($home_banner[0]->heading_1)) ? $home_banner[0]->heading_1 : 'Premium <span class="highlight">Rigid Boxes</span><br>That Elevate Your Brand' !!}</h1>
                 <p>{!! (isset($home_banner[0]) && !empty($home_banner[0]->description)) ? $home_banner[0]->description : 'We create custom rigid packaging solutions designed to protect your products while delivering a premium luxury experience. Our boxes combine durability with elegant, high-quality presentation to strengthen your brand identity and leave a lasting impression worldwide.' !!}</p>
                 <div class="hero-buttons">
-                    <a href="{{ (isset($home_banner[0]) && !empty($home_banner[0]->link)) ? $home_banner[0]->link : '#' }}" class="btn btn-primary">Design Custom Boxes</a>
-                    <a href="#" class="btn btn-outline">Explore Your Industry</a>
+                    <a href="{{ url('request-quote') }}" class="btn btn-primary">Design Custom Boxes</a>
+
                 </div>
             </div>
             <div class="home-hero-images">
@@ -3895,20 +4005,110 @@ section + section {
                 <a href="#" class="review-link">5.0 Google Reviews</a>
             </div>
             <div class="trust-logos">
-                <div class="logo-item">
-                    <img src="{{ asset('uploads/adidas-logo.png') }}" alt="Adidas Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('uploads/Google-logo.png') }}" alt="Google Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('uploads/hp-logo.png') }}" alt="HP Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('uploads/unilever-logo.webp') }}" alt="Unilever Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('uploads/Benefit-Logo.png') }}" alt="Benefit Logo">
+                <div class="trust-logos-track">
+                    <div class="logo-item">
+                        <img src="{{ asset('uploads/adidas-logo.png') }}" alt="Adidas Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('uploads/Google-logo.png') }}" alt="Google Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('uploads/hp-logo.png') }}" alt="HP Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('uploads/unilever-logo.webp') }}" alt="Unilever Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('uploads/Benefit-Logo.png') }}" alt="Benefit Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('images/flowgardens-logo.webp') }}" alt="Flow Gardens Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('images/her-piece-peace-logo.webp') }}" alt="Her Piece Peace Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('images/neat-logo.webp') }}" alt="Neat Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('images/red-bull-logo.png') }}" alt="Red Bull Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('images/springtastic-logo.webp') }}" alt="Springtastic Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('images/voli-logo.webp') }}" alt="Voli Logo">
+                    </div>
+
+                    <!-- Duplicate set 1 -->
+                    <div class="logo-item">
+                        <img src="{{ asset('uploads/adidas-logo.png') }}" alt="Adidas Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('uploads/Google-logo.png') }}" alt="Google Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('uploads/hp-logo.png') }}" alt="HP Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('uploads/unilever-logo.webp') }}" alt="Unilever Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('uploads/Benefit-Logo.png') }}" alt="Benefit Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('images/flowgardens-logo.webp') }}" alt="Flow Gardens Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('images/her-piece-peace-logo.webp') }}" alt="Her Piece Peace Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('images/neat-logo.webp') }}" alt="Neat Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('images/red-bull-logo.png') }}" alt="Red Bull Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('images/springtastic-logo.webp') }}" alt="Springtastic Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('images/voli-logo.webp') }}" alt="Voli Logo">
+                    </div>
+
+                    <!-- Duplicate set 2 for extra smooth loop -->
+                    <div class="logo-item">
+                        <img src="{{ asset('uploads/adidas-logo.png') }}" alt="Adidas Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('uploads/Google-logo.png') }}" alt="Google Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('uploads/hp-logo.png') }}" alt="HP Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('uploads/unilever-logo.webp') }}" alt="Unilever Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('uploads/Benefit-Logo.png') }}" alt="Benefit Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('images/flowgardens-logo.webp') }}" alt="Flow Gardens Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('images/her-piece-peace-logo.webp') }}" alt="Her Piece Peace Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('images/neat-logo.webp') }}" alt="Neat Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('images/red-bull-logo.png') }}" alt="Red Bull Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('images/springtastic-logo.webp') }}" alt="Springtastic Logo">
+                    </div>
+                    <div class="logo-item">
+                        <img src="{{ asset('images/voli-logo.webp') }}" alt="Voli Logo">
+                    </div>
                 </div>
             </div>
         </div>
@@ -3917,7 +4117,7 @@ section + section {
     <section class="sectors-section">
         <div class="container">
             <div class="sectors-header">
-                <span class="section-badge-text">BOXES BY INDUSTRY</span>
+
                 <h2>Tailored For Every Sector</h2>
                 <p>We specialize in rigid packaging solutions across diverse industries, each with<br>unique
                     requirements.</p>
@@ -3926,19 +4126,19 @@ section + section {
                 @foreach($industry_products as $product)
                 <div class="sector-card">
                     <div class="sector-img-placeholder">
-                        <a href="{{ url('/'.$product->url) }}">
-                            <img src="{{ asset('images/'.$product->image) }}" onerror="this.src='./assets/jewellry and watch.jfif'; this.onerror=null;" alt="{{ $product->title }}">
+                        <a href="{{ url('/'.$product->category_url) }}">
+                            <img src="{{ asset('images/'.($product->feature_product ? $product->feature_product : ($product->image ? $product->image : $product->bimage))) }}" onerror="this.src='./assets/jewellry and watch.jfif'; this.onerror=null;" alt="{{ $product->name }}">
                         </a>
                     </div>
                     <div class="sector-info">
-                        <h3><a href="{{ url('/'.$product->url) }}" style="color: inherit; text-decoration: none;">{{ $product->title }}</a></h3>
+                        <h3><a href="{{ url('/'.$product->category_url) }}" style="color: inherit; text-decoration: none;">{{ $product->name }}</a></h3>
                         <p>{!! Str::limit(strip_tags($product->description), 60) !!}</p>
                     </div>
                 </div>
                 @endforeach
             </div>
             <div class="sectors-action">
-                <a href="{{ url('box-by-industry') }}" class="btn btn-primary">Explore All Products</a>
+                <!-- <a href="{{ url('box-by-industry') }}" class="btn btn-primary">Explore All Products</a> -->
             </div>
         </div>
     </section>
@@ -3947,7 +4147,7 @@ section + section {
         <div class="container">
             <div class="craftsmanship-wrapper">
                 <div class="craftsmanship-text-overlay">
-                    <span class="section-badge-text">LUXURY PACKAGING SOLUTIONS</span>
+                    <!-- <span class="section-badge-text">LUXURY PACKAGING SOLUTIONS</span> -->
                     <h2>Where Craftsmanship Meets<br>Elegance</h2>
                     <p>We deliver luxury packaging solutions where craftsmanship meets elegance, creating boxes that
                         reflect true premium quality. Every design is carefully developed to enhance your product
@@ -3959,14 +4159,14 @@ section + section {
         </div>
     </section>
 
-   
-   
+
+
 
     <section class="premium-addons-section">
         <div class="container">
 
             <div class="premium-header">
-                <span class="section-badge-text">PREMIUM ADDONS</span>
+                <!-- <span class="section-badge-text">PREMIUM ADDONS</span> -->
                 <h2>Elevate With Exclusive Finishes</h2>
                 <p>Add that extra touch of luxury with our range of premium finishing options.</p>
             </div>
@@ -4035,7 +4235,7 @@ section + section {
         <div class="container">
 
             <div class="testimonials-header">
-                <span class="section-badge-text">TESTIMONIALS</span>
+                <!-- <span class="section-badge-text">TESTIMONIALS</span> -->
                 <h2>What Our Customers Say</h2>
                 <p>Hear from brands who trust us with their packaging needs.</p>
             </div>
@@ -4081,13 +4281,53 @@ section + section {
             </div>
 
             <div class="testimonial-nav">
-                <button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-                <button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                <button class="testimonial-prev-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                <button class="testimonial-next-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
             </div>
 
         </div>
     </section>
 
+    <!-- Testimonials Navigation Script -->
+    <script>
+    (function() {
+        const grid = document.querySelector('.testimonial-grid');
+        const prevBtn = document.querySelector('.testimonial-prev-btn');
+        const nextBtn = document.querySelector('.testimonial-next-btn');
+
+        if (!grid || !prevBtn || !nextBtn) return;
+
+        let currentIndex = 0;
+        const cards = grid.querySelectorAll('.testimonial-card');
+        const totalCards = cards.length;
+
+        function scrollToCard(index) {
+            if (index < 0) index = 0;
+            if (index >= totalCards) index = totalCards - 1;
+
+            currentIndex = index;
+            const cardWidth = cards[0].offsetWidth;
+            grid.scrollTo({
+                left: cardWidth * index,
+                behavior: 'smooth'
+            });
+        }
+
+        prevBtn.onclick = function() {
+            scrollToCard(currentIndex - 1);
+        };
+
+        nextBtn.onclick = function() {
+            scrollToCard(currentIndex + 1);
+        };
+
+        // Track scroll position
+        grid.addEventListener('scroll', function() {
+            const cardWidth = cards[0].offsetWidth;
+            currentIndex = Math.round(grid.scrollLeft / cardWidth);
+        });
+    })();
+    </script>
 
 
     <section class="quote-process-section">
@@ -4095,42 +4335,8 @@ section + section {
 
             <div class="quote-container">
 
-                <div class="quote-steps-col">
-                    <div class="step-item">
-                        <div class="step-header">
-                            <span class="step-num">01.</span>
-                            <h3>Submit Your Brief</h3>
-                        </div>
-                        <p>Share your product dimensions, quantities, and vision. We respond within 24 hours with
-                            initial recommendations and a structural concept tailored to your needs.</p>
-                    </div>
-
-                    <div class="step-item">
-                        <div class="step-header">
-                            <span class="step-num">02.</span>
-                            <h3>Design & Quote</h3>
-                        </div>
-                        <p>You receive a structural die line, finish spec sheet, and transparent pricing. Revisions are
-                            included at no extra cost - no surprises, no hidden fees.</p>
-                    </div>
-
-                    <div class="step-item">
-                        <div class="step-header">
-                            <span class="step-num">03.</span>
-                            <h3>Approve & Produce</h3>
-                        </div>
-                        <p>Once artwork is approved, production begins immediately in our certified manufacturing
-                            facility. Pre-production physical samples available before full run.</p>
-                    </div>
-
-                    <div class="step-item">
-                        <div class="step-header">
-                            <span class="step-num">04.</span>
-                            <h3>Ship & Arrive</h3>
-                        </div>
-                        <p>Your order ships with full tracking and quality documentation. Custom orders take
-                            approximately 15 days production, plus shipping.</p>
-                    </div>
+                <div class="quote-steps-col" style="padding: 0;">
+                    <img src="{{ asset('images/quote-steps-img.webp') }}" alt="Custom Box Process" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
                 </div>
 
                 <div class="quote-form-col">
@@ -4159,7 +4365,8 @@ section + section {
                             </div>
                         </div>
 
-                        <div class="form-row dimensions-grid">
+                        <!-- Width & Length - 2x2 -->
+                        <div class="form-row dual-grid">
                             <div class="form-group">
                                 <label>Width *</label>
                                 <input type="text" placeholder="Width" required>
@@ -4168,6 +4375,10 @@ section + section {
                                 <label>Length *</label>
                                 <input type="text" placeholder="Length" required>
                             </div>
+                        </div>
+
+                        <!-- Depth & Units - 2x2 -->
+                        <div class="form-row dual-grid">
                             <div class="form-group">
                                 <label>Depth *</label>
                                 <input type="text" placeholder="Depth" required>
@@ -4182,7 +4393,8 @@ section + section {
                             </div>
                         </div>
 
-                        <div class="form-row triple-grid">
+                        <!-- 7. Select Material & Color Options - 2 by 2 -->
+                        <div class="form-row dual-grid">
                             <div class="form-group">
                                 <label>Select Material</label>
                                 <select>
@@ -4195,34 +4407,39 @@ section + section {
                                     <option value="">Choose option</option>
                                 </select>
                             </div>
+                        </div>
+
+                        <!-- 8. Product Name & Quantity - 2 by 2 -->
+                        <div class="form-row dual-grid">
                             <div class="form-group">
                                 <label>Select Product Name</label>
+                                <label>Product Name</label>
                                 <select>
                                     <option value="">Choose option</option>
                                 </select>
                             </div>
-                        </div>
-
-                        <div class="form-row dual-grid align-end">
                             <div class="form-group">
                                 <label>Quantity *</label>
                                 <input type="number" placeholder="Enter quantity" required>
                             </div>
-                            <div class="form-group">
-                                <label>Upload File Here</label>
-                                <div class="file-upload-wrapper">
-                                    <input type="text" placeholder="No file chosen" readonly>
-                                    <label class="upload-btn">Upload <input type="file" style="display:none;"></label>
-                                </div>
+                        </div>
+
+                        <!-- 9. Upload File Here - Full Width -->
+                        <div class="form-group">
+                            <label>Upload File Here</label>
+                            <div class="file-upload-wrapper">
+                                <input type="text" placeholder="No file chosen" readonly>
+                                <label class="upload-btn">Upload <input type="file" style="display:none;"></label>
                             </div>
                         </div>
 
+                        <!-- 10. Message - Full Width -->
                         <div class="form-group textarea-group">
                             <label>Message</label>
                             <textarea placeholder="Enter your message" rows="4"></textarea>
                         </div>
 
-                        <button type="submit" class="submit-quote-btn">Instant Quote</button>
+                        <a href="{{ url('contact-us') }}" class="submit-quote-btn" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Instant Quote</a>
                     </form>
                 </div>
 
@@ -4232,7 +4449,7 @@ section + section {
 
                 <div class="guide-content">
 
-                    <span class="guide-badge">PACKAGING GUIDE</span>
+                    <!-- <span class="guide-badge">PACKAGING GUIDE</span> -->
 
                     <h2>Everything you need to know about custom boxes</h2>
 
@@ -4263,7 +4480,7 @@ section + section {
                 <div class="guide-sidebar">
 
                     <div class="sidebar-block guide-faq pg-steps-box">
-                        <h3 class="pg-steps-title" style="color: #ffffff; font-size: 20px; font-weight: 700; margin-bottom: 24px; font-family: var(--font-heading), sans-serif;">Frequently Asked Questions</h3>
+                        <h3 class="pg-steps-title">Frequently Asked Questions</h3>
 
                         @if(isset($home_faqs) && count($home_faqs) > 0)
                             @foreach($home_faqs as $faq)
@@ -4273,20 +4490,69 @@ section + section {
                                     <span class="pg-accordion-icon">+</span>
                                 </button>
                                 <div class="pg-accordion-body">
-                                    <p class="pg-accordion-content">{!! $faq->answer !!}</p>
+                                    <p>{!! $faq->answer !!}</p>
                                 </div>
                             </div>
                             @endforeach
                         @else
-                            <p style="color:#aaa;">No FAQs available.</p>
+                            <!-- Hardcoded FAQs -->
+                            <div class="pg-step-item pg-accordion-item">
+                                <button class="pg-accordion-btn">
+                                    <span class="pg-accordion-q"><span style="color: var(--accent-gold); font-weight: 700;">1.</span> What is your minimum order quantity?</span>
+                                    <span class="pg-accordion-icon">+</span>
+                                </button>
+                                <div class="pg-accordion-body">
+                                    <p>Our minimum order quantity starts at 100 units. We understand that every business has different needs, so we offer flexible MOQs to accommodate both small businesses and large enterprises.</p>
+                                </div>
+                            </div>
+
+                            <div class="pg-step-item pg-accordion-item">
+                                <button class="pg-accordion-btn">
+                                    <span class="pg-accordion-q"><span style="color: var(--accent-gold); font-weight: 700;">2.</span> Can I customize the size and design?</span>
+                                    <span class="pg-accordion-icon">+</span>
+                                </button>
+                                <div class="pg-accordion-body">
+                                    <p>Absolutely! We specialize in fully customizable packaging. You can choose any size, shape, color, finish, and design elements. Our design team will work with you to create boxes that perfectly match your brand identity.</p>
+                                </div>
+                            </div>
+
+                            <div class="pg-step-item pg-accordion-item">
+                                <button class="pg-accordion-btn">
+                                    <span class="pg-accordion-q"><span style="color: var(--accent-gold); font-weight: 700;">3.</span> How long does production take?</span>
+                                    <span class="pg-accordion-icon">+</span>
+                                </button>
+                                <div class="pg-accordion-body">
+                                    <p>Standard production time is 12-15 business days after artwork approval. Rush orders are available for urgent needs. Shipping time depends on your location, typically 3-7 business days domestically.</p>
+                                </div>
+                            </div>
+
+                            <div class="pg-step-item pg-accordion-item">
+                                <button class="pg-accordion-btn">
+                                    <span class="pg-accordion-q"><span style="color: var(--accent-gold); font-weight: 700;">4.</span> Do you offer free design support?</span>
+                                    <span class="pg-accordion-icon">+</span>
+                                </button>
+                                <div class="pg-accordion-body">
+                                    <p>Yes! We provide complimentary design assistance with every order. Our experienced designers will help you create professional die lines, suggest finishing options, and refine your artwork until it's perfect.</p>
+                                </div>
+                            </div>
+
+                            <div class="pg-step-item pg-accordion-item">
+                                <button class="pg-accordion-btn">
+                                    <span class="pg-accordion-q"><span style="color: var(--accent-gold); font-weight: 700;">5.</span> What materials and finishes are available?</span>
+                                    <span class="pg-accordion-icon">+</span>
+                                </button>
+                                <div class="pg-accordion-body">
+                                    <p>We offer premium rigid board materials in various thicknesses. Finishing options include matte or gloss lamination, spot UV, foil stamping (gold, silver, holographic), embossing, debossing, and soft-touch coating for a luxury feel.</p>
+                                </div>
+                            </div>
                         @endif
 
-                    </div>
-
-                    <div class="sidebar-block guide-help">
-                        <h3>Need help choosing?</h3>
-                        <p>Our team responds within 2 hours</p>
-                        <a href="#" class="btn btn-primary sidebar-btn">Chat with an expert</a>
+                        <!-- Help box -->
+                        <div class="pg-cta-box">
+                            <h4 class="pg-cta-title">Need help choosing?</h4>
+                            <p class="pg-cta-sub">Our team responds within 2 hours</p>
+                            <a href="{{ url('contact-us') }}" class="pg-cta-btn">Chat with an expert</a>
+                        </div>
                     </div>
 
                 </div>
@@ -4295,6 +4561,46 @@ section + section {
 
         </div>
     </section>
+
+    <!-- Inline FAQ Accordion Script -->
+    <script>
+    (function() {
+        function toggleAccordion(button) {
+            const item = button.closest('.pg-accordion-item');
+            const isOpen = item.classList.contains('open');
+
+            // Close all
+            document.querySelectorAll('.pg-accordion-item').forEach(function(i) {
+                i.classList.remove('open');
+                const icon = i.querySelector('.pg-accordion-icon');
+                if (icon) {
+                    icon.textContent = '+';
+                    icon.style.color = 'rgba(255,255,255,0.6)';
+                }
+            });
+
+            // Open this one if it was closed
+            if (!isOpen) {
+                item.classList.add('open');
+                const icon = button.querySelector('.pg-accordion-icon');
+                if (icon) {
+                    icon.textContent = '−';
+                    icon.style.color = '#FFC107';
+                }
+            }
+        }
+
+        // Attach click handlers
+        const buttons = document.querySelectorAll('.pg-accordion-btn');
+        buttons.forEach(function(btn) {
+            btn.onclick = function(e) {
+                e.preventDefault();
+                toggleAccordion(this);
+                return false;
+            };
+        });
+    })();
+    </script>
 
     <!-- <section class="custom-box-section">
         <div class="container">
@@ -4311,7 +4617,7 @@ section + section {
         <div class="container">
 
             <div class="blog-header">
-                <span class="section-badge-text">BLOG</span>
+                <!-- <span class="section-badge-text">BLOG</span> -->
                 <h2>Insights & Inspiration</h2>
                 <p>Stay updated with the latest trends, tips, and insights in the world of custom packaging.</p>
             </div>
@@ -4364,7 +4670,7 @@ section + section {
         </div>
     </section>
     @endif
-    <section class="extraordinary-cta-section">
+    <!-- <section class="extraordinary-cta-section">
         <div class="container">
             <div class="extraordinary-content">
 
@@ -4415,7 +4721,7 @@ section + section {
 
             </div>
         </div>
-    </section>
+    </section> -->
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -4431,7 +4737,7 @@ document.addEventListener("DOMContentLoaded", () => {
         cards[index].style.display = "block";
     }
 
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 768 && cards.length && nextBtn && prevBtn) {
         showCard(current);
 
         nextBtn.addEventListener("click", () => {
@@ -4459,24 +4765,6 @@ if (fileInput) {
         }
     });
 }
-//faq
-const faqItems = document.querySelectorAll(".guide-faq li");
-
-faqItems.forEach(item => {
-
-    item.addEventListener("click", () => {
-
-        const plus = item.querySelector(".faq-plus");
-
-        if (plus.textContent === "+") {
-            plus.textContent = "−";
-        } else {
-            plus.textContent = "+";
-        }
-
-    });
-
-});
 //form submission
     const fileInput = document.querySelector('input[type="file"]');
     const fileNameField = document.querySelector(
@@ -4510,7 +4798,7 @@ faqItems.forEach(item => {
             requiredFields.forEach(field => {
                 let valid = true;
                 const val = field.value.trim();
-                
+
                 if (!val) {
                     valid = false;
                 } else if (field.type === 'email') {
@@ -4569,32 +4857,67 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 });
 
 // --- FAQ Accordion ---
-document.querySelectorAll('.pg-accordion-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        var item = btn.closest('.pg-accordion-item');
-        var isOpen = item.classList.contains('open');
+(function() {
+    function initAccordion() {
+        const accordionButtons = document.querySelectorAll('.pg-accordion-btn');
 
-        // close all, reset icons to +
-        document.querySelectorAll('.pg-accordion-item').forEach(function(i) {
-            i.classList.remove('open');
-            var icon = i.querySelector('.pg-accordion-icon');
-            if (icon) {
-                icon.innerHTML = '+';
-                icon.style.color = 'rgba(255,255,255,0.6)';
-            }
-        });
-
-        // if it was closed, open it and show -
-        if (!isOpen) {
-            item.classList.add('open');
-            var icon = btn.querySelector('.pg-accordion-icon');
-            if (icon) {
-                icon.innerHTML = '&#8722;';
-                icon.style.color = '#FFC107';
-            }
+        if (accordionButtons.length === 0) {
+            console.log('No accordion buttons found');
+            return;
         }
-    });
-});
+
+        console.log('Found ' + accordionButtons.length + ' accordion buttons');
+
+        accordionButtons.forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                console.log('Accordion button clicked');
+
+                const item = btn.closest('.pg-accordion-item');
+                if (!item) {
+                    console.log('No parent item found');
+                    return;
+                }
+
+                const isOpen = item.classList.contains('open');
+                console.log('Item is currently ' + (isOpen ? 'open' : 'closed'));
+
+                // Close all items first
+                document.querySelectorAll('.pg-accordion-item').forEach(function(i) {
+                    i.classList.remove('open');
+                    const icon = i.querySelector('.pg-accordion-icon');
+                    if (icon) {
+                        icon.textContent = '+';
+                        icon.style.color = 'rgba(255,255,255,0.6)';
+                    }
+                });
+
+                // If it was closed, open it
+                if (!isOpen) {
+                    item.classList.add('open');
+                    const icon = btn.querySelector('.pg-accordion-icon');
+                    if (icon) {
+                        icon.textContent = '−';
+                        icon.style.color = '#FFC107';
+                    }
+                    console.log('Item opened');
+                }
+            });
+        });
+    }
+
+    // Try multiple initialization methods
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAccordion);
+    } else {
+        initAccordion();
+    }
+
+    // Fallback initialization
+    setTimeout(initAccordion, 1000);
+})();
 </script>
 
 @include('web.footer')

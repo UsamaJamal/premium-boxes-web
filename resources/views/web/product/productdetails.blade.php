@@ -32,7 +32,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 a { text-decoration: none; color: inherit; }
 
 /* HERO */
-.product-hero-section { padding: 75px 0; }
+.product-hero-section { padding: 33px 0; }
 .product-hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 62.5px; align-items: start; }
 
 /* Breadcrumbs */
@@ -82,7 +82,7 @@ a { text-decoration: none; color: inherit; }
 .product-form-row-3 { grid-template-columns: repeat(3, 1fr); }
 .product-form-row-4 { grid-template-columns: repeat(4, 1fr); }
 .product-form-row-options { grid-template-columns: repeat(2, 1fr); }
-.product-form-row-upload { grid-template-columns: 1fr 1fr 1.5fr; }
+.product-form-row-upload { grid-template-columns: 1fr 1.5fr; }
 .product-form-row-upload .product-upload-group { display: flex; width: 100%; gap: 0; }
 .product-form-row-upload .product-upload-group input { flex: 1; min-width: 0; }
 
@@ -141,12 +141,13 @@ a { text-decoration: none; color: inherit; }
 .product-tab-item.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 2.5px; background-color: var(--product-gold); }
 .product-tab-content { width: 100%; }
 .product-info-heading { font-size: 30px; font-weight: 700; margin-bottom: 25px; }
-.product-info-text { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.85); margin-bottom: 37.5px; font-family: inherit; }
-.product-info-text p { font-size: 16px; line-height: 1.8; color: #fff; margin-bottom: 18px; }
-.product-info-text strong, .product-info-text b { font-weight: 700; color: #fff; }
-.product-info-text h1, .product-info-text h2, .product-info-text h3, .product-info-text h4 { color: #ffffff; margin-bottom: 14px; margin-top: 24px; }
+.product-info-text { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.85) !important; margin-bottom: 37.5px; font-family: inherit; }
+.product-info-text * { color: rgba(255,255,255,0.85) !important; }
+.product-info-text p { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.85) !important; margin-bottom: 18px; }
+.product-info-text strong, .product-info-text b, .product-info-text strong * { font-weight: 700; color: #fff !important; }
+.product-info-text h1, .product-info-text h2, .product-info-text h3, .product-info-text h4, .product-info-text h1 *, .product-info-text h2 *, .product-info-text h3 *, .product-info-text h4 * { color: #ffffff !important; margin-bottom: 14px; margin-top: 24px; }
 .product-info-text ul { list-style: disc; padding-left: 24px; }
-.product-info-text ul li { font-size: 16px; color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 8px; }
+.product-info-text ul li { font-size: 16px; color: rgba(255,255,255,0.85) !important; line-height: 1.7; margin-bottom: 8px; }
 .product-info-text img { max-width: 100%; height: auto; }
 .product-info-subheading { font-size: 25px; font-weight: 600; margin-bottom: 25px; }
 .product-info-list { display: flex; flex-direction: column; gap: 18.8px; }
@@ -431,8 +432,22 @@ a { text-decoration: none; color: inherit; }
                         <span class="product-status-badge">In Stock</span>
                     </div>
 
-                    <div class="product-desc">
-                        {!! $p->description !!}
+                    <div class="product-desc" style="font-size: 15px; line-height: 1.6; color: #b3b3b3; margin-top: 15px;">
+                        @php
+                            $clean_desc = strip_tags($p->description);
+                        @endphp
+                        @if(strlen($clean_desc) > 195)
+                            <div id="desc-short" style="display: block;">
+                                {{ Str::limit($clean_desc, 195, ' ....') }} 
+                                <a onclick="document.getElementById('desc-short').style.display='none'; document.getElementById('desc-full').style.display='block';" style="color: #D4891A; font-weight: 600; text-decoration: none; cursor: pointer;">Read More</a>
+                            </div>
+                            <div id="desc-full" style="display: none;">
+                                {!! $p->description !!} 
+                                <a onclick="document.getElementById('desc-full').style.display='none'; document.getElementById('desc-short').style.display='block';" style="color: #D4891A; font-weight: 600; text-decoration: none; cursor: pointer;">Show Less</a>
+                            </div>
+                        @else
+                            {!! $p->description !!}
+                        @endif
                     </div>
 
                     <!-- Quote Form -->
@@ -511,20 +526,8 @@ a { text-decoration: none; color: inherit; }
                                 </div>
                             </div>
 
-                            <!-- Row 4: Finishing | Quantity | Upload -->
+                            <!-- Row 4: Quantity | Upload -->
                             <div class="product-form-row product-form-row-upload">
-                                <div class="pf-wrap">
-                                    <label class="pf-mob-label">Finishing Options</label>
-                                    <select name="p_type">
-                                        <option value="">Finishing Options</option>
-                                        <option value="Gloss Lamination">Gloss Lamination</option>
-                                        <option value="Matte Lamination">Matte Lamination</option>
-                                        <option value="Spot UV">Spot UV</option>
-                                        <option value="Foil Stamping">Foil Stamping</option>
-                                        <option value="Embossing">Embossing</option>
-                                        <option value="Get Quote">Get Quote</option>
-                                    </select>
-                                </div>
                                 <div class="pf-wrap">
                                     <label class="pf-mob-label">Quantity *</label>
                                     <input type="text" name="p_qty1" placeholder="Enter quantity" required>
@@ -569,7 +572,7 @@ a { text-decoration: none; color: inherit; }
                     <li class="product-tab-item" data-tab="tab-faqs">FAQs</li>
                     @endif
                     <li class="product-tab-item" data-tab="tab-order">Order Process</li>
-                    <li class="product-tab-item" data-tab="tab-review">Review</li>
+                    <!-- <li class="product-tab-item" data-tab="tab-review">Review</li> -->
                 </ul>
             </div>
 
@@ -653,6 +656,7 @@ a { text-decoration: none; color: inherit; }
                 </div>
             </div>
 
+            {{--
             <!-- Review Tab -->
             <div class="product-tab-content" id="tab-review" style="display:none">
                 <div class="review-layout">
@@ -730,6 +734,7 @@ a { text-decoration: none; color: inherit; }
                     </div>
                 </div>
             </div>
+            --}}
 
         </div>
     </section>
@@ -748,170 +753,133 @@ a { text-decoration: none; color: inherit; }
                 <button class="cust-tab-btn" data-target="coat" style="background-color:transparent; color:rgba(255,255,255,0.8); border:1px solid rgba(255,255,255,0.2); padding:10px 25px; border-radius:4px; font-weight:600; cursor:pointer;">Coating & Laminations</button>
             </div>
 
-            <!-- Materials Content -->
-            <div class="cust-tab-content active" id="cust-mat">
-                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:20px; text-align:center;">
-                    
-                    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-                        <div class="cust-card-img" style="background:#2a2a2a; height:180px;"></div>
-                        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">SBS C1S</div>
-                    </div>
-                    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-                        <div class="cust-card-img" style="background:#2a2a2a; height:180px;"></div>
-                        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">SBS C2S</div>
-                    </div>
-                    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-                        <div class="cust-card-img" style="background:#2a2a2a; height:180px;"></div>
-                        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">CCNB</div>
-                    </div>
-                    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-                        <div class="cust-card-img" style="background:#2a2a2a; height:180px;"></div>
-                        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Fully Recycled CCNB</div>
-                    </div>
-                    
-                    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-                        <div class="cust-card-img" style="background:#2a2a2a; height:180px;"></div>
-                        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Natural Brown Kraft</div>
-                    </div>
-                    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-                        <div class="cust-card-img" style="background:#2a2a2a; height:180px;"></div>
-                        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">White Kraft</div>
-                    </div>
-                    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-                        <div class="cust-card-img" style="background:#2a2a2a; height:180px;"></div>
-                        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Black Kraft</div>
-                    </div>
-                    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-                        <div class="cust-card-img" style="background:#2a2a2a; height:180px;"></div>
-                        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Uncoated Unbleached Kraft</div>
-                    </div>
-
-                    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-                        <div class="cust-card-img" style="background:#2a2a2a; height:180px;"></div>
-                        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Clay-Coated Kraft Back</div>
-                    </div>
-                    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-                        <div class="cust-card-img" style="background:#2a2a2a; height:180px;"></div>
-                        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Clay Natural Kraft</div>
-                    </div>
-                    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-                        <div class="cust-card-img" style="background:#2a2a2a; height:180px;"></div>
-                        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Metallic</div>
-                    </div>
-                    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-                        <div class="cust-card-img" style="background:#2a2a2a; height:180px;"></div>
-                        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Holographic</div>
-                    </div>
-
-                    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-                        <div class="cust-card-img" style="background:#2a2a2a; height:180px;"></div>
-                        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Natural Kraft Board</div>
-                    </div>
-                    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-                        <div class="cust-card-img" style="background:#2a2a2a; height:180px;"></div>
-                        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Oyster White Board</div>
-                    </div>
-                    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-                        <div class="cust-card-img" style="background:#2a2a2a; height:180px;"></div>
-                        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Kemi White Board</div>
-                    </div>
-                    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-                        <div class="cust-card-img" style="background:#2a2a2a; height:180px;"></div>
-                        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Bleached White Board</div>
-                    </div>
-
-                    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-                        <div class="cust-card-img" style="background:#2a2a2a; height:180px;"></div>
-                        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Grey Chipboard</div>
-                    </div>
-                    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-                        <div class="cust-card-img" style="background:#2a2a2a; height:180px;"></div>
-                        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Duplex Chipboard</div>
-                    </div>
-                </div>
+<!-- Materials Content -->
+            <div class="cust-tab-content active" id="cust-mat"><div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:20px; text-align:center; margin-top:30px;">
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Paper Board/black-kraft.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Black Kraft"></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Paper Board (Black Kraft)</div>
+    </div>
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Corrugated/bleached-white-board-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Bleached White Board"></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Corrugated</div>
+    </div>
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Fluted Grades/a-flute.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="A Flute"></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Fluted Grades</div>
+    </div>
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Rigid Material/Duplex-Chipboard-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Duplex Chipboard"></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Rigid Material</div>
+    </div>
+</div>
             </div>
 
             <!-- Other Tabs Content -->
-            <div class="cust-tab-content" id="cust-print" style="display:none; padding:40px; border:1px dashed rgba(255,255,255,0.2); border-radius:8px;">
-                <p style="color:rgba(255,255,255,0.6)">Printing Options content will be displayed here.</p>
-            </div>
-            <div class="cust-tab-content" id="cust-finish" style="display:none; padding:40px; border:1px dashed rgba(255,255,255,0.2); border-radius:8px;">
-                <p style="color:rgba(255,255,255,0.6)">Special Finishes content will be displayed here.</p>
-            </div>
-            <div class="cust-tab-content" id="cust-coat" style="display:none; padding:40px; border:1px dashed rgba(255,255,255,0.2); border-radius:8px;">
-                <p style="color:rgba(255,255,255,0.6)">Coating & Laminations content will be displayed here.</p>
-            </div>
-        </div>
-    </section>
+            <div class="cust-tab-content" id="cust-print" style="display:none;">
+<div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:20px; text-align:center;">
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/digital-print.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Digital Print"></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Digital Print</div>
+    </div>
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/offset-print.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Offset Print"></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Offset Print</div>
+    </div>
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/oil-based-Inks.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Oil Based Inks"></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Oil Based Inks</div>
+    </div>
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/pantone-metallic.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Pantone Metallic"></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Pantone Metallic</div>
+    </div>
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/pantone.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Pantone"></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Pantone</div>
+    </div>
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/soy-vegetable-based-Inks.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Soy Vegetable Based Inks"></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Soy Vegetable Based Inks</div>
+    </div>
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/uv-print.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Uv Print"></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Uv Print</div>
+    </div>
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/water-based-Inks.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Water Based Inks"></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Water Based Inks</div>
+    </div>
+</div>
 
-    <!-- ==================== FINAL CTA QUOTE ==================== -->
-    <section class="product-final-quote-section">
-        <div class="product-container">
-            <div class="product-final-quote-wrapper">
+            </div>
+            <div class="cust-tab-content" id="cust-finish" style="display:none;">
+<div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:20px; text-align:center;">
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/blind-debossing-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Blind Debossing "></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Blind Debossing </div>
+    </div>
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/blind-embossing.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Blind Embossing"></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Blind Embossing</div>
+    </div>
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/cold-foil-printing.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Cold Foil Printing"></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Cold Foil Printing</div>
+    </div>
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/combination-embossing.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Combination Embossing"></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Combination Embossing</div>
+    </div>
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/hot-foil-stamping.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Hot Foil Stamping"></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Hot Foil Stamping</div>
+    </div>
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/registered-embossing-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Registered Embossing "></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Registered Embossing </div>
+    </div>
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/window-patching.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Window Patching"></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Window Patching</div>
+    </div>
+</div>
 
-                <!-- Form Area -->
-                <div class="product-final-quote-form-area">
-                    <p class="product-section-title">Get a Custom Packaging Quote</p>
-                    <form class="product-final-form" method="post" action="{{ url('contact-mail') . '/' }}">
-                        @csrf
-                        <div class="product-form-grid-3">
-                            <div class="product-form-group">
-                                <label>Your Name *</label>
-                                <input type="text" name="name" placeholder="Full name" required>
-                            </div>
-                            <div class="product-form-group">
-                                <label>Email Address *</label>
-                                <input type="email" name="email" placeholder="Your email" required>
-                            </div>
-                            <div class="product-form-group">
-                                <label>Phone Number *</label>
-                                <input type="text" name="phone" placeholder="Your number" required>
-                            </div>
-                            <div class="product-form-group">
-                                <label>Width</label>
-                                <input type="text" name="width" placeholder="Width">
-                            </div>
-                            <div class="product-form-group">
-                                <label>Length</label>
-                                <input type="text" name="length" placeholder="Length">
-                            </div>
-                            <div class="product-form-group">
-                                <label>Height</label>
-                                <input type="text" name="height" placeholder="Height">
-                            </div>
-                        </div>
-                        <div class="product-form-row-box-qty" style="margin-bottom:12px">
-                            <div class="product-form-group">
-                                <label>Box Style</label>
-                                @foreach($product as $p)
-                                <input type="text" name="company" value="{{ $p->title }}" readonly>
-                                @break
-                                @endforeach
-                            </div>
-                            <div class="product-form-group">
-                                <label>Quantity</label>
-                                <input type="text" name="quantity" placeholder="Qty">
-                            </div>
-                        </div>
-                        <textarea name="message" rows="3" placeholder="Additional message or requirements..."></textarea>
-                        <button type="submit" class="product-submit-btn">Send Instant Quote</button>
-                    </form>
-                </div>
-
-                <!-- Image Panel -->
-                <div class="product-final-quote-image">
-                    @foreach($product as $p)
-                    @php $imgs = json_decode($p->images, true); @endphp
-                    <div class="product-placeholder-img">
-                        @if(is_array($imgs) && !empty($imgs))
-                        <img src="{{ url('images/'.$imgs[0]) }}" alt="{{ $p->title }}">
-                        @else
-                        <span>No Image</span>
-                        @endif
-                    </div>
-                    @break
-                    @endforeach
-                </div>
+            </div>
+            <div class="cust-tab-content" id="cust-coat" style="display:none;">
+<div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:20px; text-align:center;">
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/Lamination.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Lamination"></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Lamination</div>
+    </div>
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/UV.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="UV"></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">UV</div>
+    </div>
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/Varnish.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Varnish"></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Varnish</div>
+    </div>
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/anti-scratch-lamination.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Anti Scratch Lamination"></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Anti Scratch Lamination</div>
+    </div>
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/aqueous-coating-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Aqueous Coating "></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Aqueous Coating </div>
+    </div>
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/soft-touch-coating.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Soft Touch Coating"></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Soft Touch Coating</div>
+    </div>
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/soft-touch-silk-lamination-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Soft Touch Silk Lamination "></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Soft Touch Silk Lamination </div>
+    </div>
+    <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/spot-gloss-uV-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Spot Gloss UV "></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Spot Gloss UV </div>
+    </div>
+</div>
 
             </div>
         </div>

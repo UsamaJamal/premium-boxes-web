@@ -4263,5 +4263,4 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-
 @include('web.footer')

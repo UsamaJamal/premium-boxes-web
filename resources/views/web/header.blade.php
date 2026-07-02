@@ -37,6 +37,10 @@
     <link href="{{url('web/assets/css/styles.css')}}" rel="stylesheet" />
     <link href="{{url('web/assets/css/jquery.smartmenus.bootstrap-4.css')}}" rel="stylesheet" />
 
+    @if(isset($value) && count($value) > 0 && isset($value[0]->schema) && !empty($value[0]->schema))
+    {!! $value[0]->schema !!}
+    @endif
+
     <!--  -->
     
 </head>
@@ -604,12 +608,12 @@ Get A Call In A Min !</h5>
             </div>
 
             <!-- Toggle Switch -->
-            <div id="theme-toggle" onclick="toggleTheme()"
+            <!-- <div id="theme-toggle" onclick="toggleTheme()"
                 style="width: 44px; height: 22px; background-color: #ffffff; border-radius: 50px; display: flex; align-items: center; padding: 3px; cursor: pointer; transition: background 0.3s; position: relative;">
                 <div id="toggle-knob"
                     style="width: 16px; height: 16px; background-color: #1a1a1a; border-radius: 50%; transition: transform 0.3s; transform: translateX(22px); display: flex; align-items: center; justify-content: center;">
                 </div>
-            </div>
+            </div> -->
 
             <!-- Get Instant Quote -->
             <a href="{{ url('request-quote') }}"

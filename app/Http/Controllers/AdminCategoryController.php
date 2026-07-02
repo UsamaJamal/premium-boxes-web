@@ -40,6 +40,9 @@ class AdminCategoryController extends Controller
    'show_home' => $request->post('show_home'),
    'hero_title' => $request->post('hero_title'),
    'hero_desc' => $request->post('hero_desc'),
+   'schema' => $request->post('schema'),
+   'why_choose_title' => $request->post('why_choose_title'),
+   'why_choose_desc' => $request->post('why_choose_desc'),
 ];
 
 // print_r($data);
@@ -93,7 +96,27 @@ if($request->hasfile('image')){
           $data['icon']=$request->input('oldfav-icon');
        }
 
-              
+              if($request->hasfile('feature_product')){
+                     $file=$request->file('feature_product');
+                     $extension=str_replace(' ', '-', $file->getClientOriginalName());
+                     $filename= time() . '-fp-' . $extension;
+                     $file->move('images/',$filename);
+                     $data['feature_product']=$filename;
+              }
+              else{
+                 $data['feature_product']=$request->input('old_feature_product');
+              }
+
+              if($request->hasfile('why_choose_img')){
+                     $file=$request->file('why_choose_img');
+                     $extension=str_replace(' ', '-', $file->getClientOriginalName());
+                     $filename= time() . '-wci-' . $extension;
+                     $file->move('images/',$filename);
+                     $data['why_choose_img']=$filename;
+              }
+              else{
+                 $data['why_choose_img']=$request->input('old_why_choose_img');
+              }
 
 
 
@@ -180,7 +203,9 @@ public function addcategory(Request $request) {
    'parent_category' => $request->post('parentcategory'),
    'status' => $request->post('status'),
    'show_home' => $request->post('show_home'),
-   
+   'schema' => $request->post('schema'),
+   'why_choose_title' => $request->post('why_choose_title'),
+   'why_choose_desc' => $request->post('why_choose_desc'),
    
 ];
 
@@ -222,6 +247,21 @@ if($request->hasfile('image')){
    $data['image']=''; 
 
 }
+
+        if($request->hasfile('feature_product')){
+          $file=$request->file('feature_product');
+          $extension=$file->getClientOriginalName();
+          $filename= time(). '-fp.' . $extension;
+          $file->move('images/',$filename);
+          $data['feature_product']=$filename;
+        }
+        if($request->hasfile('why_choose_img')){
+          $file=$request->file('why_choose_img');
+          $extension=$file->getClientOriginalName();
+          $filename= time(). '-wci.' . $extension;
+          $file->move('images/',$filename);
+          $data['why_choose_img']=$filename;
+        }
         
         $category_id = DB::table('add_category')->insertGetId($data);
 
