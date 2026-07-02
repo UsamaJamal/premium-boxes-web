@@ -2866,6 +2866,50 @@ img {
   border-top: 1px solid rgba(245, 197, 66, 0.24);
   border-bottom: 1px solid rgba(245, 197, 66, 0.24);
 }
+
+/* .trust-bar {
+    overflow: hidden;
+} */
+
+.trust-logos {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+    width: max-content;
+    animation: marquee 25s linear infinite;
+}
+.trust-logos-wrapper{
+    flex:1;
+    overflow:hidden;
+}
+.logo-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-item img {
+    max-height: 45px;
+    width: auto;
+    display: block;
+    transition: transform .3s ease;
+}
+
+.logo-item:hover img {
+    transform: scale(1.08);
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+
 .trust-reviews {
   display: flex;
   align-items: center;
@@ -2885,31 +2929,6 @@ img {
   font-size: 0.9rem;
   text-decoration: underline;
   white-space: nowrap;
-}
-.trust-logos {
-  display: flex;
-  gap: 26px;
-  align-items: center;
-  justify-content: flex-start;
-  flex: 1 1 auto;
-  min-width: 0;
-  height: 100%;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x proximity;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(245, 197, 66, 0.55) transparent;
-  padding: 0 10px 0 18px;
-}
-.trust-logos::-webkit-scrollbar {
-  height: 5px;
-}
-.trust-logos::-webkit-scrollbar-track {
-  background: transparent;
-}
-.trust-logos::-webkit-scrollbar-thumb {
-  background: rgba(245, 197, 66, 0.55);
-  border-radius: 999px;
 }
 .logo-item {
   display: flex;
@@ -3435,10 +3454,10 @@ img {
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-                    </div>
+
                     <a href="#" class="review-link">5.0 Google Reviews</a>
-                </div>
-                @php
+ </div>
+   @php
                     $trustLogoDir = base_path('uploads');
                     $trustLogoFiles = [];
                     foreach (['webp', 'png', 'jpg', 'jpeg', 'svg'] as $extension) {
@@ -3477,6 +3496,47 @@ img {
     </div>
                 </div>
             </div>
+
+                </div>
+                <!-- @php
+                    $trustLogoDir = base_path('uploads');
+                    $trustLogoFiles = [];
+                    foreach (['webp', 'png', 'jpg', 'jpeg', 'svg'] as $extension) {
+                        $trustLogoFiles = array_merge($trustLogoFiles, glob($trustLogoDir . DIRECTORY_SEPARATOR . '*.' . $extension) ?: []);
+                    }
+                    sort($trustLogoFiles);
+                @endphp
+                <div class="trust-logos" aria-label="Brand logos">
+<div class="logo-item">
+        <img src="{{ asset('uploads/flowgardens-logo.webp') }}" alt="Flowgardens Logo">
+    </div>
+
+    <div class="logo-item">
+        <img src="{{ asset('uploads/voli-logo.webp') }}" alt="Voli Logo">
+    </div>
+
+    <div class="logo-item">
+        <img src="{{ asset('uploads/neat-logo.webp') }}" alt="Neat Logo">
+    </div>
+
+    <div class="logo-item">
+        <img src="{{ asset('uploads/11-png.webp') }}" alt="11 Logo">
+    </div>
+
+    <div class="logo-item">
+        <img src="{{ asset('uploads/red-bull-logo.png') }}" alt="Red Bull Logo">
+    </div>
+    <div class="logo-item">
+        <img src="{{ asset('uploads/springtastic-logo.webp') }}" alt="Springtastic Logo">
+    </div>
+    <div class="logo-item">
+        <img src="{{ asset('uploads/her-piece-peace-logo.webp') }}" alt="Her Piece of Peace Logo">
+    </div>
+    <div class="logo-item">
+        <img src="{{ asset('uploads/kinky.webp') }}" alt="Kinky Logo">
+    </div>
+                </div>
+            </div> -->
         </section>
 
 <!-- ================================================
@@ -3769,12 +3829,12 @@ img {
                 </div>
 
             </div>
-        </section>
+
 
 <!-- ================================================
      HUMAN VERIFICATION SECTION
      ================================================ -->
-<section class="human-verification-section">
+
     <div class="human-verification-card">
         <div>
             <h2 class="human-verification-title">Are you a human?</h2>
@@ -3787,7 +3847,9 @@ img {
             <span class="human-status" id="humanStatus" aria-live="polite"></span>
         </div>
     </div>
-</section>
+
+        </section>
+
 
 <!-- ================================================
      PACKAGING GUIDE SECTION
