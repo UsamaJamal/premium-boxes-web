@@ -32,6 +32,8 @@ Array
     [parentcategory] => 109
     [status] => 1
     [show_home] => 0
+    [why_choose_title] => why choise Rigid Boxes
+    [why_choose_desc] => rigid boxes
     [faq_question] => Array
         (
             [0] => hassan
