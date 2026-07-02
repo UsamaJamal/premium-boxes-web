@@ -3275,34 +3275,37 @@ img {
 <!-- ================================================
      WHY CHOOSE SECTION
      ================================================ -->
+<?php
+    $hasWhyChoose = !empty($value[0]->why_choose_title) && !empty($value[0]->why_choose_desc);
+?>
+@if($hasWhyChoose)
 <section class="cp-why">
     <div class="cp-wrap">
         <div class="cp-why-grid">
 
             <div class="cp-why-text">
                 <span class="cp-badge">OVERVIEW</span>
-                <h2 class="cp-why-title">Why Choose Lid & Base?</h2>
-                <p class="cp-why-para">
-                    This style offers the ultimate unboxing experience. The lift-off lid creates a
-                    moment of anticipation, while the robust construction speaks of quality. Ideal
-                    for brands that want to make a lasting impression.
-                </p>
-                <p class="cp-why-para">
-                    We use premium materials like velvet, leatherette, and textured paper to wrap
-                    both lid and base. Add gold foil stamping or embossing for that extra luxury touch.
-                </p>
+                <h2 class="cp-why-title">{{ $value[0]->why_choose_title }}</h2>
+                <div class="cp-why-para" style="color: #cccccc;">
+                    {!! $value[0]->why_choose_desc !!}
+                </div>
             </div>
 
             <div class="cp-why-img">
                 <a href="#" class="cp-cta cp-why-quote-btn">Get a Quote</a>
                 <div class="cp-why-photo-wrap">
-                    <img src="./c903f3f775a50e5b56122d5a307158962172018e (1).jpg" alt="Why Choose" class="cp-why-photo">
+                    @if(!empty($value[0]->why_choose_img))
+                        <img src="{{ asset('images/' . $value[0]->why_choose_img) }}" alt="{{ $value[0]->why_choose_title }}" class="cp-why-photo">
+                    @else
+                        <img src="{{ asset('assets/images/default.jpg') }}" alt="Why Choose" class="cp-why-photo">
+                    @endif
                 </div>
             </div>
 
         </div>
     </div>
 </section>
+@endif
 
         <!-- ==========================================
              TESTIMONIALS SECTION

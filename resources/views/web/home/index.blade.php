@@ -3926,12 +3926,12 @@ section + section {
                 @foreach($industry_products as $product)
                 <div class="sector-card">
                     <div class="sector-img-placeholder">
-                        <a href="{{ url('/'.$product->url) }}">
-                            <img src="{{ asset('images/'.$product->image) }}" onerror="this.src='./assets/jewellry and watch.jfif'; this.onerror=null;" alt="{{ $product->title }}">
+                        <a href="{{ url('/'.$product->category_url) }}">
+                            <img src="{{ asset('images/'.($product->feature_product ? $product->feature_product : ($product->image ? $product->image : $product->bimage))) }}" onerror="this.src='./assets/jewellry and watch.jfif'; this.onerror=null;" alt="{{ $product->name }}">
                         </a>
                     </div>
                     <div class="sector-info">
-                        <h3><a href="{{ url('/'.$product->url) }}" style="color: inherit; text-decoration: none;">{{ $product->title }}</a></h3>
+                        <h3><a href="{{ url('/'.$product->category_url) }}" style="color: inherit; text-decoration: none;">{{ $product->name }}</a></h3>
                         <p>{!! Str::limit(strip_tags($product->description), 60) !!}</p>
                     </div>
                 </div>
