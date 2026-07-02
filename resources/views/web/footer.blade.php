@@ -197,11 +197,16 @@
    ================================================ */
 @media (max-width: 768px) {
     .cp-footer { padding: 8vw 5vw 5vw; }
+    
+    .cp-wrap {
+        padding: 0;
+    }
 
     .cp-footer-top {
         display: flex;
         flex-direction: column;
         gap: 0;
+        text-align: left;
     }
 
     /* Col 1 — logo + description + social */
@@ -209,6 +214,7 @@
         grid-column: unset;
         min-width: unset;
         margin-bottom: 6vw;
+        text-align: left;
     }
     .cp-footer-logo { margin-bottom: 4vw; }
     .cp-footer-logo-icon i  { font-size: 7vw !important; }
@@ -220,11 +226,15 @@
         line-height: 1.8;
         color: rgba(255,255,255,0.6);
         margin-bottom: 5vw;
+        text-align: left;
     }
 
     /* Social icons */
     .cp-footer-social { margin-top: 0; margin-bottom: 6vw; }
-    .cp-footer-title  { font-size: 4.5vw; margin-bottom: 3vw; }
+    .cp-footer-title  { font-size: 4.5vw; margin-bottom: 3vw; text-align: left; }
+    .cp-social-icons {
+        justify-content: flex-start;
+    }
     .cp-social-icons a {
         width: 10vw;
         height: 10vw;
@@ -290,19 +300,20 @@
     }
 
     /* Links font size */
+    .cp-footer-links { text-align: left; }
     .cp-footer-links li { margin-bottom: 3vw; }
     .cp-footer-links a  { font-size: 3.8vw; }
-    .cp-footer-address  { font-size: 3.8vw; line-height: 1.7; }
+    .cp-footer-address  { font-size: 3.8vw; line-height: 1.7; text-align: left; }
 
     /* Newsletter */
-    .cp-newsletter-title { font-size: 4.5vw !important; margin-top: 4vw; cursor: default !important; }
+    .cp-newsletter-title { font-size: 4.5vw !important; margin-top: 4vw; cursor: default !important; text-align: left; }
     .cp-newsletter-title::after { display: none !important; }
     .cp-newsletter-form { display: flex; gap: 0; margin-bottom: 4vw; }
-    .cp-newsletter-form input  { font-size: 3.8vw; padding: 3vw 4vw; flex: 1; }
+    .cp-newsletter-form input  { font-size: 3.8vw; padding: 3vw 4vw; flex: 1; text-align: left; }
     .cp-newsletter-form button { font-size: 3.5vw; padding: 3vw 5vw; border-radius: 0 50px 50px 0; }
 
     /* Payment icons */
-    .cp-payment-methods { display: flex; gap: 2vw; flex-wrap: wrap; }
+    .cp-payment-methods { display: flex; gap: 2vw; flex-wrap: wrap; justify-content: flex-start; }
     .cp-payment-methods img { height: 6vw !important; }
     .cp-payment-methods .fab { font-size: 6vw; color: #fff; }
 
@@ -325,61 +336,6 @@
     }
     .cp-payment-outside img { height: 6vw !important; }
     .cp-payment-outside .fab { font-size: 6vw; color: #fff; }
-}
-
-/* Newsletter + Payment outside block */
-.cp-footer-outside {
-    display: none; /* desktop pe hidden — desktop mein col-5 mein already hai */
-}
-
-@media (max-width: 768px) {
-    .cp-footer-outside {
-        display: block;
-        padding: 5vw 5vw 0;
-        border-top: 1px solid rgba(255,255,255,0.1);
-    }
-    .cp-footer-outside .cp-newsletter-title {
-        font-size: 4.5vw;
-        color: #fff;
-        margin-bottom: 3vw;
-        cursor: default;
-    }
-    .cp-footer-outside .cp-newsletter-form {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        padding-bottom: 3vw;
-        margin-bottom: 5vw;
-    }
-    .cp-footer-outside .cp-newsletter-form input {
-        flex: 1;
-        font-size: 3.8vw;
-        padding: 2vw 0;
-        background: transparent;
-        border: none;
-        color: #fff;
-        outline: none;
-    }
-    .cp-footer-outside .cp-newsletter-form button {
-        font-size: 3.5vw;
-        padding: 3vw 5vw;
-        border-radius: 50px;
-        background: #F8CB54;
-        color: #111;
-        border: none;
-        font-weight: 700;
-        cursor: pointer;
-        flex-shrink: 0;
-    }
-    .cp-footer-outside .cp-payment-outside {
-        display: flex;
-        justify-content: flex-start;
-        gap: 2vw;
-        flex-wrap: wrap;
-        padding: 0;
-    }
-    .cp-footer-outside .cp-payment-outside img { height: auto !important; max-width: 45px; border-radius: 3px; }
 }
 
 </style>
@@ -509,22 +465,6 @@
                 </div>
             </div>
             
-        </div>
-
-        <!-- Newsletter + Payment — outside accordion, always visible on mobile -->
-        <div class="cp-footer-outside">
-            <h4 class="cp-footer-title cp-newsletter-title">News letter</h4>
-            <form class="cp-newsletter-form">
-                <input type="email" placeholder="Enter your email" required>
-                <button type="submit">Subscribe</button>
-            </form>
-            <div class="cp-payment-methods cp-payment-outside">
-                <img src="{{ asset('uploads/visa 1.png') }}" alt="Visa" style="max-height: 28px; width: auto; background-color: white; padding: 2px; border-radius: 3px;">
-                <img src="{{ asset('uploads/master-card 1.png') }}" alt="Mastercard" style="max-height: 28px; width: auto; background-color: white; padding: 2px; border-radius: 3px;">
-                <img src="{{ asset('uploads/paypal.png') }}" alt="Paypal" style="max-height: 28px; width: auto; background-color: white; padding: 2px; border-radius: 3px;">
-                <img src="{{ asset('uploads/americanexpress.png') }}" alt="American Express" style="max-height: 28px; width: auto; background-color: white; padding: 2px; border-radius: 3px;">
-                <img src="{{ asset('uploads/discover.png') }}" alt="Discover" style="max-height: 28px; width: auto; background-color: white; padding: 2px; border-radius: 3px;">
-            </div>
         </div>
 
         <div class="cp-footer-bottom">
