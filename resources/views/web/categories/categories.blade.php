@@ -2830,11 +2830,14 @@ img {
     width: 100%;
   }
   .industry-hero-left .hero-breadcrumb {
-    display: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
   }
   .industry-hero-left h1 {
     font-size: 2.2rem;
     text-align: center;
+    word-break: break-word;
   }
   .industry-hero-left p {
     text-align: justify;
@@ -2851,136 +2854,7 @@ img {
   }
 }
 
-/* Trust Bar / Logos */
-.trust-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  max-width: 1440px;
-  height: 90px;
-  margin: 3px auto 0;
-  padding: 0 60px;
-  box-sizing: border-box;
-  gap: 40px;
-  border-top: 1px solid rgba(245, 197, 66, 0.24);
-  border-bottom: 1px solid rgba(245, 197, 66, 0.24);
-}
 
-/* .trust-bar {
-    overflow: hidden;
-} */
-
-.trust-logos {
-    display: flex;
-    align-items: center;
-    gap: 70px;
-    width: max-content;
-    animation: marquee 25s linear infinite;
-}
-.trust-logos-wrapper{
-    flex:1;
-    overflow:hidden;
-}
-.logo-item {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.logo-item img {
-    max-height: 45px;
-    width: auto;
-    display: block;
-    transition: transform .3s ease;
-}
-
-.logo-item:hover img {
-    transform: scale(1.08);
-}
-
-@keyframes marquee {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
-}
-
-
-.trust-reviews {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  flex: 0 0 auto;
-  padding-right: 38px;
-  border-right: 1px solid rgba(245, 197, 66, 0.35);
-}
-.trust-reviews .stars {
-  color: var(--accent-gold);
-  font-size: 1.2rem;
-  display: flex;
-  gap: 5px;
-}
-.review-link {
-  color: #a0a0a0;
-  font-size: 0.9rem;
-  text-decoration: underline;
-  white-space: nowrap;
-}
-.logo-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 112px;
-  width: 112px;
-  height: 42px;
-  opacity: 1;
-  scroll-snap-align: start;
-  transition: opacity 0.3s ease, filter 0.3s ease;
-}
-.logo-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: brightness(0) invert(77%);
-}
-.logo-item:hover img {
-  filter: grayscale(0%);
-}
-@media (max-width: 768px) {
-  .trust-bar {
-    height: auto;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 15px;
-    gap: 16px;
-  }
-  .trust-reviews {
-    display: none;
-    border-right: 0;
-    padding-right: 0;
-  }
-  .trust-logos {
-    display: flex !important;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: nowrap;
-    width: 100%;
-    gap: 14px;
-    overflow-x: auto;
-  }
-  .logo-item {
-    flex: 0 0 82px;
-    max-width: 82px;
-    height: 35px;
-    opacity: 0.8;
-  }
-}
 
 
 /* --- Base Section & Background Floors --- */
@@ -3446,97 +3320,7 @@ img {
                 </div>
             </div>
 
-            <div class="trust-bar">
-                <div class="trust-reviews">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-
-                    <a href="#" class="review-link">5.0 Google Reviews</a>
- </div>
-   @php
-                    $trustLogoDir = base_path('uploads');
-                    $trustLogoFiles = [];
-                    foreach (['webp', 'png', 'jpg', 'jpeg', 'svg'] as $extension) {
-                        $trustLogoFiles = array_merge($trustLogoFiles, glob($trustLogoDir . DIRECTORY_SEPARATOR . '*.' . $extension) ?: []);
-                    }
-                    sort($trustLogoFiles);
-                @endphp
-                <div class="trust-logos" aria-label="Brand logos">
-<div class="logo-item">
-        <img src="{{ asset('uploads/flowgardens-logo.webp') }}" alt="Flowgardens Logo">
-    </div>
-
-    <div class="logo-item">
-        <img src="{{ asset('uploads/voli-logo.webp') }}" alt="Voli Logo">
-    </div>
-
-    <div class="logo-item">
-        <img src="{{ asset('uploads/neat-logo.webp') }}" alt="Neat Logo">
-    </div>
-
-    <div class="logo-item">
-        <img src="{{ asset('uploads/11-png.webp') }}" alt="11 Logo">
-    </div>
-
-    <div class="logo-item">
-        <img src="{{ asset('uploads/red-bull-logo.png') }}" alt="Red Bull Logo">
-    </div>
-    <div class="logo-item">
-        <img src="{{ asset('uploads/springtastic-logo.webp') }}" alt="Springtastic Logo">
-    </div>
-    <div class="logo-item">
-        <img src="{{ asset('uploads/her-piece-peace-logo.webp') }}" alt="Her Piece of Peace Logo">
-    </div>
-    <div class="logo-item">
-        <img src="{{ asset('uploads/kinky.webp') }}" alt="Kinky Logo">
-    </div>
-                </div>
-            </div>
-
-                </div>
-                <!-- @php
-                    $trustLogoDir = base_path('uploads');
-                    $trustLogoFiles = [];
-                    foreach (['webp', 'png', 'jpg', 'jpeg', 'svg'] as $extension) {
-                        $trustLogoFiles = array_merge($trustLogoFiles, glob($trustLogoDir . DIRECTORY_SEPARATOR . '*.' . $extension) ?: []);
-                    }
-                    sort($trustLogoFiles);
-                @endphp
-                <div class="trust-logos" aria-label="Brand logos">
-<div class="logo-item">
-        <img src="{{ asset('uploads/flowgardens-logo.webp') }}" alt="Flowgardens Logo">
-    </div>
-
-    <div class="logo-item">
-        <img src="{{ asset('uploads/voli-logo.webp') }}" alt="Voli Logo">
-    </div>
-
-    <div class="logo-item">
-        <img src="{{ asset('uploads/neat-logo.webp') }}" alt="Neat Logo">
-    </div>
-
-    <div class="logo-item">
-        <img src="{{ asset('uploads/11-png.webp') }}" alt="11 Logo">
-    </div>
-
-    <div class="logo-item">
-        <img src="{{ asset('uploads/red-bull-logo.png') }}" alt="Red Bull Logo">
-    </div>
-    <div class="logo-item">
-        <img src="{{ asset('uploads/springtastic-logo.webp') }}" alt="Springtastic Logo">
-    </div>
-    <div class="logo-item">
-        <img src="{{ asset('uploads/her-piece-peace-logo.webp') }}" alt="Her Piece of Peace Logo">
-    </div>
-    <div class="logo-item">
-        <img src="{{ asset('uploads/kinky.webp') }}" alt="Kinky Logo">
-    </div>
-                </div>
-            </div> -->
+    @include('web.trustbar')
         </section>
 
 <!-- ================================================
@@ -4192,8 +3976,205 @@ document.addEventListener('DOMContentLoaded', function () {
             if (typeof fileNameField !== 'undefined' && fileNameField) {
                 fileNameField.value = "No file chosen";
             }
+});
+
+        nextTestimonialBtn.addEventListener('click', function () {
+            if (isMobile()) {
+                slideTo(currentIdx + 1);
+            } else {
+                const card = testimonialsGrid.querySelector('.product-testimonial-card');
+                const scrollAmount = card ? (card.offsetWidth + 30) : 300;
+                testimonialsGrid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        });
+
+        window.addEventListener('resize', function () {
+            if (!isMobile()) {
+                currentIdx = 0;
+                testimonialsGrid.style.transform = '';
+            }
+        });
+    }
+
+    // ── cp-testi section (if present) ──
+    const cpTrack  = document.getElementById('cpTestiTrack');
+    const cpPrev   = document.getElementById('cpTestiPrev');
+    const cpNext   = document.getElementById('cpTestiNext');
+
+    if (cpTrack && cpPrev && cpNext) {
+        const cards  = cpTrack.querySelectorAll('.cp-testi-card');
+        const total  = cards.length;
+        let idx = 0;
+
+        function updateSlide() {
+            const cardW = cards[0].getBoundingClientRect().width + 24;
+            cpTrack.style.transform = 'translateX(-' + (idx * cardW) + 'px)';
+        }
+
+        cpNext.addEventListener('click', function () {
+            if (idx < total - 3) { idx++; updateSlide(); }
+        });
+        cpPrev.addEventListener('click', function () {
+            if (idx > 0) { idx--; updateSlide(); }
+        });
+    }
+
+    // ── Steps Accordion (mobile only) ──
+    document.querySelectorAll('.pg-accordion-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = btn.closest('.pg-accordion-item');
+            var isOpen = item.classList.contains('open');
+
+            // close all, reset icons to +
+            document.querySelectorAll('.pg-accordion-item').forEach(function(i) {
+                i.classList.remove('open');
+                var icon = i.querySelector('.pg-accordion-icon');
+                if (icon) {
+                    icon.innerHTML = '+';
+                    icon.style.color = 'rgba(255,255,255,0.6)';
+                }
+            });
+
+            // if it was closed, open it and show -
+            if (!isOpen) {
+                item.classList.add('open');
+                var icon = btn.querySelector('.pg-accordion-icon');
+                if (icon) {
+                    icon.innerHTML = '&#8722;';
+                    icon.style.color = '#FFC107';
+                }
+            }
+        });
+    });
+
+    // ── CTA Banner Button ──
+    const ctaBannerBtn = document.querySelector('.cp-cta-banner-btn');
+    if (ctaBannerBtn) {
+        ctaBannerBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'quotation.html';
+        });
+    }
+
+
+
+    // ── FILE UPLOAD ──
+    const fileInput = document.querySelector('input[type="file"]');
+    const fileNameField = document.querySelector(".file-upload-wrapper input[type='text']");
+
+    if (fileInput && fileNameField) {
+        fileInput.addEventListener("change", () => {
+            if (fileInput.files.length > 0) {
+                fileNameField.value = fileInput.files[0].name;
+            } else {
+                fileNameField.value = "No file chosen";
+            }
+        });
+    }
+
+    // Standalone human verification section
+    const humanQuestion = document.getElementById('humanQuestion');
+    const humanAnswer = document.getElementById('humanAnswer');
+    const humanCheckBtn = document.getElementById('humanCheckBtn');
+    const humanStatus = document.getElementById('humanStatus');
+    let humanTotal = 0;
+
+    function generateHumanQuestion() {
+        const firstNumber = Math.floor(Math.random() * 9) + 1;
+        const secondNumber = Math.floor(Math.random() * 9) + 1;
+        humanTotal = firstNumber + secondNumber;
+        if (humanQuestion) humanQuestion.textContent = firstNumber + ' + ' + secondNumber + ' =';
+        if (humanAnswer) {
+            humanAnswer.value = '';
+            humanAnswer.style.border = '';
+        }
+        if (humanStatus) {
+            humanStatus.textContent = '';
+            humanStatus.classList.remove('is-error', 'is-success');
+        }
+    }
+
+    if (humanQuestion && humanAnswer && humanCheckBtn) {
+        generateHumanQuestion();
+        humanCheckBtn.addEventListener('click', function () {
+            const isCorrect = humanAnswer.value.trim() !== '' && Number(humanAnswer.value.trim()) === humanTotal;
+            if (isCorrect) {
+                humanAnswer.style.border = '';
+                if (humanStatus) {
+                    humanStatus.textContent = 'Verified.';
+                    humanStatus.classList.remove('is-error');
+                    humanStatus.classList.add('is-success');
+                }
+            } else {
+                humanAnswer.style.border = '1px solid red';
+                if (humanStatus) {
+                    humanStatus.textContent = 'Please solve the addition correctly.';
+                    humanStatus.classList.remove('is-success');
+                    humanStatus.classList.add('is-error');
+                }
+                humanAnswer.focus();
+            }
+        });
+    }
+    // ── QUOTE FORM VALIDATION ──
+    const quoteForm = document.querySelector(".instant-quote-form");
+
+    if (quoteForm) {
+        // Disable default HTML5 validation tooltips to use custom logic
+        quoteForm.setAttribute('novalidate', true);
+
+        quoteForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            let isValid = true;
+            let firstInvalidField = null;
+
+            // Check all required fields in the form
+            const requiredFields = quoteForm.querySelectorAll('[required]');
+            requiredFields.forEach(field => {
+                let valid = true;
+                const val = field.value.trim();
+
+                if (!val) {
+                    valid = false;
+                } else if (field.type === 'email') {
+                    // Simple email validation regex
+                    const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+                    if (!emailRegex.test(val)) valid = false;
+                } else if (field.type === 'tel') {
+                    // Simple phone validation (at least 7 digits/characters like + - spaces)
+                    const phoneRegex = /^\\+?[\\d\\s\\-\\(^\\)]{7,20}$/;
+                    if (!phoneRegex.test(val)) valid = false;
+                }
+
+                if (!valid) {
+                    isValid = false;
+                    field.style.border = "1px solid red";
+                    if (!firstInvalidField) {
+                        firstInvalidField = field;
+                    }
+                } else {
+                    field.style.border = ""; // reset border if valid
+                }
+            });
+
+            if (!isValid) {
+                if (firstInvalidField) firstInvalidField.focus();
+                return;
+            }
+
+            // Success state - you can add custom success message UI here if needed
+
+            quoteForm.reset();
+            requiredFields.forEach(field => field.style.border = ""); // reset borders
+
+            if (typeof fileNameField !== 'undefined' && fileNameField) {
+                fileNameField.value = "No file chosen";
+            }
         });
     }
 
 });
 </script>
+</body>
+</html>

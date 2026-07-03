@@ -320,12 +320,6 @@ Route::get('/','HomeController@Home');
 
 Route::get('about-us','AboutController@About');
 
-// Route::get('delivery-information','AboutController@DeliveryInformation');
-
-Route::get('privacy-policy','AboutController@PrivacyPolicy');
-Route::get('terms-services','AboutController@TermServices');
-Route::get('return-policy','AboutController@ReturnPolicy');
-
 // Forgot Password (Route)
 
 Route::get('user/forget-password', 'UserForgetPassword@getEmail');
@@ -392,6 +386,8 @@ Route::get('sitemap.xml', function() {
 $view = view('web/sitemap/sitemap');
 return Response::make($view)->header('Content-Type', 'text/xml');
 });
+
+Route::get('sitemap', 'AboutController@SitemapHTML');
 
 
 

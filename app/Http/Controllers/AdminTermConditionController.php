@@ -33,18 +33,15 @@ public function addTermCondition(Request $request) {
 ];
 
 if($request->hasfile('image')){
-                    $file=$request->file('image');
-                    $extension=$file->getClientOriginalName();
-                    $filename= time(). '.' . $extension;
-                    $file->move('images/',$filename);
-                    $data['image']=$filename;
-             } 
-             else
-        {
-            return  $request;
-            $data->image=''; 
-
-        }
+    $file=$request->file('image');
+    $extension=$file->getClientOriginalName();
+    $filename= time(). '.' . $extension;
+    $file->move('images/',$filename);
+    $data['image']=$filename;
+} 
+else {
+    $data['image']=''; 
+}
  
         DB::table('term_condition')->insert($data);
 return redirect('admin/term_condition');
@@ -86,16 +83,15 @@ public function updateTermCondition(Request $request) {
 ];
 
 if($request->hasfile('image')){
-                   $file=$request->file('image');
-                   $extension=$file->getClientOriginalName();
-                   $filename=$extension;
-                   $file->move('images/',$filename);
-                   $data['image']=$filename;
-
-            }
-            else{
-               $data['image']=$request->input('oldimage');
-            }
+   $file=$request->file('image');
+   $extension=$file->getClientOriginalName();
+   $filename=$extension;
+   $file->move('images/',$filename);
+   $data['image']=$filename;
+}
+else{
+   $data['image']=$request->input('oldimage') ?? '';
+}
 
               
 $data['s']=DB::table('term_condition')->update($data);

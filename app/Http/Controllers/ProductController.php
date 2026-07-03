@@ -150,12 +150,24 @@ class ProductController extends Controller
                 
                 $data['dimension'] = DB::table('dimension')->get();
                
-                 $data['meta'] = DB::table('product')->where('url',$url)->get();
+                $data['meta'] = DB::table('product')->where('url',$url)->get();
                 $data['meta_title'] = $data['product']['0']->meta_title;
                 $data['meta_tags'] = $data['meta']['0']->meta_tags;
                 $data['meta_description'] = $data['meta']['0']->meta_description;
                 $data['product_faqs'] = DB::table('product_faqs')->where('product_id', $data['product'][0]->product_id)->get();
                 $data['reviews'] = DB::table('product_reviews')->where('product_id', $data['product'][0]->product_id)->where('status', 1)->orderBy('id', 'desc')->get();
+                
+                // Fetch Category and Top Category
+                $cat_id = $data['product'][0]->cat_id;
+                $category = DB::table('add_category')->where('cat_id', $cat_id)->first();
+                $data['product_category'] = $category;
+                
+                if($category && $category->parent_category != 0) {
+                    $top_category = DB::table('add_category')->where('cat_id', $category->parent_category)->first();
+                    $data['product_top_category'] = $top_category;
+                } else {
+                    $data['product_top_category'] = null;
+                }
                 
         //   print_r($data['meta_description']);
         //   die();
