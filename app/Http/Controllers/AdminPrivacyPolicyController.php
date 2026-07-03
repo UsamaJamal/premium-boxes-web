@@ -34,18 +34,15 @@ public function addPrivacyPolicy(Request $request) {
 ];
 
 if($request->hasfile('image')){
-                    $file=$request->file('image');
-                    $extension=$file->getClientOriginalName();
-                    $filename= time(). '.' . $extension;
-                    $file->move('images/',$filename);
-                    $data['image']=$filename;
-             } 
-             else
-        {
-            return  $request;
-            $data->image=''; 
-
-        }
+    $file=$request->file('image');
+    $extension=$file->getClientOriginalName();
+    $filename= time(). '.' . $extension;
+    $file->move('images/',$filename);
+    $data['image']=$filename;
+} 
+else {
+    $data['image']=''; 
+}
  
         DB::table('privacy_policy')->insert($data);
 return redirect('admin/privacy_policy');
@@ -90,16 +87,15 @@ public function showPrivacyPolicy() {
 
 
 if($request->hasfile('image')){
-                   $file=$request->file('image');
-                   $extension=$file->getClientOriginalName();
-                   $filename=$extension;
-                   $file->move('images/',$filename);
-                   $data['image']=$filename;
-
-            }
-            else{
-               $data['image']=$request->input('oldimage');
-            }
+   $file=$request->file('image');
+   $extension=$file->getClientOriginalName();
+   $filename=$extension;
+   $file->move('images/',$filename);
+   $data['image']=$filename;
+}
+else{
+   $data['image']=$request->input('oldimage') ?? '';
+}
 
          
 $data['s']=DB::table('privacy_policy')->update($data);

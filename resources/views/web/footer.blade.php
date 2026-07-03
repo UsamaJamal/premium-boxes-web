@@ -151,9 +151,9 @@
     transition: background-color 0.3s;
 }
 
-.cp-newsletter-form button:hover {
+/* .cp-newsletter-form button:hover {
     background-color: var(--gold2);
-}
+} */
 
 .cp-payment-methods {
     display: flex;
@@ -434,22 +434,26 @@
             <div class="cp-footer-col">
                 <h4 class="cp-footer-title">Company</h4>
                 <ul class="cp-footer-links">
-                    <li><a href="{{ url('beat-my-price') }}">Beat My Price</a></li>
+                  
                     <li><a href="{{ url('request-quote') }}">Get a Quote</a></li>
                     <li><a href="{{ url('contact-us') }}">Contact Us</a></li>
+                    <li><a href="{{ url('about-us') }}">About Us</a></li>
+                    <li><a href="{{ url('frequently-asked-questions') }}">FAQ</a></li>
                     <li><a href="{{ url('return-policy') }}">Return Policy</a></li>
                     <li><a href="{{ url('privacy-policy') }}">Privacy Policy</a></li>
-                    <li><a href="{{ url('terms-services') }}">Terms & Services</a></li>
-                    <li><a href="{{ url('sitemap.xml') }}">Site Map</a></li>
-                    <li><a href="{{ url('about-us') }}">About Us</a></li>
-                    <li><a href="{{ url('sitemap.xml') }}">Sitemap</a></li>
+                    <li><a href="{{ url('term-and-services') }}">Terms & Services</a></li>
+                    <li><a href="{{ url('sitemap') }}">Site Map</a></li>
+                    
+                    
                 </ul>
             </div>
 
             <!-- Column 5: Office & Newsletter -->
             <div class="cp-footer-col cp-footer-col-5">
                 <h4 class="cp-footer-title">Office</h4>
-                <p class="cp-footer-address">4000 W Montrose Ave 559,<br>Chicago, IL 60641</p>
+                <p class="cp-footer-address">
+                    <span style="white-space: nowrap; letter-spacing: -0.2px;">9931 Franklin Ave Suite 1-A Franklin Park, IL</span><br>60131, USA
+                </p>
                 
                 <h4 class="cp-footer-title cp-newsletter-title" style="margin-top: 10px;">News letter</h4>
                 <form class="cp-newsletter-form">
@@ -468,7 +472,7 @@
         </div>
 
         <div class="cp-footer-bottom">
-            <p>© 2025 Premium Packaging. All rights Reserved.</p>
+            <p>© 2026 Premium Packaging. All rights Reserved.</p>
         </div>
     </div>
 </footer>

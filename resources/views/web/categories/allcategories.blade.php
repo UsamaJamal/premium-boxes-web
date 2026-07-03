@@ -303,6 +303,7 @@ Top Bar .top-bar {
   background: transparent !important;
   padding: 0 !important;
   border-radius: 0 !important;
+  flex-wrap: wrap;
 }
 
 /* --- Mobile & Tablet Layout (Screens smaller than 992px) --- */
@@ -332,34 +333,21 @@ Top Bar .top-bar {
 
   /* Hides the breadcrumb wrapper completely */
   .industry-hero-left .breadcrumb {
-    display: none !important;
+    display: flex !important;
+    justify-content: center;
+    flex-wrap: wrap;
   }
   .industry-hero-left h1 {
-    width: 341;
-    height: 72;
-    top: 261px;
-    left: 36px;
-    range: 0 deg;
-    opacity: 1;
-
-    font-family: Inter;
-    font-weight: 700;
-    font-style: Bold;
     font-size: 28px;
-    padding-bottom: NONE;
     line-height: 36px;
-    letter-spacing: 2%;
     text-align: center;
     vertical-align: middle;
+    margin-bottom: 20px;
+    word-break: break-word;
   }
   .industry-hero-left h1 span {
-    font-family: Inter;
-    font-weight: 700;
-    font-style: Bold;
     font-size: 28px;
-    padding-bottom: NONE;
     line-height: 36px;
-    letter-spacing: 2%;
     text-align: center;
     vertical-align: middle;
   }
@@ -973,131 +961,7 @@ body {
   object-fit: contain;
 }
 
-/* Trust Bar / Logos */
-/* Trust Bar / Logos */
-/* --- Core Trust Bar Container (Spec Matched) --- */
-.trust-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center; /* Locks everything perfectly onto a single vertical axis */
 
-  width: 100%;
-  max-width: 1440px; /* Matches your 1440 spec layout width */
-  height: 90px; /* Locks the container strictly to 90px tall */
-  margin: 0 auto; /* Centers the trust bar on wide screens */
-
-  /* Side padding only so it doesn't inflate or stretch your 90px height boundary */
-  padding: 0 60px;
-  box-sizing: border-box;
-}
-
-/* --- Left Side: Google Reviews Area --- */
-.trust-reviews {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  flex-shrink: 0; /* Guarantees the review block can't be squished */
-}
-
-.trust-reviews .stars {
-  color: var(--accent-gold);
-  font-size: 1.2rem;
-  display: flex;
-  gap: 5px;
-}
-
-.review-link {
-  color: #a0a0a0;
-  font-size: 0.9rem;
-  text-decoration: underline;
-  white-space: nowrap; /* Forces "5.0 Google Reviews" strictly onto one line */
-}
-
-/* --- Right Side: Logos Row Area --- */
-.trust-logos {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: flex-end; /* Aligns them flush to the right side of the container */
-
-  /* CRITICAL FIX: Removed width: 100%. This lets it sit nicely alongside the reviews */
-  width: auto;
-  height: 100%;
-}
-
-.logo-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  /* Proportional dimensions that comfortably fit inside your 90px tall layout */
-  width: 110px;
-  height: 40px;
-  opacity: 1;
-  transition:
-    opacity 0.3s ease,
-    filter 0.3s ease;
-}
-
-.logo-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* Prevents logos from stretching or warping */
-  /* Make all logos #C5C5C5 */
-  filter: brightness(0) invert(77%);
-}
-
-/* Hover States */
-.logo-item:hover {
-  opacity: 1;
-}
-.logo-item:hover img {
-  filter: grayscale(0%);
-}
-
-/* --- Responsive Layout Parameters --- */
-/* --- Mobile Viewport (Optimized for 360px - 480px) --- */
-/* --- Mobile Viewport (Optimized to match real view.png) --- */
-@media (max-width: 768px) {
-  .trust-bar {
-    height: auto;
-    flex-direction: column; /* Keeps the layout stacked vertically if reviews are present */
-    justify-content: center;
-    align-items: center;
-    padding: 20px 12px; /* Sleeker vertical padding */
-    gap: 16px;
-  }
-
-  .trust-reviews {
-    justify-content: center;
-    width: 100%;
-    gap: 8px;
-  }
-
-  /* --- MATCHES THE HORIZONTAL LAYOUT IN REAL VIEW.PNG --- */
-  .trust-logos {
-    display: flex !important; /* Forces a flexible row instead of a grid layout */
-    flex-direction: row; /* Locks all logos in a straight horizontal line */
-    justify-content: space-between; /* Spreads them evenly across the viewport view */
-    align-items: center;
-    flex-wrap: nowrap; /* PREVENTS logos from breaking onto a second line */
-    width: 100%;
-    gap: 8px; /* Compact spacing so they fit comfortably on small screens */
-  }
-
-  .logo-item {
-    flex: 1; /* Allows each logo wrapper to scale down equally */
-    max-width: 75px; /* Shrinks bounds so 4+ logos sit side-by-side cleanly */
-    height: 30px; /* Compact height matching the design sample */
-    opacity: 0.8;
-  }
-
-  .logo-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Keeps the brand marks perfectly proportioned */
-  }
-}
 /* Browse By Industry Section */
 .browse-industry-section {
   background-color: #121212;
@@ -3221,35 +3085,7 @@ body {
                 </div>
             </div>
 
-            <div class="trust-bar">
-                <div class="trust-reviews">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <a href="#" class="review-link">5.0 Google Reviews</a>
-                </div>
-                <div class="trust-logos">
-                    <div class="logo-item">
-                        <img src="{{ asset('uploads/adidas-logo.png') }}" alt="Adidas Logo">
-                    </div>
-                    <div class="logo-item">
-                        <img src="{{ asset('uploads/Google-logo.png') }}" alt="Google Logo">
-                    </div>
-                    <div class="logo-item">
-                        <img src="{{ asset('uploads/hp-logo.png') }}" alt="HP Logo">
-                    </div>
-                    <div class="logo-item">
-                        <img src="{{ asset('uploads/unilever-logo.webp') }}" alt="Unilever Logo">
-                    </div>
-                    <div class="logo-item">
-                        <img src="{{ asset('uploads/Benefit-Logo.png') }}" alt="Benefit Logo">
-                    </div>
-                </div>
-            </div>
+    @include('web.trustbar')
         </section>
         <!-- Browse by Industry Section -->
         <section class="browse-industry-section">
@@ -4063,6 +3899,201 @@ document.addEventListener("DOMContentLoaded", function() {
         </section>
 
         <!--Elevate -->
+        <section class="elevate-section">
+            <div class="elevate-container">
+
+                <div class="elevate-image-col">
+                    <img src="{{ asset('uploads/category-cta.png') }}" alt="Custom colorful design boxes" class="elevate-main-img">
+                </div>
+
+                <div class="elevate-content-col">
+                    <h2>Ready to Elevate Your <span class="gold-text">Packaging</span>?</h2>
+                    <p>Let's bring your packaging vision to life. Our team of experts is ready to design and deliver
+                        rigid boxes that will make your brand unforgettable.</p>
+                    <a href="#" class="elevate-quote-btn">Get Your Free Quote Today</a>
+                </div>
+
+            </div>
+        </section>
+
+
+
+
+    </div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* =========================
+       FILTER BUTTONS
+    ========================= */
+    const filterButtons = document.querySelectorAll(".filter-btn");
+
+    filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+
+            filterButtons.forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
+
+            // Later you can filter cards based on category here
+            console.log("Selected:", button.textContent);
+        });
+    });
+
+
+    /* =========================
+       TESTIMONIAL SLIDER
+    ========================= */
+    const testimonialCards = document.querySelectorAll(".testimonial-card");
+    const prevBtn = document.querySelector(".prev-btn");
+    const nextBtn = document.querySelector(".next-btn");
+
+    let currentIndex = 0;
+
+    function showTestimonial(index) {
+
+        testimonialCards.forEach(card => {
+            card.style.display = "none";
+        });
+
+        testimonialCards[index].style.display = "block";
+    }
+
+    if (window.innerWidth <= 768 && testimonialCards.length > 0) {
+
+        showTestimonial(currentIndex);
+
+        nextBtn?.addEventListener("click", () => {
+            currentIndex++;
+
+            if (currentIndex >= testimonialCards.length) {
+                currentIndex = 0;
+            }
+
+            showTestimonial(currentIndex);
+        });
+
+        prevBtn?.addEventListener("click", () => {
+            currentIndex--;
+
+            if (currentIndex < 0) {
+                currentIndex = testimonialCards.length - 1;
+            }
+
+            showTestimonial(currentIndex);
+        });
+    }
+
+
+    /* =========================
+       FILE UPLOAD
+    ========================= */
+    const fileInput = document.querySelector('input[type="file"]');
+    const fileNameField = document.querySelector(
+        ".file-upload-wrapper input[type='text']"
+    );
+
+    if (fileInput && fileNameField) {
+
+        fileInput.addEventListener("change", () => {
+
+            if (fileInput.files.length > 0) {
+                fileNameField.value = fileInput.files[0].name;
+            } else {
+                fileNameField.value = "No file chosen";
+            }
+
+        });
+    }
+
+
+    /* =========================
+       QUOTE FORM
+    ========================= */
+    const quoteForm = document.querySelector(".instant-quote-form");
+
+    if (quoteForm) {
+        // Disable default HTML5 validation tooltips to use custom logic
+        quoteForm.setAttribute('novalidate', true);
+
+        quoteForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            let isValid = true;
+            let firstInvalidField = null;
+
+            // Check all required fields in the form
+            const requiredFields = quoteForm.querySelectorAll('[required]');
+            requiredFields.forEach(field => {
+                let valid = true;
+                const val = field.value.trim();
+                
+                if (!val) {
+                    valid = false;
+                } else if (field.type === 'email') {
+                    // Simple email validation regex
+                    const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+                    if (!emailRegex.test(val)) valid = false;
+                } else if (field.type === 'tel') {
+                    // Simple phone validation (at least 7 digits/characters like + - spaces)
+                    const phoneRegex = /^\\+?[\\d\\s\\-\\(^\\)]{7,20}$/;
+                    if (!phoneRegex.test(val)) valid = false;
+                }
+
+                if (!valid) {
+                    isValid = false;
+                    field.style.border = "1px solid red";
+                    if (!firstInvalidField) {
+                        firstInvalidField = field;
+                    }
+                } else {
+                    field.style.border = ""; // reset border if valid
+                }
+            });
+
+            if (!isValid) {
+                if (firstInvalidField) firstInvalidField.focus();
+                return;
+            }
+
+            // Success state - you can add custom success message UI here if needed
+            
+            quoteForm.reset();
+            requiredFields.forEach(field => field.style.border = ""); // reset borders
+
+            if (typeof fileNameField !== 'undefined' && fileNameField) {
+                fileNameField.value = "No file chosen";
+            }
+        });
+    }
+    
+    // --- FAQ Accordion ---
+    document.querySelectorAll('.pg-accordion-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = btn.closest('.pg-accordion-item');
+            var isOpen = item.classList.contains('open');
+
+            // close all, reset icons to +
+            document.querySelectorAll('.pg-accordion-item').forEach(function(i) {
+                i.classList.remove('open');
+                var icon = i.querySelector('.pg-accordion-icon');
+                if (icon) {
+                    icon.innerHTML = '+';
+                    icon.style.color = 'rgba(255,255,255,0.6)';
+                }
+            });
+
+            // if it was closed, open it and show -
+            if (!isOpen) {
+                item.classList.add('open');
+                var icon = btn.querySelector('.pg-accordion-icon');
+                if (icon) {
+                    icon.innerHTML = '&#8722;';
+                    icon.style.color = '#FFC107';
+                }
+            }
+        });
         <section class="elevate-section">
             <div class="elevate-container">
 

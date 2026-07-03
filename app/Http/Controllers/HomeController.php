@@ -297,7 +297,7 @@ function product_mail(Request $request)
     Session::flash('product','Thanks for your Intrest');
     $product='product';
     $data=array(
-        'p_name'=>$request->p_name,
+        'p_name'=>$request->p_first_name . ' ' . $request->p_last_name,
         'email'=>$request->p_email,
         'p_phone' =>$request->p_phone,
         'p_boxname'=>$request->p_boxname,

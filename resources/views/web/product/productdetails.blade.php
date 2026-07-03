@@ -127,7 +127,7 @@ a { text-decoration: none; color: inherit; }
 .product-btn-upload:hover { background-color: var(--product-gold-hover); }
 .product-quote-form textarea { resize: vertical; min-height: 100px; white-space: normal; overflow: auto; }
 .product-submit-wrap { display: flex; justify-content: center; margin-top: 18px; }
-.product-btn-primary { width: 100%; background-color: var(--product-gold); color: #111; border: none; border-radius: 62.5px; padding: 18.8px 37.5px; font-size: 20px; font-weight: 600; cursor: pointer; transition: background-color 0.3s ease; }
+.product-btn-primary { background-color: var(--product-gold); color: #111; border: none; border-radius: 50px; padding: 14px 40px; font-size: 16px; font-weight: 700; cursor: pointer; transition: background-color 0.3s ease; letter-spacing: 0.5px; }
 .product-btn-primary:hover { background-color: var(--product-gold-hover); }
 
 /* INFO TABS */
@@ -178,6 +178,35 @@ a { text-decoration: none; color: inherit; }
 .product-form-group { display: flex; flex-direction: column; gap: 5px; }
 .product-form-group label { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.75); }
 .product-form-group input,
+.product-form-group select { background-color: #2a2a2a; border: 1px solid transparent; border-radius: 6px; padding: 12px 14px; color: #fff; font-family: var(--product-font); font-size: 13px; outline: none; transition: border-color 0.3s; }
+
+/* ==================== PFR SECTION ==================== */
+.product-pfr-section { padding: 0px 0; background-color: var(--product-bg);  }
+.pfr-wrapper { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; }
+.pfr-features { display: grid; grid-template-columns: 1fr 1fr; gap: 45px 30px; }
+.pfr-feature { display: flex; flex-direction: column; gap: 12px; }
+.pfr-icon { color: var(--product-gold); }
+.pfr-icon svg { width: 32px; height: 32px; }
+.pfr-feature h4 { font-size: 15px; font-weight: 700; color: #fff; margin: 0; }
+.pfr-feature p { font-size: 12.5px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0; }
+
+.pfr-reviews { background-color: #1f1f1f; border-radius: 20px; padding: 45px; display: flex; flex-direction: column; justify-content: center; position: relative; }
+.pfr-reviews-inner { display: flex; align-items: center; justify-content: center; position: relative; padding: 0 45px; }
+.pfr-nav { position: absolute; top: calc(50% + 15px); transform: translateY(-50%); z-index: 10; background: #1f1f1f; border: 1px solid rgba(255,255,255,0.1); width: 36px; height: 36px; border-radius: 50%; color: rgba(255,255,255,0.5); font-size: 20px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; }
+.pfr-nav.prev { left: 0; }
+.pfr-nav.next { right: 0; }
+.pfr-nav:hover { border-color: var(--product-gold); color: var(--product-gold); }
+.pfr-slider-wrap { overflow: hidden; width: 100%; padding-top: 35px; margin-top: -35px; }
+.pfr-slider { display: flex; transition: transform 0.5s ease; }
+.pfr-slide { width: 100%; flex-shrink: 0; border: 1px solid rgba(255,193,7,0.15); border-radius: 12px; padding: 45px 30px 30px; text-align: center; position: relative; box-sizing: border-box; }
+.pfr-avatar { width: 64px; height: 64px; border-radius: 50%; border: 3px solid #1f1f1f; position: absolute; top: -32px; left: 50%; transform: translateX(-50%); overflow: hidden; background-color: #333; z-index: 2; }
+.pfr-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.pfr-text { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 25px; }
+.pfr-name { font-size: 15px; font-weight: 700; color: var(--product-gold); margin: 0 0 4px 0; }
+.pfr-title { font-size: 11px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.5px; }
+.pfr-dots { display: flex; justify-content: center; gap: 8px; margin-top: 25px; }
+.pfr-dot { width: 30px; height: 3px; background-color: rgba(255,255,255,0.15); border-radius: 2px; cursor: pointer; transition: 0.3s; }
+.pfr-dot.active { background-color: var(--product-gold); }
 .product-form-group select { background-color: #141414; border: 1px solid #333333; border-radius: 6px; padding: 7px 10px; color: #fff; font-family: var(--product-font); font-size: 11.5px; outline: none; transition: border-color 0.25s; width: 100%; appearance: none; -webkit-appearance: none; }
 .product-form-group input::placeholder { color: #555; }
 .product-form-group input:focus, .product-form-group select:focus { border-color: var(--product-gold); }
@@ -194,6 +223,24 @@ a { text-decoration: none; color: inherit; }
 .product-placeholder-img { margin-left: -92px; width: 220px; height: 260px; background-color: #2a2a2a; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; color: rgba(255,255,255,0.25); font-weight: 500; flex-shrink: 0; overflow: hidden; }
 .product-placeholder-img img { width: 100%; height: 100%; object-fit: cover; }
 
+/* INSTANT QUOTE SECTION */
+.instant-quote-section { padding: 40px 0 60px; }
+.iq-card { background-color: #222222; border-radius: 12px; padding: 40px; display: grid; grid-template-columns: 1fr 280px; gap: 40px; align-items: start; max-width: 1200px; margin: 0 auto; box-sizing: border-box; }
+.iq-content { flex: 1; }
+.iq-title { font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 25px; }
+.iq-form { display: flex; flex-direction: column; gap: 18px; }
+.iq-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+.iq-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.iq-group { display: flex; flex-direction: column; gap: 6px; }
+.iq-group label { font-size: 11px; color: #fff; font-weight: 600; }
+.iq-group input, .iq-group select, .iq-group textarea { background-color: #161616; border: 1px solid transparent; border-radius: 6px; padding: 12px 14px; color: #fff; font-size: 13px; font-family: var(--product-font); outline: none; transition: border-color 0.3s; width: 100%; box-sizing: border-box; }
+.iq-group input:focus, .iq-group select:focus, .iq-group textarea:focus { border-color: var(--product-gold); }
+.iq-group textarea { resize: vertical; min-height: 80px; }
+.iq-submit { margin-top: 10px; display: flex; justify-content: flex-start; }
+.iq-btn { background-color: var(--product-gold); color: #111; font-weight: 700; padding: 12px 40px; border-radius: 50px; border: none; font-size: 14px; cursor: pointer; transition: background-color 0.3s; width: 100%; max-width: 250px; text-align: center; }
+.iq-btn:hover { background-color: var(--product-gold-hover); }
+.iq-image-wrap { background-color: #333333; border-radius: 8px; width: 100%; aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; color: #111; font-size: 24px; font-weight: 700; }
+
 /* Section headings */
 .product-section-title { font-size: 40px; font-weight: 700; margin-bottom: 18.8px; }
 .product-sec-badge { display: inline-block; color: var(--product-gold); border: 1px solid var(--product-gold); padding: 6.2px 18.8px; border-radius: 62.5px; font-size: 15px; font-weight: 600; letter-spacing: 1px; margin-bottom: 25px; }
@@ -208,6 +255,7 @@ a { text-decoration: none; color: inherit; }
     .product-hero-grid { grid-template-columns: 1fr; }
     .product-related-grid { grid-template-columns: repeat(2, 1fr); }
     .product-final-quote-wrapper { grid-template-columns: 1fr; }
+    .pfr-wrapper { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 960px) {
@@ -251,6 +299,12 @@ a { text-decoration: none; color: inherit; }
     .product-form-group input, .product-form-group select { font-size: 3.8vw; padding: 2.5vw 3vw; }
     .product-final-form textarea { font-size: 3.8vw; padding: 2.5vw 3vw; }
     .product-submit-btn { font-size: 4vw; padding: 3.5vw 8vw; }
+
+    .pfr-features { grid-template-columns: 1fr; gap: 30px; }
+    .pfr-reviews { padding: 8vw 5vw; margin-top: 5vw; }
+    .pfr-reviews-inner { padding: 0 10vw; }
+    .pfr-nav { top: calc(50% + 5vw); width: 8vw; height: 8vw; font-size: 4vw; }
+    .pfr-slide { padding: 10vw 4vw 6vw; }
     .product-tabs-wrapper { margin-left: -4.5vw; margin-right: -4.5vw; margin-bottom: 6vw; }
     .product-tabs-nav { gap: 3vw; overflow-x: auto; padding: 0 4.5vw; scroll-snap-type: x mandatory; }
     .product-tab-item { flex: 0 0 44vw; width: 44vw; font-size: 4vw; padding: 3.5vw 2vw; white-space: nowrap; text-align: center; scroll-snap-align: start; }
@@ -353,11 +407,22 @@ a { text-decoration: none; color: inherit; }
         <div class="product-container">
 
             <!-- Breadcrumbs -->
-            <div class="product-breadcrumbs">
-                <a href="{{ url('/') }}"><i class="fas fa-home"></i></a>
-                <span class="product-bc-sep">&raquo;</span>
+            <div class="product-breadcrumbs" style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                <a href="{{ url('/') }}" style="display: flex; align-items: center; padding-bottom: 2px;"><i class="fas fa-home" style="font-size: 16px;"></i></a>
+                
+                @if(isset($product_top_category) && $product_top_category)
+                <i class="fas fa-chevron-right" style="font-size: 11px; color: rgba(255,255,255,0.4);"></i>
+                <a href="{{ url($product_top_category->category_url) }}" style="display: flex; align-items: center; font-size: 16px; font-weight: 500; transition: color 0.3s ease;" onmouseover="this.style.color='#FFC107'" onmouseout="this.style.color=''">{{ $product_top_category->name }}</a>
+                @endif
+                
+                @if(isset($product_category) && $product_category)
+                <i class="fas fa-chevron-right" style="font-size: 11px; color: rgba(255,255,255,0.4);"></i>
+                <a href="{{ url($product_category->category_url) }}" style="display: flex; align-items: center; font-size: 16px; font-weight: 500; transition: color 0.3s ease;" onmouseover="this.style.color='#FFC107'" onmouseout="this.style.color=''">{{ $product_category->name }}</a>
+                @endif
+
+                <i class="fas fa-chevron-right" style="font-size: 11px; color: rgba(255,255,255,0.4);"></i>
                 @foreach($product as $p)
-                <span class="product-bc-active">{{ $p->title }}</span>
+                <span class="product-bc-active" style="display: flex; align-items: center; font-size: 16px; font-weight: 500; color: #b3b3b3;">{{ $p->title }}</span>
                 @break
                 @endforeach
             </div>
@@ -436,14 +501,14 @@ a { text-decoration: none; color: inherit; }
                         @php
                             $clean_desc = strip_tags($p->description);
                         @endphp
-                        @if(strlen($clean_desc) > 195)
+                        @if(strlen($clean_desc) > 180)
                             <div id="desc-short" style="display: block;">
-                                {{ Str::limit($clean_desc, 195, ' ....') }} 
-                                <a onclick="document.getElementById('desc-short').style.display='none'; document.getElementById('desc-full').style.display='block';" style="color: #D4891A; font-weight: 600; text-decoration: none; cursor: pointer;">Read More</a>
+                                {{ Str::limit($clean_desc, 180, ' ....') }} 
+                                <a onclick="document.getElementById('desc-short').style.display='none'; document.getElementById('desc-full').style.display='block';" style="color: #F5C542 !important; font-weight: 600; text-decoration: none; cursor: pointer; white-space: nowrap;">Read More</a>
                             </div>
                             <div id="desc-full" style="display: none;">
                                 {!! $p->description !!} 
-                                <a onclick="document.getElementById('desc-full').style.display='none'; document.getElementById('desc-short').style.display='block';" style="color: #D4891A; font-weight: 600; text-decoration: none; cursor: pointer;">Show Less</a>
+                                <a onclick="document.getElementById('desc-full').style.display='none'; document.getElementById('desc-short').style.display='block';" style="color: #F5C542 !important; font-weight: 600; text-decoration: none; cursor: pointer; white-space: nowrap;">Show Less</a>
                             </div>
                         @else
                             {!! $p->description !!}
@@ -457,12 +522,20 @@ a { text-decoration: none; color: inherit; }
                             @csrf
                             <input type="hidden" name="p_boxname" value="{{ $p->title }}">
 
-                            <!-- Row 1: Name | Email | Phone -->
-                            <div class="product-form-row product-form-row-3">
+                            <!-- Row 1: First Name | Last Name -->
+                            <div class="product-form-row product-form-row-options">
                                 <div class="pf-wrap">
-                                    <label class="pf-mob-label">Name *</label>
-                                    <input type="text" name="p_name" placeholder="Enter your name" required>
+                                    <label class="pf-mob-label">First Name *</label>
+                                    <input type="text" name="p_first_name" placeholder="First name" required>
                                 </div>
+                                <div class="pf-wrap">
+                                    <label class="pf-mob-label">Last Name *</label>
+                                    <input type="text" name="p_last_name" placeholder="Last name" required>
+                                </div>
+                            </div>
+
+                            <!-- Row 2: Email | Phone -->
+                            <div class="product-form-row product-form-row-options">
                                 <div class="pf-wrap">
                                     <label class="pf-mob-label">Email Address *</label>
                                     <input type="email" name="p_email" placeholder="Enter your email" required>
@@ -473,7 +546,7 @@ a { text-decoration: none; color: inherit; }
                                 </div>
                             </div>
 
-                            <!-- Row 2: Width | Length | Height | Unit -->
+                            <!-- Row 3: Width | Length | Height | Unit -->
                             <div class="product-form-row product-form-row-4">
                                 <div class="pf-wrap">
                                     <label class="pf-mob-label">Width *</label>
@@ -497,21 +570,8 @@ a { text-decoration: none; color: inherit; }
                                 </div>
                             </div>
 
-                            <!-- Row 3: Material | Printing -->
+                            <!-- Row 4: Printing Options | Quantity -->
                             <div class="product-form-row product-form-row-options">
-                                <div class="pf-wrap">
-                                    <label class="pf-mob-label">Select Stock</label>
-                                    <select name="p_stock">
-                                        <option value="">Select Stock</option>
-                                        <option value="12pt Cardboard Stock">12pt Cardboard Stock</option>
-                                        <option value="14pt Cardboard Stock">14pt Cardboard Stock</option>
-                                        <option value="16pt Cardboard Stock">16pt Cardboard Stock</option>
-                                        <option value="18pt Cardboard Stock">18pt Cardboard Stock</option>
-                                        <option value="20pt Cardboard Stock">20pt Cardboard Stock</option>
-                                        <option value="Kraft Stock">Kraft Stock</option>
-                                        <option value="Corrugated Stock">Corrugated Stock</option>
-                                    </select>
-                                </div>
                                 <div class="pf-wrap">
                                     <label class="pf-mob-label">Printing Options</label>
                                     <select name="p_color">
@@ -524,14 +584,14 @@ a { text-decoration: none; color: inherit; }
                                         <option value="4 Color+PMS">4 Color + PMS</option>
                                     </select>
                                 </div>
-                            </div>
-
-                            <!-- Row 4: Quantity | Upload -->
-                            <div class="product-form-row product-form-row-upload">
                                 <div class="pf-wrap">
                                     <label class="pf-mob-label">Quantity *</label>
                                     <input type="text" name="p_qty1" placeholder="Enter quantity" required>
                                 </div>
+                            </div>
+
+                            <!-- Row 5: Upload -->
+                            <div class="product-form-row">
                                 <div class="pf-wrap pf-upload-wrap">
                                     <label class="pf-mob-label">Upload File Here</label>
                                     <div class="product-upload-group">
@@ -554,6 +614,123 @@ a { text-decoration: none; color: inherit; }
 
                     @break
                     @endforeach
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FEATURES & REVIEWS ==================== -->
+    <section class="product-pfr-section">
+        <div class="product-container">
+            <div class="pfr-wrapper">
+                
+                <!-- Left: Features -->
+                <div class="pfr-features">
+                    <div class="pfr-feature">
+                        <div class="pfr-icon">
+                            <img src="{{ asset('uploads/product/freedesign.svg') }}" alt="Free Design Assistance" width="32" height="32" >
+                        </div>
+                        <div class="pfr-content">
+                            <h4>Free Design Assistance</h4>
+                            <p>Our expert designers provide free guidance and mockups to create packaging that perfectly reflects your brand at no extra cost.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="pfr-feature">
+                        <div class="pfr-icon">
+                            <img src="{{ asset('uploads/product/custom-size.svg') }}" alt="Custom Size" width="32" height="32" >
+                        </div>
+                        <div class="pfr-content">
+                            <h4>Custom Size And Shape</h4>
+                            <p>We create packaging tailored to your exact dimensions and style, ensuring a perfect fit and standout presentation for every product.</p>
+                        </div>
+                    </div>
+
+                    <div class="pfr-feature">
+                        <div class="pfr-icon">
+                            <img src="{{ asset('uploads/product/price.svg') }}" alt="Low Price" width="32" height="32" >
+                        </div>
+                        <div class="pfr-content">
+                            <h4>Low Price</h4>
+                            <p>We offer high-quality custom packaging at the most competitive rates, giving you premium results without exceeding your budget.</p>
+                        </div>
+                    </div>
+
+                    <div class="pfr-feature">
+                        <div class="pfr-icon">
+                            <img src="{{ asset('uploads/product/shipping-fast.svg') }}" alt="Free Shipping" width="32" height="32" >
+                        </div>
+                        <div class="pfr-content">
+                            <h4>Free Shipping</h4>
+                            <p>We offer free nationwide delivery on all custom packaging orders, ensuring you get premium boxes without extra costs or hidden fees.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Reviews Slider -->
+                <div class="pfr-reviews">
+                    <div class="pfr-reviews-inner">
+                        <button class="pfr-nav prev" onclick="movePfrSlide(-1)">&#8249;</button>
+                        <div class="pfr-slider-wrap">
+                            <div class="pfr-slider" id="pfrSlider">
+                                
+                                @if(isset($reviews) && count($reviews) > 0)
+                                    @foreach($reviews as $review)
+                                    <div class="pfr-slide">
+                                        <div class="pfr-avatar">
+                                            <!-- Using pravatar for dynamic avatars if db doesn't have images -->
+                                            <img src="https://i.pravatar.cc/150?u={{ $review->email ?? $review->id }}" alt="Avatar">
+                                        </div>
+                                        <p class="pfr-text">{{ $review->review_text }}</p>
+                                        <h5 class="pfr-name">{{ $review->name }}</h5>
+                                        <span class="pfr-title">Customer</span>
+                                    </div>
+                                    @endforeach
+                                @else
+                                <div class="pfr-slide">
+                                    <div class="pfr-avatar">
+                                        <img src="{{ asset('uploads/avatar1.jpg') }}" onerror="this.src='https://i.pravatar.cc/150?img=11'" alt="Avatar">
+                                    </div>
+                                    <p class="pfr-text">We've been working with PremiumBoxes for 3 years now. Their consistency, attention to detail, and timely delivery make them our go-to packaging partner.</p>
+                                    <h5 class="pfr-name">Mike Torello</h5>
+                                    <span class="pfr-title">CEO, Jewels Co.</span>
+                                </div>
+                                
+                                <div class="pfr-slide">
+                                    <div class="pfr-avatar">
+                                        <img src="{{ asset('uploads/avatar2.jpg') }}" onerror="this.src='https://i.pravatar.cc/150?img=32'" alt="Avatar">
+                                    </div>
+                                    <p class="pfr-text">Absolutely fantastic quality and customer service. They helped us redesign our boxes from scratch and the final result was beyond our expectations.</p>
+                                    <h5 class="pfr-name">Sarah Jenkins</h5>
+                                    <span class="pfr-title">Founder, Glow Cosmetics</span>
+                                </div>
+                                
+                                <div class="pfr-slide">
+                                    <div class="pfr-avatar">
+                                        <img src="{{ asset('uploads/avatar3.jpg') }}" onerror="this.src='https://i.pravatar.cc/150?img=59'" alt="Avatar">
+                                    </div>
+                                    <p class="pfr-text">Fast shipping and affordable pricing. We compared many suppliers but this one offered the best value for premium custom printed boxes.</p>
+                                    <h5 class="pfr-name">David Chen</h5>
+                                    <span class="pfr-title">Manager, TechGear</span>
+                                </div>
+                                @endif
+                                
+                            </div>
+                        </div>
+                        <button class="pfr-nav next" onclick="movePfrSlide(1)">&#8250;</button>
+                    </div>
+                    <div class="pfr-dots" id="pfrDots">
+                        @if(isset($reviews) && count($reviews) > 0)
+                            @foreach($reviews as $index => $review)
+                                <span class="pfr-dot {{ $index == 0 ? 'active' : '' }}" onclick="goToPfrSlide({{ $index }})"></span>
+                            @endforeach
+                        @else
+                            <span class="pfr-dot active" onclick="goToPfrSlide(0)"></span>
+                            <span class="pfr-dot" onclick="goToPfrSlide(1)"></span>
+                            <span class="pfr-dot" onclick="goToPfrSlide(2)"></span>
+                        @endif
+                    </div>
                 </div>
 
             </div>
@@ -885,6 +1062,77 @@ a { text-decoration: none; color: inherit; }
         </div>
     </section>
 
+    <!-- ==================== INSTANT QUOTE SECTION ==================== -->
+    <section class="instant-quote-section">
+        <div class="product-container">
+            <div class="iq-card">
+                <div class="iq-content">
+                    <h2 class="iq-title">Instant Quotes, Quick Service</h2>
+                    <form action="{{ url('submit-quote') }}" method="POST" class="iq-form" enctype="multipart/form-data">
+                        @csrf
+                        <div class="iq-row">
+                            <div class="iq-group">
+                                <label>Name *</label>
+                                <input type="text" name="name" placeholder="Name" required>
+                            </div>
+                            <div class="iq-group">
+                                <label>Email Address *</label>
+                                <input type="email" name="email" placeholder="Email" required>
+                            </div>
+                            <div class="iq-group">
+                                <label>Phone *</label>
+                                <input type="text" name="phone" placeholder="Phone number" required>
+                            </div>
+                        </div>
+                        <div class="iq-row">
+                            <div class="iq-group">
+                                <label>Company Name</label>
+                                <input type="text" name="company" placeholder="Company">
+                            </div>
+                            <div class="iq-group">
+                                <label>Website</label>
+                                <input type="text" name="website" placeholder="Website">
+                            </div>
+                            <div class="iq-group">
+                                <label>Physical Address</label>
+                                <input type="text" name="address" placeholder="Address">
+                            </div>
+                        </div>
+                        <div class="iq-row-2">
+                            <div class="iq-group">
+                                <label>Box Style *</label>
+                                <select name="box_style" required>
+                                    <option value="" disabled selected>Select your box style</option>
+                                    <option value="Mailer Box">Mailer Box</option>
+                                    <option value="Rigid Box">Rigid Box</option>
+                                    <option value="Folding Carton">Folding Carton</option>
+                                    <option value="Shipping Box">Shipping Box</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="iq-group">
+                                <label>Quantity *</label>
+                                <input type="number" name="quantity" placeholder="Enter quantity" required>
+                            </div>
+                        </div>
+                        <div class="iq-group">
+                            <label>Message</label>
+                            <textarea name="message" placeholder="Enter your message"></textarea>
+                        </div>
+                        <div class="iq-submit">
+                            <button type="submit" class="iq-btn">Instant Quote</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="iq-image-col">
+                    <div class="iq-image-wrap">
+                        Image
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ==================== RELATED PRODUCTS ==================== -->
     @php
         $relatedExists = false;
@@ -938,7 +1186,10 @@ document.querySelectorAll('.product-tab-item').forEach(function(tab) {
         document.querySelectorAll('.product-tab-item').forEach(t => t.classList.remove('active'));
         document.querySelectorAll('.product-tab-content').forEach(c => c.style.display = 'none');
         this.classList.add('active');
-        document.getElementById(this.dataset.tab).style.display = 'block';
+        let targetContent = document.getElementById(this.dataset.tab);
+        if(targetContent) {
+            targetContent.style.display = 'block';
+        }
     });
 });
 
@@ -1060,6 +1311,48 @@ document.querySelectorAll('.cust-tab-btn').forEach(btn => {
         document.getElementById('cust-' + target).style.display = 'block';
     });
 });
+
+// ── PFR SLIDER ──
+(function() {
+    let pfrCurrentIndex = 0;
+    const pfrSlider = document.getElementById('pfrSlider');
+    const pfrDots = document.getElementById('pfrDots');
+    let pfrSlides = [];
+    let pfrDotElements = [];
+    let pfrInterval;
+    
+    if(pfrSlider && pfrDots) {
+        pfrSlides = pfrSlider.querySelectorAll('.pfr-slide');
+        pfrDotElements = pfrDots.querySelectorAll('.pfr-dot');
+        
+        window.goToPfrSlide = function(index) {
+            if(index < 0 || index >= pfrSlides.length) return;
+            pfrCurrentIndex = index;
+            pfrSlider.style.transform = `translateX(-${pfrCurrentIndex * 100}%)`;
+            pfrDotElements.forEach((dot, i) => {
+                dot.classList.toggle('active', i === pfrCurrentIndex);
+            });
+            resetPfrInterval();
+        };
+        
+        window.movePfrSlide = function(step) {
+            let nextIndex = pfrCurrentIndex + step;
+            if(nextIndex < 0) nextIndex = pfrSlides.length - 1;
+            if(nextIndex >= pfrSlides.length) nextIndex = 0;
+            goToPfrSlide(nextIndex);
+        };
+        
+        function resetPfrInterval() {
+            clearInterval(pfrInterval);
+            pfrInterval = setInterval(() => {
+                movePfrSlide(1);
+            }, 5000);
+        }
+        
+        // Start auto-slide
+        resetPfrInterval();
+    }
+})();
 </script>
 
 @include('web/footer')
