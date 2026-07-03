@@ -1,4 +1,7 @@
 @include('web/header')
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@700&display=swap" rel="stylesheet">
 
   /* ================================================
    CATEGORY PAGE — Reset & Variables
@@ -288,6 +291,7 @@ img {
 .cp-products {
     background: var(--bg);
     padding: 90px 0;
+    overflow: hidden;
 }
 
 .gift-boxes-page + .cp-products {
@@ -303,8 +307,8 @@ img {
     margin-bottom: 18px;
 }
 
-.gift-boxes-page + .cp-products + .gift-boxes-addons-section + .cp-why,
-.gift-boxes-page ~ .product-testimonials-section {
+.gift-boxes-page + .cp-products + .customize-section + .cp-why,
+.gift-boxes-page ~ .testimonials-section {
     margin-top: 3px;
     padding-top: 60px;
     padding-bottom: 60px;
@@ -316,7 +320,7 @@ img {
     padding-bottom: 58px;
 }
 
-.gift-boxes-page + .cp-products + .gift-boxes-addons-section + .cp-why .cp-why-title {
+.gift-boxes-page + .cp-products + .customize-section + .cp-why .cp-why-title {
     margin-top: 0;
 }
 
@@ -367,6 +371,460 @@ img {
     display: block;
     width: 100%;
     height: auto;
+}
+
+/* ================================================
+   HOW IT WORKS SECTION
+   ================================================ */
+.hiw-section {
+    background: #202020;
+    padding: 70px 0 60px;
+}
+
+.hiw-wrap {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 60px;
+}
+
+.hiw-header {
+    text-align: center;
+    margin-bottom: 52px;
+}
+
+.hiw-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 14px;
+}
+
+.hiw-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.65;
+    max-width: 440px;
+    margin: 0 auto;
+}
+
+/* 3-column grid */
+.hiw-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0 32px;
+    align-items: end;
+}
+
+/*
+ * Each step is a relative container.
+ * The ghost number sits via a ::before pseudo-element
+ * anchored to the top-left, so content flows naturally below it.
+ */
+.hiw-step {
+    position: relative;
+    padding-top: 120px; /* space for ghost number to peek behind */
+}
+
+/* Ghost number rendered as ::before — top-left, huge, very faint */
+.hiw-step::before {
+    content: attr(data-num);
+    font-family: 'Hepta Slab', serif;
+    font-size: 190px;
+    font-weight: 700;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.055);
+    position: absolute;
+    top: 0;
+    left: -8px;
+    z-index: 0;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Hide the inline span — we use ::before now */
+.hiw-num {
+    display: none;
+}
+
+/* Content sits on top of the ghost number */
+.hiw-step-body {
+    position: absolute;
+    top: 97px;
+    left: 75px;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    width: 256.58px;
+    max-width: calc(100% - 75px);
+}
+
+.hiw-step-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+}
+
+.hiw-step-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 0;
+}
+
+.hiw-step-text strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .hiw-wrap        { padding: 0 30px; }
+    .hiw-step        { padding-top: 90px; }
+    .hiw-step::before{ font-size: 140px; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hiw-section  { padding: 50px 0 40px; }
+    .hiw-wrap     { padding: 0 16px; }
+    .hiw-header   { margin-bottom: 32px; }
+    .hiw-title    { font-size: 22px; }
+    .hiw-subtitle { font-size: 13px; }
+
+    .hiw-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .hiw-step {
+        padding-top: 70px;
+        padding-bottom: 28px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hiw-step:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .hiw-step::before {
+        font-size: 110px;
+        left: -4px;
+    }
+
+    .hiw-step-body {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .hiw-step-title { font-size: 15px; }
+    .hiw-step-text  { font-size: 13px; }
+}
+
+/* ==========================================
+   CUSTOMIZE YOUR BOX SECTION
+========================================== */
+.customize-section {
+  max-width: 1242px;
+  margin: 0 auto;
+  padding: 40px 5%;
+}
+
+.customize-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.badge-center {
+  margin: 0 auto 24px;
+}
+
+.customize-header h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 30px;
+  letter-spacing: 0.04em;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.customize-header p {
+  width: 560px;
+  max-width: 100%;
+  margin: 0 auto;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+
+/* FILTER BUTTONS */
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 50px 0;
+}
+
+.filter-btn {
+  height: 58px;
+  width: 150px;
+  border: 1px solid #FFC107;
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 4px;
+  /* ensure no shrinking on desktop */
+  flex-shrink: 0;
+}
+
+.filter-btn:hover {
+  background: #FFC107;
+  color: #111;
+}
+
+.filter-btn.active {
+  background: #FFC107;
+  color: #111;
+}
+
+/* GRID */
+.customize-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1110px;
+  margin: 0 auto;
+  gap: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* CARD */
+.customize-card {
+  width: 100%;
+  background: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  box-sizing: border-box;
+}
+
+.customize-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-image-area {
+  width: 100%;
+  height: 200px;
+  background: #363636;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+}
+
+.card-image-area img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card-content {
+  padding: 18px 17px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-content h3 {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 120%;
+  color: #fff;
+  margin: 0 0 12px 0;
+}
+
+.card-content p {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: justify;
+  color: rgba(255,255,255,0.65);
+  margin: 0 0 16px 0;
+  flex-grow: 1;
+}
+
+.card-icons {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  /* ── Fix whole-page unequal spacing ── */
+  .customize-section {
+    padding: 40px 0;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .customize-header {
+    padding: 0 16px;
+    margin-bottom: 20px;
+  }
+
+  .customize-header h2 {
+    font-size: 20px;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .customize-header p {
+    width: 100%;
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  /* ── Filter buttons: show exactly 2 at a time, scroll horizontally ── */
+  .filter-buttons {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    gap: 8px !important;
+    padding: 0 16px 10px 16px;
+    margin: 0 0 20px 0 !important;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .filter-buttons::-webkit-scrollbar {
+    display: none;
+  }
+
+  /*
+   * Each button = half the viewport minus:
+   *   16px left pad + 16px right pad = 32px total padding
+   *   8px gap / 2 = 4px per button
+   *   = calc(50vw - 20px)
+   * This guarantees exactly 2 visible on any phone screen.
+   */
+  .filter-btn {
+    flex: 0 0 calc(50vw - 20px) !important;
+    width: calc(50vw - 20px) !important;
+    max-width: none !important;
+    min-width: 0;
+    height: 44px !important;
+    font-size: 12px;
+    white-space: nowrap;
+    padding: 0 8px !important;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  /* ── Card grid: contained with equal 16px padding ── */
+  .tab-contents-container {
+    padding: 0 16px;
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .customize-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  .customize-card {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .card-image-area {
+    height: 140px;
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .card-image-area img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card-content {
+    padding: 10px 10px 12px;
+  }
+
+  .card-content h3 {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .card-content p {
+    font-size: 11px;
+    line-height: 16px;
+    margin-bottom: 8px;
+  }
+
+  .card-icons {
+    gap: 4px;
+  }
 }
 
 .cp-sec-head {
@@ -511,11 +969,15 @@ img {
    RESPONSIVE — MOBILE ≤ 768px
    ================================================ */
 @media (max-width: 768px) {
+    /* ── Global equal spacing fix ── */
     .cp-wrap {
-        padding: 0 5vw;
+        padding: 0 16px;
+        box-sizing: border-box;
+        width: 100%;
+        overflow: hidden;
     }
 
-    /* Hero — image on top with top margin, then text */
+    /* Hero */
     .cp-hero {
         padding: 0;
     }
@@ -530,7 +992,6 @@ img {
         margin-bottom: 5vw;
     }
 
-    /* Image — centered with padding, transparent bg shows through */
     .cp-hero-img {
         order: -1;
         margin-top: 36vw;
@@ -548,7 +1009,6 @@ img {
         object-fit: contain;
     }
 
-    /* Text area */
     .cp-hero-text {
         padding-top: 5vw;
     }
@@ -564,7 +1024,6 @@ img {
         margin-bottom: 6vw;
     }
 
-    /* Button — centered */
     .cp-cta {
         font-size: 4.5vw;
         padding: 3.5vw 8vw;
@@ -574,7 +1033,6 @@ img {
         text-align: center;
     }
 
-    /* Hero bar — hide stars/reviews, show logos only */
     .cp-hero-bar {
         padding: 5vw;
         gap: 0;
@@ -588,8 +1046,6 @@ img {
         display: none;
     }
 
-    /* remove reviews on mobile */
-
     .cp-logos {
         flex: unset;
         width: 100%;
@@ -601,35 +1057,32 @@ img {
         max-width: 18vw;
     }
 
-    /* Products */
+    /* ── Products section: fix cards being cut off ── */
     .cp-products {
         padding: 10vw 0;
+    }
+
+    .cp-products .cp-wrap {
+        padding: 0 16px;
+        overflow: hidden;
     }
 
     .gift-boxes-page + .cp-products {
         padding: 4vw 0 6vw;
     }
 
-    .gift-boxes-page + .cp-products + .gift-boxes-addons-section + .cp-why,
-    .gift-boxes-page ~ .product-testimonials-section {
+    .gift-boxes-page + .cp-products + .customize-section + .cp-why,
+    .gift-boxes-page ~ .testimonials-section {
         padding-top: 6vw;
         padding-bottom: 6vw;
     }
-    .gift-boxes-addons-section {
+
+    .customize-section {
         padding: 8vw 0;
     }
 
-    .gift-boxes-addons-title {
-        font-size: 7vw;
-    }
-
-    .gift-boxes-addons-subtitle {
-        font-size: 3.8vw;
-        margin-bottom: 6vw;
-    }
-
-    .gift-boxes-addons-image {
-        border-radius: 14px;
+    .cp-sec-head {
+        padding: 0 16px;
     }
 
     .cp-sec-title {
@@ -640,10 +1093,24 @@ img {
         font-size: 3.8vw;
     }
 
+    /* ── Product card grid: 2 columns, no overflow ── */
     .cp-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 4vw;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
         margin-bottom: 7vw;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .cp-card {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .cp-card-img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
     }
 
     .cp-card-name {
@@ -1264,6 +1731,118 @@ img {
 .product-testi-viewport {
     overflow: hidden;
     padding-top: 55px;
+}
+
+/* ================================================
+   HOME-STYLE TESTIMONIALS SECTION (From home page)
+   ================================================ */
+.testimonials-section {
+    padding: 90px 0;
+    background: #161616;
+}
+
+.testimonials-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.testimonials-header h2 {
+    margin: 15px 0;
+    font-size: 2.4rem;
+}
+
+.testimonials-header p {
+    color: var(--text-muted);
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.testimonial-card {
+    position: relative;
+    background: #171717;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 18px;
+    padding: 50px 25px 25px;
+    text-align: center;
+}
+
+.testimonial-card img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    top: -27px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 3px solid #222;
+}
+
+.testimonial-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.testimonial-card h4 {
+    color: var(--accent-gold);
+}
+
+.testimonial-card span {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.testimonial-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.testimonial-nav button {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid #333;
+    color: white;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.testimonial-nav button:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+}
+
+@media (max-width: 992px) {
+    .testimonial-grid {
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 0;
+        padding-top: 30px;
+        scroll-snap-type: x mandatory;
+    }
+
+    .testimonial-card {
+        flex: 0 0 100%;
+        min-width: 100%;
+        scroll-snap-align: start;
+    }
+    .testimonial-grid::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .testimonial-grid::-webkit-scrollbar-thumb {
+        background: var(--accent-gold);
+        border-radius: 10px;
+    }
 }
 
 /* ================================================
@@ -2820,7 +3399,7 @@ img {
   .industry-hero-content {
     flex-direction: column-reverse;
     gap: 30px;
-    padding: 20px 15px;
+    padding: 20px 16px;
   }
   .industry-hero-left {
     display: flex;
@@ -2854,7 +3433,136 @@ img {
   }
 }
 
+/* Trust Bar / Logos */
+.trust-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  height: 90px;
+  margin: 3px auto 0;
+  padding: 0 60px;
+  box-sizing: border-box;
+  gap: 40px;
+  border-top: 1px solid rgba(245, 197, 66, 0.24);
+  border-bottom: 1px solid rgba(245, 197, 66, 0.24);
+}
 
+/* .trust-bar {
+    overflow: hidden;
+} */
+
+.trust-logos {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+    width: max-content;
+    animation: marquee 25s linear infinite;
+}
+.trust-logos-wrapper{
+    flex:1;
+    overflow:hidden;
+}
+.logo-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-item img {
+    max-height: 45px;
+    width: auto;
+    display: block;
+    transition: transform .3s ease;
+}
+
+.logo-item:hover img {
+    transform: scale(1.08);
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+
+.trust-reviews {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 0 0 auto;
+  padding-right: 38px;
+  border-right: 1px solid rgba(245, 197, 66, 0.35);
+}
+.trust-reviews .stars {
+  color: var(--accent-gold);
+  font-size: 1.2rem;
+  display: flex;
+  gap: 5px;
+}
+.review-link {
+  color: #a0a0a0;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+.logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 112px;
+  width: 112px;
+  height: 42px;
+  opacity: 1;
+  scroll-snap-align: start;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+.logo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(77%);
+}
+.logo-item:hover img {
+  filter: grayscale(0%);
+}
+@media (max-width: 768px) {
+  .trust-bar {
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 16px;
+    gap: 16px;
+  }
+  .trust-reviews {
+    display: none;
+    border-right: 0;
+    padding-right: 0;
+  }
+  .trust-logos {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    gap: 14px;
+    overflow-x: auto;
+  }
+  .logo-item {
+    flex: 0 0 82px;
+    max-width: 82px;
+    height: 35px;
+    opacity: 0.8;
+  }
+}
 
 
 /* --- Base Section & Background Floors --- */
@@ -3084,54 +3792,51 @@ img {
   background-color: var(--accent-gold-hover);
 }
 
-/* --- Standalone Human Verification Section --- */
-.human-verification-section {
+/* --- Inline Human Verification (Inside Form) --- */
+.human-verification-inline {
   width: 100%;
-  margin-top: 3px;
-  padding: 28px 5%;
-  background-color: var(--bg-darker);
-  box-sizing: border-box;
-}
-
-.human-verification-card {
-  width: 100%;
-  max-width: 1239px;
-  margin: 0 auto;
-  padding: 24px 32px;
-  border: 1px solid rgba(245, 197, 66, 0.28);
+  margin-top: 12px;
+  padding: 20px 24px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 193, 7, 0.2);
   border-radius: 8px;
-  background-color: var(--bg-dark);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 22px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.human-verification-title {
+.human-verification-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.human-verification-inline-title {
   color: var(--text-main);
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 700;
-  margin: 0 0 6px;
-}
-
-.human-verification-copy {
-  color: var(--text-muted);
-  font-size: 14px;
   margin: 0;
 }
 
-.human-verification-control {
+.human-verification-inline-copy {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin: 0;
+}
+
+.human-verification-inline-control {
   display: flex;
   align-items: center;
   gap: 12px;
-  flex: 0 0 auto;
+  flex-wrap: wrap;
 }
 
 .human-question {
   color: var(--accent-gold);
   font-weight: 700;
   white-space: nowrap;
+  font-size: 15px;
 }
 
 .human-answer {
@@ -3143,6 +3848,8 @@ img {
   color: var(--text-main);
   text-align: center;
   outline: none;
+  padding: 0 12px;
+  font-size: 14px;
 }
 
 .human-check-btn {
@@ -3152,14 +3859,21 @@ img {
   background-color: var(--accent-gold);
   color: var(--bg-dark);
   font-weight: 700;
-  padding: 0 22px;
+  padding: 0 24px;
   cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 14px;
+}
+
+.human-check-btn:hover {
+  background-color: var(--accent-gold-hover);
 }
 
 .human-status {
-  min-width: 170px;
   color: var(--text-muted);
   font-size: 13px;
+  margin: 0;
+  min-height: 18px;
 }
 
 .human-status.is-error {
@@ -3169,20 +3883,27 @@ img {
 .human-status.is-success {
   color: #72d17f;
 }
+
 @media (max-width: 768px) {
-  .human-verification-card {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 22px 18px;
+  .human-verification-inline {
+    padding: 18px 16px;
   }
 
-  .human-verification-control {
+  .human-verification-inline-title {
+    font-size: 14px;
+  }
+
+  .human-verification-inline-copy {
+    font-size: 12px;
+  }
+
+  .human-verification-inline-control {
     width: 100%;
-    flex-wrap: wrap;
   }
 
   .human-answer {
     flex: 1 1 90px;
+    min-width: 90px;
   }
 
   .human-status {
@@ -3320,7 +4041,59 @@ img {
                 </div>
             </div>
 
-    @include('web.trustbar')
+            <div class="trust-bar">
+                <div class="trust-reviews">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+
+                    <a href="#" class="review-link">5.0 Google Reviews</a>
+ </div>
+   @php
+                    $trustLogoDir = base_path('uploads');
+                    $trustLogoFiles = [];
+                    foreach (['webp', 'png', 'jpg', 'jpeg', 'svg'] as $extension) {
+                        $trustLogoFiles = array_merge($trustLogoFiles, glob($trustLogoDir . DIRECTORY_SEPARATOR . '*.' . $extension) ?: []);
+                    }
+                    sort($trustLogoFiles);
+                @endphp
+                <div class="trust-logos" aria-label="Brand logos">
+<div class="logo-item">
+        <img src="{{ asset('uploads/flowgardens-logo.webp') }}" alt="Flowgardens Logo">
+    </div>
+
+    <div class="logo-item">
+        <img src="{{ asset('uploads/voli-logo.webp') }}" alt="Voli Logo">
+    </div>
+
+    <div class="logo-item">
+        <img src="{{ asset('uploads/neat-logo.webp') }}" alt="Neat Logo">
+    </div>
+
+    <div class="logo-item">
+        <img src="{{ asset('uploads/11-png.webp') }}" alt="11 Logo">
+    </div>
+
+    <div class="logo-item">
+        <img src="{{ asset('uploads/red-bull-logo.png') }}" alt="Red Bull Logo">
+    </div>
+    <div class="logo-item">
+        <img src="{{ asset('uploads/springtastic-logo.webp') }}" alt="Springtastic Logo">
+    </div>
+    <div class="logo-item">
+        <img src="{{ asset('uploads/her-piece-peace-logo.webp') }}" alt="Her Piece of Peace Logo">
+    </div>
+    <div class="logo-item">
+        <img src="{{ asset('uploads/kinky.webp') }}" alt="Kinky Logo">
+    </div>
+                </div>
+            </div>
+
+                </div>
+
         </section>
 
 <!-- ================================================
@@ -3361,21 +4134,6 @@ img {
     </div>
 </section>
 
-
-@if($isGiftBoxesPage)
-<section class="gift-boxes-addons-section">
-    <div class="gift-boxes-addons-wrap">
-        <div class="gift-boxes-addons-header">
-            <h2 class="gift-boxes-addons-title">Elevate With Exclusive Finishes</h2>
-            <p class="gift-boxes-addons-subtitle">Add that extra touch of luxury with our range of premium finishing options.</p>
-        </div>
-
-        <div class="gift-boxes-addons-image">
-            <img src="{{ asset('uploads/preium-addons.webp') }}" alt="Premium Addons">
-        </div>
-    </div>
-</section>
-@endif
 <!-- ================================================
      WHY CHOOSE SECTION
      ================================================ -->
@@ -3411,103 +4169,364 @@ img {
 </section>
 @endif
 
+<!-- ================================================
+     HOW IT WORKS SECTION
+     ================================================ -->
+<section class="hiw-section">
+    <div class="hiw-wrap">
+
+        <div class="hiw-header">
+            <h2 class="hiw-title">How it Works</h2>
+            <p class="hiw-subtitle">Follow our simple step-by-step process to bring your custom packaging to life.</p>
+        </div>
+
+        <div class="hiw-grid">
+
+            <div class="hiw-step" data-num="1">
+                <div class="hiw-step-body">
+                    <h3 class="hiw-step-title">Share Your Idea</h3>
+                    <p class="hiw-step-text">Send us your design, logo, or packaging request.</p>
+                </div>
+            </div>
+
+            <div class="hiw-step" data-num="2">
+                <div class="hiw-step-body">
+                    <h3 class="hiw-step-title">Get Your Free Quote &amp; Mockup</h3>
+                    <p class="hiw-step-text">We'll provide a custom price and a visual preview of your box.</p>
+                </div>
+            </div>
+
+            <div class="hiw-step" data-num="3">
+                <div class="hiw-step-body">
+                    <h3 class="hiw-step-title">Approve &amp; Receive</h3>
+                    <p class="hiw-step-text">Once approved, we produce and deliver your premium packaging with <strong>free shipping.</strong></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+@if($isGiftBoxesPage)
+<section class="customize-section">
+    <div class="customize-header">
+        <h2>Customize Your Box</h2>
+        <p>Choose materials, finishes, and add-ons to build your perfect rigid box.</p>
+    </div>
+
+    <div class="filter-buttons">
+        <button class="filter-btn active">Coating & Laminations</button>
+        <button class="filter-btn">Printing Options</button>
+        <button class="filter-btn">Special Finishes</button>
+        <button class="filter-btn">Paperboard</button>
+        <button class="filter-btn">Corrugated</button>
+        <button class="filter-btn">Fluted Grades</button>
+        <button class="filter-btn">Rigid Materials</button>
+    </div>
+
+    <div class="tab-contents-container">
+        <!-- Coating & Laminations -->
+        <div class="customize-grid" id="cat-tab-coating-and-laminations" style="display: grid;">
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Coating %26 Laminations/Lamination.webp') }}" alt="Lamination"></div>
+                <div class="card-content"><h3>Lamination</h3><p>Laminated protective film that adheres to the surface of packaging materials to maximize durability.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Coating %26 Laminations/UV.webp') }}" alt="UV"></div>
+                <div class="card-content"><h3>UV</h3><p>Fast-drying coating cured with ultraviolet light. Available in gloss or matte finish.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Coating %26 Laminations/Varnish.webp') }}" alt="Varnish"></div>
+                <div class="card-content"><h3>Varnish</h3><p>Clear coating applied using the CMYK printing method. Available in gloss, satin, or matte.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Coating %26 Laminations/anti-scratch-lamination.webp') }}" alt="Anti Scratch Lamination"></div>
+                <div class="card-content"><h3>Anti Scratch Lamination</h3><p>Laminated BOPP film that is scratch, scuff, and fingerprint resistant. Cost-effective option.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Coating %26 Laminations/aqueous-coating-.webp') }}" alt="Aqueous Coating"></div>
+                <div class="card-content"><h3>Aqueous Coating</h3><p>Clear, fast-drying, water-based, and eco-friendly coating. Available in gloss or matte finish.</p><div class="card-icons"><span class="icon-circle">♻️</span><span class="icon-circle">🍃</span></div></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Coating %26 Laminations/soft-touch-coating.webp') }}" alt="Soft Touch Coating"></div>
+                <div class="card-content"><h3>Soft Touch Coating</h3><p>Soft to the touch coating that creates a velvety texture for a more tactile appeal.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Coating %26 Laminations/soft-touch-silk-lamination-.webp') }}" alt="Soft Touch Silk Lamination"></div>
+                <div class="card-content"><h3>Soft Touch Silk Lamination</h3><p>Soft to the touch lamination similar to peach skin. Available in a satin or matte finish.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Coating %26 Laminations/spot-gloss-uV-.webp') }}" alt="Spot Gloss UV"></div>
+                <div class="card-content"><h3>Spot Gloss UV</h3><p>UV coating that is applied to a specified area and cured using ultraviolet light.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
+            </div>
+        </div>
+
+        <!-- Printing Options -->
+        <div class="customize-grid" id="cat-tab-printing-options" style="display: none;">
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/digital-print.webp') }}" alt="Digital Print"></div>
+                <div class="card-content"><h3>Digital Print</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/offset-print.webp') }}" alt="Offset Print"></div>
+                <div class="card-content"><h3>Offset Print</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/oil-based-Inks.webp') }}" alt="Oil Based Inks"></div>
+                <div class="card-content"><h3>Oil Based Inks</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/pantone-metallic.webp') }}" alt="Pantone Metallic"></div>
+                <div class="card-content"><h3>Pantone Metallic</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/pantone.webp') }}" alt="Pantone"></div>
+                <div class="card-content"><h3>Pantone</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/soy-vegetable-based-Inks.webp') }}" alt="Soy Vegetable Based Inks"></div>
+                <div class="card-content"><h3>Soy Vegetable Based Inks</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/uv-print.webp') }}" alt="UV Print"></div>
+                <div class="card-content"><h3>UV Print</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/water-based-Inks.webp') }}" alt="Water Based Inks"></div>
+                <div class="card-content"><h3>Water Based Inks</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+        </div>
+
+        <!-- Special Finishes -->
+        <div class="customize-grid" id="cat-tab-special-finishes" style="display: none;">
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/blind-debossing-.webp') }}" alt="Blind Debossing"></div>
+                <div class="card-content"><h3>Blind Debossing</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/blind-embossing.webp') }}" alt="Blind Embossing"></div>
+                <div class="card-content"><h3>Blind Embossing</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/cold-foil-printing.webp') }}" alt="Cold Foil Printing"></div>
+                <div class="card-content"><h3>Cold Foil Printing</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/combination-embossing.webp') }}" alt="Combination Embossing"></div>
+                <div class="card-content"><h3>Combination Embossing</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/hot-foil-stamping.webp') }}" alt="Hot Foil Stamping"></div>
+                <div class="card-content"><h3>Hot Foil Stamping</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/registered-embossing-.webp') }}" alt="Registered Embossing"></div>
+                <div class="card-content"><h3>Registered Embossing</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/window-patching.webp') }}" alt="Window Patching"></div>
+                <div class="card-content"><h3>Window Patching</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+        </div>
+
+        <!-- Paperboard -->
+        <div class="customize-grid" id="cat-tab-paperboard" style="display: none;">
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/sbs-c1s.webp') }}" alt="SBS C1S"></div>
+                <div class="card-content"><h3>SBS C1S</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/sbs-c2s.webp') }}" alt="SBS C2S"></div>
+                <div class="card-content"><h3>SBS C2S</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/ccnb.webp') }}" alt="CCNB"></div>
+                <div class="card-content"><h3>CCNB</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/fully-recycled-ccnb.webp') }}" alt="Fully Recycled CCNB"></div>
+                <div class="card-content"><h3>Fully Recycled CCNB</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/natural-brown-kraft.webp') }}" alt="Natural Brown Kraft"></div>
+                <div class="card-content"><h3>Natural Brown Kraft</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/white-kraft.webp') }}" alt="White Kraft"></div>
+                <div class="card-content"><h3>White Kraft</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/black-kraft.webp') }}" alt="Black Kraft"></div>
+                <div class="card-content"><h3>Black Kraft</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/uncoated-unbleached-kraft-(uuk).webp') }}" alt="Uncoated Unbleached Kraft (UUK)"></div>
+                <div class="card-content"><h3>Uncoated Unbleached Kraft (UUK)</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+        </div>
+
+        <!-- Corrugated -->
+        <div class="customize-grid" id="cat-tab-corrugated" style="display: none;">
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Corrugated/bleached-white-board-.webp') }}" alt="Bleached White Board"></div>
+                <div class="card-content"><h3>Bleached White Board</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Corrugated/kemi-white-board-.webp') }}" alt="Kemi White Board"></div>
+                <div class="card-content"><h3>Kemi White Board</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Corrugated/natural-brown-kraft-linerboard-.webp') }}" alt="Natural Brown Kraft Linerboard"></div>
+                <div class="card-content"><h3>Natural Brown Kraft Linerboard</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Corrugated/oyster-white-board-.webp') }}" alt="Oyster White Board"></div>
+                <div class="card-content"><h3>Oyster White Board</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+        </div>
+
+        <!-- Fluted Grades -->
+        <div class="customize-grid" id="cat-tab-fluted-grades" style="display: none;">
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades/a-flute.webp') }}" alt="A Flute"></div>
+                <div class="card-content"><h3>A Flute</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades/b-flute.webp') }}" alt="B Flute"></div>
+                <div class="card-content"><h3>B Flute</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades/c-flute.webp') }}" alt="C Flute"></div>
+                <div class="card-content"><h3>C Flute</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades/double-wall.webp') }}" alt="Double Wall"></div>
+                <div class="card-content"><h3>Double Wall</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades/e-flute.webp') }}" alt="E Flute"></div>
+                <div class="card-content"><h3>E Flute</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades/f-flute.webp') }}" alt="F Flute"></div>
+                <div class="card-content"><h3>F Flute</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades/triple-Wall.webp') }}" alt="Triple Wall"></div>
+                <div class="card-content"><h3>Triple Wall</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+        </div>
+
+        <!-- Rigid Materials -->
+        <div class="customize-grid" id="cat-tab-rigid-materials" style="display: none;">
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Rigid Material/Duplex-Chipboard-.webp') }}" alt="Duplex Chipboard"></div>
+                <div class="card-content"><h3>Duplex Chipboard</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+            <div class="customize-card">
+                <div class="card-image-area"><img src="{{ asset('uploads/Rigid Material/grey-chipboard-cardboard.webp') }}" alt="Grey Chipboard Cardboard"></div>
+                <div class="card-content"><h3>Grey Chipboard Cardboard</h3><p>Premium packaging option to elevate your brand.</p></div>
+            </div>
+        </div>
+    </div><!-- /.tab-contents-container -->
+
+    <script>
+    (function() {
+        var filterBtns = document.querySelectorAll('.customize-section .filter-btn');
+        var grids = document.querySelectorAll('.customize-section .customize-grid');
+
+        filterBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                filterBtns.forEach(function(b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+
+                grids.forEach(function(grid) { grid.style.display = 'none'; });
+
+                var tabName = btn.innerText.trim().toLowerCase().replace(/ /g, '-').replace(/&/g, 'and');
+                var targetGrid = document.getElementById('cat-tab-' + tabName);
+                if (targetGrid) {
+                    targetGrid.style.display = 'grid';
+                }
+            });
+        });
+    })();
+    </script>
+</section>
+@endif
         <!-- ==========================================
              TESTIMONIALS SECTION
         =========================================== -->
-        <section class="product-testimonials-section">
-            <div class="product-container">
-                <div class="product-testimonials-header">
-                    @unless($isGiftBoxesPage)
-                    <div class="product-sec-badge">TESTIMONIALS</div>
-                    @endunless
-                    <h2 class="product-section-title">What Our Customers Say</h2>
-                    <p class="product-section-subtitle">But don't just take our word for it, read what our clients say.</p>
+        <section class="testimonials-section">
+            <div class="container">
+
+                <div class="testimonials-header">
+                    <h2>What Our Customers Say</h2>
+                    <p>Hear from brands who trust us with their packaging needs.</p>
                 </div>
 
-                <div class="testi-slider-wrap">
-                <div class="product-testimonials-grid" id="testimonialsGrid">
-                    <!-- Original 3 Cards -->
-                    <div class="product-testimonial-card">
-                        <div class="product-avatar-wrap">
-                            <img src="{{ asset('admin/dist/img/avatar2.png') }}" alt="Alice" class="product-avatar">
-                        </div>
-                        <p class="product-testimonial-text">"Outstanding quality! The Premium Boxes team provided exactly what we needed for our new product line. The structural integrity is flawless."</p>
-                        <div class="product-stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h4 class="product-testimonial-name">Alice Smith</h4>
-                        <span class="product-testimonial-role">CEO, Beauty Brand</span>
+                <div class="testimonial-grid" id="catTestimonialGrid">
+
+                    <div class="testimonial-card">
+                        <img src="{{ asset('images/avatar_1.png') }}" alt="Alice Smith">
+                        <p>
+                            Outstanding quality! The Premium Boxes team provided exactly what we needed for our new product line. The structural integrity is flawless.
+                        </p>
+                        <h4>Alice Smith</h4>
+                        <span>CEO, Beauty Brand</span>
                     </div>
 
-                    <div class="product-testimonial-card">
-                        <div class="product-avatar-wrap">
-                            <img src="{{ asset('admin/dist/img/avatar.png') }}" alt="John" class="product-avatar">
-                        </div>
-                        <p class="product-testimonial-text">"Their customer service is unmatched. From design to delivery, they kept us informed. The boxes arrived on time and looked phenomenal."</p>
-                        <div class="product-stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h4 class="product-testimonial-name">John Davis</h4>
-                        <span class="product-testimonial-role">Marketing Director</span>
+                    <div class="testimonial-card">
+                        <img src="{{ asset('images/avatar_2.png') }}" alt="John Davis">
+                        <p>
+                            Their customer service is unmatched. From design to delivery, they kept us informed. The boxes arrived on time and looked phenomenal.
+                        </p>
+                        <h4>John Davis</h4>
+                        <span>Marketing Director</span>
                     </div>
 
-                    <div class="product-testimonial-card">
-                        <div class="product-avatar-wrap">
-                            <img src="{{ asset('admin/dist/img/avatar3.png') }}" alt="Sarah" class="product-avatar">
-                        </div>
-                        <p class="product-testimonial-text">"We've seen a noticeable increase in unboxing videos from our customers since switching to these custom mailers. Highly recommend!"</p>
-                        <div class="product-stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h4 class="product-testimonial-name">Sarah Jenkins</h4>
-                        <span class="product-testimonial-role">E-commerce Owner</span>
+                    <div class="testimonial-card">
+                        <img src="{{ asset('images/avatar_3.png') }}" alt="Sarah Jenkins">
+                        <p>
+                            We've seen a noticeable increase in unboxing videos from our customers since switching to these custom mailers. Highly recommend!
+                        </p>
+                        <h4>Sarah Jenkins</h4>
+                        <span>E-commerce Owner</span>
                     </div>
 
-                    <!-- Duplicated 3 Cards for slider effect -->
-                    <div class="product-testimonial-card">
-                        <div class="product-avatar-wrap">
-                            <img src="./c903f3f775a50e5b56122d5a307158962172018e (1).jpg" alt="Mike" class="product-avatar">
-                        </div>
-                        <p class="product-testimonial-text">"The print quality is extraordinary. Our branding has never looked sharper and more professional on our packaging."</p>
-                        <div class="product-stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h4 class="product-testimonial-name">Mike Peterson</h4>
-                        <span class="product-testimonial-role">Creative Lead</span>
-                    </div>
-
-                    <div class="product-testimonial-card">
-                        <div class="product-avatar-wrap">
-                            <img src="./c903f3f775a50e5b56122d5a307158962172018e (1).jpg" alt="Elena" class="product-avatar">
-                        </div>
-                        <p class="product-testimonial-text">"We saved so much time with their quick turnaround. The rigid boxes elevate our jewelry brand to the next level."</p>
-                        <div class="product-stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h4 class="product-testimonial-name">Elena Rodriguez</h4>
-                        <span class="product-testimonial-role">Founder</span>
-                    </div>
-
-                    <div class="product-testimonial-card">
-                        <div class="product-avatar-wrap">
-                            <img src="./c903f3f775a50e5b56122d5a307158962172018e (1).jpg" alt="David" class="product-avatar">
-                        </div>
-                        <p class="product-testimonial-text">"Unbelievable precision and sturdiness. The soft-touch lamination on these boxes feels incredibly premium."</p>
-                        <div class="product-stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <h4 class="product-testimonial-name">David Chen</h4>
-                        <span class="product-testimonial-role">Product Manager</span>
-                    </div>
                 </div>
-                </div><!-- /.testi-slider-wrap -->
 
-                <div class="product-slider-nav">
-                    <button type="button" class="product-nav-btn" id="prevTestimonialBtn" aria-label="Previous testimonial"><i class="fas fa-chevron-left"></i></button>
-                    <button type="button" class="product-nav-btn" id="nextTestimonialBtn" aria-label="Next testimonial"><i class="fas fa-chevron-right"></i></button>
+                <div class="testimonial-nav">
+                    <button class="cat-testimonial-prev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                    <button class="cat-testimonial-next"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
                 </div>
+
             </div>
         </section>
+
+        <script>
+        (function() {
+            const grid = document.getElementById('catTestimonialGrid');
+            const prevBtn = document.querySelector('.cat-testimonial-prev');
+            const nextBtn = document.querySelector('.cat-testimonial-next');
+            if (!grid || !prevBtn || !nextBtn) return;
+            let currentIndex = 0;
+            const cards = grid.querySelectorAll('.testimonial-card');
+            const totalCards = cards.length;
+            function scrollToCard(index) {
+                if (index < 0) index = 0;
+                if (index >= totalCards) index = totalCards - 1;
+                currentIndex = index;
+                const cardWidth = cards[0].offsetWidth;
+                grid.scrollTo({ left: cardWidth * index, behavior: 'smooth' });
+            }
+            prevBtn.onclick = function() { scrollToCard(currentIndex - 1); };
+            nextBtn.onclick = function() { scrollToCard(currentIndex + 1); };
+            grid.addEventListener('scroll', function() {
+                const cardWidth = cards[0].offsetWidth;
+                currentIndex = Math.round(grid.scrollLeft / cardWidth);
+            });
+        })();
+        </script>
 
 <!-- ================================================
      REQUEST A FREE QUOTE SECTION
@@ -3517,7 +4536,7 @@ img {
 
                 <div class="quote-steps-col">
                     <div class="quote-side-image">
-                        <img src="{{ asset('uploads/category-cta.png') }}" alt="Custom packaging quote">
+                        <img src="{{ asset('uploads/frame-81.png') }}" alt="Custom packaging quote">
                     </div>
                 </div>
                 <div class="quote-form-col">
@@ -3609,29 +4628,27 @@ img {
                             <textarea placeholder="Enter your message" rows="4"></textarea>
                         </div>
 
+                        <!-- ================================================
+                             HUMAN VERIFICATION INLINE
+                             ================================================ -->
+                        <div class="human-verification-inline">
+                            <div class="human-verification-header">
+                                <h3 class="human-verification-inline-title">Are you a human?</h3>
+                                <p class="human-verification-inline-copy">Solve this quick addition before continuing.</p>
+                            </div>
+                            <div class="human-verification-inline-control">
+                                <span class="human-question" id="humanQuestion">0 + 0 =</span>
+                                <input type="number" class="human-answer" id="humanAnswer" placeholder="Answer" aria-label="Human verification answer">
+                                <button type="button" class="human-check-btn" id="humanCheckBtn">Verify</button>
+                            </div>
+                            <span class="human-status" id="humanStatus" aria-live="polite"></span>
+                        </div>
+
                         <button type="submit" class="submit-quote-btn">Instant Quote</button>
                     </form>
                 </div>
 
             </div>
-
-
-<!-- ================================================
-     HUMAN VERIFICATION SECTION
-     ================================================ -->
-
-    <div class="human-verification-card">
-        <div>
-            <h2 class="human-verification-title">Are you a human?</h2>
-            <p class="human-verification-copy">Solve this quick addition before continuing.</p>
-        </div>
-        <div class="human-verification-control">
-            <span class="human-question" id="humanQuestion">0 + 0 =</span>
-            <input type="number" class="human-answer" id="humanAnswer" placeholder="Answer" aria-label="Human verification answer">
-            <button type="button" class="human-check-btn" id="humanCheckBtn">Verify</button>
-            <span class="human-status" id="humanStatus" aria-live="polite"></span>
-        </div>
-    </div>
 
         </section>
 
