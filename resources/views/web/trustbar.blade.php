@@ -1,236 +1,195 @@
 <style>
-/* --- TRUST BAR --- */
-.trust-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  max-width: 1440px;
-  height: 60px;
-  margin: 0 auto;
-  padding: 0 60px;
-  box-sizing: border-box;
-  gap: 60px;
+/* ============================================
+   TRUST BAR — Clean Rewrite (no conflicts)
+   ============================================ */
+.tb-section {
+    width: 100%;
+    background-color: #1a1a1a;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    overflow: hidden;
 }
-.trust-reviews {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  flex-shrink: 0;
+.tb-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    max-width: 1440px;
+    height: 70px;
+    margin: 0 auto;
+    padding: 0 60px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
-.trust-reviews .stars {
-  color: var(--accent-gold);
-  font-size: 1.2rem;
-  display: flex;
-  gap: 5px;
+.tb-reviews {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    white-space: nowrap;
 }
-.review-link {
-  color: #a0a0a0;
-  font-size: 0.9rem;
-  text-decoration: underline;
-  white-space: nowrap;
+.tb-stars {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3px;
 }
-.trust-logos {
-  display: flex;
-  align-items: center;
-  width: auto;
-  max-width: 850px;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-  flex: 1;
-  padding: 0 20px;
+.tb-stars svg {
+    width: 17px;
+    height: 17px;
+    display: block;
+    flex-shrink: 0;
 }
-@keyframes scroll-logos {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+.tb-review-link {
+    color: #a0a0a0;
+    font-size: 0.85rem;
+    text-decoration: underline;
+    white-space: nowrap;
+    font-family: 'Inter', sans-serif;
 }
-.trust-logos-track {
-  display: flex;
-  gap: 50px;
-  animation: scroll-logos 30s linear infinite;
-  will-change: transform;
-  padding-left: 0;
+.tb-sep {
+    width: 1px;
+    height: 28px;
+    background-color: rgba(255,255,255,0.2);
+    margin: 0 24px;
+    flex-shrink: 0;
 }
-.trust-logos-track:hover {
-  animation-play-state: paused;
+.tb-logos-wrap {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
-.logo-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 100px;
-  width: 100px;
-  height: 40px;
-  opacity: 0.8;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  flex-shrink: 0;
+.tb-logos-track {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 55px;
+    will-change: transform;
+    white-space: nowrap;
+    flex-wrap: nowrap;
 }
-.logo-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: grayscale(100%) brightness(0) invert(77%);
+.tb-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 36px;
+    flex-shrink: 0;
+    opacity: 0.75;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
-.logo-item:hover {
-  opacity: 1;
-  transform: scale(1.05);
+.tb-logo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-height: 36px;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(0) invert(75%);
+}
+.tb-logo:hover {
+    opacity: 1;
+    transform: scale(1.06);
 }
 @media (max-width: 768px) {
-  .trust-bar {
-    height: auto;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 12px;
-    gap: 16px;
-  }
-  .trust-reviews {
-    justify-content: center;
-    width: 100%;
-    gap: 8px;
-  }
-  .trust-logos {
-    display: flex !important;
-    width: 100%;
-    overflow: hidden;
-  }
-  .trust-logos-track {
-    display: flex;
-    gap: 30px;
-    animation: scroll-logos 25s linear infinite;
-  }
-  .logo-item {
-    flex: 0 0 auto;
-    width: 75px;
-    height: 30px;
-    opacity: 0.8;
-  }
+    .tb-inner {
+        flex-direction: column;
+        height: auto;
+        padding: 18px 16px;
+        gap: 14px;
+    }
+    .tb-sep {
+        display: none;
+    }
+    .tb-reviews {
+        justify-content: center;
+        width: 100%;
+    }
+    .tb-logos-wrap {
+        width: 100%;
+    }
+    .tb-logos-track {
+        gap: 32px;
+    }
+    .tb-logo {
+        width: 70px;
+        height: 28px;
+    }
 }
 </style>
 
-<section class="trust-bar-section" style="background-color: var(--bg-darker); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); width: 100%;">
-    <div class="trust-bar">
-        <div class="trust-reviews">
-            <div class="stars">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="#f5c542" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="#f5c542" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="#f5c542" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="#f5c542" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="#f5c542" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<section class="tb-section">
+    <div class="tb-inner">
+
+        {{-- Reviews --}}
+        <div class="tb-reviews">
+            <div class="tb-stars">
+                <svg viewBox="0 0 24 24" fill="#f5c542" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="#f5c542" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="#f5c542" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="#f5c542" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="#f5c542" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
-            <a href="#" class="review-link">5.0 Google Reviews</a>
+            <a href="#" class="tb-review-link">5.0 Google Reviews</a>
         </div>
-        <div class="trust-logos">
-            <div class="trust-logos-track">
-                <div class="logo-item">
-                    <img src="{{ asset('uploads/adidas-logo.png') }}" alt="Adidas Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('uploads/Google-logo.png') }}" alt="Google Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('uploads/hp-logo.png') }}" alt="HP Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('uploads/unilever-logo.webp') }}" alt="Unilever Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('uploads/Benefit-Logo.png') }}" alt="Benefit Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('images/flowgardens-logo.webp') }}" alt="Flow Gardens Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('images/her-piece-peace-logo.webp') }}" alt="Her Piece Peace Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('images/neat-logo.webp') }}" alt="Neat Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('images/red-bull-logo.png') }}" alt="Red Bull Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('images/springtastic-logo.webp') }}" alt="Springtastic Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('images/voli-logo.webp') }}" alt="Voli Logo">
-                </div>
 
-                <!-- Duplicate set 1 -->
-                <div class="logo-item">
-                    <img src="{{ asset('uploads/adidas-logo.png') }}" alt="Adidas Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('uploads/Google-logo.png') }}" alt="Google Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('uploads/hp-logo.png') }}" alt="HP Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('uploads/unilever-logo.webp') }}" alt="Unilever Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('uploads/Benefit-Logo.png') }}" alt="Benefit Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('images/flowgardens-logo.webp') }}" alt="Flow Gardens Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('images/her-piece-peace-logo.webp') }}" alt="Her Piece Peace Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('images/neat-logo.webp') }}" alt="Neat Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('images/red-bull-logo.png') }}" alt="Red Bull Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('images/springtastic-logo.webp') }}" alt="Springtastic Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('images/voli-logo.webp') }}" alt="Voli Logo">
-                </div>
+        {{-- Divider --}}
+        <div class="tb-sep"></div>
 
-                <!-- Duplicate set 2 for extra smooth loop -->
-                <div class="logo-item">
-                    <img src="{{ asset('uploads/adidas-logo.png') }}" alt="Adidas Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('uploads/Google-logo.png') }}" alt="Google Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('uploads/hp-logo.png') }}" alt="HP Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('uploads/unilever-logo.webp') }}" alt="Unilever Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('uploads/Benefit-Logo.png') }}" alt="Benefit Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('images/flowgardens-logo.webp') }}" alt="Flow Gardens Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('images/her-piece-peace-logo.webp') }}" alt="Her Piece Peace Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('images/neat-logo.webp') }}" alt="Neat Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('images/red-bull-logo.png') }}" alt="Red Bull Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('images/springtastic-logo.webp') }}" alt="Springtastic Logo">
-                </div>
-                <div class="logo-item">
-                    <img src="{{ asset('images/voli-logo.webp') }}" alt="Voli Logo">
-                </div>
+        {{-- Logos --}}
+        <div class="tb-logos-wrap" id="tbLogosWrap">
+            <div class="tb-logos-track" id="tbLogosTrack">
+                <div class="tb-logo"><img src="{{ asset('images/voli-logo.webp') }}" alt="Voli"></div>
+                <div class="tb-logo"><img src="{{ asset('uploads/adidas-logo.png') }}" alt="Adidas"></div>
+                <div class="tb-logo"><img src="{{ asset('uploads/Google-logo.png') }}" alt="Google"></div>
+                <div class="tb-logo"><img src="{{ asset('uploads/hp-logo.png') }}" alt="HP"></div>
+                <div class="tb-logo"><img src="{{ asset('uploads/unilever-logo.webp') }}" alt="Unilever"></div>
+                <div class="tb-logo"><img src="{{ asset('uploads/Benefit-Logo.png') }}" alt="Benefit"></div>
+                <div class="tb-logo"><img src="{{ asset('images/flowgardens-logo.webp') }}" alt="Flow Gardens"></div>
+                <div class="tb-logo"><img src="{{ asset('images/her-piece-peace-logo.webp') }}" alt="Her Piece Peace"></div>
+                <div class="tb-logo"><img src="{{ asset('images/neat-logo.webp') }}" alt="Neat"></div>
+                <div class="tb-logo"><img src="{{ asset('images/red-bull-logo.png') }}" alt="Red Bull"></div>
+                <div class="tb-logo"><img src="{{ asset('images/springtastic-logo.webp') }}" alt="Springtastic"></div>
             </div>
         </div>
+
     </div>
 </section>
+
+<script>
+(function(){
+    var wrap  = document.getElementById('tbLogosWrap');
+    var track = document.getElementById('tbLogosTrack');
+    if(!wrap || !track) return;
+
+    // Clone once so scroll is seamless
+    var clone = track.cloneNode(true);
+    clone.setAttribute('aria-hidden','true');
+    wrap.appendChild(clone);
+
+    var speed = 0.5; // px per frame
+    var offset = 0;
+    var paused = false;
+    var trackW = track.scrollWidth;
+
+    wrap.addEventListener('mouseenter', function(){ paused = true; });
+    wrap.addEventListener('mouseleave', function(){ paused = false; });
+
+    function animate(){
+        if(!paused){
+            offset += speed;
+            // Reset when first set fully scrolled
+            if(offset >= trackW + 55){ // 55 = gap
+                offset = 0;
+            }
+            wrap.scrollLeft = offset;
+        }
+        requestAnimationFrame(animate);
+    }
+    animate();
+})();
+</script>

@@ -4040,61 +4040,9 @@ img {
                     </div>
                 </div>
             </div>
-
-            <div class="trust-bar">
-                <div class="trust-reviews">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-
-                    <a href="#" class="review-link">5.0 Google Reviews</a>
- </div>
-   @php
-                    $trustLogoDir = base_path('uploads');
-                    $trustLogoFiles = [];
-                    foreach (['webp', 'png', 'jpg', 'jpeg', 'svg'] as $extension) {
-                        $trustLogoFiles = array_merge($trustLogoFiles, glob($trustLogoDir . DIRECTORY_SEPARATOR . '*.' . $extension) ?: []);
-                    }
-                    sort($trustLogoFiles);
-                @endphp
-                <div class="trust-logos" aria-label="Brand logos">
-<div class="logo-item">
-        <img src="{{ asset('uploads/flowgardens-logo.webp') }}" alt="Flowgardens Logo">
-    </div>
-
-    <div class="logo-item">
-        <img src="{{ asset('uploads/voli-logo.webp') }}" alt="Voli Logo">
-    </div>
-
-    <div class="logo-item">
-        <img src="{{ asset('uploads/neat-logo.webp') }}" alt="Neat Logo">
-    </div>
-
-    <div class="logo-item">
-        <img src="{{ asset('uploads/11-png.webp') }}" alt="11 Logo">
-    </div>
-
-    <div class="logo-item">
-        <img src="{{ asset('uploads/red-bull-logo.png') }}" alt="Red Bull Logo">
-    </div>
-    <div class="logo-item">
-        <img src="{{ asset('uploads/springtastic-logo.webp') }}" alt="Springtastic Logo">
-    </div>
-    <div class="logo-item">
-        <img src="{{ asset('uploads/her-piece-peace-logo.webp') }}" alt="Her Piece of Peace Logo">
-    </div>
-    <div class="logo-item">
-        <img src="{{ asset('uploads/kinky.webp') }}" alt="Kinky Logo">
-    </div>
-                </div>
-            </div>
-
-                </div>
-
         </section>
+
+        @include('web.trustbar')
 
 <!-- ================================================
      PRODUCTS SECTION
@@ -4591,8 +4539,15 @@ img {
                         <div class="form-row triple-grid">
                             <div class="form-group">
                                 <label>Select Material</label>
-                                <select>
+                                @php
+                                    $materialCategory = DB::table('add_category')->where('name', 'Box by Material')->first();
+                                    $materials = $materialCategory ? DB::table('add_category')->where('parent_category', $materialCategory->cat_id)->where('status', 1)->get() : collect([]);
+                                @endphp
+                                <select name="material" class="form-control" style="background: #111; color: white; border: 1px solid #222;">
                                     <option value="">Choose option</option>
+                                    @foreach($materials as $material)
+                                        <option value="{{ $material->name }}">{{ $material->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">

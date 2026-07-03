@@ -500,12 +500,15 @@ html, body {
                 <div class="qu-row qu-row-3">
                     <div class="qu-field">
                         <label>Select Material</label>
-                        <select>
+                        @php
+                            $materialCategory = DB::table('add_category')->where('name', 'Box by Material')->first();
+                            $materials = $materialCategory ? DB::table('add_category')->where('parent_category', $materialCategory->cat_id)->where('status', 1)->get() : collect([]);
+                        @endphp
+                        <select name="material" class="form-control" style="background: #111; color: white; border: 1px solid #222;">
                             <option value="">Choose option</option>
-                            <option>Kraft</option>
-                            <option>Cardboard</option>
-                            <option>Corrugated</option>
-                            <option>Rigid</option>
+                            @foreach($materials as $material)
+                                <option value="{{ $material->name }}">{{ $material->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="qu-field">
