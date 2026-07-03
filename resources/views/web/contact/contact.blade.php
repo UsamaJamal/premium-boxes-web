@@ -39,6 +39,7 @@ html, body {
 
 
 .contact-container {
+    background: #1A1A1A;
     width: 100%;
     max-width: var(--contact-max);
     margin-inline: auto;
@@ -153,6 +154,7 @@ html, body {
 }
 
 .contact-hero-heading {
+    padding-top: 55px;
     font-size: 42px;
     font-weight: 800;
     line-height: 54px;
@@ -160,7 +162,7 @@ html, body {
     margin-bottom: 14px;
     text-shadow: 0 2px 16px rgba(0,0,0,0.6);
 }
-.contact-hero-gold { color: var(--contact-gold); display: block; }
+.contact-hero-gold { color: #B59744; display: block; }
 
 .contact-hero-subtext {
     font-size: 16px;
@@ -172,15 +174,15 @@ html, body {
 
 
 .contact-section {
-    padding-top: var(--contact-gap);
-    padding-bottom: var(--contact-gap);
+    /* padding-top: var(--contact-gap); */
+    /* padding-bottom: var(--contact-gap); */
 }
 
 .contact-wrapper {
-    max-width: 1400px;
+    max-width: 1374px;
     margin: 0 auto;
     background: #202020;
-    border-radius: 15px;
+    border-radius: 15px; 
     padding: 20px;
     display: flex;
     gap: 30px;
@@ -265,13 +267,15 @@ html, body {
     margin-top: 4px;
 }
 .contact-form-img img {
+    transform: rotate(-39deg);
     width: 305px;
-    height: 141px;
+    height: 122px;
     object-fit: contain;
     display: block;
-    opacity: 0.75;
+    opacity: 30%;
     flex-shrink: 0;
-    margin-top: -27px;
+    margin-top: 47px;
+    margin-right: 45px;
 }
 
 /* ── CONTACT INFO SIDE ── */
@@ -301,23 +305,46 @@ html, body {
 .contact-info-item {
     color: #fff;
     font-size: 14px;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    line-height: 1.5;
+    align-items: center;
+    gap: 18px;
+    line-height: 1.6;
     position: relative;
     z-index: 2;
 }
 
 .contact-info-item i {
     color: #f3c63f;
-    font-size: 15px;
-    margin-top: 2px;
+    font-size: 24px;
     flex-shrink: 0;
+    min-width: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.contact-location { line-height: 1.7; }
+.contact-info-item .fa-phone {
+    transform: rotate(104deg);
+}
+
+.contact-info-item span,
+.contact-info-item div {
+    flex: 1;
+    word-break: break-word;
+    line-height: 1.6;
+}
+
+.contact-location { 
+    align-items: flex-start;
+}
+
+.contact-location i {
+    margin-top: 3px;
+}
 
 .contact-social {
     display: flex;
@@ -372,8 +399,9 @@ html, body {
 
 
 .contact-map-section {
-    padding-top: 20px;
+    padding-top: 40px;
     padding-bottom: var(--contact-gap);
+    background: #1A1A1A;
 }
 
 .contact-map-shell {
@@ -440,8 +468,34 @@ html, body {
     .contact-info h2      { font-size: 6vw; font-weight: 700; margin-bottom: 1.5vw; }
     .contact-info > p     { font-size: 3.5vw; color: #888; margin-bottom: 7vw; }
 
-    .contact-info-item    { font-size: 3.5vw; gap: 3.5vw; margin-bottom: 5.5vw; line-height: 1.5; }
-    .contact-info-item i  { font-size: 4.2vw; min-width: 4.5vw; text-align: center; }
+    .contact-info-item    { 
+        font-size: 3.8vw; 
+        gap: 4vw; 
+        margin-bottom: 6vw; 
+        line-height: 1.6; 
+        display: flex;
+        align-items: center;
+    }
+    .contact-info-item i  { 
+        font-size: 6vw; 
+        min-width: 7vw; 
+        color: #f3c63f;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .contact-info-item > span,
+    .contact-info-item > div {
+        flex: 1;
+        word-break: break-word;
+        line-height: 1.6;
+    }
+    .contact-location {
+        align-items: flex-start;
+    }
+    .contact-location i {
+        margin-top: 1vw;
+    }
 
     .contact-social       { margin-top: 8vw; gap: 2.5vw; position: relative; z-index: 2; }
     .contact-social span  { width: 10vw; height: 10vw; font-size: 4vw; }
@@ -465,7 +519,12 @@ html, body {
     }
 
     .contact-form-img     { justify-content: center; }
-    .contact-form-img img { width: 55vw; height: auto; margin-top: -4vw; opacity: 0.65; }
+    .contact-form-img img { 
+        width: 55vw; 
+        height: auto; 
+        margin-top: 9vw;
+        margin-right: 147px;
+    }
 
     .contact-map-section  { padding-top: 0; }
     .contact-map-wrapper iframe { height: 55vw; }
@@ -479,8 +538,23 @@ html, body {
     .contact-info         { min-height: 80vw; }
     .contact-info h2      { font-size: 7vw; }
 
-    .contact-info-item    { font-size: 3.8vw; gap: 4vw; }
-    .contact-info-item i  { font-size: 4.5vw; }
+    .contact-info-item    { 
+        font-size: 4vw; 
+        gap: 4.5vw; 
+        margin-bottom: 6.5vw;
+        line-height: 1.6;
+        align-items: center;
+    }
+    .contact-info-item i  { 
+        font-size: 6.5vw; 
+        min-width: 7.5vw;
+    }
+    .contact-location {
+        align-items: flex-start;
+    }
+    .contact-location i {
+        margin-top: 1.2vw;
+    }
 
     .contact-social span  { width: 11vw; height: 11vw; font-size: 4.5vw; }
 
@@ -538,14 +612,16 @@ html, body {
                     <h2>Contact Information</h2>
                     <p>Say something to start a live chat!</p>
                     <div class="contact-info-item">
-                        <i class="fas fa-phone"></i> 1800-518-9441
+                        <i class="fas fa-phone"></i>
+                        <span>1800-518-9441</span>
                     </div>
                     <div class="contact-info-item">
-                        <i class="fas fa-envelope"></i> support@myboxpackaging.com
+                        <i class="fas fa-envelope"></i>
+                        <span>support@myboxpackaging.com</span>
                     </div>
                     <div class="contact-info-item contact-location">
-                        <i class="fas fa-location-dot"></i>
-                        132 Dartmouth Street Boston,<br>Massachusetts 02156 United States
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>132 Dartmouth Street Boston,<br>Massachusetts 02156 United States</div>
                     </div>
                     <div class="contact-social">
                         <span aria-label="Facebook"><i class="fab fa-facebook-f"></i></span>

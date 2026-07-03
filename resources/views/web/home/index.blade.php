@@ -1396,7 +1396,111 @@ h3 {
     border-radius: 10px;
   }
 }
-/* ORDER + QUOTE SECTION */
+
+/* ==========================================================================
+   OUR EASY ORDER PROCESS SECTION
+   ========================================================================== */
+.order-process-section {
+  padding: 80px 0;
+  background: #1A1A1A1A;
+}
+
+.order-process-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.order-process-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.order-process-header p {
+  color: #999999;
+  font-size: 1.05rem;
+}
+
+.order-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.process-card {
+  margin-right: -23px;
+  height: 283px;
+  background: #202020;
+  border-radius: 12px;
+  padding: 40px 0px;
+  text-align: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+  width: 296px;
+}
+
+.process-card:hover {
+  transform: translateY(-5px);
+  background: #323232;
+}
+
+.process-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.process-icon img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.process-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.process-card p {
+  color: #999999;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .order-process-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .order-process-section {
+    padding: 50px 0;
+  }
+  
+  .order-process-header h2 {
+    font-size: 2rem;
+  }
+  
+  .order-process-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .process-card {
+    padding: 30px 20px;
+  }
+}
+
+/* ORDER + QUOTE SECTION (OLD - KEPT FOR COMPATIBILITY) */
 .quote-process-section {
   padding: 90px 0;
   background: var(--bg-dark);
@@ -1490,13 +1594,17 @@ h3 {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 30px;
-}
+
 
 .guide-content,
 .guide-sidebar {
-  background: #242424;
+  background: #232323;
   padding: 30px;
   border-radius: 12px;
+}
+}
+.guide-sidebar{
+  background: #232323;
 }
 
 .guide-badge {
@@ -3715,13 +3823,26 @@ section + section {
   box-sizing: border-box;
 }
 .quote-steps-col {
-  width: 368px;
-  background-color: var(--bg-darker);
-  padding: 58px 35px;
+  width: 397px;
+  max-width: 397px;
+  background-color: transparent;
+  padding: 0;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.quote-side-image {
+  width: 100%;
+  height: auto;
+  max-width: 397px;
+  object-fit: contain;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 .step-item {
   display: flex;
@@ -3845,7 +3966,7 @@ section + section {
   border-radius: 8px;
   background-color: var(--bg-darker);
   overflow: hidden;
-  height: 46px;
+  height: 38px;
   box-sizing: border-box;
 }
 .file-upload-wrapper input[type="text"],
@@ -4145,23 +4266,53 @@ section + section {
         </div>
     </section>
 
-    <section class="craftsmanship-section">
+    <!-- Our Easy Order Process Section -->
+    <section class="order-process-section">
         <div class="container">
-            <div class="craftsmanship-wrapper">
-                <div class="craftsmanship-text-overlay">
-                    <!-- <span class="section-badge-text">LUXURY PACKAGING SOLUTIONS</span> -->
-                    <h2>Where Craftsmanship Meets<br>Elegance</h2>
-                    <p>We deliver luxury packaging solutions where craftsmanship meets elegance, creating boxes that
-                        reflect true premium quality. Every design is carefully developed to enhance your product
-                        presentation, strengthen brand identity, and provide a refined unboxing experience. From
-                        material selection to final detailing, we focus on durability, aesthetics, and sophistication
-                        that help your brand stand out in a competitive market.</p>
+            <div class="order-process-header">
+                <h2>Our Easy Order Process</h2>
+                <p>Follow our simple step-by-step process to bring your custom packaging to life.</p>
+            </div>
+            
+            <div class="order-process-grid">
+                <!-- Step 1 -->
+                <div class="process-card">
+                    <div class="process-icon">
+                        <img src="{{ asset('images/icons/customize-icon.svg') }}" alt="Customize Icon">
+                    </div>
+                    <h3>Customize Your Packaging</h3>
+                    <p>Choose from our extensive packaging solutions and personalize them with a variety of options to bring your ideal packaging to life.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="process-card">
+                    <div class="process-icon">
+                        <img src="{{ asset('images/icons/quote-icon.svg') }}" alt="Quote Icon">
+                    </div>
+                    <h3>Request a Quote</h3>
+                    <p>After customizing your packaging, simply request a quote, and our packaging specialists will review your submission.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="process-card">
+                    <div class="process-icon">
+                        <img src="{{ asset('images/icons/consultation-icon.svg') }}" alt="Consultation Icon">
+                    </div>
+                    <h3>Expert Consultation</h3>
+                    <p>Get expert consultation on your quote to reduce costs, improve efficiency, and minimize environmental impact.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="process-card">
+                    <div class="process-icon">
+                        <img src="{{ asset('images/icons/delivery-icon.svg') }}" alt="Delivery Icon">
+                    </div>
+                    <h3>Production & Delivery</h3>
+                    <p>After finalizing the details, we'll handle the entire production and shipping process. Just sit back and wait for your packaging to arrive!</p>
                 </div>
             </div>
         </div>
     </section>
-
-
 
 
     <section class="premium-addons-section">
@@ -4331,14 +4482,14 @@ section + section {
     })();
     </script>
 
-
+    <!-- Request a Free Quote Section -->
     <section class="quote-process-section">
         <div class="container">
 
             <div class="quote-container">
 
                 <div class="quote-steps-col" style="padding: 0;">
-                    <img src="{{ asset('images/quote-steps-img.webp') }}" alt="Custom Box Process" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                    <img src="{{ asset('images/Frame 81.svg') }}" alt="Custom Box Process" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
                 </div>
 
                 <div class="quote-form-col">
@@ -4367,7 +4518,6 @@ section + section {
                             </div>
                         </div>
 
-                        <!-- Width & Length - 2x2 -->
                         <div class="form-row dual-grid">
                             <div class="form-group">
                                 <label>Width *</label>
@@ -4379,7 +4529,6 @@ section + section {
                             </div>
                         </div>
 
-                        <!-- Depth & Units - 2x2 -->
                         <div class="form-row dual-grid">
                             <div class="form-group">
                                 <label>Depth *</label>
@@ -4395,7 +4544,6 @@ section + section {
                             </div>
                         </div>
 
-                        <!-- 7. Select Material & Color Options - 2 by 2 -->
                         <div class="form-row dual-grid">
                             <div class="form-group">
                                 <label>Select Material</label>
@@ -4411,22 +4559,17 @@ section + section {
                             </div>
                         </div>
 
-                        <!-- 8. Product Name & Quantity - 2 by 2 -->
                         <div class="form-row dual-grid">
-                            <div class="form-group">
-                                <label>Select Product Name</label>
-                                <label>Product Name</label>
-                                <select>
-                                    <option value="">Choose option</option>
-                                </select>
-                            </div>
                             <div class="form-group">
                                 <label>Quantity *</label>
                                 <input type="number" placeholder="Enter quantity" required>
                             </div>
+                            <div class="form-group">
+                                <label>Product Name *</label>
+                                                                <input type="text" placeholder="Enter Name" required>
+                            </div>
                         </div>
 
-                        <!-- 9. Upload File Here - Full Width -->
                         <div class="form-group">
                             <label>Upload File Here</label>
                             <div class="file-upload-wrapper">
@@ -4435,7 +4578,6 @@ section + section {
                             </div>
                         </div>
 
-                        <!-- 10. Message - Full Width -->
                         <div class="form-group textarea-group">
                             <label>Message</label>
                             <textarea placeholder="Enter your message" rows="4"></textarea>
@@ -4447,162 +4589,8 @@ section + section {
 
             </div>
 
-            <div class="packaging-guide">
-
-                <div class="guide-content">
-
-                    <!-- <span class="guide-badge">PACKAGING GUIDE</span> -->
-
-                    <h2>Everything you need to know about custom boxes</h2>
-
-                    <p>
-                        Custom packaging is one of the most powerful tools a brand can use to create a lasting
-                        impression. Research shows that 72% of consumers say that packaging design influences their
-                        purchase decision, and 40% share photos of exciting unboxing experiences on social media.
-                    </p>
-
-                    <p>
-                        At KayPackaging, we believe every business — no matter the size — deserves packaging that
-                        reflects the quality of what's inside. Whether you're a solo founder shipping your first 10
-                        orders or a growing brand sending thousands of packages per week, our custom box solutions are
-                        built to scale with you.
-                    </p>
-
-                    <h3>What to consider when choosing custom packaging:</h3>
-
-                    <ul>
-                        <li>Choose the right box style for your product.</li>
-                        <li>Select durable materials that protect the contents.</li>
-                        <li>Consider premium finishing options.</li>
-                        <li>Match packaging with your brand identity.</li>
-                        <li>Balance quality with production costs.</li>
-                    </ul>
-
-                </div>
-                <div class="guide-sidebar">
-
-                    <div class="sidebar-block guide-faq pg-steps-box">
-                        <h2 class="pg-steps-title">Frequently Asked Questions</h2>
-
-                        @if(isset($home_faqs) && count($home_faqs) > 0)
-                            @foreach($home_faqs as $faq)
-                            <div class="pg-step-item pg-accordion-item">
-                                <button class="pg-accordion-btn">
-                                    <h3 class="pg-accordion-q"><span style="color: var(--accent-gold); font-weight: 700;">{{ $loop->iteration }}.</span> {!! $faq->question !!}</h3>
-                                    <span class="pg-accordion-icon">+</span>
-                                </button>
-                                <div class="pg-accordion-body">
-                                    <p>{!! $faq->answer !!}</p>
-                                </div>
-                            </div>
-                            @endforeach
-                        @else
-                            <!-- Hardcoded FAQs -->
-                            <div class="pg-step-item pg-accordion-item">
-                                <button class="pg-accordion-btn">
-                                    <h3 class="pg-accordion-q"><span style="color: var(--accent-gold); font-weight: 700;">1.</span> What is your minimum order quantity?</h3>
-                                    <span class="pg-accordion-icon">+</span>
-                                </button>
-                                <div class="pg-accordion-body">
-                                    <p>Our minimum order quantity starts at 100 units. We understand that every business has different needs, so we offer flexible MOQs to accommodate both small businesses and large enterprises.</p>
-                                </div>
-                            </div>
-
-                            <div class="pg-step-item pg-accordion-item">
-                                <button class="pg-accordion-btn">
-                                    <h3 class="pg-accordion-q"><span style="color: var(--accent-gold); font-weight: 700;">2.</span> Can I customize the size and design?</h3>
-                                    <span class="pg-accordion-icon">+</span>
-                                </button>
-                                <div class="pg-accordion-body">
-                                    <p>Absolutely! We specialize in fully customizable packaging. You can choose any size, shape, color, finish, and design elements. Our design team will work with you to create boxes that perfectly match your brand identity.</p>
-                                </div>
-                            </div>
-
-                            <div class="pg-step-item pg-accordion-item">
-                                <button class="pg-accordion-btn">
-                                    <h3 class="pg-accordion-q"><span style="color: var(--accent-gold); font-weight: 700;">3.</span> How long does production take?</h3>
-                                    <span class="pg-accordion-icon">+</span>
-                                </button>
-                                <div class="pg-accordion-body">
-                                    <p>Standard production time is 12-15 business days after artwork approval. Rush orders are available for urgent needs. Shipping time depends on your location, typically 3-7 business days domestically.</p>
-                                </div>
-                            </div>
-
-                            <div class="pg-step-item pg-accordion-item">
-                                <button class="pg-accordion-btn">
-                                    <h3 class="pg-accordion-q"><span style="color: var(--accent-gold); font-weight: 700;">4.</span> Do you offer free design support?</h3>
-                                    <span class="pg-accordion-icon">+</span>
-                                </button>
-                                <div class="pg-accordion-body">
-                                    <p>Yes! We provide complimentary design assistance with every order. Our experienced designers will help you create professional die lines, suggest finishing options, and refine your artwork until it's perfect.</p>
-                                </div>
-                            </div>
-
-                            <div class="pg-step-item pg-accordion-item">
-                                <button class="pg-accordion-btn">
-                                    <h3 class="pg-accordion-q"><span style="color: var(--accent-gold); font-weight: 700;">5.</span> What materials and finishes are available?</h3>
-                                    <span class="pg-accordion-icon">+</span>
-                                </button>
-                                <div class="pg-accordion-body">
-                                    <p>We offer premium rigid board materials in various thicknesses. Finishing options include matte or gloss lamination, spot UV, foil stamping (gold, silver, holographic), embossing, debossing, and soft-touch coating for a luxury feel.</p>
-                                </div>
-                            </div>
-                        @endif
-
-                        <!-- Help box -->
-                        <div class="pg-cta-box">
-                            <h4 class="pg-cta-title">Need help choosing?</h4>
-                            <p class="pg-cta-sub">Our team responds within 2 hours</p>
-                            <a href="{{ url('contact-us') }}" class="pg-cta-btn">Chat with an expert</a>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
         </div>
     </section>
-
-    <!-- Inline FAQ Accordion Script -->
-    <script>
-    (function() {
-        function toggleAccordion(button) {
-            const item = button.closest('.pg-accordion-item');
-            const isOpen = item.classList.contains('open');
-
-            // Close all
-            document.querySelectorAll('.pg-accordion-item').forEach(function(i) {
-                i.classList.remove('open');
-                const icon = i.querySelector('.pg-accordion-icon');
-                if (icon) {
-                    icon.textContent = '+';
-                    icon.style.color = 'rgba(255,255,255,0.6)';
-                }
-            });
-
-            // Open this one if it was closed
-            if (!isOpen) {
-                item.classList.add('open');
-                const icon = button.querySelector('.pg-accordion-icon');
-                if (icon) {
-                    icon.textContent = '−';
-                    icon.style.color = '#FFC107';
-                }
-            }
-        }
-
-        // Attach click handlers
-        const buttons = document.querySelectorAll('.pg-accordion-btn');
-        buttons.forEach(function(btn) {
-            btn.onclick = function(e) {
-                e.preventDefault();
-                toggleAccordion(this);
-                return false;
-            };
-        });
-    })();
-    </script>
 
     <!-- <section class="custom-box-section">
         <div class="container">
