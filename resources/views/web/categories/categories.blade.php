@@ -290,6 +290,85 @@ img {
     padding: 90px 0;
 }
 
+.gift-boxes-page + .cp-products {
+    margin-top: 3px;
+    padding: 30px 0 48px;
+}
+
+.gift-boxes-page + .cp-products .cp-sec-head {
+    display: none;
+}
+
+.gift-boxes-page + .cp-products .cp-grid {
+    margin-bottom: 18px;
+}
+
+.gift-boxes-page + .cp-products + .gift-boxes-addons-section + .cp-why,
+.gift-boxes-page ~ .product-testimonials-section {
+    margin-top: 3px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.gift-boxes-page ~ .quote-section {
+    margin-top: 3px;
+    padding-top: 58px;
+    padding-bottom: 58px;
+}
+
+.gift-boxes-page + .cp-products + .gift-boxes-addons-section + .cp-why .cp-why-title {
+    margin-top: 0;
+}
+
+.gift-boxes-page ~ .product-testimonials-section .product-testimonials-header {
+    margin-bottom: 32px;
+}
+
+.gift-boxes-addons-section {
+    background: var(--bg);
+    color: var(--white);
+    margin-top: 3px;
+    padding: 58px 0;
+}
+
+.gift-boxes-addons-wrap {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+    text-align: center;
+}
+
+
+.gift-boxes-addons-title {
+    color: var(--white);
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0 0 14px;
+}
+
+.gift-boxes-addons-subtitle {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0 0 34px;
+}
+
+.gift-boxes-addons-image {
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+
+.gift-boxes-addons-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 .cp-sec-head {
     text-align: center;
     display: flex;
@@ -525,6 +604,32 @@ img {
     /* Products */
     .cp-products {
         padding: 10vw 0;
+    }
+
+    .gift-boxes-page + .cp-products {
+        padding: 4vw 0 6vw;
+    }
+
+    .gift-boxes-page + .cp-products + .gift-boxes-addons-section + .cp-why,
+    .gift-boxes-page ~ .product-testimonials-section {
+        padding-top: 6vw;
+        padding-bottom: 6vw;
+    }
+    .gift-boxes-addons-section {
+        padding: 8vw 0;
+    }
+
+    .gift-boxes-addons-title {
+        font-size: 7vw;
+    }
+
+    .gift-boxes-addons-subtitle {
+        font-size: 3.8vw;
+        margin-bottom: 6vw;
+    }
+
+    .gift-boxes-addons-image {
+        border-radius: 14px;
     }
 
     .cp-sec-title {
@@ -1138,9 +1243,14 @@ img {
     transition: all 0.3s ease;
 }
 
-.product-nav-btn:hover {
+.product-nav-btn:hover:not(:disabled) {
     border-color: var(--product-gold);
     color: var(--product-gold);
+}
+
+.product-nav-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
 }
 
 /* product-container reuse */
@@ -1446,15 +1556,15 @@ img {
     width: 6px;
 }
 .pg-left::-webkit-scrollbar-track {
-    background: #2a2a2a; 
+    background: #2a2a2a;
     border-radius: 10px;
 }
 .pg-left::-webkit-scrollbar-thumb {
-    background: var(--gold); 
+    background: var(--gold);
     border-radius: 10px;
 }
 .pg-left::-webkit-scrollbar-thumb:hover {
-    background: #e6b13c; 
+    background: #e6b13c;
 }
 
 .pg-badge {
@@ -2749,15 +2859,64 @@ img {
   width: 100%;
   max-width: 1440px;
   height: 90px;
-  margin: 0 auto;
+  margin: 3px auto 0;
   padding: 0 60px;
   box-sizing: border-box;
+  gap: 40px;
+  border-top: 1px solid rgba(245, 197, 66, 0.24);
+  border-bottom: 1px solid rgba(245, 197, 66, 0.24);
 }
+
+/* .trust-bar {
+    overflow: hidden;
+} */
+
+.trust-logos {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+    width: max-content;
+    animation: marquee 25s linear infinite;
+}
+.trust-logos-wrapper{
+    flex:1;
+    overflow:hidden;
+}
+.logo-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-item img {
+    max-height: 45px;
+    width: auto;
+    display: block;
+    transition: transform .3s ease;
+}
+
+.logo-item:hover img {
+    transform: scale(1.08);
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+
 .trust-reviews {
   display: flex;
   align-items: center;
   gap: 15px;
-  flex-shrink: 0;
+  flex: 0 0 auto;
+  padding-right: 38px;
+  border-right: 1px solid rgba(245, 197, 66, 0.35);
 }
 .trust-reviews .stars {
   color: var(--accent-gold);
@@ -2771,21 +2930,15 @@ img {
   text-decoration: underline;
   white-space: nowrap;
 }
-.trust-logos {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: flex-end;
-  width: auto;
-  height: 100%;
-}
 .logo-item {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 110px;
-  height: 40px;
+  flex: 0 0 112px;
+  width: 112px;
+  height: 42px;
   opacity: 1;
+  scroll-snap-align: start;
   transition: opacity 0.3s ease, filter 0.3s ease;
 }
 .logo-item img {
@@ -2808,19 +2961,22 @@ img {
   }
   .trust-reviews {
     display: none;
+    border-right: 0;
+    padding-right: 0;
   }
   .trust-logos {
     display: flex !important;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     flex-wrap: nowrap;
     width: 100%;
-    gap: 10px;
+    gap: 14px;
+    overflow-x: auto;
   }
   .logo-item {
-    flex: 1;
-    max-width: 80px;
+    flex: 0 0 82px;
+    max-width: 82px;
     height: 35px;
     opacity: 0.8;
   }
@@ -2847,58 +3003,29 @@ img {
   box-sizing: border-box;
 }
 
-/* --- Column 1 Layout (Process Steps) --- */
+/* --- Column 1 Layout (Image Panel) --- */
 .quote-steps-col {
   width: 368px; /* Precise Figma layout specification */
   background-color: var(--bg-darker);
-  padding: 58px 35px; /* Offset to mirror Figma top position coordinates */
+  padding: 0;
   box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-  gap: 40px;
+  align-items: stretch;
+  justify-content: center;
+  overflow: hidden;
 }
 
-.step-item {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.quote-side-image {
+  width: 100%;
+  height: 100%;
+  min-height: 789px;
 }
 
-.step-item .step-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-/* Step Numbers Spec (01, 02, etc.) */
-.step-item .step-num {
-  width: 45px;
-  height: 30px;
-  font-family: var(--font-heading), sans-serif;
-  font-weight: 700;
-  font-size: 26px;
-  line-height: 22px;
-  letter-spacing: 0.04em; /* 4% spacing */
-  text-align: justify;
-  color: var(--accent-gold);
-  display: inline-flex;
-  align-items: center;
-}
-
-/* Step Titles */
-.step-item h3 {
-  font-family: var(--font-heading), sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text-main);
-  margin: 0;
-}
-
-.step-item p {
-  font-size: 13.5px;
-  line-height: 1.6;
-  color: var(--text-muted);
-  margin: 0;
+.quote-side-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* --- Column 2 Layout (Request Free Quote Form Container) --- */
@@ -3083,6 +3210,111 @@ img {
   background-color: var(--accent-gold-hover);
 }
 
+/* --- Standalone Human Verification Section --- */
+.human-verification-section {
+  width: 100%;
+  margin-top: 3px;
+  padding: 28px 5%;
+  background-color: var(--bg-darker);
+  box-sizing: border-box;
+}
+
+.human-verification-card {
+  width: 100%;
+  max-width: 1239px;
+  margin: 0 auto;
+  padding: 24px 32px;
+  border: 1px solid rgba(245, 197, 66, 0.28);
+  border-radius: 8px;
+  background-color: var(--bg-dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  box-sizing: border-box;
+}
+
+.human-verification-title {
+  color: var(--text-main);
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.human-verification-copy {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin: 0;
+}
+
+.human-verification-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
+}
+
+.human-question {
+  color: var(--accent-gold);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.human-answer {
+  width: 110px;
+  height: 44px;
+  background-color: var(--bg-darker);
+  border: 0.2px solid #727272;
+  border-radius: 8px;
+  color: var(--text-main);
+  text-align: center;
+  outline: none;
+}
+
+.human-check-btn {
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background-color: var(--accent-gold);
+  color: var(--bg-dark);
+  font-weight: 700;
+  padding: 0 22px;
+  cursor: pointer;
+}
+
+.human-status {
+  min-width: 170px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.human-status.is-error {
+  color: #ff6b6b;
+}
+
+.human-status.is-success {
+  color: #72d17f;
+}
+@media (max-width: 768px) {
+  .human-verification-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 18px;
+  }
+
+  .human-verification-control {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .human-answer {
+    flex: 1 1 90px;
+  }
+
+  .human-status {
+    width: 100%;
+  }
+}
 /* --- Responsive Adaptations --- */
 @media (max-width: 992px) {
   .quote-container {
@@ -3095,8 +3327,12 @@ img {
     max-width: 100%;
   }
   .quote-steps-col {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: block;
+  }
+
+  .quote-side-image,
+  .quote-side-image img {
+    min-height: 360px;
   }
 }
 @media (max-width: 768px) {
@@ -3147,11 +3383,14 @@ img {
 /* --- CTA Main Container Block --- */
 
 </style>
+@php
+    $isGiftBoxesPage = ($slug ?? '') === 'gift-boxes';
+@endphp
 <!-- ================================================
      HERO SECTION
      ================================================ -->
         <!-- Box By Industry Section -->
-        <section class="box-by-industry" style="padding: 40px 5% 0;">
+        <section class="box-by-industry{{ $isGiftBoxesPage ? ' gift-boxes-page' : '' }}" style="padding: {{ $isGiftBoxesPage ? '24px' : '40px' }} 5% 0;">
             <div class="industry-hero-content">
                 <div class="industry-hero-left">
                     <div class="hero-breadcrumb">
@@ -3196,7 +3435,7 @@ img {
                         @endif
                     </p>
 
-                    <a href="#" class="btn btn-yellow">Design Custom Boxes</a>
+                    <a href="{{ url('request-quote') }}" class="btn btn-yellow">Design Custom Boxes</a>
                 </div>
 
                 <div class="industry-hero-right">
@@ -3215,27 +3454,89 @@ img {
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-                    </div>
+
                     <a href="#" class="review-link">5.0 Google Reviews</a>
-                </div>
-                <div class="trust-logos">
-                    <div class="logo-item">
-                        <img src="{{ asset('uploads/adidas-logo.png') }}" alt="Adidas Logo">
-                    </div>
-                    <div class="logo-item">
-                        <img src="{{ asset('uploads/Google-logo.png') }}" alt="Google Logo">
-                    </div>
-                    <div class="logo-item">
-                        <img src="{{ asset('uploads/hp-logo.png') }}" alt="HP Logo">
-                    </div>
-                    <div class="logo-item">
-                        <img src="{{ asset('uploads/unilever-logo.webp') }}" alt="Unilever Logo">
-                    </div>
-                    <div class="logo-item">
-                        <img src="{{ asset('uploads/Benefit-Logo.png') }}" alt="Benefit Logo">
-                    </div>
+ </div>
+   @php
+                    $trustLogoDir = base_path('uploads');
+                    $trustLogoFiles = [];
+                    foreach (['webp', 'png', 'jpg', 'jpeg', 'svg'] as $extension) {
+                        $trustLogoFiles = array_merge($trustLogoFiles, glob($trustLogoDir . DIRECTORY_SEPARATOR . '*.' . $extension) ?: []);
+                    }
+                    sort($trustLogoFiles);
+                @endphp
+                <div class="trust-logos" aria-label="Brand logos">
+<div class="logo-item">
+        <img src="{{ asset('uploads/flowgardens-logo.webp') }}" alt="Flowgardens Logo">
+    </div>
+
+    <div class="logo-item">
+        <img src="{{ asset('uploads/voli-logo.webp') }}" alt="Voli Logo">
+    </div>
+
+    <div class="logo-item">
+        <img src="{{ asset('uploads/neat-logo.webp') }}" alt="Neat Logo">
+    </div>
+
+    <div class="logo-item">
+        <img src="{{ asset('uploads/11-png.webp') }}" alt="11 Logo">
+    </div>
+
+    <div class="logo-item">
+        <img src="{{ asset('uploads/red-bull-logo.png') }}" alt="Red Bull Logo">
+    </div>
+    <div class="logo-item">
+        <img src="{{ asset('uploads/springtastic-logo.webp') }}" alt="Springtastic Logo">
+    </div>
+    <div class="logo-item">
+        <img src="{{ asset('uploads/her-piece-peace-logo.webp') }}" alt="Her Piece of Peace Logo">
+    </div>
+    <div class="logo-item">
+        <img src="{{ asset('uploads/kinky.webp') }}" alt="Kinky Logo">
+    </div>
                 </div>
             </div>
+
+                </div>
+                <!-- @php
+                    $trustLogoDir = base_path('uploads');
+                    $trustLogoFiles = [];
+                    foreach (['webp', 'png', 'jpg', 'jpeg', 'svg'] as $extension) {
+                        $trustLogoFiles = array_merge($trustLogoFiles, glob($trustLogoDir . DIRECTORY_SEPARATOR . '*.' . $extension) ?: []);
+                    }
+                    sort($trustLogoFiles);
+                @endphp
+                <div class="trust-logos" aria-label="Brand logos">
+<div class="logo-item">
+        <img src="{{ asset('uploads/flowgardens-logo.webp') }}" alt="Flowgardens Logo">
+    </div>
+
+    <div class="logo-item">
+        <img src="{{ asset('uploads/voli-logo.webp') }}" alt="Voli Logo">
+    </div>
+
+    <div class="logo-item">
+        <img src="{{ asset('uploads/neat-logo.webp') }}" alt="Neat Logo">
+    </div>
+
+    <div class="logo-item">
+        <img src="{{ asset('uploads/11-png.webp') }}" alt="11 Logo">
+    </div>
+
+    <div class="logo-item">
+        <img src="{{ asset('uploads/red-bull-logo.png') }}" alt="Red Bull Logo">
+    </div>
+    <div class="logo-item">
+        <img src="{{ asset('uploads/springtastic-logo.webp') }}" alt="Springtastic Logo">
+    </div>
+    <div class="logo-item">
+        <img src="{{ asset('uploads/her-piece-peace-logo.webp') }}" alt="Her Piece of Peace Logo">
+    </div>
+    <div class="logo-item">
+        <img src="{{ asset('uploads/kinky.webp') }}" alt="Kinky Logo">
+    </div>
+                </div>
+            </div> -->
         </section>
 
 <!-- ================================================
@@ -3244,11 +3545,13 @@ img {
 <section class="cp-products">
     <div class="cp-wrap">
 
+        @unless($isGiftBoxesPage)
         <div class="cp-sec-head">
             <span class="cp-badge">OUR PRODUCTS</span>
             <h2 class="cp-sec-title">Lid & Base Boxes Collection</h2>
             <p class="cp-sec-sub">Browse our ready-to-order lid and base rigid boxes, fully customizable to your brand.</p>
         </div>
+        @endunless
 
         <div class="cp-grid">
             @if(isset($sub_product) && count($sub_product) > 0)
@@ -3265,44 +3568,64 @@ img {
             @endif
         </div>
 
+        @unless($isGiftBoxesPage)
         <div class="cp-center">
             <a href="#" class="cp-cta">Explore All Products</a>
         </div>
+        @endunless
 
     </div>
 </section>
 
+
+@if($isGiftBoxesPage)
+<section class="gift-boxes-addons-section">
+    <div class="gift-boxes-addons-wrap">
+        <div class="gift-boxes-addons-header">
+            <h2 class="gift-boxes-addons-title">Elevate With Exclusive Finishes</h2>
+            <p class="gift-boxes-addons-subtitle">Add that extra touch of luxury with our range of premium finishing options.</p>
+        </div>
+
+        <div class="gift-boxes-addons-image">
+            <img src="{{ asset('uploads/preium-addons.webp') }}" alt="Premium Addons">
+        </div>
+    </div>
+</section>
+@endif
 <!-- ================================================
      WHY CHOOSE SECTION
      ================================================ -->
+<?php
+    $hasWhyChoose = !empty($value[0]->why_choose_title) && !empty($value[0]->why_choose_desc);
+?>
+@if($hasWhyChoose)
 <section class="cp-why">
     <div class="cp-wrap">
         <div class="cp-why-grid">
 
             <div class="cp-why-text">
                 <span class="cp-badge">OVERVIEW</span>
-                <h2 class="cp-why-title">Why Choose Lid & Base?</h2>
-                <p class="cp-why-para">
-                    This style offers the ultimate unboxing experience. The lift-off lid creates a
-                    moment of anticipation, while the robust construction speaks of quality. Ideal
-                    for brands that want to make a lasting impression.
-                </p>
-                <p class="cp-why-para">
-                    We use premium materials like velvet, leatherette, and textured paper to wrap
-                    both lid and base. Add gold foil stamping or embossing for that extra luxury touch.
-                </p>
+                <h2 class="cp-why-title">{{ $value[0]->why_choose_title }}</h2>
+                <div class="cp-why-para" style="color: #cccccc;">
+                    {!! $value[0]->why_choose_desc !!}
+                </div>
             </div>
 
             <div class="cp-why-img">
                 <a href="#" class="cp-cta cp-why-quote-btn">Get a Quote</a>
                 <div class="cp-why-photo-wrap">
-                    <img src="./c903f3f775a50e5b56122d5a307158962172018e (1).jpg" alt="Why Choose" class="cp-why-photo">
+                    @if(!empty($value[0]->why_choose_img))
+                        <img src="{{ asset('images/' . $value[0]->why_choose_img) }}" alt="{{ $value[0]->why_choose_title }}" class="cp-why-photo">
+                    @else
+                        <img src="{{ asset('assets/images/default.jpg') }}" alt="Why Choose" class="cp-why-photo">
+                    @endif
                 </div>
             </div>
 
         </div>
     </div>
 </section>
+@endif
 
         <!-- ==========================================
              TESTIMONIALS SECTION
@@ -3310,11 +3633,13 @@ img {
         <section class="product-testimonials-section">
             <div class="product-container">
                 <div class="product-testimonials-header">
+                    @unless($isGiftBoxesPage)
                     <div class="product-sec-badge">TESTIMONIALS</div>
+                    @endunless
                     <h2 class="product-section-title">What Our Customers Say</h2>
                     <p class="product-section-subtitle">But don't just take our word for it, read what our clients say.</p>
                 </div>
-                
+
                 <div class="testi-slider-wrap">
                 <div class="product-testimonials-grid" id="testimonialsGrid">
                     <!-- Original 3 Cards -->
@@ -3329,7 +3654,7 @@ img {
                         <h4 class="product-testimonial-name">Alice Smith</h4>
                         <span class="product-testimonial-role">CEO, Beauty Brand</span>
                     </div>
-                    
+
                     <div class="product-testimonial-card">
                         <div class="product-avatar-wrap">
                             <img src="{{ asset('admin/dist/img/avatar.png') }}" alt="John" class="product-avatar">
@@ -3341,7 +3666,7 @@ img {
                         <h4 class="product-testimonial-name">John Davis</h4>
                         <span class="product-testimonial-role">Marketing Director</span>
                     </div>
-                    
+
                     <div class="product-testimonial-card">
                         <div class="product-avatar-wrap">
                             <img src="{{ asset('admin/dist/img/avatar3.png') }}" alt="Sarah" class="product-avatar">
@@ -3392,10 +3717,10 @@ img {
                     </div>
                 </div>
                 </div><!-- /.testi-slider-wrap -->
-                
+
                 <div class="product-slider-nav">
-                    <button class="product-nav-btn" id="prevTestimonialBtn"><i class="fas fa-chevron-left"></i></button>
-                    <button class="product-nav-btn" id="nextTestimonialBtn"><i class="fas fa-chevron-right"></i></button>
+                    <button type="button" class="product-nav-btn" id="prevTestimonialBtn" aria-label="Previous testimonial"><i class="fas fa-chevron-left"></i></button>
+                    <button type="button" class="product-nav-btn" id="nextTestimonialBtn" aria-label="Next testimonial"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </section>
@@ -3407,43 +3732,10 @@ img {
             <div class="quote-container">
 
                 <div class="quote-steps-col">
-                    <div class="step-item">
-                        <div class="step-header">
-                            <span class="step-num">01.</span>
-                            <h3>Submit Your Brief</h3>
-                        </div>
-                        <p>Share your product dimensions, quantities, and vision. We respond within 24 hours with
-                            initial recommendations and a structural concept tailored to your needs.</p>
-                    </div>
-
-                    <div class="step-item">
-                        <div class="step-header">
-                            <span class="step-num">02.</span>
-                            <h3>Design & Quote</h3>
-                        </div>
-                        <p>You receive a structural die line, finish spec sheet, and transparent pricing. Revisions are
-                            included at no extra cost — no surprises, no hidden fees.</p>
-                    </div>
-
-                    <div class="step-item">
-                        <div class="step-header">
-                            <span class="step-num">03.</span>
-                            <h3>Approve & Produce</h3>
-                        </div>
-                        <p>Once artwork is approved, production begins immediately in our certified manufacturing
-                            facility. Pre-production physical samples available before full run.</p>
-                    </div>
-
-                    <div class="step-item">
-                        <div class="step-header">
-                            <span class="step-num">04.</span>
-                            <h3>Ship & Arrive</h3>
-                        </div>
-                        <p>Your order ships with full tracking and quality documentation. Custom orders take
-                            approximately 15 days production, plus shipping.</p>
+                    <div class="quote-side-image">
+                        <img src="{{ asset('uploads/category-cta.png') }}" alt="Custom packaging quote">
                     </div>
                 </div>
-
                 <div class="quote-form-col">
                     <h2>Request a Free Quote</h2>
 
@@ -3507,7 +3799,7 @@ img {
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Addons</label>
+                                <label>Select Product Name</label>
                                 <select>
                                     <option value="">Choose option</option>
                                 </select>
@@ -3538,7 +3830,27 @@ img {
                 </div>
 
             </div>
+
+
+<!-- ================================================
+     HUMAN VERIFICATION SECTION
+     ================================================ -->
+
+    <div class="human-verification-card">
+        <div>
+            <h2 class="human-verification-title">Are you a human?</h2>
+            <p class="human-verification-copy">Solve this quick addition before continuing.</p>
+        </div>
+        <div class="human-verification-control">
+            <span class="human-question" id="humanQuestion">0 + 0 =</span>
+            <input type="number" class="human-answer" id="humanAnswer" placeholder="Answer" aria-label="Human verification answer">
+            <button type="button" class="human-check-btn" id="humanCheckBtn">Verify</button>
+            <span class="human-status" id="humanStatus" aria-live="polite"></span>
+        </div>
+    </div>
+
         </section>
+
 
 <!-- ================================================
      PACKAGING GUIDE SECTION
@@ -3585,7 +3897,7 @@ img {
                     </div>
                     @endforeach
                 @endif
-                
+
                 <!-- Help box -->
                 <div class="pg-cta-box">
                     <h4 class="pg-cta-title">Need help choosing?</h4>
@@ -3781,6 +4093,50 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Standalone human verification section
+    const humanQuestion = document.getElementById('humanQuestion');
+    const humanAnswer = document.getElementById('humanAnswer');
+    const humanCheckBtn = document.getElementById('humanCheckBtn');
+    const humanStatus = document.getElementById('humanStatus');
+    let humanTotal = 0;
+
+    function generateHumanQuestion() {
+        const firstNumber = Math.floor(Math.random() * 9) + 1;
+        const secondNumber = Math.floor(Math.random() * 9) + 1;
+        humanTotal = firstNumber + secondNumber;
+        if (humanQuestion) humanQuestion.textContent = firstNumber + ' + ' + secondNumber + ' =';
+        if (humanAnswer) {
+            humanAnswer.value = '';
+            humanAnswer.style.border = '';
+        }
+        if (humanStatus) {
+            humanStatus.textContent = '';
+            humanStatus.classList.remove('is-error', 'is-success');
+        }
+    }
+
+    if (humanQuestion && humanAnswer && humanCheckBtn) {
+        generateHumanQuestion();
+        humanCheckBtn.addEventListener('click', function () {
+            const isCorrect = humanAnswer.value.trim() !== '' && Number(humanAnswer.value.trim()) === humanTotal;
+            if (isCorrect) {
+                humanAnswer.style.border = '';
+                if (humanStatus) {
+                    humanStatus.textContent = 'Verified.';
+                    humanStatus.classList.remove('is-error');
+                    humanStatus.classList.add('is-success');
+                }
+            } else {
+                humanAnswer.style.border = '1px solid red';
+                if (humanStatus) {
+                    humanStatus.textContent = 'Please solve the addition correctly.';
+                    humanStatus.classList.remove('is-success');
+                    humanStatus.classList.add('is-error');
+                }
+                humanAnswer.focus();
+            }
+        });
+    }
     // ── QUOTE FORM VALIDATION ──
     const quoteForm = document.querySelector(".instant-quote-form");
 
@@ -3799,7 +4155,7 @@ document.addEventListener('DOMContentLoaded', function () {
             requiredFields.forEach(field => {
                 let valid = true;
                 const val = field.value.trim();
-                
+
                 if (!val) {
                     valid = false;
                 } else if (field.type === 'email') {
@@ -3829,7 +4185,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             // Success state - you can add custom success message UI here if needed
-            
+
             quoteForm.reset();
             requiredFields.forEach(field => field.style.border = ""); // reset borders
 

@@ -3947,19 +3947,19 @@ section + section {
   .instant-quote-form > .form-row.dual-grid:nth-child(2) {
     grid-template-columns: 1fr !important;
   }
-  
+
   /* All standalone form-groups stay full width */
   .instant-quote-form > .form-group {
     width: 100%;
   }
-  
+
   /* All other dual-grid rows stay 2x2 */
   .form-row.dual-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
   }
-  
+
   .triple-grid,
   .dimensions-grid,
   .quantity-upload-grid {
@@ -4041,7 +4041,7 @@ section + section {
                     <div class="logo-item">
                         <img src="{{ asset('images/voli-logo.webp') }}" alt="Voli Logo">
                     </div>
-                    
+
                     <!-- Duplicate set 1 -->
                     <div class="logo-item">
                         <img src="{{ asset('uploads/adidas-logo.png') }}" alt="Adidas Logo">
@@ -4076,7 +4076,7 @@ section + section {
                     <div class="logo-item">
                         <img src="{{ asset('images/voli-logo.webp') }}" alt="Voli Logo">
                     </div>
-                    
+
                     <!-- Duplicate set 2 for extra smooth loop -->
                     <div class="logo-item">
                         <img src="{{ asset('uploads/adidas-logo.png') }}" alt="Adidas Logo">
@@ -4119,7 +4119,7 @@ section + section {
     <section class="sectors-section">
         <div class="container">
             <div class="sectors-header">
-              
+
                 <h2>Tailored For Every Sector</h2>
                 <p>We specialize in rigid packaging solutions across diverse industries, each with<br>unique
                     requirements.</p>
@@ -4128,12 +4128,12 @@ section + section {
                 @foreach($industry_products as $product)
                 <div class="sector-card">
                     <div class="sector-img-placeholder">
-                        <a href="{{ url('/'.$product->url) }}">
-                            <img src="{{ asset('images/'.$product->image) }}" onerror="this.src='./assets/jewellry and watch.jfif'; this.onerror=null;" alt="{{ $product->title }}">
+                        <a href="{{ url('/'.$product->category_url) }}">
+                            <img src="{{ asset('images/'.($product->feature_product ? $product->feature_product : ($product->image ? $product->image : $product->bimage))) }}" onerror="this.src='./assets/jewellry and watch.jfif'; this.onerror=null;" alt="{{ $product->name }}">
                         </a>
                     </div>
                     <div class="sector-info">
-                        <h3><a href="{{ url('/'.$product->url) }}" style="color: inherit; text-decoration: none;">{{ $product->title }}</a></h3>
+                        <h3><a href="{{ url('/'.$product->category_url) }}" style="color: inherit; text-decoration: none;">{{ $product->name }}</a></h3>
                         <p>{!! Str::limit(strip_tags($product->description), 60) !!}</p>
                     </div>
                 </div>
@@ -4161,8 +4161,8 @@ section + section {
         </div>
     </section>
 
-   
-   
+
+
 
     <section class="premium-addons-section">
         <div class="container">
@@ -4296,17 +4296,17 @@ section + section {
         const grid = document.querySelector('.testimonial-grid');
         const prevBtn = document.querySelector('.testimonial-prev-btn');
         const nextBtn = document.querySelector('.testimonial-next-btn');
-        
+
         if (!grid || !prevBtn || !nextBtn) return;
-        
+
         let currentIndex = 0;
         const cards = grid.querySelectorAll('.testimonial-card');
         const totalCards = cards.length;
-        
+
         function scrollToCard(index) {
             if (index < 0) index = 0;
             if (index >= totalCards) index = totalCards - 1;
-            
+
             currentIndex = index;
             const cardWidth = cards[0].offsetWidth;
             grid.scrollTo({
@@ -4314,15 +4314,15 @@ section + section {
                 behavior: 'smooth'
             });
         }
-        
+
         prevBtn.onclick = function() {
             scrollToCard(currentIndex - 1);
         };
-        
+
         nextBtn.onclick = function() {
             scrollToCard(currentIndex + 1);
         };
-        
+
         // Track scroll position
         grid.addEventListener('scroll', function() {
             const cardWidth = cards[0].offsetWidth;
@@ -4414,6 +4414,7 @@ section + section {
                         <!-- 8. Product Name & Quantity - 2 by 2 -->
                         <div class="form-row dual-grid">
                             <div class="form-group">
+                                <label>Select Product Name</label>
                                 <label>Product Name</label>
                                 <select>
                                     <option value="">Choose option</option>
@@ -4569,7 +4570,7 @@ section + section {
         function toggleAccordion(button) {
             const item = button.closest('.pg-accordion-item');
             const isOpen = item.classList.contains('open');
-            
+
             // Close all
             document.querySelectorAll('.pg-accordion-item').forEach(function(i) {
                 i.classList.remove('open');
@@ -4579,7 +4580,7 @@ section + section {
                     icon.style.color = 'rgba(255,255,255,0.6)';
                 }
             });
-            
+
             // Open this one if it was closed
             if (!isOpen) {
                 item.classList.add('open');
@@ -4590,7 +4591,7 @@ section + section {
                 }
             }
         }
-        
+
         // Attach click handlers
         const buttons = document.querySelectorAll('.pg-accordion-btn');
         buttons.forEach(function(btn) {
@@ -4799,7 +4800,7 @@ if (fileInput) {
             requiredFields.forEach(field => {
                 let valid = true;
                 const val = field.value.trim();
-                
+
                 if (!val) {
                     valid = false;
                 } else if (field.type === 'email') {
@@ -4861,27 +4862,27 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 (function() {
     function initAccordion() {
         const accordionButtons = document.querySelectorAll('.pg-accordion-btn');
-        
+
         if (accordionButtons.length === 0) {
             console.log('No accordion buttons found');
             return;
         }
-        
+
         console.log('Found ' + accordionButtons.length + ' accordion buttons');
-        
+
         accordionButtons.forEach(function(btn) {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                
+
                 console.log('Accordion button clicked');
-                
+
                 const item = btn.closest('.pg-accordion-item');
                 if (!item) {
                     console.log('No parent item found');
                     return;
                 }
-                
+
                 const isOpen = item.classList.contains('open');
                 console.log('Item is currently ' + (isOpen ? 'open' : 'closed'));
 
@@ -4908,14 +4909,14 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
             });
         });
     }
-    
+
     // Try multiple initialization methods
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initAccordion);
     } else {
         initAccordion();
     }
-    
+
     // Fallback initialization
     setTimeout(initAccordion, 1000);
 })();

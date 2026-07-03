@@ -105,11 +105,25 @@
                   </div>
                   </div>
 
-               <div class="form-group row">
+                  <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Category Banner</label>
                     <div class="col-sm-9">
                     <input id="bimage" style="padding-bottom: 35px;" type="file" class="form-control" name="bimage" required>
                   </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Feature Image</label>
+                    <div class="col-sm-9">
+                    <input id="feature_product" style="padding-bottom: 35px;" type="file" class="form-control" name="feature_product">
+                  </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Schema (JSON-LD)</label>
+                    <div class="col-sm-9">
+                      <textarea class="form-control" name="schema" rows="5" placeholder="<script type='application/ld+json'>...</script>"></textarea>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -166,6 +180,31 @@
                   </div>
 
                 </div>
+              </div>
+
+              <!-- Why Choose Section -->
+              <div class="card" style="width: 66%; margin-left: 15px;">
+                  <div class="card-header header-2">Why Choose Section</div>
+                  <div class="card-body">
+                      <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Why Choose Title</label>
+                          <div class="col-sm-9">
+                              <input type="text" class="form-control" name="why_choose_title" placeholder="e.g. Why Choose Lid & Base?">
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Why Choose Description</label>
+                          <div class="col-sm-9">
+                              <textarea class="form-control" name="why_choose_desc" rows="4" placeholder="Enter description..."></textarea>
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Why Choose Image</label>
+                          <div class="col-sm-9">
+                              <input type="file" class="form-control" name="why_choose_img">
+                          </div>
+                      </div>
+                  </div>
               </div>
 
               <!-- FAQs Section -->

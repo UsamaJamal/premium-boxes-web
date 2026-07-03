@@ -59,14 +59,14 @@ return response()->view('web/404',$data,404);
     $data['all_category_popular'] = DB::table('add_category')->where('status',1)->get();
     $data['show_home_1'] = DB::table('home_sliderp')->limit(4)->get();
 
-    // Box By Industry products
-    $industry_cat = DB::table('add_category')->where('name', 'like', '%industry%')->orWhere('name', 'like', '%Industry%')->first();
-    if ($industry_cat) {
-        $sub_cats = DB::table('add_category')->where('parent_category', $industry_cat->cat_id)->pluck('cat_id')->toArray();
-        $data['industry_products'] = DB::table('product')->whereIn('cat_id', $sub_cats)->where('status', 1)->inRandomOrder()->take(8)->get();
-    } else {
-        $data['industry_products'] = [];
-    }
+    // Featured Categories (any category with a feature_product image)
+    $data['industry_products'] = DB::table('add_category')
+        ->whereNotNull('feature_product')
+        ->where('feature_product', '!=', '')
+        ->where('status', 1)
+        ->inRandomOrder()
+        ->take(8)
+        ->get();
 
     // Box By Style products
     $style_cat = DB::table('add_category')->where('name', 'like', '%style%')->orWhere('name', 'like', '%Style%')->first();

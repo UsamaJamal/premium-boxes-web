@@ -21,7 +21,7 @@ html, body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 160px 40px 60px;
+    padding: 190px 40px 60px;
     overflow: hidden;
     background: #1a1a1a;
 }
@@ -36,7 +36,7 @@ html, body {
 
 .qu-breadcrumb {
     position: absolute;
-    top: 120px;
+    top: 150px;
     left: 48px;
     display: flex;
     align-items: center;
@@ -429,7 +429,7 @@ html, body {
             <span class="qu-bc-current">Get Instant Quote</span>
         </nav>
         <div class="qu-hero-content">
-            <button class="qu-hero-badge">GET QUOTE</button>
+            <!-- <button class="qu-hero-badge">GET QUOTE</button> -->
             <h1 class="qu-hero-heading">
                 Request An <span class="qu-hero-gold">Instant Quote</span>
             </h1>
@@ -518,7 +518,7 @@ html, body {
                         </select>
                     </div>
                     <div class="qu-field">
-                        <label>Addons</label>
+                        <label>Select Product Name</label>
                         <select>
                             <option value="">Choose option</option>
                             <option>Foil Stamping</option>
@@ -651,3 +651,4 @@ if (quoteForm) {
 }
 
 </script>
+@include('web/footer')
