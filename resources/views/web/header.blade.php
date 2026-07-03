@@ -22,7 +22,7 @@
   
     <link rel="icon" href="{{url('web/img/favicon.png')}}">
 
-    <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
 	<!-- <link rel="stylesheet" href="css/animate.css"> -->
 
 

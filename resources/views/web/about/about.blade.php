@@ -76,6 +76,7 @@ html, body {
 }
 
 .ab-us-hero-badge {
+    margin-top: 91px;
     display: inline-flex;
     border: 1px solid #D4AF37;
     color: #D4AF37;
