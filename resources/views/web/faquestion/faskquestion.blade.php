@@ -29,14 +29,14 @@ html {
 .faq-hero {
     position: relative;
     width: 100%;
-    height: 320px;
+    min-height: 320px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 20px;
-    overflow: hidden;
+    padding: 140px 20px 40px; /* top padding accounts for fixed navbar (~120px) */
+    overflow: visible;
     border-radius: 0;
     margin: 0;
 
@@ -58,6 +58,7 @@ html {
         rgba(0, 0, 0, 0.80) 100%
     );
     z-index: 0;
+    pointer-events: none;
 }
 
 /* All children above overlay */
@@ -193,7 +194,7 @@ html {
     padding: 16px 20px;
     background-color: #1a1a1a;
     position: sticky;
-    top: 0;
+    top: 120px; /* offset below fixed navbar (~120px) */
     width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 16px rgba(0, 0, 0, 0.7);
@@ -269,7 +270,7 @@ body.filters-visible .faq-filters-spacer {
    ============================================ */
 .faq-section {
     margin-bottom: 28px;
-    scroll-margin-top: 70px;
+    scroll-margin-top: 190px; /* navbar (~120px) + filter bar (~57px) + buffer */
 }
 
 .faq-section-title {
@@ -370,12 +371,13 @@ body.filters-visible .faq-filters-spacer {
 
     /* Hero — square on mobile */
     .faq-hero {
-        height: 100vw;
         min-height: 100vw;
         max-height: 520px;
         width: 100%;
         margin: 0;
         border-radius: 0;
+        padding-top: 100px; /* navbar is smaller on mobile */
+        padding-bottom: 30px;
     }
 
     /* FAQS badge — dark background, gold border pill */
@@ -419,7 +421,7 @@ body.filters-visible .faq-filters-spacer {
         flex-wrap: nowrap;
         overflow-x: visible;
         position: sticky;
-        top: 0;
+        top: 80px; /* mobile navbar is shorter */
         width: 100%;
         box-sizing: border-box;
         cursor: default;
@@ -469,7 +471,7 @@ body.filters-visible .faq-filters-spacer {
 
     .faq-section {
         margin-bottom: 9vw;
-        scroll-margin-top: 80px;
+        scroll-margin-top: 160px; /* mobile navbar + filter bar */
     }
 
     /* Accordion */
@@ -502,9 +504,10 @@ body.filters-visible .faq-filters-spacer {
 @media (max-width: 480px) {
 
     .faq-hero {
-        height: 100vw;
         min-height: 100vw;
         max-height: 480px;
+        padding-top: 90px;
+        padding-bottom: 24px;
     }
 
     .faq-heading {
@@ -750,15 +753,19 @@ foreach($parts as $part) {
             btn.addEventListener('click', () => {
                 const targetId = btn.getAttribute('data-target');
 
-                // Turant filter bar scroll karo
+                // Scroll filter bar to active button
                 setActiveBtn(targetId);
 
                 // Smooth scroll to the target section
                 const targetSection = document.getElementById(targetId);
                 if (targetSection) {
+                    const navbarHeight = document.getElementById('site-header')
+                        ? document.getElementById('site-header').offsetHeight
+                        : 120;
                     const filterBarHeight = document.querySelector('.faq-filters').offsetHeight;
-                    const extraOffset = 20;
-                    const sectionTop = targetSection.getBoundingClientRect().top + window.scrollY - filterBarHeight - extraOffset;
+                    const extraOffset = 16;
+                    const totalOffset = navbarHeight + filterBarHeight + extraOffset;
+                    const sectionTop = targetSection.getBoundingClientRect().top + window.scrollY - totalOffset;
                     window.scrollTo({ top: sectionTop, behavior: 'smooth' });
                 }
             });
@@ -812,8 +819,11 @@ foreach($parts as $part) {
         //  ✅ FIXED SCROLL SPY — accurate section detection
         // ============================================
         function getCurrentSection() {
+            const navbarHeight = document.getElementById('site-header')
+                ? document.getElementById('site-header').offsetHeight
+                : 120;
             const filterBarHeight = document.querySelector('.faq-filters').offsetHeight;
-            const triggerPoint = filterBarHeight + 30; // Just below sticky filter bar
+            const triggerPoint = navbarHeight + filterBarHeight + 30; // Just below sticky filter bar
 
             let currentSection = null;
             let closestDistance = Infinity;
