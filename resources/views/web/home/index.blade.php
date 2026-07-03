@@ -1494,7 +1494,7 @@ h3 {
 
 .guide-content,
 .guide-sidebar {
-  background: #181818;
+  background: #242424;
   padding: 30px;
   border-radius: 12px;
 }
@@ -3503,6 +3503,8 @@ section + section {
     color: #ffffff;
     font-weight: 500;
     flex: 1;
+    margin: 0;
+    text-align: left;
 }
 .pg-accordion-btn:focus {
     outline: none;
@@ -4479,13 +4481,13 @@ section + section {
                 <div class="guide-sidebar">
 
                     <div class="sidebar-block guide-faq pg-steps-box">
-                        <h3 class="pg-steps-title">Frequently Asked Questions</h3>
+                        <h2 class="pg-steps-title">Frequently Asked Questions</h2>
 
                         @if(isset($home_faqs) && count($home_faqs) > 0)
                             @foreach($home_faqs as $faq)
                             <div class="pg-step-item pg-accordion-item">
                                 <button class="pg-accordion-btn">
-                                    <span class="pg-accordion-q"><span style="color: var(--accent-gold); font-weight: 700;">{{ $loop->iteration }}.</span> {!! $faq->question !!}</span>
+                                    <h3 class="pg-accordion-q"><span style="color: var(--accent-gold); font-weight: 700;">{{ $loop->iteration }}.</span> {!! $faq->question !!}</h3>
                                     <span class="pg-accordion-icon">+</span>
                                 </button>
                                 <div class="pg-accordion-body">
@@ -4497,7 +4499,7 @@ section + section {
                             <!-- Hardcoded FAQs -->
                             <div class="pg-step-item pg-accordion-item">
                                 <button class="pg-accordion-btn">
-                                    <span class="pg-accordion-q"><span style="color: var(--accent-gold); font-weight: 700;">1.</span> What is your minimum order quantity?</span>
+                                    <h3 class="pg-accordion-q"><span style="color: var(--accent-gold); font-weight: 700;">1.</span> What is your minimum order quantity?</h3>
                                     <span class="pg-accordion-icon">+</span>
                                 </button>
                                 <div class="pg-accordion-body">
@@ -4507,7 +4509,7 @@ section + section {
 
                             <div class="pg-step-item pg-accordion-item">
                                 <button class="pg-accordion-btn">
-                                    <span class="pg-accordion-q"><span style="color: var(--accent-gold); font-weight: 700;">2.</span> Can I customize the size and design?</span>
+                                    <h3 class="pg-accordion-q"><span style="color: var(--accent-gold); font-weight: 700;">2.</span> Can I customize the size and design?</h3>
                                     <span class="pg-accordion-icon">+</span>
                                 </button>
                                 <div class="pg-accordion-body">
@@ -4517,7 +4519,7 @@ section + section {
 
                             <div class="pg-step-item pg-accordion-item">
                                 <button class="pg-accordion-btn">
-                                    <span class="pg-accordion-q"><span style="color: var(--accent-gold); font-weight: 700;">3.</span> How long does production take?</span>
+                                    <h3 class="pg-accordion-q"><span style="color: var(--accent-gold); font-weight: 700;">3.</span> How long does production take?</h3>
                                     <span class="pg-accordion-icon">+</span>
                                 </button>
                                 <div class="pg-accordion-body">
@@ -4527,7 +4529,7 @@ section + section {
 
                             <div class="pg-step-item pg-accordion-item">
                                 <button class="pg-accordion-btn">
-                                    <span class="pg-accordion-q"><span style="color: var(--accent-gold); font-weight: 700;">4.</span> Do you offer free design support?</span>
+                                    <h3 class="pg-accordion-q"><span style="color: var(--accent-gold); font-weight: 700;">4.</span> Do you offer free design support?</h3>
                                     <span class="pg-accordion-icon">+</span>
                                 </button>
                                 <div class="pg-accordion-body">
@@ -4537,7 +4539,7 @@ section + section {
 
                             <div class="pg-step-item pg-accordion-item">
                                 <button class="pg-accordion-btn">
-                                    <span class="pg-accordion-q"><span style="color: var(--accent-gold); font-weight: 700;">5.</span> What materials and finishes are available?</span>
+                                    <h3 class="pg-accordion-q"><span style="color: var(--accent-gold); font-weight: 700;">5.</span> What materials and finishes are available?</h3>
                                     <span class="pg-accordion-icon">+</span>
                                 </button>
                                 <div class="pg-accordion-body">
