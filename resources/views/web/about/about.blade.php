@@ -103,13 +103,13 @@ html, body {
     text-align: center;
 }
 .ab-us-hero-heading br { display: inline; }
-.ab-us-gold { color: #D4AF37; }
+.ab-us-gold { color: #F5C542; }
 
 .ab-us-hero-para {
     font-size: clamp(14px, 1.2vw, 18px);
     font-weight: 400;
     line-height: 1.75;
-    color: rgba(255,255,255,0.80);
+    color: #C5C5C5;
     max-width: 620px;
     text-align: center;
 }
@@ -135,7 +135,7 @@ html, body {
 .ab-us-story {
     width: 100%;
     background-color: #111111;
-    padding: 100px 48px;
+    padding: 40px 48px 40px 48px;
 }
 
 .ab-us-story-container {
@@ -216,7 +216,7 @@ html, body {
     font-size: 13px;
     font-weight: 400;
     line-height: 1.9;
-    color: rgba(255,255,255,0.75);
+    color: #C5C5C5;
     max-width: 590px;
     text-align: left;
     margin-top: 20px;
@@ -244,7 +244,7 @@ html, body {
 .ab-us-why {
     width: 100%;
     background-color: #111111;
-    padding: 80px 48px;
+    padding: 40px 48px 40px 48px;
 }
 
 .ab-us-why-inner {
@@ -285,7 +285,8 @@ html, body {
 }
 .ab-us-why-badge:hover { background: #D4AF37; color: #111111; }
 
-.ab-us-why-title { font-size: 32px; font-weight: 700; line-height: 1.25; color: #ffffff; margin-bottom: 12px; }
+.ab-us-why-title {
+     font-size: 32px; font-weight: 700; line-height: 1.25; color: #ffffff; margin-bottom: 12px; }
 .ab-us-why-desc  { font-size: 14px; line-height: 1.75; color: rgba(255,255,255,0.65); margin-bottom: 0; }
 
 .ab-us-why-right {
@@ -363,7 +364,7 @@ html, body {
 .ab-us-numbers {
     width: 100%;
     background-color: #161616;
-    padding: 70px 48px;
+    padding: 40px 48px 40px 48px;
 }
 
 .ab-us-numbers-inner {
@@ -410,6 +411,7 @@ html, body {
 }
 
 .ab-us-numbers-para {
+    margin-left: 152px;
     font-size: 13.5px;
     line-height: 1.85;
     color: rgba(255,255,255,0.58);
@@ -443,6 +445,7 @@ html, body {
     .ab-us-numbers-inner  { flex-direction: column; align-items: flex-start; gap: 5vw; }
     .ab-us-numbers-left   { flex: none; width: 100%; }
     .ab-us-numbers-right  { width: 100%; }
+    .ab-us-numbers-para   { margin-left: 0; font-size: 3.6vw; line-height: 1.75; text-align: justify; max-width: 100%; }
     .ab-us-numbers-stats  { flex-wrap: wrap; gap: 6vw; }
     .ab-us-stat-sep       { border-right: none; }
     .ab-us-numbers-stat   { flex: 0 0 45%; padding: 0; }
@@ -450,7 +453,6 @@ html, body {
     .ab-us-numbers-badge  { font-size: 2.8vw; padding: 1.5vw 4vw; }
     .ab-us-stat-num       { font-size: 7vw; }
     .ab-us-stat-lbl       { font-size: 3.5vw; }
-    .ab-us-numbers-para   { font-size: 3.6vw; line-height: 1.75; text-align: justify; max-width: 100%; }
 }
 @media (max-width: 500px) {
     .ab-us-numbers-heading { font-size: 7vw; }
@@ -461,7 +463,7 @@ html, body {
 .ab-us-process {
     width: 100%;
     background-color: #111111;
-    padding: 80px 48px;
+    padding: 40px 48px 80px 48px;
     text-align: center;
 }
 

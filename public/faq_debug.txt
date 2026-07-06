@@ -1,44 +1,52 @@
 Array
 (
-    [_token] => YHy1LR9pBqwL6SPpAabpl8geWJyC0u0jrRzeUPBf
-    [oldbaner] => 1782908794-b-Metalized-Boxes.webp
+    [_token] => D6OMLakdKaBlABQtJXBY0BKImuEkBDVc0tElWPoG
+    [oldbaner] => 1782909070-b-Apperal-Boxes.webp
     [oldfav-icon] => 
-    [oldimage] => 1782908794-Metalized-Boxes.webp
-    [old_hero_image] => 1782908794-h-Metalized-Boxes.webp
+    [oldimage] => 1782909070-Apperal-Boxes.webp
+    [old_hero_image] => 1782909070-h-Apperal-Boxes.webp
     [old_parent_cat] => 110
-    [name] => Metalized Boxes
-    [categoryurl] => metalized-boxes
-    [ckeditor] => <h1 style="text-align:justify"><span style="font-size:20px"><strong><span style="color:#000000">Metalized Packaging</span></strong></span></h1>
+    [name] => Apparel Boxes
+    [categoryurl] => apparel-boxes
+    [ckeditor] => <p style="text-align:justify"><span style="color:#000000">Different designs of&nbsp;<strong>apparel boxes</strong>&nbsp;are available at PremiumBoxes. They come in numerous attractive shapes and colors. Clients can also get them in any size according to their needs. Placeholders, custom inserts, and die-cut windows can be added to these boxes on demand. Their manufacturing materials are organic and biodegradable. These materials include kraft, bux board, and cardboard stock. Many customization options, such as additional coatings and laminations, are available. Modern printing technologies are used for the printing of these boxes. Free shipping is available across the USA and Canada. Free design support is also available.<strong>&nbsp;</strong></span></p>
 
-<p style="text-align:justify"><span style="color:#000000">Metalized boxes are fancy and sturdy packaging solutions. Their metalized look makes them prominent and inevitable for high-value products and gift items. They are made with green and nature-friendly supplies. PremiumBoxes offers end-to-end customization options for these packages. The clients can choose the shape, style, design, color scheme, and size of these boxes. Different add-ons such as inserts, dividers, placeholders, and handles can also be added to these boxes. To enhance their visual appeal and safety features, various types of finishing options are also available. Volume discounts along with free shipping are also offered for these boxes.&nbsp;</span></p>
+<h1 style="text-align:justify"><span style="font-size:20px"><span style="color:#000000"><strong>Eco-friendly Materials</strong></span></span></h1>
 
-<p style="text-align:justify"><span style="color:#000000">Products packed and presented in&nbsp;<strong>gold foil boxes</strong>&nbsp;are considered more valuable and quickly get noticed by the customers as compared to the others. These boxes are available at PremiumBoxes with various exclusive features.&nbsp;</span></p>
+<p style="text-align:justify"><span style="color:#000000">We manufacture environmentally-friendly&nbsp;<strong>kraft apparel boxes</strong>. They are biodegradable and recyclable. Other supplies such as inks and adhesives used in their manufacturing are also environmentally friendly.<strong>&nbsp;</strong></span></p>
 
-<p style="text-align:justify"><span style="font-size:18px"><span style="color:#000000"><strong>Lowest Prices</strong></span></span></p>
+<h2 style="text-align:justify"><span style="font-size:18px"><span style="color:#000000"><strong>Cost-effective Packaging</strong></span></span></h2>
 
-<p style="text-align:justify"><span style="color:#000000">PremiumBoxes offers the lowest prices for&nbsp;<strong>metalized packaging</strong>. For large quantity orders, volume discounts are also available. Special discounts are also offered occasionally.&nbsp;</span></p>
+<p style="text-align:justify"><span style="color:#000000">PremiumBoxes keeps the pricing of these boxes the lowest. However, the low pricing does not mean that we do not know how to manufacture&nbsp;<strong>luxury apparel boxes</strong>. We are known for providing the finest packaging at the lowest pricing.<strong>&nbsp;</strong></span></p>
 
-<p style="text-align:justify"><span style="font-size:16px"><span style="color:#000000"><strong>Get the Best Customizations</strong></span></span></p>
+<h3 style="text-align:justify"><span style="font-size:16px"><span style="color:#000000"><strong>Free Shipping&nbsp;</strong></span></span></h3>
 
-<p style="text-align:justify"><span style="color:#000000">Different types of customization options are offered for&nbsp;<strong>custom metalized packaging boxes</strong>. These options include the choice of style, size, shape, and manufacturing material. Foiling options for these boxes include gold, silver, and copper foiling.&nbsp;</span></p>
+<p style="text-align:justify"><span style="color:#000000">We are offering free shipping across North America. Shipping is also available for international clients on demand. We also offer rush delivery under special terms and conditions.<strong>&nbsp;</strong></span></p>
 
-<p style="text-align:justify"><span style="font-size:16px"><span style="color:#000000"><strong>Free Shipping</strong></span></span></p>
+<p style="text-align:justify"><span style="font-size:16px"><span style="color:#000000"><strong>Free Design Support</strong></span></span></p>
 
-<p style="text-align:justify"><span style="color:#000000">PremiumBoxes offers free shipping of&nbsp;<strong>metalized boxes</strong>&nbsp;across the USA and Canada. Rush delivery option is also available on demand.&nbsp;</span></p>
+<p style="text-align:justify"><span style="color:#000000">Free design support for&nbsp;<strong>apparel packaging</strong>&nbsp;is available for clients. It includes making changes in a standard design as well as making a new design from scratch. A 2D or 3D mockup of the design is also available on demand.<strong>&nbsp;</strong></span></p>
 
-<p style="text-align:justify"><span style="font-size:16px"><span style="color:#000000"><strong>Contact us</strong></span></span></p>
+<p style="text-align:justify"><span style="font-size:16px"><span style="color:#000000"><strong>The Best Quality Printing</strong></span></span></p>
 
-<p style="text-align:justify"><span style="color:#000000">We are available to assist our clients via a dedicated chat portal, e-mail, call, and request a callback. Get in touch with us to enjoy the finest packaging solutions at the lowest pricing.</span></p>
+<p style="text-align:justify"><span style="color:#000000">We use modern printing technologies along with PMS and CMYK color schemes for the printing of&nbsp;<strong>apparel packaging boxes.</strong>&nbsp;<strong>&nbsp;</strong></span></p>
 
-    [hero_title] => Metalized Boxes
-    [hero_desc] => Metalized boxes are fancy and sturdy packaging solutions. Their metalized look makes them prominent and inevitable for high-value products and gift items.
-    [mtitle] => Metalized Boxes | Gold Foil Boxes, Silver Foil Boxes
-    [mdescription] => Metalized boxes are fancy yet economical packaging solutions. PremiumBoxes offers various customizations for these boxes with free design support.
-    [mtags] => Metalized Boxes, Gold Foil Boxes, Silver Foil Boxes, metalized packaging,
+<p style="text-align:justify"><span style="font-size:16px"><span style="color:#000000"><strong>Astonishing Customization Options&nbsp;</strong></span></span></p>
+
+<p style="text-align:justify"><span style="color:#000000">PremiumBoxes offers numerous customization options for these boxes. Clients can ask for any size, shape, color scheme, and style. Compartments, die-cut windows, handles, or placeholders can also be added on demand. Many finishing options such as coatings, stamp foiling, embossing, and others are available.<strong>&nbsp;</strong></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="color:#000000"><strong>Customer Care Service</strong></span></span></p>
+
+<p style="text-align:justify"><span style="color:#000000">We provide customer care service for assisting our clients. Contact us for assistance through email, live chat, and call.</span></p>
+
+    [hero_title] => 
+    [hero_desc] => 
+    [mtitle] => Apparel Boxes, Boxes for T-Shirts, Ties, and Clothing
+    [mdescription] => There are numerous catchy designs of apparel boxes available at PremiumBoxes. Get them with amazing deals such as free shipping and design support.
+    [mtags] => Apparel Boxes, Custom Boxes, Clothing gift boxes, Clothing packaging Boxes, custom packaging boxes
     [schema] => 
     [parentcategory] => 110
     [status] => 1
-    [show_home] => 1
+    [show_home] => 0
     [why_choose_title] => 
     [why_choose_desc] => 
     [submit] => 

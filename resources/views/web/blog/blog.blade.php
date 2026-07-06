@@ -98,14 +98,14 @@ body {
     font-size: clamp(28px, 3.5vw, 48px);
     font-weight: 800;
     line-height: 1.2;
-    color: #fff;
+    color: #ffffff;
     margin-bottom: 16px;
 }
-.blog-hero-gold { color: #c9a84c; }
+.blog-hero-gold { color: #F5C542; }
 
 .blog-hero-subtext {
     font-size: 16px;
-    color: #cccccc;
+    color: #C5C5C5;
     line-height: 1.75;
     max-width: 580px;
 }
@@ -235,12 +235,15 @@ body {
 .blog-sidebar { display: flex; flex-direction: column; gap: 24px; align-self: start; }
 
 .blog-sidebar-widget {
+    margin-top: 18px;
     background-color: #202020;
     border-radius: 12px;
     padding: 22px;
     border: 1px solid #2e2e2e;
 }
 .blog-sidebar-widget:first-child {
+    margin-top: -4px;
+    height: 375px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -257,7 +260,7 @@ body {
 }
 .blog-widget-title i { color: #c9a84c; }
 
-.blog-cat-list { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+.blog-cat-list { list-style: none; display: flex; flex-direction: column; gap: 40px; }
 .blog-cat-item {
     display: flex;
     align-items: center;
@@ -269,10 +272,10 @@ body {
 }
 .blog-cat-item:hover { color: #c9a84c; }
 .blog-cat-dot {
-    width: 28px;
-    height: 28px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background-color: #3a3a3a;
+    background-color: #5E5E5E;
     border: 1.5px solid #555;
     flex-shrink: 0;
 }
@@ -286,7 +289,7 @@ body {
     border-radius: 10px;
     color: #fff;
     font-size: 13px;
-    padding: 14px 16px;
+    padding: 18px 16px;
     outline: none;
     font-family: inherit;
     transition: border-color .25s;
@@ -297,15 +300,15 @@ body {
 .blog-quote-form textarea::placeholder { color: #666; }
 .blog-quote-form input:focus,
 .blog-quote-form textarea:focus { border-color: #c9a84c; }
-.blog-quote-form textarea { height: 90px; line-height: 1.5; }
+.blog-quote-form textarea { height: 110px; line-height: 1.5; }
 
 .blog-quote-btns { display: flex; gap: 10px; margin-top: 6px; }
 .blog-quote-btn {
     flex: 1;
-    background-color: #c9a84c;
+    background-color: #F5C542;
     color: #000;
     border: none;
-    padding: 13px 0;
+    padding: 16px 0;
     border-radius: 50px;
     font-size: 13px;
     font-weight: 700;
@@ -317,9 +320,9 @@ body {
 .blog-quote-cancel {
     flex: 1;
     background-color: transparent;
-    color: #c9a84c;
-    border: 1.5px solid #c9a84c;
-    padding: 13px 0;
+    color: #F5C542;
+    border: 1.5px solid #F5C542;
+    padding: 16px 0;
     border-radius: 50px;
     font-size: 13px;
     font-weight: 700;
@@ -327,7 +330,7 @@ body {
     font-family: inherit;
     transition: background-color .25s, color .25s;
 }
-.blog-quote-cancel:hover { background-color: #c9a84c; color: #000; }
+.blog-quote-cancel:hover { background-color: #F5C542; color: #000; }
 
 
 .blog-pagination {
@@ -353,7 +356,7 @@ body {
     gap: 8px;
     transition: border-color .25s, color .25s;
 }
-.blog-page-btn:hover { border-color: #c9a84c; color: #c9a84c; }
+.blog-page-btn:hover { border-color: #F5C542; color: #F5C542; }
 
 .blog-page-numbers { display: flex; align-items: center; gap: 8px; }
 .blog-page-num {
@@ -372,8 +375,8 @@ body {
     font-family: inherit;
     transition: background-color .25s, color .25s, border-color .25s;
 }
-.blog-page-num:hover { border-color: #c9a84c; color: #c9a84c; }
-.blog-page-num.active { background-color: #c9a84c; color: #000; border-color: #c9a84c; }
+.blog-page-num:hover { border-color: #F5C542; color: #F5C542; }
+.blog-page-num.active { background-color: #F5C542; color: #000; border-color: #F5C542; }
 .blog-page-dots { color: #555; font-size: 14px; padding: 0 4px; }
 
 
@@ -389,7 +392,7 @@ body {
     .blog-hero-wrap { display: none; }
 
     .blog-hero-content  { padding: 0 2vw; }
-    .blog-hero-badge    { margin-bottom: 4vw; font-size: 2.8vw; padding: 1.5vw 6vw; letter-spacing: 0.4em; }
+    .blog-hero-badge    { display: none; }
     .blog-hero-heading  { font-size: 7.5vw; line-height: 1.25; text-align: center; }
     .blog-hero-subtext  { font-size: 3.8vw; line-height: 1.75; text-align: center; max-width: 85vw; margin: 0 auto; }
 
@@ -421,6 +424,9 @@ body {
     .blog-page-btn    { font-size: 3.5vw; padding: 2.5vw 5vw; }
     .blog-page-num    { width: 10vw; height: 10vw; font-size: 3.5vw; }
 }
+
+
+
 </style>
 
     <!-- Hero -->
@@ -553,6 +559,7 @@ body {
                 <button class="blog-page-btn" id="nextBtn">Next <i class="fas fa-chevron-right"></i></button>
             </div>
             @endif
+  
 
         </main>
     </div>
@@ -624,6 +631,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
 </script>
 
 @include('web/footer')
+

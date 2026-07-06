@@ -7,8 +7,8 @@
     --bp-sp-bc       : 28px;
     --bp-sp-td       : 22px;
     --bp-sp-di       : 44px;
-    --bp-bg          : #111111;
-    --bp-surface     : #181818;
+    --bp-bg          : #1a1a1a;
+    --bp-surface     : #1a1a1a;
     --bp-card        : #1a1a1a;
     --bp-gold        : #c9a84c;
     --bp-gold-hov    : #e0bc60;
@@ -25,7 +25,7 @@ html, body {
     width: 100%;
     min-height: 100%;
     font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-    background-color: var(--bp-bg);
+    background-color: #1a1a1a;
     color: var(--bp-text-head);
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -39,10 +39,57 @@ body { padding-top: 115px !important; }
     margin-inline: auto;
     padding-inline: var(--bp-px);
 }
+body{
+    background:#1a1a1a;
+    font-family:Arial, Helvetica, sans-serif;
+    padding:40px;
+}
+
+.breadcrumb{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:transparent;
+    padding:0;
+    border-radius:0;
+}
+
+.breadcrumb a,
+.breadcrumb span{
+    font-size:14px;
+}
+
+.breadcrumb .home{
+    color:#d4a017; /* Gold Home Icon */
+    text-decoration:none;
+}
+
+.breadcrumb a{
+    color:#ffffff;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.breadcrumb a:hover{
+    color:#d4a017;
+}
+
+.separator{
+    color:#8b8b8b;
+    font-size:15px;
+}
+
+.current{
+    color:#bdbdbd;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:220px;
+}
 
 .bp-hero {
     width: 100%;
-    background-color: var(--bp-bg);
+    background-color: #1a1a1a;
     padding-top: 52px;
     padding-bottom: 72px;
 }
@@ -51,18 +98,18 @@ body { padding-top: 115px !important; }
 .bp-breadcrumb {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--bp-text-meta);
+    gap: 12px;
+    font-size: 15px;
+    color: #888888;
     white-space: nowrap;
     margin-bottom: var(--bp-sp-bc);
 }
-.bp-bc-home { color: var(--bp-gold); font-size: 14px; text-decoration: none; line-height: 1; transition: color 0.2s; }
-.bp-bc-home:hover { color: #fff; }
-.bp-bc-sep  { color: #444; font-size: 10px; display: flex; align-items: center; }
-.bp-bc-link { color: var(--bp-text-meta); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+.bp-bc-home { color: var(--bp-gold); font-size: 20px; text-decoration: none; line-height: 1; transition: color 0.2s; }
+.bp-bc-home:hover { color: var(--bp-gold-hov); }
+.bp-bc-sep  { color: #666; font-size: 14px; display: flex; align-items: center; gap: 2px; }
+.bp-bc-link { color: #888888; text-decoration: none; font-size: 15px; font-weight: 500; transition: color 0.2s; }
 .bp-bc-link:hover { color: var(--bp-gold); }
-.bp-bc-current { color: #555; font-size: 13px; overflow: hidden; text-overflow: ellipsis; }
+.bp-bc-current { color: #888888; font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; }
 
 /* TWO-COLUMN HERO GRID */
 .bp-hero-grid {
@@ -75,29 +122,85 @@ body { padding-top: 115px !important; }
 /* LEFT COLUMN */
 .bp-hero-left { display: flex; flex-direction: column; }
 
-.bp-title {
-    font-size: 38px;
-    font-weight: 700;
-    line-height: 1.1;
-    color: var(--bp-text-head);
-    letter-spacing: -0.5px;
+.bp-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
     margin-bottom: var(--bp-sp-td);
 }
 
+.bp-title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 48px;
+    color: #FFFFFF;
+    letter-spacing: 0%;
+    margin-bottom: 0;
+    flex: 1;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+.bp-share-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    margin-right: -459px;
+}
+
+.bp-share-label {
+    font-size: 12px;
+    color: var(--bp-text-meta);
+    margin-right: 4px;
+    font-weight: 600;
+}
+
+.bp-share-icons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bp-share-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid var(--bp-border);
+    color: var(--bp-text-meta);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    text-decoration: none;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.bp-share-btn:hover {
+    background-color: var(--bp-gold);
+    border-color: var(--bp-gold);
+    color: #000;
+    transform: translateY(-2px);
+}
+
 .bp-desc {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
-    line-height: 1.8;
-    color: var(--bp-text-body);
+    line-height: 30px;
+    color: #C5C5C5;
+    letter-spacing: 0%;
     margin-bottom: var(--bp-sp-di);
-    max-width: 640px;
+    max-width: 766px;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    text-align: justify;
 }
 
 .bp-image {
     width: 100%;
-    border-radius: var(--bp-radius);
+    /* border-radius: var(--bp-radius); */
     overflow: hidden;
-    background-color: var(--bp-surface);
+    background-color: transparent;
     border: 1px solid var(--bp-border);
     box-shadow: 0 12px 40px rgba(0,0,0,0.5);
 }
@@ -111,6 +214,7 @@ body { padding-top: 115px !important; }
 
 /* RIGHT COLUMN */
 .bp-hero-right {
+    margin-top: 12px;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -119,54 +223,32 @@ body { padding-top: 115px !important; }
 
 .bp-spacer { flex: 1; }
 
-.bp-share {
-    margin-left: 200px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 48px;
-    margin-bottom: 0;
-}
-.bp-share-label {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--bp-text-meta);
-    letter-spacing: 0.4px;
-    white-space: nowrap;
-}
-.bp-share-icons { display: flex; align-items: center; gap: 8px; }
-.bp-share-btn {
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    background-color: #1e1e1e;
-    border: 1px solid var(--bp-border);
-    color: var(--bp-text-meta);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    text-decoration: none;
-    transition: background-color 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
-    flex-shrink: 0;
-}
-.bp-share-btn:hover {
-    background-color: var(--bp-gold);
-    border-color: var(--bp-gold);
-    color: #000;
-    transform: translateY(-2px);
-}
-
 .bp-author {
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    margin-left: -35px;
+    margin-left: 0;
     border-radius: 10px;
-    padding: 16px;
+    padding: 0;
 }
-.bp-author-info { display: flex; flex-direction: column; gap: 5px; justify-content: center; }
+.bp-author-avatar {
+    margin-bottom: 30px;
+    margin-top: -31px;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 0px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #2a2a2a;
+}
+.bp-author-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.bp-author-info { margin-top: -27px; display: flex; flex-direction: column; gap: 5px; justify-content: center; }
 .bp-author-name { font-size: 14px; font-weight: 700; color: var(--bp-text-head); }
 .bp-author-meta-row { display: flex; align-items: center; gap: 8px; flex-wrap: nowrap; }
 .bp-author-date { font-size: 12px; color: var(--bp-text-meta); white-space: nowrap; }
@@ -185,6 +267,7 @@ body { padding-top: 115px !important; }
     width: 100%;
 }
 .bp-article p {
+    width: 790px;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.8;
@@ -209,164 +292,335 @@ body { padding-top: 115px !important; }
     padding-left: 24px;
 }
 
-/* AUTHOR BIO */
-.bp-bio {
+/* AUTHOR PROFILE */
+.bp-author-profile {
+    margin-left: -42px;
+    width: 834px;
     display: flex;
+    flex-direction: row;
     align-items: flex-start;
+    gap: 30px;
+    margin-top: 60px;
+    padding: 40px;
+    background-color: #1a1a1a;
+    /* border: 1px solid #2a2a2a; */
+    border-radius: 0;
+}
+.bp-author-profile-header {
+    display: flex;
+    align-items: center;
     gap: 20px;
-    margin-top: 56px;
-    padding-top: 40px;
-    border-top: 1px solid #222222;
     width: 100%;
 }
-.bp-bio-avatar {
-    width: 100px;
-    height: 100px;
-    min-width: 100px;
+.bp-author-profile-image {
+    margin-top: 0;
+    width: 150px;
+    height: 150px;
+    min-width: 150px;
+    flex-shrink: 0;
     border-radius: 50%;
     overflow: hidden;
-    flex-shrink: 0;
     background: #2a2a2a;
+}
+.bp-author-profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.bp-author-profile-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.bp-author-profile-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+.bp-author-profile-heading {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    line-height: 1.3;
+}
+.bp-author-profile-description {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: #999999;
+    margin: 0;
+    text-align: justify;
+    width: 100%;
+}
+.bp-author-profile-social {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+    background-color: transparent;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 0;
+    transition: color 0.2s;
+    width: fit-content;
+    margin-top: 0;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    line-height: 1.5;
+    letter-spacing: 0%;
+}
+.bp-author-profile-social:hover {
+    color: var(--bp-gold);
+}
+.bp-author-profile-social i {
+    font-size: 16px;
+    width: 30px;
+    height: 26px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-.bp-bio-avatar i { font-size: 40px; color: var(--bp-gold); }
-.bp-bio-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.bp-bio-content { display: flex; flex-direction: column; }
-.bp-bio-name { font-size: 16px; font-weight: 700; color: #ffffff; display: block; margin-bottom: 10px; }
-.bp-bio-text {
-    font-size: 13px;
-    color: #888888;
-    line-height: 1.7;
-    text-align: left;
-    margin-bottom: 12px;
+    background-color: #F5C542;
+    color: #000000;
+    border-radius: 2px;
 }
 
-/* STICKY SIDEBAR */
-.bp-sidebar { padding-top: 80px; margin-left: 100px; }
-.bp-sidebar-sticky {
-    position: sticky;
-    top: 140px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+/* RELATED POSTS */
+.bp-related-posts {
+    margin-top: 8px;
+    width: 100%;
+    max-width: 100%;
 }
-.bp-sidebar-widget {
-    background-color: #161616;
-    border: 1px solid var(--bp-border);
-    border-radius: 12px;
-    padding: 20px;
-}
-.bp-widget-title {
-    font-size: 13px;
+.bp-related-title {
+    font-size: 32px;
     font-weight: 700;
-    color: var(--bp-text-head);
-    letter-spacing: 0.3px;
-    margin-bottom: 16px;
+    color: #ffffff;
+    margin-bottom: 40px;
+}
+.bp-related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+}
+.bp-related-card {
+    width: 411px;
+    background-color: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 0;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+}
+.bp-related-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--bp-gold);
+}
+.bp-related-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+.bp-related-link:hover {
+    text-decoration: none;
+}
+.bp-related-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: #0f0f0f;
+}
+.bp-related-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+.bp-related-card:hover .bp-related-image img {
+    transform: scale(1.05);
+}
+.bp-related-content {
+    width: 409px;
+    padding: 24px;
+}
+.bp-related-meta {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--bp-border);
+    margin-bottom: 12px;
+    font-size: 12px;
+    color: #888888;
 }
-.bp-widget-title i { color: var(--bp-gold); font-size: 12px; }
-
-/* TABLE OF CONTENTS */
-.bp-toc-widget {
-    background: none;
-    border: none;
-    border-radius: 0;
-    padding: 0 0 0 16px;
-    border-left: 2px solid #2e2e2e;
-}
-.bp-toc-heading {
-    font-size: 22px;
-    font-weight: 800;
+.bp-related-author {
     color: #ffffff;
-    margin-bottom: 0;
-    line-height: 1.2;
+    font-weight: 600;
 }
-.bp-toc-heading::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 1px;
-    background-color: #2e2e2e;
-    margin-top: 16px;
-    margin-bottom: 8px;
+.bp-related-date::before {
+    content: '•';
+    margin-right: 8px;
+    color: #444;
 }
-.bp-toc-list { display: flex; flex-direction: column; gap: 0; margin-top: 4px; }
-.bp-toc-item {
-    display: block;
+.bp-related-card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+.bp-related-excerpt {
     font-size: 14px;
-    font-weight: 500;
-    color: #777777;
-    text-decoration: none;
-    padding: 11px 0;
-    line-height: 1.45;
-    background: none;
-    border: none;
-    border-radius: 0;
-    transition: color 0.2s;
+    line-height: 1.6;
+    color: #999999;
+    margin: 0;
 }
-.bp-toc-item:hover { color: #bbbbbb; }
-.bp-toc-item.active { color: var(--bp-gold); }
 
-/* POPULAR POSTS */
-.bp-popular-widget {
-    background: none;
-    border: none;
-    border-radius: 0;
-    padding: 0;
-    margin-top: 8px;
+/* STICKY SIDEBAR */
+.bp-sidebar { 
+    padding-top: 80px; 
+    margin-left: 100px; 
+    width: 100%;
+    position: relative;
 }
-.bp-popular-widget .bp-widget-title {
-    font-size: 22px;
-    font-weight: 800;
+.bp-sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    z-index: 100;
+}
+
+/* INSTANT QUOTE FORM */
+.bp-quote-widget {
+    background-color: rgba(26, 26, 26, 0.98);
+    border: 0.3px solid #F5C542;
+    border-radius: 16px;
+    padding: 28px 24px;
+    width: 100%;
+    max-width: none;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+.bp-quote-title {
+    font-size: 24px;
+    font-weight: 700;
     color: #ffffff;
     margin-bottom: 20px;
-    display: block;
-    border-bottom: none;
-    padding-bottom: 0;
+    text-align: center;
 }
-.bp-popular-widget .bp-widget-title i { display: none; }
-.bp-popular-list { display: flex; flex-direction: column; gap: 0; }
-.bp-popular-item {
+.bp-quote-form { display: flex; flex-direction: column; gap: 14px; width: 100%; }
+.bp-quote-row { display: flex; gap: 14px; width: 100%; }
+.bp-quote-row > * {
+    flex: 1;
+    min-width: 0;
+}
+.bp-quote-input, .bp-quote-textarea, .bp-quote-select {
+    width: 100%;
+    height: 44px;
+    background-color: transparent;
+    border: 1px solid #4a4a4a;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 14px;
+    color: #666666;
+    font-family: inherit;
+    transition: border-color 0.2s;
+    min-width: 0;
+    overflow: visible;
+}
+.bp-quote-input::placeholder,
+.bp-quote-textarea::placeholder {
+    color: #666666;
+}
+.bp-quote-input:focus, .bp-quote-textarea:focus, .bp-quote-select:focus {
+    outline: none;
+    border-color: #C9A84C;
+}
+.bp-quote-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+.bp-quote-upload-wrapper {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    flex: 1;
+    height: 44px;
+}
+.bp-quote-upload-input {
+    flex: 1;
+    background-color: transparent;
+    border: 1px solid #4a4a4a;
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+    padding: 12px 14px;
+    font-size: 13px;
+    color: #888888;
+    pointer-events: none;
+    min-width: 0;
+    overflow: visible;
+    text-overflow: clip;
+    height: 44px;
     display: flex;
     align-items: center;
-    gap: 16px;
-    text-decoration: none;
-    padding: 20px 0;
-    border-bottom: 1px solid #222222;
-    transition: opacity 0.2s;
+    white-space: nowrap;
 }
-.bp-popular-item:hover { opacity: 0.8; }
-.bp-popular-item:first-child { padding-top: 0; }
-.bp-popular-item:last-child  { border-bottom: none; padding-bottom: 0; }
-.bp-popular-thumb {
-    width: 80px;
-    height: 80px;
-    min-width: 80px;
-    border-radius: 5px;
-    background-size: cover;
-    background-position: center;
-    background-color: #1e1e1e;
+.bp-quote-upload-btn {
+    background-color: #F5C542;
+    color: #000000;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    padding: 0 18px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    width: 50px;
     flex-shrink: 0;
 }
-.bp-popular-meta { display: flex; flex-direction: column; justify-content: center; overflow: hidden; gap: 6px; }
-.bp-popular-title {
-    font-size: 13.5px;
-    font-weight: 500;
-    color: #ffffff;
-    line-height: 1.5;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+.bp-quote-upload-btn:hover {
+    background-color: #E0BC60;
 }
-.bp-popular-date { font-size: 11px; color: var(--bp-text-meta); }
+.bp-quote-buttons { display: flex; gap: 14px; margin-top: 8px; }
+.bp-quote-btn {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    font-family: inherit;
+}
+.bp-quote-submit {
+    background-color: #F5C542;
+    color: #000000;
+    border: none;
+}
+.bp-quote-submit:hover {
+    background-color: #E0BC60;
+}
+.bp-quote-call {
+    background-color: transparent;
+    color: #C9A84C;
+    border: 2px solid #C9A84C;
+}
+.bp-quote-call:hover {
+    background-color: #C9A84C;
+    color: #000000;
+}
 
 .bp-mobile { display: none; }
 
@@ -376,161 +630,495 @@ body { padding-top: 115px !important; }
     .bp-title { font-size: clamp(22px, 3.2vw, 34px); }
     .bp-image img { height: 340px; }
     .bp-sidebar { margin-left: 20px; }
-    .bp-share { margin-left: 20px; }
 }
 
 @media (max-width: 680px) {
-    :root { --bp-px: 5vw; --bp-sp-bc: 4.5vw; }
-    .bp-hero { padding-top: 6vw; padding-bottom: 8vw; }
+    * { 
+        box-sizing: border-box;
+    }
+    
+    :root { --bp-px: 4vw; --bp-sp-bc: 0; }
+    
+    html, body { 
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        overflow-x: hidden !important;
+    }
+    
+    body { padding-top: 80px !important; }
+    
+    .bp-container {
+        padding: 0 4vw !important;
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .bp-hero { 
+        padding: 4vw 0 6vw 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+    
+    .bp-breadcrumb {
+        font-size: 3vw;
+        gap: 2vw;
+        margin-bottom: 4vw;
+        padding-inline: 0;
+    }
+    .bp-bc-home { font-size: 4vw; }
+    .bp-bc-sep { font-size: 3vw; }
+    .bp-bc-link, .bp-bc-current { font-size: 3vw; }
+    
     .bp-desktop-grid { display: none; }
     .bp-mobile {
+        margin: 82px 0 0 0 !important;
+        padding: 0 4vw !important;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        width: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
     }
     .bp-mob-title {
-        font-size: 6.5vw;
-        font-weight: 800;
-        line-height: 1.15;
+        font-size: 5.5vw;
+        font-weight: 700;
+        line-height: 1.35;
         color: #ffffff;
-        letter-spacing: -0.3px;
-        margin-bottom: 4vw;
+        letter-spacing: -0.2px;
+        margin-bottom: 3vw;
+        width: 100% !important;
+        word-wrap: break-word;
+        padding: 0 !important;
     }
     .bp-mob-desc {
-        font-size: 3.8vw;
-        line-height: 1.8;
-        color: #cccccc;
-        margin-bottom: 5vw;
-        max-width: 85vw;
+        font-size: 3.5vw;
+        line-height: 1.6;
+        color: #C5C5C5;
+        margin-bottom: 4vw;
+        width: 100% !important;
+        padding: 0 !important;
     }
     .bp-mob-meta-row {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-start;
         flex-wrap: wrap;
+        gap: 2vw;
+        width: 100% !important;
+        margin-bottom: 4vw;
+        padding: 0 !important;
+    }
+    .bp-mob-author { 
+        display: flex; 
+        align-items: center; 
+        gap: 2.5vw;
+    }
+    .bp-mob-author-avatar {
+        width: 10vw;
+        height: 10vw;
+        min-width: 10vw;
+        border-radius: 1.5vw;
+        overflow: hidden;
+        flex-shrink: 0;
+        background: #2a2a2a;
+    }
+    .bp-mob-author-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    .bp-mob-author-text { 
+        display: flex; 
+        align-items: center; 
+        flex-wrap: wrap; 
+        gap: 2vw; 
+        font-size: 3vw; 
+        color: #888888; 
+        line-height: 1;
+    }
+    .bp-mob-author-name { color: #ffffff; font-weight: 600; font-size: 3vw; }
+    .bp-mob-sep  { color: #666; font-size: 3vw; margin: 0 1vw; }
+    .bp-mob-date, .bp-mob-read { color: #888888; font-size: 3vw; }
+    .bp-mob-read i { font-size: 2.8vw; margin-right: 1vw; }
+    
+    .bp-mob-share {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
         gap: 3vw;
         width: 100%;
-        margin-bottom: 6vw;
+        margin-bottom: 5vw;
+        padding: 0;
     }
-    .bp-mob-author { display: flex; align-items: center; gap: 2.5vw; flex-wrap: nowrap; flex-shrink: 1; min-width: 0; }
-    .bp-mob-author-text { display: flex; align-items: center; flex-wrap: wrap; gap: 1.5vw; font-size: 3vw; color: #888888; line-height: 1; }
-    .bp-mob-author-name { color: #ffffff; font-weight: 600; font-size: 3vw; }
-    .bp-mob-sep  { color: #444; font-size: 2.8vw; }
-    .bp-mob-date, .bp-mob-read { color: #888888; font-size: 3vw; }
-    .bp-mob-share { display: flex; align-items: center; gap: 2vw; flex-shrink: 0; }
-    .bp-mob-share-label { font-size: 3.3vw; font-weight: 600; color: #888888; white-space: nowrap; }
-    .bp-mob-share-icons { display: flex; align-items: center; gap: 2vw; }
+    .bp-mob-share-label {
+        font-size: 3.2vw;
+        color: #888888;
+        font-weight: 600;
+    }
+    .bp-mob-share-icons {
+        display: flex;
+        align-items: center;
+        gap: 3vw;
+    }
     .bp-mob-share-btn {
-        width: 7.5vw;
-        height: 7.5vw;
+        width: 9vw;
+        height: 9vw;
         border-radius: 50%;
-        background-color: #1e1e1e;
-        border: 1px solid #2a2a2a;
+        background-color: transparent;
+        border: 0.3vw solid #2a2a2a;
         color: #888888;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 2.8vw;
+        font-size: 4vw;
         text-decoration: none;
+        transition: all 0.2s;
     }
-    .bp-mob-image { width: 100%; border-radius: 2.5vw; overflow: hidden; margin: 0; border: 1px solid #2a2a2a; }
-    .bp-mob-image img { display: block; width: 100%; height: 55vw; object-fit: cover; object-position: center; }
+    .bp-mob-share-btn:hover {
+        background-color: #c9a84c;
+        border-color: #c9a84c;
+        color: #000;
+    }
+    
+    .bp-mob-image { 
+        width: 100vw !important;
+        margin-left: -4vw !important;
+        border-radius: 0; 
+        overflow: hidden; 
+        margin-bottom: 5vw !important;
+        margin-top: 0 !important;
+        padding: 0 !important;
+        border: none;
+    }
+    .bp-mob-image img { 
+        display: block; 
+        width: 100% !important;
+        height: auto; 
+        object-fit: cover; 
+        object-position: center; 
+    }
+    
+    .bp-image-caption {
+        margin-top: 4vw;
+        padding-inline: 0;
+    }
+    .bp-image-caption p {
+        font-size: 3.2vw;
+        line-height: 1.6;
+    }
+    
     .bp-body-grid { grid-template-columns: 1fr; }
-    .bp-sidebar   { display: none; }
+    .bp-sidebar   { display: block !important; }
     .bp-spacer    { display: none; }
-    .bp-article p { font-size: 3.8vw; }
-    .bp-bio { flex-direction: column; align-items: flex-start; gap: 2.5vw; margin-top: 10vw; padding-top: 8vw; }
-    .bp-bio-avatar { width: 20vw; height: 20vw; min-width: unset; }
-    .bp-bio-name { font-size: 4.5vw; }
-    .bp-bio-text { font-size: 3.8vw; line-height: 1.8; }
-}
-
-/* RELATED POSTS */
-.bp-related-section {
-    padding: 0 0 80px;
-    background-color: var(--bp-bg);
-}
-.bp-related-heading {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--bp-text-head);
-    margin-bottom: 28px;
-}
-.bp-related-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    align-items: start;
-}
-.bp-related-card {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    text-decoration: none;
-    transition: transform 0.2s;
-}
-.bp-related-card:hover { transform: translateY(-3px); }
-.bp-related-img {
-    width: 100%;
-    height: 200px;
-    border-radius: 8px;
-    background-size: cover;
-    background-position: center;
-    background-color: #1e1e1e;
-    flex-shrink: 0;
-    margin-bottom: 14px;
-}
-.bp-related-body { display: flex; flex-direction: column; gap: 8px; }
-.bp-related-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.bp-related-author { font-size: 11px; color: var(--bp-text-meta); font-weight: 500; }
-.bp-related-date   { font-size: 11px; color: var(--bp-text-meta); }
-.bp-related-title {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--bp-text-head);
-    line-height: 1.4;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-.bp-related-desc {
-    font-size: 12px;
-    color: var(--bp-text-meta);
-    line-height: 1.65;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-@media (max-width: 768px) {
-    .bp-related-section { padding: 10vw 0 15vw; }
-    .bp-related-section .bp-container { padding-inline: 0; }
-    .bp-related-heading { padding-inline: 5vw; font-size: 5vw; }
-    .bp-related-grid {
+    
+    /* Reduce bottom padding on mobile */
+    .bp-body {
+        padding-bottom: 2vw !important;
+    }
+    
+    /* Blog Article Content Mobile - Specific targeting */
+    .bp-article {
+        width: 100% !important;
+        max-width: 92vw !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+    }
+    .bp-article p {
+        font-size: 4vw !important;
+        line-height: 1.75 !important;
+        color: #C5C5C5 !important;
+        margin-bottom: 4vw !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        text-align: justify !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
+    
+    .bp-article {
+        padding-top: 5vw;
+        padding-inline: 0;
+        width: 100%;
+        overflow: visible;
+    }
+    .bp-article p { 
+        font-size: 3.5vw;
+        line-height: 1.7;
+        margin-bottom: 4vw;
+        width: 100% !important;
+        max-width: 100% !important;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+        text-align: justify;
+        box-sizing: border-box;
+    }
+    .bp-article h1,.bp-article h2,.bp-article h3,.bp-article h4,.bp-article h5 {
+        font-size: 4.5vw;
+        margin-top: 5vw;
+        margin-bottom: 3vw;
+    }
+    
+    .bp-title-row { flex-direction: column; align-items: flex-start; gap: 3vw; }
+    .bp-title { font-size: 5.5vw; line-height: 1.35; }
+    .bp-desc { font-size: 3.5vw; line-height: 1.6; }
+    .bp-share-container { margin-left: 0; margin-right: 0; }
+    
+    /* Mobile Author Profile */
+    .bp-author-profile {
+        width: 100%;
         display: flex;
         flex-direction: row;
-        flex-wrap: nowrap;
-        overflow-x: auto;
+        padding: 6vw;
+        margin-top: 8vw;
+        margin-left: 0;
         gap: 4vw;
-        padding: 1vw 5vw 5vw;
+        background: #1a1a1a;
+        border: 1px solid #2a2a2a;
+        border-radius: 3vw;
+        align-items: flex-start;
+    }
+    .bp-author-profile-header {
+        display: flex;
+        align-items: center;
+        gap: 3vw;
+        width: 100%;
+    }
+    .bp-author-profile-image {
+        display: block !important;
+        width: 20vw !important;
+        height: 20vw !important;
+        min-width: 20vw !important;
+        margin: 0 !important;
+        border-radius: 50% !important;
+        flex-shrink: 0;
+        overflow: hidden !important;
+        background: #2a2a2a !important;
+    }
+    .bp-author-profile-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
+    }
+    .bp-author-profile-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 3vw;
+        min-width: 0;
+    }
+    .bp-author-profile-info {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        order: 2;
+    }
+    .bp-author-profile-heading {
+        font-size: 5.5vw;
+        margin: 0;
+        text-align: left;
+        line-height: 1.3;
+        font-weight: 700;
+        flex: 1;
+    }
+    .bp-author-profile-description {
+        width: 100%;
+        font-size: 4vw;
+        line-height: 1.75;
+        margin: 0;
+        text-align: justify;
+    }
+    .bp-author-profile-social {
+        font-size: 4vw;
+        gap: 2.5vw;
+        margin: 0;
+        display: inline-flex;
+        align-items: center;
+        color: var(--bp-text-meta);
+        text-decoration: none;
+    }
+    .bp-author-profile-social i {
+        width: 8vw;
+        height: 6.5vw;
+        font-size: 5vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Mobile Related Posts */
+    .bp-related-posts {
+        margin-top: 8vw;
+        padding-inline: 0;
+        width: 100%;
+        max-width: 100%;
+        overflow: visible;
+        position: relative;
+    }
+    .bp-related-title {
+        font-size: 5vw;
+        margin-bottom: 4vw;
+        padding-inline: 0;
+    }
+    .bp-related-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        overflow-y: hidden;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
+        gap: 4vw;
+        padding-bottom: 4vw;
+        width: 100%;
+        max-width: 100vw;
+        scroll-behavior: smooth;
+        scrollbar-width: thin;
+        scrollbar-color: #F5C542 #2a2a2a;
     }
-    .bp-related-grid::-webkit-scrollbar { display: none; }
-    .bp-related-card { flex: 0 0 calc(100vw - 10vw); max-width: calc(100vw - 10vw); scroll-snap-align: start; }
-    .bp-related-img   { height: 50vw; }
-    .bp-related-title { font-size: 4vw; }
-    .bp-related-desc  { font-size: 3.5vw; }
+    .bp-related-grid::-webkit-scrollbar {
+        height: 8px;
+        display: block !important;
+    }
+    .bp-related-grid::-webkit-scrollbar-track {
+        background: #2a2a2a;
+        border-radius: 4px;
+    }
+    .bp-related-grid::-webkit-scrollbar-thumb {
+        background: #F5C542;
+        border-radius: 4px;
+    }
+    .bp-related-grid::-webkit-scrollbar-thumb:hover {
+        background: #E0BC60;
+    }
+    .bp-related-card {
+        flex: 0 0 92vw;
+        min-width: 92vw;
+        max-width: 92vw;
+        width: 92vw;
+        scroll-snap-align: start;
+        margin-top: 0;
+    }
+    .bp-related-card:nth-child(3) {
+        margin-top: 0;
+    }
+    .bp-related-image {
+        height: 50vw;
+    }
+    .bp-related-content {
+        padding: 4vw;
+        width: 100%;
+    }
+    .bp-related-meta {
+        font-size: 2.8vw;
+        gap: 2vw;
+        margin-bottom: 2vw;
+    }
+    .bp-related-card-title {
+        font-size: 4vw;
+        margin-bottom: 2vw;
+    }
+    .bp-related-excerpt {
+        font-size: 3.2vw;
+        line-height: 1.5;
+    }
+    
+    /* Slider Navigation Dots */
+    .bp-slider-dots {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2vw;
+        margin-top: 4vw;
+        padding: 2vw 0;
+    }
+    .bp-slider-dot {
+        width: 2vw;
+        height: 2vw;
+        border-radius: 50%;
+        background-color: #4a4a4a;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .bp-slider-dot.active {
+        background-color: #F5C542;
+        width: 6vw;
+        border-radius: 1vw;
+    }
+    
+    /* Mobile Quote Widget */
+    .bp-quote-widget {
+        display: block !important;
+        padding: 5vw 4vw;
+        border-radius: 2.5vw;
+        border-width: 0.5px;
+        width: 100% !important;
+        margin: 8vw 0;
+        box-sizing: border-box;
+    }
+    .bp-quote-title {
+        font-size: 5.5vw;
+        margin-bottom: 4vw;
+    }
+    .bp-quote-form {
+        gap: 3.5vw;
+    }
+    .bp-quote-row {
+        flex-direction: column;
+        gap: 3.5vw;
+    }
+    .bp-quote-input, .bp-quote-textarea, .bp-quote-select {
+        font-size: 3.5vw;
+        padding: 3.5vw 4vw;
+        height: 12vw;
+        border-radius: 2vw;
+    }
+    .bp-quote-textarea {
+        min-height: 28vw;
+        height: auto;
+    }
+    .bp-quote-upload-wrapper {
+        height: 12vw;
+    }
+    .bp-quote-upload-input {
+        font-size: 3.2vw;
+        padding: 3.5vw 4vw;
+        height: 12vw;
+        border-radius: 2vw 0 0 2vw;
+    }
+    .bp-quote-upload-btn {
+        font-size: 3.5vw;
+        padding: 0 4vw;
+        height: 12vw;
+        width: auto;
+        border-radius: 0 2vw 2vw 0;
+    }
+    .bp-quote-buttons {
+        flex-direction: column;
+        gap: 3vw;
+        margin-top: 1vw;
+    }
+    .bp-quote-btn {
+        font-size: 3.8vw;
+        padding: 3.5vw;
+        border-radius: 10vw;
+    }
+    .bp-quote-call {
+        border-width: 0.5px;
+    }
 }
-
-@media (min-width: 769px) and (max-width: 960px) {
-    .bp-related-grid { grid-template-columns: repeat(2, 1fr); }
 }
 </style>
 
@@ -552,6 +1140,8 @@ body { padding-top: 115px !important; }
 @endphp
 
     <!-- POST HERO -->
+     <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <article class="bp-hero">
         <div class="bp-container">
 
@@ -561,38 +1151,45 @@ body { padding-top: 115px !important; }
                 <!-- LEFT COLUMN -->
                 <div class="bp-hero-left">
 
-                    <nav class="bp-breadcrumb" aria-label="Breadcrumb">
-                        <a href="{{ url('/') }}" class="bp-bc-home" aria-label="Home">
-                            <i class="fas fa-house"></i>
-                        </a>
-                        <span class="bp-bc-sep"><i class="fas fa-chevron-right"></i></span>
-                        <a href="{{ url('our-blog') }}" class="bp-bc-link">Blogs</a>
-                        <span class="bp-bc-sep"><i class="fas fa-chevron-right"></i></span>
-                        <span class="bp-bc-current">{{ Str::limit($blog_title, 50) }}</span>
-                    </nav>
+<div class="breadcrumb">
+    <a href="#" class="home">
+        <i class="fa-solid fa-house"></i>
+    </a>
 
-                    <h1 class="bp-title">{{ $blog_title }}</h1>
+    <span class="separator">››</span>
 
-                    <p class="bp-desc">{{ $blog_desc }}</p>
+    <a href="#">Blogs</a>
 
-                    <figure class="bp-image">
-                        <img src="{{ $blog_image }}" alt="{{ $post->alt_tag }}" loading="eager">
-                    </figure>
+    <span class="separator">››</span>
 
-                </div>
+    <span class="current">Rigid Packaging Gluing ...</span>
+</div>
 
-                <!-- RIGHT COLUMN -->
-                <div class="bp-hero-right">
-                    <div class="bp-share">
-                        <span class="bp-share-label">Share:</span>
-                        <div class="bp-share-icons">
-                            <a href="{{ $fb_share }}" target="_blank" class="bp-share-btn" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="{{ $tw_share }}" target="_blank" class="bp-share-btn" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-                            <a href="{{ $li_share }}" target="_blank" class="bp-share-btn" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <div class="bp-title-row">
+                        <h1 class="bp-title">Rigid Packaging Gluing: Adhesive Types, Methods & <br>Curing</h1>
+
+                        <div class="bp-share-container">
+                            <span class="bp-share-label">Share:</span>
+                            <div class="bp-share-icons">
+                                <a href="{{ $fb_share }}" target="_blank" class="bp-share-btn" aria-label="Share on Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="{{ $tw_share }}" target="_blank" class="bp-share-btn" aria-label="Share on Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="{{ $li_share }}" target="_blank" class="bp-share-btn" aria-label="Share on LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="bp-spacer"></div>
+
+                    <p class="bp-desc">The right box doesn't just hold your baked goods. It shows off your brand, sparks joy, and turns every treat into an experience. Get inspired by these designs that are as sweet the treats inside.</p>
+
                     <div class="bp-author">
+                        <div class="bp-author-avatar">
+                            <img src="{{ asset('images/1606478490.Adam_Smith.jpg') }}" alt="{{ $author_name }}">
+                        </div>
                         <div class="bp-author-info">
                             <span class="bp-author-name">By <a href="{{ url('author/'.urlencode($author_name)) }}" style="color:inherit; text-decoration:none;">{{ $author_name }}</a></span>
                             <div class="bp-author-meta-row">
@@ -602,6 +1199,44 @@ body { padding-top: 115px !important; }
                             </div>
                         </div>
                     </div>
+
+                    <figure class="bp-image">
+                        <img src="{{ $blog_image }}" alt="{{ $post->alt_tag }}" loading="eager">
+                    </figure>
+
+                </div>
+
+                <!-- RIGHT COLUMN -->
+                <div class="bp-hero-right">
+                    <div class="bp-spacer"></div>
+                    
+                    <!-- INSTANT QUOTE FORM -->
+                    <div class="bp-quote-widget">
+                        <h3 class="bp-quote-title">Instant Quote</h3>
+                        <form class="bp-quote-form" action="{{ url('contact-form') }}" method="POST">
+                            @csrf
+                            <div class="bp-quote-row">
+                                <input type="text" name="first_name" class="bp-quote-input" placeholder="Enter your name" required>
+                                <input type="email" name="email" class="bp-quote-input" placeholder="Enter your name" required>
+                            </div>
+                            <div class="bp-quote-row">
+                                <input type="text" name="company" class="bp-quote-input" placeholder="Enter your name">
+                                <div class="bp-quote-upload-wrapper">
+                                    <input type="text" class="bp-quote-upload-input" value="No file chosen" readonly>
+                                    <label class="bp-quote-upload-btn">
+                                        Upload
+                                        <input type="file" name="file" style="display: none;">
+                                    </label>
+                                </div>
+                            </div>
+                            <textarea name="message" class="bp-quote-textarea" placeholder="Project description" required></textarea>
+                            <div class="bp-quote-buttons">
+                                <button type="submit" class="bp-quote-btn bp-quote-submit">Get Quote</button>
+                                <button type="button" class="bp-quote-btn bp-quote-call">Live Chat</button>
+                            </div>
+                        </form>
+                    </div>
+                    
                     <div class="bp-spacer"></div>
                 </div>
 
@@ -616,6 +1251,9 @@ body { padding-top: 115px !important; }
 
                 <div class="bp-mob-meta-row">
                     <div class="bp-mob-author">
+                        <div class="bp-mob-author-avatar">
+                            <img src="{{ asset('images/1606478490.Adam_Smith.jpg') }}" alt="{{ $author_name }}">
+                        </div>
                         <div class="bp-mob-author-text">
                             <span class="bp-mob-author-name">By <a href="{{ url('author/'.urlencode($author_name)) }}" style="color:inherit; text-decoration:none;">{{ $author_name }}</a></span>
                             <span class="bp-mob-sep">|</span>
@@ -624,13 +1262,20 @@ body { padding-top: 115px !important; }
                             <span class="bp-mob-read"><i class="far fa-clock"></i> 5 min read</span>
                         </div>
                     </div>
-                    <div class="bp-mob-share">
-                        <span class="bp-mob-share-label">Share:</span>
-                        <div class="bp-mob-share-icons">
-                            <a href="{{ $fb_share }}" target="_blank" class="bp-mob-share-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="{{ $tw_share }}" target="_blank" class="bp-mob-share-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                            <a href="{{ $li_share }}" target="_blank" class="bp-mob-share-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
+                </div>
+
+                <div class="bp-mob-share">
+                    <span class="bp-mob-share-label">Share:</span>
+                    <div class="bp-mob-share-icons">
+                        <a href="{{ $fb_share }}" target="_blank" class="bp-mob-share-btn" aria-label="Share on Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="{{ $tw_share }}" target="_blank" class="bp-mob-share-btn" aria-label="Share on Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="{{ $li_share }}" target="_blank" class="bp-mob-share-btn" aria-label="Share on LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
                     </div>
                 </div>
 
@@ -650,76 +1295,113 @@ body { padding-top: 115px !important; }
 
                 <div class="bp-hero-left">
                     <div class="bp-article">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet sem ut dolor vulputate dignissim sit amet id dolor. Etiam viverra sem ac erat rutrum, id feugiat nisi porttitor. Phasellus volutpat, tortor nec cursus rhoncus, metus nulla lobortis urna, quis condimentum sapien magna sed erat. Suspendisse imperdiet orci sem, ut accumsan augue volutpat quis. Pellentesque feugiat rutrum venenatis. Cras sollicitudin vestibulum enim, vitae scelerisque orci placerat at. In hac habitasse platea dictumst. Sed ac tempor felis. Pellentesque dictum turpis a leo suscipit, nec ullamcorper magna tincidunt. Maecenas vel tellus non orci suscipit bibendum. Aenean porta purus turpis, a luctus nulla ultrices vitae. Nulla eleifend mollis libero, a pellentesque eros eleifend ut. Proin sodales felis sed tortor placerat, sed facilisis nisi vehicula.</p>
+
+                        <p>Duis erat libero, elementum ac maximus a, pretium ac nibh. In vehicula posuere fermentum. Nullam condimentum sit amet ex eu eleifend. Pellentesque blandit scelerisque imperdiet. Nunc viverra nulla eu lectus feugiat, quis accumsan mauris vulputate. Aliquam porttitor ex id fermentum scelerisque. Quisque ac commodo turpis. Donec cursus, nisi vel rutrum lobortis, dolor mauris dapibus nunc, eget pellentesque sem enim a massa. Integer fringilla nulla elit, ut rhoncus metus rhoncus nec.</p>
+
+                        <p>Nulla consectetur iaculis elementum. Praesent porttitor mattis turpis sed interdum. Vestibulum rhoncus lobortis erat, nec rhoncus orci euismod elementum. Mauris viverra ligula eget ex auctor, ut fringilla purus porttitor. Pellentesque egestas lectus id neque gravida porttitor. Suspendisse maximus erat in sapien laoreet ultricies. Etiam aliquam neque a purus sollicitudin varius. Praesent ac ante magna. Duis et consequat odio. Suspendisse nec purus libero. Cras non ante semper, vestibulum nulla non, condimentum erat. Sed faucibus, lorem in volutpat pharetra, urna sapien tincidunt orci, a aliquam risus nunc in ex. Integer vehicula, quam bibendum aliquam tristique, sapien ante tincidunt ipsum, volutpat rhoncus ligula odio in urna. Vivamus ac arcu non orci tempus tristique eu eget magna. Quisque quam elit, posuere id augue id, pretium varius enim. Donec neque arcu, maximus quis eros ac, suscipit luctus libero.</p>
+
+                        <p>Cras consectetur suscipit tellus, et mollis nisi consectetur quis. Ut suscipit nisl mi, at pretium dui feugiat vitae. Fusce facilisis sem vel massa pretium tempor. Maecenas nec eros nibh. Nulla id orci laoreet, mollis erat in, posuere leo. Quisque sollicitudin, elit eget pharetra pretium, velit massa eleifend magna, ut iaculis tellus lorem ac tortor. Suspendisse tristique, dui non malesuada dignissim, sem erat vehicula nisi, nec dictum justo tortor et nulla. Suspendisse eu leo lacus. Sed elementum volutpat ipsum non efficitur. Aliquam a lobortis augue. Nullam turpis mi, imperdiet sit amet tincidunt vel, ultricies quis metus. Curabitur malesuada aliquet dui gravida placerat. Nam vel ultricies libero.</p>
+
+                        <p>Sed neque est, interdum id convallis eleifend, dignissim sed lorem. Fusce vel malesuada enim. Aliquam erat volutpat. Nulla efficitur maximus sagittis. Integer non nisl vestibulum, posuere purus tristique, volutpat augue. Suspendisse eget felis suscipit purus laoreet egestas eget eget purus. Donec ac elementum risus. Sed semper massa risus, sed luctus risus fringilla commodo. Nulla sed sem nec massa tincidunt dictum. Duis ligula risus, pulvinar in consectetur quis, sagittis ac diam.</p>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet sem ut dolor vulputate dignissim sit amet id dolor. Etiam viverra sem ac erat rutrum, id feugiat nisi porttitor. Phasellus volutpat, tortor nec cursus rhoncus, metus nulla lobortis urna, quis condimentum sapien magna sed erat. Suspendisse imperdiet orci sem, ut accumsan augue volutpat quis. Pellentesque feugiat rutrum venenatis. Cras sollicitudin vestibulum enim, vitae scelerisque orci placerat at. In hac habitasse platea dictumst. Sed ac tempor felis. Pellentesque dictum turpis a leo suscipit, nec ullamcorper magna tincidunt. Maecenas vel tellus non orci suscipit bibendum. Aenean porta purus turpis, a luctus nulla ultrices vitae. Nulla eleifend mollis libero, a pellentesque eros eleifend ut. Proin sodales felis sed tortor placerat, sed facilisis nisi vehicula.</p>
+                        
                         {!! $long_desc !!}
 
-                        <!-- AUTHOR BIO -->
-                        <div class="bp-bio">
-                            <div class="bp-bio-avatar">
-                                <i class="fas fa-user-circle"></i>
+                        <!-- Author Profile Section -->
+                        <div class="bp-author-profile">
+                            <div class="bp-author-profile-image">
+                                <img src="{{ asset('images/1606478490.Adam_Smith.jpg') }}" alt="{{ $author_name }}">
                             </div>
-                            <div class="bp-bio-content">
-                                <span class="bp-bio-name"><a href="{{ url('author/'.urlencode($author_name)) }}" style="color:inherit; text-decoration:none;">{{ $author_name }}</a></span>
-                                <p class="bp-bio-text">{{ $author_description }}</p>
+                            <div class="bp-author-profile-content">
+                                <h3 class="bp-author-profile-heading">Lorem Ipsum</h3>
+                                <p class="bp-author-profile-description">Written by the Rigid Box Pro Team, specialists in custom rigid boxes and luxury packaging solutions.<br> We share industry insights, design inspiration, and expert guidance to help brands create<br> packaging that leaves a lasting impression.</p>
+                                <a href="#" class="bp-author-profile-social">
+                                    <i class="fab fa-linkedin"></i> LinkedIn
+                                </a>
                             </div>
                         </div>
 
+                        <!-- Related Posts Section -->
+                        <div class="bp-related-posts">
+                            <h2 class="bp-related-title">Related Posts</h2>
+                            
+                            <div class="bp-related-grid" id="bp-related-slider">
+                                
+                                <!-- Post Card 1 -->
+                                <article class="bp-related-card">
+                                    <a href="#" class="bp-related-link">
+                                        <div class="bp-related-image">
+                                            <img src="{{ $blog_image }}" alt="Sustainable Packaging Trends for 2026">
+                                        </div>
+                                        <div class="bp-related-content">
+                                            <div class="bp-related-meta">
+                                                <span class="bp-related-author">Joe Clarety</span>
+                                                <span class="bp-related-date">Nov 15, 2024</span>
+                                            </div>
+                                            <h3 class="bp-related-card-title">Sustainable Packaging Trends for 2026</h3>
+                                            <p class="bp-related-excerpt">Discover the latest eco-friendly innovations transforming luxury packaging with sustainable materials and practices.</p>
+                                        </div>
+                                    </a>
+                                </article>
+
+                                <!-- Post Card 2 -->
+                                <article class="bp-related-card">
+                                    <a href="#" class="bp-related-link">
+                                        <div class="bp-related-image">
+                                            <img src="{{ $blog_image }}" alt="Sustainable Packaging Trends for 2026">
+                                        </div>
+                                        <div class="bp-related-content">
+                                            <div class="bp-related-meta">
+                                                <span class="bp-related-author">Joe Clarety</span>
+                                                <span class="bp-related-date">Mar 21, 2024</span>
+                                            </div>
+                                            <h3 class="bp-related-card-title">Sustainable Packaging Trends for 2026</h3>
+                                            <p class="bp-related-excerpt">Discover the latest eco-friendly innovations transforming luxury packaging with sustainable materials and practices.</p>
+                                        </div>
+                                    </a>
+                                </article>
+
+                                <!-- Post Card 3 -->
+                                <article class="bp-related-card">
+                                    <a href="#" class="bp-related-link">
+                                        <div class="bp-related-image">
+                                            <img src="{{ $blog_image }}" alt="Sustainable Packaging Trends for 2026">
+                                        </div>
+                                        <div class="bp-related-content">
+                                            <div class="bp-related-meta">
+                                                <span class="bp-related-author">Joe Clarety</span>
+                                                <span class="bp-related-date">Nov 21, 2024</span>
+                                            </div>
+                                            <h3 class="bp-related-card-title">Sustainable Packaging Trends for 2026</h3>
+                                            <p class="bp-related-excerpt">Discover the latest eco-friendly innovations transforming luxury packaging with sustainable materials and practices.</p>
+                                        </div>
+                                    </a>
+                                </article>
+
+                            </div>
+                            
+                            <!-- Slider Dots (Mobile Only) -->
+                            <div class="bp-slider-dots" id="bp-slider-dots" style="display: none;">
+                                <button class="bp-slider-dot active" data-slide="0"></button>
+                                <button class="bp-slider-dot" data-slide="1"></button>
+                                <button class="bp-slider-dot" data-slide="2"></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Sidebar -->
                 <aside class="bp-sidebar">
                     <div class="bp-sidebar-sticky">
-
-                        <!-- POPULAR POSTS -->
-                        @if(isset($blog) && count($blog) > 0)
-                        <div class="bp-sidebar-widget bp-popular-widget">
-                            <h3 class="bp-widget-title">
-                                <i class="fas fa-fire"></i> Popular Posts
-                            </h3>
-                            <div class="bp-popular-list">
-                                @foreach($blog as $recent)
-                                <a href="{{ url('blog/'.$recent->blog_url) }}" class="bp-popular-item">
-                                    <div class="bp-popular-thumb" style="background-image:url('{{ asset('images/'.$recent->image) }}')"></div>
-                                    <div class="bp-popular-meta">
-                                        <span class="bp-popular-title">{{ $recent->blog_title }}</span>
-                                        <span class="bp-popular-date">{{ date('M d, Y', strtotime($recent->date)) }}</span>
-                                    </div>
-                                </a>
-                                @endforeach
-                            </div>
-                        </div>
-                        @endif
-
+                        <!-- Sidebar is now empty, form moved to right column -->
                     </div>
                 </aside>
 
             </div>
         </div>
     </main>
-
-    <!-- RELATED POSTS -->
-    @if(isset($blog) && count($blog) > 0)
-    <section class="bp-related-section">
-        <div class="bp-container">
-            <h2 class="bp-related-heading">Related Posts</h2>
-            <div class="bp-related-grid">
-                @foreach($blog->take(3) as $related)
-                <article class="bp-related-card" onclick="window.location.href='{{ url('blog/'.$related->blog_url) }}'">
-                    <div class="bp-related-img" style="background-image:url('{{ asset('images/'.$related->image) }}')"></div>
-                    <div class="bp-related-body">
-                        <div class="bp-related-meta">
-                            <span class="bp-related-author"><a href="{{ url('author/'.urlencode($related->author_name)) }}" style="color:inherit; text-decoration:none;">{{ $related->author_name }}</a></span>
-                            <span class="bp-related-date">{{ date('M d, Y', strtotime($related->date)) }}</span>
-                        </div>
-                        <h3 class="bp-related-title">{{ $related->blog_title }}</h3>
-                        <p class="bp-related-desc">{!! strip_tags(Str::limit($related->long_description, 150)) !!}</p>
-                    </div>
-                </article>
-                @endforeach
-            </div>
-        </div>
-    </section>
-    @endif
 
 <script>
 (function () {
@@ -753,6 +1435,12 @@ body { padding-top: 115px !important; }
 
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+})();
+
+// Related Posts Slider (Mobile Only - Manual Scroll)
+(function() {
+    // No automatic functionality - user scrolls manually
+    // Pure CSS handles the horizontal scrolling
 })();
 </script>
 
