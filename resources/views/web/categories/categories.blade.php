@@ -3,11 +3,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@700&display=swap" rel="stylesheet">
 
-  /* ================================================
+<style>
+/* ================================================
    CATEGORY PAGE — Reset & Variables
    ================================================ */
 *,
-<style>
 *::before,
 *::after {
     box-sizing: border-box;
@@ -54,6 +54,7 @@ body {
     font-family: var(--font);
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
+    padding-top: 115px; /* Fixed header height */
 }
 
 a {
@@ -493,21 +494,24 @@ img {
 
 /* Mobile */
 @media (max-width: 768px) {
-    .hiw-section  { padding: 50px 0 40px; }
-    .hiw-wrap     { padding: 0 16px; }
-    .hiw-header   { margin-bottom: 32px; }
-    .hiw-title    { font-size: 22px; }
-    .hiw-subtitle { font-size: 13px; }
+    .hiw-section  { padding: 40px 0 32px; background: #202020; }
+    .hiw-wrap     { padding: 0 20px; }
+    .hiw-header   { margin-bottom: 28px; }
+    .hiw-title    { font-size: 22px; font-weight: 800; }
+    .hiw-subtitle { font-size: 13px; max-width: 100%; }
 
     .hiw-grid {
         grid-template-columns: 1fr;
         gap: 0;
     }
 
+    /* Each step: no absolute positioning on mobile */
     .hiw-step {
-        padding-top: 70px;
-        padding-bottom: 28px;
+        position: relative;
+        padding: 24px 0 24px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        min-height: unset;
+        overflow: hidden; /* clip ghost number */
     }
 
     .hiw-step:last-child {
@@ -515,11 +519,15 @@ img {
         padding-bottom: 0;
     }
 
+    /* Ghost number — faint behind content */
     .hiw-step::before {
-        font-size: 110px;
-        left: -4px;
+        font-size: 100px;
+        left: -6px;
+        top: -10px;
+        color: rgba(255, 255, 255, 0.05);
     }
 
+    /* Body — normal flow, no absolute */
     .hiw-step-body {
         position: relative;
         top: auto;
@@ -527,12 +535,24 @@ img {
         right: 0 !important;
         width: 100%;
         max-width: 100%;
-        padding-left: 55px; /* Indent to avoid ghost number */
-        box-sizing: border-box;
+        padding: 0;
+        padding-left: 16px;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
     }
 
-    .hiw-step-title { font-size: 15px; }
-    .hiw-step-text  { font-size: 13px; }
+    .hiw-step-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+    }
+    .hiw-step-text  {
+        font-size: 13px;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.6);
+    }
 }
 
 /* ==========================================
@@ -579,16 +599,16 @@ img {
 .filter-buttons {
   display: flex;
   gap: 10px;
-  flex-wrap: nowrap;
+  flex-wrap: nowrap;        /* one line on desktop — all buttons stay in row */
   justify-content: center;
   margin: 50px 0;
 }
 
 .filter-btn {
   height: 58px;
-  width: auto;
-  min-width: 130px;
-  flex: 1;
+  flex: 1 1 0;              /* all buttons share space equally */
+  min-width: 0;             /* allow shrinking below content size */
+  max-width: 160px;
   border: 1px solid #FFC107;
   border-radius: 8px;
   background: transparent;
@@ -602,7 +622,20 @@ img {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 10px;
+  padding: 0 8px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* When viewport is too narrow, allow wrapping */
+@media (max-width: 900px) {
+  .filter-buttons {
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    flex: 1 1 130px;
+    max-width: 200px;
+  }
 }
 
 .filter-btn:hover {
@@ -922,11 +955,19 @@ img {
 }
 
 .cp-why-photo-wrap {
-    width: 50%;
-
+    width: 100%;
     overflow: hidden;
     aspect-ratio: 4/3;
     background: var(--card);
+    border-radius: 12px;
+    min-height: 200px;
+}
+
+.cp-why-img {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .cp-why-photo {
@@ -973,7 +1014,7 @@ img {
         padding: 0 16px;
         box-sizing: border-box;
         width: 100%;
-        overflow: hidden;
+        overflow: visible; /* hidden was cutting why-choose section */
     }
 
     /* Hero */
@@ -1123,30 +1164,65 @@ img {
 
     .cp-why-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 28px;
+    }
+
+    /* Text block */
+    .cp-why-text {
+        padding: 0 16px;
+        margin-bottom: 0;
     }
 
     .cp-why-title {
-        font-size: 24px;
-        margin-bottom: 12px;
+        font-size: 22px;
+        font-weight: 800;
+        margin-bottom: 14px;
+        line-height: 1.3;
     }
 
     .cp-why-para {
         font-size: 14px;
-        margin-bottom: 16px;
+        line-height: 1.75;
     }
 
+    /* Image + button column */
+    .cp-why-img {
+        width: 100%;
+        padding: 0 16px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    /* Image: Figma specs — 371×295, radius 12px, fills container */
     .cp-why-photo-wrap {
         width: 100%;
-        margin-bottom: 0;
+        height: 295px;
+        min-height: unset;
+        overflow: hidden;
+        border-radius: 12px;
+        aspect-ratio: unset;
+        flex-shrink: 0;
+        background: var(--card);
     }
 
+    .cp-why-photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* Get a Quote button — below image */
     .cp-why-quote-btn {
-        display: inline-flex;
-        margin-bottom: 20px;
-        font-size: 14px;
-        padding: 12px 24px;
-        border-radius: 20px;
+        display: inline-flex !important;
+        width: fit-content;
+        margin-left: 0;
+        font-size: 15px;
+        padding: 14px 36px;
+        border-radius: 50px;
     }
 }
 
@@ -2633,6 +2709,7 @@ img {
         display: flex;
         align-items: center;
         width: 100%;
+
     }
 
     .pg-step-num {
@@ -3025,7 +3102,7 @@ img {
     height: 32px;
     border-radius: 50%;
     background-color: var(--white);
-    color: #111;
+    color: var(--accent_gold);
     text-decoration: none;
     transition: background-color 0.3s, opacity 0.3s;
 }
@@ -3082,7 +3159,7 @@ img {
 .cp-newsletter-form button {
     padding: 12px 24px;
     background-color: var(--gold);
-    color: #111;
+    color: #F5C542;
     border: none;
     border-radius: 0 4px 4px 0;
     font-weight: 600;
@@ -3325,21 +3402,20 @@ img {
    ================================================ */
 .box-by-industry {
   position: relative;
-  padding-top: 25px;
+  padding-top: 0;
 }
 .industry-hero-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 70px 0px 0px;
-  margin-bottom: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 60px;
+  padding: 40px 0;
+  margin-bottom: 40px;
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
 }
 .industry-hero-left {
-  flex: 1;
-  max-width: 600px;
   min-width: 0;
 }
 .industry-hero-left .hero-breadcrumb {
@@ -3348,6 +3424,7 @@ img {
   margin-bottom: 14px;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 .industry-hero-left h1 {
   font-size: 3rem;
@@ -3384,11 +3461,10 @@ img {
   color: #000;
 }
 .industry-hero-right {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-width: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
 }
 .hero-image-wrapper {
   position: relative;
@@ -3402,46 +3478,88 @@ img {
   max-width: 100%;
   height: auto;
   object-fit: contain;
+  display: block;
 }
 
 @media (max-width: 768px) {
+  body {
+    padding-top: 155px;
+  }
   .box-by-industry {
-    padding-top: 20px;
+    padding-top: 0;
+    background: #1a1a1a;
   }
   .industry-hero-content {
-    flex-direction: column-reverse;
-    gap: 30px;
-    padding: 20px 16px;
-  }
-  .industry-hero-left {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 100%;
+    gap: 0;
+    padding: 0;
+    margin-bottom: 0;
   }
-  .industry-hero-left .hero-breadcrumb {
+
+  /* IMAGE — full width, on top */
+  .industry-hero-right {
+    width: 100%;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-  }
-  .industry-hero-left h1 {
-    font-size: 2.2rem;
-    text-align: center;
-    word-break: break-word;
-  }
-  .industry-hero-left p {
-    text-align: justify;
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-  .industry-hero-right {
-    justify-content: center;
-    width: 100%;
+    align-items: center;
+    order: 1;
+    padding: 0 0 10px 0;
+    background: #1a1a1a;
   }
   .hero-image-wrapper {
+    width: 100%;
     max-width: 100%;
+  }
+  .hero-main-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* TEXT — below image */
+  .industry-hero-left {
+    width: 100%;
+    order: 2;
+    padding: 24px 20px 28px;
+    background: #1a1a1a;
+  }
+
+  /* breadcrumb — hidden on mobile (matches Figma) */
+  .industry-hero-left .hero-breadcrumb {
+    display: none;
+  }
+
+  /* Heading */
+  .industry-hero-left h1 {
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 16px;
+    word-break: break-word;
+    text-align: left;
+  }
+
+  /* Description */
+  .industry-hero-left p {
+    font-size: 14px;
+    line-height: 1.75;
+    color: #a0a0a0;
+    margin-bottom: 28px;
+    text-align: justify;
+  }
+
+  /* Button — centered, full readable width */
+  .btn-yellow {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    text-align: center;
+    padding: 14px 40px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 50px;
   }
 }
 
@@ -3547,32 +3665,46 @@ img {
 @media (max-width: 768px) {
   .trust-bar {
     height: auto;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 20px 16px;
-    gap: 16px;
+    padding: 16px 0;
+    gap: 0;
+    border-top: 1px solid rgba(245, 197, 66, 0.24);
+    border-bottom: 1px solid rgba(245, 197, 66, 0.24);
+    overflow: hidden;
   }
   .trust-reviews {
     display: none;
     border-right: 0;
     padding-right: 0;
   }
+  .trust-logos-wrapper {
+    flex: 1;
+    overflow: hidden;
+    width: 100%;
+  }
   .trust-logos {
     display: flex !important;
     flex-direction: row;
-    justify-content: flex-start;
     align-items: center;
     flex-wrap: nowrap;
-    width: 100%;
-    gap: 14px;
-    overflow-x: auto;
+    width: max-content;
+    gap: 40px;
+    animation: marquee 18s linear infinite;
+    overflow: visible;
   }
   .logo-item {
-    flex: 0 0 82px;
-    max-width: 82px;
-    height: 35px;
-    opacity: 0.8;
+    flex: 0 0 80px;
+    width: 80px;
+    height: 32px;
+    opacity: 0.85;
+  }
+  .logo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0) invert(77%);
   }
 }
 
@@ -3942,7 +4074,7 @@ img {
 
   .human-status {
     width: 100%;
-  }
+  }s
 }
 /* --- Responsive Adaptations --- */
 @media (max-width: 992px) {
@@ -4052,7 +4184,7 @@ img {
      HERO SECTION
      ================================================ -->
         <!-- Box By Industry Section -->
-        <section class="box-by-industry{{ $isGiftBoxesPage ? ' gift-boxes-page' : '' }}" style="padding: {{ $isGiftBoxesPage ? '25px' : '25px' }} 5% 0;">
+        <section class="box-by-industry{{ $isGiftBoxesPage ? ' gift-boxes-page' : '' }}" style="padding: 0 5% 0;">
             <div class="industry-hero-content">
                 <div class="industry-hero-left">
                     <div class="hero-breadcrumb">
@@ -4169,7 +4301,6 @@ img {
             </div>
 
             <div class="cp-why-img">
-                <a href="#" class="cp-cta cp-why-quote-btn">Get a Quote</a>
                 <div class="cp-why-photo-wrap">
                     @if(!empty($value[0]->why_choose_img))
                         <img src="{{ asset('images/' . $value[0]->why_choose_img) }}" alt="{{ $value[0]->why_choose_title }}" class="cp-why-photo">
@@ -4177,6 +4308,7 @@ img {
                         <img src="{{ asset('assets/images/default.jpg') }}" alt="Why Choose" class="cp-why-photo">
                     @endif
                 </div>
+                <a href="{{ url('request-quote') }}" class="cp-cta cp-why-quote-btn">Get a Quote</a>
             </div>
 
         </div>
