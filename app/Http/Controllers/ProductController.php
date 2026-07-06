@@ -254,6 +254,7 @@ $data['meta'] = DB::table('add_category')->where('category_url',$url)->get();
                     // print_r($data['sub']);
                     // die();
                     $data['faqs'] = DB::table('category_faqs')->where('category_id', $data['value'][0]->cat_id)->get();
+                    $data['testimonial'] = DB::table('testimonila')->get();
                     $data['slug'] = $url;
                     return view('web/categories/categories', $data);
                 }

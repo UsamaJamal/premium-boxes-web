@@ -33,10 +33,10 @@ a { text-decoration: none; color: inherit; }
 
 /* HERO */
 .product-hero-section { padding: 33px 0; }
-.product-hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 62.5px; align-items: start; }
+.product-hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5.5px; align-items: start; }
 
 /* Breadcrumbs */
-.product-breadcrumbs { display: flex; align-items: center; gap: 12.5px; font-size: 16.2px; color: var(--product-text-muted); margin-bottom: 50px; }
+.product-breadcrumbs { display: flex; align-items: center; gap: 12.5px; flex-wrap: wrap; font-size: 16.2px; color: var(--product-text-muted); margin-bottom: 50px; }
 .product-breadcrumbs a { color: var(--product-text-muted); transition: color 0.3s ease; }
 .product-breadcrumbs a:first-of-type { color: var(--product-gold); }
 .product-breadcrumbs a:hover { color: var(--product-gold); }
@@ -180,6 +180,10 @@ a { text-decoration: none; color: inherit; }
 .product-form-group input,
 .product-form-group select { background-color: #2a2a2a; border: 1px solid transparent; border-radius: 6px; padding: 12px 14px; color: #fff; font-family: var(--product-font); font-size: 13px; outline: none; transition: border-color 0.3s; }
 
+/* ==================== CUSTOMIZE TABS ==================== */
+.customize-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
+.cust-tab-btn { flex-shrink: 0; transition: all 0.3s; white-space: nowrap; }
+
 /* ==================== PFR SECTION ==================== */
 .product-pfr-section { padding: 0px 0; background-color: var(--product-bg);  }
 .pfr-wrapper { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; }
@@ -187,18 +191,18 @@ a { text-decoration: none; color: inherit; }
 .pfr-feature { display: flex; flex-direction: column; gap: 12px; }
 .pfr-icon { color: var(--product-gold); }
 .pfr-icon svg { width: 32px; height: 32px; }
-.pfr-feature h4 { font-size: 15px; font-weight: 700; color: #fff; margin: 0; }
+.pfr-feature h4 { font-size: 15px; font-weight: 700; color: #fff; margin: 0 0 6px 0; }
 .pfr-feature p { font-size: 12.5px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0; }
 
-.pfr-reviews { background-color: #1f1f1f; border-radius: 20px; padding: 45px; display: flex; flex-direction: column; justify-content: center; position: relative; }
-.pfr-reviews-inner { display: flex; align-items: center; justify-content: center; position: relative; padding: 0 45px; }
+.pfr-reviews { background-color: #1f1f1f; border-radius: 20px; padding: 45px 25px; display: flex; flex-direction: column; justify-content: center; position: relative; min-width: 0; width: 100%; box-sizing: border-box; }
+.pfr-reviews-inner { display: flex; align-items: center; justify-content: center; position: relative; padding: 0 55px; width: 100%; box-sizing: border-box; }
 .pfr-nav { position: absolute; top: calc(50% + 15px); transform: translateY(-50%); z-index: 10; background: #1f1f1f; border: 1px solid rgba(255,255,255,0.1); width: 36px; height: 36px; border-radius: 50%; color: rgba(255,255,255,0.5); font-size: 20px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; }
-.pfr-nav.prev { left: 0; }
-.pfr-nav.next { right: 0; }
+.pfr-nav.prev { left: 5px; }
+.pfr-nav.next { right: 5px; }
 .pfr-nav:hover { border-color: var(--product-gold); color: var(--product-gold); }
-.pfr-slider-wrap { overflow: hidden; width: 100%; padding-top: 35px; margin-top: -35px; }
-.pfr-slider { display: flex; transition: transform 0.5s ease; }
-.pfr-slide { width: 100%; flex-shrink: 0; border: 1px solid rgba(255,193,7,0.15); border-radius: 12px; padding: 45px 30px 30px; text-align: center; position: relative; box-sizing: border-box; }
+.pfr-slider-wrap { overflow: hidden; width: 100%; padding-top: 35px; margin-top: -35px; box-sizing: border-box; }
+.pfr-slider { display: flex; width: 100%; transition: transform 0.5s ease; }
+.pfr-slide { flex: 0 0 100%; width: 100%; border: 1px solid rgba(255,193,7,0.15); border-radius: 12px; padding: 45px 30px 30px; text-align: center; position: relative; box-sizing: border-box; }
 .pfr-avatar { width: 64px; height: 64px; border-radius: 50%; border: 3px solid #1f1f1f; position: absolute; top: -32px; left: 50%; transform: translateX(-50%); overflow: hidden; background-color: #333; z-index: 2; }
 .pfr-avatar img { width: 100%; height: 100%; object-fit: cover; }
 .pfr-text { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 25px; }
@@ -266,9 +270,9 @@ a { text-decoration: none; color: inherit; }
 
 @media (max-width: 768px) {
     .product-container { padding: 0 4.5vw; }
-    .product-hero-section { padding: 6vw 0; }
+    .product-hero-section { padding: 6vw 0; margin-top: 50px; }
     .product-hero-grid { grid-template-columns: 1fr; gap: 6vw; }
-    .product-breadcrumbs { display: none; }
+    .product-breadcrumbs { display: none !important; }
     .product-main-img-wrap { width: 100%; aspect-ratio: 4 / 3; }
     .product-thumbnails { gap: 3vw; }
     .product-thumb { width: 20vw; height: 20vw; }
@@ -294,6 +298,16 @@ a { text-decoration: none; color: inherit; }
     .product-final-quote-wrapper { grid-template-columns: 1fr; border-radius: 12px; }
     .product-final-quote-image { display: none; }
     .product-final-quote-form-area { padding: 5vw; }
+
+    /* Instant Quote Mobile Fixes */
+    .iq-card { grid-template-columns: 1fr; padding: 6vw 5vw; gap: 6vw; }
+    .iq-row { grid-template-columns: 1fr; gap: 4vw; }
+    .iq-row-2 { grid-template-columns: 1fr 1fr; gap: 3vw; }
+    .iq-title { font-size: 6.5vw; margin-bottom: 5vw; text-align: center; }
+    .iq-btn { max-width: 100%; font-size: 4.5vw; padding: 3.5vw 0; }
+    .iq-group label { font-size: 3.5vw; margin-bottom: 1.5vw; }
+    .iq-group input, .iq-group select, .iq-group textarea { font-size: 3.8vw; padding: 3vw 3.5vw; }
+    .iq-image-col { display: none; }
     .product-form-grid-3 { grid-template-columns: 1fr 1fr; gap: 3vw; }
     .product-form-group label { font-size: 3.5vw; }
     .product-form-group input, .product-form-group select { font-size: 3.8vw; padding: 2.5vw 3vw; }
@@ -302,12 +316,16 @@ a { text-decoration: none; color: inherit; }
 
     .pfr-features { grid-template-columns: 1fr; gap: 30px; }
     .pfr-reviews { padding: 8vw 5vw; margin-top: 5vw; }
-    .pfr-reviews-inner { padding: 0 10vw; }
+    .pfr-reviews-inner { padding: 0 12vw; }
     .pfr-nav { top: calc(50% + 5vw); width: 8vw; height: 8vw; font-size: 4vw; }
+    .pfr-nav.prev { left: 2vw; }
+    .pfr-nav.next { right: 2vw; }
     .pfr-slide { padding: 10vw 4vw 6vw; }
     .product-tabs-wrapper { margin-left: -4.5vw; margin-right: -4.5vw; margin-bottom: 6vw; }
     .product-tabs-nav { gap: 3vw; overflow-x: auto; padding: 0 4.5vw; scroll-snap-type: x mandatory; }
     .product-tab-item { flex: 0 0 44vw; width: 44vw; font-size: 4vw; padding: 3.5vw 2vw; white-space: nowrap; text-align: center; scroll-snap-align: start; }
+    .customize-tabs { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 5px; -webkit-overflow-scrolling: touch; }
+    .customize-tabs::-webkit-scrollbar { display: none; }
     .product-info-heading { font-size: 6vw; margin-bottom: 4vw; }
     .product-info-text { font-size: 3.8vw; line-height: 1.8; }
     .product-info-text p { font-size: 3.8vw; }
@@ -407,7 +425,7 @@ a { text-decoration: none; color: inherit; }
         <div class="product-container">
 
             <!-- Breadcrumbs -->
-            <div class="product-breadcrumbs" style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <div class="product-breadcrumbs">
                 <a href="{{ url('/') }}" style="display: flex; align-items: center; padding-bottom: 2px;"><i class="fas fa-home" style="font-size: 16px;"></i></a>
                 
                 @if(isset($product_top_category) && $product_top_category)
@@ -923,7 +941,7 @@ a { text-decoration: none; color: inherit; }
             <h2 style="color:#ffffff; font-size:28px; margin-bottom:10px;">Customize Your Box</h2>
             <p style="color:rgba(255,255,255,0.6); font-size:14px; margin-bottom:40px;">Choose materials, finishes, and add-ons to build your perfect rigid box.</p>
 
-            <div class="customize-tabs" style="display:flex; justify-content:center; gap:10px; margin-bottom:40px; flex-wrap:wrap;">
+            <div class="customize-tabs">
                 <button class="cust-tab-btn active" data-target="mat" style="background-color:#e3b036; color:#000; border:none; padding:10px 25px; border-radius:4px; font-weight:600; cursor:pointer;">Materials</button>
                 <button class="cust-tab-btn" data-target="print" style="background-color:transparent; color:rgba(255,255,255,0.8); border:1px solid rgba(255,255,255,0.2); padding:10px 25px; border-radius:4px; font-weight:600; cursor:pointer;">Printing Options</button>
                 <button class="cust-tab-btn" data-target="finish" style="background-color:transparent; color:rgba(255,255,255,0.8); border:1px solid rgba(255,255,255,0.2); padding:10px 25px; border-radius:4px; font-weight:600; cursor:pointer;">Special Finishes</button>

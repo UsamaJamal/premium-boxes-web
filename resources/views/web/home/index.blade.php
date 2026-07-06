@@ -986,7 +986,7 @@ h3 {
     justify-content: center;
   }
   .sectors-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -1324,6 +1324,7 @@ h3 {
   color: var(--text-muted);
   font-size: 0.9rem;
   margin-bottom: 20px;
+  text-align: justify;
 }
 
 .testimonial-card h4 {
@@ -1508,148 +1509,376 @@ h3 {
   }
 }
 
-/* ORDER + QUOTE SECTION (OLD - KEPT FOR COMPATIBILITY) */
-.quote-process-section {
-  padding: 90px 0;
-  background: var(--bg-dark);
-}
-
-.quote-process-grid {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 40px;
-  margin-bottom: 80px;
-}
-
-.steps-column h2,
-.quote-form-wrapper h2 {
-  margin-bottom: 35px;
-  font-size: 2rem;
-}
-
-/* Steps */
-
-.step-item {
-  display: flex;
-  gap: 18px;
-  margin-bottom: 35px;
-}
-
-.step-number {
-  color: var(--accent-gold);
-  font-size: 1.8rem;
-  font-weight: 700;
-  min-width: 55px;
-}
-
-.step-item h4 {
-  margin-bottom: 8px;
-}
-
-.step-item p {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-/* Form */
-
-.quote-form-wrapper {
-  background: #181818;
-  padding: 40px;
-  border-radius: 12px;
-}
-
-.quote-form input,
-.quote-form select,
-.quote-form textarea {
+/* ================================================
+   REQUEST A FREE QUOTE SECTION (Homepage)
+   ================================================ */
+.quote-section {
   width: 100%;
-  background: #111;
-  border: 1px solid #222;
-  color: white;
-  padding: 12px;
-  border-radius: 6px;
+  padding: 30px 5%;
+  box-sizing: border-box;
+  background-color: #151515;
+  font-family: var(--font-body), sans-serif;
 }
 
-.quote-form textarea {
-  height: 120px;
+.quote-container {
+  width: 100%;
+  max-width: 1239px;
+  margin: 0 auto;
+  border-radius: 8px;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.quote-steps-col {
+  width: 368px;
+  background-color: var(--bg-darker);
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  overflow: hidden;
+  align-self: stretch;
+}
+
+.quote-side-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex: 1;
+}
+
+.quote-side-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  flex: 1;
+}
+
+.quote-form-col {
+  width: 802px;
+  background-color: var(--bg-dark);
+  border-radius: 8px;
+  padding: 35px 55px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.quote-form-col h2 {
+  width: 400px;
+  height: 44px;
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 44px;
+  color: var(--text-main);
+  margin: 0 auto 35px auto;
+  text-align: center;
+}
+
+.instant-quote-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-row {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+}
+
+.dual-grid {
+  grid-template-columns: calc(50% - 6px) calc(50% - 6px);
+}
+
+.dimensions-grid {
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 693px;
+}
+
+.triple-grid {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 692px;
+}
+
+.quantity-upload-grid {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 691.13px;
+}
+
+.options-grid-custom {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+.options-grid-custom > .form-group:nth-child(1),
+.options-grid-custom > .form-group:nth-child(2),
+.options-grid-custom > .form-group:nth-child(3) {
+  grid-column: span 2;
+}
+.options-grid-custom > .form-group:nth-child(4),
+.options-grid-custom > .form-group:nth-child(5) {
+  grid-column: span 3;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 76px;
+}
+
+.form-group.textarea-group {
+  height: auto;
+  min-height: 135px;
+  width: 100%;
+}
+
+.form-group label {
+  font-size: 15px;
+  color: #ffffff;
+  font-weight: 300;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  height: 46px;
+  background-color: var(--bg-darker);
+  border: 0.2px solid #727272;
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: var(--text-main);
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.form-group textarea {
+  height: 105px;
   resize: none;
 }
 
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  margin-bottom: 15px;
+.file-upload-wrapper {
+  display: flex;
+  border: 0.2px solid #727272;
+  border-radius: 8px;
+  background-color: var(--bg-darker);
+  overflow: hidden;
+  height: 46px;
+  box-sizing: border-box;
 }
 
-.dimension-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-  margin-bottom: 15px;
+.file-upload-wrapper input[type="text"],
+.file-upload-wrapper input:not([type="submit"]):not([type="button"]) {
+  border: none;
+  height: 100%;
+  background: transparent;
+  color: #fff;
+  padding: 0 12px;
+  outline: none;
 }
 
-.quote-btn {
-  width: 220px;
-  display: block;
-  margin: 25px auto 0;
+.upload-btn {
+  background-color: var(--accent-gold) !important;
+  color: var(--bg-darker) !important;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  -webkit-appearance: none;
+  appearance: none;
+  font-weight: 700;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  height: 100%;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.submit-quote-btn {
+  width: 298px;
+  height: 48px;
+  background-color: var(--accent-gold);
+  color: var(--bg-dark);
+  font-family: var(--font-heading), sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
   border-radius: 40px;
+  padding: 12px 20px;
+  cursor: pointer;
+  margin: 30px auto 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+  text-decoration: none;
 }
 
-/* Packaging Guide */
-
-.packaging-guide {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 30px;
-
-
-.guide-content,
-.guide-sidebar {
-  background: #232323;
-  padding: 30px;
-  border-radius: 12px;
-}
-}
-.guide-sidebar{
-  background: #232323;
+.submit-quote-btn:hover {
+  background-color: var(--accent-gold-hover);
 }
 
-.guide-badge {
-  display: inline-block;
-  color: var(--accent-gold);
-  border: 1px solid var(--accent-gold);
-  padding: 6px 12px;
-  border-radius: 30px;
-  font-size: 12px;
-  margin-bottom: 15px;
+.human-verification-inline {
+  width: 100%;
+  margin-top: 12px;
+  padding: 20px 24px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 193, 7, 0.2);
+  border-radius: 8px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.guide-content h2 {
-  margin-bottom: 20px;
+.human-verification-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.guide-content p,
-.guide-content li,
-.guide-sidebar li {
+.human-verification-inline-title {
+  color: var(--text-main);
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.human-verification-inline-copy {
   color: var(--text-muted);
+  font-size: 13px;
+  margin: 0;
 }
 
-.guide-content ul,
-.guide-sidebar ol {
-  padding-left: 20px;
-  margin-top: 15px;
+.human-verification-inline-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
+
+.human-question {
+  color: var(--accent-gold);
+  font-weight: 700;
+  white-space: nowrap;
+  font-size: 15px;
+}
+
+.human-answer {
+  width: 110px;
+  height: 44px;
+  background-color: var(--bg-darker);
+  border: 0.2px solid #727272;
+  border-radius: 8px;
+  color: var(--text-main);
+  text-align: center;
+  outline: none;
+  padding: 0 12px;
+  font-size: 14px;
+}
+
+.human-check-btn {
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background-color: var(--accent-gold);
+  color: var(--bg-dark);
+  font-weight: 700;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 14px;
+}
+
+.human-check-btn:hover {
+  background-color: var(--accent-gold-hover);
+}
+
+.human-status {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin: 0;
+  min-height: 18px;
+}
+
+.human-status.is-error  { color: #ff6b6b; }
+.human-status.is-success { color: #72d17f; }
 
 @media (max-width: 992px) {
-  .quote-process-grid,
-  .packaging-guide {
+  .quote-container {
+    flex-direction: column;
+    height: auto;
+  }
+  .quote-steps-col,
+  .quote-form-col {
+    width: 100%;
+    max-width: 100%;
+  }
+  .quote-side-image,
+  .quote-side-image img {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .quote-form-col {
+    padding: 35px 20px;
+  }
+  .quote-form-col h2 {
+    font-size: 24px;
+    line-height: 1.3;
+    width: 100%;
+    text-align: center;
+  }
+  .dual-grid,
+  .triple-grid,
+  .quantity-upload-grid {
     grid-template-columns: 1fr;
   }
-
-  .form-grid,
-  .dimension-grid {
-    grid-template-columns: 1fr;
+  .dimensions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .options-grid-custom {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .options-grid-custom > .form-group:nth-child(1),
+  .options-grid-custom > .form-group:nth-child(2),
+  .options-grid-custom > .form-group:nth-child(3),
+  .options-grid-custom > .form-group:nth-child(4) {
+    grid-column: span 1;
+  }
+  .options-grid-custom > .form-group:nth-child(5) {
+    grid-column: span 2;
+  }
+  .form-group {
+    height: auto;
+  }
+  .human-verification-inline {
+    padding: 18px 16px;
+  }
+  .human-answer {
+    flex: 1 1 90px;
+    min-width: 90px;
+  }
+  .human-status {
+    width: 100%;
   }
 }
 .guide-sidebar {
@@ -1861,19 +2090,85 @@ h3 {
 
 /* Mobile & Tablet Responsiveness */
 @media (max-width: 992px) {
-  .blog-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  #desktop-blog-grid {
+    display: none !important;
+  }
+  #mobile-blog-grid {
+    display: block !important;
+    white-space: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 15px !important;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch !important;
+    width: 100% !important;
+    font-size: 0; /* Remove inline-block spaces */
+  }
+  #mobile-blog-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .blog-card-mobile {
+    display: inline-block !important;
+    vertical-align: top;
+    white-space: normal !important;
+    width: 85vw !important;
+    max-width: 85vw !important;
+    scroll-snap-align: start;
+    margin-right: 15px;
+    font-size: 1rem; /* Reset font size */
+  }
+  /* Remove right margin from the last card */
+  .blog-card-mobile:last-child {
+    margin-right: 0;
+  }
+  .blog-card-mobile .mobile-image-wrapper {
+    width: 100%;
+    height: 220px;
+    background: #d9d9d9;
+    border-radius: 10px;
+    border: 1px solid #000;
+    overflow: hidden;
+    margin-bottom: 15px;
+  }
+  .blog-card-mobile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .blog-card-mobile h4 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 10px 0;
+  }
+  .blog-card-mobile h4 a,
+  .blog-card-mobile h4 a:hover {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+  .blog-card-mobile p {
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .blog-mobile-action {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
   }
 }
 
 @media (max-width: 576px) {
-  .blog-side-card {
-    flex-direction: column;
+  .blog-card-mobile {
+    width: 90vw !important;
+    max-width: 90vw !important;
   }
-  .side-card-img {
-    width: 100%;
-    height: 180px;
+}
+@media (min-width: 993px) {
+  #mobile-blog-grid {
+    display: none !important;
   }
 }
 /* ==========================================================================
@@ -2209,11 +2504,7 @@ section + section {
     width: 100% !important;
   }
 
-  .blog-grid {
-    grid-template-columns: 1fr !important;
-    gap: 40px;
-    width: 100% !important;
-  }
+
 
   .why-cards-grid,
   .form-grid,
@@ -2274,9 +2565,19 @@ section + section {
     gap: 20px !important;
   }
 
+  .order-process-section,
+  .premium-addons-section,
+  .craftsmanship-section,
+  .faq-section,
+  .discount-cta,
+  .styles-section {
+    padding-top: 2px !important;
+    padding-bottom: 40px !important;
+  }
+
   .sectors-grid,
   .styles-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 
   .craftsmanship-wrapper {
@@ -3716,30 +4017,41 @@ section + section {
   margin: 0 auto;
   border-radius: 8px;
   display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0;
   overflow: hidden;
   box-sizing: border-box;
 }
 .quote-steps-col {
   width: 397px;
   max-width: 397px;
-  background-color: transparent;
+  background-color: var(--bg-darker);
   padding: 0;
   box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   flex-shrink: 0;
+  overflow: hidden;
+  align-self: stretch;
+  border-radius: 8px 0 0 8px;
 }
 
 .quote-side-image {
   width: 100%;
-  height: auto;
-  max-width: 397px;
-  object-fit: contain;
+  height: 100%;
+  display: flex;
+  flex: 1;
+}
+
+.quote-side-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
   display: block;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  flex: 1;
 }
 .step-item {
   display: flex;
@@ -3777,11 +4089,11 @@ section + section {
   margin: 0;
 }
 .quote-form-col {
-  width: 802px;
+  flex: 1;
   min-height: 789px;
   background-color: var(--bg-dark);
-  border-radius: 8px;
-  padding: 35px 55px;
+  border-radius: 0 8px 8px 0;
+  padding: 25px 45px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -3791,21 +4103,21 @@ section + section {
   height: 44px;
   font-family: var(--font-heading), sans-serif;
   font-weight: 700;
-  font-size: 32px;
+  font-size: 28px;
   line-height: 44px;
   color: var(--text-main);
-  margin: 0 auto 35px auto;
+  margin: 0 auto 20px auto;
   text-align: center;
 }
 .instant-quote-form {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 .form-row {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   width: 100%;
 }
 .dual-grid {
@@ -3826,16 +4138,17 @@ section + section {
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  height: 76px;
+  gap: 0px;
+  height: 38px;
 }
 .form-group.textarea-group {
   height: auto;
-  min-height: 135px;
+  min-height: 70px;
   width: 100%;
 }
-.form-group label {
-  font-size: 15px;
+.form-group > label {
+  display: none;
+  font-size: 13px;
   color: #ffffff;
   font-weight: 300;
 }
@@ -3843,24 +4156,24 @@ section + section {
 .form-group select,
 .form-group textarea {
   width: 100%;
-  height: 46px;
+  height: 38px;
   background-color: var(--bg-darker);
   border: 0.2px solid #727272;
-  border-radius: 8px;
-  padding: 12px 16px;
+  border-radius: 6px;
+  padding: 8px 12px;
   color: var(--text-main);
-  font-size: 14px;
+  font-size: 13px;
   box-sizing: border-box;
   outline: none;
 }
 .form-group textarea {
-  height: 105px;
+  height: 70px;
   resize: none;
 }
 .file-upload-wrapper {
   display: flex;
   border: 0.2px solid #727272;
-  border-radius: 8px;
+  border-radius: 6px;
   background-color: var(--bg-darker);
   overflow: hidden;
   height: 38px;
@@ -3884,18 +4197,18 @@ section + section {
   -webkit-appearance: none;
   appearance: none;
   font-weight: 700;
-  padding: 0 20px;
+  padding: 0 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   align-self: stretch;
   height: 100%;
-  gap: 10px;
+  gap: 8px;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 16px;
   white-space: nowrap;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
 .upload-btn::-webkit-file-upload-button {
   color: var(--bg-darker) !important;
@@ -3903,18 +4216,18 @@ section + section {
 }
 .submit-quote-btn {
   width: 298px;
-  height: 48px;
+  height: 42px;
   background-color: var(--accent-gold);
   color: var(--bg-dark);
   font-family: var(--font-heading), sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   border: none;
   border-radius: 40px;
-  padding: 12px 20px;
+  padding: 10px 20px;
   gap: 10px;
   cursor: pointer;
-  margin: 30px auto 0 auto;
+  margin: 15px auto 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3923,6 +4236,89 @@ section + section {
 /* .submit-quote-btn:hover {
   background-color: var(--accent-gold-hover);
 } */
+/* --- Inline Human Verification (Inside Form) --- */
+.human-verification-inline {
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px 20px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 193, 7, 0.2);
+  border-radius: 8px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.human-verification-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.human-verification-inline-title {
+  color: var(--text-main);
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.human-verification-inline-copy {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin: 0;
+}
+
+.human-verification-inline-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.human-question {
+  color: var(--accent-gold);
+  font-size: 18px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.human-answer {
+  width: 80px;
+  height: 38px;
+  background-color: var(--bg-darker);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  outline: none;
+}
+
+.human-check-btn {
+  height: 38px;
+  padding: 0 16px;
+  background-color: transparent;
+  color: var(--accent-gold);
+  border: 1px solid var(--accent-gold);
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.human-check-btn:hover {
+  background-color: var(--accent-gold);
+  color: var(--bg-darker);
+}
+
+.human-status {
+  font-size: 13px;
+  font-weight: 600;
+  min-height: 18px;
+}
+
 @media (max-width: 992px) {
   .quote-container {
     flex-direction: column;
@@ -3979,9 +4375,23 @@ section + section {
   }
 
   .triple-grid,
-  .dimensions-grid,
   .quantity-upload-grid {
     grid-template-columns: 1fr;
+  }
+  .dimensions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .options-grid-custom {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .options-grid-custom > .form-group:nth-child(1),
+  .options-grid-custom > .form-group:nth-child(2),
+  .options-grid-custom > .form-group:nth-child(3),
+  .options-grid-custom > .form-group:nth-child(4) {
+    grid-column: span 1;
+  }
+  .options-grid-custom > .form-group:nth-child(5) {
+    grid-column: span 2;
   }
   .form-group,
   .form-row,
@@ -3993,6 +4403,13 @@ section + section {
   .form-group select {
     height: 46px;
   }
+}
+
+/* Remove hover effects from blog titles */
+.blog-main-card h4 a:hover,
+.blog-side-card h4 a:hover {
+  color: inherit !important;
+  text-decoration: none !important;
 }
  </style>
  <body>
@@ -4239,121 +4656,220 @@ section + section {
     </script>
 
     <!-- Request a Free Quote Section -->
-    <section class="quote-process-section">
-        <div class="container">
+<!-- ================================================
+     REQUEST A FREE QUOTE SECTION
+     ================================================ -->
+<section class="quote-section">
+    <div class="quote-container">
 
-            <div class="quote-container">
-
-                <div class="quote-steps-col" style="padding: 0;">
-                    <img src="{{ asset('images/Frame 81.svg') }}" alt="Custom Box Process" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
-                </div>
-
-                <div class="quote-form-col">
-                    <h2>Request a Free Quote</h2>
-
-                    <form class="instant-quote-form">
-                        <div class="form-row dual-grid">
-                            <div class="form-group">
-                                <label>Name *</label>
-                                <input type="text" placeholder="Enter your name" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Email Address *</label>
-                                <input type="email" placeholder="Enter your email" required>
-                            </div>
-                        </div>
-
-                        <div class="form-row dual-grid">
-                            <div class="form-group">
-                                <label>Phone *</label>
-                                <input type="tel" placeholder="Enter your number" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Physical Address</label>
-                                <input type="text" placeholder="Enter your address">
-                            </div>
-                        </div>
-
-                        <div class="form-row dual-grid">
-                            <div class="form-group">
-                                <label>Width *</label>
-                                <input type="text" placeholder="Width" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Length *</label>
-                                <input type="text" placeholder="Length" required>
-                            </div>
-                        </div>
-
-                        <div class="form-row dual-grid">
-                            <div class="form-group">
-                                <label>Depth *</label>
-                                <input type="text" placeholder="Depth" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Units *</label>
-                                <select required>
-                                    <option value="mm">mm</option>
-                                    <option value="cm">cm</option>
-                                    <option value="inch">inch</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-row dual-grid">
-                            <div class="form-group">
-                                <label>Select Material</label>
-                                @php
-                                    $materialCategory = DB::table('add_category')->where('name', 'Box by Material')->first();
-                                    $materials = $materialCategory ? DB::table('add_category')->where('parent_category', $materialCategory->cat_id)->where('status', 1)->get() : collect([]);
-                                @endphp
-                                <select name="material" class="form-control" style="background: #111; color: white; border: 1px solid #222;">
-                                    <option value="">Choose option</option>
-                                    @foreach($materials as $material)
-                                        <option value="{{ $material->name }}">{{ $material->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Color Options</label>
-                                <select>
-                                    <option value="">Choose option</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-row dual-grid">
-                            <div class="form-group">
-                                <label>Quantity *</label>
-                                <input type="number" placeholder="Enter quantity" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Product Name *</label>
-                                                                <input type="text" placeholder="Enter Name" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Upload File Here</label>
-                            <div class="file-upload-wrapper">
-                                <input type="text" placeholder="No file chosen" readonly>
-                                <label class="upload-btn">Upload <input type="file" style="display:none;"></label>
-                            </div>
-                        </div>
-
-                        <div class="form-group textarea-group">
-                            <label>Message</label>
-                            <textarea placeholder="Enter your message" rows="4"></textarea>
-                        </div>
-
-                        <a href="{{ url('') }}" class="submit-quote-btn" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Instant Quote</a>
-                    </form>
-                </div>
-
+        <div class="quote-steps-col">
+            <div class="quote-side-image">
+                <img src="{{ asset('uploads/frame-81.webp') }}" alt="Custom packaging quote">
             </div>
-
         </div>
-    </section>
+
+        <div class="quote-form-col">
+            <h2>Request a Free Quote</h2>
+
+            <form class="instant-quote-form" id="homeQuoteForm">
+                <div class="form-row dual-grid">
+                    <div class="form-group">
+                        <label>Name *</label>
+                        <input type="text" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" placeholder="Enter your email" required>
+                    </div>
+                </div>
+
+                <div class="form-row dual-grid">
+                    <div class="form-group">
+                        <label>Phone *</label>
+                        <input type="tel" placeholder="Enter your number" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Physical Address</label>
+                        <input type="text" placeholder="Enter your address">
+                    </div>
+                </div>
+
+                <div class="form-row dimensions-grid">
+                    <div class="form-group">
+                        <label>Width *</label>
+                        <input type="text" placeholder="Width" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Length *</label>
+                        <input type="text" placeholder="Length" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Depth *</label>
+                        <input type="text" placeholder="Depth" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Units *</label>
+                        <select required>
+                            <option value="mm">mm</option>
+                            <option value="cm">cm</option>
+                            <option value="inch">inch</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row options-grid-custom">
+                    <div class="form-group">
+                        <label>Select Material</label>
+                        @php
+                            $materialCategory = DB::table('add_category')->where('name', 'Box by Material')->first();
+                            $materials = $materialCategory ? DB::table('add_category')->where('parent_category', $materialCategory->cat_id)->where('status', 1)->get() : collect([]);
+                        @endphp
+                        <select name="material">
+                            <option value="">Select Material</option>
+                            @foreach($materials as $material)
+                                <option value="{{ $material->name }}">{{ $material->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Color Options</label>
+                        <select>
+                            <option value="">Color Options</option>
+                            <option value="1 Color">1 Color</option>
+                            <option value="2 Colors">2 Colors</option>
+                            <option value="3 Colors">3 Colors</option>
+                            <option value="Full Color">Full Color</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Select Product Name</label>
+                        <input type="text" placeholder="Enter product name">
+                    </div>
+                    <div class="form-group">
+                        <label>Quantity *</label>
+                        <input type="number" placeholder="Enter quantity" required>
+                    </div>
+                    <div class="form-group upload-group">
+                        <label>Upload File Here</label>
+                        <div class="file-upload-wrapper">
+                            <input type="text" placeholder="No file choosen" readonly id="homeFileNameField">
+                            <label class="upload-btn">Upload <input type="file" style="display:none;" id="homeFileInput"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group textarea-group">
+                    <label>Message</label>
+                    <textarea placeholder="Enter your message" rows="4"></textarea>
+                </div>
+
+                <!-- HUMAN VERIFICATION -->
+                <div class="human-verification-inline">
+                    <div class="human-verification-header">
+                        <h3 class="human-verification-inline-title">Are you a human?</h3>
+                        <p class="human-verification-inline-copy">Solve this quick addition before continuing.</p>
+                    </div>
+                    <div class="human-verification-inline-control">
+                        <span class="human-question" id="homeHumanQuestion">0 + 0 =</span>
+                        <input type="number" class="human-answer" id="homeHumanAnswer" placeholder="Answer" aria-label="Human verification answer">
+                        <button type="button" class="human-check-btn" id="homeHumanCheckBtn">Verify</button>
+                    </div>
+                    <span class="human-status" id="homeHumanStatus" aria-live="polite"></span>
+                </div>
+
+                <button type="submit" class="submit-quote-btn">Instant Quote</button>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<script>
+(function() {
+    // File upload
+    var homeFileInput     = document.getElementById('homeFileInput');
+    var homeFileNameField = document.getElementById('homeFileNameField');
+    if (homeFileInput && homeFileNameField) {
+        homeFileInput.addEventListener('change', function() {
+            homeFileNameField.value = homeFileInput.files.length > 0
+                ? homeFileInput.files[0].name
+                : 'No file chosen';
+        });
+    }
+
+    // Human verification
+    var hQuestion = document.getElementById('homeHumanQuestion');
+    var hAnswer   = document.getElementById('homeHumanAnswer');
+    var hBtn      = document.getElementById('homeHumanCheckBtn');
+    var hStatus   = document.getElementById('homeHumanStatus');
+    var hTotal    = 0;
+    var hVerified = false;
+
+    function genQuestion() {
+        var a = Math.floor(Math.random() * 9) + 1;
+        var b = Math.floor(Math.random() * 9) + 1;
+        hTotal = a + b;
+        if (hQuestion) hQuestion.textContent = a + ' + ' + b + ' =';
+        if (hAnswer)   { hAnswer.value = ''; hAnswer.style.border = ''; }
+        if (hStatus)   { hStatus.textContent = ''; hStatus.className = 'human-status'; }
+        hVerified = false;
+    }
+
+    if (hQuestion && hAnswer && hBtn) {
+        genQuestion();
+        hBtn.addEventListener('click', function() {
+            var correct = hAnswer.value.trim() !== '' && Number(hAnswer.value.trim()) === hTotal;
+            if (correct) {
+                hVerified = true;
+                hAnswer.style.border = '';
+                if (hStatus) { hStatus.textContent = 'Verified.'; hStatus.className = 'human-status is-success'; }
+            } else {
+                hVerified = false;
+                hAnswer.style.border = '1px solid red';
+                if (hStatus) { hStatus.textContent = 'Please solve the addition correctly.'; hStatus.className = 'human-status is-error'; }
+                hAnswer.focus();
+            }
+        });
+    }
+
+    // Form submit validation
+    var homeForm = document.getElementById('homeQuoteForm');
+    if (homeForm) {
+        homeForm.setAttribute('novalidate', true);
+        homeForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var isValid = true;
+            var firstInvalid = null;
+            homeForm.querySelectorAll('[required]').forEach(function(field) {
+                var val = field.value.trim();
+                var valid = !!val;
+                if (valid && field.type === 'email') {
+                    valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+                }
+                if (valid && field.type === 'tel') {
+                    valid = /^\+?[\d\s\-(^)]{7,20}$/.test(val);
+                }
+                if (!valid) {
+                    isValid = false;
+                    field.style.border = '1px solid red';
+                    if (!firstInvalid) firstInvalid = field;
+                } else {
+                    field.style.border = '';
+                }
+            });
+            if (!isValid) { if (firstInvalid) firstInvalid.focus(); return; }
+            if (!hVerified) {
+                if (hStatus) { hStatus.textContent = 'Please verify you are human first.'; hStatus.className = 'human-status is-error'; }
+                if (hAnswer) hAnswer.focus();
+                return;
+            }
+            homeForm.reset();
+            if (homeFileNameField) homeFileNameField.value = 'No file chosen';
+            genQuestion();
+        });
+    }
+})();
+</script>
 
     <!-- <section class="custom-box-section">
         <div class="container">
@@ -4375,7 +4891,7 @@ section + section {
                 <p>Stay updated with the latest trends, tips, and insights in the world of custom packaging.</p>
             </div>
 
-            <div class="blog-grid">
+            <div class="blog-grid" id="desktop-blog-grid">
 
                 @php $main_blog = $home_blogs[0]; @endphp
                 <div class="blog-main-card" onclick="window.location.href='{{ url('blog/'.$main_blog->blog_url) }}'" style="cursor: pointer;">
@@ -4391,10 +4907,6 @@ section + section {
                 </div>
 
                 @if(count($home_blogs) > 1)
-                <div class="blog-mobile-action">
-                    <a href="{{ url('our-blog') }}" class="btn btn-primary">View All <span aria-hidden="true">&rarr;</span></a>
-                </div>
-
                 <div class="blog-sidebar-list">
 
                     @foreach($home_blogs->slice(1, 3) as $side_blog)
@@ -4419,6 +4931,29 @@ section + section {
                 @endif
 
             </div>
+
+            <!-- Mobile Only Blog Grid -->
+            <div id="mobile-blog-grid">
+                @foreach($home_blogs->take(4) as $blog)
+                <div class="blog-card-mobile" onclick="window.location.href='{{ url('blog/'.$blog->blog_url) }}'" style="cursor: pointer;">
+                    <div class="mobile-image-wrapper">
+                        <img src="{{ asset('images/'.$blog->image) }}" alt="{{ $blog->alt_tag }}">
+                    </div>
+                    <div class="card-meta">
+                        <span class="author">{{ $blog->author_name }}</span>
+                        <span class="date">{{ date('M d, Y', strtotime($blog->date)) }}</span>
+                    </div>
+                    <h4><a href="{{ url('blog/'.$blog->blog_url) }}">{{ $blog->blog_title }}</a></h4>
+                    <p>{!! strip_tags(Str::limit($blog->long_description, 100)) !!}</p>
+                </div>
+                @endforeach
+            </div>
+
+            @if(count($home_blogs) > 1)
+            <div class="blog-mobile-action">
+                <a href="{{ url('our-blog') }}" class="btn btn-primary" style="width: 100%;">View All <span aria-hidden="true">&rarr;</span></a>
+            </div>
+            @endif
 
         </div>
     </section>

@@ -291,7 +291,7 @@ img {
    ================================================ */
 .cp-products {
     background: var(--bg);
-    padding: 90px 0;
+    padding: 30px 0;
     overflow: hidden;
 }
 
@@ -379,7 +379,7 @@ img {
    ================================================ */
 .hiw-section {
     background: #202020;
-    padding: 70px 0 60px;
+    padding: 30px 0 60px;
 }
 
 .hiw-wrap {
@@ -460,8 +460,7 @@ img {
     display: flex;
     flex-direction: column;
     gap: 9px;
-    width: 256.58px;
-    max-width: calc(100% - 75px);
+    padding-right: 15px;
 }
 
 .hiw-step-title {
@@ -532,8 +531,8 @@ img {
     .hiw-step-body {
         position: relative;
         top: auto;
-        left: auto;
-        right: auto;
+        left: 0 !important;
+        right: 0 !important;
         width: 100%;
         max-width: 100%;
         padding: 0;
@@ -807,7 +806,6 @@ img {
   }
 
   .customize-grid {
-    display: grid !important;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
     width: 100%;
@@ -926,7 +924,7 @@ img {
    ================================================ */
 .cp-why {
     background: var(--bg2);
-    padding: 90px 0;
+    padding: 40px 0;
 }
 
 .cp-why-grid {
@@ -1233,7 +1231,7 @@ img {
    ================================================ */
 .cp-testi {
     background: var(--bg2);
-    padding: 90px 0;
+    padding: 40px 0;
 }
 
 .cp-testi-head {
@@ -1391,7 +1389,7 @@ img {
    ================================================ */
 .cp-testi {
     background: var(--bg2);
-    padding: 90px 0;
+    padding: 40px 0;
 }
 
 .cp-testi-head {
@@ -1562,7 +1560,7 @@ img {
    CUSTOMIZE YOUR BOX SECTION
    ================================================ */
 .product-customize-section {
-    padding: 75px 0;
+    padding: 40px 0;
 }
 
 .product-customize-header {
@@ -1673,7 +1671,7 @@ img {
    TESTIMONIALS SECTION
    ================================================ */
 .product-testimonials-section {
-    padding: 100px 0;
+    padding: 40px 0;
     background-color: #111111;
 }
 
@@ -1817,7 +1815,7 @@ img {
    HOME-STYLE TESTIMONIALS SECTION (From home page)
    ================================================ */
 .testimonials-section {
-    padding: 90px 0;
+    padding: 40px 0;
     background: #161616;
 }
 
@@ -1836,9 +1834,12 @@ img {
 }
 
 .testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    overflow-x: hidden;
     gap: 25px;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding-top: 35px;
 }
 
 .testimonial-card {
@@ -1848,6 +1849,8 @@ img {
     border-radius: 18px;
     padding: 50px 25px 25px;
     text-align: center;
+    flex: 0 0 calc((100% - 50px) / 3);
+    scroll-snap-align: start;
 }
 
 .testimonial-card img {
@@ -1866,6 +1869,7 @@ img {
     color: var(--text-muted);
     font-size: 0.9rem;
     margin-bottom: 20px;
+    text-align: justify;
 }
 
 .testimonial-card h4 {
@@ -1930,7 +1934,7 @@ img {
    ================================================ */
 .cq-section {
     background: #161616;
-    padding: 80px 0;
+    padding: 40px 0;
 }
 
 .cq-wrap {
@@ -2182,7 +2186,7 @@ img {
    ================================================ */
 .pg-section {
     background: #161616;
-    padding: 80px 0;
+    padding: 40px 0;
 }
 
 .pg-wrap {
@@ -3417,7 +3421,7 @@ img {
 .industry-hero-left .hero-breadcrumb {
   color: #a0a0a0;
   font-size: 0.85rem;
-  margin-bottom: 30px;
+  margin-bottom: 14px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -3465,10 +3469,13 @@ img {
 .hero-image-wrapper {
   position: relative;
   width: 100%;
-  max-width: 600px;
+  max-width: 750px;
+  display: flex;
+  justify-content: center;
 }
 .hero-main-img {
   width: 100%;
+  max-width: 100%;
   height: auto;
   object-fit: contain;
   display: block;
@@ -3714,17 +3721,19 @@ img {
 .quote-container {
   width: 100%;
   max-width: 1239px;
-  min-height: 789px;
   margin: 0 auto;
   border-radius: 8px;
   display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0;
   overflow: hidden;
   box-sizing: border-box;
 }
 
 /* --- Column 1 Layout (Image Panel) --- */
 .quote-steps-col {
-  width: 368px; /* Precise Figma layout specification */
+  width: 368px;
   background-color: var(--bg-darker);
   padding: 0;
   box-sizing: border-box;
@@ -3732,28 +3741,31 @@ img {
   align-items: stretch;
   justify-content: center;
   overflow: hidden;
+  align-self: stretch;
 }
 
 .quote-side-image {
   width: 100%;
   height: 100%;
-  min-height: 789px;
+  display: flex;
+  flex: 1;
 }
 
 .quote-side-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   display: block;
+  flex: 1;
 }
 
 /* --- Column 2 Layout (Request Free Quote Form Container) --- */
 .quote-form-col {
-  width: 802px; /* Precise Figma layout specification */
-  min-height: 789px;
+  flex: 1;
   background-color: var(--bg-dark);
-  border-radius: 8px;
-  padding: 35px 55px; /* Maps exactly to left: 55px, top: 35px padding specs */
+  border-radius: 0 8px 8px 0;
+  padding: 25px 45px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -3765,10 +3777,10 @@ img {
   height: 44px;
   font-family: var(--font-heading), sans-serif;
   font-weight: 700;
-  font-size: 32px;
+  font-size: 28px;
   line-height: 44px;
   color: var(--text-main);
-  margin: 0 auto 35px auto;
+  margin: 0 auto 20px auto;
   text-align: center;
 }
 
@@ -3776,13 +3788,13 @@ img {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 /* --- Structural Form Grids --- */
 .form-row {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   width: 100%;
 }
 
@@ -3798,6 +3810,22 @@ img {
 }
 
 /* Dropdown selections: Material, Colors, Addons */
+.options-grid-custom {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+.options-grid-custom > .form-group:nth-child(1),
+.options-grid-custom > .form-group:nth-child(2),
+.options-grid-custom > .form-group:nth-child(3) {
+  grid-column: span 2;
+}
+.options-grid-custom > .form-group:nth-child(4),
+.options-grid-custom > .form-group:nth-child(5) {
+  grid-column: span 3;
+}
+
 .triple-grid {
   grid-template-columns: repeat(3, 1fr);
   max-width: 692px;
@@ -3811,18 +3839,19 @@ img {
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  height: 76px; /* Explicit height specification constraints */
+  gap: 0px;
+  height: 38px; /* Fit perfectly to input height */
 }
 
 .form-group.textarea-group {
-  height: auto; /* Let it grow naturally with the textarea and label */
-  min-height: 135px;
+  height: auto; 
+  min-height: 70px;
   width: 100%;
 }
 
-.form-group label {
-  font-size: 15px;
+.form-group > label {
+  display: none; /* Hide labels above inputs */
+  font-size: 13px;
   color: #ffffff; /* Updated: Changed labels to clean white color */
   font-weight: 300;
 }
@@ -3832,19 +3861,19 @@ img {
 .form-group select,
 .form-group textarea {
   width: 100%;
-  height: 46px;
+  height: 38px;
   background-color: var(--bg-darker); /* Keeping dark theme inputs */
   border: 0.2px solid #727272; /* Required layout boundary rules */
-  border-radius: 8px;
-  padding: 12px 16px;
+  border-radius: 6px;
+  padding: 8px 12px;
   color: var(--text-main);
-  font-size: 14px;
+  font-size: 13px;
   box-sizing: border-box;
   outline: none;
 }
 
 .form-group textarea {
-  height: 105px;
+  height: 70px;
   resize: none;
 }
 
@@ -3853,10 +3882,10 @@ img {
 .file-upload-wrapper {
   display: flex;
   border: 0.2px solid #727272;
-  border-radius: 8px;
+  border-radius: 6px;
   background-color: var(--bg-darker);
   overflow: hidden;
-  height: 46px;
+  height: 38px;
   box-sizing: border-box;
 }
 
@@ -3883,20 +3912,20 @@ img {
   appearance: none;
 
   font-weight: 700;
-  padding: 0 20px;
+  padding: 0 16px;
 
   display: flex;
   align-items: center;
   justify-content: center; /* Centers text/icons horizontally */
-  align-self: stretch; /* Stretches the button to perfectly fill the 46px parent height */
+  align-self: stretch; /* Stretches the button to perfectly fill the parent height */
   height: 100%; /* Fallback vertical height alignment */
 
-  gap: 10px;
+  gap: 8px;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 16px;
   white-space: nowrap; /* Prevents button text from breaking into two lines */
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
 
 /* Special target fix if the button tag is a native browser input/button element */
@@ -3907,18 +3936,18 @@ img {
 /* --- Submit Action Button Design --- */
 .submit-quote-btn {
   width: 298px;
-  height: 48px;
+  height: 42px;
   background-color: var(--accent-gold);
   color: var(--bg-dark);
   font-family: var(--font-heading), sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   border: none;
   border-radius: 40px;
-  padding: 12px 20px;
+  padding: 10px 20px;
   gap: 10px;
   cursor: pointer;
-  margin: 30px auto 0 auto;
+  margin: 15px auto 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3932,26 +3961,26 @@ img {
 /* --- Inline Human Verification (Inside Form) --- */
 .human-verification-inline {
   width: 100%;
-  margin-top: 12px;
-  padding: 20px 24px;
+  margin-top: 8px;
+  padding: 12px 20px;
   background-color: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 193, 7, 0.2);
   border-radius: 8px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
 .human-verification-header {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .human-verification-inline-title {
   color: var(--text-main);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   margin: 0;
 }
@@ -4094,11 +4123,44 @@ img {
     padding: 35px 20px;
   }
 
-  .dual-grid,
+  /* First 4 fields (Name, Email, Phone, Physical Address) - Full width in mobile */
+  .instant-quote-form > .form-row.dual-grid:nth-child(1),
+  .instant-quote-form > .form-row.dual-grid:nth-child(2) {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* All standalone form-groups stay full width */
+  .instant-quote-form > .form-group {
+    width: 100%;
+  }
+
+  /* All other dual-grid rows stay 2x2 */
+  .form-row.dual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
   .triple-grid,
-  .dimensions-grid,
   .quantity-upload-grid {
     grid-template-columns: 1fr;
+  }
+  .dimensions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .options-grid-custom {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* Reset the span overrides from desktop so all 4 items show 2x2 */
+  .options-grid-custom > .form-group:nth-child(1),
+  .options-grid-custom > .form-group:nth-child(2),
+  .options-grid-custom > .form-group:nth-child(3),
+  .options-grid-custom > .form-group:nth-child(4) {
+    grid-column: span 1;
+  }
+  /* Upload (5th item) spans both columns */
+  .options-grid-custom > .form-group:nth-child(5) {
+    grid-column: span 2;
   }
   .form-group,
   .form-row,
@@ -4189,7 +4251,7 @@ img {
 
         @unless($isGiftBoxesPage)
         <div class="cp-sec-head">
-            <span class="cp-badge">OUR PRODUCTS</span>
+            <!-- <span class="cp-badge">OUR PRODUCTS</span> -->
             <h2 class="cp-sec-title">Lid & Base Boxes Collection</h2>
             <p class="cp-sec-sub">Browse our ready-to-order lid and base rigid boxes, fully customizable to your brand.</p>
         </div>
@@ -4212,7 +4274,7 @@ img {
 
         @unless($isGiftBoxesPage)
         <div class="cp-center">
-            <a href="#" class="cp-cta">Explore All Products</a>
+            <!-- <a href="#" class="cp-cta">Explore All Products</a> -->
         </div>
         @endunless
 
@@ -4527,7 +4589,7 @@ img {
 
                 grids.forEach(function(grid) { grid.style.display = 'none'; });
 
-                var tabName = btn.innerText.trim().toLowerCase().replace(/ /g, '-').replace(/&/g, 'and');
+                var tabName = btn.textContent.trim().toLowerCase().replace(/&/g, 'and').replace(/\s+/g, '-');
                 var targetGrid = document.getElementById('cat-tab-' + tabName);
                 if (targetGrid) {
                     targetGrid.style.display = 'grid';
@@ -4545,69 +4607,74 @@ img {
             <div class="container">
 
                 <div class="testimonials-header">
+                    <!-- <span class="section-badge-text">TESTIMONIALS</span> -->
                     <h2>What Our Customers Say</h2>
                     <p>Hear from brands who trust us with their packaging needs.</p>
                 </div>
 
-                <div class="testimonial-grid" id="catTestimonialGrid">
-
+                <div class="testimonial-grid">
+                    @foreach($testimonial as $testi)
                     <div class="testimonial-card">
-                        <img src="{{ asset('images/avatar_1.png') }}" alt="Alice Smith">
+                        <img src="{{ asset('images/' . $testi->image) }}" alt="{{ $testi->name }}" class="avatar-img">
                         <p>
-                            Outstanding quality! The Premium Boxes team provided exactly what we needed for our new product line. The structural integrity is flawless.
+                            {{ $testi->comment }}
                         </p>
-                        <h4>Alice Smith</h4>
-                        <span>CEO, Beauty Brand</span>
-                    </div>
 
-                    <div class="testimonial-card">
-                        <img src="{{ asset('images/avatar_2.png') }}" alt="John Davis">
-                        <p>
-                            Their customer service is unmatched. From design to delivery, they kept us informed. The boxes arrived on time and looked phenomenal.
-                        </p>
-                        <h4>John Davis</h4>
-                        <span>Marketing Director</span>
+                        <h4>{{ $testi->name }}</h4>
+                        <span>{{ $testi->profile_link }}</span>
                     </div>
-
-                    <div class="testimonial-card">
-                        <img src="{{ asset('images/avatar_3.png') }}" alt="Sarah Jenkins">
-                        <p>
-                            We've seen a noticeable increase in unboxing videos from our customers since switching to these custom mailers. Highly recommend!
-                        </p>
-                        <h4>Sarah Jenkins</h4>
-                        <span>E-commerce Owner</span>
-                    </div>
-
+                    @endforeach
                 </div>
 
                 <div class="testimonial-nav">
-                    <button class="cat-testimonial-prev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-                    <button class="cat-testimonial-next"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                    <button class="testimonial-prev-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                    <button class="testimonial-next-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
                 </div>
 
             </div>
         </section>
 
+        <!-- Testimonials Navigation Script -->
         <script>
         (function() {
-            const grid = document.getElementById('catTestimonialGrid');
-            const prevBtn = document.querySelector('.cat-testimonial-prev');
-            const nextBtn = document.querySelector('.cat-testimonial-next');
+            const grid = document.querySelector('.testimonial-grid');
+            const prevBtn = document.querySelector('.testimonial-prev-btn');
+            const nextBtn = document.querySelector('.testimonial-next-btn');
+
             if (!grid || !prevBtn || !nextBtn) return;
+
             let currentIndex = 0;
             const cards = grid.querySelectorAll('.testimonial-card');
             const totalCards = cards.length;
+
             function scrollToCard(index) {
+                const visibleCards = window.innerWidth > 992 ? 3 : 1;
+                const maxIndex = totalCards - visibleCards;
+
                 if (index < 0) index = 0;
-                if (index >= totalCards) index = totalCards - 1;
+                if (index > maxIndex) index = maxIndex;
+
                 currentIndex = index;
-                const cardWidth = cards[0].offsetWidth;
-                grid.scrollTo({ left: cardWidth * index, behavior: 'smooth' });
+                const gap = window.innerWidth > 992 ? 25 : 0;
+                const cardWidth = cards[0].offsetWidth + gap;
+                grid.scrollTo({
+                    left: cardWidth * index,
+                    behavior: 'smooth'
+                });
             }
-            prevBtn.onclick = function() { scrollToCard(currentIndex - 1); };
-            nextBtn.onclick = function() { scrollToCard(currentIndex + 1); };
+
+            prevBtn.onclick = function() {
+                scrollToCard(currentIndex - 1);
+            };
+
+            nextBtn.onclick = function() {
+                scrollToCard(currentIndex + 1);
+            };
+
+            // Track scroll position
             grid.addEventListener('scroll', function() {
-                const cardWidth = cards[0].offsetWidth;
+                const gap = window.innerWidth > 992 ? 25 : 0;
+                const cardWidth = cards[0].offsetWidth + gap;
                 currentIndex = Math.round(grid.scrollLeft / cardWidth);
             });
         })();
@@ -4621,7 +4688,7 @@ img {
 
                 <div class="quote-steps-col">
                     <div class="quote-side-image">
-                        <img src="{{ asset('uploads/frame-81.png') }}" alt="Custom packaging quote">
+                        <img src="{{ asset('uploads/frame-81.webp') }}" alt="Custom packaging quote">
                     </div>
                 </div>
                 <div class="quote-form-col">
@@ -4673,7 +4740,7 @@ img {
                             </div>
                         </div>
 
-                        <div class="form-row triple-grid">
+                        <div class="form-row options-grid-custom">
                             <div class="form-group">
                                 <label>Select Material</label>
                                 @php
@@ -4681,7 +4748,7 @@ img {
                                     $materials = $materialCategory ? DB::table('add_category')->where('parent_category', $materialCategory->cat_id)->where('status', 1)->get() : collect([]);
                                 @endphp
                                 <select name="material" class="form-control" style="background: #111; color: white; border: 1px solid #222;">
-                                    <option value="">Choose option</option>
+                                    <option value="">Select Material</option>
                                     @foreach($materials as $material)
                                         <option value="{{ $material->name }}">{{ $material->name }}</option>
                                     @endforeach
@@ -4690,23 +4757,22 @@ img {
                             <div class="form-group">
                                 <label>Color Options</label>
                                 <select>
-                                    <option value="">Choose option</option>
+                                    <option value="">Color Options</option>
+                                    <option value="1 Color">1 Color</option>
+                                    <option value="2 Colors">2 Colors</option>
+                                    <option value="3 Colors">3 Colors</option>
+                                    <option value="Full Color">Full Color</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Select Product Name</label>
-                                <select>
-                                    <option value="">Choose option</option>
-                                </select>
+                                <input type="text" placeholder="Enter product name">
                             </div>
-                        </div>
-
-                        <div class="form-row dual-grid align-end">
                             <div class="form-group">
                                 <label>Quantity *</label>
                                 <input type="number" placeholder="Enter quantity" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group upload-group">
                                 <label>Upload File Here</label>
                                 <div class="file-upload-wrapper">
                                     <input type="text" placeholder="No file choosen" readonly>
