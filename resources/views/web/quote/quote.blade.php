@@ -42,16 +42,17 @@ html, body {
     align-items: center;
     gap: 8px;
     font-size: 14px;
-    color: #cccccc;
+    color: #c5c5c5;
+
 }
 .qu-bc-home {
     font-size: 18px;
-    color: #c9a84c;
+    color: #F5C542;
     cursor: pointer;
     transition: color .25s;
 }
-.qu-bc-home:hover { color: #fff; }
-.qu-bc-sep { color: #888; font-size: 12px; }
+.qu-bc-home:hover { color: #f5c542}
+.qu-bc-sep { color: #C5C5C5; font-size: 14px; }
 .qu-bc-current {
     color: #ddd;
     font-weight: 500;
@@ -63,8 +64,8 @@ html, body {
 .qu-hero-content { display: flex; flex-direction: column; align-items: center; }
 
 .qu-hero-badge {
-    border: 1.5px solid #c9a84c;
-    color: #c9a84c;
+    border: 1px solid #f5c542;
+    color: #f5c542;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 3px;
@@ -75,6 +76,12 @@ html, body {
     background: transparent;
     cursor: pointer;
     transition: background-color .25s, color .25s, box-shadow .25s;
+
+
+
+
+
+
 }
 .qu-hero-badge:hover {
     background-color: #c9a84c;
@@ -83,20 +90,68 @@ html, body {
 }
 
 .qu-hero-heading {
-    font-size: clamp(28px, 3.5vw, 48px);
+    /* font-size: clamp(28px, 3.5vw, 48px);
     font-weight: 800;
     line-height: 1.2;
     color: #fff;
     margin-bottom: 16px;
+    border: 1px solid #c9a84c; */
+width: 576;
+height: 50;
+top: 321px;
+left: 432px;
+angle: 0 deg;
+opacity: 1;
+font-family: Inter;
+font-weight: 800;
+font-style: Extra Bold;
+font-size: 42px;
+leading-trim: NONE;
+line-height: 50px;
+letter-spacing: 4%;
+text-align: center;
+vertical-align: middle;
+text-transform: capitalize;
+color: #FFFFFF;
 }
-.qu-hero-gold { color: #c9a84c; display: inline; }
+.qu-hero-gold {
+    color: #f5c542;
+    font-family: Inter;
+font-weight: 800;
+font-style: Extra Bold;
+font-size: 42px;
+leading-trim: NONE;
+line-height: 50px;
+letter-spacing: 4%;
+text-align: center;
+vertical-align: middle;
+text-transform: capitalize;
+
+
+    display: inline;
+
+
+
+
+
+}
 
 .qu-hero-subtext {
-    font-size: 16px;
+    /* font-size: 16px;
     font-weight: 400;
     line-height: 28px;
     color: #C5C5C5;
-    max-width: 520px;
+    max-width: 520px; */
+ color: #C5C5C5;
+font-family: Inter;
+font-weight: 400;
+font-style: Regular;
+font-size: 18px;
+leading-trim: NONE;
+line-height: 26px;
+letter-spacing: 2%;
+text-align: center;
+vertical-align: middle;
 }
 
 /* ── FORM SECTION ─────────────────────────── */
@@ -125,7 +180,7 @@ html, body {
     color: #fff;
     text-align: center;
     padding-bottom: 14px;
-    border-bottom: 2px solid #c9a84c;
+    border-bottom: 3px solid #f5c542;
     display: table;
     margin: 0 auto 32px;
 }
@@ -171,7 +226,8 @@ html, body {
     font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 
-.qu-req { color: #c9a84c; }
+.qu-req {
+    color: #f5c542; }
 
 /* ── INPUTS ──────────────────────────────── */
 .qu-field input,
@@ -216,7 +272,12 @@ html, body {
     overflow: hidden;
     transition: border-color .25s;
 }
-.qu-upload-wrap:focus-within { border-color: #c9a84c; }
+.qu-upload-wrap:focus-within {
+    border-color: #c5c5c5;
+
+
+
+}
 .qu-file-name {
     flex: 1;
     padding: 11px 14px;
@@ -227,7 +288,7 @@ html, body {
     text-overflow: ellipsis;
 }
 .qu-upload-btn {
-    background-color: #c9a84c;
+    background-color: #f5c542;
     color: #000000 !important;
     font-size: 14px;
     font-weight: 700;
@@ -245,7 +306,7 @@ html, body {
 .qu-submit-row { display: flex; justify-content: center; margin-top: 10px; }
 
 .qu-btn {
-    background-color: #c9a84c;
+    background-color: #f5c542;
     color: #000;
     border: none;
     padding: 17px 0;
@@ -276,8 +337,8 @@ html, body {
 }
 
 .qu-why-badge {
-    border: 1.5px solid #c9a84c;
-    color: #c9a84c;
+    border: 0.5px solid #f5c542;
+    color: #f5c542;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 3px;
@@ -290,9 +351,9 @@ html, body {
     transition: background-color 0.25s, color 0.25s, box-shadow 0.25s;
 }
 .qu-why-badge:hover {
-    background-color: #c9a84c;
+    background-color: #f5c542;
     color: #000000;
-    box-shadow: 0 0 14px rgba(201, 168, 76, 0.5);
+    box-shadow: 0 0 14px rgba(245, 197, 66, 0.5);
 }
 
 .qu-why-heading {
@@ -321,7 +382,7 @@ html, body {
     border-radius: 14px;
     padding: 28px 20px;
     text-align: center;
-    border: 1px solid #2e2e2e;
+    border: 0.3px solid #F5C542;
     transition: transform .25s, box-shadow .25s;
 }
 .qu-why-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.4); }
@@ -330,12 +391,12 @@ html, body {
     width: 52px;
     height: 52px;
     border-radius: 50%;
-    border: 2px solid #c9a84c;
+    border: 2px solid #f5c542;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 16px;
-    color: #c9a84c;
+    color: #f5c542;
     font-size: 20px;
 }
 .qu-why-card h3 { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 12px; line-height: 1.4; }
@@ -594,6 +655,16 @@ html, body {
             </div>
         </div>
     </section>
+
+
+
+
+
+
+
+
+
+
 <script>
     // ============================================
 //  FORM TITLE LINE — title width ke barabar

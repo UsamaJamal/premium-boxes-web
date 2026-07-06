@@ -2705,6 +2705,7 @@ img {
         display: flex;
         align-items: center;
         width: 100%;
+
     }
 
     .pg-step-num {
@@ -3097,7 +3098,7 @@ img {
     height: 32px;
     border-radius: 50%;
     background-color: var(--white);
-    color: #111;
+    color: var(--accent_gold);
     text-decoration: none;
     transition: background-color 0.3s, opacity 0.3s;
 }
@@ -3154,7 +3155,7 @@ img {
 .cp-newsletter-form button {
     padding: 12px 24px;
     background-color: var(--gold);
-    color: #111;
+    color: #F5C542;
     border: none;
     border-radius: 0 4px 4px 0;
     font-weight: 600;
