@@ -1289,9 +1289,12 @@ h3 {
 }
 
 .testimonial-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  overflow-x: hidden;
   gap: 25px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding-top: 35px;
 }
 
 .testimonial-card {
@@ -1301,6 +1304,8 @@ h3 {
   border-radius: 18px;
   padding: 50px 25px 25px;
   text-align: center;
+  flex: 0 0 calc((100% - 50px) / 3);
+  scroll-snap-align: start;
 }
 
 .testimonial-card img {
@@ -1429,14 +1434,16 @@ h3 {
 }
 
 .process-card {
-  margin-right: -23px;
-  height: 283px;
+  width: 100%;
+  max-width: 293px;
+  height: 260px;
   background: #202020;
   border-radius: 12px;
-  padding: 40px 0px;
+  padding: 20px 20px;
   text-align: center;
   transition: transform 0.3s ease, background 0.3s ease;
-  width: 296px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .process-card:hover {
@@ -1445,9 +1452,9 @@ h3 {
 }
 
 .process-icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 25px;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1455,22 +1462,23 @@ h3 {
 }
 
 .process-icon img {
-  width: 60px;
-  height: 60px;
+  width: 45px;
+  height: 45px;
   object-fit: contain;
 }
 
 .process-card h3 {
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   font-weight: 600;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
   color: #ffffff;
 }
 
 .process-card p {
   color: #999999;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin-bottom: 0;
 }
 
 /* Responsive */
@@ -3912,9 +3920,9 @@ section + section {
   justify-content: center;
   transition: background-color 0.2s;
 }
-.submit-quote-btn:hover {
+/* .submit-quote-btn:hover {
   background-color: var(--accent-gold-hover);
-}
+} */
 @media (max-width: 992px) {
   .quote-container {
     flex-direction: column;
@@ -4163,43 +4171,17 @@ section + section {
             </div>
 
             <div class="testimonial-grid">
-
+                @foreach($testimonial as $testi)
                 <div class="testimonial-card">
-                    <img src="{{asset('images/avatar_1.png')}}" alt="Mike Torello" class="avatar-img">
+                    <img src="{{ asset('images/' . $testi->image) }}" alt="{{ $testi->name }}" class="avatar-img">
                     <p>
-                        We've been working with RigidBox Pro for 3 years now.
-                        Their consistency and attention to detail make them our
-                        go-to packaging partner.
+                        {{ $testi->comment }}
                     </p>
 
-                    <h4>Mike Torello</h4>
-                    <span>CEO, Jewels Co.</span>
+                    <h4>{{ $testi->name }}</h4>
+                    <span>{{ $testi->profile_link }}</span>
                 </div>
-
-                <div class="testimonial-card">
-                      <img src="{{asset('images/avatar_2.png')}}" alt="Mike Torello" class="avatar-img">
-                    <p>
-                        We've been working with RigidBox Pro for 3 years now.
-                        Their consistency and attention to detail make them our
-                        go-to packaging partner.
-                    </p>
-
-                    <h4>Mike Torello</h4>
-                    <span>CEO, Jewels Co.</span>
-                </div>
-
-                <div class="testimonial-card">
-                    <img src="{{asset('images/avatar_3.png')}}" alt="Mike Torello" class="avatar-img">
-                    <p>
-                        We've been working with RigidBox Pro for 3 years now.
-                        Their consistency and attention to detail make them our
-                        go-to packaging partner.
-                    </p>
-
-                    <h4>Mike Torello</h4>
-                    <span>CEO, Jewels Co.</span>
-                </div>
-
+                @endforeach
             </div>
 
             <div class="testimonial-nav">
@@ -4224,11 +4206,15 @@ section + section {
         const totalCards = cards.length;
 
         function scrollToCard(index) {
+            const visibleCards = window.innerWidth > 992 ? 3 : 1;
+            const maxIndex = totalCards - visibleCards;
+
             if (index < 0) index = 0;
-            if (index >= totalCards) index = totalCards - 1;
+            if (index > maxIndex) index = maxIndex;
 
             currentIndex = index;
-            const cardWidth = cards[0].offsetWidth;
+            const gap = window.innerWidth > 992 ? 25 : 0;
+            const cardWidth = cards[0].offsetWidth + gap;
             grid.scrollTo({
                 left: cardWidth * index,
                 behavior: 'smooth'
@@ -4245,7 +4231,8 @@ section + section {
 
         // Track scroll position
         grid.addEventListener('scroll', function() {
-            const cardWidth = cards[0].offsetWidth;
+            const gap = window.innerWidth > 992 ? 25 : 0;
+            const cardWidth = cards[0].offsetWidth + gap;
             currentIndex = Math.round(grid.scrollLeft / cardWidth);
         });
     })();
@@ -4316,8 +4303,15 @@ section + section {
                         <div class="form-row dual-grid">
                             <div class="form-group">
                                 <label>Select Material</label>
-                                <select>
+                                @php
+                                    $materialCategory = DB::table('add_category')->where('name', 'Box by Material')->first();
+                                    $materials = $materialCategory ? DB::table('add_category')->where('parent_category', $materialCategory->cat_id)->where('status', 1)->get() : collect([]);
+                                @endphp
+                                <select name="material" class="form-control" style="background: #111; color: white; border: 1px solid #222;">
                                     <option value="">Choose option</option>
+                                    @foreach($materials as $material)
+                                        <option value="{{ $material->name }}">{{ $material->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
@@ -4352,7 +4346,7 @@ section + section {
                             <textarea placeholder="Enter your message" rows="4"></textarea>
                         </div>
 
-                        <a href="{{ url('contact-us') }}" class="submit-quote-btn" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Instant Quote</a>
+                        <a href="{{ url('') }}" class="submit-quote-btn" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Instant Quote</a>
                     </form>
                 </div>
 

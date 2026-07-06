@@ -3816,8 +3816,15 @@ document.addEventListener("DOMContentLoaded", function() {
                         <div class="form-row triple-grid">
                             <div class="form-group">
                                 <label>Select Material</label>
-                                <select>
+                                @php
+                                    $materialCategory = DB::table('add_category')->where('name', 'Box by Material')->first();
+                                    $materials = $materialCategory ? DB::table('add_category')->where('parent_category', $materialCategory->cat_id)->where('status', 1)->get() : collect([]);
+                                @endphp
+                                <select name="material" class="form-control" style="background: #111; color: white; border: 1px solid #222;">
                                     <option value="">Choose option</option>
+                                    @foreach($materials as $material)
+                                        <option value="{{ $material->name }}">{{ $material->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">

@@ -29,35 +29,31 @@ html {
 .faq-hero {
     position: relative;
     width: 100%;
-    height: 320px;
+    min-height: 340px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 20px;
+    align-items: flex-end; /* content sits in lower half like figma */
+    padding: 0;
     overflow: hidden;
-    border-radius: 0;
     margin: 0;
-
-    background-image: url('./hero-bg.png');
+    background-image: url('/uploads/box-packing.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 }
 
-/* Dark overlay */
+/* Dark overlay — top to bottom like figma */
 .faq-hero::before {
     content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(
         to bottom,
-        rgba(0, 0, 0, 0.45) 0%,
-        rgba(0, 0, 0, 0.65) 50%,
+        rgba(0, 0, 0, 0.50) 0%,
+        rgba(0, 0, 0, 0.65) 60%,
         rgba(0, 0, 0, 0.80) 100%
     );
     z-index: 0;
+    pointer-events: none;
 }
 
 /* All children above overlay */
@@ -66,54 +62,82 @@ html {
     z-index: 1;
 }
 
+/* Inner container — matches header/footer 1440px + 40px padding */
+.faq-hero-inner {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 140px 40px 52px 90px; /* left: 90px aligns with header logo */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centered like figma */
+    text-align: center;
+}
+
 /* ============================================
    BREADCRUMB
    ============================================ */
 .faq-breadcrumb {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-440px);
     display: flex;
     align-items: center;
     gap: 7px;
     font-size: 13px;
     color: #cccccc;
+    margin-bottom: 24px;
+    align-self: flex-start;
+    margin-top: 10px; /* stays left while hero-inner is centered */
 }
 
 .faq-bc-home {
     font-size: 14px;
-    color: #c9a84c;
+    color: #F5C542;
     line-height: 1;
     cursor: pointer;
     transition: color 0.25s ease;
     display: flex;
     align-items: center;
+    flex-shrink: 0;
 }
 
-.faq-bc-home:hover { color: #ffffff; }
+.faq-bc-home svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+    flex-shrink: 0;
+    stroke: #F5C542;
+    transition: stroke 0.25s ease;
+}
+
+.faq-bc-home:hover { color: #f5c542; }
+.faq-bc-home:hover svg { stroke: #fff; }
 
 .faq-bc-sep {
-    color: #888888;
+    color: #C5C5C5;
     font-size: 13px;
+    line-height: 1;
     line-height: 1;
     display: flex;
     align-items: center;
 }
 
 .faq-bc-current {
-    color: #dddddd;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 1;
-    letter-spacing: 0.3px;
-    cursor: pointer;
-    transition: color 0.25s ease;
-    display: flex;
-    align-items: center;
+
+font-family: Inter;
+font-weight: 400;
+font-style: Regular;
+font-size: 14px;
+leading-trim: NONE;
+line-height: 18px;
+letter-spacing: 0%;
+text-align: justify;
+vertical-align: middle;
+color: #C5C5C5;
+
 }
 
-.faq-bc-current:hover { color: #c9a84c; }
+.faq-bc-current:hover {
+    color: #F5C542;
+ }
 
 /* ============================================
    HERO CONTENT WRAPPER
@@ -123,6 +147,8 @@ html {
     flex-direction: column;
     align-items: center;
     gap: 0;
+    text-align: center;
+    max-width: 560px;
 }
 
 /* ============================================
@@ -130,70 +156,86 @@ html {
    ============================================ */
 .faq-badge {
     display: inline-block;
-    border: 1.5px solid #3a3a3a;
-    color: #ffffff;
-    font-size: 10.5px;
+    border: 1.5px solid #F5C542;
+    color: #F5C542;
+    font-size: 11px;
     font-weight: 700;
     letter-spacing: 3px;
     text-transform: uppercase;
-    padding: 5px 22px;
-    border-radius: 6px;
-    margin-bottom: 22px;
+    padding: 6px 24px;
+    border-radius: 50px;
+    margin-bottom: 18px;
     background: transparent;
-    cursor: pointer;
-    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-.faq-badge:hover {
-    background-color: rgb(201, 168, 76);
-    color: #0d0d0d;
-    border-color: rgb(201, 168, 76);
-    box-shadow: 0 0 14px rgba(201, 168, 76, 0.5);
+    cursor: default;
 }
 
 /* ============================================
    HEADING
    ============================================ */
 .faq-heading {
-    font-size: clamp(24px, 3.5vw, 42px);
-    font-weight: 800;
-    line-height: 1.2;
-    color: #ffffff;
-    margin-bottom: 14px;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+width: 452;
+height: 100;
+top: 123px;
+left: 494px;
+angle: 0 deg;
+opacity: 1;
+
+font-family: Inter;
+font-weight: 800;
+font-style: Extra Bold;
+font-size: 42px;
+leading-trim: NONE;
+line-height: 50px;
+letter-spacing: 4%;
+text-align: center;
+vertical-align: middle;
+
 }
 
 .faq-heading-gold {
-    color: #c9a84c;
+    color: #F5C542;
     display: block;
+    font-family: Inter;
+font-weight: 800;
+font-style: Extra Bold;
+font-size: 42px;
+leading-trim: NONE;
+line-height: 50px;
+letter-spacing: 4%;
+text-align: center;
+vertical-align: middle;
+
 }
 
 /* ============================================
    SUBTEXT
    ============================================ */
 .faq-subtext {
-    font-size: clamp(12px, 1.3vw, 14.5px);
-    font-weight: 400;
-    line-height: 1.8;
-    color: #cccccc;
-    max-width: 460px;
-    margin: 0 auto;
-    text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+ width: 474;
+height: 78;
+top: 237px;
+left: 483px;
+angle: 0 deg;
+opacity: 1;
+font-family: Inter;
+font-weight: 400;
+font-style: Regular;
+font-size: 18px;
+leading-trim: NONE;
+line-height: 26px;
+letter-spacing: 2%;
+text-align: center;
+vertical-align: middle;
+color: #C5C5C5;
 }
 
 /* ============================================
    FAQ FILTER BUTTONS
    ============================================ */
 .faq-filters {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    padding: 16px 20px;
-    background-color: #1a1a1a;
+    background-color: #202020;
     position: sticky;
-    top: 0;
+    top: 120px; /* offset below fixed navbar (~120px) */
     width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 16px rgba(0, 0, 0, 0.7);
@@ -203,12 +245,15 @@ html {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
 }
 
-/* Inner scroll wrapper for buttons */
+/* Inner scroll wrapper — constrained to 1440px like header/footer */
 .faq-filter-scroll {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 14px 40px;
     width: 100%;
 }
 
@@ -218,7 +263,7 @@ html {
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    border: 1.5px solid #3a3a3a;
+    border: 0.2px solid #F5C542;
     background-color: transparent;
     color: #dddddd;
     letter-spacing: 0.3px;
@@ -228,17 +273,18 @@ html {
 }
 
 .faq-filter-btn:hover {
-    background-color: #c9a84c;
+    background-color: #F5C542;
     color: #0d0d0d;
-    border-color: #c9a84c;
+    border-color: #F5C542;
+
     box-shadow: 0 4px 16px rgba(201, 168, 76, 0.35);
     transform: translateY(-3px);
 }
 
 .faq-filter-btn.active {
-    background-color: #c9a84c;
+    background-color: #F5C542;
     color: #0d0d0d;
-    border-color: #c9a84c;
+    border-color: #F5C542;
     box-shadow: 0 4px 16px rgba(201, 168, 76, 0.35);
 }
 
@@ -247,8 +293,8 @@ html {
    ============================================ */
 .faq-main {
     background-color: #1a1a1a;
-    padding: 40px 60px 80px;
-    max-width: 1000px;
+    padding: 40px 40px 80px 90px; /* left: 90px aligns questions with header logo */
+    max-width: 1440px;
     margin: 0 auto;
     width: 100%;
 }
@@ -269,7 +315,7 @@ body.filters-visible .faq-filters-spacer {
    ============================================ */
 .faq-section {
     margin-bottom: 28px;
-    scroll-margin-top: 70px;
+    scroll-margin-top: 190px; /* navbar (~120px) + filter bar (~57px) + buffer */
 }
 
 .faq-section-title {
@@ -278,7 +324,7 @@ body.filters-visible .faq-filters-spacer {
     color: #ffffff;
     margin-bottom: 20px;
     padding-left: 14px;
-    border-left: 4px solid #c9a84c;
+    border-left: 4px solid #F5C542;
     line-height: 1.2;
 }
 
@@ -328,7 +374,7 @@ body.filters-visible .faq-filters-spacer {
 .faq-icon {
     font-size: 20px;
     font-weight: 300;
-    color: #c9a84c;
+    color: #F5C542;
     flex-shrink: 0;
     line-height: 1;
     transition: transform 0.3s ease;
@@ -368,108 +414,90 @@ body.filters-visible .faq-filters-spacer {
    ============================================ */
 @media (max-width: 768px) {
 
-    /* Hero — square on mobile */
     .faq-hero {
-        height: 100vw;
-        min-height: 100vw;
-        max-height: 520px;
-        width: 100%;
-        margin: 0;
-        border-radius: 0;
+        min-height: auto;
     }
 
-    /* FAQS badge — dark background, gold border pill */
+    .faq-hero-inner {
+        padding: 140px 20px 40px;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* FAQS badge */
     .faq-badge {
-        font-size: 2.8vw;
-        padding: 1.5vw 6vw;
-        letter-spacing: 0.4em;
-        margin-bottom: 4vw;
-        border-radius: 50px;
-        border: 1.5px solid rgb(201, 168, 76);
-        color: rgb(201, 168, 76);
-        background: rgba(0, 0, 0, 0.6);
+        font-size: 10px;
+        padding: 5px 18px;
+        letter-spacing: 0.35em;
+        margin-bottom: 14px;
     }
 
     .faq-heading {
-        font-size: 7.5vw;
-        margin-bottom: 4vw;
-        line-height: 1.15;
-        font-weight: 900;
+        font-size: 28px;
+        margin-bottom: 12px;
+        line-height: 1.2;
+        font-weight: 800;
     }
 
     .faq-subtext {
-        font-size: 3.8vw;
-        line-height: 1.9;
-        max-width: 95%;
-        color: #cccccc;
+        font-size: 13px;
+        line-height: 1.8;
+        max-width: 100%;
     }
 
     /* Breadcrumb */
     .faq-breadcrumb {
-        top: 3vw;
-        left: 3.5vw;
-        transform: none;
-        font-size: 3vw;
+        font-size: 12px;
+        margin-bottom: 16px;
     }
 
     /* Filter buttons — sticky + horizontally scrollable inner */
     .faq-filters {
-        padding: 3.5vw 0;
-        gap: 0;
-        flex-wrap: nowrap;
-        overflow-x: visible;
         position: sticky;
-        top: 0;
-        width: 100%;
-        box-sizing: border-box;
-        cursor: default;
+        top: 80px;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.7);
     }
 
     .faq-filters::-webkit-scrollbar { display: none; }
 
     .faq-filter-scroll {
-        display: flex;
         flex-wrap: nowrap;
         overflow-x: scroll;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
-        gap: 2.5vw;
-        padding: 0 3.5vw;
-        width: 100%;
+        padding: 12px 16px;
+        justify-content: flex-start;
+        gap: 10px;
         cursor: grab;
         user-select: none;
-        justify-content: flex-start;
     }
 
     .faq-filter-scroll::-webkit-scrollbar { display: none; }
 
     .faq-filter-btn {
-        padding: 3vw 0;
-        font-size: 3.3vw;
+        padding: 9px 18px;
+        font-size: 12px;
         font-weight: 600;
         border-radius: 6px;
-        flex: 0 0 42%;
-        width: 42%;
-        min-width: 42%;
+        flex-shrink: 0;
         white-space: nowrap;
-        text-align: center;
     }
 
     /* FAQ Main */
     .faq-main {
-        padding: 6vw 3.5vw 15vw;
+        padding: 24px 16px 60px;
         max-width: 100%;
     }
 
     /* Section title */
     .faq-section-title {
-        font-size: 4.5vw;
-        margin-bottom: 3.5vw;
+        font-size: 18px;
+        margin-bottom: 14px;
     }
 
     .faq-section {
-        margin-bottom: 9vw;
-        scroll-margin-top: 80px;
+        margin-bottom: 36px;
+        scroll-margin-top: 160px;
     }
 
     /* Accordion */
@@ -478,21 +506,21 @@ body.filters-visible .faq-filters-spacer {
     }
 
     .faq-question {
-        font-size: 3.3vw;
-        padding: 3.5vw;
+        font-size: 13px;
+        padding: 14px 16px;
     }
 
     .faq-icon {
-        font-size: 4.5vw;
+        font-size: 18px;
     }
 
     .faq-answer p {
-        font-size: 3.2vw;
-        padding-bottom: 3vw;
+        font-size: 13px;
+        padding-bottom: 12px;
     }
 
     .faq-list {
-        gap: 1.5vw;
+        gap: 6px;
     }
 }
 
@@ -501,37 +529,30 @@ body.filters-visible .faq-filters-spacer {
    ============================================ */
 @media (max-width: 480px) {
 
-    .faq-hero {
-        height: 100vw;
-        min-height: 100vw;
-        max-height: 480px;
+    .faq-hero-inner {
+        padding: 130px 16px 32px;
     }
 
     .faq-heading {
-        font-size: 8vw;
+        font-size: 24px;
     }
 
     .faq-subtext {
-        font-size: 4vw;
+        font-size: 13px;
     }
 
-    .filter-btn {
-        padding: 3vw 0;
-        font-size: 3.2vw;
-        flex: 0 0 42%;
-        min-width: 42%;
-        white-space: nowrap;
-        text-align: center;
-        max-width: none;
+    .faq-filter-btn {
+        padding: 8px 16px;
+        font-size: 12px;
     }
 
     .faq-main {
-        padding: 5vw 3vw 12vw;
+        padding: 20px 12px 50px;
     }
 
     .faq-question {
-        font-size: 3.2vw;
-        padding: 3vw;
+        font-size: 13px;
+        padding: 12px 14px;
     }
 }
 </style>
@@ -552,20 +573,28 @@ foreach($parts as $part) {
 @endphp
     <!-- FAQ Hero Banner -->
     <section class="faq-hero">
-        <nav class="faq-breadcrumb">
-            <span class="faq-bc-home">&#8962;</span>
-            <span class="faq-bc-sep">&#187;</span>
-            <span class="faq-bc-current">FAQs</span>
-        </nav>
-        <div class="faq-hero-content">
-            <button class="faq-badge">FAQS</button>
-            <h1 class="faq-heading">
-                Answers to Every
-                <span class="faq-heading-gold">Packaging Question</span>
-            </h1>
-            <p class="faq-subtext">
-                Find clear guidance on custom rigid boxes, materials, finishes, pricing, production timelines, and shipping all in one place.
-            </p>
+        <div class="faq-hero-inner">
+            <nav class="faq-breadcrumb">
+                <a href="/" class="faq-bc-home">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Home">
+                        <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9.5z"/>
+                        <polyline points="9 21 9 12 15 12 15 21"/>
+                    </svg>
+                </a>
+                <span class="faq-bc-sep">&#187;</span>
+                <span class="faq-bc-current">FAQs</span>
+            </nav>
+            <div class="faq-hero-content">
+                <span class="faq-badge">FAQS</span>
+                <h1 class="faq-heading">
+                    Answers to Every
+                    <span class="faq-heading-gold">Packaging Question</span>
+                </h1>
+                <p class="faq-subtext">
+                    Find clear guidance on custom rigid boxes, materials, finishes, pricing,
+                    production timelines, and shipping all in one place.
+                </p>
+            </div>
         </div>
     </section>
 
@@ -750,15 +779,19 @@ foreach($parts as $part) {
             btn.addEventListener('click', () => {
                 const targetId = btn.getAttribute('data-target');
 
-                // Turant filter bar scroll karo
+                // Scroll filter bar to active button
                 setActiveBtn(targetId);
 
                 // Smooth scroll to the target section
                 const targetSection = document.getElementById(targetId);
                 if (targetSection) {
+                    const navbarHeight = document.getElementById('site-header')
+                        ? document.getElementById('site-header').offsetHeight
+                        : 120;
                     const filterBarHeight = document.querySelector('.faq-filters').offsetHeight;
-                    const extraOffset = 20;
-                    const sectionTop = targetSection.getBoundingClientRect().top + window.scrollY - filterBarHeight - extraOffset;
+                    const extraOffset = 16;
+                    const totalOffset = navbarHeight + filterBarHeight + extraOffset;
+                    const sectionTop = targetSection.getBoundingClientRect().top + window.scrollY - totalOffset;
                     window.scrollTo({ top: sectionTop, behavior: 'smooth' });
                 }
             });
@@ -812,8 +845,11 @@ foreach($parts as $part) {
         //  ✅ FIXED SCROLL SPY — accurate section detection
         // ============================================
         function getCurrentSection() {
+            const navbarHeight = document.getElementById('site-header')
+                ? document.getElementById('site-header').offsetHeight
+                : 120;
             const filterBarHeight = document.querySelector('.faq-filters').offsetHeight;
-            const triggerPoint = filterBarHeight + 30; // Just below sticky filter bar
+            const triggerPoint = navbarHeight + filterBarHeight + 30; // Just below sticky filter bar
 
             let currentSection = null;
             let closestDistance = Infinity;
@@ -925,5 +961,212 @@ foreach($parts as $part) {
             });
         });
         </script>
+
+<style>
+/* ================================================
+   CTA BANNER SECTION
+   ================================================ */
+.cp-cta-banner {
+    background: #1e1e1e;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 80px;
+    min-height: 280px;
+    gap: 40px;
+}
+
+.cp-cta-banner-left {
+    margin-left: 81px;
+    flex: 1;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+    z-index: 2;
+}
+
+.cp-cta-banner-heading {
+    font-size: 30px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.25;
+    white-space: nowrap;
+}
+
+.cp-cta-banner-gold {
+    color: #FFC107;
+}
+
+.cp-cta-banner-text {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.75;
+    max-width: 487px;
+}
+
+.cp-cta-banner-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 32px;
+    background: #FFC107;
+    color: #111;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: background .25s, transform .2s;
+    white-space: nowrap;
+    width: fit-content;
+    text-decoration: none;
+}
+
+.cp-cta-banner-btn:hover {
+    background: #e0a800;
+    transform: translateY(-2px);
+}
+
+.cp-cta-banner-imgs {
+    position: relative;
+    width: 460px;
+    height: 280px;
+    flex-shrink: 0;
+    overflow: visible;
+}
+
+.cp-cta-img {
+    position: absolute;
+    object-fit: cover;
+    display: block;
+}
+
+.cp-cta-img-1 {
+    width: 283px;
+    height: 329px;
+    top: -130px;
+    right: -37px;
+    border-radius: 30px;
+    transform: rotate(23.35deg);
+    z-index: 3;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.cp-cta-img-2 {
+    width: 157px;
+    height: 172px;
+    bottom: -94px;
+    right: 217px;
+    border-radius: 15px;
+    transform: rotate(23.35deg);
+    z-index: 2;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+.cp-cta-img-3 {
+    width: 155px;
+    height: 170px;
+    bottom: -161px;
+    right: 51px;
+    border-radius: 15px;
+    transform: rotate(23.35deg);
+    z-index: 1;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+    .cp-cta-banner {
+        flex-direction: column-reverse;
+        padding: 0 0 10vw 0;
+        min-height: unset;
+        gap: 0;
+        overflow: hidden;
+    }
+    .cp-cta-banner-left {
+        max-width: 100%;
+        padding: 4vw 5vw 4vw 5vw;
+        align-items: flex-start;
+        text-align: left;
+        margin-left: 0;
+    }
+    .cp-cta-banner-heading {
+        font-size: 8vw;
+        white-space: normal;
+        margin-bottom: 2vw;
+        text-align: left;
+    }
+    .cp-cta-banner-text {
+        font-size: 4.2vw;
+        max-width: 100%;
+        line-height: 1.8;
+        margin-bottom: 6vw;
+        text-align: left;
+    }
+    .cp-cta-banner-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        font-size: 4.5vw;
+        padding: 4vw 0;
+    }
+    .cp-cta-banner-imgs {
+        width: 100%;
+        height: 70vw;
+        position: relative;
+        flex-shrink: 0;
+    }
+    .cp-cta-img-2 { display: none; }
+    .cp-cta-img-3 { display: none; }
+    .cp-cta-img-1 {
+        width: 72vw;
+        height: 80vw;
+        top: -10vw;
+        right: -10vw;
+        border-radius: 6vw;
+        transform: rotate(23.35deg);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+}
+</style>
+
+<!-- ================================================
+     CTA BANNER SECTION
+     ================================================ -->
+<section class="cp-cta-banner" style="justify-content: center;">
+    <div style="width: 100%; max-width: 1440px; margin: 0 auto; display: flex; align-items: inherit; justify-content: space-between; gap: inherit; flex-direction: inherit; position: relative;">
+        <div class="cp-cta-banner-left">
+            <h2 class="cp-cta-banner-heading">
+                Ready to Elevate Your <span class="cp-cta-banner-gold">Packaging</span>?
+            </h2>
+            <p class="cp-cta-banner-text">
+                Let's bring your packaging vision to life. Our team of experts is ready to<br>
+                design and deliver rigid boxes that will make your brand unforgettable.
+            </p>
+            <a href="#" class="cp-cta-banner-btn">Get Your Free Quote Today</a>
+        </div>
+
+        <div class="cp-cta-banner-imgs">
+            <img
+                src="{{ asset('uploads/cta-allcateagories.png') }}"
+                alt="Rigid Inspiration"
+                class="cp-cta-img cp-cta-img-1"
+            >
+            <img
+                src="{{ asset('uploads/cta-allcategories.png') }}"
+                alt="Luxury Box Packaging"
+                class="cp-cta-img cp-cta-img-2"
+            >
+            <img
+                src="{{ asset('uploads/cta-allcategories.png') }}"
+                alt="Luxury Box Packaging"
+                class="cp-cta-img cp-cta-img-3"
+            >
+        </div>
+    </div>
+</section>
 
 @include('web/footer')

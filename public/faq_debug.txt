@@ -1,5 +1,6 @@
 Array
 (
+<<<<<<< HEAD
     [_token] => D6OMLakdKaBlABQtJXBY0BKImuEkBDVc0tElWPoG
     [oldbaner] => 1782909070-b-Apperal-Boxes.webp
     [oldfav-icon] => 
@@ -43,6 +44,23 @@ Array
     [mtitle] => Apparel Boxes, Boxes for T-Shirts, Ties, and Clothing
     [mdescription] => There are numerous catchy designs of apparel boxes available at PremiumBoxes. Get them with amazing deals such as free shipping and design support.
     [mtags] => Apparel Boxes, Custom Boxes, Clothing gift boxes, Clothing packaging Boxes, custom packaging boxes
+=======
+    [_token] => bQCmOp4Yr6iGl9WuFaB5VOs8sFYjHBdpWASdxzAD
+    [oldbaner] => 1782909019-b-Display-Packaging.webp
+    [oldfav-icon] => 
+    [oldimage] => 1782909019-Display-Packaging.webp
+    [old_hero_image] => 1782909019-h-Display-Packaging.webp
+    [old_parent_cat] => 110
+    [name] => Display Packaging
+    [categoryurl] => display-packaging
+    [ckeditor] => <p>Display Packaging</p>
+
+    [hero_title] => Display Packing
+    [hero_desc] => The timeless two-piece rigid box design that exudes luxury and sophistication. Featuring a separate lid and base, it creates a premium unboxing experience with a satisfying reveal. Ideal for high-end retail products, luxury gifts, and exclusive collectibles, this style combines elegance, durability, and lasting brand appeal.
+    [mtitle] => Display Packaging
+    [mdescription] => Display Packaging
+    [mtags] => Display Packaging
+>>>>>>> 202346f051d5c42324c28bffcabc01362b67f1a3
     [schema] => 
     [parentcategory] => 110
     [status] => 1
