@@ -99,8 +99,8 @@
     .tb-inner {
         flex-direction: column;
         height: auto;
-        padding: 18px 16px;
-        gap: 14px;
+        padding: 10px 16px;
+        gap: 10px;
     }
     .tb-sep {
         display: none;
@@ -109,15 +109,22 @@
         justify-content: center;
         width: 100%;
     }
+    .tb-stars svg {
+        width: 14px;
+        height: 14px;
+    }
+    .tb-review-link {
+        font-size: 0.75rem;
+    }
     .tb-logos-wrap {
         width: 100%;
     }
     .tb-logos-track {
-        gap: 32px;
+        gap: 24px;
     }
     .tb-logo {
-        width: 70px;
-        height: 28px;
+        width: 60px;
+        height: 24px;
     }
 }
 </style>

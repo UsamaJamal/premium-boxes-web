@@ -1,6 +1,6 @@
 Array
 (
-    [_token] => YHy1LR9pBqwL6SPpAabpl8geWJyC0u0jrRzeUPBf
+    [_token] => iZ2hervEaIGfurAwHpb4eHrTpnxDkLOES1S96MG3
     [oldbaner] => 1782908794-b-Metalized-Boxes.webp
     [oldfav-icon] => 
     [oldimage] => 1782908794-Metalized-Boxes.webp
@@ -30,8 +30,8 @@ Array
 
 <p style="text-align:justify"><span style="color:#000000">We are available to assist our clients via a dedicated chat portal, e-mail, call, and request a callback. Get in touch with us to enjoy the finest packaging solutions at the lowest pricing.</span></p>
 
-    [hero_title] => Metalized Boxes
-    [hero_desc] => Metalized boxes are fancy and sturdy packaging solutions. Their metalized look makes them prominent and inevitable for high-value products and gift items.
+    [hero_title] => Premium Metalized Boxes for Luxury Product Packaging
+    [hero_desc] => Discover our premium metalized box collection, designed to give your products a luxurious and eye-catching appearance. Our custom metalized packaging combines durability, high-quality materials, and elegant finishes to protect your products while enhancing your brand's shelf appeal.
     [mtitle] => Metalized Boxes | Gold Foil Boxes, Silver Foil Boxes
     [mdescription] => Metalized boxes are fancy yet economical packaging solutions. PremiumBoxes offers various customizations for these boxes with free design support.
     [mtags] => Metalized Boxes, Gold Foil Boxes, Silver Foil Boxes, metalized packaging,

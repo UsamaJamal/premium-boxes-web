@@ -281,19 +281,22 @@ Get A Call In A Min !</h5>
     <!-- ===== NAVBAR ===== -->
     <style>
         .nav-group {
-            position: static;
             display: flex;
             align-items: stretch;
         }
         .mega-menu-content {
             display: none;
-            position: fixed;
-            left: 0;
-            width: 100%;
+            position: absolute !important;
+            left: 102px;
+            top: 64px !important;
+            width: max-content;
+            min-width: 750px;
             background-color: #252525;
             z-index: 999;
             box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7);
             border-top: 2px solid #F5A623;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
             animation: megaSlideDown 0.2s ease;
         }
         @keyframes megaSlideDown {
@@ -371,7 +374,7 @@ Get A Call In A Min !</h5>
         </a>
 
         <!-- Nav Links -->
-        <div class="nav-links-container" style="display: flex; align-items: stretch; gap: 28px; flex: 1; justify-content: center;">
+        <div class="nav-links-container" style="display: flex; align-items: stretch; gap: 28px; flex: 1; justify-content: center; position: relative;">
             <a href="/" style="display: flex; align-items: center; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s;" onmouseover="this.style.color='#F5A623'" onmouseout="this.style.color='#ffffff'">Home</a>
             
             <!-- Box By Industry with Mega Menu -->
@@ -380,9 +383,9 @@ Get A Call In A Min !</h5>
                 
                 <!-- Mega Menu Container -->
                 <div class="mega-menu-content">
-                    <div style="padding: 24px 60px 20px; max-width: 1440px; margin: 0 auto;">
+                    <div style="padding: 14px 40px 16px;">
                         <div style="display: flex; gap: 40px;">
-                            <div style="flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px 10px; align-content: start;">
+                            <div style="flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px 20px; align-content: start;">
                                 @php
                                 $parentCat = \DB::table('add_category')->where('name', 'Box by Industry')->first();
                                 $industries = $parentCat ? \DB::table('add_category')->where('parent_category', $parentCat->cat_id)->get() : [];
@@ -398,12 +401,6 @@ Get A Call In A Min !</h5>
                                 </a>
                                 @endforeach
                             </div>
-                            <a href="{{ url('box-by-industry') }}" style="width: 340px; position: relative; border-radius: 12px; overflow: hidden; flex-shrink: 0; height: 220px; display: block; text-decoration: none;">
-                                <img src="{{ asset('images/mega-menu-featured.png') }}" style="width: 100%; height: 100%; object-fit: cover;" alt="Featured Box" />
-                                <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px 20px 20px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);">
-                                    <span style="color: #fff; font-weight: 700; font-size: 16px;">View All Industries →</span>
-                                </div>
-                            </a>
                         </div>
                         <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #333; display: flex; align-items: center; justify-content: space-between;">
                             <div style="display: flex; align-items: center; gap: 12px;">
@@ -460,9 +457,9 @@ Get A Call In A Min !</h5>
                 
                 <!-- Mega Menu Container -->
                 <div class="mega-menu-content">
-                    <div style="padding: 24px 60px 20px; max-width: 1440px; margin: 0 auto;">
+                    <div style="padding: 14px 40px 16px;">
                         <div style="display: flex; gap: 40px;">
-                            <div style="flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px 10px; align-content: start;">
+                            <div style="flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px 20px; align-content: start;">
                                 @php
                                 $parentCatStyle = \DB::table('add_category')->where('name', 'Box by Style')->first();
                                 $styles = $parentCatStyle ? \DB::table('add_category')->where('parent_category', $parentCatStyle->cat_id)->get() : [];
@@ -478,12 +475,6 @@ Get A Call In A Min !</h5>
                                 </a>
                                 @endforeach
                             </div>
-                            <a href="{{ url('box-by-style') }}" style="width: 340px; position: relative; border-radius: 12px; overflow: hidden; flex-shrink: 0; height: 220px; display: block; text-decoration: none;">
-                                <img src="{{ asset('images/mega-menu-featured.png') }}" style="width: 100%; height: 100%; object-fit: cover;" alt="Featured Box" />
-                                <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px 20px 20px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);">
-                                    <span style="color: #fff; font-weight: 700; font-size: 16px;">View All Styles →</span>
-                                </div>
-                            </a>
                         </div>
                         <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #333; display: flex; align-items: center; justify-content: space-between;">
                             <div style="display: flex; align-items: center; gap: 12px;">
@@ -508,9 +499,9 @@ Get A Call In A Min !</h5>
                 
                 <!-- Mega Menu Container -->
                 <div class="mega-menu-content">
-                    <div style="padding: 24px 60px 20px; max-width: 1440px; margin: 0 auto;">
+                    <div style="padding: 14px 40px 16px;">
                         <div style="display: flex; gap: 40px;">
-                            <div style="flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px 10px; align-content: start;">
+                            <div style="flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px 20px; align-content: start;">
                                 @php
                                 $promoSubcats = \DB::table('add_category')->whereIn('parent_category', [58, 62, 63])->get();
                                 @endphp
@@ -525,12 +516,6 @@ Get A Call In A Min !</h5>
                                 </a>
                                 @endforeach
                             </div>
-                            <a href="{{ url('promotional-product') }}" style="width: 340px; position: relative; border-radius: 12px; overflow: hidden; flex-shrink: 0; height: 220px; display: block; text-decoration: none;">
-                                <img src="{{ asset('images/mega-menu-featured.png') }}" style="width: 100%; height: 100%; object-fit: cover;" alt="Promotional Products" />
-                                <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px 20px 20px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);">
-                                    <span style="color: #fff; font-weight: 700; font-size: 16px;">View All Promotional →</span>
-                                </div>
-                            </a>
                         </div>
                         <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #333; display: flex; align-items: center; justify-content: space-between;">
                             <div style="display: flex; align-items: center; gap: 12px;">
@@ -617,7 +602,7 @@ Get A Call In A Min !</h5>
 
             <!-- Get Instant Quote -->
             <a href="{{ url('request-quote') }}"
-                style="background-color: #F5A623; color: #111; font-size: 14px; font-weight: 800; padding: 10px 22px; border-radius: 50px; text-decoration: none; white-space: nowrap; transition: background 0.2s;"
+                style="background-color: #F5C542; color: #111; font-size: 14px; font-weight: 800; padding: 10px 22px; border-radius: 50px; text-decoration: none; white-space: nowrap; transition: background 0.2s;"
                 onmouseover="this.style.backgroundColor='#d4891a'"
                 onmouseout="this.style.backgroundColor='#F5A623'">
                 Get Instant Quote
