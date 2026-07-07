@@ -44,7 +44,7 @@ a { text-decoration: none; color: inherit; }
 .product-bc-active { color: var(--product-text-muted); }
 
 /* Images */
-.product-hero-images { display: flex; flex-direction: column; gap: 25px; }
+.product-hero-images { display: flex; flex-direction: column; gap: 25px; min-width: 0; }
 .product-main-img-wrap { width: 92%; margin: 0 auto; border-radius: 10px; overflow: hidden; background-color: var(--product-bg-card); aspect-ratio: 5 / 4; }
 .product-main-img { width: 100%; height: 100%; object-fit: cover; }
 .product-thumbnails { display: flex; justify-content: center; gap: 18.8px; }
@@ -131,8 +131,8 @@ a { text-decoration: none; color: inherit; }
 .product-btn-primary:hover { background-color: var(--product-gold-hover); }
 
 /* INFO TABS */
-.product-info-section { padding: 25px 0 75px; }
-.product-tabs-wrapper { border-bottom: 1px solid var(--product-border); margin-bottom: 50px; overflow-x: auto; scrollbar-width: none; }
+.product-info-section { padding: 20px 0 40px; }
+.product-tabs-wrapper { border-bottom: 1px solid var(--product-border); margin-bottom: 30px; overflow-x: auto; scrollbar-width: none; }
 .product-tabs-wrapper::-webkit-scrollbar { display: none; }
 .product-tabs-nav { display: flex; gap: 100px; white-space: nowrap; list-style: none; margin: 0; padding: 0; }
 .product-tab-item { font-size: 20px; font-weight: 500; color: var(--product-text-muted); padding: 18.8px 0; cursor: pointer; position: relative; transition: color 0.3s ease; list-style: none; }
@@ -161,7 +161,7 @@ a { text-decoration: none; color: inherit; }
 .spec-value { padding: 18.8px 0 18.8px 25px; color: var(--product-text-muted); }
 
 /* RELATED PRODUCTS */
-.product-related-section { padding: 60px 0; }
+.product-related-section { padding: 0px 0; }
 .product-related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
 .product-related-card { display: flex; flex-direction: column; gap: 18.8px; text-decoration: none; transition: transform 0.3s ease; }
 .product-related-card:hover { transform: translateY(-5px); }
@@ -170,7 +170,7 @@ a { text-decoration: none; color: inherit; }
 .product-related-title { font-size: 17.5px; font-weight: 500; color: var(--product-text-main); text-align: center; }
 
 /* ── FINAL QUOTE SECTION ── */
-.product-final-quote-section { padding: 80px 0; background-color: var(--product-bg); }
+.product-final-quote-section { padding: 50px 0; background-color: var(--product-bg); }
 .product-final-quote-wrapper { display: grid; grid-template-columns: 1fr 323px; gap: 0; align-items: stretch; background-color: #1e1e1e; border-radius: 14px; overflow: hidden; border: 1px solid var(--product-border); }
 .product-final-quote-form-area { padding: 24px; }
 .product-final-quote-form-area .product-section-title { font-size: 20px; font-weight: 800; color: #fff; text-align: left; margin-bottom: 18px; line-height: 1.2; }
@@ -181,7 +181,7 @@ a { text-decoration: none; color: inherit; }
 .product-form-group select { background-color: #2a2a2a; border: 1px solid transparent; border-radius: 6px; padding: 12px 14px; color: #fff; font-family: var(--product-font); font-size: 13px; outline: none; transition: border-color 0.3s; }
 
 /* ==================== CUSTOMIZE TABS ==================== */
-.customize-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
+.customize-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
 .cust-tab-btn { flex-shrink: 0; transition: all 0.3s; white-space: nowrap; }
 
 /* ==================== PFR SECTION ==================== */
@@ -228,7 +228,7 @@ a { text-decoration: none; color: inherit; }
 .product-placeholder-img img { width: 100%; height: 100%; object-fit: cover; }
 
 /* INSTANT QUOTE SECTION */
-.instant-quote-section { padding: 40px 0 60px; }
+.instant-quote-section { padding: 30px 0 40px; }
 .iq-card { background-color: #222222; border-radius: 12px; padding: 40px; display: grid; grid-template-columns: 1fr 280px; gap: 40px; align-items: start; max-width: 1200px; margin: 0 auto; box-sizing: border-box; }
 .iq-content { flex: 1; }
 .iq-title { font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 25px; }
@@ -472,38 +472,84 @@ a { text-decoration: none; color: inherit; }
                     @endforeach
 
                     <!-- Trust Badges -->
-                    <div class="product-reviews-badges">
-                        <div class="product-review-item">
-                            <div class="product-google-logo">
-                                <svg viewBox="0 0 24 24" width="26" height="26" style="margin-right:6px">
-                                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-                                </svg>
-                                <span style="font-size:14px;font-weight:500">Business Reviews</span>
-                            </div>
-                            <div class="product-stars-wrap">
-                                <span class="product-rating-score">5.0</span>
-                                <div class="product-stars-icons">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-review-item">
-                            <div class="product-trustpilot-logo">
-                                <i class="fas fa-star" style="color:#00b67a;font-size:20px;margin-right:6px"></i>
-                                <span style="font-size:16px;font-weight:700">Trustpilot</span>
-                            </div>
-                            <div class="product-trustpilot-stars">
-                                <div class="tp-star"><i class="fas fa-star"></i></div>
-                                <div class="tp-star"><i class="fas fa-star"></i></div>
-                                <div class="tp-star"><i class="fas fa-star"></i></div>
-                                <div class="tp-star"><i class="fas fa-star"></i></div>
-                                <div class="tp-star" style="background:linear-gradient(to right,#00b67a 50%,#dcdce6 50%);color:#fff"><i class="fas fa-star"></i></div>
-                            </div>
+                    <!-- Trust Badges replaced with Moving Logos -->
+                    <style>
+                    .pd-logos-wrap {
+                        width: 100%;
+                        overflow: hidden;
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        margin-top: 25px;
+                        height: 40px;
+                        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+                        -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+                    }
+                    .pd-logos-track {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        gap: 30px;
+                        will-change: transform;
+                        white-space: nowrap;
+                        flex-wrap: nowrap;
+                    }
+                    .pd-logo {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 28px;
+                        flex-shrink: 0;
+                        opacity: 0.6;
+                        transition: opacity 0.3s ease;
+                    }
+                    .pd-logo:hover {
+                        opacity: 1;
+                    }
+                    .pd-logo img {
+                        display: block;
+                        height: 100%;
+                        object-fit: contain;
+                        filter: grayscale(100%) brightness(0) invert(75%);
+                    }
+                    </style>
+
+                    <div class="pd-logos-wrap" id="pdLogosWrap">
+                        <div class="pd-logos-track" id="pdLogosTrack">
+                            <div class="pd-logo"><img src="{{ asset('images/voli-logo.webp') }}" alt="Voli"></div>
+                            <div class="pd-logo"><img src="{{ asset('uploads/adidas-logo.png') }}" alt="Adidas"></div>
+                            <div class="pd-logo"><img src="{{ asset('uploads/Google-logo.png') }}" alt="Google"></div>
+                            <div class="pd-logo"><img src="{{ asset('uploads/hp-logo.png') }}" alt="HP"></div>
+                            <div class="pd-logo"><img src="{{ asset('uploads/unilever-logo.webp') }}" alt="Unilever"></div>
+                            <div class="pd-logo"><img src="{{ asset('uploads/Benefit-Logo.png') }}" alt="Benefit"></div>
                         </div>
                     </div>
+
+                                                            <script>
+                    document.addEventListener('DOMContentLoaded', function(){
+                        var wrap  = document.getElementById('pdLogosWrap');
+                        var track = document.getElementById('pdLogosTrack');
+                        if(!wrap || !track) return;
+
+                        var clone = track.cloneNode(true);
+                        clone.setAttribute('aria-hidden','true');
+                        wrap.appendChild(clone);
+
+                        var speed = 0.4;
+                        var offset = 0;
+                        
+                        function animate(){
+                            offset += speed;
+                            if(offset >= track.scrollWidth + 30){
+                                offset = 0;
+                            }
+                            wrap.scrollLeft = offset;
+                            requestAnimationFrame(animate);
+                        }
+                        
+                        animate();
+                    });
+                    </script>
                 </div>
 
                 <!-- RIGHT: Product Details + Quote Form -->
@@ -693,19 +739,7 @@ a { text-decoration: none; color: inherit; }
                         <div class="pfr-slider-wrap">
                             <div class="pfr-slider" id="pfrSlider">
                                 
-                                @if(isset($reviews) && count($reviews) > 0)
-                                    @foreach($reviews as $review)
-                                    <div class="pfr-slide">
-                                        <div class="pfr-avatar">
-                                            <!-- Using pravatar for dynamic avatars if db doesn't have images -->
-                                            <img src="https://i.pravatar.cc/150?u={{ $review->email ?? $review->id }}" alt="Avatar">
-                                        </div>
-                                        <p class="pfr-text">{{ $review->review_text }}</p>
-                                        <h5 class="pfr-name">{{ $review->name }}</h5>
-                                        <span class="pfr-title">Customer</span>
-                                    </div>
-                                    @endforeach
-                                @else
+                                
                                 <div class="pfr-slide">
                                     <div class="pfr-avatar">
                                         <img src="{{ asset('uploads/avatar1.jpg') }}" onerror="this.src='https://i.pravatar.cc/150?img=11'" alt="Avatar">
@@ -732,22 +766,18 @@ a { text-decoration: none; color: inherit; }
                                     <h5 class="pfr-name">David Chen</h5>
                                     <span class="pfr-title">Manager, TechGear</span>
                                 </div>
-                                @endif
+                                
                                 
                             </div>
                         </div>
                         <button class="pfr-nav next" onclick="movePfrSlide(1)">&#8250;</button>
                     </div>
                     <div class="pfr-dots" id="pfrDots">
-                        @if(isset($reviews) && count($reviews) > 0)
-                            @foreach($reviews as $index => $review)
-                                <span class="pfr-dot {{ $index == 0 ? 'active' : '' }}" onclick="goToPfrSlide({{ $index }})"></span>
-                            @endforeach
-                        @else
+                        
                             <span class="pfr-dot active" onclick="goToPfrSlide(0)"></span>
                             <span class="pfr-dot" onclick="goToPfrSlide(1)"></span>
                             <span class="pfr-dot" onclick="goToPfrSlide(2)"></span>
-                        @endif
+                        
                     </div>
                 </div>
 
@@ -897,20 +927,9 @@ a { text-decoration: none; color: inherit; }
 
                     <!-- Right: Review List -->
                     <div class="review-list-container">
-                        @if(isset($reviews) && count($reviews) > 0)
-                        <div class="review-slider-wrap">
-                            @foreach($reviews as $review)
-                            <div class="review-card">
-                                <img src="https://ui-avatars.com/api/?name={{ urlencode($review->name) }}&background=random&color=fff" alt="{{ $review->name }}" class="review-avatar">
-                                <p class="review-text">"{{ $review->review_text }}"</p>
-                                <div class="review-author">{{ $review->name }}</div>
-                                <div class="review-rating" style="margin-top:5px;">
-                                    @for($i=1; $i<=5; $i++)
-                                        @if($i <= $review->rating)
-                                            <i class="fas fa-star" style="color:#e3b036; font-size:12px;"></i>
-                                        @else
+                        
                                             <i class="far fa-star" style="color:rgba(255,255,255,0.2); font-size:12px;"></i>
-                                        @endif
+                                        
                                     @endfor
                                 </div>
                             </div>
@@ -935,9 +954,9 @@ a { text-decoration: none; color: inherit; }
     </section>
 
     <!-- ==================== CUSTOMIZE YOUR BOX ==================== -->
-    <section class="product-customize-section" style="background-color: #1a1a1a; padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
+    <section class="product-customize-section" style="background-color: #1a1a1a; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
         <div class="product-container">
-            <span class="product-sec-badge" style="display:inline-block; border:1px solid #e3b036; color:#e3b036; padding:4px 12px; border-radius:20px; font-size:10px; font-weight:bold; letter-spacing:1px; margin-bottom:15px; text-transform:uppercase;">Options & Materials</span>
+            <!-- <span class="product-sec-badge" style="display:inline-block; border:1px solid #e3b036; color:#e3b036; padding:4px 12px; border-radius:20px; font-size:10px; font-weight:bold; letter-spacing:1px; margin-bottom:15px; text-transform:uppercase;">Options & Materials</span> -->
             <h2 style="color:#ffffff; font-size:28px; margin-bottom:10px;">Customize Your Box</h2>
             <p style="color:rgba(255,255,255,0.6); font-size:14px; margin-bottom:40px;">Choose materials, finishes, and add-ons to build your perfect rigid box.</p>
 
@@ -959,7 +978,7 @@ a { text-decoration: none; color: inherit; }
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Corrugated</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Fluted Grades/a-flute.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="A Flute"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Fluted Grades Images/A-flute.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="A Flute"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Fluted Grades</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
@@ -1143,8 +1162,19 @@ a { text-decoration: none; color: inherit; }
                     </form>
                 </div>
                 <div class="iq-image-col">
-                    <div class="iq-image-wrap">
-                        Image
+                    <div class="iq-image-wrap" style="overflow: hidden;">
+                        @php $iq_img_rendered = false; @endphp
+                        @foreach($product as $p)
+                            @php $iq_images = json_decode($p->images, true); @endphp
+                            @if(is_array($iq_images) && !empty($iq_images))
+                                <img src="{{ url('images/'.$iq_images[0]) }}" alt="{{ $p->title }}" style="width: 100%; height: 100%; object-fit: cover;">
+                                @php $iq_img_rendered = true; @endphp
+                            @endif
+                            @break
+                        @endforeach
+                        @if(!$iq_img_rendered)
+                            Image
+                        @endif
                     </div>
                 </div>
             </div>
@@ -1164,7 +1194,7 @@ a { text-decoration: none; color: inherit; }
     @if($relatedExists)
     <section class="product-related-section">
         <div class="product-container">
-            <span class="product-sec-badge">EXPLORE MORE</span>
+            <!-- <span class="product-sec-badge">EXPLORE MORE</span> -->
             <h2 class="product-section-title" style="margin-bottom:40px">Related Products</h2>
             <div class="product-related-grid">
                 @foreach($product as $p)
@@ -1374,3 +1404,7 @@ document.querySelectorAll('.cust-tab-btn').forEach(btn => {
 </script>
 
 @include('web/footer')
+
+
+
+

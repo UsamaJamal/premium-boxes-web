@@ -426,8 +426,13 @@ Route::post('updatepassword', 'UserLogin@updateUserPassword');
 
 Route::post('submit-review', 'ProductController@submitReview');
 
-Route::get('/{any}','ProductController@Product');
+// Block parent category routes
+Route::get('box-by-industry', function () { abort(404); });
+Route::get('box-by-material', function () { abort(404); });
+Route::get('box-by-style', function () { abort(404); });
+Route::get('promotional-product', function () { abort(404); });
 
+Route::get('/{any}','ProductController@Product');
 Route::post('user-image-update','UserLogin@EditUserImage');
 
 

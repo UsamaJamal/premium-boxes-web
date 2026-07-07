@@ -376,7 +376,7 @@
                     </div>
                 </div>
                 <div class="cp-footer-social">
-                    <h4 class="cp-footer-title">Follow us</h4>
+                    <span class="cp-footer-title" style="display: flex; justify-content: space-between; align-items: center; font-weight: 700; margin-bottom: 20px;">Follow us</span>
                     <div class="cp-social-icons">
                         <a href="{{ $footerSettings->facebook_url ?? '#' }}"><i class="fab fa-facebook-f"></i></a>
                         <a href="{{ $footerSettings->twitter_url ?? '#' }}"><i class="fab fa-twitter"></i></a>
@@ -389,7 +389,7 @@
 
             <!-- Column 2: Hot Categories -->
             <div class="cp-footer-col">
-                <h4 class="cp-footer-title">Hot Categories</h4>
+                <span class="cp-footer-title" style="display: flex; justify-content: space-between; align-items: center; font-weight: 700; margin-bottom: 20px;">Hot Categories</span>
                 <ul class="cp-footer-links">
                     @if(count($f_categories) > 0)
                         @foreach($f_categories as $cat)
@@ -410,7 +410,7 @@
 
             <!-- Column 3: Products -->
             <div class="cp-footer-col">
-                <h4 class="cp-footer-title">Products</h4>
+                <span class="cp-footer-title" style="display: flex; justify-content: space-between; align-items: center; font-weight: 700; margin-bottom: 20px;">Products</span>
                 <ul class="cp-footer-links">
                     @if(count($f_products) > 0)
                         @foreach($f_products as $prod)
@@ -432,7 +432,7 @@
 
             <!-- Column 4: Company -->
             <div class="cp-footer-col">
-                <h4 class="cp-footer-title">Company</h4>
+                <span class="cp-footer-title" style="display: flex; justify-content: space-between; align-items: center; font-weight: 700; margin-bottom: 20px;">Company</span>
                 <ul class="cp-footer-links">
                   
                     <li><a href="{{ url('request-quote') }}">Get a Quote</a></li>
@@ -450,12 +450,12 @@
 
             <!-- Column 5: Office & Newsletter -->
             <div class="cp-footer-col cp-footer-col-5">
-                <h4 class="cp-footer-title">Office</h4>
+                <span class="cp-footer-title" style="display: flex; justify-content: space-between; align-items: center; font-weight: 700; margin-bottom: 20px;">Office</span>
                 <p class="cp-footer-address">
                     <span style="white-space: nowrap; letter-spacing: -0.2px;">9931 Franklin Ave Suite 1-A Franklin Park, IL</span><br>60131, USA
                 </p>
                 
-                <h4 class="cp-footer-title cp-newsletter-title" style="margin-top: 10px;">News letter</h4>
+                <span class="cp-footer-title cp-newsletter-title" style="display: flex; justify-content: space-between; align-items: center; font-weight: 700; margin-bottom: 20px; margin-top: 10px;">News letter</span>
                 <form class="cp-newsletter-form">
                     <input type="email" placeholder="Enter your email" required>
                     <button type="submit">Subscribe</button>
@@ -671,3 +671,4 @@ document.addEventListener('DOMContentLoaded', function () {
 </body>
 
 </html>
+

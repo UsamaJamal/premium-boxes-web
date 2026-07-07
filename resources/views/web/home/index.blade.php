@@ -839,7 +839,7 @@ h3 {
 .discount-cta-box h2 {
   color: var(--accent-gold);
   font-size: 2rem;
-  margin-bottom: 12px;
+  margin: 0;
 }
 
 .discount-cta-box p {
@@ -1325,10 +1325,37 @@ h3 {
   font-size: 0.9rem;
   margin-bottom: 20px;
   text-align: justify;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.testimonial-card h4 {
+.testimonial-card p.expanded {
+  display: block;
+  -webkit-line-clamp: unset;
+}
+
+.read-more-btn {
+  background: none;
+  border: none;
+  color: #F5A623;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-top: -10px;
+  margin-bottom: 15px;
+  padding: 0;
+  text-decoration: underline;
+  display: inline-block;
+}
+
+.testimonial-card .testi-name {
   color: var(--accent-gold);
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
 }
 
 .testimonial-card span {
@@ -2672,7 +2699,7 @@ section + section {
     font-size: 1.5rem !important;
     line-height: 1.25 !important;
     white-space: nowrap;
-    margin-bottom: 12px;
+    margin: 0;
   }
 
   .sectors-header p {
@@ -2991,7 +3018,7 @@ section + section {
 
   .styles-section .sectors-header h2,
   .sectors-section .sectors-header h2 {
-    margin-bottom: 12px;
+    margin: 0;
     font-size: 1.5rem !important;
     line-height: 1.25 !important;
     white-space: nowrap;
@@ -4075,12 +4102,13 @@ section + section {
   display: inline-flex;
   align-items: center;
 }
-.step-item h3 {
+.step-item .step-title {
   font-family: var(--font-heading), sans-serif;
   font-size: 18px;
   font-weight: 700;
   color: var(--text-main);
   margin: 0;
+  display: block;
 }
 .step-item p {
   font-size: 13.5px;
@@ -4442,9 +4470,12 @@ section + section {
             <div class="sectors-grid">
                 @foreach($industry_products as $product)
                 <div class="sector-card">
-                    <div class="sector-img-placeholder">
+                    <div class="sector-img-placeholder" style="position: relative;">
                         <a href="{{ url('/'.$product->category_url) }}">
                             <img src="{{ asset('images/'.($product->feature_product ? $product->feature_product : ($product->image ? $product->image : $product->bimage))) }}" onerror="this.src='./assets/jewellry and watch.jfif'; this.onerror=null;" alt="{{ $product->name }}">
+                            @if(!empty($product->image_badge))
+                                <span class="image-badge-overlay" style="position: absolute; bottom: 15px; left: 15px; background: rgba(255, 255, 255, 0.9); color: #000; padding: 4px 12px; font-size: 14px; font-weight: 500; border-radius: 4px;">{{ $product->image_badge }}</span>
+                            @endif
                         </a>
                     </div>
                     <div class="sector-info">
@@ -4474,7 +4505,7 @@ section + section {
                     <div class="process-icon">
                         <img src="{{ asset('images/icons/customize-icon.svg') }}" alt="Customize Icon">
                     </div>
-                    <h3>Customize Your Packaging</h3>
+                    <span class="step-title">Customize Your Packaging</span>
                     <p>Choose from our extensive packaging solutions and personalize them with a variety of options to bring your ideal packaging to life.</p>
                 </div>
 
@@ -4483,7 +4514,7 @@ section + section {
                     <div class="process-icon">
                         <img src="{{ asset('images/icons/quote-icon.svg') }}" alt="Quote Icon">
                     </div>
-                    <h3>Request a Quote</h3>
+                    <span class="step-title">Request a Quote</span>
                     <p>After customizing your packaging, simply request a quote, and our packaging specialists will review your submission.</p>
                 </div>
 
@@ -4492,7 +4523,7 @@ section + section {
                     <div class="process-icon">
                         <img src="{{ asset('images/icons/consultation-icon.svg') }}" alt="Consultation Icon">
                     </div>
-                    <h3>Expert Consultation</h3>
+                    <span class="step-title">Expert Consultation</span>
                     <p>Get expert consultation on your quote to reduce costs, improve efficiency, and minimize environmental impact.</p>
                 </div>
 
@@ -4501,7 +4532,7 @@ section + section {
                     <div class="process-icon">
                         <img src="{{ asset('images/icons/delivery-icon.svg') }}" alt="Delivery Icon">
                     </div>
-                    <h3>Production & Delivery</h3>
+                    <span class="step-title">Production & Delivery</span>
                     <p>After finalizing the details, we'll handle the entire production and shipping process. Just sit back and wait for your packaging to arrive!</p>
                 </div>
             </div>
@@ -4591,11 +4622,15 @@ section + section {
                 @foreach($testimonial as $testi)
                 <div class="testimonial-card">
                     <img src="{{ asset('images/' . $testi->image) }}" alt="{{ $testi->name }}" class="avatar-img">
-                    <p>
+                    <p class="testimonial-text">
                         {{ $testi->comment }}
                     </p>
+                    @if(strlen($testi->comment) > 130)
+                    <button class="read-more-btn">Read more</button>
+                    @endif
 
-                    <h4>{{ $testi->name }}</h4>
+
+                    <span class="testi-name">{{ $testi->name }}</span>
                     <span>{{ $testi->profile_link }}</span>
                 </div>
                 @endforeach
@@ -4615,6 +4650,22 @@ section + section {
         const grid = document.querySelector('.testimonial-grid');
         const prevBtn = document.querySelector('.testimonial-prev-btn');
         const nextBtn = document.querySelector('.testimonial-next-btn');
+
+        // Read More Logic
+        const readMoreBtns = document.querySelectorAll('.read-more-btn');
+        readMoreBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const textPara = this.previousElementSibling;
+                if(textPara) {
+                    textPara.classList.toggle('expanded');
+                    if (textPara.classList.contains('expanded')) {
+                        this.textContent = 'Read less';
+                    } else {
+                        this.textContent = 'Read more';
+                    }
+                }
+            });
+        });
 
         if (!grid || !prevBtn || !nextBtn) return;
 
@@ -5210,3 +5261,5 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
 @include('web.footer')
 </body>
+
+

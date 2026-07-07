@@ -118,6 +118,20 @@
                     <input id="mtags" type="text" class="form-control"placeholder="Meta Tags" name="mtags" value="{{$value[0]->meta_tags}}" required>
                   </div>
                   </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Robots Tag</label>
+                    <div class="col-sm-9">
+                    <input id="robots" type="text" class="form-control" placeholder="e.g. index, follow" name="robots" value="{{$value[0]->robots}}">
+                  </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Image Badge Text</label>
+                    <div class="col-sm-9">
+                    <input id="image_badge" type="text" class="form-control" placeholder="E.g., silver, gold foil" name="image_badge" value="{{$value[0]->image_badge}}">
+                  </div>
+                  </div>
                 </div>
               </div>
                    
@@ -158,6 +172,24 @@
                      @if($value[0]->feature_product)
                         <div class="mt-2">
                             <img src="{{ asset('images/'.$value[0]->feature_product) }}" width="100" alt="Current Feature Image">
+                        </div>
+                     @endif
+                   </div>
+                   </div>
+
+                <div class="form-group row">
+                     <label class="col-sm-3 col-form-label">Nav Icon</label>
+                     <div class="col-sm-9">
+                     <input style="padding-bottom: 35px;" type="file" class="form-control" name="icon">
+                     @if($value[0]->icon)
+                        <div class="mt-2">
+                            <img src="{{ asset('images/'.$value[0]->icon) }}" width="100" alt="Current Nav Icon" style="display: block; margin-bottom: 10px;">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="remove_icon" value="1" id="remove_icon">
+                                <label class="form-check-label text-danger" for="remove_icon">
+                                    Remove Icon
+                                </label>
+                            </div>
                         </div>
                      @endif
                    </div>
@@ -247,6 +279,18 @@
                   </select>
                 </div>
                   </div>
+
+                  <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">Show in Nav</label>
+                      <div class="col-sm-9">
+                          <div class="form-check" style="margin-top: 10px;">
+                              <input class="form-check-input" type="checkbox" name="show_in_nav" id="show_in_nav" value="1" {{ isset($value[0]->show_in_nav) && $value[0]->show_in_nav == 1 ? 'checked' : '' }}>
+                              <label class="form-check-label" for="show_in_nav">
+                                  Show this category in the navigation menu
+                              </label>
+                          </div>
+                      </div>
+                  </div>
                   
                     </div>
                   
@@ -273,7 +317,15 @@
                           <div class="col-sm-9">
                               <input type="file" class="form-control" name="why_choose_img">
                               @if($value[0]->why_choose_img)
-                                  <img src="{{url('images/'.$value[0]->why_choose_img)}}" style="max-width: 100px; margin-top: 10px;">
+                                  <div class="mt-2">
+                                      <img src="{{url('images/'.$value[0]->why_choose_img)}}" style="max-width: 100px; margin-top: 10px; display: block; margin-bottom: 10px;">
+                                      <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" name="remove_why_choose_img" value="1" id="remove_why_choose_img">
+                                          <label class="form-check-label text-danger" for="remove_why_choose_img">
+                                              Remove Image
+                                          </label>
+                                      </div>
+                                  </div>
                                   <input type="hidden" name="old_why_choose_img" value="{{$value[0]->why_choose_img}}">
                               @endif
                           </div>

@@ -84,7 +84,21 @@
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Meta Tags</label>
                     <div class="col-sm-9">
-                    <input id="mtags" type="text" class="form-control"placeholder="Meta Tags" name="mtags" required>
+                    <input id="mtags" type="text" class="form-control"placeholder="Meta Tags" name="mtags" value="{{ old('mtags') }}" required>
+                  </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Robots Tag</label>
+                    <div class="col-sm-9">
+                    <input id="robots" type="text" class="form-control" placeholder="e.g. index, follow" name="robots" value="{{ old('robots', 'index, follow') }}">
+                  </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Image Badge Text</label>
+                    <div class="col-sm-9">
+                    <input id="image_badge" type="text" class="form-control" placeholder="E.g., silver, gold foil" name="image_badge" value="{{ old('image_badge') }}">
                   </div>
                   </div>
                 </div>
@@ -116,6 +130,13 @@
                     <label class="col-sm-3 col-form-label">Feature Image</label>
                     <div class="col-sm-9">
                     <input id="feature_product" style="padding-bottom: 35px;" type="file" class="form-control" name="feature_product">
+                  </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Nav Icon</label>
+                    <div class="col-sm-9">
+                    <input id="icon" style="padding-bottom: 35px;" type="file" class="form-control" name="icon">
                   </div>
                   </div>
 
@@ -177,6 +198,18 @@
                  
                   </select>
                 </div>
+                  </div>
+
+                  <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">Show in Nav</label>
+                      <div class="col-sm-9">
+                          <div class="form-check" style="margin-top: 10px;">
+                              <input class="form-check-input" type="checkbox" name="show_in_nav" id="show_in_nav" value="1" checked>
+                              <label class="form-check-label" for="show_in_nav">
+                                  Show this category in the navigation menu
+                              </label>
+                          </div>
+                      </div>
                   </div>
 
                 </div>

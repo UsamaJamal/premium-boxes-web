@@ -19,6 +19,16 @@
     <meta name="description" content="<?php  echo $meta_description; ?>">
   <meta name="keywords" content="<?php echo $meta_tags; ?>">
 
+  @php
+      $currentUrl = request()->path();
+      $catRobots = \DB::table('add_category')->where('category_url', $currentUrl)->value('robots');
+      $finalRobots = !empty($catRobots) ? $catRobots : 'index, follow';
+      if (isset($robots) && !empty($robots)) {
+          $finalRobots = $robots;
+      }
+  @endphp
+  <meta name="robots" content="{{ $finalRobots }}">
+  <link rel="canonical" href="{{ url()->current() }}" />
   
     <link rel="icon" href="{{url('web/img/favicon.png')}}">
 
@@ -379,7 +389,7 @@ Get A Call In A Min !</h5>
             
             <!-- Box By Industry with Mega Menu -->
             <div class="nav-group">
-                <a href="{{ url('box-by-industry') }}" style="display: flex; align-items: center; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; padding: 0 10px;">Boxes By Industry</a>
+                <a style="cursor: pointer; display: flex; align-items: center; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; padding: 0 10px;">Boxes By Industry</a>
                 
                 <!-- Mega Menu Container -->
                 <div class="mega-menu-content">
@@ -388,15 +398,19 @@ Get A Call In A Min !</h5>
                             <div style="flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px 20px; align-content: start;">
                                 @php
                                 $parentCat = \DB::table('add_category')->where('name', 'Box by Industry')->first();
-                                $industries = $parentCat ? \DB::table('add_category')->where('parent_category', $parentCat->cat_id)->get() : [];
+                                $industries = $parentCat ? \DB::table('add_category')->where('parent_category', $parentCat->cat_id)->where('show_in_nav', 1)->get() : [];
                                 @endphp
                                 @foreach($industries as $industry)
                                 <a href="{{ url($industry->category_url) }}" style="display: flex; align-items: center; gap: 10px; color: #cccccc; text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#F5A623'" onmouseout="this.style.color='#cccccc'">
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M10 2.5L11.5 7.5L16.5 9L11.5 10.5L10 15.5L8.5 10.5L3.5 9L8.5 7.5L10 2.5Z"></path>
-                                        <path d="M19 14.5L19.5 16.5L21.5 17L19.5 17.5L19 19.5L18.5 17.5L16.5 17L18.5 16.5L19 14.5Z"></path>
-                                        <path d="M19 3.5L19.5 5.5L21.5 6L19.5 6.5L19 8.5L18.5 6.5L16.5 6L18.5 5.5L19 3.5Z"></path>
-                                    </svg>
+                                    @if(!empty($industry->icon))
+                                        <img src="{{ asset('images/' . $industry->icon) }}" style="width: 20px; height: 20px; object-fit: contain;" alt="{{ $industry->name }} icon">
+                                    @else
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M10 2.5L11.5 7.5L16.5 9L11.5 10.5L10 15.5L8.5 10.5L3.5 9L8.5 7.5L10 2.5Z"></path>
+                                            <path d="M19 14.5L19.5 16.5L21.5 17L19.5 17.5L19 19.5L18.5 17.5L16.5 17L18.5 16.5L19 14.5Z"></path>
+                                            <path d="M19 3.5L19.5 5.5L21.5 6L19.5 6.5L19 8.5L18.5 6.5L16.5 6L18.5 5.5L19 3.5Z"></path>
+                                        </svg>
+                                    @endif
                                     {{ $industry->name }}
                                 </a>
                                 @endforeach
@@ -421,21 +435,18 @@ Get A Call In A Min !</h5>
 
             <!-- Box By Material with Mega Menu -->
             <div class="nav-group" style="position: relative;">
-                <a href="{{ url('box-by-material') }}" style="display: flex; align-items: center; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; padding: 0 10px;">Boxes By Material</a>
+                <a style="cursor: pointer; display: flex; align-items: center; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; padding: 0 10px;">Boxes By Material</a>
                 
                 <!-- Dropdown Container -->
                 <div class="dropdown-menu-content" style="position: absolute; top: 100%; left: 10px; width: 260px; background-color: #252525; border-radius: 4px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #333; border-top: 2px solid #F5A623; z-index: 999;">
                     <div style="padding: 10px 0;">
                         @php
                         $parentCatMat = \DB::table('add_category')->where('name', 'Box by Material')->first();
-                        $materials = $parentCatMat ? \DB::table('add_category')->where('parent_category', $parentCatMat->cat_id)->get() : [];
+                        $materials = $parentCatMat ? \DB::table('add_category')->where('parent_category', $parentCatMat->cat_id)->where('show_in_nav', 1)->get() : [];
                         @endphp
                         @foreach($materials as $material)
                         <a href="{{ url($material->category_url) }}" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; color: #cccccc; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.color='#F5A623'; this.style.backgroundColor='#333333'" onmouseout="this.style.color='#cccccc'; this.style.backgroundColor='transparent'">
                             {{ $material->name }}
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
                         </a>
                         @endforeach
                     </div>
@@ -453,7 +464,7 @@ Get A Call In A Min !</h5>
 
             <!-- Box By Style with Mega Menu -->
             <div class="nav-group">
-                <a href="{{ url('box-by-style') }}" style="display: flex; align-items: center; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; padding: 0 10px;">Boxes By Style</a>
+                <a style="cursor: pointer; display: flex; align-items: center; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; padding: 0 10px;">Boxes By Style</a>
                 
                 <!-- Mega Menu Container -->
                 <div class="mega-menu-content">
@@ -462,15 +473,19 @@ Get A Call In A Min !</h5>
                             <div style="flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px 20px; align-content: start;">
                                 @php
                                 $parentCatStyle = \DB::table('add_category')->where('name', 'Box by Style')->first();
-                                $styles = $parentCatStyle ? \DB::table('add_category')->where('parent_category', $parentCatStyle->cat_id)->get() : [];
+                                $styles = $parentCatStyle ? \DB::table('add_category')->where('parent_category', $parentCatStyle->cat_id)->where('show_in_nav', 1)->get() : [];
                                 @endphp
                                 @foreach($styles as $style)
                                 <a href="{{ url($style->category_url) }}" style="display: flex; align-items: center; gap: 10px; color: #cccccc; text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#F5A623'" onmouseout="this.style.color='#cccccc'">
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M10 2.5L11.5 7.5L16.5 9L11.5 10.5L10 15.5L8.5 10.5L3.5 9L8.5 7.5L10 2.5Z"></path>
-                                        <path d="M19 14.5L19.5 16.5L21.5 17L19.5 17.5L19 19.5L18.5 17.5L16.5 17L18.5 16.5L19 14.5Z"></path>
-                                        <path d="M19 3.5L19.5 5.5L21.5 6L19.5 6.5L19 8.5L18.5 6.5L16.5 6L18.5 5.5L19 3.5Z"></path>
-                                    </svg>
+                                    @if(!empty($style->icon))
+                                        <img src="{{ asset('images/' . $style->icon) }}" style="width: 20px; height: 20px; object-fit: contain;" alt="{{ $style->name }} icon">
+                                    @else
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M10 2.5L11.5 7.5L16.5 9L11.5 10.5L10 15.5L8.5 10.5L3.5 9L8.5 7.5L10 2.5Z"></path>
+                                            <path d="M19 14.5L19.5 16.5L21.5 17L19.5 17.5L19 19.5L18.5 17.5L16.5 17L18.5 16.5L19 14.5Z"></path>
+                                            <path d="M19 3.5L19.5 5.5L21.5 6L19.5 6.5L19 8.5L18.5 6.5L16.5 6L18.5 5.5L19 3.5Z"></path>
+                                        </svg>
+                                    @endif
                                     {{ $style->name }}
                                 </a>
                                 @endforeach
@@ -493,25 +508,32 @@ Get A Call In A Min !</h5>
                 </div>
             </div>
 
-            <!-- Promotional Products with Mega Menu -->
+                                                <!-- Promotional Products with Mega Menu -->
+            @php
+                $parentCatPromo = \DB::table('add_category')->where('name', 'Promotional Product')->first();
+                $promoSubcats = [];
+                if (false) { // Disabled for now 
+}
+@endphp
             <div class="nav-group">
-                <a href="{{ url('promotional-product') }}" style="display: flex; align-items: center; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; padding: 0 10px;">Promotional Products</a>
+                <a style="cursor: pointer; display: flex; align-items: center; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; padding: 0 10px;">Promotional Products</a>
                 
-                <!-- Mega Menu Container -->
+                @if(count($promoSubcats) > 0)
                 <div class="mega-menu-content">
                     <div style="padding: 14px 40px 16px;">
                         <div style="display: flex; gap: 40px;">
                             <div style="flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px 20px; align-content: start;">
-                                @php
-                                $promoSubcats = \DB::table('add_category')->whereIn('parent_category', [58, 62, 63])->get();
-                                @endphp
                                 @foreach($promoSubcats as $subcat)
                                 <a href="{{ url($subcat->category_url) }}" style="display: flex; align-items: center; gap: 10px; color: #cccccc; text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#F5A623'" onmouseout="this.style.color='#cccccc'">
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M10 2.5L11.5 7.5L16.5 9L11.5 10.5L10 15.5L8.5 10.5L3.5 9L8.5 7.5L10 2.5Z"></path>
-                                        <path d="M19 14.5L19.5 16.5L21.5 17L19.5 17.5L19 19.5L18.5 17.5L16.5 17L18.5 16.5L19 14.5Z"></path>
-                                        <path d="M19 3.5L19.5 5.5L21.5 6L19.5 6.5L19 8.5L18.5 6.5L16.5 6L18.5 5.5L19 3.5Z"></path>
-                                    </svg>
+                                    @if(!empty($subcat->icon))
+                                        <img src="{{ asset('images/' . $subcat->icon) }}" style="width: 20px; height: 20px; object-fit: contain;" alt="{{ $subcat->name }} icon">
+                                    @else
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M10 2.5L11.5 7.5L16.5 9L11.5 10.5L10 15.5L8.5 10.5L3.5 9L8.5 7.5L10 2.5Z"></path>
+                                            <path d="M19 14.5L19.5 16.5L21.5 17L19.5 17.5L19 19.5L18.5 17.5L16.5 17L18.5 16.5L19 14.5Z"></path>
+                                            <path d="M19 3.5L19.5 5.5L21.5 6L19.5 6.5L19 8.5L18.5 6.5L16.5 6L18.5 5.5L19 3.5Z"></path>
+                                        </svg>
+                                    @endif
                                     {{ $subcat->name }}
                                 </a>
                                 @endforeach
@@ -532,6 +554,7 @@ Get A Call In A Min !</h5>
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
             <!-- Dynamic Parent Categories -->
             @php
@@ -549,7 +572,7 @@ Get A Call In A Min !</h5>
                 <a href="{{ url($otherParent->category_url) }}" style="display: flex; align-items: center; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; padding: 0 10px;">{{ $otherParent->name }}</a>
                 
                 @php
-                    $subCats = \DB::table('add_category')->where('parent_category', $otherParent->cat_id)->get();
+                    $subCats = \DB::table('add_category')->where('parent_category', $otherParent->cat_id)->where('show_in_nav', 1)->get();
                 @endphp
                 
                 @if(count($subCats) > 0)
@@ -630,7 +653,7 @@ Get A Call In A Min !</h5>
             <div class="mobile-submenu" style="display: none; padding-left: 15px; padding-top: 10px; padding-bottom: 10px; border-bottom: 1px solid #333333; background-color: #1a1a1a;">
                 @php
                 $parentCat = \DB::table('add_category')->where('name', 'Box by Industry')->first();
-                $industriesSidebar = $parentCat ? \DB::table('add_category')->where('parent_category', $parentCat->cat_id)->get() : [];
+                $industriesSidebar = $parentCat ? \DB::table('add_category')->where('parent_category', $parentCat->cat_id)->where('show_in_nav', 1)->get() : [];
                 @endphp
                 @foreach($industriesSidebar as $industry)
                     <a href="{{ url($industry->category_url) }}" style="display: block; color: #cccccc; text-decoration: none; font-size: 14px; padding: 8px 0;">{{ $industry->name }}</a>
@@ -646,7 +669,7 @@ Get A Call In A Min !</h5>
             <div class="mobile-submenu" style="display: none; padding-left: 15px; padding-top: 10px; padding-bottom: 10px; border-bottom: 1px solid #333333; background-color: #1a1a1a;">
                 @php
                 $parentCatMat = \DB::table('add_category')->where('name', 'Box by Material')->first();
-                $materialsSidebar = $parentCatMat ? \DB::table('add_category')->where('parent_category', $parentCatMat->cat_id)->get() : [];
+                $materialsSidebar = $parentCatMat ? \DB::table('add_category')->where('parent_category', $parentCatMat->cat_id)->where('show_in_nav', 1)->get() : [];
                 @endphp
                 @foreach($materialsSidebar as $material)
                     <a href="{{ url($material->category_url) }}" style="display: block; color: #cccccc; text-decoration: none; font-size: 14px; padding: 8px 0;">{{ $material->name }}</a>
@@ -662,7 +685,7 @@ Get A Call In A Min !</h5>
             <div class="mobile-submenu" style="display: none; padding-left: 15px; padding-top: 10px; padding-bottom: 10px; border-bottom: 1px solid #333333; background-color: #1a1a1a;">
                 @php
                 $parentCatStyle = \DB::table('add_category')->where('name', 'Box by Style')->first();
-                $stylesSidebar = $parentCatStyle ? \DB::table('add_category')->where('parent_category', $parentCatStyle->cat_id)->get() : [];
+                $stylesSidebar = $parentCatStyle ? \DB::table('add_category')->where('parent_category', $parentCatStyle->cat_id)->where('show_in_nav', 1)->get() : [];
                 @endphp
                 @foreach($stylesSidebar as $style)
                     <a href="{{ url($style->category_url) }}" style="display: block; color: #cccccc; text-decoration: none; font-size: 14px; padding: 8px 0;">{{ $style->name }}</a>
@@ -670,37 +693,29 @@ Get A Call In A Min !</h5>
             </div>
         </div>
 
+                        @php
+        $parentCatPromoMobile = \DB::table('add_category')->where('name', 'Promotional Product')->first();
+        $promoSidebar = [];
+        if (false) { // Disabled for now 
+}
+@endphp
+        
         <div class="mobile-nav-group">
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #333333; cursor: pointer;" onclick="toggleMobileSubmenu(this)">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #333333; cursor: pointer;" @if(count($promoSidebar) > 0) onclick="toggleMobileSubmenu(this)" @endif>
                 <span style="color: #ffffff; font-size: 16px;">Promotional Products</span>
-                <svg class="chevron-icon" width="16" height="16" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </div>
-            <div class="mobile-submenu" style="display: none; padding-left: 15px; padding-top: 10px; padding-bottom: 10px; border-bottom: 1px solid #333333; background-color: #1a1a1a;">
-                @php
-                $parentCatPromo = \DB::table('add_category')->where('name', 'Promotional Product')->first();
-                $promoSidebar = [];
-                if ($parentCatPromo) {
-                    $promoChildrenIds = \DB::table('add_category')->where('parent_category', $parentCatPromo->cat_id)->pluck('cat_id')->toArray();
-                    $promoSidebar = \DB::table('add_category')->whereIn('parent_category', $promoChildrenIds)->get();
-                }
-                @endphp
                 @if(count($promoSidebar) > 0)
-                    @foreach($promoSidebar as $promo)
-                        <a href="{{ url($promo->category_url) }}" style="display: block; color: #cccccc; text-decoration: none; font-size: 14px; padding: 8px 0;">{{ $promo->name }}</a>
-                    @endforeach
-                @else
-                    <a href="#" style="display: block; color: #cccccc; text-decoration: none; font-size: 14px; padding: 8px 0;">No products found</a>
+                <svg class="chevron-icon" width="16" height="16" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 @endif
             </div>
+            
+            @if(count($promoSidebar) > 0)
+            <div class="mobile-submenu" style="display: none; padding-left: 15px; padding-top: 10px; padding-bottom: 10px; border-bottom: 1px solid #333333; background-color: #1a1a1a;">
+                @foreach($promoSidebar as $promo)
+                    <a href="{{ url($promo->category_url) }}" style="display: block; color: #cccccc; text-decoration: none; font-size: 14px; padding: 8px 0;">{{ $promo->name }}</a>
+                @endforeach
+            </div>
+            @endif
         </div>
-
-        <a href="{{ url('our-blog') }}" style="display: block; color: #ffffff; text-decoration: none; font-size: 16px; padding: 15px 0; border-bottom: 1px solid #333333;">Blogs</a>
-    </div>
-    
-    <div style="margin-top: 40px; padding-bottom: 20px;">
-        <a href="{{ url('request-quote') }}" style="display: block; background-color: #F5A623; color: #111111; text-align: center; font-weight: 700; padding: 15px 0; border-radius: 50px; text-decoration: none; transition: background 0.2s;" onmouseover="this.style.backgroundColor='#d4891a'" onmouseout="this.style.backgroundColor='#F5A623'">Get Instant Quote</a>
-    </div>
-</div>
 <!-- Sidebar Overlay -->
 <div id="mobile-sidebar-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0,0,0,0.6); z-index: 99999;" onclick="closeMobileSidebar()"></div>
 
@@ -961,3 +976,8 @@ function toggleMobileSubmenu(element) {
         color: #555555 !important;
     }
 </style>
+
+
+
+
+

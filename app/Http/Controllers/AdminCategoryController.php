@@ -34,6 +34,7 @@ class AdminCategoryController extends Controller
   'meta_title' => $request->post('mtitle'),
    'meta_description' => $request->post('mdescription'),
    'meta_tags' => $request->post('mtags'),
+   'robots' => $request->post('robots'),
    'description' => $request->post('ckeditor'),
    'parent_category' => $request->post('parentcategory'),
    'status' => $request->post('status'),
@@ -43,6 +44,8 @@ class AdminCategoryController extends Controller
    'schema' => $request->post('schema'),
    'why_choose_title' => $request->post('why_choose_title'),
    'why_choose_desc' => $request->post('why_choose_desc'),
+   'image_badge' => $request->post('image_badge'),
+   'show_in_nav' => $request->has('show_in_nav') ? 1 : 0,
 ];
 
 // print_r($data);
@@ -93,7 +96,11 @@ if($request->hasfile('image')){
 
        }
        else{
-          $data['icon']=$request->input('oldfav-icon');
+           if ($request->input('remove_icon') == '1') {
+               $data['icon'] = null;
+           } else {
+               $data['icon']=$request->input('oldfav-icon');
+           }
        }
 
               if($request->hasfile('feature_product')){
@@ -115,7 +122,11 @@ if($request->hasfile('image')){
                      $data['why_choose_img']=$filename;
               }
               else{
-                 $data['why_choose_img']=$request->input('old_why_choose_img');
+                 if($request->input('remove_why_choose_img') == 1) {
+                     $data['why_choose_img'] = '';
+                 } else {
+                     $data['why_choose_img'] = $request->input('old_why_choose_img');
+                 }
               }
 
 
@@ -196,6 +207,7 @@ public function addcategory(Request $request) {
   'meta_title' => $request->post('mtitle'),
    'meta_description' => $request->post('mdescription'),
    'meta_tags' => $request->post('mtags'),
+   'robots' => $request->post('robots'),
    'description' => $request->post('ckeditor'),
    'image' => $request->post('image'),
    'icon' => $request->post('icon'),
@@ -206,7 +218,8 @@ public function addcategory(Request $request) {
    'schema' => $request->post('schema'),
    'why_choose_title' => $request->post('why_choose_title'),
    'why_choose_desc' => $request->post('why_choose_desc'),
-   
+   'image_badge' => $request->post('image_badge'),
+   'show_in_nav' => $request->has('show_in_nav') ? 1 : 0,
 ];
 
 if($request->hasfile('image')){

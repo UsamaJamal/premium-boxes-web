@@ -1813,11 +1813,28 @@ body {
   line-height: 20px;
   color: var(--text-muted);
   margin: 0 0 16px 0;
-  height: 80px;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.testimonial-text.expanded {
+  display: block;
+  -webkit-line-clamp: unset;
+}
+
+.read-more-btn {
+  background: none;
+  border: none;
+  color: #F5A623;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-top: -10px;
+  margin-bottom: 15px;
+  padding: 0;
+  text-decoration: underline;
+  display: inline-block;
 }
 
 .client-name {
@@ -3125,9 +3142,12 @@ body {
                         }
                     @endphp
                     <div class="browse-item">
-                        <div class="browse-card">
+                        <div class="browse-card" style="position: relative;">
                             <a href="{{ url($subCategory->category_url) }}" style="display: block; width: 100%; height: 100%;">
                                 <img src="{{ $imgFile }}" alt="{{ $subCategory->name }}">
+                                @if(!empty($subCategory->image_badge))
+                                    <span class="image-badge-overlay" style="position: absolute; bottom: 15px; left: 15px; background: rgba(255, 255, 255, 0.9); color: #000; padding: 4px 12px; font-size: 14px; font-weight: 500; border-radius: 4px;">{{ $subCategory->image_badge }}</span>
+                                @endif
                             </a>
                         </div>
                         <h3>{{ $subCategory->name }}</h3>
@@ -3666,44 +3686,20 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
 
             <div class="testimonial-grid">
-                <!-- Card 1 -->
+                @foreach($testimonial as $testi)
                 <div class="testimonial-card">
-                    <div class="avatar-wrapper">
-                        <img src="{{ asset('images/avatar_1.png') }}" alt="Mike Torello" class="avatar-img">
-                    </div>
+                    <img src="{{ asset('images/' . $testi->image) }}" alt="{{ $testi->name }}" class="avatar-img">
                     <p class="testimonial-text">
-                        "We've been working with RigidBox Pro for 3 years now. Their consistency, attention to detail,
-                        and timely delivery make them our go-to packaging partner."
+                        {{ $testi->comment }}
                     </p>
-                    <h4 class="client-name">Mike Torello</h4>
-                    <span class="client-role">CEO, Jewels Co.</span>
-                </div>
+                    @if(strlen($testi->comment) > 130)
+                    <button class="read-more-btn">Read more</button>
+                    @endif
 
-                <!-- Card 2 -->
-                <div class="testimonial-card">
-                    <div class="avatar-wrapper">
-                        <img src="{{ asset('images/avatar_2.png') }}" alt="Mike Torello" class="avatar-img">
-                    </div>
-                    <p class="testimonial-text">
-                        "We've been working with RigidBox Pro for 3 years now. Their consistency, attention to detail,
-                        and timely delivery make them our go-to packaging partner."
-                    </p>
-                    <h4 class="client-name">Mike Torello</h4>
-                    <span class="client-role">CEO, Jewels Co.</span>
+                    <h4 class="client-name">{{ $testi->name }}</h4>
+                    <span class="client-role">{{ $testi->profile_link }}</span>
                 </div>
-
-                <!-- Card 3 -->
-                <div class="testimonial-card">
-                    <div class="avatar-wrapper">
-                        <img src="{{ asset('images/avatar_3.png') }}" alt="Mike Torello" class="avatar-img">
-                    </div>
-                    <p class="testimonial-text">
-                        "We've been working with RigidBox Pro for 3 years now. Their consistency, attention to detail,
-                        and timely delivery make them our go-to packaging partner."
-                    </p>
-                    <h4 class="client-name">Mike Torello</h4>
-                    <span class="client-role">CEO, Jewels Co.</span>
-                </div>
+                @endforeach
             </div>
 
             <!-- NEW: Mobile Slider Arrow Navigation Controls -->
@@ -3956,6 +3952,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const prevBtn = document.querySelector(".prev-btn");
     const nextBtn = document.querySelector(".next-btn");
 
+    // Read More Logic
+    const readMoreBtns = document.querySelectorAll('.read-more-btn');
+    readMoreBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const textPara = this.previousElementSibling;
+            if(textPara) {
+                textPara.classList.toggle('expanded');
+                if (textPara.classList.contains('expanded')) {
+                    this.textContent = 'Read less';
+                } else {
+                    this.textContent = 'Read more';
+                }
+            }
+        });
+    });
+
     let currentIndex = 0;
 
     function showTestimonial(index) {
@@ -4150,6 +4162,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const testimonialCards = document.querySelectorAll(".testimonial-card");
     const prevBtn = document.querySelector(".prev-btn");
     const nextBtn = document.querySelector(".next-btn");
+
+    // Read More Logic
+    const readMoreBtns = document.querySelectorAll('.read-more-btn');
+    readMoreBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const textPara = this.previousElementSibling;
+            if(textPara) {
+                textPara.classList.toggle('expanded');
+                if (textPara.classList.contains('expanded')) {
+                    this.textContent = 'Read less';
+                } else {
+                    this.textContent = 'Read more';
+                }
+            }
+        });
+    });
 
     let currentIndex = 0;
 
