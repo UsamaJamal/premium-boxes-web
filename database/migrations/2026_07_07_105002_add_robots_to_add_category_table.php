@@ -13,9 +13,11 @@ class AddRobotsToAddCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::table('add_category', function (Blueprint $table) {
-            $table->string('robots')->nullable();
-        });
+        if (!Schema::hasColumn('add_category', 'robots')) {
+            Schema::table('add_category', function (Blueprint $table) {
+                $table->string('robots')->nullable();
+            });
+        }
     }
 
     /**
@@ -25,8 +27,10 @@ class AddRobotsToAddCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::table('add_category', function (Blueprint $table) {
-            $table->dropColumn('robots');
-        });
+        if (Schema::hasColumn('add_category', 'robots')) {
+            Schema::table('add_category', function (Blueprint $table) {
+                $table->dropColumn('robots');
+            });
+        }
     }
 }

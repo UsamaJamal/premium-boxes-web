@@ -19,14 +19,16 @@
     <meta name="description" content="<?php  echo $meta_description; ?>">
   <meta name="keywords" content="<?php echo $meta_tags; ?>">
 
-  @php
-      $currentUrl = request()->path();
-      $catRobots = \DB::table('add_category')->where('category_url', $currentUrl)->value('robots');
-      $finalRobots = !empty($catRobots) ? $catRobots : 'index, follow';
-      if (isset($robots) && !empty($robots)) {
-          $finalRobots = $robots;
-      }
-  @endphp
+	  @php
+	      $currentUrl = request()->path();
+	      $catRobots = \Schema::hasColumn('add_category', 'robots')
+	          ? \DB::table('add_category')->where('category_url', $currentUrl)->value('robots')
+	          : null;
+	      $finalRobots = !empty($catRobots) ? $catRobots : 'index, follow';
+	      if (isset($robots) && !empty($robots)) {
+	          $finalRobots = $robots;
+	      }
+	  @endphp
   <meta name="robots" content="{{ $finalRobots }}">
   <link rel="canonical" href="{{ url()->current() }}" />
   
@@ -977,7 +979,6 @@ function toggleMobileSubmenu(element) {
         color: #555555 !important;
     }
 </style>
-
 
 
 

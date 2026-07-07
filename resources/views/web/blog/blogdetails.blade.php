@@ -1231,26 +1231,33 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                     <!-- INSTANT QUOTE FORM -->
                     <div class="bp-quote-widget">
                         <h3 class="bp-quote-title">Instant Quote</h3>
-                        <form class="bp-quote-form" action="{{ url('contact-form') }}" method="POST">
+                        @if(Session::has('success'))
+                            <div class="alert alert-success" style="background: #28a745; color: white; padding: 10px 14px; border-radius: 8px; margin-bottom: 12px; font-weight: 600; font-size: 13px; text-align: center;">
+                                {{ Session::get('success') }}
+                            </div>
+                        @endif
+                        <form class="bp-quote-form" action="{{ url('submit-quote') }}" method="POST" enctype="multipart/form-data">
                             @csrf
+                            <input type="hidden" name="source" value="Blog details quote form">
+                            <input type="hidden" name="page_url" value="{{ url()->current() }}">
                             <div class="bp-quote-row">
-                                <input type="text" name="first_name" class="bp-quote-input" placeholder="Enter your name" required>
-                                <input type="email" name="email" class="bp-quote-input" placeholder="Enter your name" required>
+                                <input type="text" name="name" class="bp-quote-input" placeholder="Enter your name" required>
+                                <input type="email" name="email" class="bp-quote-input" placeholder="Enter your email" required>
                             </div>
                             <div class="bp-quote-row">
-                                <input type="text" name="company" class="bp-quote-input" placeholder="Enter your name">
+                                <input type="text" name="company" class="bp-quote-input" placeholder="Company (optional)">
                                 <div class="bp-quote-upload-wrapper">
                                     <input type="text" class="bp-quote-upload-input" value="No file chosen" readonly>
                                     <label class="bp-quote-upload-btn">
                                         Upload
-                                        <input type="file" name="file" style="display: none;">
+                                        <input type="file" name="artwork" style="display: none;">
                                     </label>
                                 </div>
                             </div>
                             <textarea name="message" class="bp-quote-textarea" placeholder="Project description" required></textarea>
                             <div class="bp-quote-buttons">
                                 <button type="submit" class="bp-quote-btn bp-quote-submit">Get Quote</button>
-                                <button type="button" class="bp-quote-btn bp-quote-call">Live Chat</button>
+                                <button type="button" class="bp-quote-btn bp-quote-call" onclick="window.location.href='tel:18005189441'">Call Us</button>
                             </div>
                         </form>
                     </div>
@@ -1459,6 +1466,21 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 (function() {
     // No automatic functionality - user scrolls manually
     // Pure CSS handles the horizontal scrolling
+})();
+
+// File input handler for visual feedback
+(function() {
+    const fileInput = document.querySelector('.bp-quote-form input[type="file"]');
+    const uploadLabel = document.querySelector('.bp-quote-upload-input');
+    if (fileInput && uploadLabel) {
+        fileInput.addEventListener('change', function() {
+            if (this.files.length > 0) {
+                uploadLabel.value = this.files[0].name;
+            } else {
+                uploadLabel.value = 'No file chosen';
+            }
+        });
+    }
 })();
 </script>
 

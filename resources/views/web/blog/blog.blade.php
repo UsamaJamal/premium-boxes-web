@@ -534,10 +534,19 @@ body {
                     
                     <div class="blog-sidebar-widget">
                         <h3 class="blog-widget-title"><i class="fas fa-bolt"></i> Instant Quote</h3>
-                        <form class="blog-quote-form">
-                            <input type="email" placeholder="Email" required>
-                            <input type="tel" placeholder="Phone number" required>
-                            <textarea placeholder="Message" required></textarea>
+                        @if(Session::has('success'))
+                            <div class="alert alert-success" style="background: #28a745; color: white; padding: 10px 14px; border-radius: 8px; margin-bottom: 12px; font-weight: 600; font-size: 13px; text-align: center;">
+                                {{ Session::get('success') }}
+                            </div>
+                        @endif
+                        <form class="blog-quote-form" action="{{ url('submit-quote') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="source" value="Blog sidebar quote form">
+                            <input type="hidden" name="page_url" value="{{ url()->current() }}">
+                            <input type="text" name="name" placeholder="Name" required>
+                            <input type="email" name="email" placeholder="Email" required>
+                            <input type="tel" name="phone" placeholder="Phone number" required>
+                            <textarea name="message" placeholder="Message" required></textarea>
                             <div class="blog-quote-btns">
                                 <button type="submit" class="blog-quote-btn">Get a Quote</button>
                                 <button type="button" class="blog-quote-cancel" onclick="window.location.href='tel:18005189441'">Call Us</button>
@@ -622,15 +631,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Sidebar quote form submit alert
-    const sidebarQuoteForm = document.querySelector(".blog-quote-form");
-    if (sidebarQuoteForm) {
-        sidebarQuoteForm.addEventListener("submit", function(e) {
-            e.preventDefault();
-            alert("Thank you! Your quote request has been submitted.");
-            this.reset();
-        });
-    }
+    // Let sidebar quote form submit to server naturally
+    // JS listener is removed to let PHP controller handle submission and flash message.
 });
 
 </script>

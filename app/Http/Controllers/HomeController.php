@@ -313,14 +313,83 @@ function product_mail(Request $request)
         'p_qty3'=>$request->p_qty3,
         'p_qty4'=>$request->p_qty4,
         'message'=>$request->message,
+        'source'=>$request->source,
+        'page_url'=>$request->page_url,
         'g-recaptcha-response' => 'required|captcha',
         'subject'=>$product
     );
-    // print_r($data);
-    // die();
- Mail::to('support@premiumboxes.com')->send(new SendMail($data));
+    $this->sendQuoteEmail($data, $request->file('p_file'));
  return back()->with('success', 'Thank you for the inquiry, our sales representative will contact soon!');
 
+}
+
+function submitQuote(Request $request)
+{
+    Session::flash('request_quote', 'Thanks for your Intrest');
+
+    $data = array(
+        'p_name' => trim(($request->name ?: '') . ' ' . ($request->last_name ?: '')),
+        'email' => $request->email,
+        'p_phone' => $request->phone,
+        'address' => $request->address,
+        'company' => $request->company,
+        'website' => $request->website,
+        'p_boxname' => $request->product_name ?: $request->box_style,
+        'p_stock' => $request->material,
+        'p_color' => $request->color_options,
+        'p_type' => $request->printing_options,
+        'p_length' => $request->length,
+        'p_width' => $request->width,
+        'p_height' => $request->depth ?: $request->height,
+        'p_unit' => $request->unit,
+        'p_qty1' => $request->quantity,
+        'p_qty2' => '',
+        'p_qty3' => '',
+        'p_qty4' => '',
+        'message' => $request->message,
+        'source' => $request->source,
+        'page_url' => $request->page_url,
+        'subject' => 'product'
+    );
+
+    $this->sendQuoteEmail($data, $request->file('artwork'));
+
+    return back()->with('success', 'Thank you for the inquiry, our sales representative will contact soon!');
+}
+
+private function sendQuoteEmail($data, $file = null)
+{
+    $body = view('web/email/quote', array('data' => $data))->render();
+    $mailHost = config('mail.host') ?: 'smtp.hostinger.com';
+    $mailPort = config('mail.port') ?: 465;
+    $mailEncryption = config('mail.encryption') ?: 'ssl';
+    $mailUsername = config('mail.username') ?: env('MAIL_USERNAME');
+    $mailPassword = config('mail.password') ?: env('MAIL_PASSWORD');
+    $fromAddress = config('mail.from.address') ?: $mailUsername;
+    $fromName = config('mail.from.name') ?: 'Premium Boxes';
+    $quoteTo = env('QUOTE_MAIL_TO') ?: 'quote@premiumboxes.com';
+
+    $transport = (new \Swift_SmtpTransport($mailHost, $mailPort, $mailEncryption))
+        ->setUsername($mailUsername)
+        ->setPassword($mailPassword)
+        ->setAuthMode('login');
+
+    $message = (new \Swift_Message('Quote Request - Premium Boxes'))
+        ->setFrom(array($fromAddress => $fromName))
+        ->setTo(array($quoteTo))
+        ->setBody($body, 'text/html');
+
+    if (!empty($data['email'])) {
+        $message->setReplyTo(array($data['email'] => !empty($data['p_name']) ? $data['p_name'] : $data['email']));
+    }
+
+    if ($file) {
+        $message->attach(\Swift_Attachment::fromPath($file->getRealPath())
+            ->setFilename($file->getClientOriginalName())
+            ->setContentType($file->getMimeType()));
+    }
+
+    (new \Swift_Mailer($transport))->send($message);
 }
 
 

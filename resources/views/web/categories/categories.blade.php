@@ -4853,45 +4853,54 @@ img {
                 <div class="quote-form-col">
                     <h2>Request a Free Quote</h2>
 
-                    <form class="instant-quote-form">
+                    @if(Session::has('success'))
+                        <div class="alert alert-success" style="background: #28a745; color: white; padding: 12px 20px; border-radius: 8px; margin-bottom: 20px; font-weight: 600; text-align: center;">
+                            {{ Session::get('success') }}
+                        </div>
+                    @endif
+
+                    <form class="instant-quote-form" action="{{ url('submit-quote') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="source" value="Categories quote form">
+                        <input type="hidden" name="page_url" value="{{ url()->current() }}">
                         <div class="form-row dual-grid">
                             <div class="form-group">
                                 <label>Name *</label>
-                                <input type="text" placeholder="Enter your name" required>
+                                <input type="text" name="name" placeholder="Enter your name" required>
                             </div>
                             <div class="form-group">
                                 <label>Email Address *</label>
-                                <input type="email" placeholder="Enter your email" required>
+                                <input type="email" name="email" placeholder="Enter your email" required>
                             </div>
                         </div>
 
                         <div class="form-row dual-grid">
                             <div class="form-group">
                                 <label>Phone *</label>
-                                <input type="tel" placeholder="Enter your number" required>
+                                <input type="tel" name="phone" placeholder="Enter your number" required>
                             </div>
                             <div class="form-group">
                                 <label>Physical Address</label>
-                                <input type="text" placeholder="Enter your address">
+                                <input type="text" name="address" placeholder="Enter your address">
                             </div>
                         </div>
 
                         <div class="form-row dimensions-grid">
                             <div class="form-group">
                                 <label>Width *</label>
-                                <input type="text" placeholder="Width" required>
+                                <input type="text" name="width" placeholder="Width" required>
                             </div>
                             <div class="form-group">
                                 <label>Length *</label>
-                                <input type="text" placeholder="Length" required>
+                                <input type="text" name="length" placeholder="Length" required>
                             </div>
                             <div class="form-group">
                                 <label>Depth *</label>
-                                <input type="text" placeholder="Depth" required>
+                                <input type="text" name="depth" placeholder="Depth" required>
                             </div>
                             <div class="form-group">
                                 <label>Units *</label>
-                                <select required>
+                                <select name="unit" required>
                                     <option value="mm">mm</option>
                                     <option value="cm">cm</option>
                                     <option value="inch">inch</option>
@@ -4915,7 +4924,7 @@ img {
                             </div>
                             <div class="form-group">
                                 <label>Color Options</label>
-                                <select>
+                                <select name="color_options">
                                     <option value="">Color Options</option>
                                     <option value="1 Color">1 Color</option>
                                     <option value="2 Colors">2 Colors</option>
@@ -4925,24 +4934,24 @@ img {
                             </div>
                             <div class="form-group">
                                 <label>Select Product Name</label>
-                                <input type="text" placeholder="Enter product name">
+                                <input type="text" name="product_name" placeholder="Enter product name">
                             </div>
                             <div class="form-group">
                                 <label>Quantity *</label>
-                                <input type="number" placeholder="Enter quantity" required>
+                                <input type="number" name="quantity" placeholder="Enter quantity" required>
                             </div>
                             <div class="form-group upload-group">
                                 <label>Upload File Here</label>
                                 <div class="file-upload-wrapper">
                                     <input type="text" placeholder="No file choosen" readonly>
-                                    <label class="upload-btn">Upload <input type="file" style="display:none;"></label>
+                                    <label class="upload-btn">Upload <input type="file" name="artwork" style="display:none;"></label>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group textarea-group">
                             <label>Message</label>
-                            <textarea placeholder="Enter your message" rows="4"></textarea>
+                            <textarea name="message" placeholder="Enter your message" rows="4"></textarea>
                         </div>
 
                         <!-- ================================================
@@ -5301,24 +5310,37 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
+            // Human verification captcha check
+            let isVerified = false;
+            if (humanAnswer && humanStatus) {
+                isVerified = humanStatus.classList.contains('is-success') || (humanAnswer.value.trim() !== '' && Number(humanAnswer.value.trim()) === humanTotal);
+                if (isVerified) {
+                    humanAnswer.style.border = '';
+                    humanStatus.textContent = 'Verified.';
+                    humanStatus.classList.remove('is-error');
+                    humanStatus.classList.add('is-success');
+                } else {
+                    isValid = false;
+                    humanAnswer.style.border = '1px solid red';
+                    humanStatus.textContent = 'Please solve the addition correctly.';
+                    humanStatus.classList.remove('is-success');
+                    humanStatus.classList.add('is-error');
+                    if (!firstInvalidField) {
+                        firstInvalidField = humanAnswer;
+                    }
+                }
+            }
+
             if (!isValid) {
                 if (firstInvalidField) firstInvalidField.focus();
                 return;
             }
 
-            // Success state - you can add custom success message UI here if needed
-
-            quoteForm.reset();
-            requiredFields.forEach(field => field.style.border = ""); // reset borders
-
-            if (typeof fileNameField !== 'undefined' && fileNameField) {
-                fileNameField.value = "No file chosen";
-            }
+            quoteForm.submit();
         });
     }
 });
 </script>
 </body>
 </html>
-
 
