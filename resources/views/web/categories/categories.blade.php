@@ -54,7 +54,7 @@ body {
     font-family: var(--font);
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
-    padding-top: 115px; /* Fixed header height */
+    padding-top: 130px; /* Fixed header height — top bar ~82px + nav ~48px */
 }
 
 a {
@@ -211,9 +211,9 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 0;
+    /* padding: 14px 0; */
     border-top: 1px solid var(--bdr);
-    border-bottom: 1px solid var(--bdr);
+    /* border-bottom: 1px solid var(--bdr); */
     background: #111111;
     gap: 24px;
     flex-wrap: nowrap;
@@ -1929,6 +1929,9 @@ img {
     color: white;
     cursor: pointer;
     transition: border-color 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .testimonial-nav button:hover {
@@ -2636,7 +2639,7 @@ img {
 
 .pg-step-item:last-child {
     border-bottom: none;
-}
+}cca
 
 .pg-accordion-btn {
     pointer-events: all;
@@ -3437,36 +3440,96 @@ img {
 .box-by-industry {
   position: relative;
   padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  display: block;
+  overflow: visible;
+}
+/* Breadcrumb — always pinned at top of section, independent of grid */
+.box-by-industry > .hero-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px 40px 0 90px;
+  color: #a0a0a0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  overflow: visible;
+  white-space: normal;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1440px;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+}
+.box-by-industry > .hero-breadcrumb a,
+.box-by-industry > .hero-breadcrumb span {
+  display: inline-flex;
+  align-items: center;
+  color: #a0a0a0;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.box-by-industry > .hero-breadcrumb a.breadcrumb-home {
+  color: var(--accent-gold);
+}
+.box-by-industry > .hero-breadcrumb span:last-child {
+  color: #ffffff;
+}
+/* Desktop only — hide on mobile */
+.hero-breadcrumb-desktop {
+  display: flex;
+}
+@media (max-width: 768px) {
+  .hero-breadcrumb-desktop {
+    display: none !important;
+  }
 }
 .industry-hero-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: start;
   gap: 60px;
-  padding: 40px 0;
-  margin-bottom: 40px;
+  padding: 10px 40px 0 90px;
+  margin-bottom: 0;
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
+  min-height: 0;
 }
 .industry-hero-left {
   min-width: 0;
-}
-.industry-hero-left .hero-breadcrumb {
-  color: #a0a0a0;
-  font-size: 0.85rem;
-  margin-bottom: 14px;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 0;
+}
+.industry-hero-left .hero-breadcrumb a,
+.industry-hero-left .hero-breadcrumb span {
+  display: inline-flex;
   align-items: center;
-  flex-wrap: wrap;
+  color: #a0a0a0;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.industry-hero-left .hero-breadcrumb a.breadcrumb-home {
+  color: var(--accent-gold);
+}
+.industry-hero-left .hero-breadcrumb span:last-child {
+  color: #ffffff;
 }
 .industry-hero-left h1 {
-  font-size: 3rem;
+  font-size: 2.75rem;
   font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.2;
-  margin-bottom: 20px;
-  color: #fff;
+  margin-bottom: 14px;
+  margin-top: 0;
+  padding: 0;
 }
 .highlight-yellow {
   color: var(--accent-gold);
@@ -3475,10 +3538,10 @@ img {
   color: #a0a0a0;
   font-family: "Inter", sans-serif;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 30px;
+  font-size: 15px;
+  line-height: 1.7;
   text-align: justify;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 .btn-yellow {
   background-color: #ffc542;
@@ -3490,6 +3553,9 @@ img {
   display: inline-block;
   transition: transform 0.3s ease;
   text-decoration: none;
+  width: fit-content;
+  flex-shrink: 0;
+  margin-bottom: 0;
 }
 .btn-yellow:hover {
   transform: translateY(-2px);
@@ -3500,13 +3566,18 @@ img {
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 .hero-image-wrapper {
   position: relative;
   width: 100%;
-  max-width: 750px;
+  max-width: 680px;
   display: flex;
   justify-content: center;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 .hero-main-img {
   width: 100%;
@@ -3514,87 +3585,115 @@ img {
   height: auto;
   object-fit: contain;
   display: block;
+  max-height: 340px;
+  vertical-align: bottom;
+  margin-bottom: 0;
 }
 
 @media (max-width: 768px) {
   body {
-    padding-top: 155px;
+    padding-top: 130px;
   }
+
+  /* ── Hero Section ── */
   .box-by-industry {
     padding-top: 0;
+    padding-bottom: 0;
     background: #1a1a1a;
-  }
-  .industry-hero-content {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    padding: 0;
-    margin-bottom: 0;
   }
 
-  /* IMAGE — full width, on top */
+  /* Breadcrumb — hidden on mobile */
+  .box-by-industry > .hero-breadcrumb {
+    display: none !important;
+  }
+
+  /* Grid → single column stack */
+  .industry-hero-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  /* IMAGE — order 1, on top, full bleed */
   .industry-hero-right {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     order: 1;
-    padding: 0 0 10px 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0 !important;
+    margin: 0 !important;
     background: #1a1a1a;
+    overflow: hidden;
   }
   .hero-image-wrapper {
-    width: 100%;
-    max-width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    justify-content: center;
   }
   .hero-main-img {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
     display: block;
     object-fit: contain;
+    vertical-align: bottom;
   }
 
-  /* TEXT — below image */
+  /* TEXT — order 2, below image */
   .industry-hero-left {
-    width: 100%;
     order: 2;
-    padding: 24px 20px 28px;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding: 20px 20px 28px 20px !important;
     background: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  /* breadcrumb — hidden on mobile (matches Figma) */
-  .industry-hero-left .hero-breadcrumb {
-    display: none;
-  }
-
-  /* Heading */
   .industry-hero-left h1 {
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 800;
-    line-height: 1.25;
-    margin-bottom: 16px;
+    line-height: 1.2;
+    margin-bottom: 14px;
+    margin-top: 0;
     word-break: break-word;
     text-align: left;
+    color: #ffffff;
   }
 
-  /* Description */
   .industry-hero-left p {
     font-size: 14px;
     line-height: 1.75;
     color: #a0a0a0;
-    margin-bottom: 28px;
-    text-align: justify;
+    margin-bottom: 24px;
+    text-align: left;
+    width: 100%;
   }
 
-  /* Button — centered, full readable width */
+  /* Button — left aligned like figma */
   .btn-yellow {
-    display: block;
-    width: fit-content;
-    margin: 0 auto;
+    display: inline-block !important;
+    width: auto !important;
+    margin: 0 !important;
     text-align: center;
-    padding: 14px 40px;
+    padding: 13px 32px;
     font-size: 15px;
     font-weight: 700;
     border-radius: 50px;
+    background-color: #ffc542;
+    color: #000;
   }
 }
 
@@ -3606,7 +3705,7 @@ img {
   width: 100%;
   max-width: 1440px;
   height: 90px;
-  margin: 3px auto 0;
+  margin: 0 auto 0;
   padding: 0 60px;
   box-sizing: border-box;
   gap: 40px;
@@ -3879,7 +3978,7 @@ img {
 }
 
 .form-group.textarea-group {
-  height: auto; 
+  height: auto;
   min-height: 70px;
   width: 100%;
 }
@@ -4219,33 +4318,35 @@ img {
      HERO SECTION
      ================================================ -->
         <!-- Box By Industry Section -->
-        <section class="box-by-industry{{ $isGiftBoxesPage ? ' gift-boxes-page' : '' }}" style="padding: 0 5% 0;">
+        <section class="box-by-industry{{ $isGiftBoxesPage ? ' gift-boxes-page' : '' }}">
+
+            {{-- Breadcrumb — outside grid, always at top --}}
+            <div class="hero-breadcrumb hero-breadcrumb-desktop">
+                <a href="{{ url('/') }}" class="breadcrumb-home">
+                    <img src="{{ asset('uploads/house-chimney 1.svg') }}" alt="Home" style="width: 16px; height: 16px;">
+                </a>
+                @if(isset($parent_cat) && !empty($parent_cat))
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16" style="margin: 0 8px; color: #a0a0a0;">
+                          <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+                          <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                        <a href="{{ url($parent_cat->category_url) }}" style="color: #a0a0a0; text-decoration: none;">
+                            {{ $parent_cat->name }}
+                        </a>
+                    </span>
+                @endif
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16" style="margin: 0 8px; color: #a0a0a0;">
+                      <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+                      <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                    {{ !empty($value) && count($value) > 0 ? $value[0]->name : 'Category' }}
+                </span>
+            </div>
+
             <div class="industry-hero-content">
                 <div class="industry-hero-left">
-                    <div class="hero-breadcrumb">
-                        <a href="{{ url('/') }}" class="breadcrumb-home">
-                            <img src="{{ asset('uploads/house-chimney 1.svg') }}" alt="Home" style="width: 16px; height: 16px;">
-                        </a>
-                        @if(isset($parent_cat) && !empty($parent_cat))
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16" style="margin: 0 8px; color: #a0a0a0;">
-                                  <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
-                                  <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
-                                </svg>
-                                <a href="{{ url($parent_cat->category_url) }}" style="color: #a0a0a0; text-decoration: none;">
-                                    {{ $parent_cat->name }}
-                                </a>
-                            </span>
-                        @endif
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16" style="margin: 0 8px; color: #a0a0a0;">
-                              <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
-                              <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
-                            </svg>
-                            {{ !empty($value) && count($value) > 0 ? $value[0]->name : 'Category' }}
-                        </span>
-                    </div>
-
                     <h1>
                         @if(!empty($value[0]->hero_title))
                             {{ $value[0]->hero_title }}
@@ -4258,7 +4359,7 @@ img {
                         @if(!empty($value[0]->hero_desc))
                             {{ $value[0]->hero_desc }}
                         @elseif(!empty($value[0]->description))
-                            {!! strip_tags($value[0]->description) !!}
+                            {{ Str::limit(strip_tags($value[0]->description), 300) }}
                         @else
                             Tailor-made packaging solutions designed to reflect the unique demands of your industry. From opulent jewellery boxes and luxury retail packaging to sleek tech solutions, we combine premium craftsmanship, functionality, and attention to detail to elevate your brand and create a memorable unboxing experience.
                         @endif
@@ -4899,7 +5000,7 @@ img {
         <!-- Right: FAQs + CTA -->
         <div class="pg-right">
             <div class="pg-steps-box">
-                <h3 class="pg-steps-title">Frequently Asked Questions</h3>
+                <h2 class="pg-steps-title">Frequently Asked Questions</h2>
 
                 @if(isset($faqs) && count($faqs) > 0)
                     @foreach($faqs as $faq)

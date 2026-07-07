@@ -819,15 +819,16 @@ function toggleMobileSubmenu(element) {
         }
     }
 
-    // Apply theme on load
+    // Apply theme on load — default is always DARK, only switch to light if user explicitly chose it
     document.addEventListener('DOMContentLoaded', () => {
         const savedTheme = localStorage.getItem('theme');
-        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
         
-        if (savedTheme === 'light' || (!savedTheme && prefersLight)) {
+        if (savedTheme === 'light') {
             document.body.classList.add('light-mode');
             updateToggleUI(true);
         } else {
+            // Default: dark mode (ignore OS/browser preference)
+            document.body.classList.remove('light-mode');
             updateToggleUI(false);
         }
     });

@@ -18,9 +18,10 @@ body {
 
 
 .blog-hero {
+    height: 269px;
     position: relative;
     width: 100%;
-    min-height: 360px;
+    /* min-height: 360px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,7 +73,7 @@ body {
 .blog-bc-sep     { color: #888; font-size: 14px; line-height: 1; display: flex; align-items: center; }
 .blog-bc-current { color: #ddd; font-weight: 500; cursor: pointer; font-size: 14px; line-height: 1; display: flex; align-items: center; }
 
-.blog-hero-content { display: flex; flex-direction: column; align-items: center; }
+.blog-hero-content {margin-top: 37px; display: flex; flex-direction: column; align-items: center; }
 
 .blog-hero-badge {
     border: 1.5px solid #c9a84c;
@@ -114,7 +115,7 @@ body {
 .blog-layout {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 52px 48px 100px;
+    padding: 20px 48px 10px;
 }
 
 
@@ -172,7 +173,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 28px;
-    margin-bottom: 48px;
+    margin-bottom: -43px;
     align-items: stretch;
 }
 
@@ -381,7 +382,7 @@ body {
 
 
 @media (max-width: 1100px) {
-    .blog-layout        { padding: 40px 32px 80px; }
+    .blog-layout        { padding: 20px 32px 10px; }
     .blog-sidebar-row   { grid-template-columns: 1fr 260px; gap: 28px; }
     .blog-post-small-img { width: 140px; min-width: 140px; height: 130px; }
 }
@@ -396,7 +397,7 @@ body {
     .blog-hero-heading  { font-size: 7.5vw; line-height: 1.25; text-align: center; }
     .blog-hero-subtext  { font-size: 3.8vw; line-height: 1.75; text-align: center; max-width: 85vw; margin: 0 auto; }
 
-    .blog-layout { padding: 6vw 4vw 15vw; }
+    .blog-layout { padding: 3vw 4vw 2vw; }
 
     .blog-section-header {
         flex-direction: column;
@@ -439,7 +440,7 @@ body {
             </nav>
         </div>
         <div class="blog-hero-content">
-            <button class="blog-hero-badge">BLOG</button>
+            
             <h1 class="blog-hero-heading">Insights, <span class="blog-hero-gold">Trends</span> &amp;<br><span class="blog-hero-gold">Packaging</span> Inspiration</h1>
             <p class="blog-hero-subtext">Explore expert insights, industry trends, and packaging ideas to help your brand create memorable customer experiences and stay ahead of the competition.</p>
         </div>
