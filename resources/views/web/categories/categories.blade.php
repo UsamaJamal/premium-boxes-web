@@ -3441,6 +3441,15 @@ img {
   overflow: visible;
   white-space: normal;
 }
+/* Desktop only — hide on mobile via direct class */
+.hero-breadcrumb-desktop {
+  display: flex;
+}
+@media (max-width: 768px) {
+  .hero-breadcrumb-desktop {
+    display: none;
+  }
+}
 .industry-hero-left .hero-breadcrumb a,
 .industry-hero-left .hero-breadcrumb span {
   display: inline-flex;
@@ -3568,10 +3577,7 @@ img {
     background: #1a1a1a;
   }
 
-  /* breadcrumb — hidden on mobile (matches Figma) */
-  .industry-hero-left .hero-breadcrumb {
-    display: none;
-  }
+  /* breadcrumb — hidden on mobile via .hero-breadcrumb-desktop class above */
 
   /* Heading */
   .industry-hero-left h1 {
@@ -4229,7 +4235,7 @@ img {
         <section class="box-by-industry{{ $isGiftBoxesPage ? ' gift-boxes-page' : '' }}">
             <div class="industry-hero-content">
                 <div class="industry-hero-left">
-                    <div class="hero-breadcrumb">
+                    <div class="hero-breadcrumb hero-breadcrumb-desktop">
                         <a href="{{ url('/') }}" class="breadcrumb-home">
                             <img src="{{ asset('uploads/house-chimney 1.svg') }}" alt="Home" style="width: 16px; height: 16px;">
                         </a>
