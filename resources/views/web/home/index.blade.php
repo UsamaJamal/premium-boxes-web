@@ -4121,19 +4121,23 @@ section + section {
   width: 100%;
 }
 .dual-grid {
-  grid-template-columns: calc(50% - 6px) calc(50% - 6px);
+  grid-template-columns: repeat(2, 1fr);
 }
 .dimensions-grid {
   grid-template-columns: repeat(4, 1fr);
   max-width: 693px;
 }
 .triple-grid {
-  grid-template-columns: repeat(3, 1fr);
-  max-width: 692px;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 100%;
 }
 .quantity-upload-grid {
   grid-template-columns: repeat(2, 1fr);
   max-width: 691.13px;
+}
+.options-grid-custom {
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 100%;
 }
 .form-group {
   display: flex;

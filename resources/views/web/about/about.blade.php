@@ -14,9 +14,10 @@ html, body {
 } */
 
 .ab-us-hero {
+    margin-bottom: 0px; 
     position: relative;
     width: 100%;
-    height: 540px;
+    height: 410px;
     display: flex;
     align-items: stretch;
     overflow: hidden;
@@ -94,6 +95,7 @@ html, body {
 .ab-us-hero-badge:hover { background: #D4AF37; color: #111111; }
 
 .ab-us-hero-heading {
+    margin-top: -66px;
     font-size: 42px;
     font-weight: 800;
     line-height: 1.15;
@@ -127,15 +129,16 @@ html, body {
     .ab-us-breadcrumb { display: none; }
     .ab-us-hero-badge { font-size: 3vw; padding: 2vw 8vw; margin-bottom: 5vw; letter-spacing: 0.3em; border-radius: 50px; }
     .ab-us-hero-content { justify-content: center; padding-top: 0; align-items: center; text-align: center; }
-    .ab-us-hero-heading { font-size: 9.5vw; line-height: 1.25; margin-bottom: 4vw; }
+    .ab-us-hero-heading { margin-top: 100px; font-size: 9.5vw; line-height: 1.25; margin-bottom: 4vw; }
     .ab-us-hero-heading br { display: none; }
-    .ab-us-hero-para { font-size: 4vw; line-height: 1.8; max-width: 100%; }
+    .ab-us-hero-para { margin-bottom: 83px; font-size: 4vw; line-height: 1.8; max-width: 100%; }
 }
 
 .ab-us-story {
+    margin-bottom: -21px;
     width: 100%;
     background-color: #111111;
-    padding: 40px 48px 40px 48px;
+    padding: 20px 48px 20px 48px;
 }
 
 .ab-us-story-container {
@@ -230,7 +233,7 @@ html, body {
 }
 
 @media (max-width: 768px) {
-    .ab-us-story { padding: 8vw 5vw 10vw; }
+    .ab-us-story { margin-bottom: -78px; padding: 8vw 5vw 10vw; }
     .ab-us-story-container { flex-direction: column; gap: 8vw; align-items: flex-start; }
     .ab-us-story-img-wrap  { width: 100%; height: 76vw; }
     .ab-us-gold-accent     { width: calc(100% - 4vw); height: calc(100% - 4vw); border-radius: 6px; }
@@ -244,7 +247,7 @@ html, body {
 .ab-us-why {
     width: 100%;
     background-color: #111111;
-    padding: 40px 48px 40px 48px;
+    padding: 20px 48px 20px 48px;
 }
 
 .ab-us-why-inner {
@@ -362,9 +365,10 @@ html, body {
 }
 
 .ab-us-numbers {
+    margin-top: -19px;
     width: 100%;
     background-color: #161616;
-    padding: 40px 48px 40px 48px;
+    padding: 20px 48px 20px 48px;
 }
 
 .ab-us-numbers-inner {
@@ -463,7 +467,7 @@ html, body {
 .ab-us-process {
     width: 100%;
     background-color: #111111;
-    padding: 40px 48px 80px 48px;
+    padding: 20px 48px 40px 48px;
     text-align: center;
 }
 
@@ -544,7 +548,7 @@ html, body {
     .ab-us-process-cards { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 600px) {
-    .ab-us-process { padding: 10vw 5vw; }
+    .ab-us-process { margin-top: -50px; padding: 10vw 5vw; }
     .ab-us-process-cards   { grid-template-columns: 1fr; }
     .ab-us-process-heading { font-size: 6.5vw; }
     .ab-us-process-sub     { font-size: 3.8vw; }
@@ -565,7 +569,7 @@ html, body {
                 <span class="ab-us-bc-current">About Us</span>
             </nav>
             <div class="ab-us-hero-content">
-                <div class="ab-us-hero-badge">ABOUT US</div>
+               
                 <h1 class="ab-us-hero-heading">
                     Crafting <span class="ab-us-gold">Premium Packaging</span><br>
                     That Tells Your Story
@@ -610,7 +614,7 @@ html, body {
         <div class="ab-us-why-inner">
 
             <div class="ab-us-why-left">
-                <span class="ab-us-why-badge">WHY CHOOSE US</span>
+               
                 <h2 class="ab-us-why-title">Packaging Excellence You Can Trust</h2>
                 <p class="ab-us-why-desc">
                     We craft premium custom packaging that elevates your brand and
@@ -655,7 +659,7 @@ html, body {
     <section class="ab-us-numbers">
         <div class="ab-us-numbers-inner">
             <div class="ab-us-numbers-left">
-                <span class="ab-us-numbers-badge">NUMBERS</span>
+               
                 <h2 class="ab-us-numbers-heading">Numbers That Define<br>Our Excellence</h2>
             </div>
             <div class="ab-us-numbers-right">
@@ -685,7 +689,7 @@ html, body {
 
     <!-- OUR PROCESS SECTION -->
     <section class="ab-us-process">
-        <div class="ab-us-process-pill">Our Process</div>
+       
         <h2 class="ab-us-process-heading">From Concept to Creation</h2>
         <p class="ab-us-process-sub">
             We follow a simple process that turns your ideas into premium packaging through

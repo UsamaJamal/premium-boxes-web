@@ -2,8 +2,8 @@
 
 <style>
 :root {
-    --bp-max         : 1400px;
-    --bp-px          : 48px;
+    --bp-max         : 1440px;
+    --bp-px          : 40px;
     --bp-sp-bc       : 28px;
     --bp-sp-td       : 22px;
     --bp-sp-di       : 44px;
@@ -34,15 +34,20 @@ html, body {
 body { padding-top: 115px !important; }
 
 .bp-container {
+   
+   
     width: 100%;
     max-width: var(--bp-max);
     margin-inline: auto;
     padding-inline: var(--bp-px);
+
+    
+  
 }
 body{
     background:#1a1a1a;
     font-family:Arial, Helvetica, sans-serif;
-    padding:40px;
+ 
 }
 
 .breadcrumb{
@@ -91,7 +96,7 @@ body{
     width: 100%;
     background-color: #1a1a1a;
     padding-top: 52px;
-    padding-bottom: 72px;
+    padding-bottom: 10px;
 }
 
 /* BREADCRUMB */
@@ -128,6 +133,7 @@ body{
     justify-content: space-between;
     gap: 60px;
     margin-bottom: var(--bp-sp-td);
+    position: relative;
 }
 
 .bp-title {
@@ -146,7 +152,10 @@ body{
     align-items: center;
     gap: 8px;
     flex-shrink: 0;
-    margin-right: -459px;
+    position: absolute;
+    right: calc(-50% - 40px);
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .bp-share-label {
@@ -256,13 +265,13 @@ body{
 .bp-author-read { font-size: 12px; color: var(--bp-text-meta); display: flex; align-items: center; gap: 4px; white-space: nowrap; }
 .bp-author-read i { font-size: 11px; }
 
-.bp-body { padding-bottom: 80px; }
-.bp-body-grid { align-items: start; }
+.bp-body { padding-bottom: 30px; }
+.bp-body-grid { align-items: start; grid-template-columns: 1fr; }
 .bp-body-spacer { display: none; }
 
 /* ARTICLE CONTENT */
 .bp-article {
-    padding-top: 40px;
+    padding-top: 6px;
     border-top: 1px solid var(--bp-border);
     width: 100%;
 }
@@ -294,16 +303,15 @@ body{
 
 /* AUTHOR PROFILE */
 .bp-author-profile {
-    margin-left: -42px;
-    width: 834px;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    gap: 30px;
-    margin-top: 60px;
-    padding: 40px;
-    background-color: #1a1a1a;
-    /* border: 1px solid #2a2a2a; */
+    align-items: center;
+    gap: 20px;
+    margin-top: 4px;
+    padding: 8px 0;
+    background-color: transparent;
+    border: none;
     border-radius: 0;
 }
 .bp-author-profile-header {
@@ -313,10 +321,9 @@ body{
     width: 100%;
 }
 .bp-author-profile-image {
-    margin-top: 0;
-    width: 150px;
-    height: 150px;
-    min-width: 150px;
+    width: 130px;
+    height: 130px;
+    min-width: 130px;
     flex-shrink: 0;
     border-radius: 50%;
     overflow: hidden;
@@ -331,28 +338,28 @@ body{
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 2px;
 }
 .bp-author-profile-info {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 1px;
+    gap: 2px;
 }
 .bp-author-profile-heading {
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 700;
     color: #fff;
-    margin: 0;
+    margin: 0 0 4px 0;
     line-height: 1.3;
 }
 .bp-author-profile-description {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
-    line-height: 1.8;
+    line-height: 1.7;
     color: #999999;
-    margin: 0;
-    text-align: justify;
+    margin: 0 0 8px 0;
+    text-align: left;
     width: 100%;
 }
 .bp-author-profile-social {
@@ -390,7 +397,8 @@ body{
 
 /* RELATED POSTS */
 .bp-related-posts {
-    margin-top: 8px;
+    margin-bottom: -135px;
+    margin-top: 0;
     width: 100%;
     max-width: 100%;
 }
@@ -407,7 +415,7 @@ body{
     width: 100%;
 }
 .bp-related-card {
-    width: 411px;
+    width: 100%;
     background-color: #1a1a1a;
     border: 1px solid #2a2a2a;
     border-radius: 0;
@@ -442,7 +450,7 @@ body{
     transform: scale(1.05);
 }
 .bp-related-content {
-    width: 409px;
+    width: 100%;
     padding: 24px;
 }
 .bp-related-meta {
@@ -496,6 +504,10 @@ body{
 
 /* INSTANT QUOTE FORM */
 .bp-quote-widget {
+    /* position: sticky;
+    align-self: flex-start;
+    overflow-y: scroll; */
+    margin-left: 0px;
     background-color: rgba(26, 26, 26, 0.98);
     border: 0.3px solid #F5C542;
     border-radius: 16px;
@@ -514,10 +526,10 @@ body{
     text-align: center;
 }
 .bp-quote-form { display: flex; flex-direction: column; gap: 14px; width: 100%; }
-.bp-quote-row { display: flex; gap: 14px; width: 100%; }
+.bp-quote-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; width: 100%; }
 .bp-quote-row > * {
-    flex: 1;
     min-width: 0;
+    width: 100%;
 }
 .bp-quote-input, .bp-quote-textarea, .bp-quote-select {
     width: 100%;
@@ -554,18 +566,19 @@ body{
     height: 44px;
 }
 .bp-quote-upload-input {
+    font-weight: 400;
     flex: 1;
     background-color: transparent;
     border: 1px solid #4a4a4a;
     border-right: none;
     border-radius: 8px 0 0 8px;
-    padding: 12px 14px;
-    font-size: 13px;
-    color: #888888;
+    padding: 1px 1px;
+    font-size: 12px;
+    color: #666666;
     pointer-events: none;
     min-width: 0;
-    overflow: visible;
-    text-overflow: clip;
+    overflow: hidden;
+    text-overflow: ellipsis;
     height: 44px;
     display: flex;
     align-items: center;
@@ -576,8 +589,8 @@ body{
     color: #000000;
     border: none;
     border-radius: 0 8px 8px 0;
-    padding: 0 18px;
-    font-size: 14px;
+    padding: 0 10px;
+    font-size: 13px;
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.2s;
@@ -586,7 +599,7 @@ body{
     align-items: center;
     justify-content: center;
     height: 44px;
-    width: 50px;
+    width: 39%;
     flex-shrink: 0;
 }
 .bp-quote-upload-btn:hover {
@@ -630,6 +643,11 @@ body{
     .bp-title { font-size: clamp(22px, 3.2vw, 34px); }
     .bp-image img { height: 340px; }
     .bp-sidebar { margin-left: 20px; }
+    
+    .bp-related-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
 }
 
 @media (max-width: 680px) {
@@ -1315,8 +1333,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                                 <img src="{{ asset('images/1606478490.Adam_Smith.jpg') }}" alt="{{ $author_name }}">
                             </div>
                             <div class="bp-author-profile-content">
-                                <h3 class="bp-author-profile-heading">Lorem Ipsum</h3>
-                                <p class="bp-author-profile-description">Written by the Rigid Box Pro Team, specialists in custom rigid boxes and luxury packaging solutions.<br> We share industry insights, design inspiration, and expert guidance to help brands create<br> packaging that leaves a lasting impression.</p>
+                                <h3 class="bp-author-profile-heading">{{ $author_name }}</h3>
+                                <p class="bp-author-profile-description">Written by the Rigid Box Pro Team, specialists in custom rigid boxes and luxury packaging solutions.<br>We share industry insights, design inspiration, and expert guidance to help brands create<br>packaging that leaves a lasting impression.</p>
                                 <a href="#" class="bp-author-profile-social">
                                     <i class="fab fa-linkedin"></i> LinkedIn
                                 </a>
