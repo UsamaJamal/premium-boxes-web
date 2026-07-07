@@ -1351,6 +1351,9 @@ h3 {
   border: 1px solid #333;
   color: white;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* @media (max-width: 992px) {
