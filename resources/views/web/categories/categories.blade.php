@@ -208,9 +208,9 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 0;
+    /* padding: 14px 0; */
     border-top: 1px solid var(--bdr);
-    border-bottom: 1px solid var(--bdr);
+    /* border-bottom: 1px solid var(--bdr); */
     background: #111111;
     gap: 24px;
     flex-wrap: nowrap;
@@ -1897,6 +1897,9 @@ img {
     color: white;
     cursor: pointer;
     transition: border-color 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .testimonial-nav button:hover {
@@ -2602,7 +2605,7 @@ img {
 
 .pg-step-item:last-child {
     border-bottom: none;
-}
+}cca
 
 .pg-accordion-btn {
     pointer-events: all;
@@ -3403,20 +3406,28 @@ img {
 .box-by-industry {
   position: relative;
   padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  display: block;
 }
 .industry-hero-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: start;
+  align-items: center;
   gap: 60px;
-  padding: 40px 0;
-  margin-bottom: 40px;
+  padding: 28px 60px 8px 90px;
+  margin-bottom: 0;
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
+  min-height: 0;
 }
 .industry-hero-left {
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 4px;
 }
 .industry-hero-left .hero-breadcrumb {
   color: #a0a0a0;
@@ -3425,13 +3436,33 @@ img {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  gap: 2px;
+  line-height: 1.5;
+  overflow: visible;
+  white-space: normal;
+}
+.industry-hero-left .hero-breadcrumb a,
+.industry-hero-left .hero-breadcrumb span {
+  display: inline-flex;
+  align-items: center;
+  color: #a0a0a0;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.industry-hero-left .hero-breadcrumb a.breadcrumb-home {
+  color: var(--accent-gold);
+}
+.industry-hero-left .hero-breadcrumb span:last-child {
+  color: #ffffff;
 }
 .industry-hero-left h1 {
-  font-size: 3rem;
+  font-size: 2.75rem;
   font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.2;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
+  margin-top: 0;
+  padding: 0;
 }
 .highlight-yellow {
   color: var(--accent-gold);
@@ -3440,10 +3471,10 @@ img {
   color: #a0a0a0;
   font-family: "Inter", sans-serif;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 30px;
+  font-size: 15px;
+  line-height: 1.7;
   text-align: justify;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 .btn-yellow {
   background-color: #ffc542;
@@ -3455,6 +3486,9 @@ img {
   display: inline-block;
   transition: transform 0.3s ease;
   text-decoration: none;
+  width: fit-content;
+  flex-shrink: 0;
+  margin-bottom: 0;
 }
 .btn-yellow:hover {
   transform: translateY(-2px);
@@ -3465,13 +3499,18 @@ img {
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
+  padding-top: 8px;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 .hero-image-wrapper {
   position: relative;
   width: 100%;
-  max-width: 750px;
+  max-width: 680px;
   display: flex;
   justify-content: center;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 .hero-main-img {
   width: 100%;
@@ -3479,6 +3518,9 @@ img {
   height: auto;
   object-fit: contain;
   display: block;
+  max-height: 420px;
+  vertical-align: bottom; /* removes inline baseline gap */
+  margin-bottom: 0;
 }
 
 @media (max-width: 768px) {
@@ -3571,7 +3613,7 @@ img {
   width: 100%;
   max-width: 1440px;
   height: 90px;
-  margin: 3px auto 0;
+  margin: 0 auto 0;
   padding: 0 60px;
   box-sizing: border-box;
   gap: 40px;
@@ -3844,7 +3886,7 @@ img {
 }
 
 .form-group.textarea-group {
-  height: auto; 
+  height: auto;
   min-height: 70px;
   width: 100%;
 }
@@ -4184,7 +4226,7 @@ img {
      HERO SECTION
      ================================================ -->
         <!-- Box By Industry Section -->
-        <section class="box-by-industry{{ $isGiftBoxesPage ? ' gift-boxes-page' : '' }}" style="padding: 0 5% 0;">
+        <section class="box-by-industry{{ $isGiftBoxesPage ? ' gift-boxes-page' : '' }}">
             <div class="industry-hero-content">
                 <div class="industry-hero-left">
                     <div class="hero-breadcrumb">
@@ -4223,7 +4265,7 @@ img {
                         @if(!empty($value[0]->hero_desc))
                             {{ $value[0]->hero_desc }}
                         @elseif(!empty($value[0]->description))
-                            {!! strip_tags($value[0]->description) !!}
+                            {{ Str::limit(strip_tags($value[0]->description), 300) }}
                         @else
                             Tailor-made packaging solutions designed to reflect the unique demands of your industry. From opulent jewellery boxes and luxury retail packaging to sleek tech solutions, we combine premium craftsmanship, functionality, and attention to detail to elevate your brand and create a memorable unboxing experience.
                         @endif
