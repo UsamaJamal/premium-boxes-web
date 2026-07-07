@@ -507,17 +507,20 @@ vertical-align: middle;
         <div class="qu-form-wrapper">
             <h2 class="qu-form-title">Tell Us About Your Project</h2>
 
-            <form class="qu-form" id="quoteForm">
+            <form class="qu-form" id="quoteForm" action="{{ url('submit-quote') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" name="source" value="Request quote page">
+                <input type="hidden" name="page_url" value="{{ url()->current() }}">
 
                 <!-- Name + Email -->
                 <div class="qu-row qu-row-d2">
                     <div class="qu-field">
                         <label>Name <span class="qu-req">*</span></label>
-                        <input type="text" placeholder="Enter your name">
+                        <input type="text" name="name" placeholder="Enter your name" required>
                     </div>
                     <div class="qu-field">
                         <label>Email Address <span class="qu-req">*</span></label>
-                        <input type="email" placeholder="Enter your email">
+                        <input type="email" name="email" placeholder="Enter your email" required>
                     </div>
                 </div>
 
@@ -525,11 +528,11 @@ vertical-align: middle;
                 <div class="qu-row qu-row-d2">
                     <div class="qu-field">
                         <label>Phone <span class="qu-req">*</span></label>
-                        <input type="tel" placeholder="Enter your number">
+                        <input type="tel" name="phone" placeholder="Enter your number" required>
                     </div>
                     <div class="qu-field">
                         <label>Physical Address</label>
-                        <input type="text" placeholder="Enter your address">
+                        <input type="text" name="address" placeholder="Enter your address">
                     </div>
                 </div>
 
@@ -537,19 +540,19 @@ vertical-align: middle;
                 <div class="qu-row qu-row-4">
                     <div class="qu-field">
                         <label>Width <span class="qu-req">*</span></label>
-                        <input type="number" placeholder="Width">
+                        <input type="number" name="width" placeholder="Width" required>
                     </div>
                     <div class="qu-field">
                         <label>Length <span class="qu-req">*</span></label>
-                        <input type="number" placeholder="Length">
+                        <input type="number" name="length" placeholder="Length" required>
                     </div>
                     <div class="qu-field">
                         <label>Depth <span class="qu-req">*</span></label>
-                        <input type="number" placeholder="Depth">
+                        <input type="number" name="depth" placeholder="Depth" required>
                     </div>
                     <div class="qu-field">
                         <label>Units <span class="qu-req">*</span></label>
-                        <select>
+                        <select name="unit" required>
                             <option>Inch</option>
                             <option>cm</option>
                             <option selected>mm</option>
@@ -574,7 +577,7 @@ vertical-align: middle;
                     </div>
                     <div class="qu-field">
                         <label>Color Options</label>
-                        <select>
+                        <select name="color_options">
                             <option value="">Choose option</option>
                             <option>CMYK</option>
                             <option>PMS</option>
@@ -583,7 +586,7 @@ vertical-align: middle;
                     </div>
                     <div class="qu-field">
                         <label>Select Product Name</label>
-                        <select>
+                        <select name="product_name">
                             <option value="">Choose option</option>
                             <option>Foil Stamping</option>
                             <option>Embossing</option>
@@ -597,14 +600,14 @@ vertical-align: middle;
                 <div class="qu-row qu-row-2">
                     <div class="qu-field">
                         <label>Quantity <span class="qu-req">*</span></label>
-                        <input type="number" placeholder="Enter quantity">
+                        <input type="number" name="quantity" placeholder="Enter quantity" required>
                     </div>
                     <div class="qu-field">
                         <label>Upload File Here</label>
                         <div class="qu-upload-wrap">
                             <span class="qu-file-name" id="fileName">No file choosen</span>
                             <label for="fileInput" class="qu-upload-btn">Upload</label>
-                            <input type="file" id="fileInput" hidden>
+                            <input type="file" name="artwork" id="fileInput" hidden>
                         </div>
                     </div>
                 </div>
@@ -612,7 +615,7 @@ vertical-align: middle;
                 <!-- Message -->
                 <div class="qu-field">
                     <label>Message</label>
-                    <textarea placeholder="Enter your message"></textarea>
+                    <textarea name="message" placeholder="Enter your message"></textarea>
                 </div>
 
                 <div class="qu-submit-row">
@@ -704,23 +707,7 @@ if (quoteForm) {
     quoteForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        const btn = quoteForm.querySelector('.qu-btn');
-        const originalText = btn.textContent;
-
-        btn.textContent = '✓ Quote Request Sent!';
-        btn.style.backgroundColor = '#4caf50';
-        btn.disabled = true;
-
-        setTimeout(() => {
-            btn.textContent = originalText;
-            btn.style.backgroundColor = '';
-            btn.disabled = false;
-            quoteForm.reset();
-            if (fileName) {
-                fileName.textContent = 'No file chosen';
-                fileName.style.color = '#555555';
-            }
-        }, 3000);
+        quoteForm.submit();
     });
 }
 

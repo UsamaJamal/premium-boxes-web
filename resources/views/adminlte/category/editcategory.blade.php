@@ -122,7 +122,7 @@
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Robots Tag</label>
                     <div class="col-sm-9">
-                    <input id="robots" type="text" class="form-control" placeholder="e.g. index, follow" name="robots" value="{{$value[0]->robots}}">
+                    <input id="robots" type="text" class="form-control" placeholder="e.g. index, follow" name="robots" value="{{ $value[0]->robots ?? 'index, follow' }}">
                   </div>
                   </div>
 
@@ -436,4 +436,3 @@ function removeFaqRow(btn) {
 }
 </script>
 @include('adminlte/footer')
-

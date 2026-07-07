@@ -3763,45 +3763,48 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="quote-form-col">
                     <h2>Request a Free Quote</h2>
 
-                    <form class="instant-quote-form">
+                    <form class="instant-quote-form" action="{{ url('submit-quote') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="source" value="All categories quote form">
+                        <input type="hidden" name="page_url" value="{{ url()->current() }}">
                         <div class="form-row dual-grid">
                             <div class="form-group">
                                 <label>Name *</label>
-                                <input type="text" placeholder="Enter your name" required>
+                                <input type="text" name="name" placeholder="Enter your name" required>
                             </div>
                             <div class="form-group">
                                 <label>Email Address *</label>
-                                <input type="email" placeholder="Enter your email" required>
+                                <input type="email" name="email" placeholder="Enter your email" required>
                             </div>
                         </div>
 
                         <div class="form-row dual-grid">
                             <div class="form-group">
                                 <label>Phone *</label>
-                                <input type="tel" placeholder="Enter your number" required>
+                                <input type="tel" name="phone" placeholder="Enter your number" required>
                             </div>
                             <div class="form-group">
                                 <label>Physical Address</label>
-                                <input type="text" placeholder="Enter your address">
+                                <input type="text" name="address" placeholder="Enter your address">
                             </div>
                         </div>
 
                         <div class="form-row dimensions-grid">
                             <div class="form-group">
                                 <label>Width *</label>
-                                <input type="text" placeholder="Width" required>
+                                <input type="text" name="width" placeholder="Width" required>
                             </div>
                             <div class="form-group">
                                 <label>Length *</label>
-                                <input type="text" placeholder="Length" required>
+                                <input type="text" name="length" placeholder="Length" required>
                             </div>
                             <div class="form-group">
                                 <label>Depth *</label>
-                                <input type="text" placeholder="Depth" required>
+                                <input type="text" name="depth" placeholder="Depth" required>
                             </div>
                             <div class="form-group">
                                 <label>Units *</label>
-                                <select required>
+                                <select name="unit" required>
                                     <option value="mm">mm</option>
                                     <option value="cm">cm</option>
                                     <option value="inch">inch</option>
@@ -3825,13 +3828,13 @@ document.addEventListener("DOMContentLoaded", function() {
                             </div>
                             <div class="form-group">
                                 <label>Color Options</label>
-                                <select>
+                                <select name="color_options">
                                     <option value="">Choose option</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Select Product Name</label>
-                                <select>
+                                <select name="product_name">
                                     <option value="">Choose option</option>
                                 </select>
                             </div>
@@ -3840,20 +3843,20 @@ document.addEventListener("DOMContentLoaded", function() {
                         <div class="form-row dual-grid align-end">
                             <div class="form-group">
                                 <label>Quantity *</label>
-                                <input type="number" placeholder="Enter quantity" required>
+                                <input type="number" name="quantity" placeholder="Enter quantity" required>
                             </div>
                             <div class="form-group">
                                 <label>Upload File Here</label>
                                 <div class="file-upload-wrapper">
                                     <input type="text" placeholder="No file choosen" readonly>
-                                    <label class="upload-btn">Upload <input type="file" style="display:none;"></label>
+                                    <label class="upload-btn">Upload <input type="file" name="artwork" style="display:none;"></label>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group textarea-group">
                             <label>Message</label>
-                            <textarea placeholder="Enter your message" rows="4"></textarea>
+                            <textarea name="message" placeholder="Enter your message" rows="4"></textarea>
                         </div>
 
                         <button type="submit" class="submit-quote-btn">Instant Quote</button>
@@ -4078,12 +4081,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Success state - you can add custom success message UI here if needed
             
-            quoteForm.reset();
-            requiredFields.forEach(field => field.style.border = ""); // reset borders
-
-            if (typeof fileNameField !== 'undefined' && fileNameField) {
-                fileNameField.value = "No file chosen";
-            }
+            quoteForm.submit();
         });
     }
     
@@ -4289,12 +4287,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Success state - you can add custom success message UI here if needed
             
-            quoteForm.reset();
-            requiredFields.forEach(field => field.style.border = ""); // reset borders
-
-            if (typeof fileNameField !== 'undefined' && fileNameField) {
-                fileNameField.value = "No file chosen";
-            }
+            quoteForm.submit();
         });
     }
     

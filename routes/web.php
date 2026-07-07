@@ -353,6 +353,7 @@ Route::post('contact-mail', 'HomeController@contact_mail');
 Route::post('subscribe-email', 'HomeController@subscribe_email');
 
 Route::post('product-mail', 'HomeController@product_mail');
+Route::post('submit-quote', 'HomeController@submitQuote');
 
 Route::post('track-your-orders', 'HomeController@TrackOrdermail');
 
@@ -437,4 +438,3 @@ Route::post('user-image-update','UserLogin@EditUserImage');
 
 
                     // Web Controller End
-

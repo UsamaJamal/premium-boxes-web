@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Session;
+use Schema;
 class AdminCategoryController extends Controller
 {
    public function __construct()
@@ -34,8 +35,7 @@ class AdminCategoryController extends Controller
   'meta_title' => $request->post('mtitle'),
    'meta_description' => $request->post('mdescription'),
    'meta_tags' => $request->post('mtags'),
-   'robots' => $request->post('robots'),
-   'description' => $request->post('ckeditor'),
+	   'description' => $request->post('ckeditor'),
    'parent_category' => $request->post('parentcategory'),
    'status' => $request->post('status'),
    'show_home' => $request->post('show_home'),
@@ -45,8 +45,11 @@ class AdminCategoryController extends Controller
    'why_choose_title' => $request->post('why_choose_title'),
    'why_choose_desc' => $request->post('why_choose_desc'),
    'image_badge' => $request->post('image_badge'),
-   'show_in_nav' => $request->has('show_in_nav') ? 1 : 0,
-];
+	   'show_in_nav' => $request->has('show_in_nav') ? 1 : 0,
+	];
+    if (Schema::hasColumn('add_category', 'robots')) {
+        $data['robots'] = $request->post('robots');
+    }
 
 // print_r($data);
 // die();
@@ -207,8 +210,7 @@ public function addcategory(Request $request) {
   'meta_title' => $request->post('mtitle'),
    'meta_description' => $request->post('mdescription'),
    'meta_tags' => $request->post('mtags'),
-   'robots' => $request->post('robots'),
-   'description' => $request->post('ckeditor'),
+	   'description' => $request->post('ckeditor'),
    'image' => $request->post('image'),
    'icon' => $request->post('icon'),
    'bimage' => $request->post('bimage'),
@@ -219,8 +221,11 @@ public function addcategory(Request $request) {
    'why_choose_title' => $request->post('why_choose_title'),
    'why_choose_desc' => $request->post('why_choose_desc'),
    'image_badge' => $request->post('image_badge'),
-   'show_in_nav' => $request->has('show_in_nav') ? 1 : 0,
-];
+ 'show_in_nav' => $request->has('show_in_nav') ? 1 : 0,
+	];
+    if (Schema::hasColumn('add_category', 'robots')) {
+        $data['robots'] = $request->post('robots');
+    }
 
 if($request->hasfile('image')){
                     $file=$request->file('image');

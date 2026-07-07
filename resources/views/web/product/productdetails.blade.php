@@ -582,9 +582,11 @@ a { text-decoration: none; color: inherit; }
                     <!-- Quote Form -->
                     <div class="product-quote-box">
                         <h3 class="product-quote-title">Get Custom Quote</h3>
-                        <form class="product-quote-form" id="quoteform" method="post" action="{{ url('product-mail') . '/' }}">
+                        <form class="product-quote-form" id="quoteform" method="post" action="{{ url('product-mail') . '/' }}" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="p_boxname" value="{{ $p->title }}">
+                            <input type="hidden" name="source" value="Product detail custom quote">
+                            <input type="hidden" name="page_url" value="{{ url()->current() }}">
 
                             <!-- Row 1: First Name | Last Name -->
                             <div class="product-form-row product-form-row-options">
@@ -1107,6 +1109,8 @@ a { text-decoration: none; color: inherit; }
                     <h2 class="iq-title">Instant Quotes, Quick Service</h2>
                     <form action="{{ url('submit-quote') }}" method="POST" class="iq-form" enctype="multipart/form-data">
                         @csrf
+                        <input type="hidden" name="source" value="Product detail instant quote">
+                        <input type="hidden" name="page_url" value="{{ url()->current() }}">
                         <div class="iq-row">
                             <div class="iq-group">
                                 <label>Name *</label>
@@ -1404,7 +1408,5 @@ document.querySelectorAll('.cust-tab-btn').forEach(btn => {
 </script>
 
 @include('web/footer')
-
-
 
 
