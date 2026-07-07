@@ -2639,7 +2639,7 @@ img {
 
 .pg-step-item:last-child {
     border-bottom: none;
-}cca
+}
 
 .pg-accordion-btn {
     pointer-events: all;
@@ -3451,7 +3451,7 @@ img {
   align-items: center;
   flex-wrap: wrap;
   gap: 6px;
-  padding: 10px 40px 0 90px;
+  padding: 40px 40px 0 90px;
   color: #a0a0a0;
   font-size: 0.85rem;
   line-height: 1.5;
@@ -4906,7 +4906,7 @@ img {
                                     $materialCategory = DB::table('add_category')->where('name', 'Box by Material')->first();
                                     $materials = $materialCategory ? DB::table('add_category')->where('parent_category', $materialCategory->cat_id)->where('status', 1)->get() : collect([]);
                                 @endphp
-                                <select name="material" class="form-control" style="background: #111; color: white; border: 1px solid #222;">
+                                <select name="material">
                                     <option value="">Select Material</option>
                                     @foreach($materials as $material)
                                         <option value="{{ $material->name }}">{{ $material->name }}</option>

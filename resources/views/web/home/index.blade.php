@@ -4159,16 +4159,12 @@ section + section {
   max-width: 693px;
 }
 .triple-grid {
-  grid-template-columns: repeat(4, 1fr);
-  max-width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 692px;
 }
 .quantity-upload-grid {
   grid-template-columns: repeat(2, 1fr);
   max-width: 691.13px;
-}
-.options-grid-custom {
-  grid-template-columns: repeat(4, 1fr);
-  max-width: 100%;
 }
 .form-group {
   display: flex;
@@ -4319,7 +4315,7 @@ section + section {
 }
 
 .human-answer {
-  width: 80px;
+  width: 90px;
   height: 38px;
   background-color: var(--bg-darker);
   border: 1px solid rgba(255, 255, 255, 0.2);
