@@ -217,12 +217,7 @@
               border: none;
               background-color: #241d6b;
               color: #fff;
-            }
-            .btn-top:hover
-            {
-              background-color: #ff4328;
-              color: #fff;
-            }
+            }/* removed hover: .btn-top:hover { ... } */
             .card-header h5
             {
               float: left;

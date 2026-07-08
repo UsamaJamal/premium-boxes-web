@@ -275,8 +275,7 @@ color:#C5C5C5;
     align-self: flex-end;
     transition: background 0.2s, transform 0.15s;
     font-family: inherit;
-}
-.contact-send-btn:hover { background: #f5cc55; transform: translateY(-1px); }
+}/* removed hover: .contact-send-btn:hover { ... } */
 
 .contact-form-img {
     display: flex;
@@ -804,12 +803,7 @@ document.addEventListener('DOMContentLoaded', () => {
     white-space: nowrap;
     width: fit-content;
     text-decoration: none;
-}
-
-.cp-cta-banner-btn:hover {
-    background: #e0a800;
-    transform: translateY(-2px);
-}
+}/* removed hover: .cp-cta-banner-btn:hover { ... } */
 
 .cp-cta-banner-imgs {
     position: relative;

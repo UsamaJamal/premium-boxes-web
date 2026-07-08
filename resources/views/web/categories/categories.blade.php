@@ -640,12 +640,7 @@ img {
     flex: 1 1 130px;
     max-width: 200px;
   }
-}
-
-.filter-btn:hover {
-  background: #f5c542;
-  color: #111;
-}
+}/* removed hover: .filter-btn:hover { ... } */
 
 .filter-btn.active {
   background: #f5c542;
@@ -1352,12 +1347,7 @@ img {
     align-items: center;
     justify-content: center;
     transition: border-color 0.2s, color 0.2s;
-}
-
-.cp-testi-btn:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-}
+}/* removed hover: .cp-testi-btn:hover { ... } */
 
 /* Responsive */
 @media (max-width: 1024px) {
@@ -1518,12 +1508,7 @@ img {
     align-items: center;
     justify-content: center;
     transition: border-color 0.2s, color 0.2s;
-}
-
-.cp-testi-btn:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-}
+}/* removed hover: .cp-testi-btn:hover { ... } */
 
 /* Responsive */
 @media (max-width: 900px) {
@@ -1626,14 +1611,8 @@ img {
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
-}
-
-.product-filter-btn:hover,
-.product-filter-btn.active {
-    background-color: var(--product-gold);
-    color: #111;
-    border-color: var(--product-gold);
-}
+}/* removed hover: .product-filter-btn:hover,
+.product-filter-btn.active { ... } */
 
 .product-materials-grid {
     display: grid;
@@ -1790,12 +1769,7 @@ img {
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
-}
-
-.product-nav-btn:hover:not(:disabled) {
-    border-color: var(--product-gold);
-    color: var(--product-gold);
-}
+}/* removed hover: .product-nav-btn:hover:not(:disabled) { ... } */
 
 .product-nav-btn:disabled {
     opacity: 0.45;
@@ -1932,12 +1906,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.testimonial-nav button:hover {
-    border-color: var(--accent-gold);
-    color: var(--accent-gold);
-}
+}/* removed hover: .testimonial-nav button:hover { ... } */
 
 @media (max-width: 992px) {
     .testimonial-grid {
@@ -2141,11 +2110,7 @@ img {
     cursor: pointer;
     transition: background 0.2s;
     flex-shrink: 0;
-}
-
-.cq-upload-btn:hover {
-    background: #e0a800;
-}
+}/* removed hover: .cq-upload-btn:hover { ... } */
 
 .cq-field textarea {
     resize: none;
@@ -2168,12 +2133,7 @@ img {
     cursor: pointer;
     transition: background 0.2s, transform 0.2s;
     font-family: 'Inter', sans-serif;
-}
-
-.cq-submit-btn:hover {
-    background: #e0a800;
-    transform: translateY(-2px);
-}
+}/* removed hover: .cq-submit-btn:hover { ... } */
 
 /* Responsive */
 @media (max-width: 1024px) {
@@ -2400,14 +2360,7 @@ img {
     border-radius: 50px;
     text-decoration: none;
     transition: background 0.2s, transform 0.2s;
-}
-
-.pg-cta-btn:hover {
-    background: #e0a800;
-    transform: translateY(-2px);
-    color: #111 !important;
-    text-decoration: none !important;
-}
+}/* removed hover: .pg-cta-btn:hover { ... } */
 
 /* Responsive */
 @media (max-width: 1024px) {
@@ -3202,11 +3155,7 @@ img {
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-.cp-newsletter-form button:hover {
-    background-color: var(--gold2);
-}
+}/* removed hover: .cp-newsletter-form button:hover { ... } */
 
 .cp-payment-methods {
     display: flex;
@@ -3556,11 +3505,7 @@ img {
   width: fit-content;
   flex-shrink: 0;
   margin-bottom: 0;
-}
-.btn-yellow:hover {
-  transform: translateY(-2px);
-  color: #000;
-}
+}/* removed hover: .btn-yellow:hover { ... } */
 .industry-hero-right {
   min-width: 0;
   display: flex;
@@ -4087,11 +4032,7 @@ img {
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s;
-}
-
-.submit-quote-btn:hover {
-  background-color: var(--accent-gold-hover);
-}
+}/* removed hover: .submit-quote-btn:hover { ... } */
 
 /* --- Inline Human Verification (Inside Form) --- */
 .human-verification-inline {
@@ -4164,11 +4105,7 @@ img {
   cursor: pointer;
   transition: background-color 0.2s;
   font-size: 14px;
-}
-
-.human-check-btn:hover {
-  background-color: var(--accent-gold-hover);
-}
+}/* removed hover: .human-check-btn:hover { ... } */
 
 .human-status {
   color: var(--text-muted);

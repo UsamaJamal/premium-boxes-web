@@ -123,12 +123,10 @@ a { text-decoration: none; color: inherit; }
 
 .product-upload-group { display: flex; gap: 0; width: 100%; }
 .product-upload-group input { flex: 1; min-width: 0; border-radius: 10px 0 0 10px !important; }
-.product-btn-upload { background-color: var(--product-gold); color: #111; border: none; border-radius: 0 10px 10px 0; padding: 0 22px; font-weight: 700; font-size: 15px; cursor: pointer; transition: background-color 0.3s ease; white-space: nowrap; flex-shrink: 0; }
-.product-btn-upload:hover { background-color: var(--product-gold-hover); }
+.product-btn-upload { background-color: var(--product-gold); color: #111; border: none; border-radius: 0 10px 10px 0; padding: 0 22px; font-weight: 700; font-size: 15px; cursor: pointer; transition: background-color 0.3s ease; white-space: nowrap; flex-shrink: 0; }/* removed hover: .product-btn-upload:hover { ... } */
 .product-quote-form textarea { resize: vertical; min-height: 100px; white-space: normal; overflow: auto; }
 .product-submit-wrap { display: flex; justify-content: center; margin-top: 18px; }
-.product-btn-primary { background-color: var(--product-gold); color: #111; border: none; border-radius: 50px; padding: 14px 40px; font-size: 16px; font-weight: 700; cursor: pointer; transition: background-color 0.3s ease; letter-spacing: 0.5px; }
-.product-btn-primary:hover { background-color: var(--product-gold-hover); }
+.product-btn-primary { background-color: var(--product-gold); color: #111; border: none; border-radius: 50px; padding: 14px 40px; font-size: 16px; font-weight: 700; cursor: pointer; transition: background-color 0.3s ease; letter-spacing: 0.5px; }/* removed hover: .product-btn-primary:hover { ... } */
 
 /* INFO TABS */
 .product-info-section { padding: 20px 0 40px; }
@@ -221,8 +219,7 @@ a { text-decoration: none; color: inherit; }
 .product-final-form textarea { width: 100%; max-width: 100%; background-color: #141414; border: 1px solid #333333; border-radius: 6px; padding: 7px 10px; color: #fff; font-family: var(--product-font); font-size: 11.5px; outline: none; resize: none; transition: border-color 0.25s; margin-bottom: 16px; box-sizing: border-box; }
 .product-final-form textarea::placeholder { color: #555; }
 .product-final-form textarea:focus { border-color: var(--product-gold); }
-.product-submit-btn { display: block; margin: 0 auto; background-color: var(--product-gold); color: #111111; border: none; border-radius: 50px; padding: 13px 36px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: var(--product-font); transition: background-color 0.25s, transform 0.2s; letter-spacing: 0.3px; min-width: 160px; }
-.product-submit-btn:hover { background-color: #e0bc60; transform: translateY(-2px); }
+.product-submit-btn { display: block; margin: 0 auto; background-color: var(--product-gold); color: #111111; border: none; border-radius: 50px; padding: 13px 36px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: var(--product-font); transition: background-color 0.25s, transform 0.2s; letter-spacing: 0.3px; min-width: 160px; }/* removed hover: .product-submit-btn:hover { ... } */
 .product-final-quote-image { background-color: #1e1e1e; display: flex; align-items: center; justify-content: center; border-left: 1px solid var(--product-border); width: 323px; flex-shrink: 0; padding: 24px 32px; }
 .product-placeholder-img { margin-left: -92px; width: 220px; height: 260px; background-color: #2a2a2a; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; color: rgba(255,255,255,0.25); font-weight: 500; flex-shrink: 0; overflow: hidden; }
 .product-placeholder-img img { width: 100%; height: 100%; object-fit: cover; }
@@ -241,8 +238,7 @@ a { text-decoration: none; color: inherit; }
 .iq-group input:focus, .iq-group select:focus, .iq-group textarea:focus { border-color: var(--product-gold); }
 .iq-group textarea { resize: vertical; min-height: 80px; }
 .iq-submit { margin-top: 10px; display: flex; justify-content: flex-start; }
-.iq-btn { background-color: var(--product-gold); color: #111; font-weight: 700; padding: 12px 40px; border-radius: 50px; border: none; font-size: 14px; cursor: pointer; transition: background-color 0.3s; width: 100%; max-width: 250px; text-align: center; }
-.iq-btn:hover { background-color: var(--product-gold-hover); }
+.iq-btn { background-color: var(--product-gold); color: #111; font-weight: 700; padding: 12px 40px; border-radius: 50px; border: none; font-size: 14px; cursor: pointer; transition: background-color 0.3s; width: 100%; max-width: 250px; text-align: center; }/* removed hover: .iq-btn:hover { ... } */
 .iq-image-wrap { background-color: #333333; border-radius: 8px; width: 100%; aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; color: #111; font-size: 24px; font-weight: 700; }
 
 /* Section headings */
@@ -388,8 +384,7 @@ a { text-decoration: none; color: inherit; }
 .review-form-group input:focus, .review-form-group textarea:focus { border-color: var(--product-gold); }
 .review-form-group textarea { resize: vertical; min-height: 100px; }
 .review-submit-wrap { display: flex; justify-content: center; margin-top: 10px; }
-.review-submit-btn { background-color: #F8C346; color: #111; border: none; border-radius: 50px; padding: 12px 50px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s; min-width: 200px; }
-.review-submit-btn:hover { background-color: #e3b036; transform: translateY(-2px); }
+.review-submit-btn { background-color: #F8C346; color: #111; border: none; border-radius: 50px; padding: 12px 50px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s; min-width: 200px; }/* removed hover: .review-submit-btn:hover { ... } */
 
 /* Review Layout & Cards */
 .review-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
@@ -403,8 +398,7 @@ a { text-decoration: none; color: inherit; }
 .review-author { font-size: 18px; font-weight: 700; color: var(--product-gold); margin-bottom: 5px; }
 .review-title { font-size: 13px; color: rgba(255,255,255,0.5); }
 .review-controls { display: flex; justify-content: center; gap: 15px; margin-top: 15px; }
-.review-btn { width: 45px; height: 45px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; }
-.review-btn:hover { border-color: var(--product-gold); color: var(--product-gold); }
+.review-btn { width: 45px; height: 45px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; }/* removed hover: .review-btn:hover { ... } */
 
 @media (max-width: 960px) {
     .review-layout { grid-template-columns: 1fr; gap: 80px; }

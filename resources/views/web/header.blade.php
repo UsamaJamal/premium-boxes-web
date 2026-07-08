@@ -626,9 +626,7 @@ form.example button {
 
             <!-- Get Instant Quote -->
             <a href="{{ url('request-quote') }}"
-                style="background-color: #f5c542; color: #111; font-size: 14px; font-weight: 800; padding: 10px 22px; border-radius: 50px; text-decoration: none; white-space: nowrap; transition: background 0.2s;"
-                onmouseover="this.style.backgroundColor='#d4891a'"
-                onmouseout="this.style.backgroundColor='#f5c542'">
+                style="background-color: #f5c542; color: #111; font-size: 14px; font-weight: 800; padding: 10px 22px; border-radius: 50px; text-decoration: none; white-space: nowrap; transition: background 0.2s;">
                 Get Instant Quote
             </a>
         </div>
@@ -725,7 +723,7 @@ form.example button {
         <a href="{{ url('blogs') }}" style="display: block; color: #cccccc; text-decoration: none; font-size: 16px; padding: 15px 0; border-bottom: 1px solid #333333;">Blogs</a>
 
         <div style="margin-top: auto; padding-top: 30px; padding-bottom: 20px;">
-            <a href="{{ url('get-quote') }}" style="display: block; width: 100%; text-align: center; background-color: #f5c542; color: #1a1a1a; font-weight: 700; font-size: 16px; padding: 14px 0; border-radius: 50px; text-decoration: none; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+            <a href="{{ url('get-quote') }}" style="display: block; width: 100%; text-align: center; background-color: #f5c542; color: #1a1a1a; font-weight: 700; font-size: 16px; padding: 14px 0; border-radius: 50px; text-decoration: none; transition: opacity 0.2s;">
                 Get Instant Quote
             </a>
         </div>

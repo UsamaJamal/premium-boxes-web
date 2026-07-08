@@ -270,16 +270,7 @@ color: #C5C5C5;
     transition: background-color 0.25s ease, color 0.25s ease,
                 border-color 0.25s ease, box-shadow 0.25s ease,
                 transform 0.25s ease;
-}
-
-.faq-filter-btn:hover {
-    background-color: #F5C542;
-    color: #0d0d0d;
-    border-color: #F5C542;
-
-    box-shadow: 0 4px 16px rgba(201, 168, 76, 0.35);
-    transform: translateY(-3px);
-}
+}/* removed hover: .faq-filter-btn:hover { ... } */
 
 .faq-filter-btn.active {
     background-color: #F5C542;
@@ -1024,12 +1015,7 @@ foreach($parts as $part) {
     white-space: nowrap;
     width: fit-content;
     text-decoration: none;
-}
-
-.cp-cta-banner-btn:hover {
-    background: #e0a800;
-    transform: translateY(-2px);
-}
+}/* removed hover: .cp-cta-banner-btn:hover { ... } */
 
 .cp-cta-banner-imgs {
     position: relative;

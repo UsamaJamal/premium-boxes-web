@@ -268,8 +268,7 @@ vertical-align: middle;
     white-space: nowrap;
     transition: background-color .25s;
     font-family: inherit;
-}
-.qu-upload-btn:hover { background-color: #e0bc60; }
+}/* removed hover: .qu-upload-btn:hover { ... } */
 
 /* ── SUBMIT BUTTON ───────────────────────── */
 .qu-submit-row { display: flex; justify-content: center; margin-top: 10px; }
@@ -287,12 +286,7 @@ vertical-align: middle;
     font-family: inherit;
     letter-spacing: .5px;
     transition: background-color .25s, transform .25s, box-shadow .25s;
-}
-.qu-btn:hover {
-    background-color: #e0bc60;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(201,168,76,.4);
-}
+}/* removed hover: .qu-btn:hover { ... } */
 
 /* ── WHY CHOOSE US ────────────────────────── */
 .qu-why-section {

@@ -184,14 +184,7 @@ body{
     font-size: 12px;
     text-decoration: none;
     transition: background-color 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
-}
-
-.bp-share-btn:hover {
-    background-color: var(--bp-gold);
-    border-color: var(--bp-gold);
-    color: #000;
-    transform: translateY(-2px);
-}
+}/* removed hover: .bp-share-btn:hover { ... } */
 
 .bp-desc {
     font-size: 18px;
@@ -601,10 +594,7 @@ body{
     height: 44px;
     width: 39%;
     flex-shrink: 0;
-}
-.bp-quote-upload-btn:hover {
-    background-color: #E0BC60;
-}
+}/* removed hover: .bp-quote-upload-btn:hover { ... } */
 .bp-quote-buttons { display: flex; gap: 14px; margin-top: 8px; }
 .bp-quote-btn {
     flex: 1;
@@ -794,12 +784,7 @@ body{
         font-size: 4vw;
         text-decoration: none;
         transition: all 0.2s;
-    }
-    .bp-mob-share-btn:hover {
-        background-color: #c9a84c;
-        border-color: #c9a84c;
-        color: #000;
-    }
+    }/* removed hover: .bp-mob-share-btn:hover { ... } */
     
     .bp-mob-image { 
         width: 100vw !important;

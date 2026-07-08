@@ -149,11 +149,7 @@
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-/* .cp-newsletter-form button:hover {
-    background-color: var(--gold2);
-} */
+}/* removed hover: /* .cp-newsletter-form button:hover { ... } */ */
 
 .cp-payment-methods {
     display: flex;

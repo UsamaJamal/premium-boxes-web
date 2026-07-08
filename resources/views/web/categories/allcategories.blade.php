@@ -91,12 +91,7 @@ h3 {
 .btn-primary {
   background-color: var(--accent-gold);
   color: var(--bg-darker);
-}
-
-.btn-primary:hover {
-  background-color: var(--accent-gold-hover);
-  transform: translateY(-2px);
-}
+}/* removed hover: .btn-primary:hover { ... } */
 
 Top Bar .top-bar {
   background-color: var(--bg-darker);
@@ -747,14 +742,8 @@ Top Bar .top-bar {
   font-size: 0.95rem;
   cursor: pointer;
   transition: all 0.3s ease;
-}
-
-.filter-btn:hover,
-.filter-btn.active {
-  background-color: var(--accent-gold);
-  color: var(--bg-darker);
-  border-color: var(--accent-gold);
-}
+}/* removed hover: .filter-btn:hover,
+.filter-btn.active { ... } */
 
 .categories-grid {
   display: grid;
@@ -852,14 +841,8 @@ Top Bar .top-bar {
   transition: all 0.3s ease;
   font-family: var(--font-heading);
   font-weight: 500;
-}
-
-.page-btn:hover,
-.page-btn.active {
-  background-color: var(--accent-gold);
-  color: var(--bg-darker);
-  border-color: var(--accent-gold);
-}
+}/* removed hover: .page-btn:hover,
+.page-btn.active { ... } */
 
 /* Box By Industry Section */
 .main-container {
@@ -935,12 +918,7 @@ body {
   font-family: var(--font-body);
   display: inline-block;
   transition: transform 0.3s ease;
-}
-
-.btn-yellow:hover {
-  transform: translateY(-2px);
-  color: #000;
-}
+}/* removed hover: .btn-yellow:hover { ... } */
 
 .industry-hero-right {
   flex: 1;
@@ -1155,12 +1133,7 @@ body {
   font-family: var(--font-body);
   font-weight: 600;
   transition: transform 0.3s ease;
-}
-
-.btn-gold:hover {
-  transform: translateY(-2px);
-  color: #000;
-}
+}/* removed hover: .btn-gold:hover { ... } */
 
 .commitment-right {
   flex: 1;
@@ -1463,12 +1436,7 @@ body {
   justify-content: center;
   text-align: center;
   padding: 0 4px;
-}
-
-.filter-btn:hover {
-  background: var(--accent-gold);
-  color: var(--bg-darker);
-}
+}/* removed hover: .filter-btn:hover { ... } */
 
 .filter-btn.active {
   background: var(--accent-gold);
@@ -1876,13 +1844,8 @@ body {
   cursor: pointer;
   transition: all 0.2s ease;
   padding: 0;
-}
-
-/* Hover effects for interacting with arrows on Desktop viewports */
-.nav-btn:hover {
-  background: rgba(245, 197, 66, 0.1);
-  border-color: var(--accent-gold);
-}
+}/* removed hover: /* Hover effects for interacting with arrows on Desktop viewports */
+.nav-btn:hover { ... } */
 
 .nav-btn:active {
   background: var(--text-muted);
@@ -2206,11 +2169,7 @@ body {
   box-sizing: border-box;
   gap: 10px;
   transition: opacity 0.2s;
-}
-
-.chat-expert-btn:hover {
-  opacity: 0.9;
-}
+}/* removed hover: .chat-expert-btn:hover { ... } */
 
 /* --- Responsive Media Viewport Parameters --- */
 @media (max-width: 1200px) {
@@ -2525,11 +2484,7 @@ body {
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s;
-}
-
-.submit-quote-btn:hover {
-  background-color: var(--accent-gold-hover);
-}
+}/* removed hover: .submit-quote-btn:hover { ... } */
 
 /* --- Responsive Adaptations --- */
 @media (max-width: 992px) {
@@ -2668,11 +2623,7 @@ body {
   padding: 12px 20px;
   box-sizing: border-box;
   transition: background-color 0.2s;
-}
-
-.elevate-quote-btn:hover {
-  background-color: var(--accent-gold-hover);
-}
+}/* removed hover: .elevate-quote-btn:hover { ... } */
 
 /* --- Image Column (Displays Right on Desktop) --- */
 .elevate-image-col {

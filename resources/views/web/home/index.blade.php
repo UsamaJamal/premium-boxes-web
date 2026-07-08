@@ -94,15 +94,7 @@ h3 {
 }
 .hero-buttons a {
   border-radius: 50px;
-}
-
-.btn-primary:hover {
-  background-color: var(--accent-gold-hover);
-  color: var(--bg-darker);
-  transform: translateY(-2px);
-  box-shadow: none;
-  outline: none;
-}
+}/* removed hover: .btn-primary:hover { ... } */
 
 .btn-primary:focus,
 .btn-primary:active,
@@ -613,12 +605,7 @@ h3 {
   background: transparent;
   transition: all 0.3s ease;
   cursor: pointer;
-}
-
-.btn-outline:hover {
-  background: var(--accent-gold);
-  color: var(--bg-darker);
-}
+}/* removed hover: .btn-outline:hover { ... } */
 
 .home-hero-images {
   flex: 1;
@@ -1760,11 +1747,7 @@ h3 {
   justify-content: center;
   transition: background-color 0.2s;
   text-decoration: none;
-}
-
-.submit-quote-btn:hover {
-  background-color: var(--accent-gold-hover);
-}
+}/* removed hover: .submit-quote-btn:hover { ... } */
 
 .human-verification-inline {
   width: 100%;
@@ -1836,11 +1819,7 @@ h3 {
   cursor: pointer;
   transition: background-color 0.2s;
   font-size: 14px;
-}
-
-.human-check-btn:hover {
-  background-color: var(--accent-gold-hover);
-}
+}/* removed hover: .human-check-btn:hover { ... } */
 
 .human-status {
   color: var(--text-muted);
@@ -2298,12 +2277,7 @@ h3 {
   background-color: var(--accent-gold);
   color: #000000;
   font-weight: 600;
-}
-
-.extraordinary-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(245, 197, 66, 0.25);
-}
+}/* removed hover: .extraordinary-btn:hover { ... } */
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -4024,13 +3998,7 @@ section + section {
     border-radius: 50px;
     text-decoration: none;
     transition: background 0.2s, transform 0.2s;
-}
-
-.pg-cta-btn:hover {
-    background: #e0a800;
-    transform: translateY(-2px);
-    color: #111;
-}
+}/* removed hover: .pg-cta-btn:hover { ... } */
 
 
 /* --- QUOTE SECTION --- */
@@ -4264,10 +4232,7 @@ section + section {
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s;
-}
-/* .submit-quote-btn:hover {
-  background-color: var(--accent-gold-hover);
-} */
+}/* removed hover: /* .submit-quote-btn:hover { ... } */ */
 /* --- Inline Human Verification (Inside Form) --- */
 .human-verification-inline {
   width: 100%;
@@ -4338,12 +4303,7 @@ section + section {
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s;
-}
-
-.human-check-btn:hover {
-  background-color: var(--accent-gold);
-  color: var(--bg-darker);
-}
+}/* removed hover: .human-check-btn:hover { ... } */
 
 .human-status {
   font-size: 13px;

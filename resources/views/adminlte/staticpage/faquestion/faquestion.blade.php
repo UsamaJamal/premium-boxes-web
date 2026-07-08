@@ -222,15 +222,7 @@ html {
     transition: background-color 0.25s ease, color 0.25s ease,
                 border-color 0.25s ease, box-shadow 0.25s ease,
                 transform 0.25s ease;
-}
-
-.faq-filter-btn:hover {
-    background-color: #c9a84c;
-    color: #0d0d0d;
-    border-color: #c9a84c;
-    box-shadow: 0 4px 16px rgba(201, 168, 76, 0.35);
-    transform: translateY(-3px);
-}
+}/* removed hover: .faq-filter-btn:hover { ... } */
 
 .faq-filter-btn.active {
     background-color: #c9a84c;

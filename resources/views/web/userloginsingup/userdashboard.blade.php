@@ -6,12 +6,7 @@
     background-color: #234376;
     color:#fff;
     border:none;
-  }
-  .dt-buttons .dt-button:hover {
-    background-color: #49d8f7 !important;
-    color:#fff;
-    border:none !important;
-  }
+  }/* removed hover: .dt-buttons .dt-button:hover { ... } */
   .global-plan-trigger
   {
       color:#fff;

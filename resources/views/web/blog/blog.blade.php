@@ -316,8 +316,7 @@ body {
     cursor: pointer;
     font-family: inherit;
     transition: background-color .25s;
-}
-.blog-quote-btn:hover { background-color: #e0bc60; }
+}/* removed hover: .blog-quote-btn:hover { ... } */
 .blog-quote-cancel {
     flex: 1;
     background-color: transparent;
@@ -356,8 +355,7 @@ body {
     align-items: center;
     gap: 8px;
     transition: border-color .25s, color .25s;
-}
-.blog-page-btn:hover { border-color: #F5C542; color: #F5C542; }
+}/* removed hover: .blog-page-btn:hover { ... } */
 
 .blog-page-numbers { display: flex; align-items: center; gap: 8px; }
 .blog-page-num {
