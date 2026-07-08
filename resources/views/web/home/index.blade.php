@@ -422,13 +422,12 @@ h3 {
   border: 1px solid rgba(245, 197, 66, 0.4);
   border-radius: 12px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
 }
 
 .process-card:hover {
-  transform: translateY(-5px);
   border-color: var(--accent-gold);
-  box-shadow: 0 10px 25px rgba(245, 197, 66, 0.2);
 }
 
 /* CTA Section */
@@ -760,24 +759,21 @@ h3 {
   background-color: var(--bg-card);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 16px;
-  transition:
-    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
 }
 
 .sector-card:hover {
-  transform: translateY(-8px);
   border-color: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
 .sector-img-placeholder {
   width: 100%;
   aspect-ratio: 1.1 / 1;
   background-color: #262626;
-  border-radius: 12px;
+  border-radius: 0;
   overflow: hidden;
   position: relative;
 }
@@ -792,8 +788,8 @@ h3 {
 }
 
 .sector-info {
-  padding: 16px 0 0 0;
-  text-align: center;
+  padding: 20px;
+  text-align: left;
 }
 
 .sector-info h3 {
@@ -807,7 +803,7 @@ h3 {
   font-family: var(--font-body);
   font-size: 0.875rem;
   color: var(--text-muted);
-  line-height: 1.5;
+  line-height: 1.3;
   font-weight: 400;
 }
 
@@ -1483,13 +1479,13 @@ h3 {
   border-radius: 12px;
   padding: 20px 20px;
   text-align: center;
-  transition: transform 0.3s ease, background 0.3s ease;
+  transition: background 0.3s ease;
+  cursor: pointer;
   margin: 0 auto;
   box-sizing: border-box;
 }
 
 .process-card:hover {
-  transform: translateY(-5px);
   background: #323232;
 }
 
@@ -1712,6 +1708,7 @@ h3 {
 
 .file-upload-wrapper {
   display: flex;
+  align-items: stretch;
   border: 0.2px solid #727272;
   border-radius: 8px;
   background-color: var(--bg-darker);
@@ -1720,31 +1717,35 @@ h3 {
   box-sizing: border-box;
 }
 
-.file-upload-wrapper input[type="text"],
-.file-upload-wrapper input:not([type="submit"]):not([type="button"]) {
-  border: none;
-  height: 100%;
-  background: transparent;
-  color: #fff;
-  padding: 0 12px;
-  outline: none;
+.file-upload-wrapper input[type="text"] {
+  border: none !important;
+  height: 100% !important;
+  background: transparent !important;
+  color: #fff !important;
+  padding: 0 12px !important;
+  outline: none !important;
+  flex: 1 !important;
+  width: auto !important;
+  box-sizing: border-box !important;
 }
 
 .upload-btn {
   background-color: var(--accent-gold) !important;
   color: var(--bg-darker) !important;
-  border: none;
+  border: none !important;
   outline: none;
   text-decoration: none;
   -webkit-appearance: none;
   appearance: none;
   font-weight: 700;
   padding: 0 20px;
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
   align-self: stretch;
   height: 100%;
+  min-width: 80px;
+  flex-shrink: 0;
   gap: 10px;
   cursor: pointer;
   font-size: 14px;
@@ -2543,7 +2544,31 @@ section + section {
     width: 100% !important;
   }
 
+  .sector-info {
+    padding: 12px !important;
+  }
+  .sector-title {
+    font-size: 13px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 6px !important;
+  }
+  .sector-info p {
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    margin-bottom: 0 !important;
+  }
+
   /* Content Structural Tweaks */
+  .premium-addons-section {
+    display: none !important;
+  }
   .cta-text {
     text-align: center;
     padding-bottom: 40px;
@@ -2911,19 +2936,23 @@ section + section {
   .home-hero .hero-buttons {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     gap: 12px;
     width: 100% !important;
   }
 
   .home-hero .hero-buttons .btn {
-    flex: 1 1 0;
+    flex: 0 1 auto;
     width: auto !important;
-    min-width: 0;
-    padding: 12px 8px;
-    border-radius: 999px;
-    font-size: 0.79rem;
+    min-width: 200px;
+    max-width: 80%;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
     line-height: 1.2;
     white-space: nowrap !important;
+    text-align: center;
+    margin: 0 auto;
   }
 
   .reviews-strip {
@@ -2976,13 +3005,9 @@ section + section {
     font-size: 1.7rem !important;
   }
 
-  .home-hero .hero-buttons {
-    gap: 8px;
-  }
-
-  .home-hero .hero-buttons .btn {
-    padding: 11px 6px;
-    font-size: 0.7rem;
+  .home-hero {
+    padding-top: 100px;
+    padding-bottom: 20px;
   }
 }
 
@@ -4191,6 +4216,7 @@ section + section {
 }
 .file-upload-wrapper {
   display: flex;
+  align-items: stretch;
   border: 0.2px solid #727272;
   border-radius: 6px;
   background-color: var(--bg-darker);
@@ -4198,30 +4224,37 @@ section + section {
   height: 38px;
   box-sizing: border-box;
 }
-.file-upload-wrapper input[type="text"],
-.file-upload-wrapper input:not([type="submit"]):not([type="button"]) {
-  border: none;
-  height: 100%;
-  background: transparent;
-  color: #fff;
-  padding: 0 12px;
-  outline: none;
+
+.file-upload-wrapper input[type="text"] {
+  border: none !important;
+  height: 100% !important;
+  background: transparent !important;
+  color: #fff !important;
+  padding: 0 12px !important;
+  outline: none !important;
+  flex: 1 !important;
+  width: auto !important;
+  box-sizing: border-box !important;
 }
+
+/* --- BULLETPROOF UPLOAD BUTTON --- */
 .upload-btn {
   background-color: var(--accent-gold) !important;
   color: var(--bg-darker) !important;
-  border: none;
+  border: none !important;
   outline: none;
   text-decoration: none;
   -webkit-appearance: none;
   appearance: none;
   font-weight: 700;
   padding: 0 16px;
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
   align-self: stretch;
   height: 100%;
+  min-width: 80px;
+  flex-shrink: 0;
   gap: 8px;
   cursor: pointer;
   font-size: 16px;
@@ -4229,6 +4262,7 @@ section + section {
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
 }
+
 .upload-btn::-webkit-file-upload-button {
   color: var(--bg-darker) !important;
   font-weight: 700 !important;
@@ -4366,15 +4400,15 @@ section + section {
   .quote-form-col {
     padding: 35px 20px;
   }
-  /* First 4 fields (Name, Email, Phone, Physical Address) - Full width in mobile */
-  .instant-quote-form > .form-row.dual-grid:nth-child(1),
-  .instant-quote-form > .form-row.dual-grid:nth-child(2) {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* All standalone form-groups stay full width */
+  /* Make first 3 fields full width on mobile */
   .instant-quote-form > .form-group {
     width: 100%;
+  }
+  .form-row.quote-mobile-full {
+    grid-template-columns: 1fr !important;
+  }
+  .hide-on-mobile {
+    display: none !important;
   }
 
   /* All other dual-grid rows stay 2x2 */
@@ -4461,7 +4495,10 @@ section + section {
                         </a>
                     </div>
                     <div class="sector-info">
-                        <span class="sector-title" style="display: block; font-size: 1.15rem; font-weight: 600;"><a href="{{ url('/'.$product->category_url) }}" style="color: inherit; text-decoration: none;">{{ $product->name }}</a></span>
+                        <span class="sector-title" style="display: block; font-size: 1.15rem; font-weight: 600; margin-bottom: 8px;"><a href="{{ url('/'.$product->category_url) }}" style="color: inherit; text-decoration: none;">{{ $product->feature_title ? $product->feature_title : $product->name }}</a></span>
+                        @if($product->feature_description)
+                            <p>{{ $product->feature_description }}</p>
+                        @endif
                     </div>
                 </div>
                 @endforeach
@@ -4707,7 +4744,7 @@ section + section {
                 @csrf
                 <input type="hidden" name="source" value="Home quote form">
                 <input type="hidden" name="page_url" value="{{ url()->current() }}">
-                <div class="form-row dual-grid">
+                <div class="form-row dual-grid quote-mobile-full">
                     <div class="form-group">
                         <label>Name *</label>
                         <input type="text" name="name" placeholder="Enter your name" required oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
@@ -4718,12 +4755,12 @@ section + section {
                     </div>
                 </div>
 
-                <div class="form-row dual-grid">
+                <div class="form-row dual-grid quote-mobile-full">
                     <div class="form-group">
                         <label>Phone *</label>
                         <input type="tel" name="phone" placeholder="Enter your number" required oninput="this.value = this.value.replace(/[^0-9+]/g, '')">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group hide-on-mobile">
                         <label>Physical Address</label>
                         <input type="text" name="address" placeholder="Enter your address">
                     </div>
@@ -4904,6 +4941,127 @@ section + section {
 })();
 </script>
 
+    <!-- Content and FAQs Section (Packaging Guide Layout) -->
+    <section class="guide-section" style="padding: 60px 0; background: var(--bg-main);">
+        <div class="container">
+            <!-- <div class="guide-badge" style="display: inline-block; border: 1px solid var(--accent-gold); color: var(--accent-gold); padding: 6px 16px; border-radius: 50px; font-size: 12px; font-weight: 600; letter-spacing: 1px; margin-bottom: 30px;">PACKAGING GUIDE</div> -->
+
+            <div class="guide-container">
+                <!-- Left Column: Content -->
+                <div class="guide-col-one guide-content">
+                    <style>
+                        .guide-container {
+                            display: grid;
+                            grid-template-columns: 1.2fr 1fr;
+                            gap: 60px;
+                            align-items: start;
+                        }
+                        .guide-col-one.guide-content {
+                            color: #fff;
+                            max-height: 600px;
+                            overflow-y: auto;
+                            padding-right: 20px;
+                        }
+                        @media (max-width: 991px) {
+                            .guide-container {
+                                grid-template-columns: 1fr;
+                                gap: 40px;
+                                padding-left: 15px;
+                                padding-right: 15px;
+                            }
+                            .guide-col-one.guide-content {
+                                max-height: none;
+                                overflow-y: visible;
+                                padding-right: 0;
+                            }
+                        }
+                        .guide-col-one.guide-content * {
+                            color: #ffffff !important;
+                        }
+                        .guide-col-one.guide-content h1 { font-size: 2.2rem !important; margin-bottom: 15px !important; font-weight: 700; line-height: 1.3; }
+                        .guide-col-one.guide-content h2 { font-size: 1.8rem !important; margin-bottom: 15px !important; font-weight: 700; line-height: 1.4; }
+                        .guide-col-one.guide-content h3 { font-size: 1.5rem !important; margin-bottom: 12px !important; font-weight: 600; line-height: 1.4; }
+                        .guide-col-one.guide-content h4 { font-size: 1.25rem !important; margin-bottom: 10px !important; font-weight: 600; line-height: 1.4; }
+                        .guide-col-one.guide-content p { font-size: 15px !important; line-height: 1.8 !important; margin-bottom: 15px !important; font-weight: 400; text-align: justify; }
+                        .guide-col-one.guide-content ul { margin-bottom: 15px !important; padding-left: 20px !important; }
+                        .guide-col-one.guide-content li { margin-bottom: 8px !important; font-size: 15px !important; line-height: 1.7 !important; }
+                        
+                        /* Custom Scrollbar for guide content */
+                        .guide-col-one::-webkit-scrollbar {
+                            width: 6px;
+                        }
+                        .guide-col-one::-webkit-scrollbar-track {
+                            background: rgba(255, 255, 255, 0.05); 
+                            border-radius: 10px;
+                        }
+                        .guide-col-one::-webkit-scrollbar-thumb {
+                            background: var(--accent-gold); 
+                            border-radius: 10px;
+                        }
+                        .guide-col-one::-webkit-scrollbar-thumb:hover {
+                            background: #d4af37; 
+                        }
+                        /* FAQ styling fixes */
+                        .pg-accordion-btn {
+                            padding: 15px 0 5px 0 !important;
+                        }
+                        .pg-accordion-body {
+                            padding-top: 0 !important; 
+                            padding-left: 0 !important;
+                        }
+                        .pg-accordion-body p {
+                            margin-top: 0 !important;
+                            margin-bottom: 10px !important;
+                            font-size: 14px !important;
+                            color: rgba(255, 255, 255, 0.7) !important;
+                        }
+                        .pg-accordion-body *:first-child {
+                            margin-top: 0 !important;
+                        }
+                        /* Hide empty tags that CKEditor might generate */
+                        .pg-accordion-body p:empty {
+                            display: none !important;
+                        }
+                        .pg-accordion-body br:first-child {
+                            display: none !important;
+                        }
+                    </style>
+                    @if(isset($viewonweb) && count($viewonweb) > 0)
+                        {!! $viewonweb[0]->description ?? '' !!}
+                    @endif
+                </div>
+
+                <!-- Right Column: FAQs / Steps -->
+                <div class="guide-col-two">
+                    <div class="pg-steps-box" style="background: #1a1a1a; border-radius: 12px; padding: 30px;">
+                        <h3 class="pg-steps-title" style="color: #ffffff; font-size: 20px; font-weight: 700; margin-bottom: 24px; font-family: var(--font-heading), sans-serif;">Frequently Asked Questions</h3>
+
+                        @if(isset($home_faqs) && count($home_faqs) > 0)
+                            @foreach($home_faqs as $faq)
+                            <div class="pg-step-item pg-accordion-item">
+                                <button class="pg-accordion-btn">
+                                    <span class="pg-accordion-q"><span style="color: var(--accent-gold); margin-right: 8px;">{{ $loop->iteration }}.</span> {{$faq->question}}</span>
+                                    <span class="pg-accordion-icon">+</span>
+                                </button>
+                                <div class="pg-accordion-body">
+                                    {!! $faq->answer !!}
+                                </div>
+                            </div>
+                            @endforeach
+                        @endif
+
+                        <!-- Help box -->
+                        <div class="pg-cta-box" style="background-color: var(--bg-darker); border-radius: 8px; padding: 24px; text-align: center; margin-top: 30px; border: 1px solid rgba(255,255,255,0.05);">
+                            <h4 class="pg-cta-title" style="color: #ffffff; font-size: 18px; font-weight: 700; margin-bottom: 8px; font-family: var(--font-heading), sans-serif;">Need help choosing?</h4>
+                            <p class="pg-cta-sub" style="color: rgba(255, 255, 255, 0.8); font-size: 13px; margin-bottom: 20px;">Our team responds within 2 hours</p>
+                            <a href="#" class="pg-cta-btn" style="display: inline-block; background-color: var(--accent-gold); color: #000000; font-weight: 600; font-size: 14px; padding: 12px 24px; border-radius: 40px; text-decoration: none; transition: background-color 0.2s;">Chat with an expert</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- <section class="custom-box-section">
         <div class="container">
             <div class="custom-box">
@@ -5044,6 +5202,8 @@ section + section {
         </div>
     </section> -->
 
+
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -5087,15 +5247,15 @@ if (fileInput) {
     });
 }
 //form submission
-    const fileInput = document.querySelector('input[type="file"]');
+    const quoteFileInput = document.querySelector('input[type="file"]');
     const fileNameField = document.querySelector(
         ".file-upload-wrapper input[type='text']"
     );
 
-    if (fileInput && fileNameField) {
-        fileInput.addEventListener("change", () => {
-            if (fileInput.files.length > 0) {
-                fileNameField.value = fileInput.files[0].name;
+    if (quoteFileInput && fileNameField) {
+        quoteFileInput.addEventListener("change", () => {
+            if (quoteFileInput.files.length > 0) {
+                fileNameField.value = quoteFileInput.files[0].name;
             } else {
                 fileNameField.value = "No file chosen";
             }
@@ -5173,7 +5333,11 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
 // --- FAQ Accordion ---
 (function() {
+    let initialized = false;
     function initAccordion() {
+        if (initialized) return;
+        initialized = true;
+        
         const accordionButtons = document.querySelectorAll('.pg-accordion-btn');
 
         if (accordionButtons.length === 0) {

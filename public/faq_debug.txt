@@ -1,24 +1,61 @@
 Array
 (
-    [_token] => dCOJlyct61HP1wnOlUujpD2Otb0jBtOTDa9YJta9
-    [oldbaner] => 1782908889-b-CBD-Boxes.webp
-    [oldfav-icon] => 1783405938-i-CBD-Boxes.webp
-    [oldimage] => 1782908889-CBD-Boxes.webp
-    [old_hero_image] => 1782908889-h-CBD-Boxes.webp
-    [old_feature_product] => 1783453078-fp-cbd.png
+    [_token] => 0LnBpymqWoTEc9pgNuxJaKFSn0mDJrjp9MGqGZpO
+    [oldbaner] => 1782908839-b-Gift-Boxes.webp
+    [oldfav-icon] => 1783405559-i-Gift-Boxes.webp
+    [oldimage] => 1782908839-Gift-Boxes.webp
+    [old_hero_image] => 1782908839-h-Gift-Boxes.webp
+    [old_feature_product] => 
     [old_parent_cat] => 110
-    [name] => CBD Packaging
-    [categoryurl] => cbd-packaging
-    [ckeditor] => <p>CBD Packaging</p>
+    [name] => Gift Boxes
+    [categoryurl] => gift-boxes
+    [ckeditor] => <h1><span style="font-size:20px"><strong><span style="color:#000000">Personalized Gift Boxes</span></strong></span></h1>
 
-    [hero_title] => Premium Custom CBD Boxes for Secure & Stylish Packaging
-    [hero_desc] => Protect and showcase your CBD products with high-quality custom packaging. Our CBD boxes are designed for durability, premium branding, and a professional presentation that helps your products stand out.
-    [mtitle] => CBD Packaging
-    [mdescription] => CBD Packaging
-    [mtags] => CBD Packaging
+<p style="text-align:justify"><span style="color:#000000">Gift boxes are made with eco-friendly materials such as cardboard, kraft, corrugated cardboard, and paper stocks. PremiumBoxes offers various customization options for these boxes. The size, style, shape, and design of these boxes are customizable, following the clients&rsquo; preferences. Advanced printing techniques along with CMYK and PMS color schemes are used for these boxes. Finishing options such as soft-touch, spot UV, matte, glossy, and smudge-free are available. The clients can choose to get die-cut windows, handles, and placeholders added to these boxes if needed.&nbsp;</span></p>
+
+<p style="text-align:justify"><span style="color:#000000"><strong>Gift boxes</strong>&nbsp;are used across the globe on various occasions. PremiumBoxes offers&nbsp;<strong>gift box packaging</strong>&nbsp;with customizations preferences chosen by the clients.&nbsp;</span></p>
+
+<h2 style="text-align:justify"><span style="font-size:18px"><span style="color:#000000"><strong>Customizable Packaging Solutions</strong></span></span></h2>
+
+<p style="text-align:justify"><span style="color:#000000">We offer various customization options for&nbsp;<strong>custom gift boxes</strong>. Clients can choose the size, style, shape, and design of the boxes following their needs.&nbsp;</span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="color:#000000"><strong>Affordable for Everyone</strong></span></span></p>
+
+<p style="text-align:justify"><span style="color:#000000">We understand that&nbsp;<strong>gift boxes packaging</strong>&nbsp;is a common need. To facilitate a maximum number of clients, we strive hard to keep our prices the lowest. We also offer special discounts on large volume orders.&nbsp;</span></p>
+
+<h3 style="text-align:justify"><span style="font-size:16px"><span style="color:#000000"><strong>Sustainable Packaging</strong></span></span></h3>
+
+<p style="text-align:justify"><span style="color:#000000">PremiumBoxes understands corporate social responsibility and manufactures all the products using organic supplies only. Cardboard, corrugated, kraft, and paper stocks, along with plant-based inks, are used for the manufacturing and printing of these boxes.&nbsp;</span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="color:#000000"><strong>Free Design Support</strong></span></span></p>
+
+<p style="text-align:justify"><span style="color:#000000">We offer complimentary design support to our clients. A 2D or 3D mockup of their personalized gift boxes design idea is available for free.&nbsp;</span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="color:#000000"><strong>Free Doorstep Delivery</strong></span></span></p>
+
+<p style="text-align:justify"><span style="color:#000000">PremiumBoxes offers free doorstep delivery for standard orders of&nbsp;<strong>gift boxes</strong>&nbsp;across North America. Shipping for clients in other parts of the world is also available.&nbsp;</span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="color:#000000"><strong>Exclusive Features</strong></span></span></p>
+
+<p style="text-align:justify"><span style="color:#000000">The following are some more features that make us unique among the competitors.</span></p>
+
+<ul>
+	<li style="text-align:justify"><span style="color:#000000">Minimum 100 boxes</span></li>
+	<li style="text-align:justify"><span style="color:#000000">Fastest turnaround time</span></li>
+	<li style="text-align:justify"><span style="color:#000000">Professional customer care</span></li>
+	<li style="text-align:justify"><span style="color:#000000">Safe and easy payment options</span></li>
+	<li style="text-align:justify"><span style="color:#000000">No die-cut or plate charges</span></li>
+</ul>
+
+    [hero_title] => Premium Gift Boxes for Every Special Occasion
+    [hero_desc] => Discover our premium gift box collection, designed to enhance every special occasion with elegant and stylish packaging. Our custom gift boxes combine durability, premium materials, and attractive designs to protect your gifts while creating a memorable unboxing experience.
+    [mtitle] => Gift Boxes | Over 100 Sizes, Styles & Colours In Stock
+    [mdescription] => Gift boxes are made with sustainable materials. PremiumBoxes offers these boxes several customization options following the clients’ needs.
+    [mtags] => Gift Boxes, gift boxes packaging, Sustainable packaging, personalized gift boxespersonalized gift boxes
     [robots] => index, follow
     [image_badge] => 
-    [remove_feature_product] => 1
+    [feature_title] => 
+    [feature_description] => 
     [schema] => 
     [parentcategory] => 110
     [status] => 1
@@ -26,5 +63,19 @@ Array
     [show_in_nav] => 1
     [why_choose_title] => 
     [why_choose_desc] => 
+    [faq_question] => Array
+        (
+            [0] => What are gift boxes used for?
+            [1] => Can I customize my gift boxes?
+            [2] => What materials are used for gift boxes?
+        )
+
+    [faq_answer] => Array
+        (
+            [0] => Gift boxes are designed to package and present gifts in an elegant and secure way. They are ideal for birthdays, weddings, holidays, corporate events, and special occasions.
+            [1] => Yes, we offer fully customizable gift boxes in different sizes, styles, colors, finishes, and printing options to match your brand or event theme.
+            [2] => Our gift boxes are made from high-quality materials such as rigid cardboard, kraft paper, and premium paperboard to ensure durability and a luxury appearance.
+        )
+
     [submit] => 
 )

@@ -44,7 +44,7 @@
 .tb-review-link {
     color: #a0a0a0;
     font-size: 0.85rem;
-    text-decoration: underline;
+    text-decoration: none;
     white-space: nowrap;
     font-family: 'Inter', sans-serif;
 }

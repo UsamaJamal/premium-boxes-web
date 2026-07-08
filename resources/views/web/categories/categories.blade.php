@@ -4355,17 +4355,7 @@ img {
                 <a href="{{ url('/') }}" class="breadcrumb-home">
                     <img src="{{ asset('uploads/house-chimney 1.svg') }}" alt="home" title="Home" style="width: 16px; height: 16px;">
                 </a>
-                @if(isset($parent_cat) && !empty($parent_cat))
-                    <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16" style="margin: 0 8px; color: #a0a0a0;">
-                          <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
-                          <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
-                        </svg>
-                        <a href="{{ url($parent_cat->category_url) }}" style="color: #a0a0a0; text-decoration: none;">
-                            {{ $parent_cat->name }}
-                        </a>
-                    </span>
-                @endif
+
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16" style="margin: 0 8px; color: #a0a0a0;">
                       <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>

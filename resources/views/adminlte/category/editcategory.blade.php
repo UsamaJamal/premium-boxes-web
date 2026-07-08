@@ -181,6 +181,20 @@
                    </div>
                    </div>
 
+                   <div class="form-group row">
+                     <label class="col-sm-3 col-form-label">Feature Title</label>
+                     <div class="col-sm-9">
+                     <input type="text" class="form-control" name="feature_title" value="{{$value[0]->feature_title}}" placeholder="E.g. Jewellery & Watches">
+                   </div>
+                   </div>
+
+                   <div class="form-group row">
+                     <label class="col-sm-3 col-form-label">Feature Description</label>
+                     <div class="col-sm-9">
+                     <textarea class="form-control" name="feature_description" rows="2" placeholder="Brief 2-line description...">{{$value[0]->feature_description}}</textarea>
+                   </div>
+                   </div>
+
                 <div class="form-group row">
                      <label class="col-sm-3 col-form-label">Nav Icon</label>
                      <div class="col-sm-9">

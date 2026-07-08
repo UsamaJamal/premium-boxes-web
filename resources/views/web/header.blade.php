@@ -288,12 +288,22 @@ p  { font-size: 16px !important; }
             <div style="width: 260px;">
                 <form action="{{ url('search') }}" method="POST" style="display: flex; align-items: center; background-color: #333333; border-radius: 50px; height: 38px; padding: 0 16px; gap: 8px; margin: 0;">
                     @csrf
+                    <style>
+                        input[type="search"]::-webkit-search-cancel-button {
+                            -webkit-appearance: none;
+                            height: 14px;
+                            width: 14px;
+                            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23f5c542" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>') no-repeat center center;
+                            background-size: contain;
+                            cursor: pointer;
+                        }
+                    </style>
                     <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer; display: flex; align-items: center; outline: none;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#f5c542" stroke-width="2">
                             <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
                         </svg>
                     </button>
-                    <input type="text" name="query" placeholder="Search products..."
+                    <input type="search" name="query" placeholder="Search products..."
                         style="background: transparent; border: none; outline: none; color: #ffffff; font-size: 14px; width: 100%;"
                         onfocus="this.parentElement.style.boxShadow='0 0 0 1.5px #f5c542'"
                         onblur="this.parentElement.style.boxShadow='none'" required>
@@ -489,15 +499,7 @@ p  { font-size: 16px !important; }
                         </a>
                         @endforeach
                     </div>
-                    <div style="border-top: 1px solid #333; padding: 12px 24px; background-color: #222222; border-radius: 0 0 4px 4px;">
-                        <a href="{{ url('box-by-material') }}" style="display: flex; align-items: center; gap: 8px; color: #aaaaaa; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#aaaaaa'">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                                <polyline points="12 5 19 12 12 19"></polyline>
-                            </svg>
-                            All Materials
-                        </a>
-                    </div>
+
                 </div>
             </div>
 
@@ -680,7 +682,7 @@ p  { font-size: 16px !important; }
                     <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
                 </svg>
             </button>
-            <input type="text" name="query" placeholder="Search products..."
+            <input type="search" name="query" placeholder="Search products..."
                 style="background: transparent; border: none; outline: none; color: #ffffff; font-size: 14px; width: 100%;" required>
         </form>
     </div>

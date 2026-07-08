@@ -45,6 +45,8 @@ class AdminCategoryController extends Controller
    'why_choose_title' => $request->post('why_choose_title'),
    'why_choose_desc' => $request->post('why_choose_desc'),
    'image_badge' => $request->post('image_badge'),
+   'feature_title' => $request->post('feature_title'),
+   'feature_description' => $request->post('feature_description'),
 	   'show_in_nav' => $request->has('show_in_nav') ? 1 : 0,
 	];
     if (Schema::hasColumn('add_category', 'robots')) {
@@ -225,6 +227,8 @@ public function addcategory(Request $request) {
    'why_choose_title' => $request->post('why_choose_title'),
    'why_choose_desc' => $request->post('why_choose_desc'),
    'image_badge' => $request->post('image_badge'),
+   'feature_title' => $request->post('feature_title'),
+   'feature_description' => $request->post('feature_description'),
  'show_in_nav' => $request->has('show_in_nav') ? 1 : 0,
 	];
     if (Schema::hasColumn('add_category', 'robots')) {

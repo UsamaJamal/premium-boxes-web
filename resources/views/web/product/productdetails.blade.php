@@ -267,9 +267,9 @@ a { text-decoration: none; color: inherit; }
 
 @media (max-width: 768px) {
     .product-container { padding: 0 4.5vw; }
-    .product-hero-section { padding: 6vw 0; margin-top: 50px; }
+    .product-hero-section { padding: 4vw 0; margin-top: 10px; }
     .product-hero-grid { grid-template-columns: 1fr; gap: 6vw; }
-    .product-breadcrumbs { display: none !important; }
+    .product-breadcrumbs { display: flex !important; font-size: 3.5vw; margin-bottom: 5vw; }
     .product-main-img-wrap { width: 100%; aspect-ratio: 4 / 3; }
     .product-thumbnails { gap: 3vw; }
     .product-thumb { width: 20vw; height: 20vw; }
@@ -423,10 +423,7 @@ a { text-decoration: none; color: inherit; }
             <div class="product-breadcrumbs">
                 <a href="{{ url('/') }}" style="display: flex; align-items: center; padding-bottom: 2px;"><i class="fas fa-home" style="font-size: 16px;"></i></a>
                 
-                @if(isset($product_top_category) && $product_top_category)
-                <i class="fas fa-chevron-right" style="font-size: 11px; color: rgba(255,255,255,0.4);"></i>
-                <a href="{{ url($product_top_category->category_url) }}" style="display: flex; align-items: center; font-size: 16px; font-weight: 500; transition: color 0.3s ease;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color=''">{{ $product_top_category->name }}</a>
-                @endif
+
                 
                 @if(isset($product_category) && $product_category)
                 <i class="fas fa-chevron-right" style="font-size: 11px; color: rgba(255,255,255,0.4);"></i>
@@ -507,6 +504,11 @@ a { text-decoration: none; color: inherit; }
                         height: 100%;
                         object-fit: contain;
                         filter: grayscale(100%) brightness(0) invert(75%);
+                    }
+                    @media (max-width: 768px) {
+                        .pd-logos-wrap {
+                            display: none !important;
+                        }
                     }
                     </style>
 
@@ -1062,35 +1064,35 @@ a { text-decoration: none; color: inherit; }
             <div class="cust-tab-content" id="cust-coat" style="display:none;">
 <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:20px; text-align:center;">
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/Lamination.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="lamination" title="Lamination"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/coating and lamination/Lamination.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="lamination" title="Lamination"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Lamination</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/UV.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="uv" title="Uv"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/coating and lamination/UV Coating .webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="uv" title="Uv"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">UV</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/Varnish.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="varnish" title="Varnish"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/coating and lamination/Varnish .webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="varnish" title="Varnish"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Varnish</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/anti-scratch-lamination.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="anti scratch lamination" title="Anti Scratch Lamination"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/coating and lamination/Anti-scratch Lamination .webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="anti scratch lamination" title="Anti Scratch Lamination"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Anti Scratch Lamination</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/aqueous-coating-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="aqueous coating " title="Aqueous Coating "></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/coating and lamination/Aqueous Coating .webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="aqueous coating " title="Aqueous Coating "></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Aqueous Coating </div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/soft-touch-coating.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="soft touch coating" title="Soft Touch Coating"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/coating and lamination/Soft Touch Coating.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="soft touch coating" title="Soft Touch Coating"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Soft Touch Coating</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/soft-touch-silk-lamination-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="soft touch silk lamination " title="Soft Touch Silk Lamination "></div>
-        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Soft Touch Silk Lamination </div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/coating and lamination/Soft Touch Silk Lamination .webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="soft touch silk lamination " title="Soft Touch Silk Lamination "></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Soft Touch Silk Lamination</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/spot-gloss-uV-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="spot gloss uv " title="Spot Gloss Uv "></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/coating and lamination/Spot Gloss UV.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="spot gloss uv " title="Spot Gloss Uv "></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Spot Gloss UV </div>
     </div>
 </div>

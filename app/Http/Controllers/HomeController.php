@@ -64,7 +64,7 @@ return response()->view('web/404',$data,404);
         ->whereNotNull('feature_product')
         ->where('feature_product', '!=', '')
         ->where('status', 1)
-        ->inRandomOrder()
+        ->orderBy('cat_id', 'asc')
         ->take(8)
         ->get();
 

@@ -134,6 +134,20 @@
                   </div>
 
                   <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Feature Title</label>
+                    <div class="col-sm-9">
+                    <input id="feature_title" type="text" class="form-control" name="feature_title" placeholder="E.g. Jewellery & Watches">
+                  </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Feature Description</label>
+                    <div class="col-sm-9">
+                    <textarea id="feature_description" class="form-control" name="feature_description" rows="2" placeholder="Brief 2-line description..."></textarea>
+                  </div>
+                  </div>
+
+                  <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Nav Icon</label>
                     <div class="col-sm-9">
                     <input id="icon" style="padding-bottom: 35px;" type="file" class="form-control" name="icon">
