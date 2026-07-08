@@ -452,7 +452,3 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 </script>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-  @include('adminlte/footer')
