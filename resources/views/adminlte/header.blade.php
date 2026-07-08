@@ -210,7 +210,7 @@
                 border-bottom: 1px solid #f1f5f9 !important;
                 padding: 20px 24px;
             }
-            .card-header h5, .card-title { color: #1a202c !important; font-weight: 700; font-size: 16px; margin:0;}
+            .card-header h5, .card-title { color: #1a202c !important; font-weight: 700; font-size: 16px; margin:0; float: none !important; }
             
             /* Buttons and Inputs */
             .form-control, .search-control {

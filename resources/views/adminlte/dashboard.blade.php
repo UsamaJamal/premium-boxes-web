@@ -106,13 +106,15 @@
           <div class="col-md-8">
             <!-- REVENUE CHART -->
             <div class="card">
-              <div class="card-header d-flex justify-content-between align-items-center">
-                <h5 class="card-title">Revenue Overview</h5>
-                <div class="btn-group btn-group-sm rounded shadow-sm border">
-                    <button type="button" class="btn btn-white text-muted bg-transparent border-0" style="font-weight: 500;">Day</button>
-                    <button type="button" class="btn btn-white text-primary bg-light border-0" style="font-weight: 600; border-radius: 6px;">Week</button>
-                    <button type="button" class="btn btn-white text-muted bg-transparent border-0" style="font-weight: 500;">Month</button>
-                    <button type="button" class="btn btn-white text-muted bg-transparent border-0" style="font-weight: 500;">Year</button>
+              <div class="card-header border-transparent">
+                <h3 class="card-title" style="margin: 0; padding-top: 4px; font-weight: 700; font-size: 16px;">Revenue Overview</h3>
+                <div class="card-tools">
+                    <div class="btn-group btn-group-sm rounded shadow-sm border">
+                        <button type="button" class="btn btn-white text-muted bg-transparent border-0" style="font-weight: 500;">Day</button>
+                        <button type="button" class="btn btn-white text-primary bg-light border-0" style="font-weight: 600; border-radius: 6px;">Week</button>
+                        <button type="button" class="btn btn-white text-muted bg-transparent border-0" style="font-weight: 500;">Month</button>
+                        <button type="button" class="btn btn-white text-muted bg-transparent border-0" style="font-weight: 500;">Year</button>
+                    </div>
                 </div>
               </div>
               <div class="card-body">
@@ -124,9 +126,11 @@
             
             <!-- RECENT ORDERS -->
             <div class="card">
-              <div class="card-header border-transparent d-flex justify-content-between align-items-center">
-                <h5 class="card-title">Recent Orders</h5>
-                <a href="#" class="btn btn-sm btn-light border bg-white shadow-sm" style="border-radius: 6px; font-weight: 500; font-size: 12px;">View all orders</a>
+              <div class="card-header border-transparent">
+                <h3 class="card-title" style="margin: 0; padding-top: 4px; font-weight: 700; font-size: 16px;">Recent Orders</h3>
+                <div class="card-tools">
+                    <a href="#" class="btn btn-sm btn-light border bg-white shadow-sm" style="border-radius: 6px; font-weight: 500; font-size: 12px;">View all orders</a>
+                </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
@@ -205,9 +209,11 @@
             
             <!-- TOP SELLING PRODUCTS -->
             <div class="card">
-              <div class="card-header d-flex justify-content-between align-items-center">
-                <h3 class="card-title">Top Selling Products</h3>
-                <a href="#" class="text-muted" style="font-size: 12px; font-weight: 500;">View all</a>
+              <div class="card-header border-transparent">
+                <h3 class="card-title" style="margin: 0; padding-top: 4px; font-weight: 700; font-size: 16px;">Top Selling Products</h3>
+                <div class="card-tools">
+                    <a href="#" class="text-muted" style="font-size: 12px; font-weight: 500; line-height: 2;">View all</a>
+                </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-4">
