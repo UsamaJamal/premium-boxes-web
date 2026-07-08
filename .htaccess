@@ -6,20 +6,21 @@
 
     RewriteEngine On
 
-    # Force HTTPS
+    # Force HTTPS (Accounts for load balancers/proxies)
     RewriteCond %{HTTPS} off
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-    # Remove trailing slashes if not a directory (Laravel standard)
+    # Remove trailing slashes if not a directory
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} (.+)/$
     RewriteRule ^ %1 [L,R=301]
 
-    # Route requests to the public/ directory IF they don't match an existing file in the root
-    # This solves the 404 images issue by falling back to the public/ folder for static assets
+    # Route requests to the public/ directory
+    # Check REDIRECT_STATUS to prevent internal infinite loops
+    RewriteCond %{ENV:REDIRECT_STATUS} ^$
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_URI} !^/public/
     RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>
 
