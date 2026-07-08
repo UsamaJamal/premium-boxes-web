@@ -1,47 +1,28 @@
 Array
 (
-    [_token] => afBrzdL2FpkR2ueSsYDacvu6wIGpcDxXXIZIv7aa
-    [oldbaner] => 1782908952-b-Retail-Boxes.webp
-    [oldfav-icon] => 1783405593-i-Retail-Box.webp
-    [oldimage] => 1782908952-Retail-Boxes.webp
-    [old_hero_image] => 1782908952-h-Retail-Boxes.webp
-    [old_feature_product] => 
+    [_token] => dCOJlyct61HP1wnOlUujpD2Otb0jBtOTDa9YJta9
+    [oldbaner] => 1782908889-b-CBD-Boxes.webp
+    [oldfav-icon] => 1783405938-i-CBD-Boxes.webp
+    [oldimage] => 1782908889-CBD-Boxes.webp
+    [old_hero_image] => 1782908889-h-CBD-Boxes.webp
+    [old_feature_product] => 1783453078-fp-cbd.png
     [old_parent_cat] => 110
-    [name] => Retail Boxes
-    [categoryurl] => retail-boxes
-    [ckeditor] => <h1 style="margin-left:0.0001pt; margin-right:0px; text-align:justify"><span style="font-size:20px"><span style="color:#000000"><strong>Retail Packaging</strong></span></span></h1>
+    [name] => CBD Packaging
+    [categoryurl] => cbd-packaging
+    [ckeditor] => <p>CBD Packaging</p>
 
-<p style="margin-left:.0001pt; margin-right:0; text-align:justify"><span style="color:#000000"><strong>Retail boxes</strong>&nbsp;are used in every business. They are customizable according to the needs of the products. PremiumBoxes manufactures these boxes with cardboard, kraft, corrugated, and paper stocks. The latest printing techniques, along with CMYK and PMS color schemes, are used for these boxes. Various finishing styles are also available. The shape, design, size, and thickness of the manufacturing materials are customizable as per clients&rsquo; needs. Custom inserts, placeholders, die-cut windows, and other add-ons are also available for these boxes.</span></p>
-
-<p style="margin-left:.0001pt; margin-right:0; text-align:justify"><span style="color:#000000"><strong>Retail boxes</strong>&nbsp;are mostly used in the food, cosmetics, jewelry, and clothing industries. They are available in customizable shapes and sizes at PremiumBoxes. Custom inserts, placeholders, die-cut windows, and handles can also be added to these boxes.</span></p>
-
-<h2 style="margin-left:0.0001pt; margin-right:0px; text-align:justify"><span style="font-size:18px"><span style="color:#000000"><strong>Vivid Printing &amp; Finishing</strong></span></span></h2>
-
-<p style="margin-left:.0001pt; margin-right:0; text-align:justify"><span style="color:#000000">We use the latest technologies along with PMS and CMYK color schemes for the printing of&nbsp;<strong>retail packaging</strong>. All the inks and adhesives used for these boxes are 100 percent plant-based. Also, we offer various finishing options, including glossy, matte, smudge-free, soft-touch, spot UV, and embossing.</span></p>
-
-<p style="margin-left:.0001pt; margin-right:0; text-align:justify"><strong><span style="font-size:16px"><span style="color:#000000">Get the Lowest Prices</span></span></strong></p>
-
-<p style="margin-left:.0001pt; margin-right:0; text-align:justify"><span style="color:#000000">PremiumBoxes offers&nbsp;<strong>retail boxes packaging</strong>&nbsp;at amazingly low prices. We keep the pricing lowest to facilitate the clients from different industries. Volume discounts on larger orders are also available.</span></p>
-
-<p style="margin-left:.0001pt; margin-right:0; text-align:justify"><span style="font-size:16px"><span style="color:#000000"><strong>Free &amp; Trackable Shipping</strong></span></span></p>
-
-<p style="margin-left:.0001pt; margin-right:0; text-align:justify"><span style="color:#000000">We offer free shipping services for clients across the United States of America and Canada. Shipping for international clients is also available on request. Online tracking of the order is also an option.</span></p>
-
-<p style="margin-left:.0001pt; margin-right:0; text-align:justify"><span style="font-size:16px"><span style="color:#000000"><strong>100% Customer Satisfaction</strong></span></span></p>
-
-<p style="margin-left:.0001pt; margin-right:0; text-align:justify"><span style="color:#000000">PremiumBoxes believes in 100 percent customer satisfaction. Our vigilant customer care team serves the clients at every step. Also, we are available to our clients through e-mail, dedicated chat support, and call. A request for a callback is also an option to reach us.</span></p>
-
-    [hero_title] => Premium Retail Boxes for Every Business
-    [hero_desc] => Discover our premium retail box collection, designed to elevate your brand and create a lasting impression. Our custom retail packaging combines durability, functionality, and eye-catching designs to showcase your products beautifully.
-    [mtitle] => Retail Boxes | Retail Packaging Suppliers, Cardboard Boxes
-    [mdescription] => Retail boxes are the need of every business. PremiumBoxes offers them at affordable prices with several customization options and free shipping.
-    [mtags] => Retail Boxes, retail packaging, retail boxes packaging, retail cardboard boxes, wholesale gift boxes, empty gift boxes, retail packaging suppliers
+    [hero_title] => Premium Custom CBD Boxes for Secure & Stylish Packaging
+    [hero_desc] => Protect and showcase your CBD products with high-quality custom packaging. Our CBD boxes are designed for durability, premium branding, and a professional presentation that helps your products stand out.
+    [mtitle] => CBD Packaging
+    [mdescription] => CBD Packaging
+    [mtags] => CBD Packaging
     [robots] => index, follow
     [image_badge] => 
+    [remove_feature_product] => 1
     [schema] => 
     [parentcategory] => 110
     [status] => 1
-    [show_home] => 1
+    [show_home] => 0
     [show_in_nav] => 1
     [why_choose_title] => 
     [why_choose_desc] => 

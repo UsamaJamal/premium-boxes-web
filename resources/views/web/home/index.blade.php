@@ -4450,7 +4450,7 @@ section + section {
                         </a>
                     </div>
                     <div class="sector-info">
-                        <h3><a href="{{ url('/'.$product->category_url) }}" style="color: inherit; text-decoration: none;">{{ $product->name }}</a></h3>
+                        <span class="sector-title" style="display: block; font-size: 1.15rem; font-weight: 600;"><a href="{{ url('/'.$product->category_url) }}" style="color: inherit; text-decoration: none;">{{ $product->name }}</a></span>
                     </div>
                 </div>
                 @endforeach
