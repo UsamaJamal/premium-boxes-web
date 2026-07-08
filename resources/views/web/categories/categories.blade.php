@@ -2374,14 +2374,21 @@ img {
 .pg-cta-btn {
     display: inline-block;
     background: #f5c542;
-    color: #111;
+    color: #111 !important;
     font-size: 14px;
     font-weight: 700;
     padding: 12px 32px;
     border-radius: 50px;
-    text-decoration: none;
+    text-decoration: none !important;
     transition: background 0.2s, transform 0.2s;
-}/* removed hover: .pg-cta-btn:hover { ... } */
+}
+
+.pg-cta-btn:hover,
+.pg-cta-btn:focus,
+.pg-cta-btn:active {
+    text-decoration: none !important;
+    color: #111 !important;
+}
 
 /* Responsive */
 @media (max-width: 1024px) {
