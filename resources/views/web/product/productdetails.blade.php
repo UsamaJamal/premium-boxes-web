@@ -186,18 +186,19 @@ a { text-decoration: none; color: inherit; }
 .product-pfr-section { padding: 0px 0; background-color: var(--product-bg);  }
 .pfr-wrapper { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; }
 .pfr-features { display: grid; grid-template-columns: 1fr 1fr; gap: 45px 30px; }
-.pfr-feature { display: flex; flex-direction: column; gap: 12px; }
-.pfr-icon { color: var(--product-gold); }
-.pfr-icon svg { width: 32px; height: 32px; }
-.pfr-feature h4 { font-size: 15px; font-weight: 700; color: #fff; margin: 0 0 6px 0; }
-.pfr-feature p { font-size: 12.5px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0; }
+.pfr-feature { display: flex; flex-direction: column; align-items: center; text-align: center; background-color: #1f1f1f; border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 30px 20px; gap: 12px; transition: transform 0.3s; }
+.pfr-feature:hover { transform: translateY(-5px); }
+.pfr-icon { color: var(--product-gold); display: flex; justify-content: center; margin-bottom: 5px; }
+.pfr-icon img, .pfr-icon svg { width: 40px; height: 40px; }
+.pfr-feature h4 { font-size: 16px; font-weight: 700; color: #fff; margin: 0; }
+.pfr-feature p { font-size: 13.5px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0; }
 
 .pfr-reviews { background-color: #1f1f1f; border-radius: 20px; padding: 45px 25px; display: flex; flex-direction: column; justify-content: center; position: relative; min-width: 0; width: 100%; box-sizing: border-box; }
 .pfr-reviews-inner { display: flex; align-items: center; justify-content: center; position: relative; padding: 0 55px; width: 100%; box-sizing: border-box; }
 .pfr-nav { position: absolute; top: calc(50% + 15px); transform: translateY(-50%); z-index: 10; background: #1f1f1f; border: 1px solid rgba(255,255,255,0.1); width: 36px; height: 36px; border-radius: 50%; color: rgba(255,255,255,0.5); font-size: 20px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; }
 .pfr-nav.prev { left: 5px; }
 .pfr-nav.next { right: 5px; }
-.pfr-nav:hover { border-color: var(--product-gold); color: var(--product-gold); }
+.pfr-nav:hover, .pfr-nav:active, .pfr-nav:focus, .pfr-nav.active { border-color: var(--product-gold) !important; color: var(--product-gold) !important; outline: none !important; box-shadow: none !important; }
 .pfr-slider-wrap { overflow: hidden; width: 100%; padding-top: 35px; margin-top: -35px; box-sizing: border-box; }
 .pfr-slider { display: flex; width: 100%; transition: transform 0.5s ease; }
 .pfr-slide { flex: 0 0 100%; width: 100%; border: 1px solid rgba(255,193,7,0.15); border-radius: 12px; padding: 45px 30px 30px; text-align: center; position: relative; box-sizing: border-box; }
@@ -311,11 +312,11 @@ a { text-decoration: none; color: inherit; }
     .product-submit-btn { font-size: 4vw; padding: 3.5vw 8vw; }
 
     .pfr-features { grid-template-columns: 1fr; gap: 30px; }
-    .pfr-reviews { padding: 8vw 5vw; margin-top: 5vw; }
-    .pfr-reviews-inner { padding: 0 12vw; }
-    .pfr-nav { top: calc(50% + 5vw); width: 8vw; height: 8vw; font-size: 4vw; }
-    .pfr-nav.prev { left: 2vw; }
-    .pfr-nav.next { right: 2vw; }
+    .pfr-reviews { padding: 30px 20px; margin-top: 20px; }
+    .pfr-reviews-inner { padding: 0 0 70px 0; }
+    .pfr-nav { top: auto; bottom: 0; transform: none; width: 45px; height: 45px; font-size: 20px; }
+    .pfr-nav.prev { left: calc(50% - 55px); }
+    .pfr-nav.next { right: auto; left: calc(50% + 10px); }
     .pfr-slide { padding: 10vw 4vw 6vw; }
     .product-tabs-wrapper { margin-left: -4.5vw; margin-right: -4.5vw; margin-bottom: 6vw; }
     .product-tabs-nav { gap: 3vw; overflow-x: auto; padding: 0 4.5vw; scroll-snap-type: x mandatory; }
@@ -1138,15 +1139,8 @@ a { text-decoration: none; color: inherit; }
                         </div>
                         <div class="iq-row-2">
                             <div class="iq-group">
-                                <label>Box Style *</label>
-                                <select name="box_style" required>
-                                    <option value="" disabled selected>Select your box style</option>
-                                    <option value="Mailer Box">Mailer Box</option>
-                                    <option value="Rigid Box">Rigid Box</option>
-                                    <option value="Folding Carton">Folding Carton</option>
-                                    <option value="Shipping Box">Shipping Box</option>
-                                    <option value="Other">Other</option>
-                                </select>
+                                <label>Product Name *</label>
+                                <input type="text" name="product_name" value="{{ $p->title ?? '' }}" placeholder="Enter product name" required>
                             </div>
                             <div class="iq-group">
                                 <label>Quantity *</label>

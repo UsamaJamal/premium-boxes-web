@@ -96,6 +96,7 @@ h3 {
   border-radius: 50px;
 }/* removed hover: .btn-primary:hover { ... } */
 
+.btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active,
 .btn-primary:focus-visible {
@@ -782,6 +783,7 @@ h3 {
 
 .sector-info {
   padding: 16px 0 0 0;
+  text-align: center;
 }
 
 .sector-info h3 {
@@ -1369,6 +1371,17 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.testimonial-nav button:hover,
+.testimonial-nav button:active,
+.testimonial-nav button:focus,
+.testimonial-nav button.active {
+  border-color: var(--accent-gold) !important;
+  color: var(--accent-gold) !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 /* @media (max-width: 992px) {
@@ -1650,8 +1663,8 @@ h3 {
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  height: 76px;
+  gap: 0px;
+  height: 38px;
 }
 
 .form-group.textarea-group {
@@ -1661,6 +1674,7 @@ h3 {
 }
 
 .form-group label {
+  display: none;
   font-size: 15px;
   color: #ffffff;
   font-weight: 300;
@@ -2528,9 +2542,7 @@ section + section {
   .why-image-container,
   .why-image,
   .why-image img {
-    height: auto !important;
-    width: 100% !important;
-    max-width: 100% !important;
+    display: none !important;
   }
 
   .stats-row {
@@ -2761,9 +2773,7 @@ section + section {
   }
 
   .why-image img {
-    width: min(100%, 420px) !important;
-    height: min(520px, 70vw) !important;
-    object-fit: cover;
+    display: none !important;
   }
 }
 
@@ -2773,9 +2783,7 @@ section + section {
   }
 
   .why-image img {
-    width: min(100%, 390px) !important;
-    height: min(470px, 112vw) !important;
-    object-fit: cover;
+    display: none !important;
   }
 }
 
@@ -4138,8 +4146,8 @@ section + section {
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  height: auto;
+  gap: 0px;
+  height: 38px;
 }
 .form-group.textarea-group {
   height: auto;
@@ -4147,7 +4155,7 @@ section + section {
   width: 100%;
 }
 .form-group > label {
-  display: block;
+  display: none;
   font-size: 13px;
   color: #ffffff;
   font-weight: 300;
@@ -4342,8 +4350,7 @@ section + section {
 }
 @media (max-width: 768px) {
   .quote-steps-col {
-    grid-template-columns: 1fr;
-    padding: 40px 20px;
+    display: none !important;
   }
   .quote-form-col {
     padding: 35px 20px;

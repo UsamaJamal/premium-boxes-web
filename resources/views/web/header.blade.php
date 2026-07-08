@@ -161,6 +161,42 @@ form.example button {
 
 /*}*/
 
+
+/* ===========================
+   GLOBAL RESPONSIVE TYPOGRAPHY
+   =========================== */
+
+/* Desktop (default) */
+h1 { font-size: 48px !important; }
+h2 { font-size: 36px !important; }
+h3 { font-size: 28px !important; }
+h4 { font-size: 22px !important; }
+h5 { font-size: 20px !important; }
+h6 { font-size: 18px !important; }
+p  { font-size: 16px !important; }
+
+/* Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+    h1 { font-size: 40px !important; }
+    h2 { font-size: 30px !important; }
+    h3 { font-size: 24px !important; }
+    h4 { font-size: 20px !important; }
+    h5 { font-size: 18px !important; }
+    h6 { font-size: 16px !important; }
+    p  { font-size: 16px !important; }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+    h1 { font-size: 32px !important; }
+    h2 { font-size: 26px !important; }
+    h3 { font-size: 22px !important; }
+    h4 { font-size: 18px !important; }
+    h5 { font-size: 16px !important; }
+    h6 { font-size: 15px !important; }
+    p  { font-size: 15px !important; }
+}
+
 </style>
 
 <body>
@@ -792,13 +828,12 @@ function toggleMobileSubmenu(element) {
    
 
  @if(Session::has('success'))
-                    
-                    <center>
-                    
-                    <div  class='alert alert-success'> {{ Session::get('success') }}</div>
-                    </center>
-                    
-                    @endif
+    <div class="container" style="margin-top: 20px; margin-bottom: 20px;">
+        <div class="alert alert-success" style="background-color: #d4edda; color: #155724; border-color: #c3e6cb; padding: 15px; border-radius: 8px; text-align: center; font-weight: 600; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            {{ Session::get('success') }}
+        </div>
+    </div>
+@endif
     <!-- ====================== cmb-Header End ======================  -->
 
 <script>

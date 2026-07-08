@@ -389,7 +389,11 @@ private function sendQuoteEmail($data, $file = null)
             ->setContentType($file->getMimeType()));
     }
 
-    (new \Swift_Mailer($transport))->send($message);
+    try {
+        (new \Swift_Mailer($transport))->send($message);
+    } catch (\Exception $e) {
+        \Log::error('Mail sending failed: ' . $e->getMessage());
+    }
 }
 
 

@@ -2355,25 +2355,25 @@ body {
 /* Dimensions Row: Width, Length, Depth, Unit */
 .dimensions-grid {
   grid-template-columns: repeat(4, 1fr);
-  max-width: 693px;
+  width: 100%;
 }
 
 /* Dropdown selections: Material, Colors, Addons */
 .triple-grid {
   grid-template-columns: repeat(3, 1fr);
-  max-width: 692px;
+  width: 100%;
 }
 
 .quantity-upload-grid {
   grid-template-columns: repeat(2, 1fr);
-  max-width: 691.13px;
+  width: 100%;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  height: 76px; /* Explicit height specification constraints */
+  gap: 0px;
+  height: 38px;
 }
 
 .form-group.textarea-group {
@@ -2383,6 +2383,7 @@ body {
 }
 
 .form-group label {
+  display: none;
   font-size: 15px;
   color: #ffffff; /* Updated: Changed labels to clean white color */
   font-weight: 300;
@@ -2522,8 +2523,7 @@ body {
 }
 @media (max-width: 768px) {
   .quote-steps-col {
-    grid-template-columns: 1fr;
-    padding: 40px 20px;
+    display: none !important;
   }
   .quote-form-col {
     padding: 35px 20px;

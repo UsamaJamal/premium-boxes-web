@@ -106,8 +106,7 @@
         display: none;
     }
     .tb-reviews {
-        justify-content: center;
-        width: 100%;
+        display: none;
     }
     .tb-stars svg {
         width: 14px;
