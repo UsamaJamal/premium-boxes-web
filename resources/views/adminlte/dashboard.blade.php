@@ -187,29 +187,6 @@
               <div class="card-body">
                 <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
               </div>
-              <div class="card-footer bg-transparent">
-                <div class="row">
-                  <div class="col-4 text-center">
-                    <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60"
-                           data-fgColor="#39CCCC">
-                    <div class="text-white">Mailers</div>
-                  </div>
-                  <!-- ./col -->
-                  <div class="col-4 text-center">
-                    <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60"
-                           data-fgColor="#39CCCC">
-                    <div class="text-white">Rigid</div>
-                  </div>
-                  <!-- ./col -->
-                  <div class="col-4 text-center">
-                    <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60"
-                           data-fgColor="#39CCCC">
-                    <div class="text-white">Folding</div>
-                  </div>
-                  <!-- ./col -->
-                </div>
-                <!-- /.row -->
-              </div>
             </div>
             <!-- /.card -->
           </section>
@@ -243,7 +220,7 @@
                     },
                     {
                         label               : 'Sales',
-                        backgroundColor     : 'rgba(17, 17, 17, 0.4)', /* Dark */
+                        backgroundColor     : 'rgba(17, 17, 17, 0.05)', /* Dark */
                         borderColor         : 'rgba(17, 17, 17, 1)',
                         pointRadius         : 4,
                         pointBackgroundColor: 'rgba(17, 17, 17, 1)',

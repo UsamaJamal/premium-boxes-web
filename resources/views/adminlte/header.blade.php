@@ -248,24 +248,27 @@
                 overflow: hidden;
             }
             .small-box:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1) !important; }
-            .small-box .inner h3 { font-weight: 800; }
-            .small-box .icon > i { transition: transform .3s linear; color: rgba(255,255,255,0.2) !important; }
+            .small-box .inner h3 { font-weight: 800; color: #ffffff !important; }
+            .small-box .inner p { color: #cccccc !important; font-size: 16px; }
+            .small-box .icon > i { transition: transform .3s linear; color: rgba(255,255,255,0.08) !important; }
             .small-box:hover .icon > i { transform: scale(1.1); }
             
             /* Custom Colors for Small Boxes - Sleek Dark Palette */
-            .bg-info { background: linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%) !important; color: #f3c623 !important; border-bottom: 4px solid #f3c623 !important; }
-            .bg-success { background: linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%) !important; color: #ffffff !important; border-bottom: 4px solid #1cc88a !important; }
-            .bg-warning { background: linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%) !important; color: #ffffff !important; border-bottom: 4px solid #f6c23e !important; }
-            .bg-danger { background: linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%) !important; color: #ffffff !important; border-bottom: 4px solid #e74a3b !important; }
+            .bg-info { background: linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%) !important; border-bottom: 4px solid #f3c623 !important; }
+            .bg-info .inner h3 { color: #f3c623 !important; }
+            .bg-success { background: linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%) !important; border-bottom: 4px solid #1cc88a !important; }
+            .bg-warning { background: linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%) !important; border-bottom: 4px solid #f6c23e !important; }
+            .bg-danger { background: linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%) !important; border-bottom: 4px solid #e74a3b !important; }
             
             .bg-info .small-box-footer, .bg-success .small-box-footer, .bg-warning .small-box-footer, .bg-danger .small-box-footer {
-                background: rgba(0,0,0,0.2) !important;
+                background: rgba(0,0,0,0.3) !important;
                 color: #aaaaaa !important;
+                border-top: 1px solid #333333;
             }
             .bg-info .small-box-footer:hover { color: #f3c623 !important; }
             
             /* Typography & Layout */
-            h1, h2, h3, h4, h5, h6 { font-weight: 700; color: #111111; }
+            h1, h2, h3, h4, h5, h6 { font-weight: 700; color: #333333; }
             .content-header h1 { font-weight: 800; color: #111111; font-size: 28px; }
             .breadcrumb-item a { color: #111111 !important; font-weight: 600; }
             .breadcrumb-item.active { color: #888888 !important; }
