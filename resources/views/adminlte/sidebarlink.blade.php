@@ -1,12 +1,12 @@
  
   <!-- Main Sidebar Container -->
 
- <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color:#234376;">
+ <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{url('admin/dashboard')}}" class="brand-link">
       <img src="{{url('admin/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light" style="color:#ffffff">Premium Boxes</span>
+      <span class="brand-text font-weight-light">Premium Boxes</span>
     </a>
 
     <!-- Sidebar -->
@@ -27,7 +27,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="{{url('admin/dashboard')}}" class="nav-link active" style="background-color:#49d8f7;">
+            <a href="{{url('admin/dashboard')}}" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -44,7 +44,7 @@
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle"></i>
-              <p style="color:#ffffff;">
+              <p>
               Category
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -70,7 +70,7 @@
             <a href="#" class="nav-link">
            
             <i class="nav-icon far fa-circle"></i>
-              <p style="color:#ffffff;">
+              <p>
               Product
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -95,7 +95,7 @@
            <li class="nav-item">
             <a href="{{url('admin/reviews')}}" class="nav-link">
               <i class="nav-icon far fa-circle"></i>
-              <p style="color:#ffffff;">
+              <p>
               Product Reviews
               </p>
             </a>
@@ -107,7 +107,7 @@
               <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle"></i>
-              <p style="color:#ffffff;">
+              <p>
               Brands
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -134,7 +134,7 @@
                  <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle"></i>
-              <p style="color:#ffffff;">
+              <p>
               Promotions
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -163,7 +163,7 @@
               <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle"></i>
-              <p style="color:#ffffff;">
+              <p>
               Blogs
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -201,7 +201,7 @@
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle"></i>
-              <p style="color:#ffffff;">
+              <p>
               Home Page Setting
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -243,7 +243,7 @@
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle"></i>
-              <p style="color:#ffffff;">
+              <p>
               Home Page Content
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -262,7 +262,7 @@
           <li class="nav-item">
             <a href="{{url('admin/homefaqs')}}" class="nav-link">
               <i class="nav-icon far fa-circle"></i>
-              <p style="color:#ffffff;">
+              <p>
               Home FAQs
               </p>
             </a>
@@ -271,7 +271,7 @@
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle"></i>
-              <p style="color:#ffffff;">
+              <p>
               Home Banner
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -296,7 +296,7 @@
                 <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle"></i>
-              <p style="color:#ffffff;">
+              <p>
               Home Product Banner
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -321,7 +321,7 @@
                   <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle"></i>
-              <p style="color:#ffffff;">
+              <p>
               Home Category Banner
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -349,7 +349,7 @@
          <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle"></i>
-              <p style="color:#ffffff">
+              <p>
               About
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -369,7 +369,7 @@
          <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle"></i>
-              <p style="color:#ffffff;">
+              <p>
               Contact
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -396,7 +396,7 @@
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle"></i>
-              <p style="color:#ffffff;">
+              <p>
               Dimensions
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -423,7 +423,7 @@
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle"></i>
-              <p style="color:#ffffff;">
+              <p>
               Testimonial
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -450,7 +450,7 @@
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle"></i>
-              <p style="color:#ffffff;">
+              <p>
               Dynamic Page
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -475,7 +475,7 @@
           <li class="nav-item">
             <a href="{{url('admin/footer-settings')}}" class="nav-link">
               <i class="nav-icon far fa-circle"></i>
-              <p style="color:#ffffff;">
+              <p>
               Footer Settings
               </p>
             </a>
