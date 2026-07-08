@@ -722,4 +722,6 @@ html, body {
     
     
 
+@include('web/components_cta_banner')
+
 @include('web/footer')

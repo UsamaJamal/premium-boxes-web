@@ -3,7 +3,7 @@
 
 
 <style>
-/* :root {
+:root {
     --contact-max       : 1400px;
     --contact-px        : 48px;
     --contact-gap       : 60px;
@@ -24,7 +24,7 @@
     --contact-input-bdr : #444444;
 }
 
-
+/*
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 html, body {
@@ -106,6 +106,7 @@ html, body {
     justify-content: center;
     padding-top: 56px;
     padding-bottom: 56px;
+    background: transparent;
 }
 
 .contact-breadcrumb {
@@ -136,6 +137,7 @@ html, body {
     align-items: center;
     text-align: center;
     width: 100%;
+    margin-top: 75px;
 }
 
 .contact-hero-badge {
@@ -162,7 +164,7 @@ html, body {
     margin-bottom: 14px;
     text-shadow: 0 2px 16px rgba(0,0,0,0.6);
 }
-.contact-hero-gold { color: #B59744; display: block; }
+.contact-hero-gold { color: #f5c542; display: block; }
 
 .contact-hero-subtext {
     /* font-size: 16px;
@@ -170,27 +172,30 @@ html, body {
     line-height: 26px;
     color: #b0b0b0;
     max-width: 480px; */
-    width: 561px;
-height: 52px;
-top: 257px;
-left: 440px;
-angle: 0 deg;
-opacity: 1;
+    width: 100%;
+    max-width: 561px;
+    height: auto;
+    margin-inline: auto;
+    top: 257px;
+    left: 440px;
+    angle: 0 deg;
+    opacity: 1;
 
     font-family: Inter;
-font-weight: 400;
-font-style: Regular;
-font-size: 18px;
-leading-trim: NONE;
-line-height: 26px;
-letter-spacing: 2%;
-text-align: center;
-vertical-align: middle;
-color:#C5C5C5;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 18px;
+    leading-trim: NONE;
+    line-height: 26px;
+    letter-spacing: 2%;
+    text-align: center;
+    vertical-align: middle;
+    color:#C5C5C5;
 }
 
 
 .contact-section {
+    background-color: var(--contact-bg);
     /* padding-top: var(--contact-gap); */
     /* padding-bottom: var(--contact-gap); */
 }
@@ -242,7 +247,7 @@ color:#C5C5C5;
     font-size: 14px;
     transition: border-color 0.2s;
 }
-.contact-input-group input::placeholder { color: #555; }
+.contact-input-group input::placeholder { color: #aaa; }
 .contact-input-group input:focus { border-bottom-color: #f3c63f; }
 
 .contact-message-group { margin-bottom: 40px; }
@@ -260,7 +265,7 @@ color:#C5C5C5;
     font-size: 14px;
     transition: border-color 0.2s;
 }
-.contact-message-group textarea::placeholder { color: #555; }
+.contact-message-group textarea::placeholder { color: #aaa; }
 .contact-message-group textarea:focus { border-bottom-color: #f3c63f; }
 
 .contact-send-btn {
@@ -596,14 +601,8 @@ color:#C5C5C5;
     <section class="contact-hero">
         <div class="contact-container contact-hero-wrap">
 
-            <nav class="contact-breadcrumb" aria-label="Breadcrumb">
-                <a href="premiumboxes.html" class="contact-bc-home" aria-label="Home">&#8962;</a>
-                <span class="contact-bc-sep" aria-hidden="true">&#187;</span>
-                <span class="contact-bc-current" aria-current="page">Contact Us</span>
-            </nav>
-
+         
             <div class="contact-hero-content">
-                <div class="contact-hero-badge">CONTACT US</div>
                 <h1 class="contact-hero-heading">
                     Let's Talk About Your
                     <span class="contact-hero-gold">Packaging Vision</span>
@@ -741,206 +740,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <!-- ========================= contact form and location ========================= -->
 
-<style>
-/* ================================================
-   CTA BANNER SECTION
-   ================================================ */
-.cp-cta-banner {
-    background: #1e1e1e;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 60px 80px;
-    min-height: 280px;
-    gap: 40px;
-}
-
-.cp-cta-banner-left {
-    margin-left: 81px;
-    flex: 1;
-    max-width: 480px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    position: relative;
-    z-index: 2;
-}
-
-.cp-cta-banner-heading {
-    font-size: 30px;
-    font-weight: 800;
-    color: #ffffff;
-    line-height: 1.25;
-    white-space: nowrap;
-}
-
-.cp-cta-banner-gold {
-    color: #f5c542;
-}
-
-.cp-cta-banner-text {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.65);
-    line-height: 1.75;
-    max-width: 487px;
-}
-
-.cp-cta-banner-btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 14px 32px;
-    background: #f5c542;
-    color: #111;
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    border-radius: 50px;
-    border: none;
-    cursor: pointer;
-    transition: background .25s, transform .2s;
-    white-space: nowrap;
-    width: fit-content;
-    text-decoration: none;
-}/* removed hover: .cp-cta-banner-btn:hover { ... } */
-
-.cp-cta-banner-imgs {
-    position: relative;
-    width: 460px;
-    height: 280px;
-    flex-shrink: 0;
-    overflow: visible;
-}
-
-.cp-cta-img {
-    position: absolute;
-    object-fit: cover;
-    display: block;
-}
-
-.cp-cta-img-1 {
-    width: 283px;
-    height: 329px;
-    top: -130px;
-    right: -37px;
-    border-radius: 30px;
-    transform: rotate(23.35deg);
-    z-index: 3;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-}
-
-.cp-cta-img-2 {
-    width: 157px;
-    height: 172px;
-    bottom: -94px;
-    right: 217px;
-    border-radius: 15px;
-    transform: rotate(23.35deg);
-    z-index: 2;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
-}
-
-.cp-cta-img-3 {
-    width: 155px;
-    height: 170px;
-    bottom: -161px;
-    right: 51px;
-    border-radius: 15px;
-    transform: rotate(23.35deg);
-    z-index: 1;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
-}
-
-@media (max-width: 768px) {
-    .cp-cta-banner {
-        flex-direction: column-reverse;
-        padding: 0 0 10vw 0;
-        min-height: unset;
-        gap: 0;
-        overflow: hidden;
-    }
-    .cp-cta-banner-left {
-        max-width: 100%;
-        padding: 4vw 5vw 4vw 5vw;
-        align-items: flex-start;
-        text-align: left;
-        margin-left: 0;
-    }
-    .cp-cta-banner-heading {
-        font-size: 8vw;
-        white-space: normal;
-        margin-bottom: 2vw;
-        text-align: left;
-    }
-    .cp-cta-banner-text {
-        font-size: 4.2vw;
-        max-width: 100%;
-        line-height: 1.8;
-        margin-bottom: 6vw;
-        text-align: left;
-    }
-    .cp-cta-banner-btn {
-        width: 100%;
-        text-align: center;
-        justify-content: center;
-        font-size: 4.5vw;
-        padding: 4vw 0;
-    }
-    .cp-cta-banner-imgs {
-        width: 100%;
-        height: 70vw;
-        position: relative;
-        flex-shrink: 0;
-    }
-    .cp-cta-img-2 { display: none; }
-    .cp-cta-img-3 { display: none; }
-    .cp-cta-img-1 {
-        width: 72vw;
-        height: 80vw;
-        top: -10vw;
-        right: -10vw;
-        border-radius: 6vw;
-        transform: rotate(23.35deg);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-    }
-}
-</style>
-
-<!-- ================================================
-     CTA BANNER SECTION
-     ================================================ -->
-<section class="cp-cta-banner" style="justify-content: center;">
-    <div style="width: 100%; max-width: 1440px; margin: 0 auto; display: flex; align-items: inherit; justify-content: space-between; gap: inherit; flex-direction: inherit; position: relative;">
-        <div class="cp-cta-banner-left">
-            <h2 class="cp-cta-banner-heading">
-                Ready to Elevate Your <span class="cp-cta-banner-gold">Packaging</span>?
-            </h2>
-            <p class="cp-cta-banner-text">
-                Let's bring your packaging vision to life. Our team of experts is ready to<br>
-                design and deliver rigid boxes that will make your brand unforgettable.
-            </p>
-            <a href="#" class="cp-cta-banner-btn">Get Your Free Quote Today</a>
-        </div>
-
-        <div class="cp-cta-banner-imgs">
-            <img
-                src="{{ asset('uploads/cta-allcateagories.png') }}"
-                alt="Rigid Inspiration"
-                class="cp-cta-img cp-cta-img-1"
-            >
-            <img
-                src="{{ asset('uploads/cta-allcategories.png') }}"
-                alt="Luxury Box Packaging"
-                class="cp-cta-img cp-cta-img-2"
-            >
-            <img
-                src="{{ asset('uploads/cta-allcategories.png') }}"
-                alt="Luxury Box Packaging"
-                class="cp-cta-img cp-cta-img-3"
-            >
-        </div>
-    </div>
-</section>
+@include('web/components_cta_banner')
 
 @include('web/footer')
