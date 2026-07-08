@@ -4896,7 +4896,7 @@ img {
                         <div class="form-row dual-grid">
                             <div class="form-group">
                                 <label>Name *</label>
-                                <input type="text" name="name" placeholder="Enter your name" required>
+                                <input type="text" name="name" placeholder="Enter your name" required oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
                             </div>
                             <div class="form-group">
                                 <label>Email Address *</label>

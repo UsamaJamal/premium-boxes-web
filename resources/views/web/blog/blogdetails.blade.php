@@ -1226,7 +1226,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                             <input type="hidden" name="source" value="Blog details quote form">
                             <input type="hidden" name="page_url" value="{{ url()->current() }}">
                             <div class="bp-quote-row">
-                                <input type="text" name="name" class="bp-quote-input" placeholder="Enter your name" required>
+                                <input type="text" name="name" class="bp-quote-input" placeholder="Enter your name" required oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
                                 <input type="email" name="email" class="bp-quote-input" placeholder="Enter your email" required>
                             </div>
                             <div class="bp-quote-row">

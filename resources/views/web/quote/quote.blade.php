@@ -475,11 +475,7 @@ vertical-align: middle;
         <div class="qu-form-wrapper">
             <h2 class="qu-form-title">Tell Us About Your Project</h2>
 
-            @if(Session::has('success'))
-                <div class="alert alert-success" style="background: #28a745; color: white; padding: 12px 20px; border-radius: 8px; margin-bottom: 20px; font-weight: 600; text-align: center; font-family: sans-serif;">
-                    {{ Session::get('success') }}
-                </div>
-            @endif
+
 
             <form class="qu-form" id="quoteForm" action="{{ url('submit-quote') }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -490,7 +486,7 @@ vertical-align: middle;
                 <div class="qu-row qu-row-d2">
                     <div class="qu-field">
                         <label>Name <span class="qu-req">*</span></label>
-                        <input type="text" name="name" placeholder="Enter your name" required>
+                        <input type="text" name="name" placeholder="Enter your name" required oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
                     </div>
                     <div class="qu-field">
                         <label>Email Address <span class="qu-req">*</span></label>

@@ -253,7 +253,7 @@ p  { font-size: 16px !important; }
              <input type="hidden" name="_token" value="{!! csrf_token() !!}">
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Name:</label>
-            <input type="text" name="name" class="form-control" placeholder="Enter your name:" required>
+            <input type="text" name="name" class="form-control" placeholder="Enter your name:" required oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Contact Number:</label>
@@ -787,7 +787,7 @@ p  { font-size: 16px !important; }
             @endif
         </div>
 
-        <a href="{{ url('blogs') }}" style="display: block; color: #cccccc; text-decoration: none; font-size: 16px; padding: 15px 0; border-bottom: 1px solid #333333;">Blogs</a>
+        <a href="{{ url('our-blog') }}" style="display: block; color: #cccccc; text-decoration: none; font-size: 16px; padding: 15px 0; border-bottom: 1px solid #333333;">Blogs</a>
 
         <div style="margin-top: auto; padding-top: 30px; padding-bottom: 20px;">
             <!-- Contact Info -->

@@ -418,6 +418,17 @@ h3 {
 
 .process-card {
   padding: 40px 20px;
+  background-color: var(--bg-card);
+  border: 1px solid rgba(245, 197, 66, 0.4);
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.process-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-gold);
+  box-shadow: 0 10px 25px rgba(245, 197, 66, 0.2);
 }
 
 /* CTA Section */
@@ -710,7 +721,7 @@ h3 {
 
 /* Sectors Section */
 .sectors-section {
-  padding: 80px 0;
+  padding: 80px 0 40px;
   background-color: var(--bg-darker);
 }
 
@@ -743,7 +754,6 @@ h3 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
-  margin-bottom: 50px;
 }
 
 .sector-card {
@@ -855,7 +865,7 @@ h3 {
 }
 /* Premium Addons Section */
 .premium-addons-section {
-  padding: 90px 0;
+  padding: 20px 0 90px;
   background: var(--bg-dark);
 }
 
@@ -2320,7 +2330,7 @@ section {
 
 /* Remove large gaps between consecutive sections */
 section + section {
-  margin-top: 4px;
+  margin-top: 0px;
 }
 @media (max-width: 576px) {
   .brand-logos {
@@ -4520,7 +4530,7 @@ section + section {
                 <p>Add that extra touch of luxury with our range of premium finishing options.</p>
             </div>
 
-            <div class="premium-gallery-single" style="max-width: 900px; margin: 0 auto; overflow: hidden; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+            <div class="premium-gallery-single" style="width: 100%; margin: 0 auto; overflow: hidden; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
                 <img src="{{asset('uploads/preium-addons.webp')}}" alt="premium addons" title="Premium Addons" style="width: 100%; height: auto; display: block;">
             </div>
 
@@ -4700,7 +4710,7 @@ section + section {
                 <div class="form-row dual-grid">
                     <div class="form-group">
                         <label>Name *</label>
-                        <input type="text" name="name" placeholder="Enter your name" required>
+                        <input type="text" name="name" placeholder="Enter your name" required oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
                     </div>
                     <div class="form-group">
                         <label>Email Address *</label>
