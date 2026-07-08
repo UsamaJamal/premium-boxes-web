@@ -509,13 +509,16 @@ img {
         gap: 0;
     }
 
-    /* Each step: no absolute positioning on mobile */
+    /* Each step: flex layout on mobile */
     .hiw-step {
         position: relative;
-        padding: 24px 0 24px 0;
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 24px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         min-height: unset;
-        overflow: hidden; /* clip ghost number */
+        overflow: visible;
     }
 
     .hiw-step:last-child {
@@ -523,38 +526,40 @@ img {
         padding-bottom: 0;
     }
 
-    /* Ghost number — faint behind content */
+    /* Ghost number — faint on the left */
     .hiw-step::before {
-        font-size: 100px;
-        left: -6px;
-        top: -10px;
-        color: rgba(255, 255, 255, 0.05);
+        content: attr(data-num);
+        font-family: 'Hepta Slab', serif;
+        font-size: 80px;
+        font-weight: 700;
+        line-height: 0.9;
+        color: rgba(255, 255, 255, 0.15);
+        position: static;
+        flex-shrink: 0;
+        top: auto;
+        left: auto;
     }
 
-    /* Body — normal flow, no absolute */
+    /* Body — next to the number */
     .hiw-step-body {
-        position: relative;
-        top: auto;
-        left: 0 !important;
-        right: 0 !important;
+        position: static;
         width: 100%;
         max-width: 100%;
         padding: 0;
-        padding-left: 16px;
         z-index: 1;
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 6px;
     }
 
     .hiw-step-title {
-        font-size: 15px;
+        font-size: 18px;
         font-weight: 700;
         color: #fff;
     }
     .hiw-step-text  {
-        font-size: 13px;
-        line-height: 1.7;
+        font-size: 14px;
+        line-height: 1.5;
         color: rgba(255, 255, 255, 0.6);
     }
 }
@@ -629,6 +634,14 @@ img {
   padding: 0 8px;
   white-space: nowrap;
   overflow: hidden;
+  outline: none;
+}
+
+.filter-btn:focus,
+.filter-btn:focus-visible,
+.filter-btn:active {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 /* When viewport is too narrow, allow wrapping */
@@ -1906,7 +1919,15 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    outline: none;
 }/* removed hover: .testimonial-nav button:hover { ... } */
+
+.testimonial-nav button:focus,
+.testimonial-nav button:focus-visible,
+.testimonial-nav button:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
 
 @media (max-width: 992px) {
     .testimonial-grid {
@@ -2353,14 +2374,21 @@ img {
 .pg-cta-btn {
     display: inline-block;
     background: #f5c542;
-    color: #111;
+    color: #111 !important;
     font-size: 14px;
     font-weight: 700;
     padding: 12px 32px;
     border-radius: 50px;
-    text-decoration: none;
+    text-decoration: none !important;
     transition: background 0.2s, transform 0.2s;
-}/* removed hover: .pg-cta-btn:hover { ... } */
+}
+
+.pg-cta-btn:hover,
+.pg-cta-btn:focus,
+.pg-cta-btn:active {
+    text-decoration: none !important;
+    color: #111 !important;
+}
 
 /* Responsive */
 @media (max-width: 1024px) {
@@ -2617,8 +2645,11 @@ img {
     flex: 1;
 }
 
-.pg-accordion-btn:focus {
-    outline: none;
+.pg-accordion-btn:focus,
+.pg-accordion-btn:focus-visible,
+.pg-accordion-btn:active {
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 .pg-accordion-icon {
@@ -3573,7 +3604,7 @@ img {
     justify-content: center;
     align-items: flex-end;
     padding: 0 !important;
-    margin: 0 !important;
+    margin: 80px 0 0 0 !important;
     background: #1a1a1a;
     overflow: hidden;
   }
@@ -3628,11 +3659,11 @@ img {
     width: 100%;
   }
 
-  /* Button — left aligned like figma */
+  /* Button — centered on mobile */
   .btn-yellow {
-    display: inline-block !important;
+    display: table !important;
     width: auto !important;
-    margin: 0 !important;
+    margin: 0 auto !important;
     text-align: center;
     padding: 13px 32px;
     font-size: 15px;
@@ -4161,7 +4192,7 @@ img {
     max-width: 100%;
   }
   .quote-steps-col {
-    display: block;
+    display: none !important;
   }
 
   .quote-side-image,
@@ -4248,6 +4279,57 @@ img {
 
 /* --- CTA Main Container Block --- */
 
+/* Reduce gap above How it Works (Desktop) */
+.cp-products, .box-by-industry, .cp-why {
+  padding-bottom: 20px !important;
+}
+.hiw-section {
+  padding-top: 20px !important;
+}
+
+/* Reduce gap between Testimonials, Quote section, and FAQs (Desktop) */
+.testimonials-section {
+  padding-bottom: 20px !important;
+  margin-bottom: 0 !important;
+}
+.quote-section {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+.pg-section {
+  padding-top: 20px !important;
+  margin-top: 0 !important;
+}
+
+@media (max-width: 768px) {
+  /* Reduce gap above How it Works */
+  .cp-products, .box-by-industry, .cp-why {
+    padding-bottom: 10px !important;
+  }
+  .hiw-section {
+    padding-top: 10px !important;
+  }
+
+  /* Reduce gap between Testimonials and Quote section */
+  .testimonials-section {
+    padding-bottom: 10px !important;
+    margin-bottom: 0 !important;
+  }
+  .quote-section {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  
+  /* Reduce gap between Quote section and FAQs */
+  .pg-section {
+    padding-top: 10px !important;
+    margin-top: 0 !important;
+  }
+}
 </style>
 @php
     $isGiftBoxesPage = ($slug ?? '') === 'gift-boxes';

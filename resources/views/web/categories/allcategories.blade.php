@@ -860,6 +860,7 @@ body {
 
 .box-by-industry {
   position: relative;
+  padding-top: 40px;
 }
 
 .industry-hero-content {

@@ -37,7 +37,9 @@ html, body {
 .qu-breadcrumb {
     position: absolute;
     top: 150px;
-    left: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1200px, calc(100% - 96px));
     display: flex;
     align-items: center;
     gap: 8px;
@@ -130,10 +132,7 @@ vertical-align: middle;
     margin: 0 auto;
     background-color: #202020;
     border-radius: 10px;
-    border-left: 1px solid #2e2e2e;
-    border-right: 1px solid #2e2e2e;
-    border-bottom: 1px solid #2e2e2e;
-    border-top: none;
+    border: 1px solid #f5c542;
 }
 
 .qu-form-wrapper {
@@ -386,7 +385,12 @@ vertical-align: middle;
         min-height: unset;
         padding: 25vw 6vw 10vw;
     }
-    .qu-breadcrumb { top: 18vw; left: 4vw; font-size: 3.5vw; }
+    .qu-breadcrumb {
+        top: 18vw;
+        left: 50%;
+        width: calc(100% - 8vw);
+        font-size: 3.5vw;
+    }
 
     .qu-hero-badge {
         font-size: 2.8vw;
@@ -404,8 +408,8 @@ vertical-align: middle;
     .qu-hero-gold { display: block; }
     .qu-hero-subtext { font-size: 3.8vw; line-height: 1.75; }
 
-    .qu-form-section  { max-width: 100%; padding: 0 4vw 8vw; }
-    .qu-form-wrapper  { padding: 7vw 4vw; }
+    .qu-form-section  { max-width: 100%; padding: 0 4vw 8vw; border: none !important; box-shadow: none !important; background: transparent !important; }
+    .qu-form-wrapper  { padding: 7vw 4vw; border: none !important; background: transparent !important; }
     .qu-form-title    { font-size: 5vw; }
 
     .qu-field label { font-size: 3.8vw; }
@@ -470,6 +474,12 @@ vertical-align: middle;
     <section class="qu-form-section">
         <div class="qu-form-wrapper">
             <h2 class="qu-form-title">Tell Us About Your Project</h2>
+
+            @if(Session::has('success'))
+                <div class="alert alert-success" style="background: #28a745; color: white; padding: 12px 20px; border-radius: 8px; margin-bottom: 20px; font-weight: 600; text-align: center; font-family: sans-serif;">
+                    {{ Session::get('success') }}
+                </div>
+            @endif
 
             <form class="qu-form" id="quoteForm" action="{{ url('submit-quote') }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -672,4 +682,5 @@ if (quoteForm) {
 }
 
 </script>
+@include('web/components_cta_banner')
 @include('web/footer')
