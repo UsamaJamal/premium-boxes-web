@@ -36,7 +36,7 @@
          <div class="card-body">
                   
               </div>
-               <form id="basic-form" method="post" action="{{url('admin/addblog').'/'}}"enctype="multipart/form-data"
+               <form id="basic-form" method="post" action="{{url('admin/addblog')}}"enctype="multipart/form-data"
 >@csrf
 
                <div class="card" style="width: 66%; margin-left: 15px;">

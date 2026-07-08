@@ -462,7 +462,7 @@ body {
             @if(isset($top_blog) && count($top_blog) > 0)
             <div class="blog-top-row">
                 @php $featured = $top_blog[0]; @endphp
-                <article class="blog-post-large" onclick="window.location.href='{{ url('blog/'.$featured->blog_url).'/' }}'">
+                <article class="blog-post-large" onclick="window.location.href='{{ url('blog/'.$featured->blog_url)'">
                     <div class="blog-post-img blog-post-large-img" style="background-image:url('{{ asset('images/'.$featured->image) }}');"></div>
                     <div class="blog-post-large-body">
                         <div class="blog-post-meta">
@@ -477,7 +477,7 @@ body {
                 @if(count($top_blog) > 1)
                 <div class="blog-post-small-stack">
                     @foreach($top_blog->slice(1, 2) as $side)
-                    <article class="blog-post-small" onclick="window.location.href='{{ url('blog/'.$side->blog_url).'/' }}'">
+                    <article class="blog-post-small" onclick="window.location.href='{{ url('blog/'.$side->blog_url)'">
                         <div class="blog-post-img blog-post-small-img" style="background-image:url('{{ asset('images/'.$side->image) }}');"></div>
                         <div class="blog-post-small-body">
                             <div class="blog-post-meta">
@@ -500,7 +500,7 @@ body {
                 <div class="blog-grid" id="blogGrid">
                     @if(isset($all_blog) && count($all_blog) > 0)
                         @foreach($all_blog as $blog_item)
-                        <article class="blog-card" onclick="window.location.href='{{ url('blog/'.$blog_item->blog_url).'/' }}'">
+                        <article class="blog-card" onclick="window.location.href='{{ url('blog/'.$blog_item->blog_url)'">
                             <div class="blog-post-img blog-card-img" style="background-image:url('{{ asset('images/'.$blog_item->image) }}');"></div>
                             <div class="blog-card-body">
                                 <div class="blog-post-meta">
@@ -522,7 +522,7 @@ body {
                         <h3 class="blog-widget-title"><i class="fas fa-layer-group"></i> Popular Categories</h3>
                         <ul class="blog-cat-list">
                             @foreach($all_category as $cat)
-                            <li class="blog-cat-item" onclick="window.location.href='{{ url('category/'.$cat->category_url).'/' }}'">
+                            <li class="blog-cat-item" onclick="window.location.href='{{ url('category/'.$cat->category_url)'">
                                 <span class="blog-cat-dot"></span> {{ $cat->name }}
                             </li>
                             @endforeach

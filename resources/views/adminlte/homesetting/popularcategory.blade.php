@@ -34,7 +34,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-               <form method="post" action="{{url('admin/add_popularcategory').'/'}}"enctype="multipart/form-data"
+               <form method="post" action="{{url('admin/add_popularcategory')}}"enctype="multipart/form-data"
 >@csrf
 <input type="hidden" name="category_id"  value="{{$addcategory[0]->cat_id}}">
                 <div class="card-body">

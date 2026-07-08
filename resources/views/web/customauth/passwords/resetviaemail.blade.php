@@ -25,7 +25,7 @@
             <div class="card">
                  <div class="card-header">Reset Password</div>
                       <div class="card-body">
-                          <form method="POST" action="{{url('user/reset-code').'/'}}">
+                          <form method="POST" action="{{url('user/reset-code')}}">
                            @csrf
                            <input type="hidden" name="token" value="">
                         <div class="form-group row">

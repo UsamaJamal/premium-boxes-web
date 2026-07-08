@@ -30,7 +30,7 @@
               </div>
             
 
-        <form method="post" action="{{url('admin/insertcontact').'/'}}" enctype="multipart/form-data">
+        <form method="post" action="{{url('admin/insertcontact')}}" enctype="multipart/form-data">
         @csrf
     <div class="card" style="width: 66%; margin-left: 15px;">
       <div class="card-header header-2">Add About Data</div>

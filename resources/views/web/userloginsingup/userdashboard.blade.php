@@ -168,7 +168,7 @@
                       <div class="col-md-5" style="background-color:#fff;">
                       
                             <input type="hidden" name="oldimage" value="{{url('images/'. Session::get('web-image') )}}">
-                            <form method="post" action="{{url('user-image-update').'/'}}" enctype="multipart/form-data">
+                            <form method="post" action="{{url('user-image-update')}}" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="email" value="{{ Session::get('web-email') }}">
                             <?php $email =  Session::get('web-email'); ?>
@@ -201,7 +201,7 @@
                         <input type="hidden" name="email" value="{{ Session::get('web-email') }}">
                             <?php $email =  Session::get('web-email'); ?>
                         <div class="profile-form">
-                            <form method="post" action="{{url('user-info-update').'/'}}">
+                            <form method="post" action="{{url('user-info-update')}}">
                             @csrf
                             
                            
@@ -248,7 +248,7 @@
 $email =  Session::get('web-email');
 ?>
                         <div class="profile-form">
-                            <form method="post" action="{{url('updatepassword').'/'}}">
+                            <form method="post" action="{{url('updatepassword')}}">
                             @csrf
                                 <div class="form-group">
                                   <label>Old Password</label>

@@ -32,7 +32,7 @@
         <img src="{{url('web\assets\img\img.svg')}}">
     </div>
     <div class="login-content1">
-        <form class="form1" method="post" action="{{url('user_login').'/'}}" id="loginform">
+        <form class="form1" method="post" action="{{url('user_login')}}" id="loginform">
             @csrf
             <img src="{{url('web\assets\img\avatar.svg')}}">
             <h2 class="title">Welcome</h2>
@@ -59,7 +59,7 @@
                <div class="g-recaptcha mt-4 ml-4" id="recapchaheader" required></div>
                </div>
             <span><a class="a" href="{{url('user-register')}}">Register Now</a></span>
-                 <span><a class="a" href="{{url('user/forget-password').'/'}}">Forgot Password?</a></span>
+                 <span><a class="a" href="{{url('user/forget-password')}}">Forgot Password?</a></span>
             <input type="submit" class="btn registration-btn" value="Login" style="margin: 1rem 0;">
         </form>
     </div>

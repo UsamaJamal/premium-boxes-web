@@ -12,7 +12,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{ url('admin/dashboard').'/' }}" style="color: #234376;">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{ url('admin/dashboard')" style="color: #234376;">Home</a></li>
               <li class="breadcrumb-item active" style="color: #49d8f7;">Category Form</li>
             </ol>
           </div>
@@ -36,7 +36,7 @@
               <div class="card-body">
                   
               </div>
-               <form id="basic-form" method="post" action="{{url('admin/addcategory').'/'}}"enctype="multipart/form-data"
+               <form id="basic-form" method="post" action="{{url('admin/addcategory')}}"enctype="multipart/form-data"
 >@csrf
                 <div class="card" style="width: 66%; margin-left: 15px;">
     <div class="card-header header-2">Add Page Data</div>

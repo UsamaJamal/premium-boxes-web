@@ -580,7 +580,7 @@ a { text-decoration: none; color: inherit; }
                     <!-- Quote Form -->
                     <div class="product-quote-box">
                         <h3 class="product-quote-title">Get Custom Quote</h3>
-                        <form class="product-quote-form" id="quoteform" method="post" action="{{ url('product-mail') . '/' }}" enctype="multipart/form-data">
+                        <form class="product-quote-form" id="quoteform" method="post" action="{{ url('product-mail')" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="p_boxname" value="{{ $p->title }}">
                             <input type="hidden" name="source" value="Product detail custom quote">
@@ -1198,7 +1198,7 @@ a { text-decoration: none; color: inherit; }
                 @foreach($all_product as $rel)
                 @foreach($temp as $tv)
                 @if($tv == $rel->product_id)
-                <a href="{{ url($rel->url) . '/' }}" class="product-related-card">
+                <a href="{{ url($rel->url)" class="product-related-card">
                     <img src="{{ url('images/'.$rel->image) }}" alt="{{ strtolower(str_replace('-', ' ', $rel->title)) }}" class="product-related-img" title="{{ ucwords(strtolower(str_replace('-', ' ', $rel->title))) }}">
                     <span class="product-related-title">{{ $rel->title }}</span>
                 </a>

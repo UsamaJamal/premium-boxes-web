@@ -32,7 +32,7 @@
                       <h3>Sign Up</h3>
                   </div>
               
-                <form method="post" action="{{url('add_user').'/'}}" enctype="multipart/form-data" id="registerform">
+                <form method="post" action="{{url('add_user')}}" enctype="multipart/form-data" id="registerform">
                     @csrf
                     <div class="form-group">
                         <input type="text" class="form-control form-inp-pad" placeholder="First Name" name="fname" required>
