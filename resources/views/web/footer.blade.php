@@ -86,7 +86,7 @@
 }
 
 .cp-social-icons a:hover {
-    background-color: #FFC107;
+    background-color: #f5c542;
     color: #fff;
     opacity: 0.9;
 }
@@ -283,7 +283,7 @@
     .cp-footer-col.open .cp-footer-title::after,
     .cp-footer-col-5.open .cp-footer-title:first-child::after {
         content: '−';
-        color: #FFC107;
+        color: #f5c542;
     }
 
     /* Accordion body — hidden by default */
@@ -452,7 +452,8 @@
             <div class="cp-footer-col cp-footer-col-5">
                 <span class="cp-footer-title" style="display: flex; justify-content: space-between; align-items: center; font-weight: 700; margin-bottom: 20px;">Office</span>
                 <p class="cp-footer-address">
-                    <span style="white-space: nowrap; letter-spacing: -0.2px;">9931 Franklin Ave Suite 1-A Franklin Park, IL</span><br>60131, USA
+                    <span style="white-space: nowrap; letter-spacing: -0.2px;">9931 Franklin Ave, Suite 1-A</span><br>Franklin Park, IL 60131
+
                 </p>
                 
                 <span class="cp-footer-title cp-newsletter-title" style="display: flex; justify-content: space-between; align-items: center; font-weight: 700; margin-bottom: 20px; margin-top: 10px;">News letter</span>

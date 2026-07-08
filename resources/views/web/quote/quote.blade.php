@@ -90,50 +90,19 @@ html, body {
 }
 
 .qu-hero-heading {
-    /* font-size: clamp(28px, 3.5vw, 48px);
+    font-family: Inter, sans-serif;
     font-weight: 800;
+    font-size: 42px;
     line-height: 1.2;
-    color: #fff;
-    margin-bottom: 16px;
-    border: 1px solid #c9a84c; */
-width: 576;
-height: 50;
-top: 321px;
-left: 432px;
-angle: 0 deg;
-opacity: 1;
-font-family: Inter;
-font-weight: 800;
-font-style: Extra Bold;
-font-size: 42px;
-leading-trim: NONE;
-line-height: 50px;
-letter-spacing: 4%;
-text-align: center;
-vertical-align: middle;
-text-transform: capitalize;
-color: #FFFFFF;
+    text-align: center;
+    color: #FFFFFF;
 }
 .qu-hero-gold {
     color: #f5c542;
-    font-family: Inter;
-font-weight: 800;
-font-style: Extra Bold;
-font-size: 42px;
-leading-trim: NONE;
-line-height: 50px;
-letter-spacing: 4%;
-text-align: center;
-vertical-align: middle;
-text-transform: capitalize;
-
-
+    font-family: Inter, sans-serif;
+    font-weight: 800;
+    font-size: inherit;
     display: inline;
-
-
-
-
-
 }
 
 .qu-hero-subtext {
@@ -477,7 +446,8 @@ vertical-align: middle;
 }
 
 @media (max-width: 480px) {
-    .qu-hero-heading { font-size: 7.5vw; }
+    .qu-hero { padding: 190px 20px 40px; }
+    .qu-hero-heading { font-size: 8vw; }
     .qu-why-cards    { grid-template-columns: 1fr; }
 }
 </style>
@@ -520,7 +490,7 @@ vertical-align: middle;
                     </div>
                     <div class="qu-field">
                         <label>Email Address <span class="qu-req">*</span></label>
-                        <input type="email" name="email" placeholder="Enter your email" required>
+                        <input type="email" name="email" placeholder="Enter your email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
                     </div>
                 </div>
 
@@ -528,7 +498,7 @@ vertical-align: middle;
                 <div class="qu-row qu-row-d2">
                     <div class="qu-field">
                         <label>Phone <span class="qu-req">*</span></label>
-                        <input type="tel" name="phone" placeholder="Enter your number" required>
+                        <input type="tel" name="phone" placeholder="Enter your number" required oninput="this.value = this.value.replace(/[^0-9+]/g, '')">
                     </div>
                     <div class="qu-field">
                         <label>Physical Address</label>
@@ -540,15 +510,15 @@ vertical-align: middle;
                 <div class="qu-row qu-row-4">
                     <div class="qu-field">
                         <label>Width <span class="qu-req">*</span></label>
-                        <input type="number" name="width" placeholder="Width" required>
+                        <input type="number" name="width" placeholder="Width" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')">
                     </div>
                     <div class="qu-field">
                         <label>Length <span class="qu-req">*</span></label>
-                        <input type="number" name="length" placeholder="Length" required>
+                        <input type="number" name="length" placeholder="Length" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')">
                     </div>
                     <div class="qu-field">
                         <label>Depth <span class="qu-req">*</span></label>
-                        <input type="number" name="depth" placeholder="Depth" required>
+                        <input type="number" name="depth" placeholder="Depth" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')">
                     </div>
                     <div class="qu-field">
                         <label>Units <span class="qu-req">*</span></label>
@@ -560,15 +530,15 @@ vertical-align: middle;
                     </div>
                 </div>
 
-                <!-- Material + Color + Addons -->
-                <div class="qu-row qu-row-3">
+                <!-- Material + Color -->
+                <div class="qu-row qu-row-2">
                     <div class="qu-field">
                         <label>Select Material</label>
                         @php
                             $materialCategory = DB::table('add_category')->where('name', 'Box by Material')->first();
                             $materials = $materialCategory ? DB::table('add_category')->where('parent_category', $materialCategory->cat_id)->where('status', 1)->get() : collect([]);
                         @endphp
-                        <select name="material" class="form-control" style="background: #111; color: white; border: 1px solid #222;">
+                        <select name="material">
                             <option value="">Choose option</option>
                             @foreach($materials as $material)
                                 <option value="{{ $material->name }}">{{ $material->name }}</option>
@@ -584,31 +554,27 @@ vertical-align: middle;
                             <option>No Print</option>
                         </select>
                     </div>
+                </div>
+
+                <!-- Product Name + Quantity -->
+                <div class="qu-row qu-row-2">
                     <div class="qu-field">
                         <label>Select Product Name</label>
-                        <select name="product_name">
-                            <option value="">Choose option</option>
-                            <option>Foil Stamping</option>
-                            <option>Embossing</option>
-                            <option>UV Coating</option>
-                            <option>Matte Lamination</option>
-                        </select>
+                        <input type="text" name="product_name" placeholder="Enter product name">
+                    </div>
+                    <div class="qu-field">
+                        <label>Quantity <span class="qu-req">*</span></label>
+                        <input type="number" name="quantity" placeholder="Enter quantity" required oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                     </div>
                 </div>
 
-                <!-- Quantity + Upload -->
-                <div class="qu-row qu-row-2">
-                    <div class="qu-field">
-                        <label>Quantity <span class="qu-req">*</span></label>
-                        <input type="number" name="quantity" placeholder="Enter quantity" required>
-                    </div>
-                    <div class="qu-field">
-                        <label>Upload File Here</label>
-                        <div class="qu-upload-wrap">
-                            <span class="qu-file-name" id="fileName">No file choosen</span>
-                            <label for="fileInput" class="qu-upload-btn">Upload</label>
-                            <input type="file" name="artwork" id="fileInput" hidden>
-                        </div>
+                <!-- Upload -->
+                <div class="qu-field">
+                    <label>Upload File Here</label>
+                    <div class="qu-upload-wrap">
+                        <span class="qu-file-name" id="fileName">No file choosen</span>
+                        <label for="fileInput" class="qu-upload-btn">Upload</label>
+                        <input type="file" name="artwork" id="fileInput" hidden>
                     </div>
                 </div>
 
@@ -628,7 +594,7 @@ vertical-align: middle;
 
     <!-- Why Choose Us -->
     <section class="qu-why-section">
-        <button class="qu-why-badge">WHY CHOOSE US</button>
+       
         <h2 class="qu-why-heading">Packaging Excellence<span class="qu-mob-br"><br></span> You Can Trust</h2>
         <p class="qu-why-subtext">
             We craft premium custom packaging that<br class="qu-mob-break">

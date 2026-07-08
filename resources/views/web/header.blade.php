@@ -206,8 +206,7 @@ form.example button {
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">
-Get A Call In A Min !</h5>
+      
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -253,13 +252,13 @@ Get A Call In A Min !</h5>
                 <form action="{{ url('search') }}" method="POST" style="display: flex; align-items: center; background-color: #333333; border-radius: 50px; height: 38px; padding: 0 16px; gap: 8px; margin: 0;">
                     @csrf
                     <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer; display: flex; align-items: center; outline: none;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#F5A623" stroke-width="2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#f5c542" stroke-width="2">
                             <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
                         </svg>
                     </button>
                     <input type="text" name="query" placeholder="Search products..."
                         style="background: transparent; border: none; outline: none; color: #ffffff; font-size: 14px; width: 100%;"
-                        onfocus="this.parentElement.style.boxShadow='0 0 0 1.5px #F5A623'"
+                        onfocus="this.parentElement.style.boxShadow='0 0 0 1.5px #f5c542'"
                         onblur="this.parentElement.style.boxShadow='none'" required>
                 </form>
             </div>
@@ -270,7 +269,7 @@ Get A Call In A Min !</h5>
             <!-- Phone -->
             <a href="tel:18005189441" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-muted-light);">
                 <div style="width: 38px; height: 38px; border-radius: 50%; background-color: #333333; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="#F5A623" stroke-width="2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="#f5c542" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                     </svg>
                 </div>
@@ -278,13 +277,13 @@ Get A Call In A Min !</h5>
             </a>
 
             <!-- Email -->
-            <a href="mailto:support@myboxpackaging.com" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-muted-light);">
+            <a href="mailto:support@premiumboxes.com" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-muted-light);">
                 <div style="width: 38px; height: 38px; border-radius: 50%; background-color: #333333; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="#F5A623" stroke-width="2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="#f5c542" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                     </svg>
                 </div>
-                <span style="font-size: 14px; font-weight: 600; color: #ffffff;">support@myboxpackaging.com</span>
+                <span style="font-size: 14px; font-weight: 600; color: #ffffff;">support@premiumboxes.com</span>
             </a>
         </div>
         </div>
@@ -306,7 +305,7 @@ Get A Call In A Min !</h5>
             background-color: #252525;
             z-index: 999;
             box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7);
-            border-top: 2px solid #F5A623;
+            border-top: 2px solid #f5c542;
             border-bottom-left-radius: 8px;
             border-bottom-right-radius: 8px;
             animation: megaSlideDown 0.2s ease;
@@ -324,7 +323,7 @@ Get A Call In A Min !</h5>
             animation: megaSlideDown 0.2s ease;
         }
         .nav-group > a:hover {
-            color: #F5A623 !important;
+            color: #f5c542 !important;
         }
 
         /* Mobile Header Adjustments */
@@ -387,7 +386,7 @@ Get A Call In A Min !</h5>
 
         <!-- Nav Links -->
         <div class="nav-links-container" style="display: flex; align-items: stretch; gap: 28px; flex: 1; justify-content: center; position: relative;">
-            <a href="/" style="display: flex; align-items: center; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s;" onmouseover="this.style.color='#F5A623'" onmouseout="this.style.color='#ffffff'">Home</a>
+            <a href="/" style="display: flex; align-items: center; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#ffffff'">Home</a>
             
             <!-- Box By Industry with Mega Menu -->
             <div class="nav-group">
@@ -403,11 +402,11 @@ Get A Call In A Min !</h5>
                                 $industries = $parentCat ? \DB::table('add_category')->where('parent_category', $parentCat->cat_id)->where('show_in_nav', 1)->get() : [];
                                 @endphp
                                 @foreach($industries as $industry)
-                                <a href="{{ url($industry->category_url) }}" style="display: flex; align-items: center; gap: 10px; color: #cccccc; text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#F5A623'" onmouseout="this.style.color='#cccccc'">
+                                <a href="{{ url($industry->category_url) }}" style="display: flex; align-items: center; gap: 10px; color: #cccccc; text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#cccccc'">
                                     @if(!empty($industry->icon))
                                         <img src="{{ asset('images/' . $industry->icon) }}" style="width: 20px; height: 20px; object-fit: contain;" alt="{{ $industry->name }} icon">
                                     @else
-                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <path d="M10 2.5L11.5 7.5L16.5 9L11.5 10.5L10 15.5L8.5 10.5L3.5 9L8.5 7.5L10 2.5Z"></path>
                                             <path d="M19 14.5L19.5 16.5L21.5 17L19.5 17.5L19 19.5L18.5 17.5L16.5 17L18.5 16.5L19 14.5Z"></path>
                                             <path d="M19 3.5L19.5 5.5L21.5 6L19.5 6.5L19 8.5L18.5 6.5L16.5 6L18.5 5.5L19 3.5Z"></path>
@@ -420,7 +419,7 @@ Get A Call In A Min !</h5>
                         </div>
                         <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #333; display: flex; align-items: center; justify-content: space-between;">
                             <div style="display: flex; align-items: center; gap: 12px;">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M3 18v-6a9 9 0 0118 0v6"></path>
                                     <path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"></path>
                                 </svg>
@@ -429,7 +428,7 @@ Get A Call In A Min !</h5>
                                     <span style="color: #aaaaaa; font-size: 13px;">Get your custom packaging plan within 24 hours.</span>
                                 </div>
                             </div>
-                            <a href="/contact" style="background-color: #F5A623; color: #111; font-weight: 700; padding: 10px 28px; border-radius: 50px; text-decoration: none; font-size: 14px; transition: background 0.2s;" onmouseover="this.style.backgroundColor='#d4891a'" onmouseout="this.style.backgroundColor='#F5A623'">Talk to us</a>
+                            <a href="/contact" style="background-color: #f5c542; color: #111; font-weight: 700; padding: 10px 28px; border-radius: 50px; text-decoration: none; font-size: 14px; transition: background 0.2s;" onmouseover="this.style.backgroundColor='#d4891a'" onmouseout="this.style.backgroundColor='#f5c542'">Talk to us</a>
                         </div>
                     </div>
                 </div>
@@ -440,20 +439,20 @@ Get A Call In A Min !</h5>
                 <a style="cursor: pointer; display: flex; align-items: center; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; padding: 0 10px;">Boxes By Material</a>
                 
                 <!-- Dropdown Container -->
-                <div class="dropdown-menu-content" style="position: absolute; top: 100%; left: 10px; width: 260px; background-color: #252525; border-radius: 4px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #333; border-top: 2px solid #F5A623; z-index: 999;">
+                <div class="dropdown-menu-content" style="position: absolute; top: 100%; left: 10px; width: 260px; background-color: #252525; border-radius: 4px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #333; border-top: 2px solid #f5c542; z-index: 999;">
                     <div style="padding: 10px 0;">
                         @php
                         $parentCatMat = \DB::table('add_category')->where('name', 'Box by Material')->first();
                         $materials = $parentCatMat ? \DB::table('add_category')->where('parent_category', $parentCatMat->cat_id)->where('show_in_nav', 1)->get() : [];
                         @endphp
                         @foreach($materials as $material)
-                        <a href="{{ url($material->category_url) }}" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; color: #cccccc; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.color='#F5A623'; this.style.backgroundColor='#333333'" onmouseout="this.style.color='#cccccc'; this.style.backgroundColor='transparent'">
+                        <a href="{{ url($material->category_url) }}" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; color: #cccccc; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.color='#f5c542'; this.style.backgroundColor='#333333'" onmouseout="this.style.color='#cccccc'; this.style.backgroundColor='transparent'">
                             {{ $material->name }}
                         </a>
                         @endforeach
                     </div>
                     <div style="border-top: 1px solid #333; padding: 12px 24px; background-color: #222222; border-radius: 0 0 4px 4px;">
-                        <a href="{{ url('box-by-material') }}" style="display: flex; align-items: center; gap: 8px; color: #aaaaaa; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#F5A623'" onmouseout="this.style.color='#aaaaaa'">
+                        <a href="{{ url('box-by-material') }}" style="display: flex; align-items: center; gap: 8px; color: #aaaaaa; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#aaaaaa'">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                                 <polyline points="12 5 19 12 12 19"></polyline>
@@ -478,11 +477,11 @@ Get A Call In A Min !</h5>
                                 $styles = $parentCatStyle ? \DB::table('add_category')->where('parent_category', $parentCatStyle->cat_id)->where('show_in_nav', 1)->get() : [];
                                 @endphp
                                 @foreach($styles as $style)
-                                <a href="{{ url($style->category_url) }}" style="display: flex; align-items: center; gap: 10px; color: #cccccc; text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#F5A623'" onmouseout="this.style.color='#cccccc'">
+                                <a href="{{ url($style->category_url) }}" style="display: flex; align-items: center; gap: 10px; color: #cccccc; text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#cccccc'">
                                     @if(!empty($style->icon))
                                         <img src="{{ asset('images/' . $style->icon) }}" style="width: 20px; height: 20px; object-fit: contain;" alt="{{ $style->name }} icon">
                                     @else
-                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <path d="M10 2.5L11.5 7.5L16.5 9L11.5 10.5L10 15.5L8.5 10.5L3.5 9L8.5 7.5L10 2.5Z"></path>
                                             <path d="M19 14.5L19.5 16.5L21.5 17L19.5 17.5L19 19.5L18.5 17.5L16.5 17L18.5 16.5L19 14.5Z"></path>
                                             <path d="M19 3.5L19.5 5.5L21.5 6L19.5 6.5L19 8.5L18.5 6.5L16.5 6L18.5 5.5L19 3.5Z"></path>
@@ -495,7 +494,7 @@ Get A Call In A Min !</h5>
                         </div>
                         <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #333; display: flex; align-items: center; justify-content: space-between;">
                             <div style="display: flex; align-items: center; gap: 12px;">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M3 18v-6a9 9 0 0118 0v6"></path>
                                     <path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"></path>
                                 </svg>
@@ -504,7 +503,7 @@ Get A Call In A Min !</h5>
                                     <span style="color: #aaaaaa; font-size: 13px;">Get your custom packaging plan within 24 hours.</span>
                                 </div>
                             </div>
-                            <a href="/contact" style="background-color: #F5A623; color: #111; font-weight: 700; padding: 10px 28px; border-radius: 50px; text-decoration: none; font-size: 14px; transition: background 0.2s;" onmouseover="this.style.backgroundColor='#d4891a'" onmouseout="this.style.backgroundColor='#F5A623'">Talk to us</a>
+                            <a href="/contact" style="background-color: #f5c542; color: #111; font-weight: 700; padding: 10px 28px; border-radius: 50px; text-decoration: none; font-size: 14px; transition: background 0.2s;" onmouseover="this.style.backgroundColor='#d4891a'" onmouseout="this.style.backgroundColor='#f5c542'">Talk to us</a>
                         </div>
                     </div>
                 </div>
@@ -526,11 +525,11 @@ Get A Call In A Min !</h5>
                         <div style="display: flex; gap: 40px;">
                             <div style="flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px 20px; align-content: start;">
                                 @foreach($promoSubcats as $subcat)
-                                <a href="{{ url($subcat->category_url) }}" style="display: flex; align-items: center; gap: 10px; color: #cccccc; text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#F5A623'" onmouseout="this.style.color='#cccccc'">
+                                <a href="{{ url($subcat->category_url) }}" style="display: flex; align-items: center; gap: 10px; color: #cccccc; text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#cccccc'">
                                     @if(!empty($subcat->icon))
                                         <img src="{{ asset('images/' . $subcat->icon) }}" style="width: 20px; height: 20px; object-fit: contain;" alt="{{ $subcat->name }} icon">
                                     @else
-                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <path d="M10 2.5L11.5 7.5L16.5 9L11.5 10.5L10 15.5L8.5 10.5L3.5 9L8.5 7.5L10 2.5Z"></path>
                                             <path d="M19 14.5L19.5 16.5L21.5 17L19.5 17.5L19 19.5L18.5 17.5L16.5 17L18.5 16.5L19 14.5Z"></path>
                                             <path d="M19 3.5L19.5 5.5L21.5 6L19.5 6.5L19 8.5L18.5 6.5L16.5 6L18.5 5.5L19 3.5Z"></path>
@@ -543,7 +542,7 @@ Get A Call In A Min !</h5>
                         </div>
                         <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #333; display: flex; align-items: center; justify-content: space-between;">
                             <div style="display: flex; align-items: center; gap: 12px;">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M3 18v-6a9 9 0 0118 0v6"></path>
                                     <path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"></path>
                                 </svg>
@@ -552,7 +551,7 @@ Get A Call In A Min !</h5>
                                     <span style="color: #aaaaaa; font-size: 13px;">Get your custom packaging plan within 24 hours.</span>
                                 </div>
                             </div>
-                            <a href="/contact" style="background-color: #F5A623; color: #111; font-weight: 700; padding: 10px 28px; border-radius: 50px; text-decoration: none; font-size: 14px; transition: background 0.2s;" onmouseover="this.style.backgroundColor='#d4891a'" onmouseout="this.style.backgroundColor='#F5A623'">Talk to us</a>
+                            <a href="/contact" style="background-color: #f5c542; color: #111; font-weight: 700; padding: 10px 28px; border-radius: 50px; text-decoration: none; font-size: 14px; transition: background 0.2s;" onmouseover="this.style.backgroundColor='#d4891a'" onmouseout="this.style.backgroundColor='#f5c542'">Talk to us</a>
                         </div>
                     </div>
                 </div>
@@ -579,10 +578,10 @@ Get A Call In A Min !</h5>
                 
                 @if(count($subCats) > 0)
                 <!-- Dropdown Container -->
-                <div class="dropdown-menu-content" style="position: absolute; top: 100%; left: 10px; width: 260px; background-color: #252525; border-radius: 4px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #333; border-top: 2px solid #F5A623; z-index: 999;">
+                <div class="dropdown-menu-content" style="position: absolute; top: 100%; left: 10px; width: 260px; background-color: #252525; border-radius: 4px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #333; border-top: 2px solid #f5c542; z-index: 999;">
                     <div style="padding: 10px 0;">
                         @foreach($subCats as $subCat)
-                        <a href="{{ url($subCat->category_url) }}" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; color: #cccccc; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.color='#F5A623'; this.style.backgroundColor='#333333'" onmouseout="this.style.color='#cccccc'; this.style.backgroundColor='transparent'">
+                        <a href="{{ url($subCat->category_url) }}" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; color: #cccccc; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.color='#f5c542'; this.style.backgroundColor='#333333'" onmouseout="this.style.color='#cccccc'; this.style.backgroundColor='transparent'">
                             {{ $subCat->name }}
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="9 18 15 12 9 6"></polyline>
@@ -591,7 +590,7 @@ Get A Call In A Min !</h5>
                         @endforeach
                     </div>
                     <div style="border-top: 1px solid #333; padding: 12px 24px; background-color: #222222; border-radius: 0 0 4px 4px;">
-                        <a href="{{ url($otherParent->category_url) }}" style="display: flex; align-items: center; gap: 8px; color: #aaaaaa; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#F5A623'" onmouseout="this.style.color='#aaaaaa'">
+                        <a href="{{ url($otherParent->category_url) }}" style="display: flex; align-items: center; gap: 8px; color: #aaaaaa; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#aaaaaa'">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                                 <polyline points="12 5 19 12 12 19"></polyline>
@@ -604,7 +603,7 @@ Get A Call In A Min !</h5>
             </div>
             @endforeach
 
-            <a href="{{ url('our-blog') }}" style="display: flex; align-items: center; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s;" onmouseover="this.style.color='#F5A623'" onmouseout="this.style.color='#ffffff'">Blogs</a>
+            <a href="{{ url('our-blog') }}" style="display: flex; align-items: center; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#ffffff'">Blogs</a>
         </div>
 
         <!-- Right: Toggle + CTA -->
@@ -627,14 +626,18 @@ Get A Call In A Min !</h5>
 
             <!-- Get Instant Quote -->
             <a href="{{ url('request-quote') }}"
-                style="background-color: #F5C542; color: #111; font-size: 14px; font-weight: 800; padding: 10px 22px; border-radius: 50px; text-decoration: none; white-space: nowrap; transition: background 0.2s;"
+                style="background-color: #f5c542; color: #111; font-size: 14px; font-weight: 800; padding: 10px 22px; border-radius: 50px; text-decoration: none; white-space: nowrap; transition: background 0.2s;"
                 onmouseover="this.style.backgroundColor='#d4891a'"
-                onmouseout="this.style.backgroundColor='#F5A623'">
+                onmouseout="this.style.backgroundColor='#f5c542'">
                 Get Instant Quote
             </a>
         </div>
         </div>
     </nav>
+</header>
+
+<!-- Sidebar Overlay -->
+<div id="mobile-sidebar-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0,0,0,0.7); z-index: 99999;" onclick="closeMobileSidebar()"></div>
 
 <!-- Mobile Sidebar -->
 <div id="mobile-sidebar" style="position: fixed; top: 0; left: -100%; width: 300px; height: 100vh; background-color: #222222; z-index: 100000; transition: left 0.3s ease; overflow-y: auto; padding: 30px 20px; display: flex; flex-direction: column;">
@@ -644,13 +647,13 @@ Get A Call In A Min !</h5>
             <svg width="24" height="24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </div>
     </div>
-    <div style="flex: 1;">
-        <a href="/" style="display: block; color: #ffffff; text-decoration: none; font-size: 16px; padding: 15px 0; border-bottom: 1px solid #333333;">Home</a>
+    <div style="flex: 1; display: flex; flex-direction: column;">
+        <a href="/" style="display: block; color: #cccccc; text-decoration: none; font-size: 16px; padding: 15px 0; border-bottom: 1px solid #333333;">Home</a>
         
         <div class="mobile-nav-group">
             <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #333333; cursor: pointer;" onclick="toggleMobileSubmenu(this)">
-                <span style="color: #ffffff; font-size: 16px;">Box By Industry</span>
-                <svg class="chevron-icon" width="16" height="16" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <span style="color: #cccccc; font-size: 16px;">Box By Industry</span>
+                <svg class="chevron-icon" width="16" height="16" fill="none" stroke="#cccccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </div>
             <div class="mobile-submenu" style="display: none; padding-left: 15px; padding-top: 10px; padding-bottom: 10px; border-bottom: 1px solid #333333; background-color: #1a1a1a;">
                 @php
@@ -665,8 +668,8 @@ Get A Call In A Min !</h5>
 
         <div class="mobile-nav-group">
             <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #333333; cursor: pointer;" onclick="toggleMobileSubmenu(this)">
-                <span style="color: #ffffff; font-size: 16px;">Box By Material</span>
-                <svg class="chevron-icon" width="16" height="16" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <span style="color: #cccccc; font-size: 16px;">Box By Material</span>
+                <svg class="chevron-icon" width="16" height="16" fill="none" stroke="#cccccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </div>
             <div class="mobile-submenu" style="display: none; padding-left: 15px; padding-top: 10px; padding-bottom: 10px; border-bottom: 1px solid #333333; background-color: #1a1a1a;">
                 @php
@@ -681,8 +684,8 @@ Get A Call In A Min !</h5>
 
         <div class="mobile-nav-group">
             <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #333333; cursor: pointer;" onclick="toggleMobileSubmenu(this)">
-                <span style="color: #ffffff; font-size: 16px;">Box By Style</span>
-                <svg class="chevron-icon" width="16" height="16" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <span style="color: #cccccc; font-size: 16px;">Box By Style</span>
+                <svg class="chevron-icon" width="16" height="16" fill="none" stroke="#cccccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </div>
             <div class="mobile-submenu" style="display: none; padding-left: 15px; padding-top: 10px; padding-bottom: 10px; border-bottom: 1px solid #333333; background-color: #1a1a1a;">
                 @php
@@ -704,9 +707,9 @@ Get A Call In A Min !</h5>
         
         <div class="mobile-nav-group">
             <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #333333; cursor: pointer;" @if(count($promoSidebar) > 0) onclick="toggleMobileSubmenu(this)" @endif>
-                <span style="color: #ffffff; font-size: 16px;">Promotional Products</span>
+                <span style="color: #cccccc; font-size: 16px;">Promotional Products</span>
                 @if(count($promoSidebar) > 0)
-                <svg class="chevron-icon" width="16" height="16" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg class="chevron-icon" width="16" height="16" fill="none" stroke="#cccccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 @endif
             </div>
             
@@ -718,8 +721,16 @@ Get A Call In A Min !</h5>
             </div>
             @endif
         </div>
-<!-- Sidebar Overlay -->
-<div id="mobile-sidebar-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0,0,0,0.6); z-index: 99999;" onclick="closeMobileSidebar()"></div>
+
+        <a href="{{ url('blogs') }}" style="display: block; color: #cccccc; text-decoration: none; font-size: 16px; padding: 15px 0; border-bottom: 1px solid #333333;">Blogs</a>
+
+        <div style="margin-top: auto; padding-top: 30px; padding-bottom: 20px;">
+            <a href="{{ url('get-quote') }}" style="display: block; width: 100%; text-align: center; background-color: #f5c542; color: #1a1a1a; font-weight: 700; font-size: 16px; padding: 14px 0; border-radius: 50px; text-decoration: none; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+                Get Instant Quote
+            </a>
+        </div>
+    </div>
+</div>
 
 <script>
 function openMobileSidebar() {
@@ -744,7 +755,6 @@ function toggleMobileSubmenu(element) {
     }
 }
 </script>
-</header>
 
 <script>
     function toggleTheme() {
@@ -874,7 +884,7 @@ function toggleMobileSubmenu(element) {
     }
     body.light-mode .nav-links-container a:hover,
     body.light-mode .nav-group > a:hover {
-        color: #F5A623 !important;
+        color: #f5c542 !important;
     }
     
     /* Sections */

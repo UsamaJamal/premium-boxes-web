@@ -1827,7 +1827,7 @@ body {
 .read-more-btn {
   background: none;
   border: none;
-  color: #F5A623;
+  color: #f5c542;
   font-size: 0.85rem;
   cursor: pointer;
   margin-top: -10px;
@@ -2980,7 +2980,7 @@ body {
 }
 
 .pg-accordion-item.open .pg-accordion-icon {
-    color: #FFC107;
+    color: #f5c542;
 }
 
 .pg-accordion-body {
@@ -3774,14 +3774,14 @@ document.addEventListener("DOMContentLoaded", function() {
                             </div>
                             <div class="form-group">
                                 <label>Email Address *</label>
-                                <input type="email" name="email" placeholder="Enter your email" required>
+                                <input type="email" name="email" placeholder="Enter your email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
                             </div>
                         </div>
 
                         <div class="form-row dual-grid">
                             <div class="form-group">
                                 <label>Phone *</label>
-                                <input type="tel" name="phone" placeholder="Enter your number" required>
+                                <input type="tel" name="phone" placeholder="Enter your number" required oninput="this.value = this.value.replace(/[^0-9+]/g, '')">
                             </div>
                             <div class="form-group">
                                 <label>Physical Address</label>
@@ -3792,15 +3792,15 @@ document.addEventListener("DOMContentLoaded", function() {
                         <div class="form-row dimensions-grid">
                             <div class="form-group">
                                 <label>Width *</label>
-                                <input type="text" name="width" placeholder="Width" required>
+                                <input type="text" name="width" placeholder="Width" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')">
                             </div>
                             <div class="form-group">
                                 <label>Length *</label>
-                                <input type="text" name="length" placeholder="Length" required>
+                                <input type="text" name="length" placeholder="Length" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')">
                             </div>
                             <div class="form-group">
                                 <label>Depth *</label>
-                                <input type="text" name="depth" placeholder="Depth" required>
+                                <input type="text" name="depth" placeholder="Depth" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')">
                             </div>
                             <div class="form-group">
                                 <label>Units *</label>
@@ -3843,7 +3843,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         <div class="form-row dual-grid align-end">
                             <div class="form-group">
                                 <label>Quantity *</label>
-                                <input type="number" name="quantity" placeholder="Enter quantity" required>
+                                <input type="number" name="quantity" placeholder="Enter quantity" required oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                             </div>
                             <div class="form-group">
                                 <label>Upload File Here</label>
@@ -4107,7 +4107,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 var icon = btn.querySelector('.pg-accordion-icon');
                 if (icon) {
                     icon.innerHTML = '&#8722;';
-                    icon.style.color = '#FFC107';
+                    icon.style.color = '#f5c542';
                 }
             }
         });
@@ -4313,7 +4313,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 var icon = btn.querySelector('.pg-accordion-icon');
                 if (icon) {
                     icon.innerHTML = '&#8722;';
-                    icon.style.color = '#FFC107';
+                    icon.style.color = '#f5c542';
                 }
             }
         });

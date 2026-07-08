@@ -21,7 +21,7 @@ html, body {
     display: flex;
     align-items: stretch;
     overflow: hidden;
-    background-image: url('./hero-bg.png');
+    background-image: url("{{ asset('images/about/packaging-excellence.jpg') }}");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

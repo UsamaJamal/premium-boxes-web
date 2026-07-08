@@ -19,7 +19,7 @@
     --bg: #1a1a1a;
     --bg2: #111111;
     --card: #222222;
-    --gold: #FFC107;
+    --gold: #f5c542;
     --gold2: #e0a800;
     --white: #ffffff;
     --muted: rgba(255, 255, 255, 0.62);
@@ -613,7 +613,7 @@ img {
   flex: 1 1 0;              /* all buttons share space equally */
   min-width: 0;             /* allow shrinking below content size */
   max-width: 160px;
-  border: 1px solid #FFC107;
+  border: 1px solid #f5c542;
   border-radius: 8px;
   background: transparent;
   color: #fff;
@@ -643,12 +643,12 @@ img {
 }
 
 .filter-btn:hover {
-  background: #FFC107;
+  background: #f5c542;
   color: #111;
 }
 
 .filter-btn.active {
-  background: #FFC107;
+  background: #f5c542;
   color: #111;
 }
 
@@ -1552,7 +1552,7 @@ img {
 :root {
     --product-bg: #161616;
     --product-bg-card: #222222;
-    --product-gold: #FFC107;
+    --product-gold: #f5c542;
     --product-gold-hover: #E0A800;
     --product-text-main: #FFFFFF;
     --product-text-muted: rgba(255, 255, 255, 0.7);
@@ -1889,7 +1889,7 @@ img {
 .read-more-btn {
     background: none;
     border: none;
-    color: #F5A623;
+    color: #f5c542;
     font-size: 0.85rem;
     cursor: pointer;
     margin-top: -10px;
@@ -1998,7 +1998,7 @@ img {
 .cq-num {
     font-size: 18px;
     font-weight: 800;
-    color: #FFC107;
+    color: #f5c542;
     flex-shrink: 0;
     min-width: 36px;
 }
@@ -2108,7 +2108,7 @@ img {
 .cq-field input:focus,
 .cq-field select:focus,
 .cq-field textarea:focus {
-    border-color: #FFC107;
+    border-color: #f5c542;
 }
 
 .cq-field select {
@@ -2131,7 +2131,7 @@ img {
 }
 
 .cq-upload-btn {
-    background: #FFC107;
+    background: #f5c542;
     color: #111;
     border: none;
     border-radius: 0 8px 8px 0;
@@ -2158,7 +2158,7 @@ img {
 }
 
 .cq-submit-btn {
-    background: #FFC107;
+    background: #f5c542;
     color: #111;
     border: none;
     border-radius: 50px;
@@ -2267,8 +2267,8 @@ img {
 
 .pg-badge {
     display: inline-block;
-    border: 1px solid #FFC107;
-    color: #FFC107;
+    border: 1px solid #f5c542;
+    color: #f5c542;
     padding: 5px 16px;
     border-radius: 50px;
     font-size: 11px;
@@ -2355,7 +2355,7 @@ img {
 .pg-step-num {
     font-size: 14px;
     font-weight: 700;
-    color: #FFC107;
+    color: #f5c542;
     flex-shrink: 0;
     min-width: 20px;
 }
@@ -2392,7 +2392,7 @@ img {
 
 .pg-cta-btn {
     display: inline-block;
-    background: #FFC107;
+    background: #f5c542;
     color: #111;
     font-size: 14px;
     font-weight: 700;
@@ -2678,7 +2678,7 @@ img {
 }
 
 .pg-accordion-item.open .pg-accordion-icon {
-    color: #FFC107;
+    color: #f5c542;
 }
 
 .pg-accordion-body {
@@ -2752,7 +2752,7 @@ img {
     .pg-step-num {
         font-size: 4vw;
         font-weight: 700;
-        color: #FFC107;
+        color: #f5c542;
         flex-shrink: 0;
     }
 
@@ -2768,7 +2768,7 @@ img {
     }
 
     .pg-accordion-item.open .pg-accordion-icon {
-        color: #FFC107;
+        color: #f5c542;
     }
 
     .pg-accordion-icon {
@@ -2852,7 +2852,7 @@ img {
 }
 
 .cp-cta-banner-gold {
-    color: #FFC107;
+    color: #f5c542;
 }
 
 .cp-cta-banner-text {
@@ -2942,7 +2942,7 @@ img {
 }
 
 .cp-cta-banner-gold {
-    color: #FFC107;
+    color: #f5c542;
 }
 
 .cp-cta-banner-text {
@@ -3326,7 +3326,7 @@ img {
     .cp-footer-col.open .cp-footer-title::after,
     .cp-footer-col-5.open .cp-footer-title:first-child::after {
         content: '−';
-        color: #FFC107;
+        color: #f5c542;
     }
 
     /* Accordion body — hidden by default */
@@ -3416,7 +3416,7 @@ img {
         font-size: 3.5vw;
         padding: 3vw 5vw;
         border-radius: 50px;
-        background: #FFC107;
+        background: #f5c542;
         color: #111;
         border: none;
         font-weight: 700;
@@ -3492,7 +3492,7 @@ img {
 .industry-hero-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: start;
+  align-items: center;
   gap: 60px;
   padding: 10px 40px 0 90px;
   margin-bottom: 0;
@@ -3585,9 +3585,10 @@ img {
   height: auto;
   object-fit: contain;
   display: block;
-  max-height: 340px;
+  max-height: 400px;
   vertical-align: bottom;
   margin-bottom: 0;
+  margin-top: -50px;
 }
 
 @media (max-width: 768px) {
@@ -4516,35 +4517,35 @@ img {
         <!-- Coating & Laminations -->
         <div class="customize-grid" id="cat-tab-coating-and-laminations" style="display: grid;">
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Coating %26 Laminations/Lamination.webp') }}" alt="Lamination"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Lamination.webp') }}" alt="Lamination"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Lamination</span><p>Laminated protective film that adheres to the surface of packaging materials to maximize durability.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Coating %26 Laminations/UV.webp') }}" alt="UV"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/UV Coating .webp') }}" alt="UV"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">UV</span><p>Fast-drying coating cured with ultraviolet light. Available in gloss or matte finish.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Coating %26 Laminations/Varnish.webp') }}" alt="Varnish"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Varnish .webp') }}" alt="Varnish"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Varnish</span><p>Clear coating applied using the CMYK printing method. Available in gloss, satin, or matte.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Coating %26 Laminations/anti-scratch-lamination.webp') }}" alt="Anti Scratch Lamination"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Anti-scratch Lamination .webp') }}" alt="Anti Scratch Lamination"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Anti Scratch Lamination</span><p>Laminated BOPP film that is scratch, scuff, and fingerprint resistant. Cost-effective option.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Coating %26 Laminations/aqueous-coating-.webp') }}" alt="Aqueous Coating"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Aqueous Coating .webp') }}" alt="Aqueous Coating"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Aqueous Coating</span><p>Clear, fast-drying, water-based, and eco-friendly coating. Available in gloss or matte finish.</p><div class="card-icons"><span class="icon-circle">♻️</span><span class="icon-circle">🍃</span></div></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Coating %26 Laminations/soft-touch-coating.webp') }}" alt="Soft Touch Coating"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Soft Touch Coating.webp') }}" alt="Soft Touch Coating"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Soft Touch Coating</span><p>Soft to the touch coating that creates a velvety texture for a more tactile appeal.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Coating %26 Laminations/soft-touch-silk-lamination-.webp') }}" alt="Soft Touch Silk Lamination"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Soft Touch Silk Lamination .webp') }}" alt="Soft Touch Silk Lamination"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Soft Touch Silk Lamination</span><p>Soft to the touch lamination similar to peach skin. Available in a satin or matte finish.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Coating %26 Laminations/spot-gloss-uV-.webp') }}" alt="Spot Gloss UV"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Spot Gloss UV.webp') }}" alt="Spot Gloss UV"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Spot Gloss UV</span><p>UV coating that is applied to a specified area and cured using ultraviolet light.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
             </div>
         </div>
@@ -4870,14 +4871,14 @@ img {
                             </div>
                             <div class="form-group">
                                 <label>Email Address *</label>
-                                <input type="email" name="email" placeholder="Enter your email" required>
+                                <input type="email" name="email" placeholder="Enter your email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
                             </div>
                         </div>
 
                         <div class="form-row dual-grid">
                             <div class="form-group">
                                 <label>Phone *</label>
-                                <input type="tel" name="phone" placeholder="Enter your number" required>
+                                <input type="tel" name="phone" placeholder="Enter your number" required oninput="this.value = this.value.replace(/[^0-9+]/g, '')">
                             </div>
                             <div class="form-group">
                                 <label>Physical Address</label>
@@ -4888,15 +4889,15 @@ img {
                         <div class="form-row dimensions-grid">
                             <div class="form-group">
                                 <label>Width *</label>
-                                <input type="text" name="width" placeholder="Width" required>
+                                <input type="text" name="width" placeholder="Width" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')">
                             </div>
                             <div class="form-group">
                                 <label>Length *</label>
-                                <input type="text" name="length" placeholder="Length" required>
+                                <input type="text" name="length" placeholder="Length" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')">
                             </div>
                             <div class="form-group">
                                 <label>Depth *</label>
-                                <input type="text" name="depth" placeholder="Depth" required>
+                                <input type="text" name="depth" placeholder="Depth" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')">
                             </div>
                             <div class="form-group">
                                 <label>Units *</label>
@@ -4938,7 +4939,7 @@ img {
                             </div>
                             <div class="form-group">
                                 <label>Quantity *</label>
-                                <input type="number" name="quantity" placeholder="Enter quantity" required>
+                                <input type="number" name="quantity" placeholder="Enter quantity" required oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                             </div>
                             <div class="form-group upload-group">
                                 <label>Upload File Here</label>
@@ -5193,7 +5194,7 @@ document.addEventListener('DOMContentLoaded', function () {
             var icon = btn.querySelector('.pg-accordion-icon');
             if (icon) {
                 icon.innerHTML = '&#8722;';
-                icon.style.color = '#FFC107';
+                icon.style.color = '#f5c542';
             }
         }
     });
@@ -5343,4 +5344,6 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 </body>
 </html>
+
+
 

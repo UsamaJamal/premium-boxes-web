@@ -634,11 +634,11 @@ color:#C5C5C5;
                     </div>
                     <div class="contact-info-item">
                         <i class="fas fa-envelope"></i>
-                        <span>support@myboxpackaging.com</span>
+                        <span>support@premiumboxes.com</span>
                     </div>
                     <div class="contact-info-item contact-location">
                         <i class="fas fa-map-marker-alt"></i>
-                        <div>132 Dartmouth Street Boston,<br>Massachusetts 02156 United States</div>
+                        <div>9931 Franklin Ave Suite 1-A,<br>Franklin Park, IL 60131, USA</div>
                     </div>
                     <div class="contact-social">
                         <span aria-label="Facebook"><i class="fab fa-facebook-f"></i></span>
@@ -659,21 +659,21 @@ color:#C5C5C5;
                     <div class="contact-form-row">
                         <div class="contact-input-group">
                             <label>First Name</label>
-                            <input type="text" placeholder="Name">
+                            <input type="text" name="first_name" placeholder="Name" required>
                         </div>
                         <div class="contact-input-group">
                             <label>Last Name</label>
-                            <input type="text" placeholder="Name">
+                            <input type="text" name="last_name" placeholder="Name" required>
                         </div>
                     </div>
                     <div class="contact-form-row">
                         <div class="contact-input-group">
                             <label>Email</label>
-                            <input type="email" placeholder="Email">
+                            <input type="email" name="email" placeholder="Email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
                         </div>
                         <div class="contact-input-group">
                             <label>Phone Number</label>
-                            <input type="text" placeholder="Number">
+                            <input type="text" name="phone" placeholder="Number" required oninput="this.value = this.value.replace(/[^0-9+]/g, '');">
                         </div>
                     </div>
                     <div class="contact-message-group">
@@ -697,8 +697,8 @@ color:#C5C5C5;
             <div class="contact-map-shell">
                 <div class="contact-map-wrapper">
                     <iframe
-                        title="Premium Boxes — 9933 Franklin Ave, Franklin Park, IL"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.5893083912!2d-71.07708482346!3d42.3467789713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e37a0c6ece57b1%3A0x1f8b6e7f5e8e4e4!2s132%20Dartmouth%20St%2C%20Boston%2C%20MA%2002116%2C%20USA!5e0!3m2!1sen!2s!4v1700000000000"
+                        title="Premium Boxes — 9931 Franklin Ave Suite 1-A Franklin Park, IL"
+                        src="https://maps.google.com/maps?q=9931%20Franklin%20Ave%20Suite%201-A%20Franklin%20Park%2C%20IL%2060131%2C%20USA&t=&z=13&ie=UTF8&iwloc=&output=embed"
                         width="100%" height="420" style="border:0;"
                         allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">
@@ -778,7 +778,7 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 
 .cp-cta-banner-gold {
-    color: #FFC107;
+    color: #f5c542;
 }
 
 .cp-cta-banner-text {
@@ -792,7 +792,7 @@ document.addEventListener('DOMContentLoaded', () => {
     display: inline-flex;
     align-items: center;
     padding: 14px 32px;
-    background: #FFC107;
+    background: #f5c542;
     color: #111;
     font-family: 'Inter', sans-serif;
     font-size: 16px;

@@ -49,6 +49,7 @@
 
              <input type="hidden" name="oldimage" value="{{$value[0]->image}}">
              <input type="hidden" name="old_hero_image" value="{{$value[0]->hero_image}}">
+             <input type="hidden" name="old_feature_product" value="{{$value[0]->feature_product}}">
 
              <input type="hidden" name="old_parent_cat" value="{{$value[0]->parent_category}}">
 
@@ -172,6 +173,9 @@
                      @if($value[0]->feature_product)
                         <div class="mt-2">
                             <img src="{{ asset('images/'.$value[0]->feature_product) }}" width="100" alt="Current Feature Image">
+                            <div class="mt-2">
+                                <label><input type="checkbox" name="remove_feature_product" value="1"> Remove Feature Image</label>
+                            </div>
                         </div>
                      @endif
                    </div>

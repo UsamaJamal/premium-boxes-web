@@ -114,7 +114,11 @@ if($request->hasfile('image')){
                      $data['feature_product']=$filename;
               }
               else{
-                 $data['feature_product']=$request->input('old_feature_product');
+                 if($request->input('remove_feature_product') == '1') {
+                     $data['feature_product'] = null;
+                 } else {
+                     $data['feature_product']=$request->input('old_feature_product');
+                 }
               }
 
               if($request->hasfile('why_choose_img')){

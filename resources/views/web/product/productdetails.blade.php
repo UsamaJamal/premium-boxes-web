@@ -7,7 +7,7 @@
 :root {
     --product-bg: #161616;
     --product-bg-card: #222222;
-    --product-gold: #FFC107;
+    --product-gold: #f5c542;
     --product-gold-hover: #E0A800;
     --product-text-main: #FFFFFF;
     --product-text-muted: rgba(255, 255, 255, 0.7);
@@ -64,9 +64,9 @@ a { text-decoration: none; color: inherit; }
 
 /* Details */
 .product-hero-details { display: flex; flex-direction: column; }
-.product-title-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18.8px; }
+.product-title-row { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 18.8px; }
 .product-title { font-size: 40px; font-weight: 700; }
-.product-status-badge { color: var(--product-gold); font-size: 17.5px; font-weight: 600; }
+.product-status-badge { color: var(--product-gold); font-size: 17.5px; font-weight: 600; margin-top: 12px; }
 .product-desc { font-size: 17.5px; line-height: 1.6; color: rgba(255,255,255,0.85) !important; margin-bottom: 50px; }
 .product-desc *, .product-desc p, .product-desc span, .product-desc li, .product-desc strong, .product-desc b { color: rgba(255,255,255,0.85) !important; }
 .product-read-more { color: var(--product-gold) !important; font-weight: 600; text-decoration: none; }
@@ -430,12 +430,12 @@ a { text-decoration: none; color: inherit; }
                 
                 @if(isset($product_top_category) && $product_top_category)
                 <i class="fas fa-chevron-right" style="font-size: 11px; color: rgba(255,255,255,0.4);"></i>
-                <a href="{{ url($product_top_category->category_url) }}" style="display: flex; align-items: center; font-size: 16px; font-weight: 500; transition: color 0.3s ease;" onmouseover="this.style.color='#FFC107'" onmouseout="this.style.color=''">{{ $product_top_category->name }}</a>
+                <a href="{{ url($product_top_category->category_url) }}" style="display: flex; align-items: center; font-size: 16px; font-weight: 500; transition: color 0.3s ease;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color=''">{{ $product_top_category->name }}</a>
                 @endif
                 
                 @if(isset($product_category) && $product_category)
                 <i class="fas fa-chevron-right" style="font-size: 11px; color: rgba(255,255,255,0.4);"></i>
-                <a href="{{ url($product_category->category_url) }}" style="display: flex; align-items: center; font-size: 16px; font-weight: 500; transition: color 0.3s ease;" onmouseover="this.style.color='#FFC107'" onmouseout="this.style.color=''">{{ $product_category->name }}</a>
+                <a href="{{ url($product_category->category_url) }}" style="display: flex; align-items: center; font-size: 16px; font-weight: 500; transition: color 0.3s ease;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color=''">{{ $product_category->name }}</a>
                 @endif
 
                 <i class="fas fa-chevron-right" style="font-size: 11px; color: rgba(255,255,255,0.4);"></i>
@@ -480,6 +480,7 @@ a { text-decoration: none; color: inherit; }
                         position: relative;
                         display: flex;
                         align-items: center;
+                        gap: 30px;
                         margin-top: 25px;
                         height: 40px;
                         mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
@@ -531,9 +532,11 @@ a { text-decoration: none; color: inherit; }
                         var track = document.getElementById('pdLogosTrack');
                         if(!wrap || !track) return;
 
-                        var clone = track.cloneNode(true);
-                        clone.setAttribute('aria-hidden','true');
-                        wrap.appendChild(clone);
+                        for(var i=0; i<4; i++){
+                            var clone = track.cloneNode(true);
+                            clone.setAttribute('aria-hidden','true');
+                            wrap.appendChild(clone);
+                        }
 
                         var speed = 0.4;
                         var offset = 0;
@@ -558,7 +561,7 @@ a { text-decoration: none; color: inherit; }
 
                     <div class="product-title-row">
                         <h1 class="product-title">{{ $p->title }}</h1>
-                        <span class="product-status-badge">In Stock</span>
+                        <span class="product-status-badge" style="white-space: nowrap;">In Stock</span>
                     </div>
 
                     <div class="product-desc" style="font-size: 15px; line-height: 1.6; color: #b3b3b3; margin-top: 15px;">
@@ -1408,5 +1411,7 @@ document.querySelectorAll('.cust-tab-btn').forEach(btn => {
 </script>
 
 @include('web/footer')
+
+
 
 

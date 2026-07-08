@@ -235,7 +235,7 @@ color: #C5C5C5;
 .faq-filters {
     background-color: #202020;
     position: sticky;
-    top: 120px; /* offset below fixed navbar (~120px) */
+    top: 140px; /* offset below fixed navbar */
     width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 16px rgba(0, 0, 0, 0.7);
@@ -253,7 +253,7 @@ color: #C5C5C5;
     gap: 12px;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 14px 40px;
+    padding: 20px 40px;
     width: 100%;
 }
 
@@ -998,7 +998,7 @@ foreach($parts as $part) {
 }
 
 .cp-cta-banner-gold {
-    color: #FFC107;
+    color: #f5c542;
 }
 
 .cp-cta-banner-text {
@@ -1012,7 +1012,7 @@ foreach($parts as $part) {
     display: inline-flex;
     align-items: center;
     padding: 14px 32px;
-    background: #FFC107;
+    background: #f5c542;
     color: #111;
     font-family: 'Inter', sans-serif;
     font-size: 16px;

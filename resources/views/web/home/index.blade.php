@@ -594,6 +594,7 @@ h3 {
   margin-bottom: 30px;
   font-size: 1.1rem;
   max-width: 600px;
+  text-align: justify;
 }
 
 .hero-buttons {
@@ -1339,7 +1340,7 @@ h3 {
 .read-more-btn {
   background: none;
   border: none;
-  color: #F5A623;
+  color: #f5c542;
   font-size: 0.85rem;
   cursor: pointer;
   margin-top: -10px;
@@ -1630,17 +1631,17 @@ h3 {
 
 .dimensions-grid {
   grid-template-columns: repeat(4, 1fr);
-  max-width: 693px;
+  width: 100%;
 }
 
 .triple-grid {
   grid-template-columns: repeat(3, 1fr);
-  max-width: 692px;
+  width: 100%;
 }
 
 .quantity-upload-grid {
   grid-template-columns: repeat(2, 1fr);
-  max-width: 691.13px;
+  width: 100%;
 }
 
 .options-grid-custom {
@@ -3965,7 +3966,7 @@ section + section {
     transition: color 0.25s;
 }
 .pg-accordion-item.open .pg-accordion-icon {
-    color: #FFC107;
+    color: #f5c542;
 }
 .pg-accordion-body {
     display: none;
@@ -4015,7 +4016,7 @@ section + section {
 
 .pg-cta-btn {
     display: inline-block;
-    background: #FFC107;
+    background: #f5c542;
     color: #111;
     font-size: 14px;
     font-weight: 700;
@@ -4156,21 +4157,21 @@ section + section {
 }
 .dimensions-grid {
   grid-template-columns: repeat(4, 1fr);
-  max-width: 693px;
+  width: 100%;
 }
 .triple-grid {
   grid-template-columns: repeat(3, 1fr);
-  max-width: 692px;
+  width: 100%;
 }
 .quantity-upload-grid {
   grid-template-columns: repeat(2, 1fr);
-  max-width: 691.13px;
+  width: 100%;
 }
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 0px;
-  height: 38px;
+  gap: 6px;
+  height: auto;
 }
 .form-group.textarea-group {
   height: auto;
@@ -4178,7 +4179,7 @@ section + section {
   width: 100%;
 }
 .form-group > label {
-  display: none;
+  display: block;
   font-size: 13px;
   color: #ffffff;
   font-weight: 300;
@@ -4483,7 +4484,6 @@ section + section {
                     </div>
                     <div class="sector-info">
                         <h3><a href="{{ url('/'.$product->category_url) }}" style="color: inherit; text-decoration: none;">{{ $product->name }}</a></h3>
-                        <p>{!! Str::limit(strip_tags($product->description), 60) !!}</p>
                     </div>
                 </div>
                 @endforeach
@@ -4736,14 +4736,14 @@ section + section {
                     </div>
                     <div class="form-group">
                         <label>Email Address *</label>
-                        <input type="email" name="email" placeholder="Enter your email" required>
+                        <input type="email" name="email" placeholder="Enter your email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
                     </div>
                 </div>
 
                 <div class="form-row dual-grid">
                     <div class="form-group">
                         <label>Phone *</label>
-                        <input type="tel" name="phone" placeholder="Enter your number" required>
+                        <input type="tel" name="phone" placeholder="Enter your number" required oninput="this.value = this.value.replace(/[^0-9+]/g, '')">
                     </div>
                     <div class="form-group">
                         <label>Physical Address</label>
@@ -4754,15 +4754,15 @@ section + section {
                 <div class="form-row dimensions-grid">
                     <div class="form-group">
                         <label>Width *</label>
-                        <input type="text" name="width" placeholder="Width" required>
+                        <input type="text" name="width" placeholder="Width" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')">
                     </div>
                     <div class="form-group">
                         <label>Length *</label>
-                        <input type="text" name="length" placeholder="Length" required>
+                        <input type="text" name="length" placeholder="Length" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')">
                     </div>
                     <div class="form-group">
                         <label>Depth *</label>
-                        <input type="text" name="depth" placeholder="Depth" required>
+                        <input type="text" name="depth" placeholder="Depth" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')">
                     </div>
                     <div class="form-group">
                         <label>Units *</label>
@@ -4804,7 +4804,7 @@ section + section {
                     </div>
                     <div class="form-group">
                         <label>Quantity *</label>
-                        <input type="number" name="quantity" placeholder="Enter quantity" required>
+                        <input type="number" name="quantity" placeholder="Enter quantity" required oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                     </div>
                     <div class="form-group upload-group">
                         <label>Upload File Here</label>
@@ -5237,7 +5237,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
                     const icon = btn.querySelector('.pg-accordion-icon');
                     if (icon) {
                         icon.textContent = '−';
-                        icon.style.color = '#FFC107';
+                        icon.style.color = '#f5c542';
                     }
                     console.log('Item opened');
                 }
