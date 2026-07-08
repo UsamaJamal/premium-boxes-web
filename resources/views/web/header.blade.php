@@ -11,6 +11,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="icon" type="image/svg+xml" href="{{ asset('uploads/Premium-boxes-logo.svg') }}">
     <!--<link rel="preconnect" href="https://fonts.googleapis.com">-->
     <!--<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
     <!--<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">-->
