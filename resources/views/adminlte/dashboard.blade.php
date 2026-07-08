@@ -4,17 +4,17 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    @if(Session::has('login_successfully'))
-                    
-                    <center>
-                    
-                    <div  class='alert alert-success'> {{ Session::get('login_successfully') }}</div>
-                    </center>
-                    
-                    @endif  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header pt-4 pb-4">
       <div class="container-fluid px-4">
+        @if(Session::has('login_successfully'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert" style="border-radius: 8px;">
+                {{ Session::get('login_successfully') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
         <div class="row align-items-center">
           <div class="col-sm-6">
             <h1 class="page-title">Welcome back, Admin 👋</h1>
