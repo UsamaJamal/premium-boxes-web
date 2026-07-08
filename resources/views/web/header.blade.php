@@ -648,7 +648,7 @@ p  { font-size: 16px !important; }
         <div class="nav-right-container" style="display: flex; align-items: center; gap: 20px; flex-shrink: 0; padding: 10px 0;">
 
             <!-- Mobile Search Icon (Hidden on Desktop) -->
-            <div class="mobile-search-btn" style="display: none; align-items: center; cursor: pointer;">
+            <div class="mobile-search-btn" style="display: none; align-items: center; cursor: pointer;" onclick="toggleMobileSearch()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#ffffff" stroke-width="2">
                     <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
                 </svg>
@@ -670,7 +670,36 @@ p  { font-size: 16px !important; }
         </div>
         </div>
     </nav>
+
+    <!-- Mobile Search Dropdown -->
+    <div id="mobile-search-dropdown" style="display: none; background-color: #252525; padding: 15px; position: absolute; top: 100%; left: 0; width: 100%; z-index: 99; border-top: 1px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">
+        <form action="{{ url('search') }}" method="POST" style="display: flex; align-items: center; background-color: #1a1a1a; border-radius: 50px; height: 44px; padding: 0 16px; gap: 8px; margin: 0; border: 1px solid #444;">
+            @csrf
+            <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer; display: flex; align-items: center; outline: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#f5c542" stroke-width="2">
+                    <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
+                </svg>
+            </button>
+            <input type="text" name="query" placeholder="Search products..."
+                style="background: transparent; border: none; outline: none; color: #ffffff; font-size: 14px; width: 100%;" required>
+        </form>
+    </div>
 </header>
+
+<script>
+    function toggleMobileSearch() {
+        const searchDropdown = document.getElementById('mobile-search-dropdown');
+        if (searchDropdown.style.display === 'none' || searchDropdown.style.display === '') {
+            searchDropdown.style.display = 'block';
+            setTimeout(() => {
+                const input = searchDropdown.querySelector('input');
+                if (input) input.focus();
+            }, 50);
+        } else {
+            searchDropdown.style.display = 'none';
+        }
+    }
+</script>
 
 <!-- Sidebar Overlay -->
 <div id="mobile-sidebar-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0,0,0,0.7); z-index: 99999;" onclick="closeMobileSidebar()"></div>
