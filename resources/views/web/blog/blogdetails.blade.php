@@ -1191,7 +1191,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
                     <div class="bp-author">
                         <div class="bp-author-avatar">
-                            <img src="{{ asset('images/1606478490.Adam_Smith.jpg') }}" alt="{{ $author_name }}">
+                            <img src="{{ asset('images/1606478490.Adam_Smith.jpg') }}" alt="{{ strtolower(str_replace('-', ' ', $author_name)) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $author_name))) }}">
                         </div>
                         <div class="bp-author-info">
                             <span class="bp-author-name">By <a href="{{ url('author/'.urlencode($author_name)) }}" style="color:inherit; text-decoration:none;">{{ $author_name }}</a></span>
@@ -1204,7 +1204,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                     </div>
 
                     <figure class="bp-image">
-                        <img src="{{ $blog_image }}" alt="{{ $post->alt_tag }}" loading="eager">
+                        <img src="{{ $blog_image }}" alt="{{ strtolower(str_replace('-', ' ', $post->alt_tag)) }}" loading="eager" title="{{ ucwords(strtolower(str_replace('-', ' ', $post->alt_tag))) }}">
                     </figure>
 
                 </div>
@@ -1262,7 +1262,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                 <div class="bp-mob-meta-row">
                     <div class="bp-mob-author">
                         <div class="bp-mob-author-avatar">
-                            <img src="{{ asset('images/1606478490.Adam_Smith.jpg') }}" alt="{{ $author_name }}">
+                            <img src="{{ asset('images/1606478490.Adam_Smith.jpg') }}" alt="{{ strtolower(str_replace('-', ' ', $author_name)) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $author_name))) }}">
                         </div>
                         <div class="bp-mob-author-text">
                             <span class="bp-mob-author-name">By <a href="{{ url('author/'.urlencode($author_name)) }}" style="color:inherit; text-decoration:none;">{{ $author_name }}</a></span>
@@ -1290,7 +1290,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                 </div>
 
                 <figure class="bp-mob-image">
-                    <img src="{{ $blog_image }}" alt="{{ $post->alt_tag }}" loading="eager">
+                    <img src="{{ $blog_image }}" alt="{{ strtolower(str_replace('-', ' ', $post->alt_tag)) }}" loading="eager" title="{{ ucwords(strtolower(str_replace('-', ' ', $post->alt_tag))) }}">
                 </figure>
 
             </div>
@@ -1322,7 +1322,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                         <!-- Author Profile Section -->
                         <div class="bp-author-profile">
                             <div class="bp-author-profile-image">
-                                <img src="{{ asset('images/1606478490.Adam_Smith.jpg') }}" alt="{{ $author_name }}">
+                                <img src="{{ asset('images/1606478490.Adam_Smith.jpg') }}" alt="{{ strtolower(str_replace('-', ' ', $author_name)) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $author_name))) }}">
                             </div>
                             <div class="bp-author-profile-content">
                                 <h3 class="bp-author-profile-heading">{{ $author_name }}</h3>
@@ -1343,7 +1343,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                                 <article class="bp-related-card">
                                     <a href="#" class="bp-related-link">
                                         <div class="bp-related-image">
-                                            <img src="{{ $blog_image }}" alt="Sustainable Packaging Trends for 2026">
+                                            <img src="{{ $blog_image }}" alt="sustainable packaging trends for 2026" title="Sustainable Packaging Trends For 2026">
                                         </div>
                                         <div class="bp-related-content">
                                             <div class="bp-related-meta">
@@ -1360,7 +1360,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                                 <article class="bp-related-card">
                                     <a href="#" class="bp-related-link">
                                         <div class="bp-related-image">
-                                            <img src="{{ $blog_image }}" alt="Sustainable Packaging Trends for 2026">
+                                            <img src="{{ $blog_image }}" alt="sustainable packaging trends for 2026" title="Sustainable Packaging Trends For 2026">
                                         </div>
                                         <div class="bp-related-content">
                                             <div class="bp-related-meta">
@@ -1377,7 +1377,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                                 <article class="bp-related-card">
                                     <a href="#" class="bp-related-link">
                                         <div class="bp-related-image">
-                                            <img src="{{ $blog_image }}" alt="Sustainable Packaging Trends for 2026">
+                                            <img src="{{ $blog_image }}" alt="sustainable packaging trends for 2026" title="Sustainable Packaging Trends For 2026">
                                         </div>
                                         <div class="bp-related-content">
                                             <div class="bp-related-meta">

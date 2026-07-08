@@ -17,7 +17,7 @@
 <h2 class="pack-title-image" style="display:none;">{{url('images/'.$promotion->image)}}</h2>
  <p class="price"><span  style="display:none;" class="currency">id</span> <b style="display:none;" class="pack-price">{{$promotion->promotions_id}}</b></p>
 </div>               
-<img src="{{url('images/'.$promotion->image)}}" alt="{{ $promotion->alt_tag}}" style="display: block; max-width: 100%; height: auto;"/>
+<img src="{{url('images/'.$promotion->image)}}" alt="{{ strtolower(str_replace('-', ' ', $promotion->alt_tag)) }}" style="display: block; max-width: 100%; height: auto;"/ title="{{ ucwords(strtolower(str_replace('-', ' ', $promotion->alt_tag))) }}">
                
 <a href="javascript:;" class="pack-ordernow btn btn-custom text-center" rel="f033ab37c30201f73f142449d037028d" style="color: #fff;background-color: #49d8f7;border-color: #49d8f7;margin: 10px 0px 8px 0px;">Order Now </a>
             </div>

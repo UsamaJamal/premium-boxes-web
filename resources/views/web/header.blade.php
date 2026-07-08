@@ -280,7 +280,7 @@ p  { font-size: 16px !important; }
         <div class="top-bar-left" style="display: flex; align-items: center; gap: 40px;">
             <!-- Logo -->
             <a href="/" style="display: flex; align-items: center; text-decoration: none; flex-shrink: 0; margin-left: 50px;">
-                <img src="{{ asset('uploads/Premium-boxes-logo.svg') }}" alt="Premium Boxes Logo" style="height: 48px; width: auto; filter: var(--logo-filter, none);" />
+                <img src="{{ asset('uploads/Premium-boxes-logo.svg') }}" alt="premium boxes logo" title="Premium Boxes Logo" style="height: 48px; width: auto; filter: var(--logo-filter, none);" />
             </a>
 
             <!-- Search Bar -->
@@ -418,7 +418,7 @@ p  { font-size: 16px !important; }
 
         <!-- Mobile Logo (Hidden on Desktop) -->
         <a href="/" class="mobile-logo" style="display: none; align-items: center; justify-content: center; flex: 1;">
-            <img src="{{ asset('uploads/Premium-boxes-logo.svg') }}" alt="Premium Boxes Logo" style="height: 36px; width: auto; filter: var(--logo-filter, none);" />
+            <img src="{{ asset('uploads/Premium-boxes-logo.svg') }}" alt="premium boxes logo" title="Premium Boxes Logo" style="height: 36px; width: auto; filter: var(--logo-filter, none);" />
         </a>
 
         <!-- Nav Links -->
@@ -441,7 +441,7 @@ p  { font-size: 16px !important; }
                                 @foreach($industries as $industry)
                                 <a href="{{ url($industry->category_url) }}" style="display: flex; align-items: center; gap: 10px; color: #cccccc; text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#cccccc'">
                                     @if(!empty($industry->icon))
-                                        <img src="{{ asset('images/' . $industry->icon) }}" style="width: 20px; height: 20px; object-fit: contain;" alt="{{ $industry->name }} icon">
+                                        <img src="{{ asset('images/' . $industry->icon) }}" style="width: 20px; height: 20px; object-fit: contain;" alt="{{ strtolower(str_replace('-', ' ', $industry->name . ' icon')) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $industry->name . ' icon'))) }}">
                                     @else
                                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <path d="M10 2.5L11.5 7.5L16.5 9L11.5 10.5L10 15.5L8.5 10.5L3.5 9L8.5 7.5L10 2.5Z"></path>
@@ -516,7 +516,7 @@ p  { font-size: 16px !important; }
                                 @foreach($styles as $style)
                                 <a href="{{ url($style->category_url) }}" style="display: flex; align-items: center; gap: 10px; color: #cccccc; text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#cccccc'">
                                     @if(!empty($style->icon))
-                                        <img src="{{ asset('images/' . $style->icon) }}" style="width: 20px; height: 20px; object-fit: contain;" alt="{{ $style->name }} icon">
+                                        <img src="{{ asset('images/' . $style->icon) }}" style="width: 20px; height: 20px; object-fit: contain;" alt="{{ strtolower(str_replace('-', ' ', $style->name . ' icon')) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $style->name . ' icon'))) }}">
                                     @else
                                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <path d="M10 2.5L11.5 7.5L16.5 9L11.5 10.5L10 15.5L8.5 10.5L3.5 9L8.5 7.5L10 2.5Z"></path>
@@ -564,7 +564,7 @@ p  { font-size: 16px !important; }
                                 @foreach($promoSubcats as $subcat)
                                 <a href="{{ url($subcat->category_url) }}" style="display: flex; align-items: center; gap: 10px; color: #cccccc; text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#cccccc'">
                                     @if(!empty($subcat->icon))
-                                        <img src="{{ asset('images/' . $subcat->icon) }}" style="width: 20px; height: 20px; object-fit: contain;" alt="{{ $subcat->name }} icon">
+                                        <img src="{{ asset('images/' . $subcat->icon) }}" style="width: 20px; height: 20px; object-fit: contain;" alt="{{ strtolower(str_replace('-', ' ', $subcat->name . ' icon')) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $subcat->name . ' icon'))) }}">
                                     @else
                                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <path d="M10 2.5L11.5 7.5L16.5 9L11.5 10.5L10 15.5L8.5 10.5L3.5 9L8.5 7.5L10 2.5Z"></path>
@@ -677,7 +677,7 @@ p  { font-size: 16px !important; }
 <!-- Mobile Sidebar -->
 <div id="mobile-sidebar" style="position: fixed; top: 0; left: -100%; width: 300px; height: 100vh; background-color: #222222; z-index: 100000; transition: left 0.3s ease; overflow-y: auto; padding: 30px 20px; display: flex; flex-direction: column;">
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px;">
-        <img src="{{ asset('uploads/Premium-boxes-logo.svg') }}" alt="Logo" style="height: 30px; filter: var(--logo-filter, none);">
+        <img src="{{ asset('uploads/Premium-boxes-logo.svg') }}" alt="logo" title="Logo" style="height: 30px; filter: var(--logo-filter, none);">
         <div onclick="closeMobileSidebar()" style="cursor: pointer;">
             <svg width="24" height="24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </div>

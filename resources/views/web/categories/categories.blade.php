@@ -430,6 +430,7 @@ img {
 .hiw-step {
     position: relative;
     padding-top: 120px; /* space for ghost number to peek behind */
+    padding-bottom: 60px; /* prevent text spilling out */
 }
 
 /* Ghost number rendered as ::before — top-left, huge, very faint */
@@ -2638,10 +2639,12 @@ img {
 }
 
 .pg-accordion-q {
-    font-size: 14px;
-    line-height: 1.65;
-    color: #ffffff;
-    font-weight: 500;
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+    color: #ffffff !important;
+    font-weight: 500 !important;
+    margin: 0 !important;
+    padding: 0 !important;
     flex: 1;
 }
 
@@ -2741,14 +2744,16 @@ img {
     }
 
     .pg-accordion-q {
-        font-size: 4vw;
-        color: #ffffff;
-        font-weight: 500;
+        font-size: 4vw !important;
+        color: #ffffff !important;
+        font-weight: 500 !important;
         flex: 1;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         text-align: left;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
     .pg-accordion-item.open .pg-accordion-icon {
@@ -3536,7 +3541,12 @@ img {
   width: fit-content;
   flex-shrink: 0;
   margin-bottom: 0;
-}/* removed hover: .btn-yellow:hover { ... } */
+}
+.btn-yellow:hover, .btn-yellow:focus {
+  color: #000 !important;
+  text-decoration: none !important;
+  transform: translateY(-2px);
+}
 .industry-hero-right {
   min-width: 0;
   display: flex;
@@ -4343,7 +4353,7 @@ img {
             {{-- Breadcrumb — outside grid, always at top --}}
             <div class="hero-breadcrumb hero-breadcrumb-desktop">
                 <a href="{{ url('/') }}" class="breadcrumb-home">
-                    <img src="{{ asset('uploads/house-chimney 1.svg') }}" alt="Home" style="width: 16px; height: 16px;">
+                    <img src="{{ asset('uploads/house-chimney 1.svg') }}" alt="home" title="Home" style="width: 16px; height: 16px;">
                 </a>
                 @if(isset($parent_cat) && !empty($parent_cat))
                     <span>
@@ -4390,8 +4400,8 @@ img {
 
                 <div class="industry-hero-right">
                     <div class="hero-image-wrapper">
-                        <img src="{{ !empty($value[0]->hero_image) ? (file_exists(public_path('uploads/'.$value[0]->hero_image)) ? asset('uploads/'.$value[0]->hero_image) : asset('images/'.$value[0]->hero_image)) : './assets/Box packing home banner.png' }}" alt="{{ !empty($value[0]->hero_title) ? $value[0]->hero_title : 'Premium packaging boxes' }}"
-                            class="hero-main-img">
+                        <img src="{{ !empty($value[0]->hero_image) ? (file_exists(public_path('uploads/'.$value[0]->hero_image)) ? asset('uploads/'.$value[0]->hero_image) : asset('images/'.$value[0]->hero_image)) : './assets/Box packing home banner.png' }}" alt="{{ strtolower(str_replace('-', ' ', !empty($value[0]->hero_title) ? $value[0]->hero_title : 'Premium packaging boxes')) }}"
+                            class="hero-main-img" title="{{ ucwords(strtolower(str_replace('-', ' ', !empty($value[0]->hero_title) ? $value[0]->hero_title : 'Premium packaging boxes'))) }}">
                     </div>
                 </div>
             </div>
@@ -4465,9 +4475,9 @@ img {
             <div class="cp-why-img">
                 <div class="cp-why-photo-wrap">
                     @if(!empty($value[0]->why_choose_img))
-                        <img src="{{ asset('images/' . $value[0]->why_choose_img) }}" alt="{{ $value[0]->why_choose_title }}" class="cp-why-photo">
+                        <img src="{{ asset('images/' . $value[0]->why_choose_img) }}" alt="{{ strtolower(str_replace('-', ' ', $value[0]->why_choose_title)) }}" class="cp-why-photo" title="{{ ucwords(strtolower(str_replace('-', ' ', $value[0]->why_choose_title))) }}">
                     @else
-                        <img src="{{ asset('assets/images/default.jpg') }}" alt="Why Choose" class="cp-why-photo">
+                        <img src="{{ asset('assets/images/default.jpg') }}" alt="why choose" title="Why Choose" class="cp-why-photo">
                     @endif
                 </div>
                 <a href="{{ url('request-quote') }}" class="cp-cta cp-why-quote-btn">Get a Quote</a>
@@ -4536,35 +4546,35 @@ img {
         <!-- Coating & Laminations -->
         <div class="customize-grid" id="cat-tab-coating-and-laminations" style="display: grid;">
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Lamination.webp') }}" alt="Lamination"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Lamination.webp') }}" alt="lamination" title="Lamination"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Lamination</span><p>Laminated protective film that adheres to the surface of packaging materials to maximize durability.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/UV Coating .webp') }}" alt="UV"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/UV Coating .webp') }}" alt="uv" title="Uv"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">UV</span><p>Fast-drying coating cured with ultraviolet light. Available in gloss or matte finish.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Varnish .webp') }}" alt="Varnish"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Varnish .webp') }}" alt="varnish" title="Varnish"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Varnish</span><p>Clear coating applied using the CMYK printing method. Available in gloss, satin, or matte.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Anti-scratch Lamination .webp') }}" alt="Anti Scratch Lamination"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Anti-scratch Lamination .webp') }}" alt="anti scratch lamination" title="Anti Scratch Lamination"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Anti Scratch Lamination</span><p>Laminated BOPP film that is scratch, scuff, and fingerprint resistant. Cost-effective option.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Aqueous Coating .webp') }}" alt="Aqueous Coating"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Aqueous Coating .webp') }}" alt="aqueous coating" title="Aqueous Coating"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Aqueous Coating</span><p>Clear, fast-drying, water-based, and eco-friendly coating. Available in gloss or matte finish.</p><div class="card-icons"><span class="icon-circle">♻️</span><span class="icon-circle">🍃</span></div></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Soft Touch Coating.webp') }}" alt="Soft Touch Coating"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Soft Touch Coating.webp') }}" alt="soft touch coating" title="Soft Touch Coating"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Soft Touch Coating</span><p>Soft to the touch coating that creates a velvety texture for a more tactile appeal.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Soft Touch Silk Lamination .webp') }}" alt="Soft Touch Silk Lamination"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Soft Touch Silk Lamination .webp') }}" alt="soft touch silk lamination" title="Soft Touch Silk Lamination"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Soft Touch Silk Lamination</span><p>Soft to the touch lamination similar to peach skin. Available in a satin or matte finish.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Spot Gloss UV.webp') }}" alt="Spot Gloss UV"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Spot Gloss UV.webp') }}" alt="spot gloss uv" title="Spot Gloss Uv"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Spot Gloss UV</span><p>UV coating that is applied to a specified area and cured using ultraviolet light.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
             </div>
         </div>
@@ -4572,35 +4582,35 @@ img {
         <!-- Printing Options -->
         <div class="customize-grid" id="cat-tab-printing-options" style="display: none;">
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/digital-print.webp') }}" alt="Digital Print"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/digital-print.webp') }}" alt="digital print" title="Digital Print"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Digital Print</span><p>Fast and cost-effective printing with sharp, high-quality colors ideal for shorter runs and quick turnaround times.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/offset-print.webp') }}" alt="Offset Print"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/offset-print.webp') }}" alt="offset print" title="Offset Print"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Offset Print</span><p>The industry standard for high-volume printing, offering unparalleled color accuracy and premium finish quality.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/oil-based-Inks.webp') }}" alt="Oil Based Inks"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/oil-based-Inks.webp') }}" alt="oil based inks" title="Oil Based Inks"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Oil Based Inks</span><p>Traditional inks that deliver rich, vibrant colors with a smooth, glossy finish for high-impact designs.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/pantone-metallic.webp') }}" alt="Pantone Metallic"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/pantone-metallic.webp') }}" alt="pantone metallic" title="Pantone Metallic"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Pantone Metallic</span><p>Premium inks blended with metallic particles to give your packaging a luxurious, eye-catching shine.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/pantone.webp') }}" alt="Pantone"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/pantone.webp') }}" alt="pantone" title="Pantone"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Pantone</span><p>Standardized color matching system ensuring absolute consistency for your brand colors across all prints.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/soy-vegetable-based-Inks.webp') }}" alt="Soy Vegetable Based Inks"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/soy-vegetable-based-Inks.webp') }}" alt="soy vegetable based inks" title="Soy Vegetable Based Inks"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Soy Vegetable Based Inks</span><p>Eco-friendly, sustainable inks that produce bright colors while minimizing environmental impact.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/uv-print.webp') }}" alt="UV Print"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/uv-print.webp') }}" alt="uv print" title="Uv Print"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">UV Print</span><p>Ultra-violet cured printing that dries instantly, offering superior durability, scuff-resistance, and sharp details.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/water-based-Inks.webp') }}" alt="Water Based Inks"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/water-based-Inks.webp') }}" alt="water based inks" title="Water Based Inks"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Water Based Inks</span><p>Non-toxic and environmentally safe inks that provide a soft, natural finish perfect for sustainable packaging.</p></div>
             </div>
         </div>
@@ -4608,31 +4618,31 @@ img {
         <!-- Special Finishes -->
         <div class="customize-grid" id="cat-tab-special-finishes" style="display: none;">
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/blind-debossing-.webp') }}" alt="Blind Debossing"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/blind-debossing-.webp') }}" alt="blind debossing" title="Blind Debossing"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Blind Debossing</span><p>A classic technique that presses your design down into the material, creating a subtle, indented texture.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/blind-embossing.webp') }}" alt="Blind Embossing"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/blind-embossing.webp') }}" alt="blind embossing" title="Blind Embossing"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Blind Embossing</span><p>Elevates your design by raising it above the material surface, adding a tactile, premium 3D effect.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/cold-foil-printing.webp') }}" alt="Cold Foil Printing"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/cold-foil-printing.webp') }}" alt="cold foil printing" title="Cold Foil Printing"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Cold Foil Printing</span><p>A fast inline process that applies metallic foil to your packaging for a striking, reflective finish.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/combination-embossing.webp') }}" alt="Combination Embossing"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/combination-embossing.webp') }}" alt="combination embossing" title="Combination Embossing"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Combination Embossing</span><p>Combines foil stamping with embossing to create a stunning, raised metallic design that stands out.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/hot-foil-stamping.webp') }}" alt="Hot Foil Stamping"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/hot-foil-stamping.webp') }}" alt="hot foil stamping" title="Hot Foil Stamping"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Hot Foil Stamping</span><p>Uses heat and pressure to apply metallic or pigmented foil, adding a luxurious, high-end feel.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/registered-embossing-.webp') }}" alt="Registered Embossing"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/registered-embossing-.webp') }}" alt="registered embossing" title="Registered Embossing"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Registered Embossing</span><p>Precisely aligns the embossed texture with printed ink, creating a detailed and highly tactile design element.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/window-patching.webp') }}" alt="Window Patching"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/window-patching.webp') }}" alt="window patching" title="Window Patching"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Window Patching</span><p>Adds a transparent film window to your box, allowing customers to view the product inside securely.</p></div>
             </div>
         </div>
@@ -4640,35 +4650,35 @@ img {
         <!-- Paperboard -->
         <div class="customize-grid" id="cat-tab-paperboard" style="display: none;">
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/sbs-c1s.webp') }}" alt="SBS C1S"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/sbs-c1s.webp') }}" alt="sbs c1s" title="Sbs C1s"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">SBS C1S</span><p>Solid Bleached Sulfate coated on one side, offering excellent printability and a clean white interior.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/sbs-c2s.webp') }}" alt="SBS C2S"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/sbs-c2s.webp') }}" alt="sbs c2s" title="Sbs C2s"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">SBS C2S</span><p>Solid Bleached Sulfate coated on both sides, providing a smooth surface for high-quality printing inside and out.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/ccnb.webp') }}" alt="CCNB"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/ccnb.webp') }}" alt="ccnb" title="Ccnb"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">CCNB</span><p>Clay Coated News Back board made from recycled materials, offering a cost-effective solution with good print quality.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/fully-recycled-ccnb.webp') }}" alt="Fully Recycled CCNB"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/fully-recycled-ccnb.webp') }}" alt="fully recycled ccnb" title="Fully Recycled Ccnb"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Fully Recycled CCNB</span><p>100% recycled paperboard with a clay coating, perfect for eco-conscious brands needing vibrant prints.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/natural-brown-kraft.webp') }}" alt="Natural Brown Kraft"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/natural-brown-kraft.webp') }}" alt="natural brown kraft" title="Natural Brown Kraft"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Natural Brown Kraft</span><p>Unbleached, durable kraft board that gives your packaging a rustic, organic, and eco-friendly aesthetic.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/white-kraft.webp') }}" alt="White Kraft"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/white-kraft.webp') }}" alt="white kraft" title="White Kraft"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">White Kraft</span><p>Bleached kraft board combining the strength of kraft with a clean, white surface for excellent print contrast.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/black-kraft.webp') }}" alt="Black Kraft"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/black-kraft.webp') }}" alt="black kraft" title="Black Kraft"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Black Kraft</span><p>Solid black throughout the board, providing a sleek, modern, and premium look without edge whitening.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/uncoated-unbleached-kraft-(uuk).webp') }}" alt="Uncoated Unbleached Kraft (UUK)"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/uncoated-unbleached-kraft-(uuk).webp') }}" alt="uncoated unbleached kraft (uuk)" title="Uncoated Unbleached Kraft (uuk)"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Uncoated Unbleached Kraft (UUK)</span><p>A raw, natural texture that maximizes sustainability and provides an earthy, minimalist vibe.</p></div>
             </div>
         </div>
@@ -4676,19 +4686,19 @@ img {
         <!-- Corrugated -->
         <div class="customize-grid" id="cat-tab-corrugated" style="display: none;">
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Corrugated/bleached-white-board-.webp') }}" alt="Bleached White Board"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Corrugated/bleached-white-board-.webp') }}" alt="bleached white board" title="Bleached White Board"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Bleached White Board</span><p>A strong corrugated material with a bright white outer layer, ensuring vibrant and accurate color printing.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Corrugated/kemi-white-board-.webp') }}" alt="Kemi White Board"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Corrugated/kemi-white-board-.webp') }}" alt="kemi white board" title="Kemi White Board"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Kemi White Board</span><p>Premium coated corrugated board offering superior ink holdout for high-resolution, photographic prints.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Corrugated/natural-brown-kraft-linerboard-.webp') }}" alt="Natural Brown Kraft Linerboard"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Corrugated/natural-brown-kraft-linerboard-.webp') }}" alt="natural brown kraft linerboard" title="Natural Brown Kraft Linerboard"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Natural Brown Kraft Linerboard</span><p>Standard unbleached corrugated board offering maximum strength and a classic, eco-friendly appearance.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Corrugated/oyster-white-board-.webp') }}" alt="Oyster White Board"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Corrugated/oyster-white-board-.webp') }}" alt="oyster white board" title="Oyster White Board"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Oyster White Board</span><p>A mottled white corrugated board that provides a clean background while maintaining structural integrity.</p></div>
             </div>
         </div>
@@ -4696,31 +4706,31 @@ img {
         <!-- Fluted Grades -->
         <div class="customize-grid" id="cat-tab-fluted-grades" style="display: none;">
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades Images/A-flute.webp') }}" alt="A Flute"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades Images/A-flute.webp') }}" alt="a flute" title="A Flute"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">A Flute</span><p>The thickest flute profile (1/4"), providing maximum cushioning and stacking strength for fragile items.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades Images/b-flute.webp') }}" alt="B Flute"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades Images/b-flute.webp') }}" alt="b flute" title="B Flute"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">B Flute</span><p>A versatile profile (1/8") offering excellent crush resistance and a smooth surface for high-quality printing.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades Images/c-flute.webp') }}" alt="C Flute"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades Images/c-flute.webp') }}" alt="c flute" title="C Flute"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">C Flute</span><p>The most common corrugated flute (3/16"), offering an ideal balance of cushioning and compression strength.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades Images/Double-Wall.webp') }}" alt="Double Wall"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades Images/Double-Wall.webp') }}" alt="double wall" title="Double Wall"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Double Wall</span><p>Combines two flute layers for exceptional durability and protection, ideal for heavy or bulk shipping.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades Images/e-flute.webp') }}" alt="E Flute"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades Images/e-flute.webp') }}" alt="e flute" title="E Flute"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">E Flute</span><p>A very thin profile (1/16") that provides excellent printability and a sleek, retail-ready appearance.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades Images/f-flute.webp') }}" alt="F Flute"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades Images/f-flute.webp') }}" alt="f flute" title="F Flute"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">F Flute</span><p>Ultra-thin micro-flute (1/32") offering premium structural rigidity for small, high-end retail boxes.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades Images/Triple-Wall.webp') }}" alt="Triple Wall"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades Images/Triple-Wall.webp') }}" alt="triple wall" title="Triple Wall"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Triple Wall</span><p>Three layers of fluting providing industrial-grade strength, often used as a lightweight alternative to wood.</p></div>
             </div>
         </div>
@@ -4728,11 +4738,11 @@ img {
         <!-- Rigid Materials -->
         <div class="customize-grid" id="cat-tab-rigid-materials" style="display: none;">
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Rigid Material/Duplex-Chipboard-.webp') }}" alt="Duplex Chipboard"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Rigid Material/Duplex-Chipboard-.webp') }}" alt="duplex chipboard" title="Duplex Chipboard"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Duplex Chipboard</span><p>A sturdy, rigid board with a white coated exterior and grey interior, perfect for premium setup boxes.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Rigid Material/grey-chipboard-cardboard.webp') }}" alt="Grey Chipboard Cardboard"></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Rigid Material/grey-chipboard-cardboard.webp') }}" alt="grey chipboard cardboard" title="Grey Chipboard Cardboard"></div>
                 <div class="card-content"><span class="card-title" style="display: block;">Grey Chipboard Cardboard</span><p>Thick, recycled rigid board that serves as the strong foundational core for luxury wrapped boxes.</p></div>
             </div>
         </div>
@@ -4775,7 +4785,7 @@ img {
                 <div class="testimonial-grid">
                     @foreach($testimonial as $testi)
                     <div class="testimonial-card">
-                        <img src="{{ asset('images/' . $testi->image) }}" alt="{{ $testi->name }}" class="avatar-img">
+                        <img src="{{ asset('images/' . $testi->image) }}" alt="{{ strtolower(str_replace('-', ' ', $testi->name)) }}" class="avatar-img" title="{{ ucwords(strtolower(str_replace('-', ' ', $testi->name))) }}">
                         <p class="testimonial-text">
                             {{ $testi->comment }}
                         </p>
@@ -4867,7 +4877,7 @@ img {
 
                 <div class="quote-steps-col">
                     <div class="quote-side-image">
-                        <img src="{{ asset('uploads/frame-81.webp') }}" alt="Custom packaging quote">
+                        <img src="{{ asset('uploads/frame-81.webp') }}" alt="custom packaging quote" title="Custom Packaging Quote">
                     </div>
                 </div>
                 <div class="quote-form-col">
@@ -5035,7 +5045,7 @@ img {
                     @foreach($faqs as $faq)
                     <div class="pg-step-item pg-accordion-item">
                         <button class="pg-accordion-btn">
-                            <span class="pg-accordion-q">{{$faq->question}}</span>
+                            <h3 class="pg-accordion-q">{{$faq->question}}</h3>
                             <span class="pg-accordion-icon">+</span>
                         </button>
                         <div class="pg-accordion-body">
@@ -5077,19 +5087,19 @@ img {
         <!-- Image 1 — large, top, -23.35deg -->
         <img
             src="{{ asset('uploads/cta-allcateagories.png') }}"
-            alt="Rigid Inspiration"
+            alt="rigid inspiration" title="Rigid Inspiration"
             class="cp-cta-img cp-cta-img-1"
         >
         <!-- Image 2 — medium, bottom-left, -23.35deg -->
         <img
             src="{{ asset('uploads/cta-allcategories.png') }}"
-            alt="Luxury Box Packaging"
+            alt="luxury box packaging" title="Luxury Box Packaging"
             class="cp-cta-img cp-cta-img-2"
         >
         <!-- Image 3 — medium, bottom-right, -23.35deg -->
         <img
             src="{{ asset('uploads/cta-allcategories.png') }}"
-            alt="Luxury Box Packaging"
+            alt="luxury box packaging" title="Luxury Box Packaging"
             class="cp-cta-img cp-cta-img-3"
         >
     </div>

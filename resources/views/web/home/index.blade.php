@@ -3423,9 +3423,9 @@ section + section {
   }
 
   .guide-faq h3 {
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-    line-height: 1.35;
+    margin-bottom: 10px !important;
+    font-size: 1.2rem !important;
+    line-height: 1.35 !important;
   }
 
   .guide-faq ol {
@@ -3928,12 +3928,13 @@ section + section {
     text-align: left;
 }
 .pg-accordion-q {
-    font-size: 14px;
-    line-height: 1.65;
-    color: #ffffff;
-    font-weight: 500;
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+    color: #ffffff !important;
+    font-weight: 500 !important;
     flex: 1;
-    margin: 0;
+    margin: 0 !important;
+    padding: 0 !important;
     text-align: left;
 }
 .pg-accordion-btn:focus {
@@ -4423,7 +4424,7 @@ section + section {
                 </div>
             </div>
             <div class="home-hero-images">
-                <img src="{{ (isset($home_banner[0]) && !empty($home_banner[0]->image)) ? asset('images/' . $home_banner[0]->image) : asset('images/home/home-hero.svg') }}" alt="{{ (isset($home_banner[0]) && !empty($home_banner[0]->image_tag)) ? $home_banner[0]->image_tag : 'Premium Box' }}" style="width: 100%; height: 100%; display: block; border-radius: 12px; object-fit: cover;">
+                <img src="{{ (isset($home_banner[0]) && !empty($home_banner[0]->image)) ? asset('images/' . $home_banner[0]->image) : asset('images/home/home-hero.svg') }}" alt="{{ strtolower(str_replace('-', ' ', (isset($home_banner[0]) && !empty($home_banner[0]->image_tag)) ? $home_banner[0]->image_tag : 'Premium Box')) }}" style="width: 100%; height: 100%; display: block; border-radius: 12px; object-fit: cover;" title="{{ ucwords(strtolower(str_replace('-', ' ', (isset($home_banner[0]) && !empty($home_banner[0]->image_tag)) ? $home_banner[0]->image_tag : 'Premium Box'))) }}">
             </div>
         </div>
     </section>
@@ -4443,7 +4444,7 @@ section + section {
                 <div class="sector-card">
                     <div class="sector-img-placeholder" style="position: relative;">
                         <a href="{{ url('/'.$product->category_url) }}">
-                            <img src="{{ asset('images/'.($product->feature_product ? $product->feature_product : ($product->image ? $product->image : $product->bimage))) }}" onerror="this.src='./assets/jewellry and watch.jfif'; this.onerror=null;" alt="{{ $product->name }}">
+                            <img src="{{ asset('images/'.($product->feature_product ? $product->feature_product : ($product->image ? $product->image : $product->bimage))) }}" onerror="this.src='./assets/jewellry and watch.jfif'; this.onerror=null;" alt="{{ strtolower(str_replace('-', ' ', $product->name)) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $product->name))) }}">
                             @if(!empty($product->image_badge))
                                 <span class="image-badge-overlay" style="position: absolute; bottom: 15px; left: 15px; background: rgba(255, 255, 255, 0.9); color: #000; padding: 4px 12px; font-size: 14px; font-weight: 500; border-radius: 4px;">{{ $product->image_badge }}</span>
                             @endif
@@ -4473,7 +4474,7 @@ section + section {
                 <!-- Step 1 -->
                 <div class="process-card">
                     <div class="process-icon">
-                        <img src="{{ asset('images/icons/customize-icon.svg') }}" alt="Customize Icon">
+                        <img src="{{ asset('images/icons/customize-icon.svg') }}" alt="customize icon" title="Customize Icon">
                     </div>
                     <span class="step-title">Customize Your Packaging</span>
                     <p>Choose from our extensive packaging solutions and personalize them with a variety of options to bring your ideal packaging to life.</p>
@@ -4482,7 +4483,7 @@ section + section {
                 <!-- Step 2 -->
                 <div class="process-card">
                     <div class="process-icon">
-                        <img src="{{ asset('images/icons/quote-icon.svg') }}" alt="Quote Icon">
+                        <img src="{{ asset('images/icons/quote-icon.svg') }}" alt="quote icon" title="Quote Icon">
                     </div>
                     <span class="step-title">Request a Quote</span>
                     <p>After customizing your packaging, simply request a quote, and our packaging specialists will review your submission.</p>
@@ -4491,7 +4492,7 @@ section + section {
                 <!-- Step 3 -->
                 <div class="process-card">
                     <div class="process-icon">
-                        <img src="{{ asset('images/icons/consultation-icon.svg') }}" alt="Consultation Icon">
+                        <img src="{{ asset('images/icons/consultation-icon.svg') }}" alt="consultation icon" title="Consultation Icon">
                     </div>
                     <span class="step-title">Expert Consultation</span>
                     <p>Get expert consultation on your quote to reduce costs, improve efficiency, and minimize environmental impact.</p>
@@ -4500,7 +4501,7 @@ section + section {
                 <!-- Step 4 -->
                 <div class="process-card">
                     <div class="process-icon">
-                        <img src="{{ asset('images/icons/delivery-icon.svg') }}" alt="Delivery Icon">
+                        <img src="{{ asset('images/icons/delivery-icon.svg') }}" alt="delivery icon" title="Delivery Icon">
                     </div>
                     <span class="step-title">Production & Delivery</span>
                     <p>After finalizing the details, we'll handle the entire production and shipping process. Just sit back and wait for your packaging to arrive!</p>
@@ -4520,7 +4521,7 @@ section + section {
             </div>
 
             <div class="premium-gallery-single" style="max-width: 900px; margin: 0 auto; overflow: hidden; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-                <img src="{{asset('uploads/preium-addons.webp')}}" alt="Premium Addons" style="width: 100%; height: auto; display: block;">
+                <img src="{{asset('uploads/preium-addons.webp')}}" alt="premium addons" title="Premium Addons" style="width: 100%; height: auto; display: block;">
             </div>
 
         </div>
@@ -4573,7 +4574,7 @@ section + section {
                 </div>
 
                 <div class="why-image">
-                    <img src="{{asset('uploads/why-choise-us.png')}}" alt="Luxury Box">
+                    <img src="{{asset('uploads/why-choise-us.png')}}" alt="luxury box" title="Luxury Box">
                 </div>
 
             </div>
@@ -4591,7 +4592,7 @@ section + section {
             <div class="testimonial-grid">
                 @foreach($testimonial as $testi)
                 <div class="testimonial-card">
-                    <img src="{{ asset('images/' . $testi->image) }}" alt="{{ $testi->name }}" class="avatar-img">
+                    <img src="{{ asset('images/' . $testi->image) }}" alt="{{ strtolower(str_replace('-', ' ', $testi->name)) }}" class="avatar-img" title="{{ ucwords(strtolower(str_replace('-', ' ', $testi->name))) }}">
                     <p class="testimonial-text">
                         {{ $testi->comment }}
                     </p>
@@ -4685,7 +4686,7 @@ section + section {
 
         <div class="quote-steps-col">
             <div class="quote-side-image">
-                <img src="{{ asset('uploads/frame-81.webp') }}" alt="Custom packaging quote">
+                <img src="{{ asset('uploads/frame-81.webp') }}" alt="custom packaging quote" title="Custom Packaging Quote">
             </div>
         </div>
 
@@ -4897,7 +4898,7 @@ section + section {
         <div class="container">
             <div class="custom-box">
                 <div class="custom-box-img">
-                    <img src="{{asset('uploads/rigid-cta.png')}}" alt="Rigid Box">
+                    <img src="{{asset('uploads/rigid-cta.png')}}" alt="rigid box" title="Rigid Box">
                 </div>
             </div>
         </div>
@@ -4918,7 +4919,7 @@ section + section {
                 @php $main_blog = $home_blogs[0]; @endphp
                 <div class="blog-main-card" onclick="window.location.href='{{ url('blog/'.$main_blog->blog_url) }}'" style="cursor: pointer;">
                     <div class="main-image-wrapper">
-                        <img src="{{ asset('images/'.$main_blog->image) }}" alt="{{ $main_blog->alt_tag }}">
+                        <img src="{{ asset('images/'.$main_blog->image) }}" alt="{{ strtolower(str_replace('-', ' ', $main_blog->alt_tag)) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $main_blog->alt_tag))) }}">
                     </div>
                     <div class="card-meta">
                         <span class="author">{{ $main_blog->author_name }}</span>
@@ -4933,7 +4934,7 @@ section + section {
 
                     @foreach($home_blogs->slice(1, 3) as $side_blog)
                     <div class="blog-side-card" onclick="window.location.href='{{ url('blog/'.$side_blog->blog_url) }}'" style="cursor: pointer;">
-                        <img src="{{ asset('images/'.$side_blog->image) }}" alt="{{ $side_blog->alt_tag }}" class="side-card-img">
+                        <img src="{{ asset('images/'.$side_blog->image) }}" alt="{{ strtolower(str_replace('-', ' ', $side_blog->alt_tag)) }}" class="side-card-img" title="{{ ucwords(strtolower(str_replace('-', ' ', $side_blog->alt_tag))) }}">
                         <div class="side-card-content">
                             <div class="card-meta">
                                 <span class="author">{{ $side_blog->author_name }}</span>
@@ -4959,7 +4960,7 @@ section + section {
                 @foreach($home_blogs->take(4) as $blog)
                 <div class="blog-card-mobile" onclick="window.location.href='{{ url('blog/'.$blog->blog_url) }}'" style="cursor: pointer;">
                     <div class="mobile-image-wrapper">
-                        <img src="{{ asset('images/'.$blog->image) }}" alt="{{ $blog->alt_tag }}">
+                        <img src="{{ asset('images/'.$blog->image) }}" alt="{{ strtolower(str_replace('-', ' ', $blog->alt_tag)) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $blog->alt_tag))) }}">
                     </div>
                     <div class="card-meta">
                         <span class="author">{{ $blog->author_name }}</span>

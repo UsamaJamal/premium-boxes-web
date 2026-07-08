@@ -364,7 +364,7 @@
                 <div class="cp-footer-logo">
                     <div class="cp-footer-logo-icon">
                         @if($footerSettings && !empty($footerSettings->logo))
-                            <img src="{{ asset($footerSettings->logo) }}" alt="Premium Boxes Logo" style="max-height: 40px;">
+                            <img src="{{ asset($footerSettings->logo) }}" alt="premium boxes logo" style="max-height: 40px;" title="Premium Boxes Logo">
                         @else
                             <i class="fas fa-box-open" style="color: var(--gold); font-size: 32px; margin-right: 10px;"></i>
                             <span style="font-size: 24px; font-weight: 800; line-height: 1.1; color: var(--gold);">Premium<br><span style="color: white;">Boxes</span></span>
@@ -458,11 +458,11 @@
                     <button type="submit">Subscribe</button>
                 </form>
                 <div class="cp-payment-methods">
-                    <img src="{{ asset('uploads/visa 1.png') }}" alt="Visa" style="max-height: 28px; width: auto; background-color: white; padding: 2px; border-radius: 3px;">
-                    <img src="{{ asset('uploads/master-card 1.png') }}" alt="Mastercard" style="max-height: 28px; width: auto; background-color: white; padding: 2px; border-radius: 3px;">
-                    <img src="{{ asset('uploads/paypal.png') }}" alt="Paypal" style="max-height: 28px; width: auto; background-color: white; padding: 2px; border-radius: 3px;">
-                    <img src="{{ asset('uploads/americanexpress.png') }}" alt="American Express" style="max-height: 28px; width: auto; background-color: white; padding: 2px; border-radius: 3px;">
-                    <img src="{{ asset('uploads/discover.png') }}" alt="Discover" style="max-height: 28px; width: auto; background-color: white; padding: 2px; border-radius: 3px;">
+                    <img src="{{ asset('uploads/visa 1.png') }}" alt="visa" title="Visa" style="max-height: 28px; width: auto; background-color: white; padding: 2px; border-radius: 3px;">
+                    <img src="{{ asset('uploads/master-card 1.png') }}" alt="mastercard" title="Mastercard" style="max-height: 28px; width: auto; background-color: white; padding: 2px; border-radius: 3px;">
+                    <img src="{{ asset('uploads/paypal.png') }}" alt="paypal" title="Paypal" style="max-height: 28px; width: auto; background-color: white; padding: 2px; border-radius: 3px;">
+                    <img src="{{ asset('uploads/americanexpress.png') }}" alt="american express" title="American Express" style="max-height: 28px; width: auto; background-color: white; padding: 2px; border-radius: 3px;">
+                    <img src="{{ asset('uploads/discover.png') }}" alt="discover" title="Discover" style="max-height: 28px; width: auto; background-color: white; padding: 2px; border-radius: 3px;">
                 </div>
             </div>
             

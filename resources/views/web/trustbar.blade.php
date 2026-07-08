@@ -149,17 +149,17 @@
         {{-- Logos --}}
         <div class="tb-logos-wrap" id="tbLogosWrap">
             <div class="tb-logos-track" id="tbLogosTrack">
-                <div class="tb-logo"><img src="{{ asset('images/voli-logo.webp') }}" alt="Voli"></div>
-                <div class="tb-logo"><img src="{{ asset('uploads/adidas-logo.png') }}" alt="Adidas"></div>
-                <div class="tb-logo"><img src="{{ asset('uploads/Google-logo.png') }}" alt="Google"></div>
-                <div class="tb-logo"><img src="{{ asset('uploads/hp-logo.png') }}" alt="HP"></div>
-                <div class="tb-logo"><img src="{{ asset('uploads/unilever-logo.webp') }}" alt="Unilever"></div>
-                <div class="tb-logo"><img src="{{ asset('uploads/Benefit-Logo.png') }}" alt="Benefit"></div>
-                <div class="tb-logo"><img src="{{ asset('images/flowgardens-logo.webp') }}" alt="Flow Gardens"></div>
-                <div class="tb-logo"><img src="{{ asset('images/her-piece-peace-logo.webp') }}" alt="Her Piece Peace"></div>
-                <div class="tb-logo"><img src="{{ asset('images/neat-logo.webp') }}" alt="Neat"></div>
-                <div class="tb-logo"><img src="{{ asset('images/red-bull-logo.png') }}" alt="Red Bull"></div>
-                <div class="tb-logo"><img src="{{ asset('images/springtastic-logo.webp') }}" alt="Springtastic"></div>
+                <div class="tb-logo"><img src="{{ asset('images/voli-logo.webp') }}" alt="voli" title="Voli"></div>
+                <div class="tb-logo"><img src="{{ asset('uploads/adidas-logo.png') }}" alt="adidas" title="Adidas"></div>
+                <div class="tb-logo"><img src="{{ asset('uploads/Google-logo.png') }}" alt="google" title="Google"></div>
+                <div class="tb-logo"><img src="{{ asset('uploads/hp-logo.png') }}" alt="hp" title="Hp"></div>
+                <div class="tb-logo"><img src="{{ asset('uploads/unilever-logo.webp') }}" alt="unilever" title="Unilever"></div>
+                <div class="tb-logo"><img src="{{ asset('uploads/Benefit-Logo.png') }}" alt="benefit" title="Benefit"></div>
+                <div class="tb-logo"><img src="{{ asset('images/flowgardens-logo.webp') }}" alt="flow gardens" title="Flow Gardens"></div>
+                <div class="tb-logo"><img src="{{ asset('images/her-piece-peace-logo.webp') }}" alt="her piece peace" title="Her Piece Peace"></div>
+                <div class="tb-logo"><img src="{{ asset('images/neat-logo.webp') }}" alt="neat" title="Neat"></div>
+                <div class="tb-logo"><img src="{{ asset('images/red-bull-logo.png') }}" alt="red bull" title="Red Bull"></div>
+                <div class="tb-logo"><img src="{{ asset('images/springtastic-logo.webp') }}" alt="springtastic" title="Springtastic"></div>
             </div>
         </div>
 

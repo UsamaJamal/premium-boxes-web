@@ -449,14 +449,14 @@ a { text-decoration: none; color: inherit; }
                     @if(is_array($images) && !empty($images))
 
                     <div class="product-main-img-wrap">
-                        <img src="{{ url('images/'.$images[0]) }}" alt="{{ $p->title }}" class="product-main-img" id="productMainImg">
+                        <img src="{{ url('images/'.$images[0]) }}" alt="{{ strtolower(str_replace('-', ' ', $p->title)) }}" class="product-main-img" id="productMainImg" title="{{ ucwords(strtolower(str_replace('-', ' ', $p->title))) }}">
                     </div>
 
                     @if(count($images) > 1)
                     <div class="product-thumbnails">
                         @foreach($images as $img)
                         <div class="product-thumb {{ $loop->first ? 'active' : '' }}" onclick="switchImg(this, '{{ url('images/'.$img) }}')">
-                            <img src="{{ url('images/'.$img) }}" alt="{{ $p->title }}">
+                            <img src="{{ url('images/'.$img) }}" alt="{{ strtolower(str_replace('-', ' ', $p->title)) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $p->title))) }}">
                         </div>
                         @endforeach
                     </div>
@@ -512,12 +512,12 @@ a { text-decoration: none; color: inherit; }
 
                     <div class="pd-logos-wrap" id="pdLogosWrap">
                         <div class="pd-logos-track" id="pdLogosTrack">
-                            <div class="pd-logo"><img src="{{ asset('images/voli-logo.webp') }}" alt="Voli"></div>
-                            <div class="pd-logo"><img src="{{ asset('uploads/adidas-logo.png') }}" alt="Adidas"></div>
-                            <div class="pd-logo"><img src="{{ asset('uploads/Google-logo.png') }}" alt="Google"></div>
-                            <div class="pd-logo"><img src="{{ asset('uploads/hp-logo.png') }}" alt="HP"></div>
-                            <div class="pd-logo"><img src="{{ asset('uploads/unilever-logo.webp') }}" alt="Unilever"></div>
-                            <div class="pd-logo"><img src="{{ asset('uploads/Benefit-Logo.png') }}" alt="Benefit"></div>
+                            <div class="pd-logo"><img src="{{ asset('images/voli-logo.webp') }}" alt="voli" title="Voli"></div>
+                            <div class="pd-logo"><img src="{{ asset('uploads/adidas-logo.png') }}" alt="adidas" title="Adidas"></div>
+                            <div class="pd-logo"><img src="{{ asset('uploads/Google-logo.png') }}" alt="google" title="Google"></div>
+                            <div class="pd-logo"><img src="{{ asset('uploads/hp-logo.png') }}" alt="hp" title="Hp"></div>
+                            <div class="pd-logo"><img src="{{ asset('uploads/unilever-logo.webp') }}" alt="unilever" title="Unilever"></div>
+                            <div class="pd-logo"><img src="{{ asset('uploads/Benefit-Logo.png') }}" alt="benefit" title="Benefit"></div>
                         </div>
                     </div>
 
@@ -693,7 +693,7 @@ a { text-decoration: none; color: inherit; }
                 <div class="pfr-features">
                     <div class="pfr-feature">
                         <div class="pfr-icon">
-                            <img src="{{ asset('uploads/product/freedesign.svg') }}" alt="Free Design Assistance" width="32" height="32" >
+                            <img src="{{ asset('uploads/product/freedesign.svg') }}" alt="free design assistance" title="Free Design Assistance" width="32" height="32" >
                         </div>
                         <div class="pfr-content">
                             <h4>Free Design Assistance</h4>
@@ -703,7 +703,7 @@ a { text-decoration: none; color: inherit; }
                     
                     <div class="pfr-feature">
                         <div class="pfr-icon">
-                            <img src="{{ asset('uploads/product/custom-size.svg') }}" alt="Custom Size" width="32" height="32" >
+                            <img src="{{ asset('uploads/product/custom-size.svg') }}" alt="custom size" title="Custom Size" width="32" height="32" >
                         </div>
                         <div class="pfr-content">
                             <h4>Custom Size And Shape</h4>
@@ -713,7 +713,7 @@ a { text-decoration: none; color: inherit; }
 
                     <div class="pfr-feature">
                         <div class="pfr-icon">
-                            <img src="{{ asset('uploads/product/price.svg') }}" alt="Low Price" width="32" height="32" >
+                            <img src="{{ asset('uploads/product/price.svg') }}" alt="low price" title="Low Price" width="32" height="32" >
                         </div>
                         <div class="pfr-content">
                             <h4>Low Price</h4>
@@ -723,7 +723,7 @@ a { text-decoration: none; color: inherit; }
 
                     <div class="pfr-feature">
                         <div class="pfr-icon">
-                            <img src="{{ asset('uploads/product/shipping-fast.svg') }}" alt="Free Shipping" width="32" height="32" >
+                            <img src="{{ asset('uploads/product/shipping-fast.svg') }}" alt="free shipping" title="Free Shipping" width="32" height="32" >
                         </div>
                         <div class="pfr-content">
                             <h4>Free Shipping</h4>
@@ -742,7 +742,7 @@ a { text-decoration: none; color: inherit; }
                                 
                                 <div class="pfr-slide">
                                     <div class="pfr-avatar">
-                                        <img src="{{ asset('uploads/avatar1.jpg') }}" onerror="this.src='https://i.pravatar.cc/150?img=11'" alt="Avatar">
+                                        <img src="{{ asset('uploads/avatar1.jpg') }}" onerror="this.src='https://i.pravatar.cc/150?img=11'" alt="avatar" title="Avatar">
                                     </div>
                                     <p class="pfr-text">We've been working with PremiumBoxes for 3 years now. Their consistency, attention to detail, and timely delivery make them our go-to packaging partner.</p>
                                     <h5 class="pfr-name">Mike Torello</h5>
@@ -751,7 +751,7 @@ a { text-decoration: none; color: inherit; }
                                 
                                 <div class="pfr-slide">
                                     <div class="pfr-avatar">
-                                        <img src="{{ asset('uploads/avatar2.jpg') }}" onerror="this.src='https://i.pravatar.cc/150?img=32'" alt="Avatar">
+                                        <img src="{{ asset('uploads/avatar2.jpg') }}" onerror="this.src='https://i.pravatar.cc/150?img=32'" alt="avatar" title="Avatar">
                                     </div>
                                     <p class="pfr-text">Absolutely fantastic quality and customer service. They helped us redesign our boxes from scratch and the final result was beyond our expectations.</p>
                                     <h5 class="pfr-name">Sarah Jenkins</h5>
@@ -760,7 +760,7 @@ a { text-decoration: none; color: inherit; }
                                 
                                 <div class="pfr-slide">
                                     <div class="pfr-avatar">
-                                        <img src="{{ asset('uploads/avatar3.jpg') }}" onerror="this.src='https://i.pravatar.cc/150?img=59'" alt="Avatar">
+                                        <img src="{{ asset('uploads/avatar3.jpg') }}" onerror="this.src='https://i.pravatar.cc/150?img=59'" alt="avatar" title="Avatar">
                                     </div>
                                     <p class="pfr-text">Fast shipping and affordable pricing. We compared many suppliers but this one offered the best value for premium custom printed boxes.</p>
                                     <h5 class="pfr-name">David Chen</h5>
@@ -970,19 +970,19 @@ a { text-decoration: none; color: inherit; }
 <!-- Materials Content -->
             <div class="cust-tab-content active" id="cust-mat"><div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:20px; text-align:center; margin-top:30px;">
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Paper Board/black-kraft.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Black Kraft"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Paper Board/black-kraft.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="black kraft" title="Black Kraft"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Paper Board (Black Kraft)</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Corrugated/bleached-white-board-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Bleached White Board"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Corrugated/bleached-white-board-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="bleached white board" title="Bleached White Board"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Corrugated</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Fluted Grades Images/A-flute.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="A Flute"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Fluted Grades Images/A-flute.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="a flute" title="A Flute"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Fluted Grades</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Rigid Material/Duplex-Chipboard-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Duplex Chipboard"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Rigid Material/Duplex-Chipboard-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="duplex chipboard" title="Duplex Chipboard"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Rigid Material</div>
     </div>
 </div>
@@ -992,35 +992,35 @@ a { text-decoration: none; color: inherit; }
             <div class="cust-tab-content" id="cust-print" style="display:none;">
 <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:20px; text-align:center;">
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/digital-print.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Digital Print"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/digital-print.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="digital print" title="Digital Print"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Digital Print</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/offset-print.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Offset Print"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/offset-print.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="offset print" title="Offset Print"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Offset Print</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/oil-based-Inks.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Oil Based Inks"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/oil-based-Inks.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="oil based inks" title="Oil Based Inks"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Oil Based Inks</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/pantone-metallic.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Pantone Metallic"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/pantone-metallic.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="pantone metallic" title="Pantone Metallic"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Pantone Metallic</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/pantone.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Pantone"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/pantone.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="pantone" title="Pantone"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Pantone</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/soy-vegetable-based-Inks.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Soy Vegetable Based Inks"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/soy-vegetable-based-Inks.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="soy vegetable based inks" title="Soy Vegetable Based Inks"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Soy Vegetable Based Inks</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/uv-print.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Uv Print"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/uv-print.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="uv print" title="Uv Print"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Uv Print</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/water-based-Inks.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Water Based Inks"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/water-based-Inks.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="water based inks" title="Water Based Inks"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Water Based Inks</div>
     </div>
 </div>
@@ -1029,31 +1029,31 @@ a { text-decoration: none; color: inherit; }
             <div class="cust-tab-content" id="cust-finish" style="display:none;">
 <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:20px; text-align:center;">
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/blind-debossing-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Blind Debossing "></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/blind-debossing-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="blind debossing " title="Blind Debossing "></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Blind Debossing </div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/blind-embossing.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Blind Embossing"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/blind-embossing.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="blind embossing" title="Blind Embossing"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Blind Embossing</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/cold-foil-printing.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Cold Foil Printing"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/cold-foil-printing.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="cold foil printing" title="Cold Foil Printing"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Cold Foil Printing</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/combination-embossing.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Combination Embossing"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/combination-embossing.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="combination embossing" title="Combination Embossing"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Combination Embossing</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/hot-foil-stamping.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Hot Foil Stamping"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/hot-foil-stamping.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="hot foil stamping" title="Hot Foil Stamping"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Hot Foil Stamping</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/registered-embossing-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Registered Embossing "></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/registered-embossing-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="registered embossing " title="Registered Embossing "></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Registered Embossing </div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/window-patching.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Window Patching"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/window-patching.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="window patching" title="Window Patching"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Window Patching</div>
     </div>
 </div>
@@ -1062,35 +1062,35 @@ a { text-decoration: none; color: inherit; }
             <div class="cust-tab-content" id="cust-coat" style="display:none;">
 <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:20px; text-align:center;">
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/Lamination.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Lamination"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/Lamination.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="lamination" title="Lamination"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Lamination</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/UV.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="UV"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/UV.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="uv" title="Uv"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">UV</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/Varnish.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Varnish"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/Varnish.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="varnish" title="Varnish"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Varnish</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/anti-scratch-lamination.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Anti Scratch Lamination"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/anti-scratch-lamination.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="anti scratch lamination" title="Anti Scratch Lamination"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Anti Scratch Lamination</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/aqueous-coating-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Aqueous Coating "></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/aqueous-coating-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="aqueous coating " title="Aqueous Coating "></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Aqueous Coating </div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/soft-touch-coating.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Soft Touch Coating"></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/soft-touch-coating.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="soft touch coating" title="Soft Touch Coating"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Soft Touch Coating</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/soft-touch-silk-lamination-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Soft Touch Silk Lamination "></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/soft-touch-silk-lamination-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="soft touch silk lamination " title="Soft Touch Silk Lamination "></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Soft Touch Silk Lamination </div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/spot-gloss-uV-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="Spot Gloss UV "></div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Coating & Laminations/spot-gloss-uV-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="spot gloss uv " title="Spot Gloss Uv "></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Spot Gloss UV </div>
     </div>
 </div>
@@ -1162,7 +1162,7 @@ a { text-decoration: none; color: inherit; }
                         @foreach($product as $p)
                             @php $iq_images = json_decode($p->images, true); @endphp
                             @if(is_array($iq_images) && !empty($iq_images))
-                                <img src="{{ url('images/'.$iq_images[0]) }}" alt="{{ $p->title }}" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="{{ url('images/'.$iq_images[0]) }}" alt="{{ strtolower(str_replace('-', ' ', $p->title)) }}" style="width: 100%; height: 100%; object-fit: cover;" title="{{ ucwords(strtolower(str_replace('-', ' ', $p->title))) }}">
                                 @php $iq_img_rendered = true; @endphp
                             @endif
                             @break
@@ -1199,7 +1199,7 @@ a { text-decoration: none; color: inherit; }
                 @foreach($temp as $tv)
                 @if($tv == $rel->product_id)
                 <a href="{{ url($rel->url) . '/' }}" class="product-related-card">
-                    <img src="{{ url('images/'.$rel->image) }}" alt="{{ $rel->title }}" class="product-related-img">
+                    <img src="{{ url('images/'.$rel->image) }}" alt="{{ strtolower(str_replace('-', ' ', $rel->title)) }}" class="product-related-img" title="{{ ucwords(strtolower(str_replace('-', ' ', $rel->title))) }}">
                     <span class="product-related-title">{{ $rel->title }}</span>
                 </a>
                 @endif

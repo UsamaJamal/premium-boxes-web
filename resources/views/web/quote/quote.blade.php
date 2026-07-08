@@ -607,22 +607,22 @@ vertical-align: middle;
         </p>
         <div class="qu-why-cards">
             <div class="qu-why-card">
-                <div class="qu-why-icon"><img src="{{ asset('images/about/circular- packaging -solutions.svg') }}" alt="Circular Packaging Solutions" style="width: 24px; height: auto;"></div>
+                <div class="qu-why-icon"><img src="{{ asset('images/about/circular- packaging -solutions.svg') }}" alt="circular packaging solutions" title="Circular Packaging Solutions" style="width: 24px; height: auto;"></div>
                 <h3>Circular Packaging Solutions</h3>
                 <p>We offer sustainable circular packaging solutions designed to reduce waste while maintaining premium quality and structural strength standards.</p>
             </div>
             <div class="qu-why-card">
-                <div class="qu-why-icon"><img src="{{ asset('images/about/price.svg') }}" alt="Competitive Prices" style="width: 24px; height: auto;"></div>
+                <div class="qu-why-icon"><img src="{{ asset('images/about/price.svg') }}" alt="competitive prices" title="Competitive Prices" style="width: 24px; height: auto;"></div>
                 <h3>Competitive Prices</h3>
                 <p>We deliver high-quality packaging solutions at competitive prices ensuring value for money without compromising design or durability.</p>
             </div>
             <div class="qu-why-card">
-                <div class="qu-why-icon"><img src="{{ asset('images/about/Premium-quality.svg') }}" alt="Premium Quality" style="width: 24px; height: auto;"></div>
+                <div class="qu-why-icon"><img src="{{ asset('images/about/Premium-quality.svg') }}" alt="premium quality" title="Premium Quality" style="width: 24px; height: auto;"></div>
                 <h3>Premium Quality</h3>
                 <p>We use high-quality materials and precision craftsmanship to deliver packaging that reflects your brand's value.</p>
             </div>
             <div class="qu-why-card">
-                <div class="qu-why-icon"><img src="{{ asset('images/about/end-toend-service.svg') }}" alt="End To End Service" style="width: 24px; height: auto;"></div>
+                <div class="qu-why-icon"><img src="{{ asset('images/about/end-toend-service.svg') }}" alt="end to end service" title="End To End Service" style="width: 24px; height: auto;"></div>
                 <h3>End To End Service</h3>
                 <p>We provide complete end to end packaging solutions from concept design to production and final delivery support.</p>
             </div>

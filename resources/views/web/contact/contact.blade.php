@@ -645,10 +645,10 @@ html, body {
                         <span aria-label="YouTube"><i class="fab fa-youtube"></i></span>
                     </div>
                     <div class="contact-circle-big" aria-hidden="true">
-                        <img src="{{ asset('images/contactus/Ellipse 793.png') }}" alt="">
+                        <img src="{{ asset('images/contactus/Ellipse 793.png') }}" alt="" title="">
                     </div>
                     <div class="contact-circle-small" aria-hidden="true">
-                        <img src="{{ asset('images/contactus/Ellipse 794.png') }}" alt="">
+                        <img src="{{ asset('images/contactus/Ellipse 794.png') }}" alt="" title="">
                     </div>
                 </div>
 
@@ -680,7 +680,7 @@ html, body {
                     </div>
                     <button class="contact-send-btn" id="sendBtn" type="submit">Send Message</button>
                     <div class="contact-form-img" aria-hidden="true">
-                        <img src="{{ asset('images/contactus/5e52eb20ee9158ca0835b430d0b6ef56e2d7385e.png') }}" alt="">
+                        <img src="{{ asset('images/contactus/5e52eb20ee9158ca0835b430d0b6ef56e2d7385e.png') }}" alt="" title="">
                     </div>
                 </form>
 

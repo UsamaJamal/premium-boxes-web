@@ -589,7 +589,7 @@ html, body {
                 <div class="ab-us-gold-accent" aria-hidden="true"></div>
                 <img
                     src="{{ url('images/about/our-story.jpg') }}"
-                    alt="Premium rigid packaging boxes"
+                    alt="premium rigid packaging boxes" title="Premium Rigid Packaging Boxes"
                     class="ab-us-story-img"
                 >
             </div>
@@ -648,7 +648,7 @@ html, body {
                     </div>
                 </div>
                 <div class="ab-us-why-feature-img">
-                    <img src="{{ url('images/about/packaging-excellence.jpg') }}" alt="Luxury Packaging">
+                    <img src="{{ url('images/about/packaging-excellence.jpg') }}" alt="luxury packaging" title="Luxury Packaging">
                 </div>
             </div>
 

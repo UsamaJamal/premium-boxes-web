@@ -3006,15 +3006,15 @@ body {
             <div class="industry-hero-content">
                 <div class="industry-hero-right">
                     <div class="hero-image-wrapper">
-                        <img src="{{ !empty($value[0]->hero_image) ? asset('images/'.$value[0]->hero_image) : './assets/Box packing home banner.png' }}" alt="{{ !empty($value[0]->hero_title) ? $value[0]->hero_title : 'Premium packaging boxes' }}"
-                            class="hero-main-img">
+                        <img src="{{ !empty($value[0]->hero_image) ? asset('images/'.$value[0]->hero_image) : './assets/Box packing home banner.png' }}" alt="{{ strtolower(str_replace('-', ' ', !empty($value[0]->hero_title) ? $value[0]->hero_title : 'Premium packaging boxes')) }}"
+                            class="hero-main-img" title="{{ ucwords(strtolower(str_replace('-', ' ', !empty($value[0]->hero_title) ? $value[0]->hero_title : 'Premium packaging boxes'))) }}">
                     </div>
                 </div>
 
                 <div class="industry-hero-left">
                     <div class="breadcrumb">
                         <a href="{{ url('/') }}" class="breadcrumb-home">
-                            <img src="{{ asset('uploads/house-chimney 1.svg') }}" alt="Home" style="width: 16px; height: 16px;">
+                            <img src="{{ asset('uploads/house-chimney 1.svg') }}" alt="home" title="Home" style="width: 16px; height: 16px;">
                         </a>
                         @if(isset($parent_cat) && !empty($parent_cat))
                             <span>
@@ -3096,7 +3096,7 @@ body {
                     <div class="browse-item">
                         <div class="browse-card" style="position: relative;">
                             <a href="{{ url($subCategory->category_url) }}" style="display: block; width: 100%; height: 100%;">
-                                <img src="{{ $imgFile }}" alt="{{ $subCategory->name }}">
+                                <img src="{{ $imgFile }}" alt="{{ strtolower(str_replace('-', ' ', $subCategory->name)) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $subCategory->name))) }}">
                                 @if(!empty($subCategory->image_badge))
                                     <span class="image-badge-overlay" style="position: absolute; bottom: 15px; left: 15px; background: rgba(255, 255, 255, 0.9); color: #000; padding: 4px 12px; font-size: 14px; font-weight: 500; border-radius: 4px;">{{ $subCategory->image_badge }}</span>
                                 @endif
@@ -3131,16 +3131,16 @@ body {
                 <div class="commitment-right">
                     <div class="badge-grid">
                         <div class="badge-card">
-                            <img src="{{ asset('uploads/Eco-frndly.webp') }}" alt="Biodegradable badge">
+                            <img src="{{ asset('uploads/Eco-frndly.webp') }}" alt="biodegradable badge" title="Biodegradable Badge">
                         </div>
                         <div class="badge-card">
-                            <img src="{{ asset('uploads/Recycle.webp') }}" alt="FCS badge">
+                            <img src="{{ asset('uploads/Recycle.webp') }}" alt="fcs badge" title="Fcs Badge">
                         </div>
                         <div class="badge-card">
-                            <img src="{{ asset('uploads/Biodegradable.webp') }}" alt="Eco-friendly badge">
+                            <img src="{{ asset('uploads/Biodegradable.webp') }}" alt="eco friendly badge" title="Eco Friendly Badge">
                         </div>
                         <div class="badge-card">
-                            <img src="{{ asset('uploads/FCS.webp') }}" alt="Recycle badge">
+                            <img src="{{ asset('uploads/FCS.webp') }}" alt="recycle badge" title="Recycle Badge">
                         </div>
                     </div>
                 </div>
@@ -3169,7 +3169,7 @@ body {
             <div class="customize-grid" id="tab-coating-and-laminations" style="display: grid;">
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Coating %26 Laminations/Lamination.webp') }}" alt="Lamination">
+                        <img src="{{ asset('uploads/Coating %26 Laminations/Lamination.webp') }}" alt="lamination" title="Lamination">
                     </div>
                     <div class="card-content">
                         <h3>Lamination</h3>
@@ -3181,7 +3181,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Coating %26 Laminations/UV.webp') }}" alt="UV">
+                        <img src="{{ asset('uploads/Coating %26 Laminations/UV.webp') }}" alt="uv" title="Uv">
                     </div>
                     <div class="card-content">
                         <h3>UV</h3>
@@ -3193,7 +3193,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Coating %26 Laminations/Varnish.webp') }}" alt="Varnish">
+                        <img src="{{ asset('uploads/Coating %26 Laminations/Varnish.webp') }}" alt="varnish" title="Varnish">
                     </div>
                     <div class="card-content">
                         <h3>Varnish</h3>
@@ -3205,7 +3205,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Coating %26 Laminations/anti-scratch-lamination.webp') }}" alt="Anti Scratch Lamination">
+                        <img src="{{ asset('uploads/Coating %26 Laminations/anti-scratch-lamination.webp') }}" alt="anti scratch lamination" title="Anti Scratch Lamination">
                     </div>
                     <div class="card-content">
                         <h3>Anti Scratch Lamination</h3>
@@ -3217,7 +3217,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Coating %26 Laminations/aqueous-coating-.webp') }}" alt="Aqueous Coating">
+                        <img src="{{ asset('uploads/Coating %26 Laminations/aqueous-coating-.webp') }}" alt="aqueous coating" title="Aqueous Coating">
                     </div>
                     <div class="card-content">
                         <h3>Aqueous Coating</h3>
@@ -3230,7 +3230,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Coating %26 Laminations/soft-touch-coating.webp') }}" alt="Soft Touch Coating">
+                        <img src="{{ asset('uploads/Coating %26 Laminations/soft-touch-coating.webp') }}" alt="soft touch coating" title="Soft Touch Coating">
                     </div>
                     <div class="card-content">
                         <h3>Soft Touch Coating</h3>
@@ -3242,7 +3242,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Coating %26 Laminations/soft-touch-silk-lamination-.webp') }}" alt="Soft Touch Silk Lamination">
+                        <img src="{{ asset('uploads/Coating %26 Laminations/soft-touch-silk-lamination-.webp') }}" alt="soft touch silk lamination" title="Soft Touch Silk Lamination">
                     </div>
                     <div class="card-content">
                         <h3>Soft Touch Silk Lamination</h3>
@@ -3254,7 +3254,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Coating %26 Laminations/spot-gloss-uV-.webp') }}" alt="Spot Gloss UV">
+                        <img src="{{ asset('uploads/Coating %26 Laminations/spot-gloss-uV-.webp') }}" alt="spot gloss uv" title="Spot Gloss Uv">
                     </div>
                     <div class="card-content">
                         <h3>Spot Gloss UV</h3>
@@ -3268,7 +3268,7 @@ body {
             <div class="customize-grid" id="tab-printing-options" style="display: none;">
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Printing Options/digital-print.webp') }}" alt="Digital Print">
+                        <img src="{{ asset('uploads/Printing Options/digital-print.webp') }}" alt="digital print" title="Digital Print">
                     </div>
                     <div class="card-content">
                         <h3>Digital Print</h3>
@@ -3277,7 +3277,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Printing Options/offset-print.webp') }}" alt="Offset Print">
+                        <img src="{{ asset('uploads/Printing Options/offset-print.webp') }}" alt="offset print" title="Offset Print">
                     </div>
                     <div class="card-content">
                         <h3>Offset Print</h3>
@@ -3286,7 +3286,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Printing Options/oil-based-Inks.webp') }}" alt="Oil Based Inks">
+                        <img src="{{ asset('uploads/Printing Options/oil-based-Inks.webp') }}" alt="oil based inks" title="Oil Based Inks">
                     </div>
                     <div class="card-content">
                         <h3>Oil Based Inks</h3>
@@ -3295,7 +3295,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Printing Options/pantone-metallic.webp') }}" alt="Pantone Metallic">
+                        <img src="{{ asset('uploads/Printing Options/pantone-metallic.webp') }}" alt="pantone metallic" title="Pantone Metallic">
                     </div>
                     <div class="card-content">
                         <h3>Pantone Metallic</h3>
@@ -3304,7 +3304,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Printing Options/pantone.webp') }}" alt="Pantone">
+                        <img src="{{ asset('uploads/Printing Options/pantone.webp') }}" alt="pantone" title="Pantone">
                     </div>
                     <div class="card-content">
                         <h3>Pantone</h3>
@@ -3313,7 +3313,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Printing Options/soy-vegetable-based-Inks.webp') }}" alt="Soy Vegetable Based Inks">
+                        <img src="{{ asset('uploads/Printing Options/soy-vegetable-based-Inks.webp') }}" alt="soy vegetable based inks" title="Soy Vegetable Based Inks">
                     </div>
                     <div class="card-content">
                         <h3>Soy Vegetable Based Inks</h3>
@@ -3322,7 +3322,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Printing Options/uv-print.webp') }}" alt="Uv Print">
+                        <img src="{{ asset('uploads/Printing Options/uv-print.webp') }}" alt="uv print" title="Uv Print">
                     </div>
                     <div class="card-content">
                         <h3>Uv Print</h3>
@@ -3331,7 +3331,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Printing Options/water-based-Inks.webp') }}" alt="Water Based Inks">
+                        <img src="{{ asset('uploads/Printing Options/water-based-Inks.webp') }}" alt="water based inks" title="Water Based Inks">
                     </div>
                     <div class="card-content">
                         <h3>Water Based Inks</h3>
@@ -3342,7 +3342,7 @@ body {
             <div class="customize-grid" id="tab-special-finishes" style="display: none;">
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Special Finishes/blind-debossing-.webp') }}" alt="Blind Debossing">
+                        <img src="{{ asset('uploads/Special Finishes/blind-debossing-.webp') }}" alt="blind debossing" title="Blind Debossing">
                     </div>
                     <div class="card-content">
                         <h3>Blind Debossing</h3>
@@ -3351,7 +3351,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Special Finishes/blind-embossing.webp') }}" alt="Blind Embossing">
+                        <img src="{{ asset('uploads/Special Finishes/blind-embossing.webp') }}" alt="blind embossing" title="Blind Embossing">
                     </div>
                     <div class="card-content">
                         <h3>Blind Embossing</h3>
@@ -3360,7 +3360,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Special Finishes/cold-foil-printing.webp') }}" alt="Cold Foil Printing">
+                        <img src="{{ asset('uploads/Special Finishes/cold-foil-printing.webp') }}" alt="cold foil printing" title="Cold Foil Printing">
                     </div>
                     <div class="card-content">
                         <h3>Cold Foil Printing</h3>
@@ -3369,7 +3369,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Special Finishes/combination-embossing.webp') }}" alt="Combination Embossing">
+                        <img src="{{ asset('uploads/Special Finishes/combination-embossing.webp') }}" alt="combination embossing" title="Combination Embossing">
                     </div>
                     <div class="card-content">
                         <h3>Combination Embossing</h3>
@@ -3378,7 +3378,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Special Finishes/hot-foil-stamping.webp') }}" alt="Hot Foil Stamping">
+                        <img src="{{ asset('uploads/Special Finishes/hot-foil-stamping.webp') }}" alt="hot foil stamping" title="Hot Foil Stamping">
                     </div>
                     <div class="card-content">
                         <h3>Hot Foil Stamping</h3>
@@ -3387,7 +3387,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Special Finishes/registered-embossing-.webp') }}" alt="Registered Embossing">
+                        <img src="{{ asset('uploads/Special Finishes/registered-embossing-.webp') }}" alt="registered embossing" title="Registered Embossing">
                     </div>
                     <div class="card-content">
                         <h3>Registered Embossing</h3>
@@ -3396,7 +3396,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Special Finishes/window-patching.webp') }}" alt="Window Patching">
+                        <img src="{{ asset('uploads/Special Finishes/window-patching.webp') }}" alt="window patching" title="Window Patching">
                     </div>
                     <div class="card-content">
                         <h3>Window Patching</h3>
@@ -3407,7 +3407,7 @@ body {
             <div class="customize-grid" id="tab-paperboard" style="display: none;">
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Paper Board/sbs-c1s.webp') }}" alt="SBS C1S">
+                        <img src="{{ asset('uploads/Paper Board/sbs-c1s.webp') }}" alt="sbs c1s" title="Sbs C1s">
                     </div>
                     <div class="card-content">
                         <h3>SBS C1S</h3>
@@ -3416,7 +3416,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Paper Board/sbs-c2s.webp') }}" alt="SBS C2S">
+                        <img src="{{ asset('uploads/Paper Board/sbs-c2s.webp') }}" alt="sbs c2s" title="Sbs C2s">
                     </div>
                     <div class="card-content">
                         <h3>SBS C2S</h3>
@@ -3425,7 +3425,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Paper Board/ccnb.webp') }}" alt="CCNB">
+                        <img src="{{ asset('uploads/Paper Board/ccnb.webp') }}" alt="ccnb" title="Ccnb">
                     </div>
                     <div class="card-content">
                         <h3>CCNB</h3>
@@ -3434,7 +3434,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Paper Board/fully-recycled-ccnb.webp') }}" alt="Fully Recycled CCNB">
+                        <img src="{{ asset('uploads/Paper Board/fully-recycled-ccnb.webp') }}" alt="fully recycled ccnb" title="Fully Recycled Ccnb">
                     </div>
                     <div class="card-content">
                         <h3>Fully Recycled CCNB</h3>
@@ -3443,7 +3443,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Paper Board/natural-brown-kraft.webp') }}" alt="Natural Brown Kraft">
+                        <img src="{{ asset('uploads/Paper Board/natural-brown-kraft.webp') }}" alt="natural brown kraft" title="Natural Brown Kraft">
                     </div>
                     <div class="card-content">
                         <h3>Natural Brown Kraft</h3>
@@ -3452,7 +3452,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Paper Board/white-kraft.webp') }}" alt="White Kraft">
+                        <img src="{{ asset('uploads/Paper Board/white-kraft.webp') }}" alt="white kraft" title="White Kraft">
                     </div>
                     <div class="card-content">
                         <h3>White Kraft</h3>
@@ -3461,7 +3461,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Paper Board/black-kraft.webp') }}" alt="Black Kraft">
+                        <img src="{{ asset('uploads/Paper Board/black-kraft.webp') }}" alt="black kraft" title="Black Kraft">
                     </div>
                     <div class="card-content">
                         <h3>Black Kraft</h3>
@@ -3470,7 +3470,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Paper Board/uncoated-unbleached-kraft-(uuk).webp') }}" alt="Uncoated Unbleached Kraft (UUK)">
+                        <img src="{{ asset('uploads/Paper Board/uncoated-unbleached-kraft-(uuk).webp') }}" alt="uncoated unbleached kraft (uuk)" title="Uncoated Unbleached Kraft (uuk)">
                     </div>
                     <div class="card-content">
                         <h3>Uncoated Unbleached Kraft (UUK)</h3>
@@ -3481,7 +3481,7 @@ body {
             <div class="customize-grid" id="tab-corrugated" style="display: none;">
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Corrugated/bleached-white-board-.webp') }}" alt="Bleached White Board">
+                        <img src="{{ asset('uploads/Corrugated/bleached-white-board-.webp') }}" alt="bleached white board" title="Bleached White Board">
                     </div>
                     <div class="card-content">
                         <h3>Bleached White Board</h3>
@@ -3490,7 +3490,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Corrugated/kemi-white-board-.webp') }}" alt="Kemi White Board">
+                        <img src="{{ asset('uploads/Corrugated/kemi-white-board-.webp') }}" alt="kemi white board" title="Kemi White Board">
                     </div>
                     <div class="card-content">
                         <h3>Kemi White Board</h3>
@@ -3499,7 +3499,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Corrugated/natural-brown-kraft-linerboard-.webp') }}" alt="Natural Brown Kraft Linerboard">
+                        <img src="{{ asset('uploads/Corrugated/natural-brown-kraft-linerboard-.webp') }}" alt="natural brown kraft linerboard" title="Natural Brown Kraft Linerboard">
                     </div>
                     <div class="card-content">
                         <h3>Natural Brown Kraft Linerboard</h3>
@@ -3508,7 +3508,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Corrugated/oyster-white-board-.webp') }}" alt="Oyster White Board">
+                        <img src="{{ asset('uploads/Corrugated/oyster-white-board-.webp') }}" alt="oyster white board" title="Oyster White Board">
                     </div>
                     <div class="card-content">
                         <h3>Oyster White Board</h3>
@@ -3519,7 +3519,7 @@ body {
             <div class="customize-grid" id="tab-fluted-grades" style="display: none;">
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Fluted Grades/a-flute.webp') }}" alt="A Flute">
+                        <img src="{{ asset('uploads/Fluted Grades/a-flute.webp') }}" alt="a flute" title="A Flute">
                     </div>
                     <div class="card-content">
                         <h3>A Flute</h3>
@@ -3528,7 +3528,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Fluted Grades/b-flute.webp') }}" alt="B Flute">
+                        <img src="{{ asset('uploads/Fluted Grades/b-flute.webp') }}" alt="b flute" title="B Flute">
                     </div>
                     <div class="card-content">
                         <h3>B Flute</h3>
@@ -3537,7 +3537,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Fluted Grades/c-flute.webp') }}" alt="C Flute">
+                        <img src="{{ asset('uploads/Fluted Grades/c-flute.webp') }}" alt="c flute" title="C Flute">
                     </div>
                     <div class="card-content">
                         <h3>C Flute</h3>
@@ -3546,7 +3546,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Fluted Grades/double-wall.webp') }}" alt="Double Wall">
+                        <img src="{{ asset('uploads/Fluted Grades/double-wall.webp') }}" alt="double wall" title="Double Wall">
                     </div>
                     <div class="card-content">
                         <h3>Double Wall</h3>
@@ -3555,7 +3555,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Fluted Grades/e-flute.webp') }}" alt="E Flute">
+                        <img src="{{ asset('uploads/Fluted Grades/e-flute.webp') }}" alt="e flute" title="E Flute">
                     </div>
                     <div class="card-content">
                         <h3>E Flute</h3>
@@ -3564,7 +3564,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Fluted Grades/f-flute.webp') }}" alt="F Flute">
+                        <img src="{{ asset('uploads/Fluted Grades/f-flute.webp') }}" alt="f flute" title="F Flute">
                     </div>
                     <div class="card-content">
                         <h3>F Flute</h3>
@@ -3573,7 +3573,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Fluted Grades/triple-Wall.webp') }}" alt="Triple Wall">
+                        <img src="{{ asset('uploads/Fluted Grades/triple-Wall.webp') }}" alt="triple wall" title="Triple Wall">
                     </div>
                     <div class="card-content">
                         <h3>Triple Wall</h3>
@@ -3584,7 +3584,7 @@ body {
             <div class="customize-grid" id="tab-rigid-materials" style="display: none;">
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Rigid Material/Duplex-Chipboard-.webp') }}" alt="Duplex Chipboard">
+                        <img src="{{ asset('uploads/Rigid Material/Duplex-Chipboard-.webp') }}" alt="duplex chipboard" title="Duplex Chipboard">
                     </div>
                     <div class="card-content">
                         <h3>Duplex Chipboard</h3>
@@ -3593,7 +3593,7 @@ body {
                 </div>
                 <div class="customize-card">
                     <div class="card-image-area">
-                        <img src="{{ asset('uploads/Rigid Material/grey-chipboard-cardboard.webp') }}" alt="Grey Chipboard Cardboard">
+                        <img src="{{ asset('uploads/Rigid Material/grey-chipboard-cardboard.webp') }}" alt="grey chipboard cardboard" title="Grey Chipboard Cardboard">
                     </div>
                     <div class="card-content">
                         <h3>Grey Chipboard Cardboard</h3>
@@ -3640,7 +3640,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class="testimonial-grid">
                 @foreach($testimonial as $testi)
                 <div class="testimonial-card">
-                    <img src="{{ asset('images/' . $testi->image) }}" alt="{{ $testi->name }}" class="avatar-img">
+                    <img src="{{ asset('images/' . $testi->image) }}" alt="{{ strtolower(str_replace('-', ' ', $testi->name)) }}" class="avatar-img" title="{{ ucwords(strtolower(str_replace('-', ' ', $testi->name))) }}">
                     <p class="testimonial-text">
                         {{ $testi->comment }}
                     </p>
@@ -3861,7 +3861,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class="elevate-container">
 
                 <div class="elevate-image-col">
-                    <img src="{{ asset('uploads/category-cta.png') }}" alt="Custom colorful design boxes" class="elevate-main-img">
+                    <img src="{{ asset('uploads/category-cta.png') }}" alt="custom colorful design boxes" title="Custom Colorful Design Boxes" class="elevate-main-img">
                 </div>
 
                 <div class="elevate-content-col">
@@ -4067,7 +4067,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="elevate-container">
 
                 <div class="elevate-image-col">
-                    <img src="{{ asset('uploads/category-cta.png') }}" alt="Custom colorful design boxes" class="elevate-main-img">
+                    <img src="{{ asset('uploads/category-cta.png') }}" alt="custom colorful design boxes" title="Custom Colorful Design Boxes" class="elevate-main-img">
                 </div>
 
                 <div class="elevate-content-col">

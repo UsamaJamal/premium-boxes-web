@@ -207,9 +207,9 @@
         </div>
 
         <div class="cp-cta-banner-comp-imgs">
-            <img src="{{ asset('uploads/cta-allcateagories.png') }}" alt="Rigid Inspiration" class="cp-cta-comp-img cp-cta-comp-img-1">
-            <img src="{{ asset('uploads/cta-allcategories.png') }}" alt="Luxury Box Packaging" class="cp-cta-comp-img cp-cta-comp-img-2">
-            <img src="{{ asset('uploads/cta-allcategories.png') }}" alt="Luxury Box Packaging" class="cp-cta-comp-img cp-cta-comp-img-3">
+            <img src="{{ asset('uploads/cta-allcateagories.png') }}" alt="rigid inspiration" title="Rigid Inspiration" class="cp-cta-comp-img cp-cta-comp-img-1">
+            <img src="{{ asset('uploads/cta-allcategories.png') }}" alt="luxury box packaging" title="Luxury Box Packaging" class="cp-cta-comp-img cp-cta-comp-img-2">
+            <img src="{{ asset('uploads/cta-allcategories.png') }}" alt="luxury box packaging" title="Luxury Box Packaging" class="cp-cta-comp-img cp-cta-comp-img-3">
         </div>
     </div>
 </section>
