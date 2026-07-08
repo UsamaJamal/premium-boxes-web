@@ -43,7 +43,7 @@
                <div class="card-body">
                 
                   
-                   <form method="POST" action="{{url('user/forget-password').'/'}}">
+                   <form method="POST" action="{{url('user/forget-password')}}">
                         @csrf
                         <p>
                         Please enter your email to search for your account.

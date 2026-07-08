@@ -30,7 +30,7 @@
               </div>
               
 
-        <form method="post" action="{{url('admin/updatecontact/'.$contact['0']->id).'/'}}" enctype="multipart/form-data">
+        <form method="post" action="{{url('admin/updatecontact/'.$contact['0']->id)}}" enctype="multipart/form-data">
           @csrf
           <input type="hidden" value="{{$contact['0']->id}}" name="id">
 

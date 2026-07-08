@@ -29,7 +29,7 @@
      <!-- <center> <img src="images/blacklogo.png"></center> -->
       <p class="login-box-msg" style="padding-top: 25px;padding-bottom: 25px;font-size: 17px;font-weight: 500;">Please enter your user information.</p>
 
-      <form  action="{{url('admin/check_login').'/'}}" method="post" enctype="multipart/form-data">
+      <form  action="{{url('admin/check_login')}}" method="post" enctype="multipart/form-data">
         @csrf
         @if(Session::has('error'))
                     

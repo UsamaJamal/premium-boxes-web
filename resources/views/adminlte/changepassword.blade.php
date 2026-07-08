@@ -23,7 +23,7 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Change your Password</p>
 
-      <form id="basic-form" action="{{url('admin/updatepassword').'/'}}" method="post">
+      <form id="basic-form" action="{{url('admin/updatepassword')}}" method="post">
         @csrf
         <div class="form-group">
                     <label for="oldpassword" style="color: #5c89b5;">Old Password</label>

@@ -14,7 +14,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{ url('admin/dashboard').'/' }}" style="color: #234376;">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}" style="color: #234376;">Home</a></li>
               <li class="breadcrumb-item active" style="color: #49d8f7;">Update Content</li>
             </ol>
           </div>
@@ -38,7 +38,7 @@
                   
               </div>
               <!-- form start -->
-               <form id="basic-form" method="post" action="{{url('admin/updatehomecontent'.'/'.$home_page_content[0]->content_id).'/'}}" enctype="multipart/form-data"
+               <form id="basic-form" method="post" action="{{url('admin/updatehomecontent'.'/'.$home_page_content[0]->content_id)}}" enctype="multipart/form-data"
 >@csrf
             
 <div class="card" style="width: 66%; margin-left: 15px;">

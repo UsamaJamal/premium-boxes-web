@@ -232,7 +232,7 @@
                                       <!--           <h4>My Account Information</h4>-->
                                       <!--         <h5>Your Personal Details</h5>-->
                                       <!--              </div>-->
-                          <form class="" action="{{url('track-your-orders').'/'}}" method="post" id="quoteform"  enctype="multipart/form-data" style="display:inline-flex;">
+                          <form class="" action="{{url('track-your-orders')}}" method="post" id="quoteform"  enctype="multipart/form-data" style="display:inline-flex;">
       <input type="hidden" name="_token" value="{!! csrf_token() !!}">                         
                <div class="row">
                                 

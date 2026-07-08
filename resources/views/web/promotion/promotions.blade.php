@@ -45,7 +45,7 @@
                   
                 </div>
                 <div class="col-md-12">
-                   <form action="{{url('promotion-mail').'/'}}" method="post" id="promotionform">
+                   <form action="{{url('promotion-mail')}}" method="post" id="promotionform">
                                     @csrf
       <input type="hidden" id="p-name" name="p-name" value="">
       

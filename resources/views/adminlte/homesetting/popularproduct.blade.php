@@ -34,7 +34,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-               <form method="post" action="{{url('admin/add_popularproduct').'/'}}"enctype="multipart/form-data"
+               <form method="post" action="{{url('admin/add_popularproduct')}}"enctype="multipart/form-data"
 >@csrf
 <input type="hidden" name="produ_id"  value="{{$product[0]->product_id}}">
                 <div class="card-body">

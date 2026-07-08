@@ -14,7 +14,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{ url('admin/dashboard').'/' }}" style="color: #234376;">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}" style="color: #234376;">Home</a></li>
               <li class="breadcrumb-item active" style="color: #49d8f7;">Edit Form</li>
             </ol>
           </div>
@@ -38,7 +38,7 @@
                   
               </div>
               <!-- form start -->
-               <form method="post" action="{{url('admin/update_popularproduct').'/'}}" enctype="multipart/form-data"
+               <form method="post" action="{{url('admin/update_popularproduct')}}" enctype="multipart/form-data"
 >@csrf
 <input type="hidden" name="produ_id" value="{{$popular_product[0]->pop_product_id}}">
  

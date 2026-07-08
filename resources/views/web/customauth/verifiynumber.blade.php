@@ -14,7 +14,7 @@
             <div class="card">
                  <div class="card-header" style="background-color: rgb(34 67 117);color:#fff;">Verify Code via Email</div>
                       <div class="card-body">
-                          <form method="POST" action="{{url('/verify-code').'/'}}">
+                          <form method="POST" action="{{url('/verify-code')}}">
                            @csrf
                            <input type="hidden" name="token" value="">
                         <div class="form-group row">

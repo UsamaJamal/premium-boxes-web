@@ -249,7 +249,7 @@ p  { font-size: 16px !important; }
         </button>
       </div>
       <div class="modal-body">
-        <form action="{{url('callback').'/'}}" method="Post" id="call">
+        <form action="{{url('callback')}}" method="Post" id="call">
              <input type="hidden" name="_token" value="{!! csrf_token() !!}">
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Name:</label>
