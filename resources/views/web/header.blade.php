@@ -328,7 +328,9 @@ form.example button {
 
         /* Mobile Header Adjustments */
         @media (max-width: 768px) {
+            body { padding-top: 95px !important; }
             .top-bar-left { display: none !important; }
+            .top-bar-container { display: block !important; }
             .top-bar-container > div { 
                 padding: 10px !important; 
                 justify-content: center !important; 
@@ -337,13 +339,12 @@ form.example button {
                 width: fit-content; 
                 margin: 0 auto;
                 flex-direction: column; 
-                align-items: flex-start !important;
+                align-items: center !important;
                 justify-content: center;
                 gap: 10px !important;
             }
-            .top-bar-contact a {
-                justify-content: flex-start;
-            }
+            .top-bar-contact a:nth-child(1) { display: none !important; } /* Hide phone */
+            .top-bar-contact a:nth-child(2) { display: flex !important; } /* Show email */
             .main-nav-inner {
                 padding: 0 15px !important;
                 align-items: center !important;
@@ -723,6 +724,19 @@ form.example button {
         <a href="{{ url('blogs') }}" style="display: block; color: #cccccc; text-decoration: none; font-size: 16px; padding: 15px 0; border-bottom: 1px solid #333333;">Blogs</a>
 
         <div style="margin-top: auto; padding-top: 30px; padding-bottom: 20px;">
+            <!-- Contact Info -->
+            <div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 20px; border-bottom: 1px solid #333333; padding-bottom: 20px;">
+                <a href="tel:18005189441" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #ffffff;">
+                    <div style="width: 32px; height: 32px; border-radius: 50%; background-color: #333333; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="#f5c542" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                        </svg>
+                    </div>
+                    <span style="font-size: 15px; font-weight: 600;">1800-518-9441</span>
+                </a>
+
+            </div>
+
             <a href="{{ url('get-quote') }}" style="display: block; width: 100%; text-align: center; background-color: #f5c542; color: #1a1a1a; font-weight: 700; font-size: 16px; padding: 14px 0; border-radius: 50px; text-decoration: none; transition: opacity 0.2s;">
                 Get Instant Quote
             </a>
