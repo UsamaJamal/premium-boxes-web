@@ -149,57 +149,65 @@
         /*font-weight: bold;*/
         color: #565783;
       }
-            /* PREMIUM CUSTOM CSS START */
-            body, .content-wrapper { background-color: #f8f9fc !important; }
+            /* PREMIUM CUSTOM CSS START - DARK & GOLD THEME */
+            body, .content-wrapper { background-color: #f4f6f9 !important; }
             
             /* Sidebar Styling */
             .main-sidebar {
-                background: linear-gradient(180deg, #234376 0%, #172b4d 100%) !important;
-                box-shadow: 4px 0 15px rgba(0,0,0,0.1) !important;
+                background: #111111 !important; /* Deep dark background matching website */
+                box-shadow: 4px 0 15px rgba(0,0,0,0.2) !important;
+                border-right: 1px solid #2a2a2a;
+            }
+            .sidebar-dark-primary .brand-link {
+                border-bottom: 1px solid #2a2a2a !important;
+                color: #f3c623 !important; /* Gold text */
             }
             .sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active {
-                background-color: #49d8f7 !important;
-                color: #234376 !important;
-                font-weight: 600;
+                background-color: #f3c623 !important; /* Gold background */
+                color: #111111 !important; /* Dark text */
+                font-weight: 700;
                 border-radius: 8px;
-                box-shadow: 0 4px 10px rgba(73, 216, 247, 0.4);
+                box-shadow: 0 4px 10px rgba(243, 198, 35, 0.4);
             }
             .nav-sidebar > .nav-item { margin-bottom: 4px; }
             .sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link {
                 border-radius: 8px;
+                color: #cccccc !important;
                 transition: all 0.3s ease;
             }
             .sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link:hover {
-                background-color: rgba(73, 216, 247, 0.2) !important;
-                color: #49d8f7 !important;
+                background-color: rgba(243, 198, 35, 0.15) !important;
+                color: #f3c623 !important;
                 transform: translateX(4px);
             }
+            .nav-header { color: #888888 !important; text-transform: uppercase; font-size: 11px; letter-spacing: 1px;}
             
             /* Top Navbar Styling */
             .main-header {
-                background-color: #ffffff !important;
-                border-bottom: 1px solid #e3e6f0;
-                box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15) !important;
+                background-color: #1a1a1a !important;
+                border-bottom: 1px solid #2a2a2a;
+                box-shadow: 0 .15rem 1.75rem 0 rgba(0,0,0,.15) !important;
             }
-            .main-header .nav-link { color: #234376 !important; }
+            .main-header .nav-link { color: #f3c623 !important; }
             
             /* Cards Styling */
             .card {
-                border: none !important;
+                border: 1px solid #e0e0e0 !important;
                 border-radius: 12px !important;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.05) !important;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.03) !important;
                 transition: transform 0.2s ease;
+                background-color: #ffffff;
             }
-            .card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.08) !important; }
+            .card:hover { box-shadow: 0 10px 25px rgba(0,0,0,0.08) !important; }
             .card-header, .header-2 {
-                background: linear-gradient(135deg, #234376 0%, #3660a1 100%) !important;
-                color: #ffffff !important;
+                background: #111111 !important;
+                color: #f3c623 !important;
                 border-top-left-radius: 12px !important;
                 border-top-right-radius: 12px !important;
-                border-bottom: none;
+                border-bottom: 3px solid #f3c623 !important;
                 padding: 15px 20px;
             }
-            .card-header h5 { color: #ffffff !important; font-weight: 600; }
+            .card-header h5 { color: #f3c623 !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;}
             
             /* Buttons and Inputs */
             .form-control {
@@ -208,56 +216,63 @@
                 padding: 10px 15px;
             }
             .form-control:focus {
-                border-color: #49d8f7 !important;
-                box-shadow: 0 0 0 0.2rem rgba(73, 216, 247, 0.25) !important;
+                border-color: #f3c623 !important;
+                box-shadow: 0 0 0 0.2rem rgba(243, 198, 35, 0.25) !important;
             }
             .save, .btn-primary {
-                background: linear-gradient(135deg, #49d8f7 0%, #234376 100%) !important;
+                background: #f3c623 !important;
+                color: #111111 !important;
                 border: none !important;
                 border-radius: 8px !important;
-                box-shadow: 0 4px 10px rgba(35, 67, 118, 0.3) !important;
+                box-shadow: 0 4px 10px rgba(243, 198, 35, 0.3) !important;
                 transition: all 0.3s ease;
+                font-weight: 700;
             }
             .save:hover, .btn-primary:hover {
                 transform: translateY(-2px);
-                box-shadow: 0 6px 15px rgba(35, 67, 118, 0.4) !important;
-                background: linear-gradient(135deg, #3bbde0 0%, #1e3a68 100%) !important;
+                box-shadow: 0 6px 15px rgba(243, 198, 35, 0.5) !important;
+                background: #d4a919 !important;
             }
             .btn-danger {
                 border-radius: 8px !important;
-                background: linear-gradient(135deg, #ff4328 0%, #d4220b 100%) !important;
+                background: #e74a3b !important;
                 border: none !important;
-                box-shadow: 0 4px 10px rgba(255, 67, 40, 0.3) !important;
-            }
-            .btn-danger:hover {
-                box-shadow: 0 6px 15px rgba(255, 67, 40, 0.4) !important;
-                transform: translateY(-2px);
             }
             
             /* Dashboard Specific Widgets */
             .small-box {
                 border-radius: 12px !important;
                 border: none !important;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.08) !important;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.05) !important;
                 transition: transform 0.3s ease;
                 overflow: hidden;
             }
-            .small-box:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important; }
-            .small-box .icon > i { transition: transform .3s linear; }
+            .small-box:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1) !important; }
+            .small-box .inner h3 { font-weight: 800; }
+            .small-box .icon > i { transition: transform .3s linear; color: rgba(255,255,255,0.2) !important; }
             .small-box:hover .icon > i { transform: scale(1.1); }
             
-            /* Custom Colors for Small Boxes */
-            .bg-info { background: linear-gradient(135deg, #49d8f7 0%, #234376 100%) !important; }
-            .bg-success { background: linear-gradient(135deg, #1cc88a 0%, #13855c 100%) !important; }
-            .bg-warning { background: linear-gradient(135deg, #f6c23e 0%, #dda20a 100%) !important; }
-            .bg-danger { background: linear-gradient(135deg, #ff4328 0%, #c42611 100%) !important; }
+            /* Custom Colors for Small Boxes - Sleek Dark Palette */
+            .bg-info { background: linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%) !important; color: #f3c623 !important; border-bottom: 4px solid #f3c623 !important; }
+            .bg-success { background: linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%) !important; color: #ffffff !important; border-bottom: 4px solid #1cc88a !important; }
+            .bg-warning { background: linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%) !important; color: #ffffff !important; border-bottom: 4px solid #f6c23e !important; }
+            .bg-danger { background: linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%) !important; color: #ffffff !important; border-bottom: 4px solid #e74a3b !important; }
+            
+            .bg-info .small-box-footer, .bg-success .small-box-footer, .bg-warning .small-box-footer, .bg-danger .small-box-footer {
+                background: rgba(0,0,0,0.2) !important;
+                color: #aaaaaa !important;
+            }
+            .bg-info .small-box-footer:hover { color: #f3c623 !important; }
             
             /* Typography & Layout */
-            h1, h2, h3, h4, h5, h6 { font-weight: 700; color: #234376; }
-            .col-form-label { color: #4a5568; font-weight: 600; }
-            .content-header h1 { font-weight: 700; color: #234376; font-size: 28px; }
-            .breadcrumb-item a { color: #49d8f7 !important; font-weight: 500; }
-            .breadcrumb-item.active { color: #858796 !important; }
+            h1, h2, h3, h4, h5, h6 { font-weight: 700; color: #111111; }
+            .content-header h1 { font-weight: 800; color: #111111; font-size: 28px; }
+            .breadcrumb-item a { color: #111111 !important; font-weight: 600; }
+            .breadcrumb-item.active { color: #888888 !important; }
+            
+            /* Table Styling */
+            .table-hover tbody tr:hover { background-color: rgba(243, 198, 35, 0.05); }
+            .table thead th { border-bottom: 2px solid #e0e0e0; color: #111111; text-transform: uppercase; font-size: 12px;}
             /* PREMIUM CUSTOM CSS END */
     </style>
 <body class="hold-transition sidebar-mini">

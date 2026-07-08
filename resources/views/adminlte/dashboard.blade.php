@@ -231,26 +231,26 @@
                 datasets: [
                     {
                         label               : 'Traffic',
-                        backgroundColor     : 'rgba(73, 216, 247, 0.2)',
-                        borderColor         : 'rgba(73, 216, 247, 1)',
+                        backgroundColor     : 'rgba(243, 198, 35, 0.2)', /* Gold */
+                        borderColor         : 'rgba(243, 198, 35, 1)',
                         pointRadius         : 4,
-                        pointBackgroundColor: 'rgba(73, 216, 247, 1)',
+                        pointBackgroundColor: 'rgba(243, 198, 35, 1)',
                         pointBorderColor    : '#fff',
                         pointHoverRadius    : 6,
                         pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor    : 'rgba(73, 216, 247, 1)',
+                        pointHoverBorderColor    : 'rgba(243, 198, 35, 1)',
                         data                : [28, 48, 40, 19, 86, 27, 90]
                     },
                     {
                         label               : 'Sales',
-                        backgroundColor     : 'rgba(35, 67, 118, 0.4)',
-                        borderColor         : 'rgba(35, 67, 118, 1)',
+                        backgroundColor     : 'rgba(17, 17, 17, 0.4)', /* Dark */
+                        borderColor         : 'rgba(17, 17, 17, 1)',
                         pointRadius         : 4,
-                        pointBackgroundColor: 'rgba(35, 67, 118, 1)',
+                        pointBackgroundColor: 'rgba(17, 17, 17, 1)',
                         pointBorderColor    : '#fff',
                         pointHoverRadius    : 6,
                         pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor    : 'rgba(35, 67, 118, 1)',
+                        pointHoverBorderColor    : 'rgba(17, 17, 17, 1)',
                         data                : [65, 59, 80, 81, 56, 55, 40]
                     }
                 ]
@@ -277,7 +277,7 @@
                 datasets: [
                     {
                         data: [30,12,20,38],
-                        backgroundColor : ['#234376', '#49d8f7', '#ff4328', '#f6c23e'],
+                        backgroundColor : ['#111111', '#f3c623', '#2a2a2a', '#e5b80b'],
                     }
                 ]
             };
