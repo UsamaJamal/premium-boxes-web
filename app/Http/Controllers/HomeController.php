@@ -354,6 +354,10 @@ function submitQuote(Request $request)
 
     $this->sendQuoteEmail($data, $request->file('artwork'));
 
+    if ($request->ajax()) {
+        return response()->json(['success' => true, 'message' => 'Thank you for the inquiry, our sales representative will contact soon!']);
+    }
+
     return back()->with('success', 'Thank you for the inquiry, our sales representative will contact soon!');
 }
 

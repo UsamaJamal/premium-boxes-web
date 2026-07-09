@@ -126,9 +126,7 @@
     display: flex;
     margin-bottom: 20px;
     align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    padding-bottom: 10px;
-    gap: 10px;
+    gap: 15px;
 }
 
 .cp-newsletter-form input {
@@ -136,6 +134,7 @@
     padding: 12px 0;
     background-color: transparent;
     border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     color: var(--white);
     outline: none;
 }
@@ -149,7 +148,8 @@
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s;
-}/* removed hover: /* .cp-newsletter-form button:hover { ... } */ */
+    flex-shrink: 0;
+}
 
 .cp-payment-methods {
     display: flex;
@@ -377,12 +377,11 @@
                         <a href="{{ $footerSettings->facebook_url ?? '#' }}"><i class="fab fa-facebook-f"></i></a>
                         <a href="{{ $footerSettings->twitter_url ?? '#' }}"><i class="fab fa-twitter"></i></a>
                         <a href="{{ $footerSettings->instagram_url ?? '#' }}"><i class="fab fa-instagram"></i></a>
-                        <a href="{{ $footerSettings->pinterest_url ?? '#' }}"><i class="fab fa-pinterest-p"></i></a>
-                        <a href="{{ $footerSettings->linkedin_url ?? '#' }}"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="{{ $footerSettings->youtube_url ?? '#' }}"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
-
+ 
             <!-- Column 2: Hot Categories -->
             <div class="cp-footer-col">
                 <span class="cp-footer-title" style="display: flex; justify-content: space-between; align-items: center; font-weight: 700; margin-bottom: 20px;">Hot Categories</span>
@@ -395,7 +394,7 @@
                         <li><a href="#">Glass Jar & Bottles</a></li>
                         <li><a href="#">Rigid Boxes</a></li>
                         <li><a href="#">Mylar boxes</a></li>
-                        <li><a href="#">Showcase Carton</a></li>
+                        <li><a href="#">Showcase Exhibit</a></li>
                         <li><a href="#">Rectangular</a></li>
                         <li><a href="#">Fold & Assemble</a></li>
                         <li><a href="#">Top Closure</a></li>
@@ -403,7 +402,7 @@
                     @endif
                 </ul>
             </div>
-
+ 
             <!-- Column 3: Products -->
             <div class="cp-footer-col">
                 <span class="cp-footer-title" style="display: flex; justify-content: space-between; align-items: center; font-weight: 700; margin-bottom: 20px;">Products</span>
@@ -414,7 +413,7 @@
                         @endforeach
                     @else
                         <li><a href="#">Custom Boxes</a></li>
-                        <li><a href="#">Blank Boxes</a></li>
+                        <li><a href="#">Book Boxes</a></li>
                         <li><a href="#">Pillow Boxes</a></li>
                         <li><a href="#">Custom Product Boxes</a></li>
                         <li><a href="#">Pyramid Boxes</a></li>
@@ -425,31 +424,28 @@
                     @endif
                 </ul>
             </div>
-
+ 
             <!-- Column 4: Company -->
             <div class="cp-footer-col">
                 <span class="cp-footer-title" style="display: flex; justify-content: space-between; align-items: center; font-weight: 700; margin-bottom: 20px;">Company</span>
                 <ul class="cp-footer-links">
-                  
+                    <li><a href="{{ url('beat-my-price') }}">Beat My Price</a></li>
                     <li><a href="{{ url('request-quote') }}">Get a Quote</a></li>
                     <li><a href="{{ url('contact-us') }}">Contact Us</a></li>
-                    <li><a href="{{ url('about-us') }}">About Us</a></li>
-                    <li><a href="{{ url('frequently-asked-questions') }}">FAQ</a></li>
                     <li><a href="{{ url('return-policy') }}">Return Policy</a></li>
                     <li><a href="{{ url('privacy-policy') }}">Privacy Policy</a></li>
                     <li><a href="{{ url('term-and-services') }}">Terms & Services</a></li>
-                    <li><a href="{{ url('sitemap') }}">Site Map</a></li>
-                    
-                    
+                    <li><a href="{{ url('why-mbp') }}">Why Mbp</a></li>
+                    <li><a href="{{ url('about-us') }}">About Us</a></li>
+                    <li><a href="{{ url('sitemap') }}">Sitemap</a></li>
                 </ul>
             </div>
-
+ 
             <!-- Column 5: Office & Newsletter -->
             <div class="cp-footer-col cp-footer-col-5">
                 <span class="cp-footer-title" style="display: flex; justify-content: space-between; align-items: center; font-weight: 700; margin-bottom: 20px;">Office</span>
                 <p class="cp-footer-address">
-                    <span style="white-space: nowrap; letter-spacing: -0.2px;">9931 Franklin Ave, Suite 1-A</span><br>Franklin Park, IL 60131
-
+                    4000 W Montrose Ave 559<br>Chicago, IL 60641
                 </p>
                 
                 <span class="cp-footer-title cp-newsletter-title" style="display: flex; justify-content: space-between; align-items: center; font-weight: 700; margin-bottom: 20px; margin-top: 10px;">News letter</span>
@@ -467,9 +463,9 @@
             </div>
             
         </div>
-
+ 
         <div class="cp-footer-bottom">
-            <p>© 2026 Premium Packaging. All rights Reserved.</p>
+            <p>© 2026 Premium Packaging. All rights reserved.</p>
         </div>
     </div>
 </footer>

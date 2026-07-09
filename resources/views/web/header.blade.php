@@ -280,7 +280,7 @@ p  { font-size: 16px !important; }
         <!-- Left Group: Logo + Search -->
         <div class="top-bar-left" style="display: flex; align-items: center; gap: 40px;">
             <!-- Logo -->
-            <a href="/" style="display: flex; align-items: center; text-decoration: none; flex-shrink: 0; margin-left: 50px;">
+            <a href="/" class="header-logo-link" style="display: flex; align-items: center; text-decoration: none; flex-shrink: 0;">
                 <img src="{{ asset('uploads/Premium-boxes-logo.svg') }}" alt="premium boxes logo" title="Premium Boxes Logo" style="height: 48px; width: auto; filter: var(--logo-filter, none);" />
             </a>
 
@@ -338,6 +338,19 @@ p  { font-size: 16px !important; }
 
     <!-- ===== NAVBAR ===== -->
     <style>
+        .header-logo-link {
+            margin-left: 15px !important;
+        }
+        @media (min-width: 1200px) {
+            .header-logo-link {
+                margin-left: 20px !important;
+            }
+        }
+        @media (min-width: 1440px) {
+            .header-logo-link {
+                margin-left: 40px !important;
+            }
+        }
         .nav-group {
             display: flex;
             align-items: stretch;
@@ -375,6 +388,10 @@ p  { font-size: 16px !important; }
 
         /* Mobile Header Adjustments */
         @media (max-width: 768px) {
+            html, body {
+                overflow-x: hidden;
+                max-width: 100vw;
+            }
             body { padding-top: 95px !important; }
             .top-bar-left { display: none !important; }
             .top-bar-container { display: block !important; }
@@ -417,19 +434,26 @@ p  { font-size: 16px !important; }
                 gap: 15px !important; 
                 padding: 0 !important;
             }
+            /* Mobile header height & logo size */
+            #main-nav-inner {
+                min-height: 70px !important;
+            }
+            .mobile-logo-img {
+                height: 48px !important;
+            }
         }
     </style>
     <nav style="background-color: #202020; border-top: 1px solid #333; position: relative; z-index: 100;">
-        <div class="main-nav-inner" style="max-width: 1440px; margin: 0 auto; padding: 0 40px; display: flex; align-items: stretch; justify-content: space-between; min-height: 48px; width: 100%;">
+        <div class="main-nav-inner" style="max-width: 1440px; margin: 0 auto; padding: 0 40px; display: flex; align-items: stretch; justify-content: space-between; min-height: 48px; width: 100%;" id="main-nav-inner">
 
         <!-- Mobile Hamburger (Hidden on Desktop) -->
         <div class="mobile-menu-btn" onclick="openMobileSidebar()" style="display: none; align-items: center; cursor: pointer;">
-            <svg width="28" height="28" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            <svg width="34" height="34" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </div>
 
         <!-- Mobile Logo (Hidden on Desktop) -->
         <a href="/" class="mobile-logo" style="display: none; align-items: center; justify-content: center; flex: 1;">
-            <img src="{{ asset('uploads/Premium-boxes-logo.svg') }}" alt="premium boxes logo" title="Premium Boxes Logo" style="height: 36px; width: auto; filter: var(--logo-filter, none);" />
+            <img src="{{ asset('uploads/Premium-boxes-logo.svg') }}" alt="premium boxes logo" title="Premium Boxes Logo" style="height: 36px; width: auto; filter: var(--logo-filter, none);" class="mobile-logo-img" />
         </a>
 
         <!-- Nav Links -->
@@ -651,7 +675,7 @@ p  { font-size: 16px !important; }
 
             <!-- Mobile Search Icon (Hidden on Desktop) -->
             <div class="mobile-search-btn" style="display: none; align-items: center; cursor: pointer;" onclick="toggleMobileSearch()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#ffffff" stroke-width="2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="#ffffff" stroke-width="2">
                     <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
                 </svg>
             </div>
