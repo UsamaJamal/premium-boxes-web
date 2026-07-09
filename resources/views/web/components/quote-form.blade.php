@@ -775,7 +775,7 @@
 
                     <form class="instant-quote-form" action="{{ url('submit-quote') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <input type="hidden" name="source" value="Categories quote form">
+                        <input type="hidden" name="source" value="{{ $source ?? 'Instant Quote Form' }}">
                         <input type="hidden" name="page_url" value="{{ url()->current() }}">
                         <div class="form-row dual-grid">
                             <div class="form-group">
