@@ -3,7 +3,7 @@
    FOOTER SECTION
    ================================================ */
 .cp-footer {
-    background-color: var(--bg2, #111111);
+    background-color: #161616 !important;
     color: var(--muted, rgba(255, 255, 255, 0.62));
     padding: 50px 0 20px;
     font-family: var(--font, 'Inter', sans-serif);
@@ -17,21 +17,18 @@
 }
 
 .cp-footer-top {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 2.5fr 1.2fr 1.2fr 1.2fr 2fr;
     gap: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
 }
 
 .cp-footer-col {
-    flex: 1;
-    min-width: 150px;
+    display: flex;
+    flex-direction: column;
 }
 
 .cp-footer-col-1 {
-    min-width: 250px;
-    flex: 1.5;
     display: flex;
     flex-direction: column;
 }
@@ -41,8 +38,6 @@
 }
 
 .cp-footer-col-5 {
-    min-width: 250px;
-    flex: 1.5;
     display: flex;
     flex-direction: column;
 }
@@ -64,7 +59,10 @@
     color: var(--white);
     font-size: 15px;
     font-weight: 700;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .cp-social-icons {
@@ -127,6 +125,8 @@
     margin-bottom: 20px;
     align-items: center;
     gap: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
 }
 
 .cp-newsletter-form input {
@@ -134,7 +134,6 @@
     padding: 12px 0;
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     color: var(--white);
     outline: none;
 }
@@ -159,10 +158,28 @@
 }
 
 .cp-footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 20px;
+    padding-top: 15px;
     text-align: center;
-    font-size: 12px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+}
+.cp-footer-bottom p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+.cp-footer-bottom p::before,
+.cp-footer-bottom p::after {
+    content: "";
+    flex: 1;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.cp-footer-bottom p::before {
+    margin-right: 20px;
+}
+.cp-footer-bottom p::after {
+    margin-left: 20px;
 }
 
 @media (max-width: 992px) {
@@ -251,6 +268,9 @@
         min-width: unset;
         grid-column: unset;
     }
+    .cp-footer-top > .cp-footer-col:nth-child(2) {
+        border-top: none;
+    }
     .cp-footer-col-5 {
         border-top: 1px solid rgba(255,255,255,0.1);
         grid-column: unset;
@@ -263,11 +283,11 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 4vw 0;
+        padding: 4vw 0 1.5vw;
         cursor: pointer;
         font-size: 4.5vw;
         color: #fff;
-        margin-bottom: 0;
+        margin-bottom: 0 !important;
     }
     .cp-footer-col:not(.cp-footer-col-1) .cp-footer-title::after,
     .cp-footer-col-5 .cp-footer-title:first-child::after {
@@ -290,9 +310,11 @@
         padding-bottom: 4vw;
     }
     .cp-footer-col.open .cp-footer-links,
-    .cp-footer-col-5.open .cp-footer-address,
     .cp-footer-col-5.open .cp-footer-newsletter-section {
         display: block;
+    }
+    .cp-footer-col-5.open .cp-footer-address {
+        display: flex !important;
     }
 
     /* Links font size */
@@ -302,14 +324,27 @@
     .cp-footer-address  { font-size: 3.8vw; line-height: 1.7; text-align: left; }
 
     /* Newsletter */
-    .cp-newsletter-title { font-size: 4.5vw !important; margin-top: 4vw; cursor: default !important; text-align: left; }
+    .cp-newsletter-title { font-size: 4.5vw !important; margin-top: 4vw; cursor: default !important; text-align: left; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 4vw; }
     .cp-newsletter-title::after { display: none !important; }
     .cp-newsletter-form { display: flex; gap: 0; margin-bottom: 4vw; }
     .cp-newsletter-form input  { font-size: 3.8vw; padding: 3vw 4vw; flex: 1; text-align: left; }
-    .cp-newsletter-form button { font-size: 3.5vw; padding: 3vw 5vw; border-radius: 0 50px 50px 0; }
+    .cp-newsletter-form button { font-size: 3.5vw; padding: 3vw 5vw; border-radius: 50px; }
 
     /* Payment icons */
-    .cp-payment-methods { display: flex; gap: 2vw; flex-wrap: wrap; justify-content: flex-start; }
+
+    .cp-footer-contact-details {
+        align-items: center;
+        text-align: center;
+        font-size: 4vw !important;
+    }
+    .cp-footer-contact-details a,
+    .cp-footer-contact-details div {
+        justify-content: center;
+    }
+    .cp-footer-contact-details div i {
+        margin-top: 1px !important;
+    }
+    .cp-payment-methods { display: flex; gap: 2vw; flex-wrap: wrap; justify-content: center; }
     .cp-payment-methods img { height: 6vw !important; }
     .cp-payment-methods .fab { font-size: 6vw; color: #fff; }
 
@@ -334,6 +369,66 @@
     .cp-payment-outside .fab { font-size: 6vw; color: #fff; }
 }
 
+/* Align footer container layout with main content container */
+@media (min-width: 769px) {
+    .cp-footer .cp-wrap {
+        max-width: 1440px !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        padding-left: 55px !important;
+        padding-right: 55px !important;
+        box-sizing: border-box !important;
+    }
+}
+@media (max-width: 768px) {
+    .cp-footer .cp-wrap {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+
+@media (min-width: 769px) {
+    .cp-footer-desc {
+        max-width: 280px;
+    }
+}
+
+.cp-footer-desc {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.cp-footer-contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+.cp-footer-contact-details a,
+.cp-footer-contact-details div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--muted, rgba(255, 255, 255, 0.62));
+    text-decoration: none;
+}
+.cp-footer-contact-details div {
+    align-items: flex-start;
+    line-height: 1.6;
+}
+.cp-footer-contact-details i {
+    color: #f5c542;
+    width: 16px;
+    text-align: center;
+}
+.cp-footer-contact-details div i {
+    margin-top: 4px;
+}
 </style>
 
 <!-- ================================================
@@ -364,15 +459,16 @@
                 <div class="cp-footer-logo">
                     <div class="cp-footer-logo-icon">
                         @if($footerSettings && !empty($footerSettings->logo))
-                            <img src="{{ asset($footerSettings->logo) }}" alt="premium boxes logo" style="max-height: 40px;" title="Premium Boxes Logo">
+                            <img src="{{ asset($footerSettings->logo) }}" alt="premium boxes logo" style="max-height: 65px; width: auto; object-fit: contain;" title="Premium Boxes Logo">
                         @else
                             <i class="fas fa-box-open" style="color: var(--gold); font-size: 32px; margin-right: 10px;"></i>
                             <span style="font-size: 24px; font-weight: 800; line-height: 1.1; color: var(--gold);">Premium<br><span style="color: white;">Boxes</span></span>
                         @endif
                     </div>
                 </div>
+                <p class="cp-footer-desc">Premium Boxes is a leading custom packaging manufacturer, delivering premium boxes and packaging solutions tailored to your brand. From design to delivery, we ensure unmatched quality, style, and customer service.</p>
                 <div class="cp-footer-social">
-                    <span class="cp-footer-title" style="display: flex; justify-content: space-between; align-items: center; font-weight: 700; margin-bottom: 20px;">Follow us</span>
+                    <span class="cp-footer-title" >Follow us</span>
                     <div class="cp-social-icons">
                         <a href="{{ $footerSettings->facebook_url ?? '#' }}"><i class="fab fa-facebook-f"></i></a>
                         <a href="{{ $footerSettings->twitter_url ?? '#' }}"><i class="fab fa-twitter"></i></a>
@@ -384,7 +480,7 @@
  
             <!-- Column 2: Hot Categories -->
             <div class="cp-footer-col">
-                <span class="cp-footer-title" style="display: flex; justify-content: space-between; align-items: center; font-weight: 700; margin-bottom: 20px;">Hot Categories</span>
+                <span class="cp-footer-title" >Hot Categories</span>
                 <ul class="cp-footer-links">
                     @if(count($f_categories) > 0)
                         @foreach($f_categories as $cat)
@@ -405,7 +501,7 @@
  
             <!-- Column 3: Products -->
             <div class="cp-footer-col">
-                <span class="cp-footer-title" style="display: flex; justify-content: space-between; align-items: center; font-weight: 700; margin-bottom: 20px;">Products</span>
+                <span class="cp-footer-title" >Products</span>
                 <ul class="cp-footer-links">
                     @if(count($f_products) > 0)
                         @foreach($f_products as $prod)
@@ -427,7 +523,7 @@
  
             <!-- Column 4: Company -->
             <div class="cp-footer-col">
-                <span class="cp-footer-title" style="display: flex; justify-content: space-between; align-items: center; font-weight: 700; margin-bottom: 20px;">Company</span>
+                <span class="cp-footer-title" >Company</span>
                 <ul class="cp-footer-links">
                     <li><a href="{{ url('beat-my-price') }}">Beat My Price</a></li>
                     <li><a href="{{ url('request-quote') }}">Get a Quote</a></li>
@@ -443,10 +539,19 @@
  
             <!-- Column 5: Office & Newsletter -->
             <div class="cp-footer-col cp-footer-col-5">
-                <span class="cp-footer-title" style="display: flex; justify-content: space-between; align-items: center; font-weight: 700; margin-bottom: 20px;">Office</span>
-                <p class="cp-footer-address">
-                    4000 W Montrose Ave 559<br>Chicago, IL 60641
-                </p>
+                <span class="cp-footer-title">Office</span>
+                <div class="cp-footer-contact-details cp-footer-address">
+                    <a href="tel:18005189441">
+                        <i class="fas fa-phone-alt"></i> 1-800-518-9441
+                    </a>
+                    <a href="mailto:support@premiumboxes.com">
+                        <i class="fas fa-envelope"></i> support@premiumboxes.com
+                    </a>
+                    <div>
+                        <i class="fas fa-map-marker-alt"></i> 
+                        <span>4000 W Montrose Ave 559<br>Chicago, IL 60641</span>
+                    </div>
+                </div>
                 
                 <span class="cp-footer-title cp-newsletter-title" style="display: flex; justify-content: space-between; align-items: center; font-weight: 700; margin-bottom: 20px; margin-top: 10px;">News letter</span>
                 <form class="cp-newsletter-form">
