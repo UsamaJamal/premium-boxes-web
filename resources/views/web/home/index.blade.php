@@ -121,7 +121,7 @@ h3 {
 /* Hero Section */
 .hero-section {
   position: relative;
-  padding: 80px 0;
+  padding: 40px 0;
   text-align: center;
   min-height: 400px;
   display: flex;
@@ -198,7 +198,7 @@ h3 {
 
 /* Our Story Section */
 .our-story-section {
-  padding: 100px 0;
+  padding: 40px 0;
 }
 
 .our-story-content {
@@ -248,7 +248,7 @@ h3 {
 
 /* Why Choose Us Section */
 .why-choose-us-section {
-  padding: 80px 0;
+  padding: 40px 0;
 }
 
 .why-choose-us-grid {
@@ -330,7 +330,7 @@ h3 {
 
 /* Numbers Section */
 .numbers-section {
-  padding: 80px 0;
+  padding: 40px 0;
   background-color: var(--bg-darker);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -391,7 +391,7 @@ h3 {
 
 /* Our Process Section */
 .process-section {
-  padding: 100px 0;
+  padding: 40px 0;
   background-color: var(--bg-dark);
 }
 
@@ -432,7 +432,7 @@ h3 {
 
 /* CTA Section */
 .cta-section {
-  padding: 100px 0;
+  padding: 40px 0;
   background-color: var(--bg-dark);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   overflow: hidden;
@@ -572,7 +572,7 @@ h3 {
 
 /* Home Hero Section */
 .home-hero {
-  padding: 80px 0;
+  padding: 40px 0;
   border-bottom: 1px solid var(--border-color);
   background: #1A1A1A;
 }
@@ -726,7 +726,7 @@ h3 {
 
 .sectors-header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 
 .section-badge-text {
@@ -861,13 +861,13 @@ h3 {
 }
 /* Premium Addons Section */
 .premium-addons-section {
-  padding: 20px 0 90px;
+  padding: 20px 0 40px;
   background: var(--bg-dark);
 }
 
 .premium-header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 
 .premium-header h2 {
@@ -988,7 +988,7 @@ h3 {
 
 /* Craftsmanship Section */
 .craftsmanship-section {
-  padding: 80px 0;
+  padding: 40px 0;
   background-color: var(--bg-darker);
 }
 
@@ -1062,7 +1062,7 @@ h3 {
 
 /* Box By Style Section */
 .styles-section {
-  padding: 80px 0;
+  padding: 40px 0;
 }
 
 .sectors-header,
@@ -1089,7 +1089,7 @@ h3 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 
 .style-card {
@@ -1164,11 +1164,11 @@ h3 {
 }
 
 .why-box {
-  display: grid;
-  grid-template-columns: 45px minmax(0, 1fr);
-  grid-template-rows: auto 1fr;
-  column-gap: 11px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
   min-height: 134px;
   padding: 26px 18px 22px;
   background: #242424;
@@ -1176,9 +1176,9 @@ h3 {
 }
 
 .why-box i {
-  grid-row: 1 / 3;
   display: grid;
   place-items: center;
+  align-self: center;
   width: 45px;
   height: 45px;
   color: #ffc928;
@@ -1188,13 +1188,14 @@ h3 {
 }
 
 .why-box h4 {
-  margin: 0 0 3px;
+  margin: 0;
   font-size: 0.91rem;
   line-height: 1.35;
   font-weight: 700;
 }
 
 .why-box p {
+  margin: 0;
   color: #bcbcbc;
   font-size: 0.84rem;
   line-height: 1.55;
@@ -1266,13 +1267,13 @@ h3 {
 
 /* TESTIMONIALS */
 .testimonials-section {
-  padding: 90px 0;
+  padding: 40px 0;
   background: #161616;
 }
 
 .testimonials-header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 
 .testimonials-header h2 {
@@ -1444,7 +1445,7 @@ h3 {
    OUR EASY ORDER PROCESS SECTION
    ========================================================================== */
 .order-process-section {
-  padding: 80px 0;
+  padding: 40px 0;
   background: #1A1A1A1A;
 }
 
@@ -1977,13 +1978,13 @@ h3 {
    ========================================================================== */
 
 .blog-section {
-  padding: 90px 0;
+  padding: 40px 0;
   background: #111111; /* Matches dark context theme background */
 }
 
 .blog-header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 
 .blog-header h2 {
@@ -2212,7 +2213,7 @@ h3 {
 
 .extraordinary-cta-section {
   position: relative;
-  padding: 100px 0;
+  padding: 40px 0;
   background-color: #141414; /* Dark gray tint base */
 
   /* Stacks your dark radial lighting gradient, an 85% opacity dimming overlay, and the box image together */
@@ -2261,7 +2262,7 @@ h3 {
   justify-content: center;
   align-items: center;
   gap: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
   flex-wrap: wrap;
 }
 
@@ -4487,7 +4488,7 @@ section + section {
                 @foreach($industry_products as $product)
                 <div class="sector-card">
                     <div class="sector-img-placeholder" style="position: relative;">
-                        <a href="{{ url('/'.$product->category_url) }}">
+                        <a href="{{ url($product->category_url) }}">
                             <img src="{{ asset('images/'.($product->feature_product ? $product->feature_product : ($product->image ? $product->image : $product->bimage))) }}" onerror="this.src='./assets/jewellry and watch.jfif'; this.onerror=null;" alt="{{ strtolower(str_replace('-', ' ', $product->name)) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $product->name))) }}">
                             @if(!empty($product->image_badge))
                                 <span class="image-badge-overlay" style="position: absolute; bottom: 15px; left: 15px; background: rgba(255, 255, 255, 0.9); color: #000; padding: 4px 12px; font-size: 14px; font-weight: 500; border-radius: 4px;">{{ $product->image_badge }}</span>
@@ -4495,7 +4496,7 @@ section + section {
                         </a>
                     </div>
                     <div class="sector-info">
-                        <span class="sector-title" style="display: block; font-size: 1.15rem; font-weight: 600; margin-bottom: 8px;"><a href="{{ url('/'.$product->category_url) }}" style="color: inherit; text-decoration: none;">{{ $product->feature_title ? $product->feature_title : $product->name }}</a></span>
+                        <span class="sector-title" style="display: block; font-size: 1.15rem; font-weight: 600; margin-bottom: 8px;"><a href="{{ url($product->category_url) }}" style="color: inherit; text-decoration: none;">{{ $product->feature_title ? $product->feature_title : $product->name }}</a></span>
                         @if($product->feature_description)
                             <p>{{ $product->feature_description }}</p>
                         @endif
@@ -4942,7 +4943,7 @@ section + section {
 </script>
 
     <!-- Content and FAQs Section (Packaging Guide Layout) -->
-    <section class="guide-section" style="padding: 60px 0; background: var(--bg-main);">
+    <section class="guide-section" style="padding: 40px 0; background: var(--bg-main);">
         <div class="container">
             <!-- <div class="guide-badge" style="display: inline-block; border: 1px solid var(--accent-gold); color: var(--accent-gold); padding: 6px 16px; border-radius: 50px; font-size: 12px; font-weight: 600; letter-spacing: 1px; margin-bottom: 30px;">PACKAGING GUIDE</div> -->
 

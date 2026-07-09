@@ -5103,13 +5103,6 @@ img {
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 
-    // ── Product cards ──
-    const cpCards = document.querySelectorAll('.cp-card');
-    cpCards.forEach(function (card) {
-        card.addEventListener('click', function () {
-            window.location.href = 'product-page.html';
-        });
-    });
 
     // ── Testimonials slider — desktop: scroll-based | mobile: 1-card JS ──
     const testimonialsGrid = document.getElementById('testimonialsGrid');

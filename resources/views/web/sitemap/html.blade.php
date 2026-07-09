@@ -119,7 +119,7 @@ body {
                 <li><a href="{{ url('/about-us') }}">About Us</a></li>
                 <li><a href="{{ url('/contact-us') }}">Contact Us</a></li>
                 @foreach($dynamic_pages as $page)
-                    <li><a href="{{ url('/' . $page->page_url) }}">{{ $page->page_title }}</a></li>
+                    <li><a href="{{ url($page->page_url) }}">{{ $page->page_title }}</a></li>
                 @endforeach
             </ul>
         </div>
@@ -138,7 +138,7 @@ body {
                         @if(isset($grouped_prods[$sub_cat->cat_id]))
                             <ul class="sitemap-list">
                                 @foreach($grouped_prods[$sub_cat->cat_id] as $prod)
-                                    <li><a href="{{ url('/' . $prod->url) }}">{{ $prod->title }}</a></li>
+                                    <li><a href="{{ url($prod->url) }}">{{ $prod->title }}</a></li>
                                 @endforeach
                             </ul>
                         @endif
@@ -150,7 +150,7 @@ body {
                     <div>
                         <ul class="sitemap-list">
                             @foreach($grouped_prods[$top_cat->cat_id] as $prod)
-                                <li><a href="{{ url('/' . $prod->url) }}">{{ $prod->title }}</a></li>
+                                <li><a href="{{ url($prod->url) }}">{{ $prod->title }}</a></li>
                             @endforeach
                         </ul>
                     </div>

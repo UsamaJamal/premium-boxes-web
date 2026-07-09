@@ -47,6 +47,11 @@
     text-decoration: none;
     white-space: nowrap;
     font-family: 'Inter', sans-serif;
+    transition: color 0.3s ease;
+}
+.tb-review-link:hover {
+    color: #f5c542;
+    text-decoration: none;
 }
 .tb-sep {
     width: 1px;

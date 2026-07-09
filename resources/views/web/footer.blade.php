@@ -410,7 +410,7 @@
                 <ul class="cp-footer-links">
                     @if(count($f_products) > 0)
                         @foreach($f_products as $prod)
-                            <li><a href="{{ url('/'.$prod->url) }}">{{ $prod->title }}</a></li>
+                            <li><a href="{{ url($prod->url) }}">{{ $prod->title }}</a></li>
                         @endforeach
                     @else
                         <li><a href="#">Custom Boxes</a></li>
