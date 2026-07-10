@@ -254,6 +254,7 @@ public function deleteBlog($id)
     'alt_tag' => $request->get('blogalttag'), 
     'status' => $request->get('status'),
     'set_home' => $request->get('set_home') ?? 0,
+    'schema' => $request->get('schema'),
    
    
 ];
@@ -298,6 +299,7 @@ public function addBlog(Request $request) {
     'date' => date('Y-m-d'), 
     'status' => $request->post('status'),
     'set_home' => $request->post('set_home') ?? 0,
+    'schema' => $request->get('schema'),
 ];
 
 if($request->hasfile('image')){

@@ -110,8 +110,7 @@ if($request->hasfile('image')){
 
               if($request->hasfile('feature_product')){
                      $file=$request->file('feature_product');
-                     $extension=str_replace(' ', '-', $file->getClientOriginalName());
-                     $filename= time() . '-fp-' . $extension;
+                     $filename=str_replace(' ', '-', $file->getClientOriginalName());
                      $file->move('images/',$filename);
                      $data['feature_product']=$filename;
               }
@@ -276,8 +275,7 @@ if($request->hasfile('image')){
 
         if($request->hasfile('feature_product')){
           $file=$request->file('feature_product');
-          $extension=$file->getClientOriginalName();
-          $filename= time(). '-fp.' . $extension;
+          $filename=str_replace(' ', '-', $file->getClientOriginalName());
           $file->move('images/',$filename);
           $data['feature_product']=$filename;
         }

@@ -8,6 +8,8 @@
     border-top: 1px solid #333;
     border-bottom: 1px solid #333;
     overflow: hidden;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }
 .tb-inner {
     display: flex;

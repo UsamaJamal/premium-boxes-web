@@ -54,6 +54,10 @@
     {!! $value[0]->schema !!}
     @endif
 
+    @if(isset($blog_single_value) && count($blog_single_value) > 0 && isset($blog_single_value[0]->schema) && !empty($blog_single_value[0]->schema))
+    {!! $blog_single_value[0]->schema !!}
+    @endif
+
     <!--  -->
     
 </head>
@@ -198,6 +202,15 @@ p  { font-size: 16px !important; }
     p  { font-size: 15px !important; }
 }
 
+/* Chrome Autofill fix for dark theme */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
 </style>
 
 <body>
@@ -275,12 +288,12 @@ p  { font-size: 16px !important; }
 
     <!-- ===== TOP BAR ===== -->
     <div class="top-bar-container" style="background-color: #1a1a1a;">
-        <div style="max-width: 1440px; margin: 0 auto; padding: 14px 40px; display: flex; align-items: center; justify-content: space-between;">
+        <div class="container" style="display: flex; align-items: center; justify-content: space-between; padding: 14px 15px;">
 
         <!-- Left Group: Logo + Search -->
         <div class="top-bar-left" style="display: flex; align-items: center; gap: 40px;">
             <!-- Logo -->
-            <a href="/" style="display: flex; align-items: center; text-decoration: none; flex-shrink: 0; margin-left: 50px;">
+            <a href="/" style="display: flex; align-items: center; text-decoration: none; flex-shrink: 0;">
                 <img src="{{ asset('uploads/Premium-boxes-logo.svg') }}" alt="premium boxes logo" title="Premium Boxes Logo" style="height: 48px; width: auto; filter: var(--logo-filter, none);" />
             </a>
 
@@ -304,9 +317,7 @@ p  { font-size: 16px !important; }
                         </svg>
                     </button>
                     <input type="search" name="query" placeholder="Search products..."
-                        style="background: transparent; border: none; outline: none; color: #ffffff; font-size: 14px; width: 100%;"
-                        onfocus="this.parentElement.style.boxShadow='0 0 0 1.5px #f5c542'"
-                        onblur="this.parentElement.style.boxShadow='none'" required>
+                        style="background: transparent; border: none; outline: none; color: #ffffff; font-size: 14px; width: 100%;" spellcheck="false" required>
                 </form>
             </div>
         </div>
@@ -420,7 +431,7 @@ p  { font-size: 16px !important; }
         }
     </style>
     <nav style="background-color: #202020; border-top: 1px solid #333; position: relative; z-index: 100;">
-        <div class="main-nav-inner" style="max-width: 1440px; margin: 0 auto; padding: 0 40px; display: flex; align-items: stretch; justify-content: space-between; min-height: 48px; width: 100%;">
+        <div class="container main-nav-inner" style="display: flex; align-items: stretch; justify-content: space-between; min-height: 48px; width: 100%;">
 
         <!-- Mobile Hamburger (Hidden on Desktop) -->
         <div class="mobile-menu-btn" onclick="openMobileSidebar()" style="display: none; align-items: center; cursor: pointer;">
@@ -452,7 +463,7 @@ p  { font-size: 16px !important; }
                                 @foreach($industries as $industry)
                                 <a href="{{ url($industry->category_url) }}" style="display: flex; align-items: center; gap: 10px; color: #cccccc; text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#cccccc'">
                                     @if(!empty($industry->icon))
-                                        <img src="{{ asset('images/' . $industry->icon) }}" style="width: 20px; height: 20px; object-fit: contain;" alt="{{ strtolower(str_replace('-', ' ', $industry->name . ' icon')) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $industry->name . ' icon'))) }}">
+                                        <img src="{{ asset('images/' . $industry->icon) }}" style="width: 32px; height: 32px; object-fit: contain; filter: brightness(0) saturate(100%) invert(86%) sepia(30%) saturate(1376%) hue-rotate(335deg) brightness(101%) contrast(93%);" alt="{{ strtolower(str_replace('-', ' ', $industry->name . ' icon')) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $industry->name . ' icon'))) }}">
                                     @else
                                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <path d="M10 2.5L11.5 7.5L16.5 9L11.5 10.5L10 15.5L8.5 10.5L3.5 9L8.5 7.5L10 2.5Z"></path>
@@ -465,7 +476,7 @@ p  { font-size: 16px !important; }
                                 @endforeach
                             </div>
                         </div>
-                        <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #333; display: flex; align-items: center; justify-content: space-between;">
+                        <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #333; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
                             <div style="display: flex; align-items: center; gap: 12px;">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M3 18v-6a9 9 0 0118 0v6"></path>
@@ -476,7 +487,7 @@ p  { font-size: 16px !important; }
                                     <span style="color: #aaaaaa; font-size: 13px;">Get your custom packaging plan within 24 hours.</span>
                                 </div>
                             </div>
-                            <a href="/contact" style="background-color: #f5c542; color: #111; font-weight: 700; padding: 10px 28px; border-radius: 50px; text-decoration: none; font-size: 14px; transition: background 0.2s;" onmouseover="this.style.backgroundColor='#d4891a'" onmouseout="this.style.backgroundColor='#f5c542'">Talk to us</a>
+                            <a href="/contact" style="background-color: #f5c542; color: #111; font-weight: 700; padding: 10px 28px; border-radius: 50px; text-decoration: none; font-size: 14px; transition: background 0.2s; white-space: nowrap; flex-shrink: 0;">Talk to us</a>
                         </div>
                     </div>
                 </div>
@@ -487,7 +498,7 @@ p  { font-size: 16px !important; }
                 <a style="cursor: pointer; display: flex; align-items: center; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; padding: 0 10px;">Boxes By Material</a>
                 
                 <!-- Dropdown Container -->
-                <div class="dropdown-menu-content" style="position: absolute; top: 100%; left: 10px; width: 260px; background-color: #252525; border-radius: 4px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #333; border-top: 2px solid #f5c542; z-index: 999;">
+                <div class="dropdown-menu-content" style="position: absolute; top: 100%; left: 10px; width: 260px; background-color: #252525;  box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #333; border-top: 2px solid #f5c542; z-index: 999;">
                     <div style="padding: 10px 0;">
                         @php
                         $parentCatMat = \DB::table('add_category')->where('name', 'Box by Material')->first();
@@ -519,7 +530,7 @@ p  { font-size: 16px !important; }
                                 @foreach($styles as $style)
                                 <a href="{{ url($style->category_url) }}" style="display: flex; align-items: center; gap: 10px; color: #cccccc; text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#cccccc'">
                                     @if(!empty($style->icon))
-                                        <img src="{{ asset('images/' . $style->icon) }}" style="width: 20px; height: 20px; object-fit: contain;" alt="{{ strtolower(str_replace('-', ' ', $style->name . ' icon')) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $style->name . ' icon'))) }}">
+                                        <img src="{{ asset('images/' . $style->icon) }}" style="width: 32px; height: 32px; object-fit: contain; filter: brightness(0) saturate(100%) invert(86%) sepia(30%) saturate(1376%) hue-rotate(335deg) brightness(101%) contrast(93%);" alt="{{ strtolower(str_replace('-', ' ', $style->name . ' icon')) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $style->name . ' icon'))) }}">
                                     @else
                                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <path d="M10 2.5L11.5 7.5L16.5 9L11.5 10.5L10 15.5L8.5 10.5L3.5 9L8.5 7.5L10 2.5Z"></path>
@@ -532,7 +543,7 @@ p  { font-size: 16px !important; }
                                 @endforeach
                             </div>
                         </div>
-                        <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #333; display: flex; align-items: center; justify-content: space-between;">
+                        <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #333; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
                             <div style="display: flex; align-items: center; gap: 12px;">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M3 18v-6a9 9 0 0118 0v6"></path>
@@ -543,7 +554,7 @@ p  { font-size: 16px !important; }
                                     <span style="color: #aaaaaa; font-size: 13px;">Get your custom packaging plan within 24 hours.</span>
                                 </div>
                             </div>
-                            <a href="/contact" style="background-color: #f5c542; color: #111; font-weight: 700; padding: 10px 28px; border-radius: 50px; text-decoration: none; font-size: 14px; transition: background 0.2s;" onmouseover="this.style.backgroundColor='#d4891a'" onmouseout="this.style.backgroundColor='#f5c542'">Talk to us</a>
+                            <a href="/contact" style="background-color: #f5c542; color: #111; font-weight: 700; padding: 10px 28px; border-radius: 50px; text-decoration: none; font-size: 14px; transition: background 0.2s; white-space: nowrap; flex-shrink: 0;">Talk to us</a>
                         </div>
                     </div>
                 </div>
@@ -567,7 +578,7 @@ p  { font-size: 16px !important; }
                                 @foreach($promoSubcats as $subcat)
                                 <a href="{{ url($subcat->category_url) }}" style="display: flex; align-items: center; gap: 10px; color: #cccccc; text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#cccccc'">
                                     @if(!empty($subcat->icon))
-                                        <img src="{{ asset('images/' . $subcat->icon) }}" style="width: 20px; height: 20px; object-fit: contain;" alt="{{ strtolower(str_replace('-', ' ', $subcat->name . ' icon')) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $subcat->name . ' icon'))) }}">
+                                        <img src="{{ asset('images/' . $subcat->icon) }}" style="width: 32px; height: 32px; object-fit: contain; filter: brightness(0) saturate(100%) invert(86%) sepia(30%) saturate(1376%) hue-rotate(335deg) brightness(101%) contrast(93%);" alt="{{ strtolower(str_replace('-', ' ', $subcat->name . ' icon')) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $subcat->name . ' icon'))) }}">
                                     @else
                                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <path d="M10 2.5L11.5 7.5L16.5 9L11.5 10.5L10 15.5L8.5 10.5L3.5 9L8.5 7.5L10 2.5Z"></path>
@@ -580,7 +591,7 @@ p  { font-size: 16px !important; }
                                 @endforeach
                             </div>
                         </div>
-                        <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #333; display: flex; align-items: center; justify-content: space-between;">
+                        <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #333; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
                             <div style="display: flex; align-items: center; gap: 12px;">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M3 18v-6a9 9 0 0118 0v6"></path>
@@ -591,7 +602,7 @@ p  { font-size: 16px !important; }
                                     <span style="color: #aaaaaa; font-size: 13px;">Get your custom packaging plan within 24 hours.</span>
                                 </div>
                             </div>
-                            <a href="/contact" style="background-color: #f5c542; color: #111; font-weight: 700; padding: 10px 28px; border-radius: 50px; text-decoration: none; font-size: 14px; transition: background 0.2s;" onmouseover="this.style.backgroundColor='#d4891a'" onmouseout="this.style.backgroundColor='#f5c542'">Talk to us</a>
+                            <a href="/contact" style="background-color: #f5c542; color: #111; font-weight: 700; padding: 10px 28px; border-radius: 50px; text-decoration: none; font-size: 14px; transition: background 0.2s; white-space: nowrap; flex-shrink: 0;">Talk to us</a>
                         </div>
                     </div>
                 </div>
@@ -618,7 +629,7 @@ p  { font-size: 16px !important; }
                 
                 @if(count($subCats) > 0)
                 <!-- Dropdown Container -->
-                <div class="dropdown-menu-content" style="position: absolute; top: 100%; left: 10px; width: 260px; background-color: #252525; border-radius: 4px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #333; border-top: 2px solid #f5c542; z-index: 999;">
+                <div class="dropdown-menu-content" style="position: absolute; top: 100%; left: 10px; width: 260px; background-color: #252525;  box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #333; border-top: 2px solid #f5c542; z-index: 999;">
                     <div style="padding: 10px 0;">
                         @foreach($subCats as $subCat)
                         <a href="{{ url($subCat->category_url) }}" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; color: #cccccc; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.color='#f5c542'; this.style.backgroundColor='#333333'" onmouseout="this.style.color='#cccccc'; this.style.backgroundColor='transparent'">
@@ -683,7 +694,7 @@ p  { font-size: 16px !important; }
                 </svg>
             </button>
             <input type="search" name="query" placeholder="Search products..."
-                style="background: transparent; border: none; outline: none; color: #ffffff; font-size: 14px; width: 100%;" required>
+                style="background: transparent; border: none; outline: none; color: #ffffff; font-size: 14px; width: 100%;" spellcheck="false" required>
         </form>
     </div>
 </header>
@@ -805,7 +816,7 @@ p  { font-size: 16px !important; }
 
             </div>
 
-            <a href="{{ url('get-quote') }}" style="display: block; width: 100%; text-align: center; background-color: #f5c542; color: #1a1a1a; font-weight: 700; font-size: 16px; padding: 14px 0; border-radius: 50px; text-decoration: none; transition: opacity 0.2s;">
+            <a href="{{ url('/request-quote') }}" style="display: block; width: 100%; text-align: center; background-color: #f5c542; color: #1a1a1a; font-weight: 700; font-size: 16px; padding: 14px 0; border-radius: 50px; text-decoration: none; transition: opacity 0.2s;">
                 Get Instant Quote
             </a>
         </div>
@@ -874,200 +885,23 @@ function toggleMobileSubmenu(element) {
    
 
  @if(Session::has('success'))
-    <div class="container" style="margin-top: 20px; margin-bottom: 20px;">
+    <div class="container" id="global-success-alert" style="margin-top: 20px; margin-bottom: 20px;">
         <div class="alert alert-success" style="background-color: #d4edda; color: #155724; border-color: #c3e6cb; padding: 15px; border-radius: 8px; text-align: center; font-weight: 600; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
             {{ Session::get('success') }}
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var quoteTitle = document.querySelector('.product-quote-title');
+            var alertBox = document.getElementById('global-success-alert');
+            if(quoteTitle && alertBox) {
+                quoteTitle.insertAdjacentElement('afterend', alertBox);
+            }
+        });
+    </script>
 @endif
     <!-- ====================== cmb-Header End ======================  -->
 
-<script>
-    function toggleTheme() {
-        const body = document.body;
-        const isLightMode = body.classList.toggle('light-mode');
-        
-        // Update toggle knob UI
-        updateToggleUI(isLightMode);
-        
-        // Save preference
-        localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
-    }
-
-    function updateToggleUI(isLightMode) {
-        // Desktop toggle
-        const knob = document.getElementById('toggle-knob');
-        if (knob) {
-            if (isLightMode) {
-                knob.style.transform = 'translateX(0)';
-                knob.style.backgroundColor = '#ffffff';
-                knob.parentElement.style.backgroundColor = '#ccc';
-            } else {
-                knob.style.transform = 'translateX(22px)';
-                knob.style.backgroundColor = '#1a1a1a';
-                knob.parentElement.style.backgroundColor = '#ffffff';
-            }
-        }
-    }
-
-    // Apply theme on load — default is always DARK, only switch to light if user explicitly chose it
-    document.addEventListener('DOMContentLoaded', () => {
-        const savedTheme = localStorage.getItem('theme');
-        
-        if (savedTheme === 'light') {
-            document.body.classList.add('light-mode');
-            updateToggleUI(true);
-        } else {
-            // Default: dark mode (ignore OS/browser preference)
-            document.body.classList.remove('light-mode');
-            updateToggleUI(false);
-        }
-    });
-</script>
-
-<style id="light-theme-overrides">
-    /* Core Light Mode overrides with maximum specificity to override inline styles */
-    body.light-mode {
-        background-color: #f4f6f8 !important;
-        color: #111111 !important;
-    }
-    
-    /* Text Colors */
-    body.light-mode h1, body.light-mode h2, body.light-mode h3, 
-    body.light-mode h4, body.light-mode h5, body.light-mode h6,
-    body.light-mode .section-title {
-        color: #111111 !important;
-    }
-    body.light-mode p {
-        color: #444444 !important;
-    }
-    
-    /* Exceptions for dark background sections */
-    body.light-mode .craftsmanship-text-overlay h2,
-    body.light-mode .craftsmanship-text-overlay p {
-        color: #ffffff !important;
-    }
-    
-    /* Header & Navigation */
-    body.light-mode .top-bar-container,
-    body.light-mode nav[style*="202020"] {
-        background-color: #ffffff !important;
-        border-color: #dddddd !important;
-        border-top: 1px solid #ddd !important;
-    }
-    body.light-mode .nav-links-container a,
-    body.light-mode .top-bar-contact span,
-    body.light-mode .nav-group > a,
-    body.light-mode .mega-menu-content a {
-        color: #333333 !important;
-    }
-    body.light-mode .nav-links-container a:hover,
-    body.light-mode .nav-group > a:hover {
-        color: #f5c542 !important;
-    }
-    
-    /* Sections */
-    body.light-mode section,
-    body.light-mode .cp-hero,
-    body.light-mode .box-by-industry,
-    body.light-mode .styles-section,
-    body.light-mode .cp-why,
-    body.light-mode .premium-addons-section,
-    body.light-mode .blog-section,
-    body.light-mode .testimonials-section,
-    body.light-mode .quote-process-section,
-    body.light-mode .trust-bar-section,
-    body.light-mode .extraordinary-cta-section {
-        background-color: #fcfcfc !important;
-    }
-    
-    /* Cards and boxes */
-    body.light-mode .style-card,
-    body.light-mode .industry-card,
-    body.light-mode .sector-card,
-    body.light-mode .why-card,
-    body.light-mode .process-card,
-    body.light-mode .product-material-card,
-    body.light-mode .addon-card,
-    body.light-mode .blog-card,
-    body.light-mode .mega-menu-content,
-    body.light-mode .cp-card,
-    body.light-mode .card,
-    body.light-mode .why-box,
-    body.light-mode .testimonial-card,
-    body.light-mode .step-item,
-    body.light-mode .instant-quote-form,
-    body.light-mode .premium-gallery-single,
-    body.light-mode .pg-steps-box,
-    body.light-mode .pg-accordion-item,
-    body.light-mode .pg-accordion-body,
-    body.light-mode .blog-main-card,
-    body.light-mode .blog-side-card {
-        background-color: #f0f0f0 !important;
-        border: 1px solid #e4e4e4 !important;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.05) !important;
-    }
-    body.light-mode .style-card h4 a,
-    body.light-mode .industry-card h4 a,
-    body.light-mode .sector-card h3 a,
-    body.light-mode .product-material-card span,
-    body.light-mode .cp-card-name,
-    body.light-mode .card h3,
-    body.light-mode .why-box h4,
-    body.light-mode .testimonial-card h4,
-    body.light-mode .step-item h3,
-    body.light-mode .pg-steps-title,
-    body.light-mode .pg-accordion-q,
-    body.light-mode .blog-main-card h4,
-    body.light-mode .blog-side-card h4 {
-        color: #111111 !important;
-    }
-    body.light-mode .card p,
-    body.light-mode .why-box p,
-    body.light-mode .testimonial-card p,
-    body.light-mode .step-item p,
-    body.light-mode .blog-main-card p,
-    body.light-mode .blog-side-card p {
-        color: #444444 !important;
-    }
-    
-    /* Input & Forms */
-    body.light-mode .top-bar-container form,
-    body.light-mode input[type="text"],
-    body.light-mode input[type="email"] {
-        background-color: #f1f1f1 !important;
-        color: #111111 !important;
-    }
-    
-    /* Footer */
-    body.light-mode footer,
-    body.light-mode .cp-footer,
-    body.light-mode .cp-footer-bottom {
-        background-color: #ffffff !important;
-        border-top: 1px solid #eeeeee !important;
-    }
-    body.light-mode .cp-footer-title {
-        color: #111111 !important;
-    }
-    body.light-mode .cp-footer-desc,
-    body.light-mode .cp-footer-links a,
-    body.light-mode .cp-footer-address,
-    body.light-mode .cp-footer-bottom p {
-        color: #555555 !important;
-    }
-    
-    /* Breadcrumbs */
-    body.light-mode .hero-breadcrumb span,
-    body.light-mode .breadcrumb span,
-    body.light-mode .hero-breadcrumb a,
-    body.light-mode .breadcrumb a {
-        color: #555555 !important;
-    }
-    body.light-mode .hero-breadcrumb svg,
-    body.light-mode .breadcrumb svg {
-        color: #555555 !important;
-    }
-</style>
 
 
 
