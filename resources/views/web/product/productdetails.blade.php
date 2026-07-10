@@ -99,7 +99,7 @@ a { text-decoration: none; color: inherit; }
 .product-quote-form input,
 .product-quote-form select,
 .product-quote-form textarea {
-    background-color: rgba(255,255,255,0.04);
+    background-color: #252525;
     border: 1px solid rgba(255,255,255,0.15);
     border-radius: 10px;
     padding: 12px 10px;
@@ -119,8 +119,8 @@ a { text-decoration: none; color: inherit; }
 .product-quote-form select {
     appearance: none;
     cursor: pointer;
-    color: rgba(255,255,255,0.5);
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    color: var(--product-text-main);
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.8)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: right 14px center;
     background-size: 16px;
@@ -131,12 +131,14 @@ a { text-decoration: none; color: inherit; }
 .product-quote-form select:focus,
 .product-quote-form textarea:focus { border-color: var(--product-gold); color: #ffffff !important; }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active {
-    transition: background-color 5000s ease-in-out 0s !important;
+.product-quote-form input:-webkit-autofill,
+.product-quote-form input:-webkit-autofill:hover, 
+.product-quote-form input:-webkit-autofill:focus, 
+.product-quote-form input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px #252525 inset !important;
     -webkit-text-fill-color: #ffffff !important;
+    border: 1px solid rgba(255,255,255,0.15) !important;
+    transition: background-color 5000s ease-in-out 0s !important;
 }
 
 .product-upload-group { display: flex; gap: 0; width: 100%; }
@@ -241,10 +243,18 @@ input:-webkit-autofill:active {
 .pfr-dots { display: flex; justify-content: center; gap: 8px; margin-top: 30px; }
 .pfr-dot { width: 35px; height: 4px; border: 1px solid rgba(255,255,255,0.4); background-color: transparent; border-radius: 4px; cursor: pointer; transition: 0.3s; }
 .pfr-dot.active { background-color: var(--product-gold); border-color: var(--product-gold); }
-.product-form-group select { background-color: #141414; border: 1px solid #333333; border-radius: 6px; padding: 7px 10px; color: #fff; font-family: var(--product-font); font-size: 11.5px; outline: none; transition: border-color 0.25s; width: 100%; appearance: none; -webkit-appearance: none; }
-.product-form-group input::placeholder { color: #555; }
-.product-form-group input:focus, .product-form-group select:focus { border-color: var(--product-gold); color: #ffffff !important; }
-.product-form-group select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 34px; cursor: pointer; }
+.product-form-group input, .product-form-group textarea { background-color: #141414; border: 1px solid #333333; border-radius: 6px; padding: 7px 10px; color: #fff; font-family: var(--product-font); font-size: 11.5px; outline: none; transition: border-color 0.25s; width: 100%; box-sizing: border-box; }
+.product-form-group input:focus, .product-form-group select:focus, .product-form-group textarea:focus { border-color: var(--product-gold); color: #ffffff !important; }
+.product-form-group input:-webkit-autofill,
+.product-form-group input:-webkit-autofill:hover, 
+.product-form-group input:-webkit-autofill:focus, 
+.product-form-group input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px #141414 inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+    border: 1px solid #333333 !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+}
+.product-form-group select { background-color: #141414; border: 1px solid #333333; border-radius: 6px; padding: 7px 10px; color: #fff; font-family: var(--product-font); font-size: 11.5px; outline: none; transition: border-color 0.25s; width: 100%; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 34px; cursor: pointer; }
 .product-form-group select option { background-color: #1e1e1e; color: #fff; }
 .product-form-row-box-qty { display: grid; grid-template-columns: 1.2fr 1fr; gap: 10px 14px; margin-top: 12px; }
 .product-form-group.span-2 { grid-column: span 2; }
@@ -268,6 +278,16 @@ input:-webkit-autofill:active {
 .iq-group label { font-size: 11px; color: #fff; font-weight: 600; }
 .iq-group input, .iq-group select, .iq-group textarea { background-color: #161616; border: 1px solid transparent; border-radius: 6px; padding: 12px 14px; color: #fff; font-size: 13px; font-family: var(--product-font); outline: none; transition: border-color 0.3s; width: 100%; box-sizing: border-box; }
 .iq-group input:focus, .iq-group select:focus, .iq-group textarea:focus { border-color: var(--product-gold); }
+
+.iq-group input:-webkit-autofill,
+.iq-group input:-webkit-autofill:hover, 
+.iq-group input:-webkit-autofill:focus, 
+.iq-group input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px #161616 inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+    border: 1px solid transparent !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+}
 .iq-group textarea { resize: vertical; min-height: 45px; }
 .iq-submit { margin-top: 5px; display: flex; justify-content: center; }
 .iq-btn { background-color: var(--product-gold); color: #121212; font-weight: 700; padding: 10px 20px; border-radius: 50px; border: none !important; font-size: 15px; cursor: pointer; transition: background-color 0.3s; width: 298px; max-width: 100%; height: 42px; text-align: center; display: flex; justify-content: center; align-items: center; outline: none !important; box-shadow: none !important; }
@@ -346,20 +366,21 @@ input:-webkit-autofill:active {
     .pfr-features { grid-template-columns: 1fr; gap: 0px; }
     .pfr-feature { align-items: center; text-align: center; }
     .pfr-icon { justify-content: center; }
-    .pfr-reviews { padding: 30px 20px; margin-top: 20px; }
+    .pfr-reviews { padding: 20px 20px; margin-top: 20px; }
     .pfr-reviews-inner { padding: 0 0 70px 0; }
     .pfr-nav { top: auto; bottom: 0; transform: none; width: 45px; height: 45px; font-size: 20px; }
     .pfr-nav.prev { left: calc(50% - 55px); }
     .pfr-nav.next { right: auto; left: calc(50% + 10px); }
     .pfr-slide { padding: 10vw 4vw 6vw; }
     .product-tabs-wrapper { margin-left: -4.5vw; margin-right: -4.5vw; margin-bottom: 6vw; }
-    .product-tabs-nav { gap: 3vw; overflow-x: auto; padding: 0 4.5vw; scroll-snap-type: x mandatory; }
+    .product-tabs-nav { gap: 3vw; overflow-x: auto; padding: 0 4.5vw; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    .product-tabs-nav::-webkit-scrollbar { display: none; }
     .product-tab-item { flex: 0 0 44vw; width: 44vw; font-size: 4vw; padding: 3.5vw 2vw; white-space: nowrap; text-align: center; scroll-snap-align: start; }
     .customize-tabs { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 5px; -webkit-overflow-scrolling: touch; margin-left: -4.5vw; margin-right: -4.5vw; padding: 0 4.5vw; }
     .customize-tabs::-webkit-scrollbar { display: none; }
     .cust-card-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .cust-card-img { height: 120px !important; }
-    .cust-card-title { font-size: 10px !important; padding: 10px !important; }
+    .cust-card-title { font-size: 14px !important; padding: 10px !important; }
     .product-info-heading { font-size: 6vw; margin-bottom: 4vw; }
     .product-info-text { font-size: 3.8vw; line-height: 1.8; }
     .product-info-text p { font-size: 3.8vw; }
@@ -368,7 +389,8 @@ input:-webkit-autofill:active {
     .product-specs-table { grid-template-columns: 35vw 1fr; font-size: 3.5vw; }
     .spec-label, .spec-value { padding: 3vw; }
     .product-related-section { padding: 8vw 0; }
-    .product-related-grid { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 4vw; margin-left: -4.5vw; margin-right: -4.5vw; padding: 0 4.5vw 2vw; scroll-snap-type: x mandatory; grid-template-columns: unset; }
+    .product-related-grid { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 4vw; margin-left: -4.5vw; margin-right: -4.5vw; padding: 0 4.5vw 2vw; scroll-snap-type: x mandatory; grid-template-columns: unset; scrollbar-width: none; }
+    .product-related-grid::-webkit-scrollbar { display: none; }
     .product-related-card { flex: 0 0 44vw; width: 44vw; scroll-snap-align: start; }
     .product-related-title { font-size: 3.8vw; }
 }
@@ -420,6 +442,15 @@ input:-webkit-autofill:active {
 .review-form-group input, .review-form-group textarea { background-color: #161616; border: 1px solid transparent; border-radius: 6px; padding: 12px 15px; color: #fff; font-family: var(--product-font); font-size: 13px; outline: none; transition: border-color 0.3s ease; }
 .review-form-group input::placeholder, .review-form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
 .review-form-group input:focus, .review-form-group textarea:focus { border-color: var(--product-gold); }
+.review-form-group input:-webkit-autofill,
+.review-form-group input:-webkit-autofill:hover, 
+.review-form-group input:-webkit-autofill:focus, 
+.review-form-group input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px #161616 inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+    border: 1px solid transparent !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+}
 .review-form-group textarea { resize: vertical; min-height: 100px; }
 .review-submit-wrap { display: flex; justify-content: center; margin-top: 10px; }
 .review-submit-btn { background-color: #F8C346; color: #111; border: none; border-radius: 50px; padding: 12px 50px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s; min-width: 200px; }/* removed hover: .review-submit-btn:hover { ... } */
@@ -457,11 +488,11 @@ input:-webkit-autofill:active {
 .human-verification-header { display: flex; flex-direction: column; gap: 2px; }
 .human-verification-inline-title { color: #fff; font-size: 20px !important; font-weight: 800; margin: 0 !important; line-height: 1.2 !important; }
 .human-verification-inline-copy { color: #ccc; font-size: 13px !important; margin: 0 !important; line-height: 1.4 !important; }
-.human-verification-inline-control { display: flex; align-items: center; gap: 12px; margin-top: 0; }
+.human-verification-inline-control { display: flex; align-items: center; gap: 8px; margin-top: 0; }
 .human-question { color: var(--product-gold); font-size: 16px !important; font-weight: 700; white-space: nowrap; }
-.human-answer { width: 85px !important; max-width: 85px !important; flex: 0 0 85px; height: 38px !important; background-color: #111; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 6px; color: #fff; font-size: 14px !important; text-align: center; outline: none; padding: 0 !important; }
+.human-answer { width: 85px !important; max-width: 85px !important; flex: 0 0 85px; height: 38px !important; background-color: #111; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 6px; color: #fff; font-size: 16px !important; text-align: center; outline: none; padding: 0 !important; }
 .human-answer:focus { border-color: var(--product-gold); }
-.human-check-btn { height: 38px !important; padding: 0 24px !important; background-color: var(--product-gold); color: #111; border: none !important; outline: none !important; box-shadow: none !important; border-radius: 50px; font-size: 14px !important; font-weight: 700; cursor: pointer; transition: all 0.2s; width: auto !important; }
+.human-check-btn { height: 38px !important; padding: 0 15px !important; background-color: var(--product-gold); color: #111; border: none !important; outline: none !important; box-shadow: none !important; border-radius: 50px; font-size: 14px !important; font-weight: 700; cursor: pointer; transition: all 0.2s; width: auto !important; }
 .human-check-btn:hover { opacity: 0.9; }
 .human-status { font-size: 13px !important; font-weight: 700; margin: 0 0 0 5px !important; width: auto; display: none; }
 .human-status:not(:empty) { display: block; }
@@ -1075,7 +1106,7 @@ input:-webkit-autofill:active {
             <h2 style="color:#ffffff; font-size:28px; margin-bottom:10px;">Customize Your Box</h2>
             <p style="color:rgba(255,255,255,0.6); font-size:14px; margin-bottom:10px;">Choose materials, finishes, and add-ons to build your perfect rigid box.</p>
 
-            <div class="customize-tabs" style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+            <div class="customize-tabs">
                 <button class="cust-tab-btn active" data-target="mat" style="flex: 0 0 200px; height: 58px; background-color:#e3b036; color:#000; border:1px solid #e3b036; padding:0; border-radius:6px; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center;">Materials</button>
                 <button class="cust-tab-btn" data-target="print" style="flex: 0 0 200px; height: 58px; background-color:transparent; color:rgba(255,255,255,0.8); border:1px solid #e3b036; padding:0; border-radius:6px; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center;">Printing Options</button>
                 <button class="cust-tab-btn" data-target="finish" style="flex: 0 0 200px; height: 58px; background-color:transparent; color:rgba(255,255,255,0.8); border:1px solid #e3b036; padding:0; border-radius:6px; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center;">Special Finishes</button>
