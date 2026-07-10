@@ -10,6 +10,7 @@
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
     # Redirect to Trailing Slashes If Not A File...
+    RewriteCond %{REQUEST_METHOD} ^GET$
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_URI} !(.*)\.xml$
     RewriteCond %{REQUEST_URI} !(.*)\.txt$
