@@ -182,6 +182,8 @@ a { text-decoration: none; color: inherit; }
 .customize-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
 .cust-tab-btn { flex-shrink: 0; transition: all 0.3s; white-space: nowrap; }
 
+.cust-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; text-align: center; }
+
 /* ==================== PFR SECTION ==================== */
 .product-pfr-section { padding: 0px 0; background-color: var(--product-bg);  }
 .pfr-wrapper { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; }
@@ -321,8 +323,11 @@ a { text-decoration: none; color: inherit; }
     .product-tabs-wrapper { margin-left: -4.5vw; margin-right: -4.5vw; margin-bottom: 6vw; }
     .product-tabs-nav { gap: 3vw; overflow-x: auto; padding: 0 4.5vw; scroll-snap-type: x mandatory; }
     .product-tab-item { flex: 0 0 44vw; width: 44vw; font-size: 4vw; padding: 3.5vw 2vw; white-space: nowrap; text-align: center; scroll-snap-align: start; }
-    .customize-tabs { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 5px; -webkit-overflow-scrolling: touch; }
+    .customize-tabs { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 5px; -webkit-overflow-scrolling: touch; margin-left: -4.5vw; margin-right: -4.5vw; padding: 0 4.5vw; }
     .customize-tabs::-webkit-scrollbar { display: none; }
+    .cust-card-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .cust-card-img { height: 120px !important; }
+    .cust-card-title { font-size: 10px !important; padding: 10px !important; }
     .product-info-heading { font-size: 6vw; margin-bottom: 4vw; }
     .product-info-text { font-size: 3.8vw; line-height: 1.8; }
     .product-info-text p { font-size: 3.8vw; }
@@ -970,7 +975,7 @@ a { text-decoration: none; color: inherit; }
             </div>
 
 <!-- Materials Content -->
-            <div class="cust-tab-content active" id="cust-mat"><div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:20px; text-align:center; margin-top:30px;">
+            <div class="cust-tab-content active" id="cust-mat"><div class="cust-card-grid" style="margin-top:30px;">
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
         <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Paper Board/black-kraft.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="black kraft" title="Black Kraft"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Paper Board (Black Kraft)</div>
@@ -992,7 +997,7 @@ a { text-decoration: none; color: inherit; }
 
             <!-- Other Tabs Content -->
             <div class="cust-tab-content" id="cust-print" style="display:none;">
-<div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:20px; text-align:center;">
+<div class="cust-card-grid">
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
         <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Printing Options/digital-print.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="digital print" title="Digital Print"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Digital Print</div>
@@ -1029,7 +1034,7 @@ a { text-decoration: none; color: inherit; }
 
             </div>
             <div class="cust-tab-content" id="cust-finish" style="display:none;">
-<div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:20px; text-align:center;">
+<div class="cust-card-grid">
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
         <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/blind-debossing-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="blind debossing " title="Blind Debossing "></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Blind Debossing </div>
@@ -1062,7 +1067,7 @@ a { text-decoration: none; color: inherit; }
 
             </div>
             <div class="cust-tab-content" id="cust-coat" style="display:none;">
-<div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:20px; text-align:center;">
+<div class="cust-card-grid">
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
         <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/coating and lamination/Lamination.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="lamination" title="Lamination"></div>
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Lamination</div>

@@ -41,11 +41,11 @@
                <form id="basic-form" method="post" action="{{url('admin/updatehomecontent'.'/'.$home_page_content[0]->content_id)}}" enctype="multipart/form-data"
 >@csrf
             
-<div class="card" style="width: 66%; margin-left: 15px;">
+<div class="card" style="width: 100%;">
                   <div class="card-header header-2">Update Content Data</div>
                   <div class="card-body">
 
-                    <div class="col-sm-9">
+                    <div class="col-sm-12">
                   <textarea class="form-control" id="ckeditor" name="ckeditor">
                      	<?php echo $home_page_content[0]->description?>
                      </textarea>

@@ -8,6 +8,8 @@
     border-top: 1px solid #333;
     border-bottom: 1px solid #333;
     overflow: hidden;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }
 .tb-inner {
     display: flex;
@@ -47,6 +49,11 @@
     text-decoration: none;
     white-space: nowrap;
     font-family: 'Inter', sans-serif;
+    transition: color 0.3s ease;
+}
+.tb-review-link:hover {
+    color: #f5c542;
+    text-decoration: none;
 }
 .tb-sep {
     width: 1px;

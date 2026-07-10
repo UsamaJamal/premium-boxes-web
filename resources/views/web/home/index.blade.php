@@ -28,8 +28,21 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   justify-content: center;
-  padding-top: 115px; /* Fixed header height (top bar + navbar) */
+  padding-top: 124px; /* Fixed header height (top bar + navbar) */
 }
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 106px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  body {
+    padding-top: 106px !important;
+  }
+}
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -121,7 +134,7 @@ h3 {
 /* Hero Section */
 .hero-section {
   position: relative;
-  padding: 80px 0;
+  padding: 40px 0;
   text-align: center;
   min-height: 400px;
   display: flex;
@@ -198,7 +211,7 @@ h3 {
 
 /* Our Story Section */
 .our-story-section {
-  padding: 100px 0;
+  padding: 40px 0;
 }
 
 .our-story-content {
@@ -248,7 +261,7 @@ h3 {
 
 /* Why Choose Us Section */
 .why-choose-us-section {
-  padding: 80px 0;
+  padding: 40px 0;
 }
 
 .why-choose-us-grid {
@@ -330,7 +343,7 @@ h3 {
 
 /* Numbers Section */
 .numbers-section {
-  padding: 80px 0;
+  padding: 40px 0;
   background-color: var(--bg-darker);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -391,7 +404,7 @@ h3 {
 
 /* Our Process Section */
 .process-section {
-  padding: 100px 0;
+  padding: 40px 0;
   background-color: var(--bg-dark);
 }
 
@@ -432,7 +445,7 @@ h3 {
 
 /* CTA Section */
 .cta-section {
-  padding: 100px 0;
+  padding: 40px 0;
   background-color: var(--bg-dark);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   overflow: hidden;
@@ -572,7 +585,7 @@ h3 {
 
 /* Home Hero Section */
 .home-hero {
-  padding: 80px 0;
+  padding: 80px 0 24px;
   border-bottom: 1px solid var(--border-color);
   background: #1A1A1A;
 }
@@ -592,7 +605,7 @@ h3 {
   margin-bottom: 20px;
 }
 
-.home-hero-text p {
+.home-hero-text p, .home-hero-desc p {
   color: var(--text-muted);
   margin-bottom: 30px;
   font-size: 1.1rem;
@@ -616,13 +629,14 @@ h3 {
   background: transparent;
   transition: all 0.3s ease;
   cursor: pointer;
-}/* removed hover: .btn-outline:hover { ... } */
+}
 
 .home-hero-images {
   flex: 1;
   display: flex;
   gap: 20px;
-  height: 400px;
+  height: 480px;
+  margin-top: 15px;
 }
 
 .img-left {
@@ -726,7 +740,7 @@ h3 {
 
 .sectors-header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 
 .section-badge-text {
@@ -752,59 +766,78 @@ h3 {
 .sectors-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 28px;
 }
 
 .sector-card {
-  background-color: var(--bg-card);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background-color: #161616;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
   position: relative;
   cursor: pointer;
   transition: border-color 0.3s ease;
 }
 
-.sector-card:hover {
-  border-color: rgba(255, 255, 255, 0.15);
-}
+
 
 .sector-img-placeholder {
   width: 100%;
-  aspect-ratio: 1.1 / 1;
-  background-color: #262626;
+  aspect-ratio: 1 / 1;
+  background-color: #292929;
   border-radius: 0;
   overflow: hidden;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.sector-img-placeholder a {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .sector-img-placeholder img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
 }
 
 .sector-info {
-  padding: 20px;
+  min-height: 103px;
+  padding: 16px;
   text-align: left;
+  background-color: #242424;
 }
 
 .sector-info h3 {
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-size: 1.15rem !important;
+  font-weight: 700;
   color: #ffffff;
   margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.sector-info h3 a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .sector-info p {
   font-family: var(--font-body);
-  font-size: 0.875rem;
-  color: var(--text-muted);
-  line-height: 1.3;
+  font-size: 1rem;
+  color: #c7c7c7;
+  line-height: 1.45;
   font-weight: 400;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .sectors-action {
@@ -861,13 +894,13 @@ h3 {
 }
 /* Premium Addons Section */
 .premium-addons-section {
-  padding: 20px 0 90px;
+  padding: 0 0 40px !important;
   background: var(--bg-dark);
 }
 
 .premium-header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 
 .premium-header h2 {
@@ -988,7 +1021,7 @@ h3 {
 
 /* Craftsmanship Section */
 .craftsmanship-section {
-  padding: 80px 0;
+  padding: 40px 0;
   background-color: var(--bg-darker);
 }
 
@@ -1062,7 +1095,7 @@ h3 {
 
 /* Box By Style Section */
 .styles-section {
-  padding: 80px 0;
+  padding: 40px 0;
 }
 
 .sectors-header,
@@ -1089,7 +1122,7 @@ h3 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 
 .style-card {
@@ -1164,11 +1197,11 @@ h3 {
 }
 
 .why-box {
-  display: grid;
-  grid-template-columns: 45px minmax(0, 1fr);
-  grid-template-rows: auto 1fr;
-  column-gap: 11px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
   min-height: 134px;
   padding: 26px 18px 22px;
   background: #242424;
@@ -1176,9 +1209,9 @@ h3 {
 }
 
 .why-box i {
-  grid-row: 1 / 3;
   display: grid;
   place-items: center;
+  align-self: center;
   width: 45px;
   height: 45px;
   color: #ffc928;
@@ -1188,17 +1221,18 @@ h3 {
 }
 
 .why-box h4 {
-  margin: 0 0 3px;
+  margin: 0;
   font-size: 0.91rem;
   line-height: 1.35;
   font-weight: 700;
 }
 
 .why-box p {
+  margin: 0;
   color: #bcbcbc;
   font-size: 0.84rem;
   line-height: 1.55;
-  text-align: justify;
+  text-align: center;
 }
 
 .why-image {
@@ -1255,7 +1289,7 @@ h3 {
   }
 
   .why-box p {
-    text-align: left;
+    text-align: center;
   }
 
   .why-image img {
@@ -1268,19 +1302,19 @@ h3 {
    OUR EASY ORDER PROCESS SECTION
    ========================================================================== */
 .order-process-section {
-  padding: 80px 0;
+  padding: 40px 0;
   background: #1A1A1A1A;
 }
 
 .order-process-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 25px;
 }
 
 .order-process-header h2 {
   font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 15px;
+  margin-bottom: 9px;
   color: #ffffff;
 }
 
@@ -1293,29 +1327,33 @@ h3 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
+  align-items: stretch;
 }
 
 .process-card {
   width: 100%;
-  max-width: 293px;
-  height: 260px;
-  background: #202020;
-  border-radius: 12px;
-  padding: 20px 20px;
+  height: 100%;
+  max-width: 330px;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 193, 7, 0.5);
+  border-radius: 8px;
+  padding: 18px 15px;
   text-align: center;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
   margin: 0 auto;
   box-sizing: border-box;
 }
 
 .process-card:hover {
-  background: #323232;
+  background: #222;
+  border-color: rgba(255, 193, 7, 1);
+  transform: translateY(-5px);
 }
 
 .process-icon {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   margin: 0 auto 10px;
   display: flex;
   align-items: center;
@@ -1324,22 +1362,22 @@ h3 {
 }
 
 .process-icon img {
-  width: 45px;
-  height: 45px;
+  width: 38px;
+  height: 38px;
   object-fit: contain;
 }
 
 .process-card h3 {
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-size: 1.05rem !important;
+  font-weight: 700;
   margin-bottom: 8px;
   color: #ffffff;
 }
 
 .process-card p {
-  color: #999999;
-  font-size: 0.85rem;
-  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+  line-height: 1.5;
   margin-bottom: 0;
 }
 
@@ -1431,13 +1469,13 @@ h3 {
    ========================================================================== */
 
 .blog-section {
-  padding: 90px 0;
+  padding: 0 0 40px;
   background: #111111; /* Matches dark context theme background */
 }
 
 .blog-header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 
 .blog-header h2 {
@@ -1543,7 +1581,7 @@ h3 {
 
 .side-card-content h4 {
   font-family: var(--font-heading);
-  font-size: 1rem;
+  font-size: 1rem !important;
   font-weight: 600;
   line-height: 1.4;
   margin: 4px 0 6px 0;
@@ -1666,7 +1704,7 @@ h3 {
 
 .extraordinary-cta-section {
   position: relative;
-  padding: 100px 0;
+  padding: 40px 0;
   background-color: #141414; /* Dark gray tint base */
 
   /* Stacks your dark radial lighting gradient, an 85% opacity dimming overlay, and the box image together */
@@ -1715,7 +1753,7 @@ h3 {
   justify-content: center;
   align-items: center;
   gap: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
   flex-wrap: wrap;
 }
 
@@ -1822,7 +1860,7 @@ section + section {
     word-break: break-word;
   }
 
-  .home-hero-text p {
+  .home-hero-text p, .home-hero-desc p {
     font-size: 1rem;
     max-width: 100%;
   }
@@ -2019,6 +2057,41 @@ section + section {
     margin-bottom: 0 !important;
   }
 
+  .sectors-section .sector-card {
+    border-radius: 22px !important;
+    background: #161616 !important;
+  }
+
+  .sectors-section .sector-img-placeholder {
+    aspect-ratio: 1 / 1.02 !important;
+    background: #292929 !important;
+    padding: 14px !important;
+  }
+
+  .sectors-section .sector-info {
+    min-height: 158px !important;
+    padding: 28px 24px 32px !important;
+    background: #151515 !important;
+  }
+
+  .sectors-section .sector-title {
+    font-size: 20px !important;
+    line-height: 1.15 !important;
+    margin-bottom: 14px !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+  }
+
+  .sectors-section .sector-info p {
+    font-size: 16px !important;
+    line-height: 1.42 !important;
+    color: #c7c7c7 !important;
+    display: block !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+  }
+
   /* Content Structural Tweaks */
   .premium-addons-section {
     display: none !important;
@@ -2190,6 +2263,67 @@ section + section {
 
   .sectors-header br {
     display: none;
+  }
+
+  .sectors-section {
+    padding: 40px 0 !important;
+  }
+
+  .sectors-section .container {
+    padding-right: 16px !important;
+    padding-left: 16px !important;
+  }
+
+  .sectors-section .sectors-header {
+    margin-bottom: 24px !important;
+  }
+
+  .sectors-section .sectors-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px !important;
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .sectors-section .sector-card {
+    flex: none !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    border-radius: 12px !important;
+    background: #161616 !important;
+  }
+
+  .sectors-section .sector-img-placeholder {
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    padding: 0 !important;
+  }
+
+  .sectors-section .sector-img-placeholder img {
+    object-fit: cover !important;
+    padding: 0 !important;
+  }
+
+  .sectors-section .sector-info {
+    padding: 12px !important;
+    background: #151515 !important;
+    min-height: auto !important;
+  }
+
+  .sectors-section .sector-info h3 {
+    font-size: 1rem !important;
+    margin-bottom: 6px !important;
+    line-height: 1.2 !important;
+  }
+
+  .sectors-section .sector-info p {
+    font-size: 0.8rem !important;
+    line-height: 1.35 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
   }
 
   .hero-buttons {
@@ -2378,7 +2512,7 @@ section + section {
     line-height: 1.2 !important;
   }
 
-  .home-hero-text p {
+.home-hero-text p, .home-hero-desc p {
     max-width: 100%;
     margin: 0 0 24px;
     color: #c5c5c5;
@@ -3008,7 +3142,7 @@ section + section {
 /* Blog: show one featured article on mobile */
 @media (max-width: 768px) {
   .blog-section {
-    padding: 50px 0 60px !important;
+    padding: 15px 0 60px !important;
     background: #181818;
   }
 
@@ -3327,7 +3461,7 @@ section + section {
 
 @media (max-width: 768px) {
   .blog-section {
-    padding-top: 52px !important;
+    padding-top: 0 !important;
     padding-bottom: 64px !important;
   }
 
@@ -3370,7 +3504,7 @@ section + section {
   .blog-mobile-action {
     display: flex;
     justify-content: center;
-    margin-top: 42px;
+    margin-top: 15px;
   }
 
   .blog-mobile-action .btn {
@@ -3417,14 +3551,19 @@ section + section {
     text-align: left;
 }
 .pg-accordion-q {
-    font-size: 14px !important;
+    font-size: 15px !important;
     line-height: 1.65 !important;
     color: #ffffff !important;
-    font-weight: 500 !important;
+    font-weight: 600 !important;
     flex: 1;
     margin: 0 !important;
     padding: 0 !important;
     text-align: left;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: flex;
+    align-items: center;
 }
 .pg-accordion-btn:focus {
     outline: none;
@@ -3541,20 +3680,27 @@ section + section {
   color: inherit !important;
   text-decoration: none !important;
 }
+@media (max-width: 768px) {
+  .order-process-section {
+    padding-bottom: 15px !important;
+  }
+  .why-home-section {
+    padding-top: 15px !important;
+  }
+}
  </style>
- <body>
     <section class="home-hero">
         <div class="container home-hero-content">
             <div class="home-hero-text">
                 <h1>{!! (isset($home_banner[0]) && !empty($home_banner[0]->heading_1)) ? $home_banner[0]->heading_1 : 'Premium <span class="highlight">Rigid Boxes</span><br>That Elevate Your Brand' !!}</h1>
-                <p>{!! (isset($home_banner[0]) && !empty($home_banner[0]->description)) ? $home_banner[0]->description : 'We create custom rigid packaging solutions designed to protect your products while delivering a premium luxury experience. Our boxes combine durability with elegant, high-quality presentation to strengthen your brand identity and leave a lasting impression worldwide.' !!}</p>
+                <div class="home-hero-desc" style="margin-bottom: 24px;">{!! (isset($home_banner[0]) && !empty($home_banner[0]->description)) ? $home_banner[0]->description : '<p>We create custom rigid packaging solutions designed to protect your products while delivering a premium luxury experience. Our boxes combine durability with elegant, high-quality presentation to strengthen your brand identity and leave a lasting impression worldwide.</p>' !!}</div>
                 <div class="hero-buttons">
-                    <a href="{{ url('request-quote') }}" class="btn btn-primary">Design Custom Boxes</a>
+                    <a href="{{ url('request-quote') }}" class="btn btn-yellow" style="padding: 14px 36px; font-size: 16px; font-family: Inter, sans-serif; font-weight: 600; background-color: #FFC542; color: #000000; border: none; border-radius: 50px; display: inline-flex; justify-content: center; align-items: center; text-decoration: none;">Design Custom Boxes</a>
 
                 </div>
             </div>
             <div class="home-hero-images">
-                <img src="{{ (isset($home_banner[0]) && !empty($home_banner[0]->image)) ? asset('images/' . $home_banner[0]->image) : asset('images/home/home-hero.svg') }}" alt="{{ strtolower(str_replace('-', ' ', (isset($home_banner[0]) && !empty($home_banner[0]->image_tag)) ? $home_banner[0]->image_tag : 'Premium Box')) }}" style="width: 100%; height: 100%; display: block; border-radius: 12px; object-fit: cover;" title="{{ ucwords(strtolower(str_replace('-', ' ', (isset($home_banner[0]) && !empty($home_banner[0]->image_tag)) ? $home_banner[0]->image_tag : 'Premium Box'))) }}">
+                <img src="{{ (isset($home_banner[0]) && !empty($home_banner[0]->image)) ? asset('images/' . $home_banner[0]->image) : asset('images/home/home-hero.svg') }}" alt="{{ strtolower(str_replace('-', ' ', (isset($home_banner[0]) && !empty($home_banner[0]->image_tag)) ? $home_banner[0]->image_tag : 'Premium Box')) }}" style="width: 100%; height: 100%; display: block; border-radius: 12px; object-fit: contain;" title="{{ ucwords(strtolower(str_replace('-', ' ', (isset($home_banner[0]) && !empty($home_banner[0]->image_tag)) ? $home_banner[0]->image_tag : 'Premium Box'))) }}">
             </div>
         </div>
     </section>
@@ -3571,22 +3717,20 @@ section + section {
             </div>
             <div class="sectors-grid">
                 @foreach($industry_products as $product)
-                <div class="sector-card">
-                    <div class="sector-img-placeholder" style="position: relative;">
-                        <a href="{{ url('/'.$product->category_url) }}">
-                            <img src="{{ asset('images/'.($product->feature_product ? $product->feature_product : ($product->image ? $product->image : $product->bimage))) }}" onerror="this.src='./assets/jewellry and watch.jfif'; this.onerror=null;" alt="{{ strtolower(str_replace('-', ' ', $product->name)) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $product->name))) }}">
-                            @if(!empty($product->image_badge))
-                                <span class="image-badge-overlay" style="position: absolute; bottom: 15px; left: 15px; background: rgba(255, 255, 255, 0.9); color: #000; padding: 4px 12px; font-size: 14px; font-weight: 500; border-radius: 4px;">{{ $product->image_badge }}</span>
-                            @endif
-                        </a>
+                <a href="{{ url($product->category_url) }}" class="sector-card" style="display: block; text-decoration: none; color: inherit;">
+                    <div class="sector-img-placeholder">
+                        <img src="{{ asset('images/'.($product->feature_product ? $product->feature_product : ($product->image ? $product->image : $product->bimage))) }}" onerror="this.src='./assets/jewellry and watch.jfif'; this.onerror=null;" alt="{{ strtolower(str_replace('-', ' ', $product->name)) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $product->name))) }}">
+                        @if(!empty($product->image_badge))
+                            <span class="image-badge-overlay">{{ $product->image_badge }}</span>
+                        @endif
                     </div>
                     <div class="sector-info">
-                        <span class="sector-title" style="display: block; font-size: 1.15rem; font-weight: 600; margin-bottom: 8px;"><a href="{{ url('/'.$product->category_url) }}" style="color: inherit; text-decoration: none;">{{ $product->feature_title ? $product->feature_title : $product->name }}</a></span>
+                        <h3 class="sector-title">{{ $product->feature_title ? $product->feature_title : $product->name }}</h3>
                         @if($product->feature_description)
                             <p>{{ $product->feature_description }}</p>
                         @endif
                     </div>
-                </div>
+                </a>
                 @endforeach
             </div>
             <div class="sectors-action">
@@ -3609,7 +3753,7 @@ section + section {
                     <div class="process-icon">
                         <img src="{{ asset('images/icons/customize-icon.svg') }}" alt="customize icon" title="Customize Icon">
                     </div>
-                    <span class="step-title">Customize Your Packaging</span>
+                    <h3 class="step-title">Customize Your Packaging</h3>
                     <p>Choose from our extensive packaging solutions and personalize them with a variety of options to bring your ideal packaging to life.</p>
                 </div>
 
@@ -3618,7 +3762,7 @@ section + section {
                     <div class="process-icon">
                         <img src="{{ asset('images/icons/quote-icon.svg') }}" alt="quote icon" title="Quote Icon">
                     </div>
-                    <span class="step-title">Request a Quote</span>
+                    <h3 class="step-title">Request a Quote</h3>
                     <p>After customizing your packaging, simply request a quote, and our packaging specialists will review your submission.</p>
                 </div>
 
@@ -3627,7 +3771,7 @@ section + section {
                     <div class="process-icon">
                         <img src="{{ asset('images/icons/consultation-icon.svg') }}" alt="consultation icon" title="Consultation Icon">
                     </div>
-                    <span class="step-title">Expert Consultation</span>
+                    <h3 class="step-title">Expert Consultation</h3>
                     <p>Get expert consultation on your quote to reduce costs, improve efficiency, and minimize environmental impact.</p>
                 </div>
 
@@ -3636,7 +3780,7 @@ section + section {
                     <div class="process-icon">
                         <img src="{{ asset('images/icons/delivery-icon.svg') }}" alt="delivery icon" title="Delivery Icon">
                     </div>
-                    <span class="step-title">Production & Delivery</span>
+                    <h3 class="step-title">Production & Delivery</h3>
                     <p>After finalizing the details, we'll handle the entire production and shipping process. Just sit back and wait for your packaging to arrive!</p>
                 </div>
             </div>
@@ -3707,7 +3851,7 @@ section + section {
                 </div>
 
                 <div class="why-image">
-                    <img src="{{asset('uploads/why-choise-us.png')}}" alt="luxury box" title="Luxury Box">
+                    <img src="{{asset('uploads/why-choise-us.webp')}}" alt="luxury box" title="Luxury Box">
                 </div>
 
             </div>
@@ -3804,7 +3948,7 @@ section + section {
 </script>
 
     <!-- Content and FAQs Section (Packaging Guide Layout) -->
-    <section class="guide-section" style="padding: 60px 0; background: var(--bg-main);">
+    <section class="guide-section" style="padding: 0; background: var(--bg-main);">
         <div class="container">
             <!-- <div class="guide-badge" style="display: inline-block; border: 1px solid var(--accent-gold); color: var(--accent-gold); padding: 6px 16px; border-radius: 50px; font-size: 12px; font-weight: 600; letter-spacing: 1px; margin-bottom: 30px;">PACKAGING GUIDE</div> -->
 
@@ -3828,23 +3972,22 @@ section + section {
                             .guide-container {
                                 grid-template-columns: 1fr;
                                 gap: 40px;
-                                padding-left: 15px;
-                                padding-right: 15px;
                             }
                             .guide-col-one.guide-content {
-                                max-height: none;
-                                overflow-y: visible;
-                                padding-right: 0;
+                                max-height: 400px;
+                                overflow-y: auto;
+                                padding-right: 12px;
+                                padding-left: 0;
                             }
                         }
                         .guide-col-one.guide-content * {
                             color: #ffffff !important;
                         }
-                        .guide-col-one.guide-content h1 { font-size: 2.2rem !important; margin-bottom: 15px !important; font-weight: 700; line-height: 1.3; }
-                        .guide-col-one.guide-content h2 { font-size: 1.8rem !important; margin-bottom: 15px !important; font-weight: 700; line-height: 1.4; }
-                        .guide-col-one.guide-content h3 { font-size: 1.5rem !important; margin-bottom: 12px !important; font-weight: 600; line-height: 1.4; }
-                        .guide-col-one.guide-content h4 { font-size: 1.25rem !important; margin-bottom: 10px !important; font-weight: 600; line-height: 1.4; }
-                        .guide-col-one.guide-content p { font-size: 15px !important; line-height: 1.8 !important; margin-bottom: 15px !important; font-weight: 400; text-align: justify; }
+                        .guide-col-one.guide-content h1 { font-size: 2.2rem !important; margin-bottom: 15px !important; font-weight: 700; line-height: 1.3; text-align: left !important; }
+                        .guide-col-one.guide-content h2 { font-size: 1.8rem !important; margin-bottom: 15px !important; font-weight: 700; line-height: 1.4; text-align: left !important; }
+                        .guide-col-one.guide-content h3 { font-size: 1.5rem !important; margin-bottom: 12px !important; font-weight: 600; line-height: 1.4; text-align: left !important; }
+                        .guide-col-one.guide-content h4 { font-size: 1.25rem !important; margin-bottom: 10px !important; font-weight: 600; line-height: 1.4; text-align: left !important; }
+                        .guide-col-one.guide-content p { font-size: 15px !important; line-height: 1.8 !important; margin-bottom: 15px !important; font-weight: 400; text-align: left !important; }
                         .guide-col-one.guide-content ul { margin-bottom: 15px !important; padding-left: 20px !important; }
                         .guide-col-one.guide-content li { margin-bottom: 8px !important; font-size: 15px !important; line-height: 1.7 !important; }
                         
@@ -3869,7 +4012,7 @@ section + section {
                         }
                         .pg-accordion-body {
                             padding-top: 0 !important; 
-                            padding-left: 0 !important;
+                            padding-left: 22px !important;
                         }
                         .pg-accordion-body p {
                             margin-top: 0 !important;
@@ -3896,13 +4039,13 @@ section + section {
                 <!-- Right Column: FAQs / Steps -->
                 <div class="guide-col-two">
                     <div class="pg-steps-box" style="background: #1a1a1a; border-radius: 12px; padding: 30px;">
-                        <h3 class="pg-steps-title" style="color: #ffffff; font-size: 20px; font-weight: 700; margin-bottom: 24px; font-family: var(--font-heading), sans-serif;">Frequently Asked Questions</h3>
+                        <h2 class="pg-steps-title" style="color: #ffffff; font-size: 20px; font-weight: 700; margin-bottom: 24px; font-family: var(--font-heading), sans-serif;">Frequently Asked Questions</h2>
 
                         @if(isset($home_faqs) && count($home_faqs) > 0)
                             @foreach($home_faqs as $faq)
                             <div class="pg-step-item pg-accordion-item">
                                 <button class="pg-accordion-btn">
-                                    <span class="pg-accordion-q"><span style="color: var(--accent-gold); margin-right: 8px;">{{ $loop->iteration }}.</span> {{$faq->question}}</span>
+                                    <h3 class="pg-accordion-q"><span style="color: var(--accent-gold); margin-right: 8px;">{{ $loop->iteration }}.</span> {{ strip_tags($faq->question) }}</h3>
                                     <span class="pg-accordion-icon">+</span>
                                 </button>
                                 <div class="pg-accordion-body">
@@ -3916,7 +4059,7 @@ section + section {
                         <div class="pg-cta-box" style="background-color: var(--bg-darker); border-radius: 8px; padding: 24px; text-align: center; margin-top: 30px; border: 1px solid rgba(255,255,255,0.05);">
                             <h4 class="pg-cta-title" style="color: #ffffff; font-size: 18px; font-weight: 700; margin-bottom: 8px; font-family: var(--font-heading), sans-serif;">Need help choosing?</h4>
                             <p class="pg-cta-sub" style="color: rgba(255, 255, 255, 0.8); font-size: 13px; margin-bottom: 20px;">Our team responds within 2 hours</p>
-                            <a href="#" class="pg-cta-btn" style="display: inline-block; background-color: var(--accent-gold); color: #000000; font-weight: 600; font-size: 14px; padding: 12px 24px; border-radius: 40px; text-decoration: none; transition: background-color 0.2s;">Chat with an expert</a>
+                            <a href="/contact" class="pg-cta-btn" style="display: inline-block; background-color: var(--accent-gold); color: #000000; font-weight: 600; font-size: 14px; padding: 12px 24px; border-radius: 40px; text-decoration: none; transition: background-color 0.2s;">Chat with an expert</a>
                         </div>
                     </div>
                 </div>
@@ -3935,10 +4078,10 @@ section + section {
     </section> -->
 
     @if(isset($home_blogs) && count($home_blogs) > 0)
-    <section class="blog-section">
+    <section class="blog-section" style="margin-top: -40px;">
         <div class="container">
 
-            <div class="blog-header">
+            <div class="blog-header" style="margin-top: 0; padding-top: 10px;">
                 <!-- <span class="section-badge-text">BLOG</span> -->
                 <h2>Insights & Inspiration</h2>
                 <p>Stay updated with the latest trends, tips, and insights in the world of custom packaging.</p>
