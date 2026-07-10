@@ -44,6 +44,16 @@ html, body {
     max-width: var(--contact-max);
     margin-inline: auto;
     padding-inline: var(--contact-px);
+    box-sizing: border-box;
+}
+
+.contact-hero,
+.contact-hero *,
+.contact-section,
+.contact-section *,
+.contact-map-section,
+.contact-map-section * {
+    box-sizing: border-box;
 }
 
 
@@ -76,9 +86,11 @@ html, body {
 .contact-hero {
     position: relative;
     width: 100%;
-    min-height: 380px;
+    padding-top: 210px;
+    padding-bottom: 90px;
     display: flex;
-    align-items: stretch;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
     background-image: url('{{ asset("uploads/box-packing.png") }}');
     background-size: cover;
@@ -101,24 +113,34 @@ html, body {
 .contact-hero-wrap {
     position: relative;
     z-index: 1;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 48px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-    padding-top: 56px;
-    padding-bottom: 56px;
     background: transparent;
 }
 
+
 .contact-breadcrumb {
+    position: absolute;
+    top: 155px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1400px;
+    padding: 0 48px;
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
-    gap: 7px;
-    font-size: 13px;
+    gap: 8px;
+    font-size: 16px;
     color: #999;
     white-space: nowrap;
-    margin-bottom: 32px;
-    align-self: flex-start;
+    z-index: 2;
 }
 .contact-bc-home {
     font-size: 18px;
@@ -137,7 +159,7 @@ html, body {
     align-items: center;
     text-align: center;
     width: 100%;
-    margin-top: 75px;
+    margin-top: 0;
 }
 
 .contact-hero-badge {
@@ -156,10 +178,10 @@ html, body {
 }
 
 .contact-hero-heading {
-    padding-top: 55px;
+    padding-top: 0px;
     font-size: 42px;
     font-weight: 800;
-    line-height: 54px;
+    line-height: 50px;
     color: #fff;
     margin-bottom: 14px;
     text-shadow: 0 2px 16px rgba(0,0,0,0.6);
@@ -196,8 +218,8 @@ html, body {
 
 .contact-section {
     background-color: var(--contact-bg);
-    /* padding-top: var(--contact-gap); */
-    /* padding-bottom: var(--contact-gap); */
+    padding-top: var(--contact-gap);
+    padding-bottom: var(--contact-gap);
 }
 
 .contact-wrapper {
@@ -213,15 +235,16 @@ html, body {
 /* ── FORM SIDE ── */
 .contact-form {
     flex: 1;
-    padding: 20px;
+    padding: 40px 20px 20px;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .contact-form-row {
     display: flex;
     gap: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .contact-input-group { flex: 1; }
@@ -233,6 +256,23 @@ html, body {
     font-size: 14px;
     margin-bottom: 10px;
     font-family: 'Inter', Arial, sans-serif;
+}
+
+.contact-info-item p {
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.5;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.contact-info-item a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-info-item a:hover {
+    color: #f3c63f;
 }
 
 .contact-input-group input {
@@ -250,16 +290,28 @@ html, body {
 .contact-input-group input::placeholder { color: #aaa; }
 .contact-input-group input:focus { border-bottom-color: #f3c63f; }
 
-.contact-message-group { margin-bottom: 40px; }
+.contact-input-group input:-webkit-autofill,
+.contact-input-group input:-webkit-autofill:hover, 
+.contact-input-group input:-webkit-autofill:focus, 
+.contact-message-group textarea:-webkit-autofill,
+.contact-message-group textarea:-webkit-autofill:hover,
+.contact-message-group textarea:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 30px #202020 inset !important;
+    -webkit-text-fill-color: white !important;
+}
+
+.contact-message-group { margin-bottom: 30px; }
 
 .contact-message-group textarea {
     width: 100%;
-    height: 80px;
+    min-height: 52px;
+    padding: 10px 0;
     background: none;
     border: none;
     border-bottom: 1px solid #555;
     color: #fff;
     resize: none;
+    overflow: hidden;
     outline: none;
     font-family: inherit;
     font-size: 14px;
@@ -282,22 +334,7 @@ html, body {
     font-family: inherit;
 }/* removed hover: .contact-send-btn:hover { ... } */
 
-.contact-form-img {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 4px;
-}
-.contact-form-img img {
-    transform: rotate(-39deg);
-    width: 305px;
-    height: 122px;
-    object-fit: contain;
-    display: block;
-    opacity: 30%;
-    flex-shrink: 0;
-    margin-top: 47px;
-    margin-right: 45px;
-}
+
 
 /* ── CONTACT INFO SIDE ── */
 .contact-info {
@@ -308,6 +345,8 @@ html, body {
     position: relative;
     overflow: hidden;
     flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .contact-info h2 {
@@ -326,7 +365,7 @@ html, body {
 .contact-info-item {
     color: #fff;
     font-size: 14px;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
     display: flex;
     align-items: center;
     gap: 18px;
@@ -369,10 +408,29 @@ html, body {
 
 .contact-social {
     display: flex;
-    gap: 5px;
-    margin-top: 200px;
+    gap: 10px;
+    margin-top: auto;
     position: relative;
     z-index: 2;
+}
+
+.contact-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background: #f3c63f;
+    color: #111;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 14px;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.contact-social a:hover {
+    transform: translateY(-2px);
+    background: #e5b630;
 }
 
 .contact-social span {
@@ -392,10 +450,10 @@ html, body {
 
 .contact-circle-big {
     position: absolute;
-    width: 200px;
-    height: 250px;
-    bottom: -60px;
-    right: -60px;
+    width: 150px;
+    height: 180px;
+    bottom: -40px;
+    right: -40px;
     pointer-events: none;
     z-index: 0;
 }
@@ -406,10 +464,10 @@ html, body {
 
 .contact-circle-small {
     position: absolute;
-    width: 138px;
-    height: 170px;
-    bottom: 65px;
-    right: 20px;
+    width: 100px;
+    height: 120px;
+    bottom: 50px;
+    right: 15px;
     pointer-events: none;
     z-index: 0;
 }
@@ -464,11 +522,16 @@ html, body {
         --contact-gap: 8vw;
     }
 
-    .contact-hero         { min-height: 75vw; }
-    .contact-hero-wrap    { padding-top: 10vw; padding-bottom: 10vw; }
-    .contact-hero-heading { font-size: 7.2vw; line-height: 1.2; }
-    .contact-hero-subtext { font-size: 3.8vw; line-height: 1.75; }
+    .contact-hero         { min-height: auto; padding-top: 100px; padding-bottom: 18px; width: 100%; max-width: 100%; }
+    .contact-hero-wrap    { padding-inline: 5vw; }
+    .contact-breadcrumb   { position: absolute; top: -10px; left: 0; transform: none; width: 100%; padding: 0 5vw; font-size: 14px; }
+    .contact-hero-heading { font-size: 22px; line-height: 1.3; }
+    .contact-hero-subtext { font-size: 13px; line-height: 1.8; }
     .contact-hero-badge   { font-size: 2.6vw; padding: 1.5vw 5vw; letter-spacing: 0.4em; border-radius: 50px; }
+
+    .contact-section {
+        padding-top: 3vw;
+    }
 
     .contact-wrapper {
         flex-direction: column;
@@ -533,6 +596,7 @@ html, body {
 
     .contact-input-group input,
     .contact-message-group textarea { font-size: 3.8vw; padding: 2.5vw 0; }
+    .contact-message-group textarea { min-height: 14vw; }
 
     .contact-send-btn {
         width: 100%; font-size: 4vw;
@@ -553,8 +617,12 @@ html, body {
 
 
 @media (max-width: 480px) {
-    .contact-hero-heading { font-size: 8vw; }
-    .contact-hero-subtext { font-size: 4vw; }
+    .contact-hero         { padding-bottom: 10px; }
+    .contact-section      { padding-top: 0; }
+    .contact-breadcrumb   { top: 50px; font-size: 13px; }
+    .contact-hero-heading { font-size: 18px; line-height: 1.4; }
+    .contact-hero-subtext { font-size: 13px; }
+    .contact-message-group textarea { min-height: 50px; }
 
     .contact-info         { min-height: 80vw; }
     .contact-info h2      { font-size: 7vw; }
@@ -599,9 +667,15 @@ html, body {
 
     <!-- HERO BANNER -->
     <section class="contact-hero">
+        <!-- Breadcrumb positioned at top of hero -->
+        <nav class="contact-breadcrumb" aria-label="Breadcrumb">
+            <a href="{{ url('/') }}" class="contact-bc-home">
+                <i class="fas fa-home"></i>
+            </a>
+            <i class="fas fa-chevron-right"></i>
+            <span class="contact-bc-current">Contact Us</span>
+        </nav>
         <div class="contact-container contact-hero-wrap">
-
-         
             <div class="contact-hero-content">
                 <h1 class="contact-hero-heading">
                     Let's Talk About Your
@@ -612,7 +686,6 @@ html, body {
                     and help you create unforgettable rigid boxes.
                 </p>
             </div>
-
         </div>
     </section>
 
@@ -627,23 +700,31 @@ html, body {
                     <h2>Contact Information</h2>
                     <p>Say something to start a live chat!</p>
                     <div class="contact-info-item">
-                        <i class="fas fa-phone"></i>
-                        <span>1800-518-9441</span>
-                    </div>
-                    <div class="contact-info-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>support@premiumboxes.com</span>
-                    </div>
-                    <div class="contact-info-item contact-location">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>9931 Franklin Ave Suite 1-A,<br>Franklin Park, IL 60131, USA</div>
-                    </div>
-                    <div class="contact-social">
-                        <span aria-label="Facebook"><i class="fab fa-facebook-f"></i></span>
-                        <span aria-label="Twitter"><i class="fab fa-twitter"></i></span>
-                        <span aria-label="Instagram"><i class="fab fa-instagram"></i></span>
-                        <span aria-label="YouTube"><i class="fab fa-youtube"></i></span>
-                    </div>
+                    <i class="fas fa-phone-alt contact-icon"></i>
+                    <a href="tel:18005189441"><p>1800-518-9441</p></a>
+                </div>
+
+                <div class="contact-info-item">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <a href="mailto:support@myboxpackaging.com"><p>support@myboxpackaging.com</p></a>
+                </div>
+
+                <div class="contact-info-item">
+                    <i class="fas fa-map-marker-alt contact-icon"></i>
+                    <a href="https://maps.google.com/?q=132+Dartmouth+Street+Boston,+Massachusetts+02156+United+States" target="_blank">
+                        <p>132 Dartmouth Street Boston, <br>Massachusetts 02156 United States</p>
+                    </a>
+                </div>
+
+                @php
+                    $socialLinks = \Illuminate\Support\Facades\DB::table('footer_settings')->first();
+                @endphp
+                <div class="contact-social">
+                    <a href="{{ $socialLinks->facebook_url ?? '#' }}" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="{{ $socialLinks->twitter_url ?? '#' }}" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="{{ $socialLinks->instagram_url ?? '#' }}" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="{{ $socialLinks->youtube_url ?? '#' }}" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
                     <div class="contact-circle-big" aria-hidden="true">
                         <img src="{{ asset('images/contactus/Ellipse 793.png') }}" alt="" title="">
                     </div>
@@ -676,16 +757,13 @@ html, body {
                     </div>
                     <div class="contact-message-group">
                         <label>Message</label>
-                        <textarea placeholder="Write your message..."></textarea>
+                        <textarea name="message" placeholder="Write your message..."></textarea>
                     </div>
                     <button class="contact-send-btn" id="sendBtn" type="submit">Send Message</button>
-                    <div class="contact-form-img" aria-hidden="true">
-                        <img src="{{ asset('images/contactus/5e52eb20ee9158ca0835b430d0b6ef56e2d7385e.png') }}" alt="" title="">
-                    </div>
-                </form>
+                    <div id="formStatus" style="margin-top: 15px; font-size: 14px; text-align: center; display: none;"></div>
+            </form>
 
             </div>
-
         </div>
     </section>
 
@@ -707,9 +785,7 @@ html, body {
     </section>
 
 <script>
-
 document.addEventListener('DOMContentLoaded', () => {
-
     const form = document.getElementById('contactForm');
     const btn  = document.getElementById('sendBtn');
 
@@ -719,21 +795,59 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
 
         const originalText = btn.textContent;
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
 
-        // Turn green + show "Message Sent!"
-        btn.textContent        = '✓ Message Sent!';
-        btn.style.background   = '#4caf50';
-        btn.style.color        = '#fff';
-        btn.disabled           = true;
+        const formData = new FormData(form);
+        formData.append('_token', '{{ csrf_token() }}');
 
-        // Reset after 3 seconds
-        setTimeout(() => {
-            btn.textContent      = originalText;
-            btn.style.background = '';
-            btn.style.color      = '';
-            btn.disabled         = false;
-            form.reset();
-        }, 3000);
+        fetch('{{ url("contact-mail") }}', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.text().then(text => { throw new Error(text) });
+            }
+            return response.json();
+        })
+        .then(data => {
+            const statusDiv = document.getElementById('formStatus');
+            statusDiv.textContent = data.message || 'Thank you for your inquiry, we will contact you soon!';
+            statusDiv.style.color = '#4caf50';
+            statusDiv.style.display = 'block';
+
+            btn.textContent        = 'Sent';
+            btn.style.background   = '#4caf50';
+            btn.style.color        = '#fff';
+
+            setTimeout(() => {
+                btn.textContent      = originalText;
+                btn.style.background = '';
+                btn.style.color      = '';
+                btn.disabled         = false;
+                statusDiv.style.display = 'none';
+                form.reset();
+            }, 5000);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            const statusDiv = document.getElementById('formStatus');
+            statusDiv.textContent = 'Error! Try Again';
+            statusDiv.style.color = '#ff5252';
+            statusDiv.style.display = 'block';
+            
+            btn.textContent = 'Error!';
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.disabled = false;
+                statusDiv.style.display = 'none';
+            }, 4000);
+        });
     });
 });
 </script>

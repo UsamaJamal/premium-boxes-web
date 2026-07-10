@@ -18,16 +18,15 @@ body {
 
 
 .blog-hero {
-    height: 269px;
+    min-height: 340px;
     position: relative;
     width: 100%;
-    /* min-height: 360px; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 72px 40px 56px;
+    padding: 110px 40px 110px;
     background-size: cover;
     background-position: center;
     overflow: hidden;
@@ -44,7 +43,7 @@ body {
 /* Breadcrumb wrapper */
 .blog-hero-wrap {
     position: absolute;
-    top: 24px;
+    top: 110px;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
@@ -96,18 +95,18 @@ body {
 }
 
 .blog-hero-heading {
-    font-size: clamp(28px, 3.5vw, 48px);
+    font-size: 42px;
     font-weight: 800;
-    line-height: 1.2;
+    line-height: 50px;
     color: #ffffff;
     margin-bottom: 16px;
 }
 .blog-hero-gold { color: #F5C542; }
 
 .blog-hero-subtext {
-    font-size: 16px;
+    font-size: 18px;
     color: #C5C5C5;
-    line-height: 1.75;
+    line-height: 26px;
     max-width: 580px;
 }
 
@@ -387,13 +386,19 @@ body {
 
 
 @media (max-width: 768px) {
-    .blog-hero      { min-height: unset; padding: 10vw 5vw 9vw; }
-    .blog-hero-wrap { display: none; }
+    .blog-hero      { min-height: unset; padding: 140px 20px 40px; }
+    .blog-hero-wrap {
+        position: relative !important;
+        top: 0 !important;
+        transform: none !important;
+        padding: 0 !important;
+        margin-bottom: 4vw !important;
+    }
 
     .blog-hero-content  { padding: 0 2vw; }
     .blog-hero-badge    { display: none; }
-    .blog-hero-heading  { font-size: 7.5vw; line-height: 1.25; text-align: center; }
-    .blog-hero-subtext  { font-size: 3.8vw; line-height: 1.75; text-align: center; max-width: 85vw; margin: 0 auto; }
+    .blog-hero-heading  { font-size: 28px; line-height: 1.2; text-align: center; }
+    .blog-hero-subtext  { font-size: 13px; line-height: 1.8; text-align: center; max-width: 85vw; margin: 0 auto; }
 
     .blog-layout { padding: 3vw 4vw 2vw; }
 
@@ -426,14 +431,22 @@ body {
 
 
 
+
+@media (max-width: 480px) {
+    .blog-hero { padding: 130px 16px 32px; }
+    .blog-hero-heading { font-size: 24px; }
+    .blog-hero-subtext { font-size: 13px; }
+}
 </style>
 
     <!-- Hero -->
     <section class="blog-hero" style="background-image: url('{{ isset($blog_main_banner[0]) ? asset('images/'.$blog_main_banner[0]->image) : asset('uploads/why-choise-us.png') }}');">
         <div class="blog-hero-wrap">
             <nav class="blog-breadcrumb">
-                <span class="blog-bc-home" onclick="window.location.href='{{ url('/') }}'">&#8962;</span>
-                <span class="blog-bc-sep">&#187;</span>
+                <a href="{{ url('/') }}" class="blog-bc-home">
+                    <i class="fas fa-home"></i>
+                </a>
+                <i class="fas fa-chevron-right"></i>
                 <span class="blog-bc-current">Blog</span>
             </nav>
         </div>

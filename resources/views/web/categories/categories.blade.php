@@ -2912,7 +2912,10 @@ img {
 }
 @media (max-width: 768px) {
   .hero-breadcrumb-desktop {
-    display: none !important;
+    display: flex !important;
+  }
+  .box-by-industry > .hero-breadcrumb {
+    padding: 18vw 5vw 0 5vw !important;
   }
 }
 .industry-hero-content {
@@ -2956,6 +2959,7 @@ img {
   margin-bottom: 14px;
   margin-top: 0;
   padding: 0;
+  color: #ffffff;
 }
 .highlight-yellow {
   color: var(--accent-gold);
@@ -3030,10 +3034,7 @@ img {
     background: #1a1a1a;
   }
 
-  /* Breadcrumb — hidden on mobile */
-  .box-by-industry > .hero-breadcrumb {
-    display: none !important;
-  }
+  /* Breadcrumb — hidden on mobile removed */
 
   /* Grid → single column stack */
   .industry-hero-content {
@@ -3101,7 +3102,7 @@ img {
     margin-top: 0;
     word-break: break-word;
     text-align: center;
-    color: #f5f5f5;
+    color: #ffffff;
     width: 100%;
   }
 
@@ -4106,16 +4107,10 @@ img {
             {{-- Breadcrumb — outside grid, always at top --}}
             <div class="hero-breadcrumb hero-breadcrumb-desktop">
                 <a href="{{ url('/') }}" class="breadcrumb-home">
-                    <img src="{{ asset('uploads/house-chimney 1.svg') }}" alt="home" title="Home" style="width: 16px; height: 16px;">
+                    <i class="fas fa-home"></i>
                 </a>
-
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16" style="margin: 0 8px; color: #a0a0a0;">
-                      <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
-                      <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
-                    </svg>
-                    {{ !empty($value) && count($value) > 0 ? $value[0]->name : 'Category' }}
-                </span>
+                <i class="fas fa-chevron-right"></i>
+                <span>{{ !empty($value) && count($value) > 0 ? $value[0]->name : 'Category' }}</span>
             </div>
 
             <div class="industry-hero-content">

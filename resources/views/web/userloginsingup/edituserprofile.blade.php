@@ -6,11 +6,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="breadcrumb-content">
-                            <ul class="nav">
-                                <li><a href="index.html">Home</a></li>
-                                <li>Manage Profile</li>
-                            </ul>
+                        <div class="breadcrumbs">
+                            <a href="{{ url('/') }}"><i class="fas fa-home"></i></a>
+                            <i class="fas fa-chevron-right"></i>
+                            <span>Manage Profile</span>
                         </div>
                     </div>
                 </div>

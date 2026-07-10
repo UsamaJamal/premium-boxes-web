@@ -5,9 +5,11 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
                 <div class="col-md-10 ftco-animate text-left fadeInUp ftco-animated">
-                    <p class="breadcrumbs">
-                        <span class="mr-2"><a href="{{url('/')}}">Home</a></span> <span>Our Products</span>
-                    </p>
+                    <div class="breadcrumbs">
+                        <a href="{{url('/')}}"><i class="fas fa-home"></i></a>
+                        <i class="fas fa-chevron-right"></i>
+                        <span>Our Products</span>
+                    </div>
                     <h1 class="mb-3 bread">Our Products</h1>
                 </div>
             </div>

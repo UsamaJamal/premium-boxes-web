@@ -239,8 +239,9 @@ function contact_mail(Request $request)
 {
     Session::flash('contact-us','Thanks for your Intrest');
     $contact='contact';
+    $name = $request->first_name ? trim($request->first_name . ' ' . $request->last_name) : $request->name;
     $data=array(
-        'name'=>$request->name,
+        'name'=>$name,
         'email'=>$request->email,
         'phone'=>$request->phone,
         'company'=>$request->company,
@@ -252,7 +253,12 @@ function contact_mail(Request $request)
     );
     // print_r($data);
     // die();
- Mail::to('support@premiumboxes.com')->send(new SendMail($data));
+    $this->sendContactEmail($data);
+
+    if ($request->ajax() || $request->wantsJson()) {
+     return response()->json(['success' => true, 'message' => 'Thank you for the inquiry, our sales representative will contact soon!']);
+ }
+
  return back()->with('success', 'Thank you for the inquiry, our sales representative will contact soon!');
 
 }
@@ -397,6 +403,39 @@ private function sendQuoteEmail($data, $file = null)
         (new \Swift_Mailer($transport))->send($message);
     } catch (\Exception $e) {
         \Log::error('Mail sending failed: ' . $e->getMessage());
+    }
+}
+
+private function sendContactEmail($data)
+{
+    $body = view('web/email/contact', array('data' => $data))->render();
+    $mailHost = config('mail.host') ?: 'smtp.hostinger.com';
+    $mailPort = config('mail.port') ?: 465;
+    $mailEncryption = config('mail.encryption') ?: 'ssl';
+    $mailUsername = config('mail.username') ?: env('MAIL_USERNAME');
+    $mailPassword = config('mail.password') ?: env('MAIL_PASSWORD');
+    $fromAddress = config('mail.from.address') ?: $mailUsername;
+    $fromName = config('mail.from.name') ?: 'Premium Boxes';
+    $quoteTo = env('QUOTE_MAIL_TO') ?: 'quote@premiumboxes.com';
+
+    $transport = (new \Swift_SmtpTransport($mailHost, $mailPort, $mailEncryption))
+        ->setUsername($mailUsername)
+        ->setPassword($mailPassword)
+        ->setAuthMode('login');
+
+    $message = (new \Swift_Message('Contact Us - Premium Boxes'))
+        ->setFrom(array($fromAddress => $fromName))
+        ->setTo(array($quoteTo))
+        ->setBody($body, 'text/html');
+
+    if (!empty($data['email'])) {
+        $message->setReplyTo(array($data['email'] => !empty($data['name']) ? $data['name'] : $data['email']));
+    }
+
+    try {
+        (new \Swift_Mailer($transport))->send($message);
+    } catch (\Exception $e) {
+        \Log::error('Contact Mail sending failed: ' . $e->getMessage());
     }
 }
 

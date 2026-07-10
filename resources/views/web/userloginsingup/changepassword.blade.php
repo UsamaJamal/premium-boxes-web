@@ -5,11 +5,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="breadcrumb-content">
-                            <ul class="nav">
-                                <li><a href="index.html">Home</a></li>
-                                <li>Change Password</li>
-                            </ul>
+                        <div class="breadcrumbs">
+                            <a href="{{ url('/') }}"><i class="fas fa-home"></i></a>
+                            <i class="fas fa-chevron-right"></i>
+                            <span>Change Password</span>
                         </div>
                     </div>
                 </div>

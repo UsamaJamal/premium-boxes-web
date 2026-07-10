@@ -40,7 +40,7 @@ html, body {
     width: 100%;
     background-color: var(--au-bg-hero);
     border-top: 2px solid var(--au-gold);
-    padding-top: 36px;
+    padding-top: 100px;
     padding-bottom: 60px;
     min-height: 340px;
 }
@@ -242,8 +242,8 @@ html, body {
 @media (max-width: 600px) {
     :root { --au-px: 5vw; }
 
-    .au-hero        { padding-top: 5vw; padding-bottom: 9vw; background-color: #1f1f1f; }
-    .au-breadcrumb  { display: none; }
+    .au-hero        { padding-top: 18vw; padding-bottom: 9vw; background-color: #1f1f1f; }
+    /* Removed au-breadcrumb display: none; */
 
     .au-card {
         flex-direction: column;
@@ -286,10 +286,10 @@ html, body {
 
             <!-- Breadcrumb -->
             <nav class="au-breadcrumb" aria-label="Breadcrumb">
-                <a href="premiumboxes.html" class="au-bc-home" aria-label="Home">
-                    <i class="fas fa-house"></i>
+                <a href="{{ url('/') }}" class="au-bc-home" aria-label="Home">
+                    <i class="fas fa-home"></i>
                 </a>
-                <span class="au-bc-sep">&#187;</span>
+                <i class="fas fa-chevron-right"></i>
                 <span class="au-bc-current">Author</span>
             </nav>
 

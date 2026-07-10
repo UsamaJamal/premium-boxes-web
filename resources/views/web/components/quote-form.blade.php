@@ -769,11 +769,11 @@
                         </div>
                     @endif
 
-                    <div id="ajax-quote-success" class="alert alert-success" style="display: none; background: #28a745; color: white; padding: 12px 20px; border-radius: 8px; margin-bottom: 20px; font-weight: 600; text-align: center;">
+                    <div id="ajax-quote-success" class="alert alert-success" style="display: none; background: rgba(245, 197, 66, 0.14); color: #f5c542; border: 1px solid rgba(245, 197, 66, 0.55); padding: 18px 24px; border-radius: 12px; margin-bottom: 20px; font-weight: 700; text-align: center; font-size: 18px; line-height: 1.45;">
                         Thank you for the inquiry, our sales representative will contact soon!
                     </div>
 
-                    <form class="instant-quote-form" action="{{ url('submit-quote') }}" method="POST" enctype="multipart/form-data">
+                    <form class="instant-quote-form" data-ajax-managed="true" action="{{ url('submit-quote') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="source" value="{{ $source ?? 'Instant Quote Form' }}">
                         <input type="hidden" name="page_url" value="{{ url()->current() }}">
@@ -1062,7 +1062,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         successMsg.style.display = 'block';
                         // Scroll to the message smoothly
                         successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        setTimeout(() => { successMsg.style.display = 'none'; }, 8000);
                     }
                     
                     // Reset human verification

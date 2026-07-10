@@ -1155,16 +1155,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                 <div class="bp-hero-left">
 
 <div class="breadcrumb">
-    <a href="#" class="home">
-        <i class="fa-solid fa-house"></i>
+    <a href="{{ url('/') }}" class="home">
+        <i class="fas fa-home"></i>
     </a>
-
-    <span class="separator">››</span>
-
-    <a href="#">Blogs</a>
-
-    <span class="separator">››</span>
-
+    <i class="fas fa-chevron-right"></i>
+    <a href="{{ url('our-blog') }}">Blogs</a>
+    <i class="fas fa-chevron-right"></i>
     <span class="current">Rigid Packaging Gluing ...</span>
 </div>
 

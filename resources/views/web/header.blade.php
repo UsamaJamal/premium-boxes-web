@@ -1091,6 +1091,124 @@ function toggleMobileSubmenu(element) {
     body.light-mode .breadcrumb svg {
         color: #555555 !important;
     }
+
+/* =================================================
+   GLOBAL BREADCRUMB SYSTEM
+   ================================================= */
+.hero-breadcrumb,
+.faq-breadcrumb,
+.blog-breadcrumb,
+.au-breadcrumb,
+.product-breadcrumbs,
+.ab-us-breadcrumb,
+.qu-breadcrumb,
+.contact-breadcrumb,
+.breadcrumbs {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12.5px !important;
+    flex-wrap: wrap !important;
+    list-style: none !important;
+    background: transparent !important;
+}
+
+.hero-breadcrumb a,
+.hero-breadcrumb span,
+.faq-breadcrumb a,
+.faq-breadcrumb span,
+.blog-breadcrumb a,
+.blog-breadcrumb span,
+.au-breadcrumb a,
+.au-breadcrumb span,
+.product-breadcrumbs a,
+.product-breadcrumbs span,
+.ab-us-breadcrumb a,
+.ab-us-breadcrumb span,
+.qu-breadcrumb a,
+.qu-breadcrumb span,
+.contact-breadcrumb a,
+.contact-breadcrumb span,
+.breadcrumbs a,
+.breadcrumbs span {
+    display: inline-flex !important;
+    align-items: center !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
+}
+
+/* Home Icon is always Gold */
+.hero-breadcrumb a.breadcrumb-home i,
+.hero-breadcrumb a:first-of-type i,
+.faq-breadcrumb a.faq-bc-home i,
+.blog-breadcrumb a.blog-bc-home i,
+.au-breadcrumb a.au-bc-home i,
+.product-breadcrumbs a:first-of-type i,
+.ab-us-breadcrumb a.ab-us-bc-link i,
+.qu-breadcrumb a.qu-bc-home i,
+.contact-breadcrumb a.contact-bc-home i,
+.breadcrumbs a:first-of-type i {
+    color: #f5c542 !important;
+    font-size: 16px !important;
+}
+
+/* Hover State is always Gold */
+.hero-breadcrumb a:hover,
+.faq-breadcrumb a:hover,
+.blog-breadcrumb a:hover,
+.au-breadcrumb a:hover,
+.product-breadcrumbs a:hover,
+.ab-us-breadcrumb a:hover,
+.qu-breadcrumb a:hover,
+.contact-breadcrumb a:hover,
+.breadcrumbs a:hover {
+    color: #f5c542 !important;
+}
+
+/* Inactive/Muted Link color */
+.hero-breadcrumb a,
+.faq-breadcrumb a,
+.blog-breadcrumb a,
+.au-breadcrumb a,
+.product-breadcrumbs a,
+.ab-us-breadcrumb a,
+.qu-breadcrumb a,
+.contact-breadcrumb a,
+.breadcrumbs a {
+    color: #a0a0a0 !important;
+}
+
+/* Active/Current page text is light gray */
+.hero-breadcrumb span.breadcrumb-active,
+.hero-breadcrumb span:last-child,
+.faq-breadcrumb span:last-child,
+.blog-breadcrumb span.blog-bc-current,
+.au-breadcrumb span.au-bc-current,
+.product-breadcrumbs .product-bc-active,
+.ab-us-breadcrumb span.ab-us-bc-current,
+.qu-breadcrumb span.qu-bc-current,
+.contact-breadcrumb span.contact-bc-current,
+.breadcrumbs span:last-child {
+    color: #b3b3b3 !important;
+}
+
+/* Separator is always chevron-right, small and semitransparent */
+.hero-breadcrumb i.fa-chevron-right,
+.faq-breadcrumb i.fa-chevron-right,
+.blog-breadcrumb i.fa-chevron-right,
+.au-breadcrumb i.fa-chevron-right,
+.product-breadcrumbs i.fa-chevron-right,
+.ab-us-breadcrumb i.fa-chevron-right,
+.qu-breadcrumb i.fa-chevron-right,
+.contact-breadcrumb i.fa-chevron-right,
+.breadcrumbs i.fa-chevron-right {
+    font-size: 11px !important;
+    color: rgba(255, 255, 255, 0.4) !important;
+    margin: 0 4px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
 </style>
 
 

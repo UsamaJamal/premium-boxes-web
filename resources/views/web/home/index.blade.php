@@ -4185,7 +4185,7 @@ if (fileInput) {
         });
     }
 
-    const quoteForm = document.querySelector(".instant-quote-form");
+    const quoteForm = document.querySelector(".instant-quote-form:not([data-ajax-managed='true'])");
 
     if (quoteForm) {
         // Disable default HTML5 validation tooltips to use custom logic
@@ -4324,4 +4324,3 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
 @include('web.footer')
 </body>
-

@@ -17,8 +17,9 @@ html, body {
     margin-bottom: 0px; 
     position: relative;
     width: 100%;
-    height: 410px;
+    min-height: 340px;
     display: flex;
+    justify-content: center;
     align-items: stretch;
     overflow: hidden;
     background-image: url("{{ asset('images/about/packaging-excellence.jpg') }}");
@@ -40,11 +41,12 @@ html, body {
     width: 100%;
     max-width: 1400px;
     margin-inline: auto;
-    padding: 60px 60px 80px;
+    padding: 110px 60px 110px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-height: 640px;
+    align-items: center;
+    justify-content: center;
+    min-height: 340px;
 }
 
 .ab-us-breadcrumb {
@@ -77,7 +79,7 @@ html, body {
 }
 
 .ab-us-hero-badge {
-    margin-top: 91px;
+    /* margin-top adjusted */
     display: inline-flex;
     border: 1px solid #D4AF37;
     color: #D4AF37;
@@ -95,10 +97,9 @@ html, body {
 .ab-us-hero-badge:hover { background: #D4AF37; color: #111111; }
 
 .ab-us-hero-heading {
-    margin-top: -66px;
     font-size: 42px;
     font-weight: 800;
-    line-height: 1.15;
+    line-height: 50px;
     letter-spacing: 0.04em;
     color: #ffffff;
     margin-bottom: 24px;
@@ -108,9 +109,9 @@ html, body {
 .ab-us-gold { color: #F5C542; }
 
 .ab-us-hero-para {
-    font-size: clamp(14px, 1.2vw, 18px);
+    font-size: 18px;
     font-weight: 400;
-    line-height: 1.75;
+    line-height: 26px;
     color: #C5C5C5;
     max-width: 620px;
     text-align: center;
@@ -118,22 +119,30 @@ html, body {
 
 @media (max-width: 1024px) {
     .ab-us-hero-heading { font-size: 36px; line-height: 44px; }
+    .ab-us-inner        { padding: 140px 40px 52px; }
+
     .ab-us-hero-para    { font-size: 16px; }
     .ab-us-inner        { padding: 48px 40px 64px; }
 }
 
 @media (max-width: 680px) {
-    .ab-us-hero { height: auto; min-height: 90vw; }
+    .ab-us-hero { height: auto; min-height: auto; }
     .ab-us-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.65) 100%); }
-    .ab-us-inner { padding: 18vw 5vw 10vw; min-height: unset; justify-content: flex-start; }
-    .ab-us-breadcrumb { display: none; }
+    .ab-us-inner { padding: 140px 20px 40px; min-height: unset; justify-content: flex-start; }
+    /* Removed ab-us-breadcrumb display: none; */
     .ab-us-hero-badge { font-size: 3vw; padding: 2vw 8vw; margin-bottom: 5vw; letter-spacing: 0.3em; border-radius: 50px; }
     .ab-us-hero-content { justify-content: center; padding-top: 0; align-items: center; text-align: center; }
-    .ab-us-hero-heading { margin-top: 100px; font-size: 9.5vw; line-height: 1.25; margin-bottom: 4vw; }
+    .ab-us-hero-heading { margin-top: 0; font-size: 28px; line-height: 1.2; margin-bottom: 4vw; }
     .ab-us-hero-heading br { display: none; }
-    .ab-us-hero-para { margin-bottom: 83px; font-size: 4vw; line-height: 1.8; max-width: 100%; }
+    .ab-us-hero-para { margin-bottom: 20px; font-size: 13px; line-height: 1.8; max-width: 100%; }
 }
 
+
+@media (max-width: 480px) {
+    .ab-us-inner { padding: 130px 16px 32px; }
+    .ab-us-hero-heading { font-size: 24px; }
+    .ab-us-hero-para { font-size: 13px; }
+}
 .ab-us-story {
     margin-bottom: -21px;
     width: 100%;
@@ -233,7 +242,13 @@ html, body {
 }
 
 @media (max-width: 768px) {
-    .ab-us-story { margin-bottom: -78px; padding: 8vw 5vw 10vw; }
+    
+@media (max-width: 480px) {
+    .ab-us-inner { padding: 130px 16px 32px; }
+    .ab-us-hero-heading { font-size: 24px; }
+    .ab-us-hero-para { font-size: 13px; }
+}
+.ab-us-story { margin-bottom: -78px; padding: 8vw 5vw 10vw; }
     .ab-us-story-container { flex-direction: column; gap: 8vw; align-items: flex-start; }
     .ab-us-story-img-wrap  { width: 100%; height: 76vw; }
     .ab-us-gold-accent     { width: calc(100% - 4vw); height: calc(100% - 4vw); border-radius: 6px; }
@@ -563,9 +578,10 @@ html, body {
         <div class="ab-us-overlay"></div>
         <div class="ab-us-inner">
             <nav class="ab-us-breadcrumb" aria-label="Breadcrumb">
-                <i class="fas fa-house ab-us-bc-icon"></i>
-                <a href="premiumboxes.html" class="ab-us-bc-link">Home</a>
-                <span class="ab-us-bc-sep">&#62;&#62;</span>
+                <a href="{{ url('/') }}" class="ab-us-bc-link">
+                    <i class="fas fa-home"></i>
+                </a>
+                <i class="fas fa-chevron-right"></i>
                 <span class="ab-us-bc-current">About Us</span>
             </nav>
             <div class="ab-us-hero-content">

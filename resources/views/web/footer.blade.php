@@ -525,13 +525,14 @@
             <div class="cp-footer-col">
                 <span class="cp-footer-title" >Company</span>
                 <ul class="cp-footer-links">
-                    <li><a href="{{ url('beat-my-price') }}">Beat My Price</a></li>
+                   
                     <li><a href="{{ url('request-quote') }}">Get a Quote</a></li>
                     <li><a href="{{ url('contact-us') }}">Contact Us</a></li>
+                          <li><a href="{{ url('frequently-asked-questions') }}">FAQ</a></li>
                     <li><a href="{{ url('return-policy') }}">Return Policy</a></li>
                     <li><a href="{{ url('privacy-policy') }}">Privacy Policy</a></li>
                     <li><a href="{{ url('term-and-services') }}">Terms & Services</a></li>
-                    <li><a href="{{ url('why-mbp') }}">Why Mbp</a></li>
+                
                     <li><a href="{{ url('about-us') }}">About Us</a></li>
                     <li><a href="{{ url('sitemap') }}">Sitemap</a></li>
                 </ul>

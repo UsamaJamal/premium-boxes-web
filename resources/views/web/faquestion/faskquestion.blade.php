@@ -31,6 +31,7 @@ html {
     width: 100%;
     min-height: 340px;
     display: flex;
+    justify-content: center;
     align-items: flex-end; /* content sits in lower half like figma */
     padding: 0;
     overflow: hidden;
@@ -566,13 +567,10 @@ foreach($parts as $part) {
     <section class="faq-hero">
         <div class="faq-hero-inner">
             <nav class="faq-breadcrumb">
-                <a href="/" class="faq-bc-home">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Home">
-                        <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9.5z"/>
-                        <polyline points="9 21 9 12 15 12 15 21"/>
-                    </svg>
+                <a href="{{ url('/') }}" class="faq-bc-home">
+                    <i class="fas fa-home"></i>
                 </a>
-                <span class="faq-bc-sep">&#187;</span>
+                <i class="fas fa-chevron-right"></i>
                 <span class="faq-bc-current">FAQs</span>
             </nav>
             <div class="faq-hero-content">
