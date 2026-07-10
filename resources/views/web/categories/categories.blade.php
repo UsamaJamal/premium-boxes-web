@@ -4491,6 +4491,25 @@ img {
 
         <!-- Right: FAQs + CTA -->
         <div class="pg-right">
+            <style>
+                /* FAQ styling fixes */
+                .pg-accordion-btn {
+                    padding: 15px 0 5px 0 !important;
+                }
+                .pg-accordion-body {
+                    padding-top: 0 !important; 
+                    padding-left: 22px !important;
+                }
+                .pg-accordion-body p {
+                    margin-top: 0 !important;
+                    margin-bottom: 10px !important;
+                    font-size: 14px !important;
+                    color: rgba(255, 255, 255, 0.7) !important;
+                }
+                .pg-accordion-body *:first-child {
+                    margin-top: 0 !important;
+                }
+            </style>
             <div class="pg-steps-box">
                 <h2 class="pg-steps-title">Frequently Asked Questions</h2>
 
@@ -4498,7 +4517,7 @@ img {
                     @foreach($faqs as $faq)
                     <div class="pg-step-item pg-accordion-item">
                         <button class="pg-accordion-btn">
-                            <h3 class="pg-accordion-q">{{$faq->question}}</h3>
+                            <h3 class="pg-accordion-q"><span style="color: var(--accent-gold); margin-right: 8px;">{{ $loop->iteration }}.</span> {{ strip_tags($faq->question) }}</h3>
                             <span class="pg-accordion-icon">+</span>
                         </button>
                         <div class="pg-accordion-body">

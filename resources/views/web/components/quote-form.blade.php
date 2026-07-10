@@ -80,7 +80,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0px;
 }
 
 /* --- Structural Form Grids --- */
@@ -132,7 +132,7 @@
   display: flex;
   flex-direction: column;
   gap: 0px;
-  height: 38px;
+  height: 44px;
 }
 
 .form-group.textarea-group {
@@ -154,7 +154,7 @@
 .form-group select,
 .form-group textarea {
   width: 100%;
-  height: 38px;
+  height: 44px;
   background-color: #1a1a1a; /* Keeping dark theme inputs */
   border: 1px solid #333; /* Exact border color from Figma */
   border-radius: 6px;
@@ -190,7 +190,7 @@
   border-radius: 6px;
   background-color: var(--bg-darker);
   overflow: hidden;
-  height: 38px;
+  height: 44px;
   box-sizing: border-box;
 }
 
@@ -780,7 +780,7 @@
                         <div class="form-row dual-grid">
                             <div class="form-group">
                                 <label>Name *</label>
-                                <input type="text" name="name" placeholder="Enter your name" required oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
+                                <input type="text" name="name" placeholder="Enter your name" required spellcheck="false" autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <label>Email Address *</label>

@@ -46,10 +46,7 @@ body .testimonials-section {
   padding-bottom: 25px !important;
 }
 
-body .quote-section .quote-steps-col,
-body .quote-section .quote-form-col {
-  background-color: #202020 !important;
-}
+
 
 body .guide-section .pg-steps-box {
   background-color: #202020 !important;
@@ -65,8 +62,6 @@ body .guide-section .pg-steps-box {
     background-color: #202020 !important;
   }
 
-  body .quote-section .quote-steps-col,
-  body .quote-section .quote-form-col,
   body .guide-section .pg-steps-box {
     background-color: #202020 !important;
   }
@@ -2938,195 +2933,6 @@ section + section {
   }
 }
 
-/* Quote form field structure */
-.quote-full-fields,
-.quote-field-pair {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 15px;
-  margin-bottom: 15px;
-}
-
-.quote-field {
-  display: flex;
-  min-width: 0;
-  flex-direction: column;
-  gap: 9px;
-}
-
-.quote-field label {
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
-
-.quote-form .file-input {
-  display: none !important;
-}
-
-.upload-control {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 52px;
-  overflow: hidden;
-  color: #777;
-  background: #111;
-  border: 1px solid #2e2e2e;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.upload-control span {
-  padding: 0 22px;
-}
-
-.upload-control strong {
-  align-self: stretch;
-  display: grid;
-  min-width: 110px;
-  place-items: center;
-  color: #111;
-  background: var(--accent-gold);
-}
-
-/* Quote form: Figma mobile layout */
-@media (max-width: 768px) {
-  .quote-process-section {
-    padding: 28px 0 64px !important;
-    background: #161616;
-  }
-
-  .quote-process-section > .container {
-    padding-right: 0 !important;
-    padding-left: 0 !important;
-  }
-
-  .quote-process-grid {
-    gap: 36px;
-    margin-bottom: 48px;
-  }
-
-  .quote-process-section .steps-column,
-  .quote-process-section .packaging-guide {
-    margin-right: 20px;
-    margin-left: 20px;
-  }
-
-  .quote-form-wrapper {
-    width: 100%;
-    padding: 34px 20px 36px;
-    background: #202020;
-    border-radius: 8px;
-  }
-
-  .quote-form-wrapper h2 {
-    margin-bottom: 34px;
-    font-size: 1.65rem;
-    line-height: 1.25;
-    text-align: center;
-  }
-
-  .quote-full-fields {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin-bottom: 16px;
-  }
-
-  .quote-field-pair {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-
-  .quote-field {
-    gap: 9px;
-  }
-
-  .quote-field label {
-    color: #f2f2f2;
-    font-size: 0.94rem;
-  }
-
-  .quote-form input,
-  .quote-form select,
-  .quote-form textarea {
-    min-width: 0;
-    min-height: 52px;
-    padding: 13px 22px;
-    color: #f4f4f4;
-    background: #181818;
-    border: 1px solid #343434;
-    border-radius: 8px;
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-  }
-
-  .quote-form select {
-    padding-right: 34px;
-  }
-
-  .quote-form textarea {
-    height: 92px;
-  }
-
-  .upload-control {
-    min-height: 52px;
-    background: #181818;
-    border-color: #343434;
-    border-radius: 8px;
-  }
-
-  .upload-control span {
-    min-width: 0;
-    padding: 0 22px;
-    overflow: hidden;
-    font-size: 0.9rem;
-    text-overflow: ellipsis;
-    white-space: nowrap !important;
-  }
-
-  .upload-control strong {
-    min-width: 110px;
-    font-size: 0.9rem;
-  }
-
-  .quote-form .quote-btn {
-    width: min(80%, 320px) !important;
-    min-height: 54px;
-    margin: 38px auto 0;
-    padding: 13px 24px;
-    border: 0;
-    border-radius: 999px;
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 390px) {
-  .quote-form-wrapper {
-    padding-right: 16px;
-    padding-left: 16px;
-  }
-
-  .quote-field-pair {
-    gap: 7px;
-  }
-
-  .quote-form input,
-  .quote-form select,
-  .quote-form textarea {
-    padding-right: 14px;
-    padding-left: 14px;
-    font-size: 0.82rem;
-  }
-
-  .upload-control span {
-    padding: 0 14px;
-  }
-
-  .upload-control strong {
-    min-width: 94px;
-  }
-}
 
 /* Packaging guide: Figma mobile layout */
 @media (max-width: 768px) {

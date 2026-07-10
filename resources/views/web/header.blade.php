@@ -391,7 +391,7 @@ input:-webkit-autofill:active {
                         </svg>
                     </button>
                     <input type="search" name="query" placeholder="Search products..."
-                        style="background: transparent; border: none; outline: none; color: #ffffff; font-size: 14px; width: 100%;" spellcheck="false" required>
+                        style="background: transparent; border: none; outline: none; color: #ffffff; font-size: 14px; width: 100%; caret-color: #f5c542;" spellcheck="false" required>
                 </form>
             </div>
         </div>
@@ -793,7 +793,7 @@ input:-webkit-autofill:active {
                 </svg>
             </button>
             <input type="search" name="query" placeholder="Search products..."
-                style="background: transparent; border: none; outline: none; color: #ffffff; font-size: 14px; width: 100%;" spellcheck="false" required>
+                style="background: transparent; border: none; outline: none; color: #ffffff; font-size: 14px; width: 100%; caret-color: #f5c542;" spellcheck="false" required>
         </form>
     </div>
 </header>
