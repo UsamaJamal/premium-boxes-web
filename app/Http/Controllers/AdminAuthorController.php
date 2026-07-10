@@ -47,7 +47,7 @@ class AdminAuthorController extends Controller
 
         if ($request->hasFile('profile_image')) {
             $file = $request->file('profile_image');
-            $filename = time() . '_' . $file->getClientOriginalName();
+            $filename = str_replace(' ', '-', $file->getClientOriginalName());
             $file->move(public_path('uploads/authors/'), $filename);
             $data['profile_image'] = $filename;
         }
@@ -82,7 +82,7 @@ class AdminAuthorController extends Controller
 
         if ($request->hasFile('profile_image')) {
             $file = $request->file('profile_image');
-            $filename = time() . '_' . $file->getClientOriginalName();
+            $filename = str_replace(' ', '-', $file->getClientOriginalName());
             $file->move(public_path('uploads/authors/'), $filename);
             $data['profile_image'] = $filename;
         }

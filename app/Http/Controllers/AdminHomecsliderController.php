@@ -81,7 +81,7 @@ public function deletecSlider($id)
 if($request->hasfile('image')){
                     $file=$request->file('image');
                     $extension=$file->getClientOriginalName();
-                    $filename= time() . '-' . $extension;
+                    $filename = str_replace(' ', '-', $extension);
                     $file->move('images/',$filename);
                     $data['image']=$filename;
 
@@ -93,7 +93,7 @@ if($request->hasfile('image')){
              if($request->hasfile('image2')){
                     $file=$request->file('image2');
                     $extension=$file->getClientOriginalName();
-                    $filename= time() . '-1-' . $extension;
+                    $filename = str_replace(' ', '-', $extension);
                     $file->move('images/',$filename);
                     $data['image2']=$filename;
 
@@ -105,7 +105,7 @@ if($request->hasfile('image')){
                 if($request->hasfile('image3')){
                     $file=$request->file('image3');
                     $extension=$file->getClientOriginalName();
-                    $filename= time() . '-2-' . $extension;
+                    $filename = str_replace(' ', '-', $extension);
                     $file->move('images/',$filename);
                     $data['image3']=$filename;
 
@@ -147,7 +147,7 @@ public function addcSlider(Request $request) {
 if($request->hasfile('image')){
                     $file=$request->file('image');
                     $extension=$file->getClientOriginalName();
-                    $filename= time(). '.' . $extension;
+                    $filename = str_replace(' ', '-', $extension);
                     $file->move('images/',$filename);
                     $data['image']=$filename;
              } 
@@ -160,7 +160,7 @@ if($request->hasfile('image')){
  if($request->hasfile('image2')){
                     $file=$request->file('image2');
                     $extension=$file->getClientOriginalName();
-                    $filename= time(). '.' . $extension;
+                    $filename = str_replace(' ', '-', $extension);
                     $file->move('images/',$filename);
                     $data['image2']=$filename;
              } 
@@ -172,7 +172,7 @@ if($request->hasfile('image')){
         if($request->hasfile('image3')){
                     $file=$request->file('image3');
                     $extension=$file->getClientOriginalName();
-                    $filename= time(). '.' . $extension;
+                    $filename = str_replace(' ', '-', $extension);
                     $file->move('images/',$filename);
                     $data['image3']=$filename;
              } 

@@ -550,7 +550,8 @@
                     </a>
                     <div>
                         <i class="fas fa-map-marker-alt"></i> 
-                        <span>4000 W Montrose Ave 559<br>Chicago, IL 60641</span>
+                        <span>9931 Franklin Ave, Suite 1-A
+<br>Franklin Park, IL 60131</span>
                     </div>
                 </div>
                 

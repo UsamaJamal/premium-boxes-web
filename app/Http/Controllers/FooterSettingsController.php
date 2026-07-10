@@ -42,7 +42,7 @@ class FooterSettingsController extends Controller
         if ($request->hasFile('logo')) {
             $file = $request->file('logo');
             $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
+            $filename = str_replace(' ', '-', $extension);
             $file->move('uploads/footer/', $filename);
             $data['logo'] = 'uploads/footer/' . $filename;
         }

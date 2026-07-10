@@ -60,7 +60,7 @@ class AdminCategoryController extends Controller
 if($request->hasfile('image')){
                     $file=$request->file('image');
                     $extension=str_replace(' ', '-', $file->getClientOriginalName());
-                    $filename= time() . '-' . $extension;
+                    $filename= $extension;
                     $file->move('images/',$filename);
                     $data['image']=$filename;
 
@@ -72,7 +72,7 @@ if($request->hasfile('image')){
              if($request->hasfile('bimage')){
                     $file=$request->file('bimage');
                     $extension=str_replace(' ', '-', $file->getClientOriginalName());
-                    $filename= time() . '-b-' . $extension;
+                    $filename= $extension;
                     $file->move('images/',$filename);
                     $data['bimage']=$filename;
 
@@ -84,7 +84,7 @@ if($request->hasfile('image')){
              if($request->hasfile('hero_image')){
                     $file=$request->file('hero_image');
                     $extension=str_replace(' ', '-', $file->getClientOriginalName());
-                    $filename= time() . '-h-' . $extension;
+                    $filename= $extension;
                     $file->move('images/',$filename);
                     $data['hero_image']=$filename;
              }
@@ -94,8 +94,7 @@ if($request->hasfile('image')){
 
              if($request->hasfile('icon')){
               $file=$request->file('icon');
-              $extension=str_replace(' ', '-', $file->getClientOriginalName());
-              $filename= time() . '-i-' . $extension;
+              $filename= str_replace(' ', '-', $file->getClientOriginalName());
               $file->move('images/',$filename);
               $data['icon']=$filename;
 
@@ -125,7 +124,7 @@ if($request->hasfile('image')){
               if($request->hasfile('why_choose_img')){
                      $file=$request->file('why_choose_img');
                      $extension=str_replace(' ', '-', $file->getClientOriginalName());
-                     $filename= time() . '-wci-' . $extension;
+                     $filename= $extension;
                      $file->move('images/',$filename);
                      $data['why_choose_img']=$filename;
               }
@@ -237,7 +236,7 @@ public function addcategory(Request $request) {
 if($request->hasfile('image')){
                     $file=$request->file('image');
                     $extension=$file->getClientOriginalName();
-                    $filename= time(). '.' . $extension;
+                    $filename= str_replace(' ', '-', $extension);
                     $file->move('images/',$filename);
                     $data['image']=$filename;
              } 
@@ -250,7 +249,7 @@ if($request->hasfile('image')){
         if($request->hasfile('bimage')){
                     $file=$request->file('bimage');
                     $extension=$file->getClientOriginalName();
-                    $filename= time(). '.' . $extension;
+                    $filename= str_replace(' ', '-', $extension);
                     $file->move('images/',$filename);
                     $data['bimage']=$filename;
              } 
@@ -262,8 +261,7 @@ if($request->hasfile('image')){
 
         if($request->hasfile('icon')){
           $file=$request->file('icon');
-          $extension=$file->getClientOriginalName();
-          $filename= time(). '.' . $extension;
+          $filename= str_replace(' ', '-', $file->getClientOriginalName());
           $file->move('images/',$filename);
           $data['icon']=$filename;
    } 
@@ -282,7 +280,7 @@ if($request->hasfile('image')){
         if($request->hasfile('why_choose_img')){
           $file=$request->file('why_choose_img');
           $extension=$file->getClientOriginalName();
-          $filename= time(). '-wci.' . $extension;
+          $filename= str_replace(' ', '-', $extension);
           $file->move('images/',$filename);
           $data['why_choose_img']=$filename;
         }

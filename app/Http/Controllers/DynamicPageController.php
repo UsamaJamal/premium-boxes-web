@@ -43,7 +43,7 @@ class DynamicPageController extends Controller
 	    {
 	        $file=$req->file('photo');
 	        $extension=$file->getClientoriginalExtension();
-	        $filename=time().rand().'.'.$extension;
+	        $filename = str_replace(' ', '-', $extension);
 	        $file->move('uploads',$filename);
 	        $data['image']=$filename;
 	    }
@@ -106,7 +106,7 @@ class DynamicPageController extends Controller
             if($req->hasfile('photo')){
                     $file=$req->file('photo');
                     $extension=$file->getClientOriginalName();
-                    $filename=time().rand().'.'.$extension;
+                    $filename = str_replace(' ', '-', $extension);
                     $file->move('uploads',$filename);
                     $upd['image']=$filename;
 

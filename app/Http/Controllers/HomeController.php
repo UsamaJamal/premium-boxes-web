@@ -510,7 +510,7 @@ function req_quote_mail(Request $request)
     if($request->hasfile('image')){
         $file=$request->file('image');
         $extension=$file->getClientOriginalName();
-        $filename= time(). '.' . $extension;
+        $filename = str_replace(' ', '-', $extension);
         $file->move('images/',$filename);
         $data['image']=$filename;
  } 

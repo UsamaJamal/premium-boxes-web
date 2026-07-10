@@ -757,7 +757,7 @@
 
                 <div class="quote-steps-col">
                     <div class="quote-side-image">
-                        <img src="{{ asset('uploads/frame-81.webp') }}" alt="custom packaging quote" title="Custom Packaging Quote">
+                        <img src="{{ asset('uploads/form-cta.webp') }}" alt="custom packaging quote" title="Custom Packaging Quote">
                     </div>
                 </div>
                 <div class="quote-form-col">
