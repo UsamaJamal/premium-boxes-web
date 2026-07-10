@@ -4,8 +4,8 @@
 
 <style>
 :root {
-    --contact-max       : 1400px;
-    --contact-px        : 48px;
+    --contact-max       : 1380px;
+    --contact-px        : 55px;
     --contact-gap       : 60px;
     --contact-radius    : 12px;
 
@@ -114,9 +114,9 @@ html, body {
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 1400px;
+    max-width: 1380px;
     margin: 0 auto;
-    padding: 0 48px;
+    padding: 0 55px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -131,8 +131,8 @@ html, body {
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    max-width: 1400px;
-    padding: 0 48px;
+    max-width: 1380px;
+    padding: 0 55px;
     display: flex;
     align-items: center;
     flex-wrap: nowrap;

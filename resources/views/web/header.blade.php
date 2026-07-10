@@ -520,7 +520,8 @@ input:-webkit-autofill:active {
                 padding: 0 !important;
             }
             /* Mobile header height & logo size */
-            #main-nav-inner {
+            .main-nav-inner {
+                height: 70px !important;
                 min-height: 70px !important;
             }
             .mobile-logo-img {
@@ -999,7 +1000,6 @@ function toggleMobileSubmenu(element) {
     </script>
 @endif
     <!-- ====================== cmb-Header End ======================  -->
-
 
 
 

@@ -348,6 +348,17 @@ html, body {
 .qu-mob-br,
 .qu-mob-break { display: none; }
 
+/* Match all desktop page content to the shared header grid. */
+@media (min-width: 901px) {
+    .qu-breadcrumb,
+    .qu-why-cards {
+        width: 100%;
+        max-width: 1380px;
+        padding-left: 55px;
+        padding-right: 55px;
+    }
+}
+
 @media (max-width: 900px) {
     .qu-form-section { width: min(100% - 32px, 760px); }
     .qu-form-wrapper { padding: 30px 34px; }

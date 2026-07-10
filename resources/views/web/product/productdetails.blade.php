@@ -13,7 +13,7 @@
     --product-text-muted: rgba(255, 255, 255, 0.7);
     --product-border: rgba(255, 255, 255, 0.1);
     --product-font: 'Inter', sans-serif;
-    --product-container-max: 1140px;
+    --product-container-max: 1380px;
 }
 
 /* Fix autofill styles */
@@ -36,7 +36,7 @@ body {
 }
 
 .product-wrapper { width: 100%; min-height: 100vh; background-color: #1a1a1a; overflow-x: hidden; }
-.product-container { max-width: var(--product-container-max); margin: 0 auto; padding: 0 15px; }
+.product-container { width: 100%; max-width: var(--product-container-max); margin: 0 auto; padding: 0 55px; box-sizing: border-box; }
 h1,h2,h3,h4,h5,h6,p { margin: 0; padding: 0; }
 ul { margin: 0; padding: 0; list-style: none; }
 a { text-decoration: none; color: inherit; }
@@ -1690,7 +1690,6 @@ document.querySelectorAll('.cust-tab-btn').forEach(btn => {
 </script>
 
 @include('web/footer')
-
 
 
 

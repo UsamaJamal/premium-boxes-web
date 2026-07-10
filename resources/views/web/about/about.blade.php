@@ -10,7 +10,7 @@
     --about-text: #ffffff;
     --about-muted: rgba(255, 255, 255, 0.68);
     --about-border: rgba(212, 175, 55, 0.40);
-    --about-container: 1320px;
+    --about-container: 1380px;
     --about-radius: 7px;
 }
 
@@ -22,19 +22,6 @@ body {
 body {
     background: var(--about-bg);
     color: var(--about-text);
-}
-
-/* Keep every header row aligned to the same content width. */
-#site-header .container,
-#site-header .container-fluid,
-#site-header .header-container,
-#site-header .topbar-container,
-#site-header .navbar-container,
-#site-header .nav-container {
-    width: min(100% - 40px, var(--about-container)) !important;
-    max-width: var(--about-container) !important;
-    margin-inline: auto !important;
-    padding-inline: 0 !important;
 }
 
 .ab-us-hero,
@@ -58,6 +45,22 @@ body {
 .ab-us-process-inner {
     width: min(100% - 40px, var(--about-container));
     margin-inline: auto;
+}
+
+/* Match every desktop section to the shared header grid. */
+@media (min-width: 821px) {
+    .ab-us-inner,
+    .ab-us-story-container,
+    .ab-us-why-inner,
+    .ab-us-numbers-inner,
+    .ab-us-numbers-stats,
+    .ab-us-process-inner {
+        width: 100%;
+        max-width: 1380px;
+        padding-left: 55px;
+        padding-right: 55px;
+        box-sizing: border-box;
+    }
 }
 
 /* Shared section labels */

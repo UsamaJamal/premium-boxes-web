@@ -4,7 +4,7 @@
 <style>
 /* CSS Styles for the CTA Banner Component */
 .cp-cta-banner-component {
-    background: #1e1e1e;
+    background: #202020;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -19,7 +19,7 @@
 
 .cp-cta-banner-comp-container {
     width: 100%;
-    max-width: 1440px;
+    max-width: 1380px;
     margin: 0 auto;
     padding-left: 55px;
     padding-right: 55px;
@@ -34,20 +34,6 @@
 @media (min-width: 769px) {
     .cp-cta-banner-comp-container {
         position: static !important;
-    }
-}
-
-@media (min-width: 1200px) {
-    .cp-cta-banner-comp-container {
-        padding-left: 60px;
-        padding-right: 60px;
-    }
-}
-
-@media (min-width: 1440px) {
-    .cp-cta-banner-comp-container {
-        padding-left: 80px;
-        padding-right: 80px;
     }
 }
 
