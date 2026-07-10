@@ -3715,67 +3715,6 @@ section + section {
     </section>
     @include('web.components.testimonials')
 
-    <!-- Testimonials Navigation Script -->
-    <script>
-    (function() {
-        const grid = document.querySelector('.testimonial-grid');
-        const prevBtn = document.querySelector('.testimonial-prev-btn');
-        const nextBtn = document.querySelector('.testimonial-next-btn');
-
-        // Read More Logic
-        const readMoreBtns = document.querySelectorAll('.read-more-btn');
-        readMoreBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const textPara = this.previousElementSibling;
-                if(textPara) {
-                    textPara.classList.toggle('expanded');
-                    if (textPara.classList.contains('expanded')) {
-                        this.textContent = 'Read less';
-                    } else {
-                        this.textContent = 'Read more';
-                    }
-                }
-            });
-        });
-
-        if (!grid || !prevBtn || !nextBtn) return;
-
-        let currentIndex = 0;
-        const cards = grid.querySelectorAll('.testimonial-card');
-        const totalCards = cards.length;
-
-        function scrollToCard(index) {
-            const visibleCards = window.innerWidth > 992 ? 3 : 1;
-            const maxIndex = totalCards - visibleCards;
-
-            if (index < 0) index = 0;
-            if (index > maxIndex) index = maxIndex;
-
-            currentIndex = index;
-            const gap = window.innerWidth > 992 ? 25 : 0;
-            const cardWidth = cards[0].offsetWidth + gap;
-            grid.scrollTo({
-                left: cardWidth * index,
-                behavior: 'smooth'
-            });
-        }
-
-        prevBtn.onclick = function() {
-            scrollToCard(currentIndex - 1);
-        };
-
-        nextBtn.onclick = function() {
-            scrollToCard(currentIndex + 1);
-        };
-
-        // Track scroll position
-        grid.addEventListener('scroll', function() {
-            const gap = window.innerWidth > 992 ? 25 : 0;
-            const cardWidth = cards[0].offsetWidth + gap;
-            currentIndex = Math.round(grid.scrollLeft / cardWidth);
-        });
-    })();
-    </script>
 
     @include('web.components.quote-form', ['source' => 'Home Page Quote Form'])
 

@@ -236,7 +236,7 @@ html, body {
     cursor: pointer;
     font-family: inherit;
     font-size: 11px !important;
-    font-weight: 800;
+    font-weight: 900 !important;
     line-height: 1;
 }
 .qu-submit-row {
@@ -428,9 +428,7 @@ html, body {
                 Request An <span class="qu-hero-gold">Instant Quote</span>
             </h1>
             <p class="qu-hero-subtext">
-                Fill in the details below and receive a tailored<br>
-                estimate within minutes. No steps, just<br>
-                straightforward.
+                Fill in the details below and receive a tailored estimate within minutes. No steps, just straightforward.
             </p>
         </div>
     </section>
