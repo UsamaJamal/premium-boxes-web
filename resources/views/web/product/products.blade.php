@@ -5,11 +5,11 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
                 <div class="col-md-10 ftco-animate text-left fadeInUp ftco-animated">
-                    <div class="breadcrumbs">
-                        <a href="{{url('/')}}"><i class="fas fa-home"></i></a>
-                        <i class="fas fa-chevron-right"></i>
-                        <span>{{ $category['0']->name }}</span>
-                    </div>
+                    @include('web.components.breadcrumb', [
+                        'items' => [
+                            ['label' => $category['0']->name]
+                        ]
+                    ])
                     <h1 class="mb-3 bread">{{ $category['0']->name }}</h1>
                 </div>
             </div>

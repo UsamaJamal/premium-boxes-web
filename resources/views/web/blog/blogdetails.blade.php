@@ -50,47 +50,7 @@ body{
  
 }
 
-.breadcrumb{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    background:transparent;
-    padding:0;
-    border-radius:0;
-}
 
-.breadcrumb a,
-.breadcrumb span{
-    font-size:14px;
-}
-
-.breadcrumb .home{
-    color:#d4a017; /* Gold Home Icon */
-    text-decoration:none;
-}
-
-.breadcrumb a{
-    color:#ffffff;
-    text-decoration:none;
-    transition:.3s;
-}
-
-.breadcrumb a:hover{
-    color:#d4a017;
-}
-
-.separator{
-    color:#8b8b8b;
-    font-size:15px;
-}
-
-.current{
-    color:#bdbdbd;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-    max-width:220px;
-}
 
 .bp-hero {
     width: 100%;
@@ -101,20 +61,8 @@ body{
 
 /* BREADCRUMB */
 .bp-breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 15px;
-    color: #888888;
-    white-space: nowrap;
     margin-bottom: var(--bp-sp-bc);
 }
-.bp-bc-home { color: var(--bp-gold); font-size: 20px; text-decoration: none; line-height: 1; transition: color 0.2s; }
-.bp-bc-home:hover { color: var(--bp-gold-hov); }
-.bp-bc-sep  { color: #666; font-size: 14px; display: flex; align-items: center; gap: 2px; }
-.bp-bc-link { color: #888888; text-decoration: none; font-size: 15px; font-weight: 500; transition: color 0.2s; }
-.bp-bc-link:hover { color: var(--bp-gold); }
-.bp-bc-current { color: #888888; font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; }
 
 /* TWO-COLUMN HERO GRID */
 .bp-hero-grid {
@@ -1154,15 +1102,13 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                 <!-- LEFT COLUMN -->
                 <div class="bp-hero-left">
 
-<div class="breadcrumb">
-    <a href="{{ url('/') }}" class="home">
-        <i class="fas fa-home"></i>
-    </a>
-    <i class="fas fa-chevron-right"></i>
-    <a href="{{ url('our-blog') }}">Blogs</a>
-    <i class="fas fa-chevron-right"></i>
-    <span class="current">Rigid Packaging Gluing ...</span>
-</div>
+@include('web.components.breadcrumb', [
+    'class' => 'bp-breadcrumb',
+    'items' => [
+        ['label' => 'Blogs', 'url' => url('our-blog')],
+        ['label' => 'Rigid Packaging Gluing ...']
+    ]
+])
 
                     <div class="bp-title-row">
                         <h1 class="bp-title">Rigid Packaging Gluing: Adhesive Types, Methods & <br>Curing</h1>

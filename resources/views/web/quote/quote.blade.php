@@ -28,18 +28,7 @@ html, body {
     line-height: 1;
     text-align: left;
 }
-.qu-bc-home {
-    color: #f5c542;
-    font-size: 18px;
-    line-height: 1;
-}
-.qu-breadcrumb .fa-chevron-right {
-    color: #666666;
-    font-size: 13px;
-}
-.qu-bc-current {
-    color: #9a9a9a;
-}
+
 
 .qu-hero {
     width: 100%;
@@ -415,13 +404,12 @@ html, body {
 
     <!-- Hero Section -->
     <section class="qu-hero">
-        <nav class="qu-breadcrumb">
-            <a href="{{ url('/') }}" class="qu-bc-home">
-                <i class="fas fa-home"></i>
-            </a>
-            <i class="fas fa-chevron-right"></i>
-            <span class="qu-bc-current">Get Instant Quote</span>
-        </nav>
+        @include('web.components.breadcrumb', [
+            'class' => 'qu-breadcrumb',
+            'items' => [
+                ['label' => 'Get Instant Quote']
+            ]
+        ])
         <div class="qu-hero-content">
             <!-- <button class="qu-hero-badge">GET QUOTE</button> -->
             <h1 class="qu-hero-heading">

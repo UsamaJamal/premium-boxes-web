@@ -5,11 +5,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="breadcrumbs">
-                            <a href="{{ url('/') }}"><i class="fas fa-home"></i></a>
-                            <i class="fas fa-chevron-right"></i>
-                            <span>Change Password</span>
-                        </div>
+                        @include('web.components.breadcrumb', [
+                            'items' => [
+                                ['label' => 'Change Password']
+                            ]
+                        ])
                     </div>
                 </div>
             </div>

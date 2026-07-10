@@ -2871,51 +2871,15 @@ img {
   display: block;
   overflow: visible;
 }
-/* Breadcrumb — always pinned at top of section, independent of grid */
-.box-by-industry > .hero-breadcrumb {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 6px;
-  padding: 40px 40px 0 90px;
-  color: #a0a0a0;
-  font-size: 0.85rem;
-  line-height: 1.5;
-  overflow: visible;
-  white-space: normal;
-  margin-bottom: 0;
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 1440px;
-  box-sizing: border-box;
-  margin-left: auto;
-  margin-right: auto;
-}
-.box-by-industry > .hero-breadcrumb a,
-.box-by-industry > .hero-breadcrumb span {
-  display: inline-flex;
-  align-items: center;
-  color: #a0a0a0;
-  text-decoration: none;
-  white-space: nowrap;
-}
-.box-by-industry > .hero-breadcrumb a.breadcrumb-home {
-  color: var(--accent-gold);
-}
-.box-by-industry > .hero-breadcrumb span:last-child {
-  color: #ffffff;
-}
 /* Desktop only — hide on mobile */
 .hero-breadcrumb-desktop {
   display: flex;
+  padding-top: 40px;
 }
 @media (max-width: 768px) {
   .hero-breadcrumb-desktop {
     display: flex !important;
-  }
-  .box-by-industry > .hero-breadcrumb {
-    padding: 18vw 5vw 0 5vw !important;
+    padding-top: 18vw;
   }
 }
 .industry-hero-content {
@@ -2937,20 +2901,7 @@ img {
   justify-content: flex-start;
   padding-top: 0;
 }
-.industry-hero-left .hero-breadcrumb a,
-.industry-hero-left .hero-breadcrumb span {
-  display: inline-flex;
-  align-items: center;
-  color: #a0a0a0;
-  text-decoration: none;
-  white-space: nowrap;
-}
-.industry-hero-left .hero-breadcrumb a.breadcrumb-home {
-  color: var(--accent-gold);
-}
-.industry-hero-left .hero-breadcrumb span:last-child {
-  color: #ffffff;
-}
+
 .industry-hero-left h1 {
   font-size: 2.75rem;
   font-family: var(--font-heading);
@@ -4104,14 +4055,13 @@ img {
         <!-- Box By Industry Section -->
         <section class="box-by-industry{{ $isGiftBoxesPage ? ' gift-boxes-page' : '' }}">
 
-            {{-- Breadcrumb — outside grid, always at top --}}
-            <div class="hero-breadcrumb hero-breadcrumb-desktop">
-                <a href="{{ url('/') }}" class="breadcrumb-home">
-                    <i class="fas fa-home"></i>
-                </a>
-                <i class="fas fa-chevron-right"></i>
-                <span>{{ !empty($value) && count($value) > 0 ? $value[0]->name : 'Category' }}</span>
-            </div>
+            {{-- Breadcrumb --}}
+            @include('web.components.breadcrumb', [
+                'class' => 'hero-breadcrumb-desktop',
+                'items' => [
+                    ['label' => !empty($value) && count($value) > 0 ? $value[0]->name : 'Category']
+                ]
+            ])
 
             <div class="industry-hero-content">
                 <div class="industry-hero-left">

@@ -142,16 +142,7 @@ html, body {
     white-space: nowrap;
     z-index: 2;
 }
-.contact-bc-home {
-    font-size: 18px;
-    color: var(--contact-gold);
-    text-decoration: none;
-    line-height: 1;
-    transition: color 0.2s;
-}
-.contact-bc-home:hover { color: #fff; }
-.contact-bc-sep        { color: #555; font-size: 12px; }
-.contact-bc-current    { color: #bbb; font-weight: 500; }
+
 
 .contact-hero-content {
     display: flex;
@@ -668,13 +659,12 @@ html, body {
     <!-- HERO BANNER -->
     <section class="contact-hero">
         <!-- Breadcrumb positioned at top of hero -->
-        <nav class="contact-breadcrumb" aria-label="Breadcrumb">
-            <a href="{{ url('/') }}" class="contact-bc-home">
-                <i class="fas fa-home"></i>
-            </a>
-            <i class="fas fa-chevron-right"></i>
-            <span class="contact-bc-current">Contact Us</span>
-        </nav>
+        @include('web.components.breadcrumb', [
+            'class' => 'contact-breadcrumb',
+            'items' => [
+                ['label' => 'Contact Us']
+            ]
+        ])
         <div class="contact-container contact-hero-wrap">
             <div class="contact-hero-content">
                 <h1 class="contact-hero-heading">

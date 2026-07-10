@@ -79,67 +79,7 @@ html {
 /* ============================================
    BREADCRUMB
    ============================================ */
-.faq-breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    font-size: 13px;
-    color: #cccccc;
-    margin-bottom: 66px;
-    align-self: flex-start;
-   
-}
 
-.faq-bc-home {
-    font-size: 14px;
-    color: #F5C542;
-    line-height: 1;
-    cursor: pointer;
-    transition: color 0.25s ease;
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-.faq-bc-home svg {
-    width: 16px;
-    height: 16px;
-    display: block;
-    flex-shrink: 0;
-    stroke: #F5C542;
-    transition: stroke 0.25s ease;
-}
-
-.faq-bc-home:hover { color: #f5c542; }
-.faq-bc-home:hover svg { stroke: #fff; }
-
-.faq-bc-sep {
-    color: #C5C5C5;
-    font-size: 13px;
-    line-height: 1;
-    line-height: 1;
-    display: flex;
-    align-items: center;
-}
-
-.faq-bc-current {
-
-font-family: Inter;
-font-weight: 400;
-font-style: Regular;
-font-size: 14px;
-leading-trim: NONE;
-line-height: 18px;
-letter-spacing: 0%;
-text-align: justify;
-vertical-align: middle;
-color: #C5C5C5;
-
-}
-
-.faq-bc-current:hover {
-    color: #F5C542;
- }
 
 /* ============================================
    HERO CONTENT WRAPPER
@@ -870,13 +810,12 @@ foreach($parts as $part) {
     <!-- FAQ Hero Banner -->
     <section class="faq-hero">
         <div class="faq-hero-inner">
-            <nav class="faq-breadcrumb">
-                <a href="{{ url('/') }}" class="faq-bc-home">
-                    <i class="fas fa-home"></i>
-                </a>
-                <i class="fas fa-chevron-right"></i>
-                <span class="faq-bc-current">FAQs</span>
-            </nav>
+            @include('web.components.breadcrumb', [
+                'class' => 'faq-breadcrumb',
+                'items' => [
+                    ['label' => 'FAQs']
+                ]
+            ])
             <div class="faq-hero-content">
                
                 <h1 class="faq-heading">

@@ -82,54 +82,7 @@ body {
     align-self: flex-start;
 }
 
-.blog-bc-home {
-    font-size: 14px;
-    color: #F5C542;
-    line-height: 1;
-    cursor: pointer;
-    transition: color 0.25s ease;
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-}
 
-.blog-bc-home svg {
-    width: 16px;
-    height: 16px;
-    display: block;
-    flex-shrink: 0;
-    stroke: #F5C542;
-    transition: stroke 0.25s ease;
-}
-
-.blog-bc-home:hover { color: #f5c542; }
-.blog-bc-home:hover svg { stroke: #fff; }
-
-.blog-bc-sep {
-    color: #C5C5C5;
-    font-size: 13px;
-    line-height: 1;
-    display: flex;
-    align-items: center;
-}
-
-.blog-bc-current {
-    font-family: Inter;
-    font-weight: 400;
-    font-style: Regular;
-    font-size: 14px;
-    leading-trim: NONE;
-    line-height: 18px;
-    letter-spacing: 0%;
-    text-align: justify;
-    vertical-align: middle;
-    color: #C5C5C5;
-    cursor: pointer;
-}
-
-.blog-bc-current:hover {
-    color: #F5C542;
-}
 
 .blog-hero-content {
     flex: 1;
@@ -861,18 +814,12 @@ body {
     style="background-image:url('{{ asset('uploads/box-packing.png') }}');"
 >
     <div class="blog-hero-inner">
-        <nav class="blog-breadcrumb" aria-label="Breadcrumb">
-            <span class="blog-bc-home" onclick="window.location.href='{{ url('/') }}'">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                </svg>
-            </span>
-            <svg class="blog-bc-sep" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-            <span class="blog-bc-current">Blogs</span>
-        </nav>
+        @include('web.components.breadcrumb', [
+            'class' => 'blog-breadcrumb',
+            'items' => [
+                ['label' => 'Blogs']
+            ]
+        ])
 
         <div class="blog-hero-content">
            

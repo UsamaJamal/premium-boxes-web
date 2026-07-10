@@ -111,28 +111,7 @@ body {
     flex-direction: column;
 }
 
-.ab-us-breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    min-height: 30px;
-    color: var(--about-gold-dark);
-    font-size: 11px;
-    white-space: nowrap;
-}
 
-.ab-us-bc-link,
-.ab-us-bc-current,
-.ab-us-breadcrumb i {
-    color: var(--about-gold-dark);
-}
-
-.ab-us-bc-link {
-    text-decoration: none;
-    transition: opacity .2s ease;
-}
-
-.ab-us-bc-link:hover { opacity: .75; }
 
 .ab-us-hero-content {
     flex: 1;
@@ -591,7 +570,7 @@ body {
     }
 
     .ab-us-inner { min-height: 320px; padding-block: 14px 34px; }
-    .ab-us-breadcrumb { font-size: 10px; }
+
     .ab-us-hero-heading { font-size: 26px !important; }
     .ab-us-hero-heading br { display: none; }
     .ab-us-hero-para { font-size: 13px; }
@@ -649,13 +628,12 @@ body {
     <section class="ab-us-hero">
         <div class="ab-us-overlay"></div>
         <div class="ab-us-inner">
-            <nav class="ab-us-breadcrumb" aria-label="Breadcrumb">
-                <a href="{{ url('/') }}" class="ab-us-bc-link">
-                    <i class="fas fa-home"></i>
-                </a>
-                <i class="fas fa-chevron-right"></i>
-                <span class="ab-us-bc-current">About Us</span>
-            </nav>
+            @include('web.components.breadcrumb', [
+                'class' => 'ab-us-breadcrumb',
+                'items' => [
+                    ['label' => 'About Us']
+                ]
+            ])
             <div class="ab-us-hero-content">
             
                 <h1 class="ab-us-hero-heading">

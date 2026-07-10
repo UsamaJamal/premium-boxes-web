@@ -51,26 +51,7 @@ html, body {
     min-height: 340px;
 }
 
-/* BREADCRUMB */
-.au-breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--au-text-muted);
-    margin-bottom: 32px;
-    white-space: nowrap;
-}
-.au-bc-home {
-    color: var(--au-gold);
-    font-size: 15px;
-    text-decoration: none;
-    line-height: 1;
-    transition: color 0.2s;
-}
-.au-bc-home:hover { color: #fff; }
-.au-bc-sep     { color: #444; font-size: 12px; }
-.au-bc-current { color: var(--au-text-muted); font-size: 13px; font-weight: 500; }
+
 
 /* AUTHOR CARD */
 .au-card {
@@ -285,13 +266,12 @@ html, body {
         <div class="au-container">
 
             <!-- Breadcrumb -->
-            <nav class="au-breadcrumb" aria-label="Breadcrumb">
-                <a href="{{ url('/') }}" class="au-bc-home" aria-label="Home">
-                    <i class="fas fa-home"></i>
-                </a>
-                <i class="fas fa-chevron-right"></i>
-                <span class="au-bc-current">Author</span>
-            </nav>
+            @include('web.components.breadcrumb', [
+                'class' => 'au-breadcrumb',
+                'items' => [
+                    ['label' => 'Author']
+                ]
+            ])
 
             <!-- Author card -->
             <div class="au-card">

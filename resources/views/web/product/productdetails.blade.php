@@ -425,22 +425,13 @@ a { text-decoration: none; color: inherit; }
         <div class="product-container">
 
             <!-- Breadcrumbs -->
-            <div class="product-breadcrumbs">
-                <a href="{{ url('/') }}" style="display: flex; align-items: center; padding-bottom: 2px;"><i class="fas fa-home" style="font-size: 16px;"></i></a>
-                
-
-                
-                @if(isset($product_category) && $product_category)
-                <i class="fas fa-chevron-right" style="font-size: 11px; color: rgba(255,255,255,0.4);"></i>
-                <a href="{{ url($product_category->category_url) }}" style="display: flex; align-items: center; font-size: 16px; font-weight: 500; transition: color 0.3s ease;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color=''">{{ $product_category->name }}</a>
-                @endif
-
-                <i class="fas fa-chevron-right" style="font-size: 11px; color: rgba(255,255,255,0.4);"></i>
-                @foreach($product as $p)
-                <span class="product-bc-active" style="display: flex; align-items: center; font-size: 16px; font-weight: 500; color: #b3b3b3;">{{ $p->title }}</span>
-                @break
-                @endforeach
-            </div>
+            @include('web.components.breadcrumb', [
+                'class' => 'product-breadcrumbs',
+                'items' => array_filter([
+                    isset($product_category) && $product_category ? ['label' => $product_category->name, 'url' => url($product_category->category_url)] : null,
+                    ['label' => $product[0]->title]
+                ])
+            ])
 
             <div class="product-hero-grid">
 

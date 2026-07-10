@@ -225,6 +225,66 @@ input:-webkit-autofill:active {
         padding-right: 55px !important;
     }
 }
+
+/* ============================================
+   GLOBAL BREADCRUMB
+   ============================================ */
+.global-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    color: #cccccc;
+    margin-bottom: 20px;
+    align-self: flex-start;
+    flex-wrap: wrap;
+}
+
+.global-breadcrumb .gb-home {
+    font-size: 14px;
+    color: #F5C542;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.25s ease;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.global-breadcrumb .gb-home:hover {
+    color: #d4af37;
+}
+
+.global-breadcrumb .gb-sep {
+    color: #C5C5C5;
+    font-size: 13px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+}
+
+.global-breadcrumb .gb-link {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #C5C5C5;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.global-breadcrumb .gb-link:hover {
+    color: #F5C542;
+}
+
+.global-breadcrumb .gb-current {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #ffffff;
+}
 </style>
 
 <body>
