@@ -309,7 +309,7 @@ body.filters-visible .faq-filters-spacer {
     background: transparent;
     border: none;
     color: #b0b0b0;
-    font-size: 15px;
+    font-size: 16px !important;
     font-weight: 400;
     text-align: left;
     cursor: pointer;
@@ -769,8 +769,8 @@ body.filters-visible .faq-filters-spacer {
     .faq-question {
         min-height: 50px;
         margin: 0 !important;
-        padding: 13px 14px !important;
-        font-size: 13px !important;
+        padding: 13px 10px !important;
+        font-size: 12px !important;
         line-height: 1.35 !important;
     }
 }

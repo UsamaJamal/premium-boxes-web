@@ -385,13 +385,13 @@ input:-webkit-autofill:active {
                             cursor: pointer;
                         }
                     </style>
-                    <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer; display: flex; align-items: center; outline: none;">
+                    <button type="submit" style="background: none !important; border: none !important; padding: 0 !important; cursor: pointer !important; display: flex !important; align-items: center !important; outline: none !important;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#f5c542" stroke-width="2">
                             <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
                         </svg>
                     </button>
                     <input type="search" name="query" placeholder="Search products..."
-                        style="background: transparent; border: none; outline: none; color: #ffffff; font-size: 14px; width: 100%; caret-color: #f5c542;" spellcheck="false" required>
+                        style="background: transparent !important; border: none !important; outline: none !important; color: #ffffff !important; font-size: 14px !important; width: 100% !important; caret-color: #f5c542 !important;" spellcheck="false" required>
                 </form>
             </div>
         </div>
@@ -776,7 +776,7 @@ input:-webkit-autofill:active {
 
             <!-- Get Instant Quote -->
             <a href="{{ url('request-quote') }}"
-                style="background-color: #f5c542; color: #111; font-size: 14px; font-weight: 800; padding: 10px 22px; border-radius: 50px; text-decoration: none; white-space: nowrap; transition: background 0.2s;">
+                style="display: inline-flex; align-items: center !important; justify-content: center !important; box-sizing: border-box !important; background-color: #f5c542 !important; color: #111 !important; font-size: 14px !important; font-weight: 800 !important; padding: 10px 22px !important; border-radius: 50px !important; text-decoration: none !important; white-space: nowrap !important; line-height: normal !important; height: 40px !important; transition: background 0.2s;">
                 Get Instant Quote
             </a>
         </div>
@@ -787,13 +787,13 @@ input:-webkit-autofill:active {
     <div id="mobile-search-dropdown" style="display: none; background-color: #252525; padding: 15px; position: absolute; top: 100%; left: 0; width: 100%; z-index: 99; border-top: 1px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">
         <form action="{{ url('search') }}" method="POST" style="display: flex; align-items: center; background-color: #1a1a1a; border-radius: 50px; height: 44px; padding: 0 16px; gap: 8px; margin: 0; border: 1px solid #444;">
             @csrf
-            <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer; display: flex; align-items: center; outline: none;">
+            <button type="submit" style="background: none !important; border: none !important; padding: 0 !important; cursor: pointer !important; display: flex !important; align-items: center !important; outline: none !important;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#f5c542" stroke-width="2">
                     <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
                 </svg>
             </button>
             <input type="search" name="query" placeholder="Search products..."
-                style="background: transparent; border: none; outline: none; color: #ffffff; font-size: 14px; width: 100%; caret-color: #f5c542;" spellcheck="false" required>
+                style="background: transparent !important; border: none !important; outline: none !important; color: #ffffff !important; font-size: 14px !important; width: 100% !important; caret-color: #f5c542 !important;" spellcheck="false" required>
         </form>
     </div>
 </header>

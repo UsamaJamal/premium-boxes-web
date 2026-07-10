@@ -124,19 +124,19 @@ body .guide-section .pg-steps-box {
   body .guide-section .pg-accordion-btn {
     align-items: flex-start !important;
     gap: 12px !important;
-    padding: 18px 0 !important;
+    padding: 18px 0 0 0 !important;
   }
 
   body .guide-section .pg-accordion-q {
     display: block !important;
     min-width: 0 !important;
-    padding-right: 8px !important;
-    font-size: 16px !important;
+    padding-right: 6px !important;
+    font-size: 14px !important;
     line-height: 1.4 !important;
     white-space: normal !important;
     overflow: visible !important;
     text-overflow: clip !important;
-    overflow-wrap: anywhere !important;
+    overflow-wrap: break-word !important;
   }
 
   body .guide-section .pg-accordion-icon {
@@ -4017,7 +4017,7 @@ section + section {
                         }
                         /* FAQ styling fixes */
                         .pg-accordion-btn {
-                            padding: 15px 0 5px 0 !important;
+                            padding: 15px 0 0px 0 !important;
                         }
                         .pg-accordion-body {
                             padding-top: 0 !important; 
@@ -4025,6 +4025,7 @@ section + section {
                         }
                         .pg-accordion-body p {
                             margin-top: 0 !important;
+                            padding-top: 0 !important;
                             margin-bottom: 10px !important;
                             font-size: 14px !important;
                             color: rgba(255, 255, 255, 0.7) !important;
