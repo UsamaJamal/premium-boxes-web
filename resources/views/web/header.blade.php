@@ -211,6 +211,20 @@ input:-webkit-autofill:active {
     -webkit-text-fill-color: #ffffff !important;
 }
 
+/* Custom Header Container to match Footer */
+.header-container {
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+@media (min-width: 769px) {
+    .header-container {
+        max-width: 1380px !important;
+        padding-left: 55px !important;
+        padding-right: 55px !important;
+    }
+}
 </style>
 
 <body>
@@ -288,7 +302,7 @@ input:-webkit-autofill:active {
 
     <!-- ===== TOP BAR ===== -->
     <div class="top-bar-container" style="background-color: #1a1a1a;">
-        <div class="container" style="display: flex; align-items: center; justify-content: space-between; padding: 14px 15px;">
+        <div class="header-container" style="display: flex; align-items: center; justify-content: space-between; padding: 14px 15px;">
 
         <!-- Left Group: Logo + Search -->
         <div class="top-bar-left" style="display: flex; align-items: center; gap: 40px;">
@@ -455,7 +469,7 @@ input:-webkit-autofill:active {
         }
     </style>
     <nav style="background-color: #202020; border-top: 1px solid #333; position: relative; z-index: 100;">
-        <div class="container main-nav-inner" style="display: flex; align-items: stretch; justify-content: space-between; min-height: 48px; width: 100%;">
+        <div class="header-container main-nav-inner" style="display: flex; align-items: stretch; justify-content: space-between; min-height: 48px; width: 100%;">
 
         <!-- Mobile Hamburger (Hidden on Desktop) -->
         <div class="mobile-menu-btn" onclick="openMobileSidebar()" style="display: none; align-items: center; cursor: pointer;">
