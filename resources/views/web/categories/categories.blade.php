@@ -4039,8 +4039,11 @@ img {
         padding-top: 85px !important;
         padding-bottom: 30px !important;
     }
+    .hiw-step::before {
+        top: -15px;
+    }
     .hiw-step-body {
-        top: 65px !important;
+        top: 50px !important;
     }
 }
 
@@ -4102,14 +4105,6 @@ img {
      ================================================ -->
 <section class="cp-products">
     <div class="cp-wrap">
-
-        @unless($isGiftBoxesPage)
-        <div class="cp-sec-head">
-            <!-- <span class="cp-badge">OUR PRODUCTS</span> -->
-            <h2 class="cp-sec-title">Lid & Base Boxes Collection</h2>
-            <p class="cp-sec-sub">Browse our ready-to-order lid and base rigid boxes, fully customizable to your brand.</p>
-        </div>
-        @endunless
 
         <div class="cp-grid">
             @if(isset($sub_product) && count($sub_product) > 0)

@@ -372,7 +372,7 @@
 /* Align footer container layout with main content container */
 @media (min-width: 769px) {
     .cp-footer .cp-wrap {
-        max-width: 1440px !important;
+        max-width: 1380px !important;
         width: 100% !important;
         margin: 0 auto !important;
         padding-left: 55px !important;
@@ -770,4 +770,3 @@ document.addEventListener('DOMContentLoaded', function () {
 </body>
 
 </html>
-
