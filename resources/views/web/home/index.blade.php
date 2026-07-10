@@ -22,7 +22,7 @@
 }
 
 body {
-  background-color: var(--bg-dark);
+  background-color: #1a1a1a;
   color: var(--text-main);
   font-family: var(--font-body);
   line-height: 1.6;
@@ -31,7 +31,144 @@ body {
   padding-top: 124px; /* Fixed header height (top bar + navbar) */
 }
 
+/* Keep the complete home-page canvas on one consistent background. */
+body section {
+  background-color: #1a1a1a !important;
+}
+
+body .sectors-section {
+  background-color: #202020 !important;
+}
+
+body .testimonials-section {
+  background-color: #202020 !important;
+  padding-top: 25px !important;
+  padding-bottom: 25px !important;
+}
+
+body .quote-section .quote-steps-col,
+body .quote-section .quote-form-col {
+  background-color: #202020 !important;
+}
+
+body .guide-section .pg-steps-box {
+  background-color: #202020 !important;
+}
+
 @media (max-width: 768px) {
+  body section {
+    background-color: #1a1a1a !important;
+  }
+
+  body .sectors-section,
+  body .testimonials-section {
+    background-color: #202020 !important;
+  }
+
+  body .quote-section .quote-steps-col,
+  body .quote-section .quote-form-col,
+  body .guide-section .pg-steps-box {
+    background-color: #202020 !important;
+  }
+
+  body .sectors-section .sector-card,
+  body .sectors-section .sector-info {
+    background-color: #242424 !important;
+  }
+
+  body .sectors-section .sector-img-placeholder {
+    background-color: #303030 !important;
+  }
+
+  body .guide-section .container,
+  body .guide-section .guide-container,
+  body .guide-section .guide-col-one,
+  body .guide-section .guide-col-two {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body .guide-section .guide-container {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  body .guide-section .guide-col-one {
+    overflow-x: hidden !important;
+  }
+
+  body .guide-section .guide-col-one * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+  }
+
+  body .guide-section .guide-col-one img,
+  body .guide-section .guide-col-one video,
+  body .guide-section .guide-col-one iframe,
+  body .guide-section .guide-col-one table {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  body .guide-section .pg-steps-box {
+    padding: 24px 20px !important;
+    border-radius: 12px !important;
+    overflow: hidden;
+  }
+
+  body .guide-section .pg-steps-title {
+    margin-bottom: 20px !important;
+    font-size: 24px !important;
+    line-height: 1.25 !important;
+  }
+
+  body .guide-section .pg-accordion-btn {
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding: 18px 0 !important;
+  }
+
+  body .guide-section .pg-accordion-q {
+    display: block !important;
+    min-width: 0 !important;
+    padding-right: 8px !important;
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  body .guide-section .pg-accordion-icon {
+    padding-top: 1px;
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  body .guide-section .pg-step-item:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  body .guide-section .pg-accordion-item:nth-of-type(n + 5) {
+    display: none;
+  }
+
+  body .guide-section .pg-cta-box {
+    width: 100%;
+    padding: 22px 16px !important;
+    box-sizing: border-box;
+  }
+
+  body .guide-section .pg-cta-btn {
+    width: min(100%, 250px);
+    box-sizing: border-box;
+  }
+
   body {
     padding-top: 106px !important;
   }
@@ -1167,13 +1304,13 @@ h3 {
 }
 /* WHY CHOOSE US */
 .why-home-section {
-  padding: 26px 0 52px !important;
+  padding: 36px 0 52px !important;
   background: #181818;
 }
 
 .why-home-section .container {
-  max-width: 1164px;
-  padding: 0 16px;
+  max-width: 1380px;
+  padding: 0 55px;
 }
 
 .why-title {
@@ -3512,17 +3649,17 @@ section + section {
     align-items: center;
     justify-content: center;
     gap: 9px;
-    width: 270px;
+    width: 180px !important;
     max-width: 100%;
-    min-height: 54px;
-    padding: 13px 24px;
+    min-height: 46px;
+    padding: 10px 20px;
     border-radius: 999px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1.4;
   }
 
   .blog-mobile-action .btn span {
-    font-size: 1.45rem;
+    font-size: 1.2rem;
     line-height: 1;
   }
 }
@@ -3686,6 +3823,72 @@ section + section {
   }
   .why-home-section {
     padding-top: 15px !important;
+  }
+}
+
+/* Tailored For Every Sector — desktop Figma layout */
+@media (min-width: 993px) {
+  .sectors-section {
+    padding: 18px 0 40px;
+    background: #202020;
+  }
+
+  .sectors-section .sectors-header {
+    margin-bottom: 46px;
+  }
+
+  .sectors-section .sectors-header h2 {
+    margin-bottom: 14px;
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .sectors-section .sectors-header p {
+    color: #bdbdbd;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .sectors-section .sectors-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 42px 22px;
+  }
+
+  .sectors-section .sector-card {
+    background: #242424;
+    border: 1px solid rgba(245, 197, 66, 0.1);
+    border-radius: 12px;
+  }
+
+  .sectors-section .sector-img-placeholder {
+    aspect-ratio: 0.9 / 1;
+    background: #303030;
+    padding: 12px;
+  }
+
+  .sectors-section .sector-img-placeholder img {
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .sectors-section .sector-info {
+    min-height: 105px;
+    padding: 16px 13px;
+    background: #242424;
+  }
+
+  .sectors-section .sector-info h3 {
+    margin-bottom: 8px;
+    font-size: 16px !important;
+    line-height: 1.25;
+  }
+
+  .sectors-section .sector-info p {
+    margin: 0;
+    color: #c7c7c7;
+    font-size: 14px;
+    line-height: 1.45;
+    -webkit-line-clamp: 2;
   }
 }
  </style>
@@ -4059,7 +4262,7 @@ section + section {
                         <div class="pg-cta-box" style="background-color: var(--bg-darker); border-radius: 8px; padding: 24px; text-align: center; margin-top: 30px; border: 1px solid rgba(255,255,255,0.05);">
                             <h4 class="pg-cta-title" style="color: #ffffff; font-size: 18px; font-weight: 700; margin-bottom: 8px; font-family: var(--font-heading), sans-serif;">Need help choosing?</h4>
                             <p class="pg-cta-sub" style="color: rgba(255, 255, 255, 0.8); font-size: 13px; margin-bottom: 20px;">Our team responds within 2 hours</p>
-                            <a href="/contact" class="pg-cta-btn" style="display: inline-block; background-color: var(--accent-gold); color: #000000; font-weight: 600; font-size: 14px; padding: 12px 24px; border-radius: 40px; text-decoration: none; transition: background-color 0.2s;">Chat with an expert</a>
+                            <a href="{{ url('contact-us') }}" class="pg-cta-btn" style="display: inline-block; background-color: var(--accent-gold); color: #000000; font-weight: 600; font-size: 14px; padding: 12px 24px; border-radius: 40px; text-decoration: none; transition: background-color 0.2s;">Chat with an expert</a>
                         </div>
                     </div>
                 </div>

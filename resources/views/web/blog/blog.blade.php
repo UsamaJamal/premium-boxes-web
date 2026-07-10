@@ -64,10 +64,10 @@ body {
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 1440px;
+    max-width: 1380px;
     height: 100%;
     margin: 0 auto;
-    padding: 34px 48px 34px;
+    padding: 34px 55px;
     display: flex;
     flex-direction: column;
 }
@@ -142,9 +142,9 @@ body {
 
 .blog-layout {
     width: 100%;
-    max-width: 1440px;
+    max-width: 1380px;
     margin: 0 auto;
-    padding: 48px 48px 70px;
+    padding: 48px 55px 70px;
 }
 
 .blog-section-header {
@@ -593,6 +593,42 @@ body {
    ========================= */
 
 @media (max-width: 768px) {
+    .blog-layout,
+    .blog-content,
+    .blog-top-row,
+    .blog-post-large,
+    .blog-post-large-body,
+    .blog-sidebar-row,
+    .blog-grid,
+    .blog-card,
+    .blog-card-body {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .blog-layout {
+        margin: 0 !important;
+        overflow: hidden;
+    }
+
+    .blog-post-img,
+    .blog-post-large-img,
+    .blog-card-img {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .blog-post-large-title,
+    .blog-card-title,
+    .blog-post-desc {
+        max-width: 100% !important;
+        white-space: normal !important;
+        overflow-wrap: anywhere !important;
+    }
+
     .blog-hero {
         height: 340px;
         min-height: 340px;
