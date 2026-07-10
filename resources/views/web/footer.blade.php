@@ -543,7 +543,7 @@
                 <span class="cp-footer-title">Office</span>
                 <div class="cp-footer-contact-details cp-footer-address">
                     <a href="tel:18005189441">
-                        <i class="fas fa-phone-alt"></i> 1-800-518-9441
+                        <i class="fas fa-phone-alt"></i> (886)-472-5540
                     </a>
                     <a href="mailto:support@premiumboxes.com">
                         <i class="fas fa-envelope"></i> support@premiumboxes.com
