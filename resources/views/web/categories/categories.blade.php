@@ -50,7 +50,7 @@
 
 body {
     background: var(--bg);
-    color: var(--white);
+    color: #c5c5c5 !important;
     font-family: var(--font);
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
@@ -619,7 +619,7 @@ img {
   flex: 1 1 0;              /* all buttons share space equally */
   min-width: 0;             /* allow shrinking below content size */
   max-width: 160px;
-  border: 1px solid #f5c542;
+  border: 1px solid #3a3a3a;
   border-radius: 8px;
   background: transparent;
   color: #fff;
@@ -727,7 +727,7 @@ img {
   font-weight: 400;
   line-height: 22px;
   text-align: justify;
-  color: rgba(255,255,255,0.65);
+  color: #c5c5c5 !important;
   margin: 0 0 16px 0;
   flex-grow: 1;
 }
@@ -741,32 +741,39 @@ img {
 /* MOBILE */
 @media (max-width: 768px) {
 
-  /* ── Fix whole-page unequal spacing ── */
+  /* ── Customize Your Box section ── */
   .customize-section {
-    padding: 40px 0;
+    padding: 48px 0;
     overflow: hidden;
     width: 100%;
     box-sizing: border-box;
+    background: #1e1e1e; /* From Figma background */
   }
 
   .customize-header {
     padding: 0 16px;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    text-align: center;
   }
 
   .customize-header h2 {
-    font-size: 20px;
-    line-height: 1.3;
-    margin-bottom: 8px;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    color: #ffffff;
   }
 
   .customize-header p {
     width: 100%;
     font-size: 13px;
-    line-height: 20px;
+    line-height: 1.6;
+    color: #b0b0b0;
+    margin: 0 auto;
+    max-width: 320px;
   }
 
-  /* ── Filter buttons: show exactly 2 at a time, scroll horizontally ── */
+  /* ── Filter buttons: horizontal scroll exactly like Figma ── */
   .filter-buttons {
     display: flex !important;
     flex-wrap: nowrap !important;
@@ -775,8 +782,8 @@ img {
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     gap: 8px !important;
-    padding: 0 16px 10px 16px;
-    margin: 0 0 20px 0 !important;
+    padding: 0 4px 8px 4px;
+    margin: 0 0 24px 0 !important;
     scrollbar-width: none;
     -ms-overflow-style: none;
     box-sizing: border-box;
@@ -787,32 +794,33 @@ img {
     display: none;
   }
 
-  /*
-   * Each button = half the viewport minus:
-   *   16px left pad + 16px right pad = 32px total padding
-   *   8px gap / 2 = 4px per button
-   *   = calc(50vw - 20px)
-   * This guarantees exactly 2 visible on any phone screen.
-   */
   .filter-btn {
-    flex: 0 0 calc(50vw - 20px) !important;
-    width: calc(50vw - 20px) !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
     max-width: none !important;
     min-width: 0;
-    height: 44px !important;
-    font-size: 12px;
+    height: 38px !important;
+    font-size: 13px;
+    font-weight: 600;
     white-space: nowrap;
-    padding: 0 8px !important;
-    border-radius: 8px;
+    padding: 0 20px !important;
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    border: 1px solid #4a4a4a;
+  }
+  
+  .filter-btn.active {
+    background: #f5c542;
+    color: #000;
+    border-color: #f5c542;
   }
 
-  /* ── Card grid: contained with equal 16px padding ── */
+  /* ── Card grid: exactly 2 columns, specific colors ── */
   .tab-contents-container {
-    padding: 0 16px;
+    padding: 0 4px;
     box-sizing: border-box;
     width: 100%;
     overflow: hidden;
@@ -820,7 +828,7 @@ img {
 
   .customize-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 8px;
     width: 100%;
     box-sizing: border-box;
     margin: 0;
@@ -828,6 +836,8 @@ img {
 
   .customize-card {
     width: 100%;
+    background: #232323; /* Darker than background */
+    border: 1px solid #2d2d2d;
     min-width: 0;
     max-width: 100%;
     height: auto;
@@ -835,11 +845,14 @@ img {
     box-sizing: border-box;
     overflow: hidden;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
   }
 
   .card-image-area {
     height: 140px;
     width: 100%;
+    background: #2d2d2d; /* Lighter placeholder color */
     border-radius: 8px 8px 0 0;
   }
 
@@ -848,27 +861,33 @@ img {
     height: 100%;
     object-fit: cover;
     display: block;
+    opacity: 0.95;
   }
 
   .card-content {
-    padding: 10px 10px 12px;
+    padding: 14px 12px 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
 
   .card-content .card-title {
     font-size: 13px;
-    font-weight: 700;
+    font-weight: 800;
+    color: #ffffff;
     margin-bottom: 6px;
-    line-height: 1.3;
+    line-height: 1.35;
   }
 
   .card-content p {
     font-size: 11px;
-    line-height: 16px;
-    margin-bottom: 8px;
+    line-height: 1.55;
+    color: #c5c5c5 !important;
+    margin-bottom: 0;
   }
 
   .card-icons {
-    gap: 4px;
+    display: none; /* Hide icons to match Figma */
   }
 }
 
@@ -1023,6 +1042,16 @@ img {
    ================================================ */
 @media (max-width: 768px) {
     /* ── Global equal spacing fix ── */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100vw;
+    }
+
+    body {
+        padding-top: 70px; /* Match mobile header height */
+    }
+
     .cp-wrap {
         padding: 0 16px;
         box-sizing: border-box;
@@ -1033,6 +1062,7 @@ img {
     /* Hero */
     .cp-hero {
         padding: 0;
+        background: #0d0d0d;
     }
 
     .cp-bc {
@@ -1042,17 +1072,19 @@ img {
     .cp-hero-grid {
         grid-template-columns: 1fr;
         gap: 0;
-        margin-bottom: 5vw;
+        margin-bottom: 0;
     }
 
+    /* Image comes first on mobile */
     .cp-hero-img {
         order: -1;
-        margin-top: 36vw;
-        margin-bottom: -77px;
+        margin-top: 0;
+        margin-bottom: 0;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 0 8vw;
+        padding: 24px 20px 0;
+        background: #0d0d0d;
     }
 
     .cp-hero-photo {
@@ -1060,39 +1092,50 @@ img {
         height: auto;
         display: block;
         object-fit: contain;
+        max-height: 280px;
     }
 
+    /* Text block */
     .cp-hero-text {
-        padding-top: 5vw;
+        padding: 24px 20px 28px;
+        align-items: center;
+        text-align: center;
+        background: #0d0d0d;
     }
 
     .cp-h1 {
-        font-size: 7.5vw;
-        margin-bottom: 4vw;
-        line-height: 1.2;
+        font-size: 28px;
+        margin-bottom: 16px;
+        line-height: 1.3;
+        text-align: center;
     }
 
     .cp-desc {
-        font-size: 3.8vw;
-        margin-bottom: 6vw;
+        font-size: 15px;
+        line-height: 1.75;
+        margin-bottom: 24px;
+        text-align: justify;
+        text-align-last: center;
     }
 
     .cp-cta {
-        font-size: 4.5vw;
-        padding: 3.5vw 8vw;
+        font-size: 15px;
+        padding: 14px 32px;
         display: block;
         width: fit-content;
         margin: 0 auto;
         text-align: center;
+        border-radius: 50px;
     }
 
     .cp-hero-bar {
-        padding: 5vw;
+        padding: 16px 20px;
         gap: 0;
-        justify-content: space-between;
+        justify-content: space-evenly;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         margin-left: 0;
         margin-right: 0;
+        background: #0d0d0d;
     }
 
     .cp-stars-group {
@@ -1102,12 +1145,19 @@ img {
     .cp-logos {
         flex: unset;
         width: 100%;
+        display: flex;
         justify-content: space-evenly;
+        overflow: hidden;
+    }
+
+    .cp-logos-inner {
+        justify-content: space-evenly;
+        gap: 24px;
     }
 
     .cp-logo-img {
-        height: 10vw;
-        max-width: 18vw;
+        height: 40px;
+        max-width: 70px;
     }
 
     /* ── Products section: fix cards being cut off ── */
@@ -1906,6 +1956,11 @@ img {
     justify-content: center;
     gap: 15px;
     margin-top: 35px;
+}
+@media (max-width: 768px) {
+    .testimonial-nav {
+        margin-top: 15px;
+    }
 }
 
 .testimonial-nav button {
@@ -2806,620 +2861,6 @@ img {
 }
 
 /* ================================================
-   CTA BANNER SECTION
-   ================================================ */
-.cp-cta-banner {
-    background: #1e1e1e;
-    position: relative;
-    overflow: visible;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 60px 80px;
-    min-height: 280px;
-    gap: 40px;
-}
-
-/* LEFT — text + button */
-.cp-cta-banner-left {
-    margin-left: 81px;
-    flex: 1;
-    max-width: 480px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    position: relative;
-    z-index: 2;
-}
-
-.cp-cta-banner-heading {
-    font-size: 30px;
-    font-weight: 800;
-    color: #ffffff;
-    line-height: 1.25;
-    white-space: nowrap;
-}
-
-.cp-cta-banner-gold {
-    color: #f5c542;
-}
-
-.cp-cta-banner-text {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.65);
-    line-height: 1.75;
-    max-width: 487px;
-}
-
-.cp-cta-banner-btn {
-    width: fit-content;
-}
-
-/* RIGHT — 3 images overlapping */
-.cp-cta-banner-imgs {
-    position: relative;
-    width: 460px;
-    height: 280px;
-    flex-shrink: 0;
-    overflow: visible;
-}
-
-.cp-cta-img {
-    position: absolute;
-    object-fit: cover;
-    display: block;
-}
-
-/* Image 1 — large, right side, +23.35deg */
-.cp-cta-img-1 {
-    width: 283px;
-    height: 329px;
-    top: -130px;
-    right: -37px;
-    border-radius: 30px;
-    transform: rotate(23.35deg);
-    z-index: 3;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-}
-
-/* Image 2 — bottom-left, +23.35deg */
-.cp-cta-img-2 {
-    width: 157px;
-    height: 172px;
-    bottom: -94px;
-    right: 217px;
-    border-radius: 15px;
-    transform: rotate(23.35deg);
-    z-index: 2;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
-}
-
-/* Image 3 — bottom-right, +23.35deg */
-/* ================================================
-   CTA BANNER SECTION
-   ================================================ */
-.cp-cta-banner {
-    background: #1e1e1e;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 60px 80px;
-    min-height: 280px;
-    gap: 40px;
-}
-
-/* LEFT — text + button */
-.cp-cta-banner-left {
-    margin-left: 81px;
-    flex: 1;
-    max-width: 480px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    position: relative;
-    z-index: 2;
-}
-
-.cp-cta-banner-heading {
-    font-size: 30px;
-    font-weight: 800;
-    color: #ffffff;
-    line-height: 1.25;
-    white-space: nowrap;
-}
-
-.cp-cta-banner-gold {
-    color: #f5c542;
-}
-
-.cp-cta-banner-text {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.65);
-    line-height: 1.75;
-    max-width: 487px;
-}
-
-.cp-cta-banner-btn {
-    width: fit-content;
-}
-
-/* RIGHT — 3 images overlapping */
-.cp-cta-banner-imgs {
-    position: relative;
-    width: 460px;
-    height: 280px;
-    flex-shrink: 0;
-    overflow: visible;
-}
-
-.cp-cta-img {
-    position: absolute;
-    object-fit: cover;
-    display: block;
-}
-
-/* Image 1 — large, right side, +23.35deg */
-.cp-cta-img-1 {
-    width: 283px;
-    height: 329px;
-    top: -130px;
-    right: -37px;
-    border-radius: 30px;
-    transform: rotate(23.35deg);
-    z-index: 3;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-}
-
-/* Image 2 — bottom-left, +23.35deg */
-.cp-cta-img-2 {
-    width: 157px;
-    height: 172px;
-    bottom: -94px;
-    right: 217px;
-    border-radius: 15px;
-    transform: rotate(23.35deg);
-    z-index: 2;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
-}
-
-/* Image 3 — bottom-right, +23.35deg */
-.cp-cta-img-3 {
-    width: 155px;
-    height: 170px;
-    bottom: -161px;
-    right: 51px;
-    border-radius: 15px;
-    transform: rotate(23.35deg);
-    z-index: 1;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    .cp-cta-banner {
-        flex-direction: column-reverse;
-        padding: 0 0 10vw 0;
-        min-height: unset;
-        gap: 0;
-        overflow: hidden;
-    }
-    .cp-cta-banner-left {
-        max-width: 100%;
-        padding: 4vw 5vw 4vw 5vw;
-        align-items: flex-start;
-        text-align: left;
-        margin-left: 0;
-    }
-    .cp-cta-banner-heading {
-        font-size: 8vw;
-        white-space: normal;
-        margin-bottom: 2vw;
-        text-align: left;
-    }
-    .cp-cta-banner-text {
-        font-size: 4.2vw;
-        max-width: 100%;
-        line-height: 1.8;
-        margin-bottom: 6vw;
-        text-align: left;
-    }
-    .cp-cta-banner-btn {
-        width: 100%;
-        text-align: center;
-        justify-content: center;
-        font-size: 4.5vw;
-        padding: 4vw 0;
-    }
-
-    .cp-cta-banner-imgs {
-        width: 100%;
-        height: 70vw;
-        position: relative;
-        flex-shrink: 0;
-    }
-    .cp-cta-img-2 { display: none; }
-    .cp-cta-img-3 { display: none; }
-    .cp-cta-img-1 {
-        width: 72vw;
-        height: 80vw;
-        top: -10vw;
-        right: -10vw;
-        border-radius: 6vw;
-        transform: rotate(23.35deg);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-    }
-}
-
-
-/* ================================================
-   FOOTER SECTION
-   ================================================ */
-.cp-footer {
-    background-color: var(--bg2);
-    color: var(--muted);
-    padding: 80px 0 30px;
-    font-family: var(--font);
-    font-size: 14px;
-}
-
-.cp-footer-top {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-bottom: 60px;
-}
-
-.cp-footer-col {
-    flex: 1;
-    min-width: 150px;
-}
-
-.cp-footer-col-1 {
-    min-width: 250px;
-    flex: 1.5;
-    display: flex;
-    flex-direction: column;
-}
-
-.cp-footer-social {
-    margin-top: auto;
-}
-
-.cp-footer-col-5 {
-    min-width: 250px;
-    flex: 1.5;
-    display: flex;
-    flex-direction: column;
-}
-
-.cp-footer-newsletter-section {
-    margin-top: auto;
-}
-
-.cp-footer-logo {
-    margin-bottom: 30px;
-}
-
-.cp-footer-logo-icon {
-    display: flex;
-    align-items: center;
-}
-
-.cp-footer-title {
-    color: var(--white);
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 24px;
-}
-
-.cp-social-icons {
-    display: flex;
-    gap: 15px;
-}
-
-.cp-social-icons a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background-color: var(--white);
-    color: var(--accent_gold);
-    text-decoration: none;
-    transition: background-color 0.3s, opacity 0.3s;
-}
-
-.cp-social-icons a:hover {
-    background-color: var(--gold);
-    opacity: 0.9;
-}
-
-.cp-footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.cp-footer-links li {
-    margin-bottom: 15px;
-}
-
-.cp-footer-links a {
-    color: var(--muted);
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.cp-footer-links a:hover {
-    color: var(--white);
-}
-
-.cp-footer-address {
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
-
-.cp-newsletter-title {
-    margin-bottom: 16px;
-}
-
-.cp-newsletter-form {
-    display: flex;
-    margin-bottom: 30px;
-}
-
-.cp-newsletter-form input {
-    flex: 1;
-    padding: 12px 16px;
-    background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 4px 0 0 4px;
-    color: var(--white);
-    outline: none;
-}
-
-.cp-newsletter-form button {
-    padding: 12px 24px;
-    background-color: var(--gold);
-    color: #F5C542;
-    border: none;
-    border-radius: 0 4px 4px 0;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}/* removed hover: .cp-newsletter-form button:hover { ... } */
-
-.cp-payment-methods {
-    display: flex;
-    gap: 10px;
-    font-size: 24px;
-    color: var(--white);
-}
-
-.cp-footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 30px;
-    text-align: center;
-    font-size: 13px;
-}
-
-@media (max-width: 992px) {
-    .cp-footer-top {
-        grid-template-columns: repeat(2, 1fr);
-        display: grid;
-    }
-
-    .cp-footer-col-1,
-    .cp-footer-col-5 {
-        grid-column: span 2;
-    }
-}
-
-@media (max-width: 576px) {
-    .cp-footer-top {
-        grid-template-columns: 1fr;
-    }
-
-    .cp-footer-col-1,
-    .cp-footer-col-5 {
-        grid-column: span 1;
-    }
-}
-
-/* ================================================
-   FOOTER — MOBILE VW
-   ================================================ */
-@media (max-width: 768px) {
-    .cp-footer { padding: 8vw 5vw 5vw; }
-
-    .cp-footer-top {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-    }
-
-    /* Col 1 — logo + description + social */
-    .cp-footer-col-1 {
-        grid-column: unset;
-        min-width: unset;
-        margin-bottom: 6vw;
-    }
-    .cp-footer-logo { margin-bottom: 4vw; }
-    .cp-footer-logo-icon i  { font-size: 7vw !important; }
-    .cp-footer-logo-icon span { font-size: 6vw !important; }
-
-    /* Col 1 description */
-    .cp-footer-col-1 > p {
-        font-size: 3.8vw;
-        line-height: 1.8;
-        color: rgba(255,255,255,0.6);
-        margin-bottom: 5vw;
-    }
-
-    /* Social icons */
-    .cp-footer-social { margin-top: 0; margin-bottom: 6vw; }
-    .cp-footer-title  { font-size: 4.5vw; margin-bottom: 3vw; }
-    .cp-social-icons a {
-        width: 10vw;
-        height: 10vw;
-        font-size: 4vw;
-        border-radius: 50%;
-        background: #fff;
-        color: #111;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 2vw;
-        text-decoration: none;
-    }
-
-    /* Accordion columns — Col 2,3,4,5 */
-    .cp-footer-col:not(.cp-footer-col-1) {
-        border-top: 1px solid rgba(255,255,255,0.1);
-        min-width: unset;
-        grid-column: unset;
-    }
-    .cp-footer-col-5 {
-        border-top: 1px solid rgba(255,255,255,0.1);
-        grid-column: unset;
-        min-width: unset;
-    }
-
-    /* Accordion header */
-    .cp-footer-col:not(.cp-footer-col-1) .cp-footer-title,
-    .cp-footer-col-5 .cp-footer-title:first-child {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 4vw 0;
-        cursor: pointer;
-        font-size: 4.5vw;
-        color: #fff;
-        margin-bottom: 0;
-    }
-    .cp-footer-col:not(.cp-footer-col-1) .cp-footer-title::after,
-    .cp-footer-col-5 .cp-footer-title:first-child::after {
-        content: '+';
-        font-size: 5vw;
-        color: rgba(255,255,255,0.6);
-        transition: transform 0.25s;
-    }
-    .cp-footer-col.open .cp-footer-title::after,
-    .cp-footer-col-5.open .cp-footer-title:first-child::after {
-        content: '−';
-        color: #f5c542;
-    }
-
-    /* Accordion body — hidden by default */
-    .cp-footer-col:not(.cp-footer-col-1) .cp-footer-links,
-    .cp-footer-col-5 .cp-footer-address,
-    .cp-footer-col-5 .cp-footer-newsletter-section {
-        display: none;
-        padding-bottom: 4vw;
-    }
-    .cp-footer-col.open .cp-footer-links,
-    .cp-footer-col-5.open .cp-footer-address,
-    .cp-footer-col-5.open .cp-footer-newsletter-section {
-        display: block;
-    }
-
-    /* Links font size */
-    .cp-footer-links li { margin-bottom: 3vw; }
-    .cp-footer-links a  { font-size: 3.8vw; }
-    .cp-footer-address  { font-size: 3.8vw; line-height: 1.7; }
-
-    /* Newsletter */
-    .cp-newsletter-title { font-size: 4.5vw !important; margin-top: 4vw; cursor: default !important; }
-    .cp-newsletter-title::after { display: none !important; }
-    .cp-newsletter-form { display: flex; gap: 0; margin-bottom: 4vw; }
-    .cp-newsletter-form input  { font-size: 3.8vw; padding: 3vw 4vw; flex: 1; }
-    .cp-newsletter-form button { font-size: 3.5vw; padding: 3vw 5vw; border-radius: 0 50px 50px 0; }
-
-    /* Payment icons */
-    .cp-payment-methods { display: flex; gap: 2vw; flex-wrap: wrap; }
-    .cp-payment-methods img { height: 6vw !important; }
-    .cp-payment-methods .fab { font-size: 6vw; color: #fff; }
-
-    /* Footer bottom */
-    .cp-footer-bottom { padding-top: 5vw; text-align: center; font-size: 3.5vw; }
-}
-
-/* Payment outside — desktop hide, mobile show */
-.cp-payment-outside {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    .cp-payment-outside {
-        display: flex;
-        justify-content: center;
-        gap: 2vw;
-        flex-wrap: wrap;
-        padding: 5vw 5vw 0;
-    }
-    .cp-payment-outside img { height: 6vw !important; }
-    .cp-payment-outside .fab { font-size: 6vw; color: #fff; }
-}
-
-/* Newsletter + Payment outside block */
-.cp-footer-outside {
-    display: none; /* desktop pe hidden — desktop mein col-5 mein already hai */
-}
-
-@media (max-width: 768px) {
-    .cp-footer-outside {
-        display: block;
-        padding: 5vw 5vw 0;
-        border-top: 1px solid rgba(255,255,255,0.1);
-    }
-    .cp-footer-outside .cp-newsletter-title {
-        font-size: 4.5vw;
-        color: #fff;
-        margin-bottom: 3vw;
-        cursor: default;
-    }
-    .cp-footer-outside .cp-newsletter-form {
-        display: flex;
-        gap: 0;
-        margin-bottom: 5vw;
-    }
-    .cp-footer-outside .cp-newsletter-form input {
-        flex: 1;
-        font-size: 3.8vw;
-        padding: 3vw 4vw;
-        background: transparent;
-        border: none;
-        border-bottom: 1px solid rgba(255,255,255,0.3);
-        color: #fff;
-        outline: none;
-    }
-    .cp-footer-outside .cp-newsletter-form button {
-        font-size: 3.5vw;
-        padding: 3vw 5vw;
-        border-radius: 50px;
-        background: #f5c542;
-        color: #111;
-        border: none;
-        font-weight: 700;
-        cursor: pointer;
-        flex-shrink: 0;
-    }
-    .cp-footer-outside .cp-payment-outside {
-        display: flex;
-        justify-content: center;
-        gap: 2vw;
-        flex-wrap: wrap;
-        padding: 0;
-    }
-    .cp-footer-outside .cp-payment-outside img { height: 6vw !important; }
-    .cp-footer-outside .cp-payment-outside .fab { font-size: 6vw; color: #fff; }
-}
-
-/* ================================================
    NEW HERO CSS (Copied from allcategories)
    ================================================ */
 .box-by-industry {
@@ -3430,48 +2871,15 @@ img {
   display: block;
   overflow: visible;
 }
-/* Breadcrumb — always pinned at top of section, independent of grid */
-.box-by-industry > .hero-breadcrumb {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 6px;
-  padding: 40px 40px 0 90px;
-  color: #a0a0a0;
-  font-size: 0.85rem;
-  line-height: 1.5;
-  overflow: visible;
-  white-space: normal;
-  margin-bottom: 0;
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 1440px;
-  box-sizing: border-box;
-  margin-left: auto;
-  margin-right: auto;
-}
-.box-by-industry > .hero-breadcrumb a,
-.box-by-industry > .hero-breadcrumb span {
-  display: inline-flex;
-  align-items: center;
-  color: #a0a0a0;
-  text-decoration: none;
-  white-space: nowrap;
-}
-.box-by-industry > .hero-breadcrumb a.breadcrumb-home {
-  color: var(--accent-gold);
-}
-.box-by-industry > .hero-breadcrumb span:last-child {
-  color: #ffffff;
-}
 /* Desktop only — hide on mobile */
 .hero-breadcrumb-desktop {
   display: flex;
+  padding-top: 40px;
 }
 @media (max-width: 768px) {
   .hero-breadcrumb-desktop {
-    display: none !important;
+    display: flex !important;
+    padding-top: 18vw;
   }
 }
 .industry-hero-content {
@@ -3493,20 +2901,7 @@ img {
   justify-content: flex-start;
   padding-top: 0;
 }
-.industry-hero-left .hero-breadcrumb a,
-.industry-hero-left .hero-breadcrumb span {
-  display: inline-flex;
-  align-items: center;
-  color: #a0a0a0;
-  text-decoration: none;
-  white-space: nowrap;
-}
-.industry-hero-left .hero-breadcrumb a.breadcrumb-home {
-  color: var(--accent-gold);
-}
-.industry-hero-left .hero-breadcrumb span:last-child {
-  color: #ffffff;
-}
+
 .industry-hero-left h1 {
   font-size: 2.75rem;
   font-family: var(--font-heading);
@@ -3515,6 +2910,7 @@ img {
   margin-bottom: 14px;
   margin-top: 0;
   padding: 0;
+  color: #ffffff;
 }
 .highlight-yellow {
   color: var(--accent-gold);
@@ -3589,10 +2985,7 @@ img {
     background: #1a1a1a;
   }
 
-  /* Breadcrumb — hidden on mobile */
-  .box-by-industry > .hero-breadcrumb {
-    display: none !important;
-  }
+  /* Breadcrumb — hidden on mobile removed */
 
   /* Grid → single column stack */
   .industry-hero-content {
@@ -3634,6 +3027,7 @@ img {
     display: block;
     object-fit: contain;
     vertical-align: bottom;
+    transform: scale(1.15); /* Make the image visually larger to fill side space */
   }
 
   /* TEXT — order 2, below image */
@@ -3642,30 +3036,34 @@ img {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
-    padding: 20px 20px 28px 20px !important;
+    padding: 24px 10px 32px 10px !important; /* Very small side padding */
     background: #1a1a1a;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box !important;
   }
 
   .industry-hero-left h1 {
-    font-size: 28px;
+    font-size: 1.92rem;
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 14px;
     margin-top: 0;
     word-break: break-word;
-    text-align: left;
+    text-align: center;
     color: #ffffff;
+    width: 100%;
   }
 
   .industry-hero-left p {
-    font-size: 14px;
-    line-height: 1.75;
-    color: #a0a0a0;
+    font-size: 16px;
+    line-height: 1.65;
+    color: #c5c5c5;
     margin-bottom: 24px;
-    text-align: left;
+    text-align: justify;
+    text-align-last: center;
     width: 100%;
   }
 
@@ -3675,9 +3073,9 @@ img {
     width: auto !important;
     margin: 0 auto !important;
     text-align: center;
-    padding: 13px 32px;
-    font-size: 15px;
-    font-weight: 700;
+    padding: 14px 36px;
+    font-size: 16px;
+    font-weight: 800;
     border-radius: 50px;
     background-color: #ffc542;
     color: #000;
@@ -3833,7 +3231,7 @@ img {
 /* --- Base Section & Background Floors --- */
 .quote-section {
   width: 100%;
-  padding: 30px 5%;
+  padding: 15px 5%;
   box-sizing: border-box;
   background-color: #151515; /* Layout background floor */
   font-family: var(--font-body), sans-serif;
@@ -3868,17 +3266,20 @@ img {
 .quote-side-image {
   width: 100%;
   height: 100%;
+  position: relative;
   display: flex;
   flex: 1;
 }
 
 .quote-side-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center top;
   display: block;
-  flex: 1;
 }
 
 /* --- Column 2 Layout (Request Free Quote Form Container) --- */
@@ -3886,7 +3287,7 @@ img {
   flex: 1;
   background-color: var(--bg-dark);
   border-radius: 0 8px 8px 0;
-  padding: 25px 45px;
+  padding: 15px 45px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -3909,19 +3310,20 @@ img {
   width: 100%;
   display: flex;
   flex-direction: column;
-  
+  gap: 12px;
 }
 
 /* --- Structural Form Grids --- */
 .form-row {
   display: grid;
-  gap: 10px;
+  gap: 12px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 /* Double input fields: Name, Email, Phone, Address */
 .dual-grid {
-  grid-template-columns: calc(50% - 6px) calc(50% - 6px);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 /* Dimensions Row: Width, Length, Depth, Unit */
@@ -3934,7 +3336,6 @@ img {
 .options-grid-custom {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 12px;
   width: 100%;
 }
 .options-grid-custom > .form-group:nth-child(1),
@@ -3984,14 +3385,26 @@ img {
 .form-group textarea {
   width: 100%;
   height: 38px;
-  background-color: var(--bg-darker); /* Keeping dark theme inputs */
-  border: 0.2px solid #727272; /* Required layout boundary rules */
+  background-color: #1a1a1a; /* Keeping dark theme inputs */
+  border: 1px solid #333; /* Exact border color from Figma */
   border-radius: 6px;
   padding: 8px 12px;
   color: var(--text-main);
   font-size: 13px;
   box-sizing: border-box;
   outline: none;
+}
+
+/* Dropdown - custom arrow with proper right spacing */
+.form-group select {
+  padding-right: 36px !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23aaa' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 12px center !important;
+  background-size: 12px 8px !important;
 }
 
 .form-group textarea {
@@ -4003,7 +3416,7 @@ img {
 /* File Upload Wrapper Styling */
 .file-upload-wrapper {
   display: flex;
-  border: 0.2px solid #727272;
+  border: 1px solid #333;
   border-radius: 6px;
   background-color: var(--bg-darker);
   overflow: hidden;
@@ -4079,15 +3492,17 @@ img {
 /* --- Inline Human Verification (Inside Form) --- */
 .human-verification-inline {
   width: 100%;
-  margin-top: 8px;
   padding: 12px 20px;
   background-color: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 193, 7, 0.2);
   border-radius: 8px;
   box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .human-verification-header {
@@ -4191,7 +3606,7 @@ img {
   }s
 }
 /* --- Responsive Adaptations --- */
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   .quote-container {
     flex-direction: column;
     height: auto;
@@ -4233,12 +3648,12 @@ img {
     display: none !important;
   }
   .quote-form-col {
-    padding: 35px 20px;
+    padding: 35px 16px;
+    border-radius: 0;
   }
 
   /* First 4 fields (Name, Email, Phone, Physical Address) - Full width in mobile */
-  .instant-quote-form > .form-row.dual-grid:nth-child(1),
-  .instant-quote-form > .form-row.dual-grid:nth-child(2) {
+  .instant-quote-form > .form-row.dual-grid {
     grid-template-columns: 1fr !important;
   }
 
@@ -4247,10 +3662,8 @@ img {
     width: 100%;
   }
 
-  /* All other dual-grid rows stay 2x2 */
-  .form-row.dual-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  /* Redefine grid for other rows to ensure they stay as intended */
+  .form-row {
     gap: 12px;
   }
 
@@ -4285,6 +3698,10 @@ img {
   .form-group select {
     height: 46px;
   }
+  .submit-quote-btn {
+    width: 100%;
+    margin-top: 10px;
+  }
 }
 
 /* --- CTA Main Container Block --- */
@@ -4297,10 +3714,21 @@ img {
   padding-top: 20px !important;
 }
 
-/* Reduce gap between Testimonials, Quote section, and FAQs (Desktop) */
+/* Reduce gap between Customize, Testimonials, Quote section, and FAQs (Desktop) */
+.customize-section {
+  padding-bottom: 15px !important;
+}
 .testimonials-section {
+  padding-top: 15px !important;
   padding-bottom: 20px !important;
   margin-bottom: 0 !important;
+}
+.testimonials-header {
+  margin-bottom: 20px !important;
+}
+.testimonials-header h2 {
+  margin-top: 0 !important;
+  margin-bottom: 10px !important;
 }
 .quote-section {
   padding-top: 20px !important;
@@ -4340,6 +3768,283 @@ img {
     margin-top: 0 !important;
   }
 }
+/* Standardize all wrappers to align with header logo (responsive spacing) */
+.cp-wrap, 
+.hiw-wrap, 
+.pg-wrap, 
+.product-container,
+.industry-hero-content,
+.hero-breadcrumb-desktop,
+.customize-section,
+.testimonials-wrap,
+.tb-inner {
+    max-width: 1440px !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 55px !important; /* Default padding for laptop screens (aligns with 15px logo margin) */
+    padding-right: 55px !important;
+    box-sizing: border-box !important;
+}
+
+.customize-section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+}
+
+@media (min-width: 1200px) {
+    .cp-wrap, 
+    .hiw-wrap, 
+    .pg-wrap, 
+    .product-container,
+    .industry-hero-content,
+    .hero-breadcrumb-desktop,
+    .customize-section,
+    .testimonials-wrap,
+    .tb-inner {
+        padding-left: 60px !important; /* Aligns with 20px logo margin */
+        padding-right: 60px !important;
+    }
+}
+
+@media (min-width: 1440px) {
+    .cp-wrap, 
+    .hiw-wrap, 
+    .pg-wrap, 
+    .product-container,
+    .industry-hero-content,
+    .hero-breadcrumb-desktop,
+    .customize-section,
+    .testimonials-wrap,
+    .tb-inner {
+        padding-left: 80px !important; /* Aligns with 40px logo margin */
+        padding-right: 80px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .cp-wrap, 
+    .hiw-wrap, 
+    .pg-wrap, 
+    .product-container,
+    .industry-hero-content,
+    .hero-breadcrumb-desktop,
+    .customize-section,
+    .testimonials-wrap,
+    .tb-inner {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+}
+
+/* Quote section alignment overrides */
+/* Quote section alignment overrides to align exactly under the main container grid */
+@media (min-width: 769px) {
+    .quote-section {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-top: 30px !important;
+        padding-bottom: 30px !important;
+        box-sizing: border-box !important;
+    }
+}
+.quote-container {
+    width: 100% !important;
+    max-width: calc(100% - 110px) !important; /* Aligns with 55px left/right margins on laptop screens */
+    margin: 0 auto !important;
+}
+
+@media (min-width: 1200px) {
+    .quote-container {
+        max-width: calc(100% - 120px) !important; /* Aligns with 60px left/right margins */
+    }
+}
+
+@media (min-width: 1440px) {
+    .quote-container {
+        max-width: 1280px !important; /* Aligns with 1440px main container (minus 80px padding on each side) */
+    }
+}
+
+@media (max-width: 768px) {
+    .quote-container {
+        max-width: 100% !important; /* Full width on mobile */
+        border-radius: 0 !important;
+    }
+}
+
+/* Allow Customize Your Box grid to span 100% width of the 1440px container */
+.customize-grid {
+    max-width: 100% !important;
+}
+
+/* Make customize section buttons and active states use primary yellow */
+.filter-btn {
+    border-color: #F8CB54 !important;
+}
+.filter-btn.active {
+    background-color: #F8CB54 !important;
+    border-color: #F8CB54 !important;
+}
+
+/* Reduce gap between customize header subtitle and filter buttons */
+.customize-header {
+    margin-bottom: 20px !important;
+}
+.filter-buttons {
+    margin: 25px 0 !important;
+}
+
+/* Quote form styling overrides: autofill, placeholder, invalid states */
+.quote-section input:-webkit-autofill,
+.quote-section input:-webkit-autofill:hover, 
+.quote-section input:-webkit-autofill:focus, 
+.quote-section input:-webkit-autofill:active,
+.quote-section select:-webkit-autofill,
+.quote-section textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #171717 inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.quote-section input::placeholder,
+.quote-section select::placeholder,
+.quote-section textarea::placeholder {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+.quote-section input:invalid,
+.quote-section select:invalid,
+.quote-section textarea:invalid,
+.quote-section input:-moz-ui-invalid,
+.quote-section input:valid {
+    box-shadow: none !important;
+    border-color: #333 !important;
+    outline: none !important;
+}
+
+.quote-section input:focus,
+.quote-section select:focus,
+.quote-section textarea:focus {
+    border-color: var(--accent-gold) !important;
+}
+
+/* Testimonial card internal spacing and button overrides */
+.testimonial-card p {
+    margin-bottom: 12px !important;
+}
+.read-more-btn {
+    margin-bottom: 8px !important;
+    text-decoration: none !important;
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: none !important;
+    color: var(--text-muted) !important;
+}
+.read-more-btn:focus,
+.read-more-btn:active,
+.read-more-btn:hover {
+    text-decoration: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: none !important;
+}
+
+/* Remove default focus outlines for buttons on click */
+.human-check-btn:focus,
+.human-check-btn:active,
+.human-check-btn:focus-visible,
+.submit-quote-btn:focus,
+.submit-quote-btn:active,
+.submit-quote-btn:focus-visible,
+.cq-submit-btn:focus,
+.cq-submit-btn:active,
+.cq-submit-btn:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+}
+.testimonial-card .testi-name {
+    margin-bottom: 3px !important;
+    line-height: 1.2 !important;
+}
+.testimonial-card span {
+    display: block !important;
+    margin-top: 0px !important;
+    line-height: 1.2 !important;
+}
+
+/* Customize section cards UI & background overrides to match Figma */
+.customize-card {
+    background: #242424 !important;
+    border: 1px solid #2d2d2d !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25) !important;
+}
+.card-image-area {
+    border-radius: 12px 12px 0 0 !important;
+    background: #252525 !important;
+    height: 160px !important; /* Shorter card height */
+}
+.card-content {
+    padding: 14px 15px !important;
+}
+.card-content .card-title {
+    margin-bottom: 8px !important;
+}
+.card-content p {
+    font-size: 13px !important;
+    line-height: 19px !important;
+    margin-bottom: 12px !important;
+}
+.icon-circle {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 50% !important;
+    font-size: 13px !important;
+    line-height: 1 !important;
+    user-select: none !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
+}
+.icon-circle:first-child {
+    background-color: #5c67f2 !important; /* Premium purple-blue background */
+    color: #fff !important;
+}
+.icon-circle:nth-child(2) {
+    background-color: #c4b097 !important; /* Premium beige/tan background */
+}
+
+/* Reduce spacing between products and How it Works section */
+.cp-products {
+    padding-bottom: 0px !important;
+}
+.cp-grid {
+    margin-bottom: 10px !important;
+}
+.hiw-section {
+    padding-top: 15px !important;
+}
+
+/* Spacing overrides for How it Works section to make it compact */
+.hiw-header {
+    margin-bottom: 25px !important;
+}
+@media (min-width: 769px) {
+    .hiw-step {
+        padding-top: 85px !important;
+        padding-bottom: 30px !important;
+    }
+    .hiw-step-body {
+        top: 65px !important;
+    }
+}
+
+
 </style>
 @php
     $isGiftBoxesPage = ($slug ?? '') === 'gift-boxes';
@@ -4350,20 +4055,13 @@ img {
         <!-- Box By Industry Section -->
         <section class="box-by-industry{{ $isGiftBoxesPage ? ' gift-boxes-page' : '' }}">
 
-            {{-- Breadcrumb — outside grid, always at top --}}
-            <div class="hero-breadcrumb hero-breadcrumb-desktop">
-                <a href="{{ url('/') }}" class="breadcrumb-home">
-                    <img src="{{ asset('uploads/house-chimney 1.svg') }}" alt="home" title="Home" style="width: 16px; height: 16px;">
-                </a>
-
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16" style="margin: 0 8px; color: #a0a0a0;">
-                      <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
-                      <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
-                    </svg>
-                    {{ !empty($value) && count($value) > 0 ? $value[0]->name : 'Category' }}
-                </span>
-            </div>
+            {{-- Breadcrumb --}}
+            @include('web.components.breadcrumb', [
+                'class' => 'hero-breadcrumb-desktop',
+                'items' => [
+                    ['label' => !empty($value) && count($value) > 0 ? $value[0]->name : 'Category']
+                ]
+            ])
 
             <div class="industry-hero-content">
                 <div class="industry-hero-left">
@@ -4761,244 +4459,14 @@ img {
     </script>
 </section>
         <!-- ==========================================
-             TESTIMONIALS SECTION
-        =========================================== -->
-        <section class="testimonials-section">
-            <div class="container">
-
-                <div class="testimonials-header">
-                    <!-- <span class="section-badge-text">TESTIMONIALS</span> -->
-                    <h2>What Our Customers Say</h2>
-                    <p>Hear from brands who trust us with their packaging needs.</p>
-                </div>
-
-                <div class="testimonial-grid">
-                    @foreach($testimonial as $testi)
-                    <div class="testimonial-card">
-                        <img src="{{ asset('images/' . $testi->image) }}" alt="{{ strtolower(str_replace('-', ' ', $testi->name)) }}" class="avatar-img" title="{{ ucwords(strtolower(str_replace('-', ' ', $testi->name))) }}">
-                        <p class="testimonial-text">
-                            {{ $testi->comment }}
-                        </p>
-                        @if(strlen($testi->comment) > 130)
-                        <button class="read-more-btn">Read more</button>
-                        @endif
-
-                        <span class="testi-name">{{ $testi->name }}</span>
-                        <span>{{ $testi->profile_link }}</span>
-                    </div>
-                    @endforeach
-                </div>
-
-                <div class="testimonial-nav">
-                    <button class="testimonial-prev-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-                    <button class="testimonial-next-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Testimonials Navigation Script -->
-        <script>
-        (function() {
-            const grid = document.querySelector('.testimonial-grid');
-            const prevBtn = document.querySelector('.testimonial-prev-btn');
-            const nextBtn = document.querySelector('.testimonial-next-btn');
-
-            // Read More Logic
-            const readMoreBtns = document.querySelectorAll('.read-more-btn');
-            readMoreBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const textPara = this.previousElementSibling;
-                    if(textPara) {
-                        textPara.classList.toggle('expanded');
-                        if (textPara.classList.contains('expanded')) {
-                            this.textContent = 'Read less';
-                        } else {
-                            this.textContent = 'Read more';
-                        }
-                    }
-                });
-            });
-
-            if (!grid || !prevBtn || !nextBtn) return;
-
-            let currentIndex = 0;
-            const cards = grid.querySelectorAll('.testimonial-card');
-            const totalCards = cards.length;
-
-            function scrollToCard(index) {
-                const visibleCards = window.innerWidth > 992 ? 3 : 1;
-                const maxIndex = totalCards - visibleCards;
-
-                if (index < 0) index = 0;
-                if (index > maxIndex) index = maxIndex;
-
-                currentIndex = index;
-                const gap = window.innerWidth > 992 ? 25 : 0;
-                const cardWidth = cards[0].offsetWidth + gap;
-                grid.scrollTo({
-                    left: cardWidth * index,
-                    behavior: 'smooth'
-                });
-            }
-
-            prevBtn.onclick = function() {
-                scrollToCard(currentIndex - 1);
-            };
-
-            nextBtn.onclick = function() {
-                scrollToCard(currentIndex + 1);
-            };
-
-            // Track scroll position
-            grid.addEventListener('scroll', function() {
-                const gap = window.innerWidth > 992 ? 25 : 0;
-                const cardWidth = cards[0].offsetWidth + gap;
-                currentIndex = Math.round(grid.scrollLeft / cardWidth);
-            });
-        })();
-        </script>
+     TESTIMONIALS SECTION
+=========================================== -->
+@include('web.components.testimonials')
 
 <!-- ================================================
      REQUEST A FREE QUOTE SECTION
      ================================================ -->
-<section class="quote-section">
-            <div class="quote-container">
-
-                <div class="quote-steps-col">
-                    <div class="quote-side-image">
-                        <img src="{{ asset('uploads/frame-81.webp') }}" alt="custom packaging quote" title="Custom Packaging Quote">
-                    </div>
-                </div>
-                <div class="quote-form-col">
-                    <h2>Request a Free Quote</h2>
-
-                    @if(Session::has('success'))
-                        <div class="alert alert-success" style="background: #28a745; color: white; padding: 12px 20px; border-radius: 8px; margin-bottom: 20px; font-weight: 600; text-align: center;">
-                            {{ Session::get('success') }}
-                        </div>
-                    @endif
-
-                    <form class="instant-quote-form" action="{{ url('submit-quote') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <input type="hidden" name="source" value="Categories quote form">
-                        <input type="hidden" name="page_url" value="{{ url()->current() }}">
-                        <div class="form-row dual-grid">
-                            <div class="form-group">
-                                <label>Name *</label>
-                                <input type="text" name="name" placeholder="Enter your name" required oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
-                            </div>
-                            <div class="form-group">
-                                <label>Email Address *</label>
-                                <input type="email" name="email" placeholder="Enter your email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
-                            </div>
-                        </div>
-
-                        <div class="form-row dual-grid">
-                            <div class="form-group">
-                                <label>Phone *</label>
-                                <input type="tel" name="phone" placeholder="Enter your number" required oninput="this.value = this.value.replace(/[^0-9+]/g, '')">
-                            </div>
-                            <div class="form-group">
-                                <label>Physical Address</label>
-                                <input type="text" name="address" placeholder="Enter your address">
-                            </div>
-                        </div>
-
-                        <div class="form-row dimensions-grid">
-                            <div class="form-group">
-                                <label>Width *</label>
-                                <input type="text" name="width" placeholder="Width" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')">
-                            </div>
-                            <div class="form-group">
-                                <label>Length *</label>
-                                <input type="text" name="length" placeholder="Length" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')">
-                            </div>
-                            <div class="form-group">
-                                <label>Depth *</label>
-                                <input type="text" name="depth" placeholder="Depth" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')">
-                            </div>
-                            <div class="form-group">
-                                <label>Units *</label>
-                                <select name="unit" required>
-                                    <option value="mm">mm</option>
-                                    <option value="cm">cm</option>
-                                    <option value="inch">inch</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-row options-grid-custom">
-                            <div class="form-group">
-                                <label>Select Material</label>
-                                @php
-                                    $materialCategory = DB::table('add_category')->where('name', 'Box by Material')->first();
-                                    $materials = $materialCategory ? DB::table('add_category')->where('parent_category', $materialCategory->cat_id)->where('status', 1)->get() : collect([]);
-                                @endphp
-                                <select name="material">
-                                    <option value="">Select Material</option>
-                                    @foreach($materials as $material)
-                                        <option value="{{ $material->name }}">{{ $material->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Color Options</label>
-                                <select name="color_options">
-                                    <option value="">Color Options</option>
-                                    <option value="1 Color">1 Color</option>
-                                    <option value="2 Colors">2 Colors</option>
-                                    <option value="3 Colors">3 Colors</option>
-                                    <option value="Full Color">Full Color</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Select Product Name</label>
-                                <input type="text" name="product_name" placeholder="Enter product name">
-                            </div>
-                            <div class="form-group">
-                                <label>Quantity *</label>
-                                <input type="number" name="quantity" placeholder="Enter quantity" required oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-                            </div>
-                            <div class="form-group upload-group">
-                                <label>Upload File Here</label>
-                                <div class="file-upload-wrapper">
-                                    <input type="text" placeholder="No file choosen" readonly>
-                                    <label class="upload-btn">Upload <input type="file" name="artwork" style="display:none;"></label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group textarea-group">
-                            <label>Message</label>
-                            <textarea name="message" placeholder="Enter your message" rows="4"></textarea>
-                        </div>
-
-                        <!-- ================================================
-                             HUMAN VERIFICATION INLINE
-                             ================================================ -->
-                        <div class="human-verification-inline">
-                            <div class="human-verification-header">
-                                <h3 class="human-verification-inline-title">Are you a human?</h3>
-                                <p class="human-verification-inline-copy">Solve this quick addition before continuing.</p>
-                            </div>
-                            <div class="human-verification-inline-control">
-                                <span class="human-question" id="humanQuestion">0 + 0 =</span>
-                                <input type="number" class="human-answer" id="humanAnswer" placeholder="Answer" aria-label="Human verification answer">
-                                <button type="button" class="human-check-btn" id="humanCheckBtn">Verify</button>
-                            </div>
-                            <span class="human-status" id="humanStatus" aria-live="polite"></span>
-                        </div>
-
-                        <button type="submit" class="submit-quote-btn">Instant Quote</button>
-                    </form>
-                </div>
-
-            </div>
-
-        </section>
-
-
+@include('web.components.quote-form', ['source' => 'Category Page Quote Form'])
 <!-- ================================================
      PACKAGING GUIDE SECTION
      ================================================ -->
@@ -5049,7 +4517,7 @@ img {
                 <div class="pg-cta-box">
                     <h4 class="pg-cta-title">Need help choosing?</h4>
                     <p class="pg-cta-sub">Our team responds within 2 hours</p>
-                    <a href="#" class="pg-cta-btn">Chat with an expert</a>
+                    <a href="{{ url('contact-us') }}" class="pg-cta-btn">Chat with an expert</a>
                 </div>
             </div>
         </div>
@@ -5057,48 +4525,12 @@ img {
     </div>
 </section>
 
-<!-- ================================================
-     CTA BANNER SECTION
-     ================================================ -->
-<section class="cp-cta-banner" style="justify-content: center;">
-    <div style="width: 100%; max-width: 1440px; margin: 0 auto; display: flex; align-items: inherit; justify-content: space-between; gap: inherit; flex-direction: inherit; position: relative;">
-        <div class="cp-cta-banner-left">
-        <h2 class="cp-cta-banner-heading">
-            Ready to Elevate Your <span class="cp-cta-banner-gold">Packaging</span>?
-        </h2>
-        <p class="cp-cta-banner-text">
-            Let's bring your packaging vision to life. Our team of experts is ready to<br>
-            design and deliver rigid boxes that will make your brand unforgettable.
-        </p>
-        <a href="{{ url('request-quote') }}" class="cp-cta cp-cta-banner-btn">Get Your Free Quote Today</a>
-    </div>
-
-    <div class="cp-cta-banner-imgs">
-        <!-- Image 1 — large, top, -23.35deg -->
-        <img
-            src="{{ asset('uploads/cta-allcateagories.png') }}"
-            alt="rigid inspiration" title="Rigid Inspiration"
-            class="cp-cta-img cp-cta-img-1"
-        >
-        <!-- Image 2 — medium, bottom-left, -23.35deg -->
-        <img
-            src="{{ asset('uploads/cta-allcategories.png') }}"
-            alt="luxury box packaging" title="Luxury Box Packaging"
-            class="cp-cta-img cp-cta-img-2"
-        >
-        <!-- Image 3 — medium, bottom-right, -23.35deg -->
-        <img
-            src="{{ asset('uploads/cta-allcategories.png') }}"
-            alt="luxury box packaging" title="Luxury Box Packaging"
-            class="cp-cta-img cp-cta-img-3"
-        >
-    </div>
-    </div>
-</section>
+@include('web.components_cta_banner')
 
 <!-- ================================================
      FOOTER SECTION
      ================================================ -->
+
 @include('web.footer')
 <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -5212,7 +4644,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ── CTA Banner Button ──
-    const ctaBannerBtn = document.querySelector('.cp-cta-banner-btn');
+    const ctaBannerBtn = document.querySelector('.cp-cta-banner-comp-btn');
     if (ctaBannerBtn) {
         ctaBannerBtn.addEventListener('click', function(e) {
             // let the href handle it, or we can explicitly set it here
@@ -5223,139 +4655,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    // ── FILE UPLOAD ──
-    const fileInput = document.querySelector('input[type="file"]');
-    const fileNameField = document.querySelector(".file-upload-wrapper input[type='text']");
+});
+</script>
 
-    if (fileInput && fileNameField) {
-        fileInput.addEventListener("change", () => {
-            if (fileInput.files.length > 0) {
-                fileNameField.value = fileInput.files[0].name;
-            } else {
-                fileNameField.value = "No file chosen";
-            }
-        });
-    }
 
-    // Standalone human verification section
-    const humanQuestion = document.getElementById('humanQuestion');
-    const humanAnswer = document.getElementById('humanAnswer');
-    const humanCheckBtn = document.getElementById('humanCheckBtn');
-    const humanStatus = document.getElementById('humanStatus');
-    let humanTotal = 0;
-
-    function generateHumanQuestion() {
-        const firstNumber = Math.floor(Math.random() * 9) + 1;
-        const secondNumber = Math.floor(Math.random() * 9) + 1;
-        humanTotal = firstNumber + secondNumber;
-        if (humanQuestion) humanQuestion.textContent = firstNumber + ' + ' + secondNumber + ' =';
-        if (humanAnswer) {
-            humanAnswer.value = '';
-            humanAnswer.style.border = '';
+<!-- Dynamic padding adjustment for fixed header (zoom fix) -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const header = document.getElementById('site-header');
+    const mainContent = document.getElementById('main-content');
+    if (header && mainContent) {
+        const adjustPadding = () => {
+            mainContent.style.paddingTop = header.offsetHeight + 'px';
+        };
+        adjustPadding();
+        window.addEventListener('resize', adjustPadding);
+        if (window.ResizeObserver) {
+            new ResizeObserver(adjustPadding).observe(header);
         }
-        if (humanStatus) {
-            humanStatus.textContent = '';
-            humanStatus.classList.remove('is-error', 'is-success');
-        }
-    }
-
-    if (humanQuestion && humanAnswer && humanCheckBtn) {
-        generateHumanQuestion();
-        humanCheckBtn.addEventListener('click', function () {
-            const isCorrect = humanAnswer.value.trim() !== '' && Number(humanAnswer.value.trim()) === humanTotal;
-            if (isCorrect) {
-                humanAnswer.style.border = '';
-                if (humanStatus) {
-                    humanStatus.textContent = 'Verified.';
-                    humanStatus.classList.remove('is-error');
-                    humanStatus.classList.add('is-success');
-                }
-            } else {
-                humanAnswer.style.border = '1px solid red';
-                if (humanStatus) {
-                    humanStatus.textContent = 'Please solve the addition correctly.';
-                    humanStatus.classList.remove('is-success');
-                    humanStatus.classList.add('is-error');
-                }
-                humanAnswer.focus();
-            }
-        });
-    }
-    // ── QUOTE FORM VALIDATION ──
-    const quoteForm = document.querySelector(".instant-quote-form");
-
-    if (quoteForm) {
-        // Disable default HTML5 validation tooltips to use custom logic
-        quoteForm.setAttribute('novalidate', true);
-
-        quoteForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-
-            let isValid = true;
-            let firstInvalidField = null;
-
-            // Check all required fields in the form
-            const requiredFields = quoteForm.querySelectorAll('[required]');
-            requiredFields.forEach(field => {
-                let valid = true;
-                const val = field.value.trim();
-
-                if (!val) {
-                    valid = false;
-                } else if (field.type === 'email') {
-                    // Simple email validation regex
-                    const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
-                    if (!emailRegex.test(val)) valid = false;
-                } else if (field.type === 'tel') {
-                    // Simple phone validation (at least 7 digits/characters like + - spaces)
-                    const phoneRegex = /^\\+?[\\d\\s\\-\\(^\\)]{7,20}$/;
-                    if (!phoneRegex.test(val)) valid = false;
-                }
-
-                if (!valid) {
-                    isValid = false;
-                    field.style.border = "1px solid red";
-                    if (!firstInvalidField) {
-                        firstInvalidField = field;
-                    }
-                } else {
-                    field.style.border = ""; // reset border if valid
-                }
-            });
-
-            // Human verification captcha check
-            let isVerified = false;
-            if (humanAnswer && humanStatus) {
-                isVerified = humanStatus.classList.contains('is-success') || (humanAnswer.value.trim() !== '' && Number(humanAnswer.value.trim()) === humanTotal);
-                if (isVerified) {
-                    humanAnswer.style.border = '';
-                    humanStatus.textContent = 'Verified.';
-                    humanStatus.classList.remove('is-error');
-                    humanStatus.classList.add('is-success');
-                } else {
-                    isValid = false;
-                    humanAnswer.style.border = '1px solid red';
-                    humanStatus.textContent = 'Please solve the addition correctly.';
-                    humanStatus.classList.remove('is-success');
-                    humanStatus.classList.add('is-error');
-                    if (!firstInvalidField) {
-                        firstInvalidField = humanAnswer;
-                    }
-                }
-            }
-
-            if (!isValid) {
-                if (firstInvalidField) firstInvalidField.focus();
-                return;
-            }
-
-            quoteForm.submit();
-        });
+        // Fallback for fonts or images loading late in header
+        setTimeout(adjustPadding, 500);
     }
 });
 </script>
 </body>
 </html>
-
-
-

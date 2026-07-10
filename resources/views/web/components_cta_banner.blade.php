@@ -9,11 +9,9 @@
     overflow: hidden;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 60px 80px;
-    min-height: 280px;
-    gap: 40px;
-   
+    justify-content: center;
+    padding: clamp(44px, 5vw, 64px) 0;
+    min-height: clamp(360px, 30vw, 460px);
     width: 100%;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
@@ -23,18 +21,47 @@
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
+    padding-left: 55px;
+    padding-right: 55px;
+    box-sizing: border-box;
     display: flex;
-    align-items: inherit;
+    align-items: center;
     justify-content: space-between;
-    gap: inherit;
-    flex-direction: inherit;
+    gap: clamp(28px, 4vw, 64px);
     position: relative;
 }
 
+@media (min-width: 769px) {
+    .cp-cta-banner-comp-container {
+        position: static !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .cp-cta-banner-comp-container {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .cp-cta-banner-comp-container {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cp-cta-banner-comp-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
 .cp-cta-banner-comp-left {
-    margin-left: 81px;
     flex: 1;
-    max-width: 480px;
+    max-width: 620px;
+    margin-left: 0;
     display: flex;
     flex-direction: column;
     gap: 18px;
@@ -44,7 +71,7 @@
 }
 
 .cp-cta-banner-comp-heading {
-    font-size: 30px;
+    font-size: clamp(30px, 3vw, 56px);
     font-weight: 800;
     color: #ffffff;
     line-height: 1.25;
@@ -52,14 +79,15 @@
 }
 
 .cp-cta-banner-comp-gold {
-    color: #f5c542;
+    color: #F8CB54;
 }
 
 .cp-cta-banner-comp-text {
-    font-size: 14px;
+    font-size: clamp(14px, 1.3vw, 18px);
     color: rgba(255, 255, 255, 0.65);
     line-height: 1.75;
     margin: 0;
+    max-width: 560px;
 }
 
 .cp-cta-banner-comp-btn {
@@ -68,7 +96,7 @@
     align-items: center;
     justify-content: center;
     padding: 14px 32px;
-    background: #FFC107;
+    background: #F8CB54;
     color: #111 !important;
     text-decoration: none !important;
     font-size: 16px;
@@ -81,16 +109,39 @@
 }
 
 .cp-cta-banner-comp-btn:hover {
-    background: #e0a800;
+    background: #e5b63d;
     transform: translateY(-2px);
 }
 
 .cp-cta-banner-comp-imgs {
     position: relative;
-    width: 460px;
-    height: 280px;
+    width: min(42vw, 520px);
+    height: clamp(280px, 24vw, 380px);
     flex-shrink: 0;
-    overflow: visible;
+    overflow: hidden;
+}
+
+@media (min-width: 769px) {
+    .cp-cta-banner-comp-imgs {
+        position: absolute !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        right: 55px !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .cp-cta-banner-comp-imgs {
+        right: 60px !important;
+    }
+}
+
+@media (min-width: 1440px) {
+    .cp-cta-banner-comp-imgs {
+        right: calc((100% - 1440px) / 2 + 80px) !important;
+    }
 }
 
 .cp-cta-comp-img {
@@ -100,10 +151,10 @@
 }
 
 .cp-cta-comp-img-1 {
-    width: 283px;
-    height: 329px;
-    top: -130px;
-    right: -37px;
+    width: clamp(230px, 23vw, 340px);
+    height: clamp(270px, 27vw, 395px);
+    top: clamp(-82px, -6vw, -40px);
+    right: clamp(18px, 2vw, 34px);
     border-radius: 30px;
     transform: rotate(23.35deg);
     z-index: 3;
@@ -111,10 +162,10 @@
 }
 
 .cp-cta-comp-img-2 {
-    width: 157px;
-    height: 172px;
-    bottom: -94px;
-    right: 217px;
+    width: clamp(135px, 12vw, 180px);
+    height: clamp(148px, 13vw, 198px);
+    bottom: clamp(-58px, -4vw, -30px);
+    right: clamp(210px, 20vw, 300px);
     border-radius: 15px;
     transform: rotate(23.35deg);
     z-index: 2;
@@ -122,10 +173,10 @@
 }
 
 .cp-cta-comp-img-3 {
-    width: 155px;
-    height: 170px;
-    bottom: -161px;
-    right: 51px;
+    width: clamp(130px, 12vw, 178px);
+    height: clamp(145px, 13vw, 196px);
+    bottom: clamp(-94px, -7vw, -54px);
+    right: clamp(42px, 7vw, 110px);
     border-radius: 15px;
     transform: rotate(23.35deg);
     z-index: 1;
@@ -135,11 +186,14 @@
 /* Mobile responsive styles */
 @media (max-width: 768px) {
     .cp-cta-banner-component {
-        flex-direction: column-reverse;
         padding: 0 0 10vw 0;
         min-height: unset;
-        gap: 0;
         overflow: hidden;
+    }
+
+    .cp-cta-banner-comp-container {
+        flex-direction: column-reverse;
+        gap: 0;
     }
     
     .cp-cta-banner-comp-left {
@@ -175,6 +229,7 @@
         height: 70vw;
         position: relative;
         flex-shrink: 0;
+        overflow: hidden;
     }
     
     .cp-cta-comp-img-2,
@@ -186,7 +241,7 @@
         width: 72vw;
         height: 80vw;
         top: -10vw;
-        right: -10vw;
+        right: 0;
         border-radius: 6vw;
         transform: rotate(23.35deg);
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);

@@ -1,639 +1,1172 @@
 @include('web/header')
 
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+/* =========================================================
+   BLOG PAGE — FIGMA MATCHED / RESPONSIVE
+   ========================================================= */
 
-html, body {
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
     width: 100%;
     min-height: 100%;
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-    background-color: #1a1a1a;
-    color: #ffffff;
-    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
 body {
-    padding-top: 115px !important;
+    background: #1a1a1a;
+    color: #fff;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 
+/* Header file already controls body top offset on mobile.
+   This script below sets the correct value dynamically. */
+
+/* =========================
+   HERO
+   ========================= */
 
 .blog-hero {
-    height: 269px;
     position: relative;
     width: 100%;
-    /* min-height: 360px; */
+    height: 340px;
+    min-height: 340px;
+    overflow: hidden;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 72px 40px 56px;
     background-size: cover;
     background-position: center;
-    overflow: hidden;
+    background-repeat: no-repeat;
 }
+
 .blog-hero::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.65);
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.38) 0%,
+            rgba(0,0,0,.54) 55%,
+            rgba(0,0,0,.82) 100%
+        );
     z-index: 0;
 }
-.blog-hero > * { position: relative; z-index: 1; }
 
-/* Breadcrumb wrapper */
-.blog-hero-wrap {
-    position: absolute;
-    top: 24px;
-    left: 50%;
-    transform: translateX(-50%);
+.blog-hero-inner {
+    position: relative;
+    z-index: 1;
     width: 100%;
-    max-width: 1400px;
-    padding: 0 48px;
-    z-index: 2;
+    max-width: 1440px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 34px 48px 34px;
+    display: flex;
+    flex-direction: column;
 }
 
 .blog-breadcrumb {
     display: flex;
     align-items: center;
     gap: 7px;
-    font-size: 14px;
+    font-size: 13px;
     color: #cccccc;
+    margin-bottom: 66px;
+    align-self: flex-start;
 }
-.blog-bc-home {
-    font-size: 14px;
-    color: #c9a84c;
-    cursor: pointer;
-    line-height: 1;
-    display: flex;
-    align-items: center;
-    transition: color .25s;
-}
-.blog-bc-home:hover { color: #fff; }
-.blog-bc-sep     { color: #888; font-size: 14px; line-height: 1; display: flex; align-items: center; }
-.blog-bc-current { color: #ddd; font-weight: 500; cursor: pointer; font-size: 14px; line-height: 1; display: flex; align-items: center; }
 
-.blog-hero-content {margin-top: 37px; display: flex; flex-direction: column; align-items: center; }
+
+
+.blog-hero-content {
+    flex: 1;
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 5px;
+}
 
 .blog-hero-badge {
-    border: 1.5px solid #c9a84c;
-    color: #c9a84c;
-    font-size: 11px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #f5c542;
+    border-radius: 999px;
+    padding: 6px 20px;
+    margin-bottom: 14px;
+    color: #f5c542;
+    font-size: 10px;
     font-weight: 700;
-    letter-spacing: 3px;
+    line-height: 1;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    padding: 6px 24px;
-    border-radius: 50px;
-    margin-bottom: 20px;
-    background: transparent;
-    cursor: pointer;
-    transition: background-color .25s, color .25s, box-shadow .25s;
-}
-.blog-hero-badge:hover {
-    background-color: #c9a84c;
-    color: #000;
-    box-shadow: 0 0 14px rgba(201,168,76,.5);
 }
 
 .blog-hero-heading {
-    font-size: clamp(28px, 3.5vw, 48px);
+    margin: 0 0 12px;
+    color: #fff;
+    font-size: 42px !important;
     font-weight: 800;
-    line-height: 1.2;
-    color: #ffffff;
-    margin-bottom: 16px;
+    line-height: 1.16 !important;
+    letter-spacing: 0;
+    text-align: center;
 }
-.blog-hero-gold { color: #F5C542; }
+
+.blog-hero-gold {
+    color: #f5c542;
+}
 
 .blog-hero-subtext {
-    font-size: 16px;
-    color: #C5C5C5;
-    line-height: 1.75;
-    max-width: 580px;
+    max-width: 590px;
+    margin: 0;
+    color: #c5c5c5;
+    font-size: 16px !important;
+    line-height: 1.65 !important;
+    text-align: center;
 }
 
+/* =========================
+   MAIN CONTAINER
+   ========================= */
 
 .blog-layout {
-    max-width: 1400px;
+    width: 100%;
+    max-width: 1440px;
     margin: 0 auto;
-    padding: 20px 48px 10px;
+    padding: 48px 48px 70px;
 }
-
 
 .blog-section-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 36px;
-    gap: 20px;
+    gap: 24px;
+    margin-bottom: 32px;
 }
 
 .blog-section-title {
-    font-size: 24px;
-    font-weight: 800;
+    position: relative;
+    margin: 0;
+    padding-bottom: 9px;
     color: #fff;
-    padding-bottom: 8px;
-    border-bottom: 3px solid #c9a84c;
-    display: inline-block;
+    font-size: 24px !important;
+    font-weight: 800;
+    line-height: 1.2 !important;
+}
+
+.blog-section-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 82px;
+    height: 3px;
+    background: #f5c542;
 }
 
 .blog-search-wrap {
+    width: 320px;
+    max-width: 100%;
+    height: 42px;
+    padding: 0 16px;
+    border: 1px solid #303030;
+    border-radius: 999px;
+    background: #242424;
     display: flex;
     align-items: center;
     gap: 10px;
-    background-color: #242424;
-    border: 1px solid #333;
-    border-radius: 8px;
-    padding: 10px 18px;
-    transition: border-color .25s;
 }
-.blog-search-wrap:focus-within { border-color: #c9a84c; }
-.blog-search-wrap i { color: #c9a84c; font-size: 14px; }
-.blog-search-wrap input {
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #fff;
-    font-size: 14px;
-    font-family: inherit;
-    width: 220px;
-}
-.blog-search-wrap input::placeholder { color: #555; }
 
+.blog-search-wrap i {
+    color: #f5c542;
+    font-size: 13px;
+}
+
+.blog-search-wrap input {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: #fff;
+    font: inherit;
+    font-size: 13px;
+}
+
+.blog-search-wrap input::placeholder {
+    color: #777;
+}
+
+/* =========================
+   POST COMMON
+   ========================= */
 
 .blog-post-img {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #242424;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #242424;
-    border-radius: 10px;
 }
 
+.blog-post-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+}
+
+.blog-post-author,
+.blog-post-date {
+    color: #a7a7a7;
+    font-size: 11px;
+    line-height: 1.3;
+}
+
+.blog-post-author a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.blog-post-desc {
+    display: -webkit-box;
+    overflow: hidden;
+    color: #a8a8a8;
+    font-size: 13px !important;
+    line-height: 1.65 !important;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+/* =========================
+   TOP FEATURED ROW
+   ========================= */
 
 .blog-top-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
     gap: 28px;
-    margin-bottom: -43px;
-    align-items: stretch;
+    margin-bottom: 42px;
 }
 
-.blog-post-large { display: flex; flex-direction: column; gap: 14px; cursor: pointer; }
-.blog-post-large-img { width: 100%; flex: 1; min-height: 300px; }
-.blog-post-large-body { display: flex; flex-direction: column; gap: 8px; }
-.blog-post-large-title { font-size: 20px; font-weight: 800; color: #fff; line-height: 1.4; }
-
-.blog-post-small-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    height: 100%;
-    justify-content: flex-start;
-}
-.blog-post-small { display: flex; gap: 16px; cursor: pointer; align-items: flex-start; }
-.blog-post-small-img { width: 170px; min-width: 170px; height: 150px; flex-shrink: 0; }
-.blog-post-small-body { display: flex; flex-direction: column; gap: 7px; }
-.blog-post-small-title { font-size: 14px; font-weight: 700; color: #fff; line-height: 1.4; }
-
-.blog-post-meta   { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-.blog-post-author { font-size: 12px; color: #c9a84c; font-weight: 600; }
-.blog-post-date   { font-size: 12px; color: #666; }
-.blog-post-desc   { font-size: 13px; color: #aaa; line-height: 1.7; }
-
-
-.blog-sidebar-row {
-    display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: 36px;
-    align-items: start;
-    margin-top: 48px;
-}
-
-
-.blog-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 36px 28px;
-}
-
-.blog-card {
+.blog-post-large {
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 12px;
     cursor: pointer;
-    transition: transform .25s;
 }
-.blog-card:hover { transform: translateY(-4px); }
+
+.blog-post-large-img {
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+}
+
+.blog-post-large-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.blog-post-large-title {
+    margin: 0;
+    color: #fff;
+    font-size: 20px !important;
+    font-weight: 800;
+    line-height: 1.35 !important;
+}
+
+.blog-post-small-stack {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.blog-post-small {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 44% minmax(0, 1fr);
+    gap: 16px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.blog-post-small-img {
+    aspect-ratio: 1.38 / 1;
+    height: auto;
+}
+
+.blog-post-small-body {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.blog-post-small-title {
+    margin: 0;
+    color: #fff;
+    font-size: 15px !important;
+    font-weight: 700;
+    line-height: 1.42 !important;
+}
+
+/* =========================
+   GRID + SIDEBAR
+   ========================= */
+
+.blog-sidebar-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 34px;
+    align-items: start;
+}
+
+.blog-grid {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 34px 28px;
+}
+
+.blog-card {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    cursor: pointer;
+    transition: transform .25s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-3px);
+}
 
 .blog-card-img {
-    width: 100%;
     aspect-ratio: 16 / 9;
 }
 
-.blog-card-body { display: flex; flex-direction: column; gap: 8px; }
-.blog-card-title { font-size: 16px; font-weight: 700; color: #fff; line-height: 1.4; }
-
-
-.blog-sidebar { display: flex; flex-direction: column; gap: 24px; align-self: start; }
-
-.blog-sidebar-widget {
-    margin-top: 18px;
-    background-color: #202020;
-    border-radius: 12px;
-    padding: 22px;
-    border: 1px solid #2e2e2e;
-}
-.blog-sidebar-widget:first-child {
-    margin-top: -4px;
-    height: 375px;
+.blog-card-body {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    gap: 7px;
+}
+
+.blog-card-title {
+    margin: 0;
+    color: #fff;
+    font-size: 16px !important;
+    font-weight: 700;
+    line-height: 1.4 !important;
+}
+
+/* =========================
+   SIDEBAR
+   ========================= */
+
+.blog-sidebar {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.blog-sidebar-widget {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid rgba(245,197,66,.25);
+    border-radius: 9px;
+    background: #222;
 }
 
 .blog-widget-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 18px;
+    margin: 0 0 16px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 9px;
+    color: #fff;
+    font-size: 15px !important;
+    font-weight: 700;
+    line-height: 1.2 !important;
 }
-.blog-widget-title i { color: #c9a84c; }
 
-.blog-cat-list { list-style: none; display: flex; flex-direction: column; gap: 40px; }
+.blog-widget-title i {
+    color: #f5c542;
+}
+
+.blog-cat-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
 .blog-cat-item {
     display: flex;
     align-items: center;
-    gap: 16px;
-    font-size: 14px;
-    color: #cccccc;
+    gap: 12px;
+    color: #d0d0d0;
+    font-size: 13px;
     cursor: pointer;
-    transition: color .25s;
-}
-.blog-cat-item:hover { color: #c9a84c; }
-.blog-cat-dot {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #5E5E5E;
-    border: 1.5px solid #555;
-    flex-shrink: 0;
 }
 
-/* Instant Quote form */
-.blog-quote-form { display: flex; flex-direction: column; gap: 12px; }
+.blog-cat-dot {
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+    border-radius: 50%;
+    background: #666;
+}
+
+.blog-quote-form {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
 .blog-quote-form input,
 .blog-quote-form textarea {
-    background-color: #1a1a1a;
-    border: 1px solid #333;
-    border-radius: 10px;
-    color: #fff;
-    font-size: 13px;
-    padding: 18px 16px;
-    outline: none;
-    font-family: inherit;
-    transition: border-color .25s;
     width: 100%;
-    resize: none;
+    border: 1px solid #333;
+    border-radius: 6px;
+    outline: 0;
+    background: #1a1a1a;
+    color: #fff;
+    padding: 11px 12px;
+    font: inherit;
+    font-size: 12px;
 }
-.blog-quote-form input::placeholder,
-.blog-quote-form textarea::placeholder { color: #666; }
-.blog-quote-form input:focus,
-.blog-quote-form textarea:focus { border-color: #c9a84c; }
-.blog-quote-form textarea { height: 110px; line-height: 1.5; }
 
-.blog-quote-btns { display: flex; gap: 10px; margin-top: 6px; }
-.blog-quote-btn {
-    flex: 1;
-    background-color: #F5C542;
-    color: #000;
-    border: none;
-    padding: 16px 0;
-    border-radius: 50px;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-    font-family: inherit;
-    transition: background-color .25s;
-}/* removed hover: .blog-quote-btn:hover { ... } */
+.blog-quote-form input:-webkit-autofill,
+.blog-quote-form input:-webkit-autofill:hover,
+.blog-quote-form input:-webkit-autofill:focus,
+.blog-quote-form textarea:-webkit-autofill,
+.blog-quote-form textarea:-webkit-autofill:hover,
+.blog-quote-form textarea:-webkit-autofill:focus {
+    -webkit-text-fill-color: #fff;
+    -webkit-box-shadow: 0 0 0px 1000px #1a1a1a inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.blog-quote-form textarea {
+    min-height: 76px;
+    resize: vertical;
+}
+
+.blog-quote-form input:focus,
+.blog-quote-form textarea:focus {
+    border-color: #f5c542;
+}
+
+.blog-quote-btns {
+    display: flex;
+    gap: 8px;
+    margin-top: 2px;
+}
+
+.blog-quote-btn,
 .blog-quote-cancel {
     flex: 1;
-    background-color: transparent;
-    color: #F5C542;
-    border: 1.5px solid #F5C542;
-    padding: 16px 0;
-    border-radius: 50px;
-    font-size: 13px;
+    min-height: 38px;
+    border-radius: 999px;
+    font: inherit;
+    font-size: 11px;
     font-weight: 700;
     cursor: pointer;
-    font-family: inherit;
-    transition: background-color .25s, color .25s;
 }
-.blog-quote-cancel:hover { background-color: #F5C542; color: #000; }
 
+.blog-quote-btn:focus,
+.blog-quote-cancel:focus {
+    outline: none;
+}
+
+.blog-quote-btn {
+    border: 1px solid #f5c542;
+    background: #f5c542;
+    color: #111;
+}
+
+.blog-quote-cancel {
+    border: 1px solid #f5c542;
+    background: transparent;
+    color: #f5c542;
+}
+
+/* =========================
+   PAGINATION
+   ========================= */
 
 .blog-pagination {
+    margin-top: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    margin-top: 52px;
+    gap: 9px;
     flex-wrap: wrap;
 }
-.blog-page-btn {
-    background-color: transparent;
+
+.blog-page-btn,
+.blog-page-num {
     border: 1px solid #333;
+    border-radius: 6px;
+    background: #242424;
     color: #aaa;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 14px;
+    font: inherit;
+    font-size: 12px;
     font-weight: 600;
     cursor: pointer;
-    font-family: inherit;
+}
+
+.blog-page-btn {
+    min-height: 36px;
+    padding: 0 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.blog-page-numbers {
     display: flex;
     align-items: center;
-    gap: 8px;
-    transition: border-color .25s, color .25s;
-}/* removed hover: .blog-page-btn:hover { ... } */
+    gap: 7px;
+}
 
-.blog-page-numbers { display: flex; align-items: center; gap: 8px; }
 .blog-page-num {
-    width: 40px;
-    height: 40px;
-    display: flex;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: transparent;
-    border: 1px solid #333;
-    border-radius: 8px;
-    color: #aaa;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: inherit;
-    transition: background-color .25s, color .25s, border-color .25s;
 }
-.blog-page-num:hover { border-color: #F5C542; color: #F5C542; }
-.blog-page-num.active { background-color: #F5C542; color: #000; border-color: #F5C542; }
-.blog-page-dots { color: #555; font-size: 14px; padding: 0 4px; }
 
+.blog-page-num.active {
+    border-color: #f5c542;
+    background: #f5c542;
+    color: #111;
+}
+
+.blog-page-dots {
+    color: #666;
+    font-size: 12px;
+}
+
+/* =========================
+   TABLET
+   ========================= */
 
 @media (max-width: 1100px) {
-    .blog-layout        { padding: 20px 32px 10px; }
-    .blog-sidebar-row   { grid-template-columns: 1fr 260px; gap: 28px; }
-    .blog-post-small-img { width: 140px; min-width: 140px; height: 130px; }
+    .blog-layout {
+        padding-inline: 28px;
+    }
+
+    .blog-hero-inner {
+        padding-inline: 28px;
+    }
+
+    .blog-sidebar-row {
+        grid-template-columns: minmax(0, 1fr) 260px;
+        gap: 26px;
+    }
+
+    .blog-post-small {
+        grid-template-columns: 42% minmax(0, 1fr);
+    }
 }
 
+/* =========================
+   MOBILE — FIGMA MATCH
+   ========================= */
 
 @media (max-width: 768px) {
-    .blog-hero      { min-height: unset; padding: 10vw 5vw 9vw; }
-    .blog-hero-wrap { display: none; }
+    .blog-hero {
+        height: 340px;
+        min-height: 340px;
+        background-position: center center;
+    }
 
-    .blog-hero-content  { padding: 0 2vw; }
-    .blog-hero-badge    { display: none; }
-    .blog-hero-heading  { font-size: 7.5vw; line-height: 1.25; text-align: center; }
-    .blog-hero-subtext  { font-size: 3.8vw; line-height: 1.75; text-align: center; max-width: 85vw; margin: 0 auto; }
+    .blog-hero-inner {
+        height: 100%;
+        padding: 18px 16px 26px;
+    }
 
-    .blog-layout { padding: 3vw 4vw 2vw; }
+    .blog-breadcrumb {
+        align-self: flex-start;
+        font-size: 12px;
+        margin: 0 0 20px;
+        gap: 7px;
+    }
+
+    .blog-bc-current {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .blog-bc-home,
+    .blog-bc-home svg {
+        width: 15px;
+        height: 15px;
+        font-size: 13px;
+    }
+
+    .blog-hero-content {
+        max-width: 390px;
+        padding: 18px 0 0;
+    }
+
+    .blog-hero-badge {
+        padding: 5px 15px;
+        margin-bottom: 10px;
+        font-size: 9px;
+        letter-spacing: 1.6px;
+    }
+
+    .blog-hero-heading {
+        margin-bottom: 10px;
+        font-size: 24px !important;
+        line-height: 1.18 !important;
+    }
+
+    .blog-hero-subtext {
+        max-width: 340px;
+        font-size: 13px !important;
+        line-height: 1.55 !important;
+    }
+
+    .blog-layout {
+        padding: 24px 12px 40px;
+    }
 
     .blog-section-header {
+        margin-bottom: 22px;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 3.5vw;
-        margin-bottom: 5vw;
+        align-items: stretch;
+        gap: 14px;
     }
-    .blog-section-title  { font-size: 5vw; }
-    .blog-search-wrap    { width: 100%; border-radius: 50px; padding: 3vw 5vw; }
-    .blog-search-wrap input { width: 100%; font-size: 3.8vw; }
 
-    .blog-top-row           { grid-template-columns: 1fr; gap: 5vw; margin-bottom: 7vw; }
-    .blog-post-small-stack  { display: none; }
-    .blog-post-large-img    { min-height: 50vw; }
-    .blog-post-large-title  { font-size: 5vw; }
-    .blog-post-desc         { font-size: 3.5vw; }
-    .blog-post-author, .blog-post-date { font-size: 3vw; }
+    .blog-section-title {
+        align-self: flex-start;
+        font-size: 18px !important;
+        padding-bottom: 8px;
+    }
 
-    .blog-sidebar-row { grid-template-columns: 1fr; gap: 6vw; margin-top: 7vw; }
-    .blog-sidebar     { order: 2; }
-    .blog-grid        { grid-template-columns: 1fr; gap: 5vw; }
-    .blog-card-title  { font-size: 4vw; }
+    .blog-section-title::after {
+        width: 64px;
+        height: 2px;
+    }
 
-    .blog-pagination  { margin-top: 9vw; gap: 2.5vw; }
-    .blog-page-btn    { font-size: 3.5vw; padding: 2.5vw 5vw; }
-    .blog-page-num    { width: 10vw; height: 10vw; font-size: 3.5vw; }
+    .blog-search-wrap {
+        width: 100%;
+        height: 46px;
+        padding-inline: 15px;
+    }
+
+    .blog-search-wrap input {
+        font-size: 13px;
+    }
+
+    .blog-top-row {
+        display: block;
+        margin-bottom: 24px;
+    }
+
+    .blog-post-large {
+        gap: 9px;
+    }
+
+    .blog-post-large-img {
+        aspect-ratio: 16 / 9.5;
+    }
+
+    .blog-post-large-title {
+        font-size: 15px !important;
+        line-height: 1.4 !important;
+    }
+
+    .blog-post-small-stack {
+        display: none;
+    }
+
+    .blog-sidebar-row {
+        display: block;
+        margin: 0;
+    }
+
+    .blog-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .blog-card {
+        gap: 9px;
+    }
+
+    .blog-card-img {
+        aspect-ratio: 16 / 9.5;
+    }
+
+    .blog-card-title {
+        font-size: 15px !important;
+        line-height: 1.4 !important;
+    }
+
+    .blog-post-desc {
+        font-size: 12px !important;
+        line-height: 1.55 !important;
+        -webkit-line-clamp: 2;
+    }
+
+    .blog-post-author,
+    .blog-post-date {
+        font-size: 10px;
+    }
+
+    .blog-sidebar {
+        display: none;
+    }
+
+    .blog-pagination {
+        margin-top: 28px;
+        gap: 6px;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+
+    .blog-page-btn {
+        min-height: 32px;
+        padding: 0 8px;
+        border: 0;
+        background: transparent;
+        font-size: 10px;
+        white-space: nowrap;
+    }
+
+    .blog-page-numbers {
+        gap: 5px;
+    }
+
+    .blog-page-num {
+        width: 30px;
+        height: 30px;
+        font-size: 10px;
+    }
+
+    .blog-page-dots {
+        padding-inline: 2px;
+        font-size: 10px;
+    }
 }
 
+@media (max-width: 390px) {
+    .blog-hero {
+        height: 330px;
+        min-height: 330px;
+    }
 
+    .blog-hero-heading {
+        font-size: 22px !important;
+    }
 
+    .blog-layout {
+        padding-inline: 10px;
+    }
+
+    .blog-pagination {
+        transform: scale(.96);
+        transform-origin: center;
+    }
+}
 </style>
 
-    <!-- Hero -->
-    <section class="blog-hero" style="background-image: url('{{ isset($blog_main_banner[0]) ? asset('images/'.$blog_main_banner[0]->image) : asset('uploads/why-choise-us.png') }}');">
-        <div class="blog-hero-wrap">
-            <nav class="blog-breadcrumb">
-                <span class="blog-bc-home" onclick="window.location.href='{{ url('/') }}'">&#8962;</span>
-                <span class="blog-bc-sep">&#187;</span>
-                <span class="blog-bc-current">Blog</span>
-            </nav>
-        </div>
+<script>
+(function () {
+    function setBlogHeaderOffset() {
+        var header = document.getElementById('site-header');
+        if (!header) return;
+
+        var height = Math.ceil(header.getBoundingClientRect().height);
+        document.body.style.setProperty('padding-top', height + 'px', 'important');
+    }
+
+    setBlogHeaderOffset();
+    window.addEventListener('load', setBlogHeaderOffset);
+    window.addEventListener('resize', setBlogHeaderOffset);
+})();
+</script>
+
+<section
+    class="blog-hero"
+    style="background-image:url('{{ asset('uploads/box-packing.png') }}');"
+>
+    <div class="blog-hero-inner">
+        @include('web.components.breadcrumb', [
+            'class' => 'blog-breadcrumb',
+            'items' => [
+                ['label' => 'Blogs']
+            ]
+        ])
+
         <div class="blog-hero-content">
-            
-            <h1 class="blog-hero-heading">Insights, <span class="blog-hero-gold">Trends</span> &amp;<br><span class="blog-hero-gold">Packaging</span> Inspiration</h1>
-            <p class="blog-hero-subtext">Explore expert insights, industry trends, and packaging ideas to help your brand create memorable customer experiences and stay ahead of the competition.</p>
+           
+
+            <h1 class="blog-hero-heading">
+                Insights, <span class="blog-hero-gold">Trends</span> &amp;<br>
+                <span class="blog-hero-gold">Packaging</span> Inspiration
+            </h1>
+
+            <p class="blog-hero-subtext">
+                Explore expert insights, industry trends, and packaging ideas to help your brand
+                create memorable customer experiences and stay ahead of the competition.
+            </p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Main Layout -->
-    <div class="blog-layout">
+<div class="blog-layout">
+    <main class="blog-content">
 
-        <main class="blog-content">
+        <div class="blog-section-header">
+            <h2 class="blog-section-title">Our Blogs</h2>
 
-            <!-- Section Header -->
-            <div class="blog-section-header">
-                <h2 class="blog-section-title">Our Blogs</h2>
-                <div class="blog-search-wrap">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="blogSearch" placeholder="Search blogs">
-                </div>
-            </div>
+            <label class="blog-search-wrap" for="blogSearch">
+                <i class="fas fa-search"></i>
+                <input type="search" id="blogSearch" placeholder="Search blogs">
+            </label>
+        </div>
 
-            <!-- Top Row -->
-            @if(isset($top_blog) && count($top_blog) > 0)
+        @if(isset($top_blog) && count($top_blog) > 0)
             <div class="blog-top-row">
                 @php $featured = $top_blog[0]; @endphp
-                <article class="blog-post-large" onclick="window.location.href='{{ url('blog/'.$featured->blog_url) }}'">
-                    <div class="blog-post-img blog-post-large-img" style="background-image:url('{{ asset('images/'.$featured->image) }}');"></div>
+
+                <article
+                    class="blog-post-large"
+                    onclick="window.location.href='{{ url('blog/'.$featured->blog_url) }}'"
+                >
+                    <div
+                        class="blog-post-img blog-post-large-img"
+                        style="background-image:url('{{ asset('images/'.$featured->image) }}');"
+                    ></div>
+
                     <div class="blog-post-large-body">
                         <div class="blog-post-meta">
-                            <span class="blog-post-author"><a href="{{ url('author/'.urlencode($featured->author_name)) }}" onclick="event.stopPropagation();" style="color:inherit; text-decoration:none;">{{ $featured->author_name }}</a></span>
-                            <span class="blog-post-date">{{ date('M d, Y', strtotime($featured->date)) }}</span>
+                            <span class="blog-post-author">
+                                <a
+                                    href="{{ url('author/'.urlencode($featured->author_name)) }}"
+                                    onclick="event.stopPropagation();"
+                                >
+                                    {{ $featured->author_name }}
+                                </a>
+                            </span>
+
+                            <span class="blog-post-date">
+                                {{ date('M d, Y', strtotime($featured->date)) }}
+                            </span>
                         </div>
-                        <h3 class="blog-post-large-title">{{ $featured->blog_title }}</h3>
-                        <p class="blog-post-desc">{!! strip_tags(Str::limit($featured->long_description, 150)) !!}</p>
+
+                        <h3 class="blog-post-large-title">
+                            {{ $featured->blog_title }}
+                        </h3>
+
+                        <p class="blog-post-desc">
+                            {!! strip_tags(Str::limit($featured->long_description, 150)) !!}
+                        </p>
                     </div>
                 </article>
 
                 @if(count($top_blog) > 1)
-                <div class="blog-post-small-stack">
-                    @foreach($top_blog->slice(1, 2) as $side)
-                    <article class="blog-post-small" onclick="window.location.href='{{ url('blog/'.$side->blog_url) }}'">
-                        <div class="blog-post-img blog-post-small-img" style="background-image:url('{{ asset('images/'.$side->image) }}');"></div>
-                        <div class="blog-post-small-body">
-                            <div class="blog-post-meta">
-                                <span class="blog-post-author"><a href="{{ url('author/'.urlencode($side->author_name)) }}" onclick="event.stopPropagation();" style="color:inherit; text-decoration:none;">{{ $side->author_name }}</a></span>
-                                <span class="blog-post-date">{{ date('M d, Y', strtotime($side->date)) }}</span>
-                            </div>
-                            <h3 class="blog-post-small-title">{{ $side->blog_title }}</h3>
-                            <p class="blog-post-desc">{!! strip_tags(Str::limit($side->long_description, 80)) !!}</p>
-                        </div>
-                    </article>
-                    @endforeach
-                </div>
+                    <div class="blog-post-small-stack">
+                        @foreach($top_blog->slice(1, 2) as $side)
+                            <article
+                                class="blog-post-small"
+                                onclick="window.location.href='{{ url('blog/'.$side->blog_url) }}'"
+                            >
+                                <div
+                                    class="blog-post-img blog-post-small-img"
+                                    style="background-image:url('{{ asset('images/'.$side->image) }}');"
+                                ></div>
+
+                                <div class="blog-post-small-body">
+                                    <div class="blog-post-meta">
+                                        <span class="blog-post-author">
+                                            <a
+                                                href="{{ url('author/'.urlencode($side->author_name)) }}"
+                                                onclick="event.stopPropagation();"
+                                            >
+                                                {{ $side->author_name }}
+                                            </a>
+                                        </span>
+
+                                        <span class="blog-post-date">
+                                            {{ date('M d, Y', strtotime($side->date)) }}
+                                        </span>
+                                    </div>
+
+                                    <h3 class="blog-post-small-title">
+                                        {{ $side->blog_title }}
+                                    </h3>
+
+                                    <p class="blog-post-desc">
+                                        {!! strip_tags(Str::limit($side->long_description, 90)) !!}
+                                    </p>
+                                </div>
+                            </article>
+                        @endforeach
+                    </div>
                 @endif
             </div>
-            @endif
+        @endif
 
-            <!-- Blog Grid + Sidebar -->
-            <div class="blog-sidebar-row">
+        <div class="blog-sidebar-row">
 
-                <div class="blog-grid" id="blogGrid">
-                    @if(isset($all_blog) && count($all_blog) > 0)
-                        @foreach($all_blog as $blog_item)
-                        <article class="blog-card" onclick="window.location.href='{{ url('blog/'.$blog_item->blog_url) }}'">
-                            <div class="blog-post-img blog-card-img" style="background-image:url('{{ asset('images/'.$blog_item->image) }}');"></div>
+            <div class="blog-grid" id="blogGrid">
+                @if(isset($all_blog) && count($all_blog) > 0)
+                    @foreach($all_blog as $blog_item)
+                        <article
+                            class="blog-card"
+                            onclick="window.location.href='{{ url('blog/'.$blog_item->blog_url) }}'"
+                        >
+                            <div
+                                class="blog-post-img blog-card-img"
+                                style="background-image:url('{{ asset('images/'.$blog_item->image) }}');"
+                            ></div>
+
                             <div class="blog-card-body">
                                 <div class="blog-post-meta">
-                                    <span class="blog-post-author"><a href="{{ url('author/'.urlencode($blog_item->author_name)) }}" onclick="event.stopPropagation();" style="color:inherit; text-decoration:none;">{{ $blog_item->author_name }}</a></span>
-                                    <span class="blog-post-date">{{ date('M d, Y', strtotime($blog_item->date)) }}</span>
+                                    <span class="blog-post-author">
+                                        <a
+                                            href="{{ url('author/'.urlencode($blog_item->author_name)) }}"
+                                            onclick="event.stopPropagation();"
+                                        >
+                                            {{ $blog_item->author_name }}
+                                        </a>
+                                    </span>
+
+                                    <span class="blog-post-date">
+                                        {{ date('M d, Y', strtotime($blog_item->date)) }}
+                                    </span>
                                 </div>
-                                <h3 class="blog-card-title">{{ $blog_item->blog_title }}</h3>
-                                <p class="blog-post-desc">{!! strip_tags(Str::limit($blog_item->long_description, 150)) !!}</p>
+
+                                <h3 class="blog-card-title">
+                                    {{ $blog_item->blog_title }}
+                                </h3>
+
+                                <p class="blog-post-desc">
+                                    {!! strip_tags(Str::limit($blog_item->long_description, 150)) !!}
+                                </p>
                             </div>
                         </article>
-                        @endforeach
-                    @endif
-                </div>
-
-                <!-- Sidebar -->
-                <aside class="blog-sidebar">
-                    @if(isset($all_category) && count($all_category) > 0)
-                    <div class="blog-sidebar-widget">
-                        <h3 class="blog-widget-title"><i class="fas fa-layer-group"></i> Popular Categories</h3>
-                        <ul class="blog-cat-list">
-                            @foreach($all_category as $cat)
-                            <li class="blog-cat-item" onclick="window.location.href='{{ url('category/'.$cat->category_url) }}'">
-                                <span class="blog-cat-dot"></span> {{ $cat->name }}
-                            </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    @endif
-                    
-                    <div class="blog-sidebar-widget">
-                        <h3 class="blog-widget-title"><i class="fas fa-bolt"></i> Instant Quote</h3>
-                        @if(Session::has('success'))
-                            <div class="alert alert-success" style="background: #28a745; color: white; padding: 10px 14px; border-radius: 8px; margin-bottom: 12px; font-weight: 600; font-size: 13px; text-align: center;">
-                                {{ Session::get('success') }}
-                            </div>
-                        @endif
-                        <form class="blog-quote-form" action="{{ url('submit-quote') }}" method="POST">
-                            @csrf
-                            <input type="hidden" name="source" value="Blog sidebar quote form">
-                            <input type="hidden" name="page_url" value="{{ url()->current() }}">
-                            <input type="text" name="name" placeholder="Name" required>
-                            <input type="email" name="email" placeholder="Email" required>
-                            <input type="tel" name="phone" placeholder="Phone number" required>
-                            <textarea name="message" placeholder="Message" required></textarea>
-                            <div class="blog-quote-btns">
-                                <button type="submit" class="blog-quote-btn">Get a Quote</button>
-                                <button type="button" class="blog-quote-cancel" onclick="window.location.href='tel:18005189441'">Call Us</button>
-                            </div>
-                        </form>
-                    </div>
-                </aside>
-
+                    @endforeach
+                @endif
             </div>
 
-            @if(isset($all_blog) && count($all_blog) > 6)
+            <aside class="blog-sidebar">
+
+            
+                <div class="blog-sidebar-widget">
+                    <h3 class="blog-widget-title">
+                        <i class="fas fa-bolt"></i>
+                        Instant Quote
+                    </h3>
+
+                    @if(Session::has('success'))
+                        <div style="background:#28a745;color:#fff;padding:10px 12px;border-radius:6px;margin-bottom:10px;font-size:12px;">
+                            {{ Session::get('success') }}
+                        </div>
+                    @endif
+
+                    <form class="blog-quote-form" id="sidebarQuoteForm" action="{{ url('submit-quote') }}" method="POST">
+                        @csrf
+
+                        <input type="hidden" name="source" value="Blog sidebar quote form">
+                        <input type="hidden" name="page_url" value="{{ url()->current() }}">
+
+                        <input type="text" name="name" placeholder="Name" required>
+                        <input type="email" name="email" placeholder="Email" required>
+                        <input type="tel" name="phone" placeholder="Phone number" required>
+                        <textarea name="message" placeholder="Message" required></textarea>
+
+                        <div class="blog-quote-btns">
+                            <button type="submit" class="blog-quote-btn">Get a Quote</button>
+                            <button
+                                type="button"
+                                class="blog-quote-cancel"
+                                onclick="window.location.href='tel:18005189441'"
+                            >
+                                Call Us
+                            </button>
+                        </div>
+                        <div id="sidebarQuoteStatus" style="display:none; margin-top:10px; padding:10px; border-radius:6px; font-size:12px; text-align:center;"></div>
+                    </form>
+                </div>
+
+            </aside>
+        </div>
+
+        @if(isset($all_blog) && count($all_blog) > 6)
             <div class="blog-pagination">
-                <button class="blog-page-btn" id="prevBtn"><i class="fas fa-chevron-left"></i> Previous</button>
+                <button class="blog-page-btn" id="prevBtn">
+                    <i class="fas fa-chevron-left"></i>
+                    Previous
+                </button>
+
                 <div class="blog-page-numbers">
                     <button class="blog-page-num active">1</button>
                     <button class="blog-page-num">2</button>
                     <button class="blog-page-num">3</button>
                     <span class="blog-page-dots">...</span>
+                    <button class="blog-page-num">9</button>
+                    <button class="blog-page-num">10</button>
                 </div>
-                <button class="blog-page-btn" id="nextBtn">Next <i class="fas fa-chevron-right"></i></button>
-            </div>
-            @endif
-  
 
-        </main>
-    </div>
+                <button class="blog-page-btn" id="nextBtn">
+                    Next
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        @endif
+
+    </main>
+</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-
     var searchInput = document.getElementById('blogSearch');
-    var cards = document.querySelectorAll('.blog-card');
+    var searchablePosts = document.querySelectorAll('.blog-card, .blog-post-large, .blog-post-small');
 
     if (searchInput) {
         searchInput.addEventListener('input', function () {
             var query = this.value.trim().toLowerCase();
-            cards.forEach(function (card) {
-                var title = card.querySelector('.blog-card-title').textContent.toLowerCase();
-                var desc = card.querySelector('.blog-post-desc') ? card.querySelector('.blog-post-desc').textContent.toLowerCase() : '';
-                card.style.display = (!query || title.includes(query) || desc.includes(query)) ? '' : 'none';
+
+            searchablePosts.forEach(function (post) {
+                var titleNode = post.querySelector(
+                    '.blog-card-title, .blog-post-large-title, .blog-post-small-title'
+                );
+
+                var descNode = post.querySelector('.blog-post-desc');
+                var title = titleNode ? titleNode.textContent.toLowerCase() : '';
+                var desc = descNode ? descNode.textContent.toLowerCase() : '';
+
+                post.style.display =
+                    !query || title.includes(query) || desc.includes(query)
+                        ? ''
+                        : 'none';
             });
         });
     }
 
-    var pageNums = document.querySelectorAll('.blog-page-num');
+    var pageNums = Array.from(document.querySelectorAll('.blog-page-num'));
     var prevBtn = document.getElementById('prevBtn');
     var nextBtn = document.getElementById('nextBtn');
-    var currentPage = 1;
+    var currentIndex = 0;
 
-    pageNums.forEach(function (btn, i) {
-        btn.addEventListener('click', function () {
-            pageNums.forEach(function (b) { b.classList.remove('active'); });
-            btn.classList.add('active');
-            currentPage = parseInt(btn.textContent) || (i + 1);
+    function setActive(index) {
+        if (!pageNums.length) return;
+
+        currentIndex = Math.max(0, Math.min(index, pageNums.length - 1));
+
+        pageNums.forEach(function (button, buttonIndex) {
+            button.classList.toggle('active', buttonIndex === currentIndex);
+        });
+    }
+
+    pageNums.forEach(function (button, index) {
+        button.addEventListener('click', function () {
+            setActive(index);
         });
     });
 
     if (prevBtn) {
         prevBtn.addEventListener('click', function () {
-            if (currentPage > 1) {
-                currentPage--;
-                updateActive();
-            }
+            setActive(currentIndex - 1);
         });
     }
 
     if (nextBtn) {
         nextBtn.addEventListener('click', function () {
-            if (currentPage < pageNums.length) {
-                currentPage++;
-                updateActive();
-            }
+            setActive(currentIndex + 1);
         });
     }
 
-    function updateActive() {
-        pageNums.forEach(function (btn) {
-            btn.classList.remove('active');
-            if (parseInt(btn.textContent) === currentPage) {
-                btn.classList.add('active');
+    const sidebarQuoteForm = document.getElementById('sidebarQuoteForm');
+    const sidebarQuoteStatus = document.getElementById('sidebarQuoteStatus');
+
+    if (sidebarQuoteForm) {
+        sidebarQuoteForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitBtn = sidebarQuoteForm.querySelector('.blog-quote-btn');
+            const originalBtnText = submitBtn ? submitBtn.textContent : '';
+
+            if (sidebarQuoteStatus) {
+                sidebarQuoteStatus.style.display = 'none';
+                sidebarQuoteStatus.style.background = 'transparent';
+                sidebarQuoteStatus.style.border = 'none';
+                sidebarQuoteStatus.style.color = '#fff';
+                sidebarQuoteStatus.textContent = '';
+            }
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Submitting...';
+            }
+
+            try {
+                const response = await fetch(sidebarQuoteForm.action, {
+                    method: 'POST',
+                    body: new FormData(sidebarQuoteForm),
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Unable to submit quote');
+                }
+
+                const result = await response.json();
+                sidebarQuoteForm.reset();
+
+                if (sidebarQuoteStatus) {
+                    sidebarQuoteStatus.textContent = result.message || 'Thank you! Your quote request has been submitted.';
+                    sidebarQuoteStatus.style.background = 'rgba(245, 197, 66, 0.12)';
+                    sidebarQuoteStatus.style.border = '1px solid rgba(245, 197, 66, 0.34)';
+                    sidebarQuoteStatus.style.color = '#f5c542';
+                    sidebarQuoteStatus.style.display = 'block';
+                }
+            } catch (error) {
+                if (sidebarQuoteStatus) {
+                    sidebarQuoteStatus.textContent = 'Sorry, something went wrong. Please try again.';
+                    sidebarQuoteStatus.style.background = 'rgba(255, 85, 85, 0.12)';
+                    sidebarQuoteStatus.style.border = '1px solid rgba(255, 85, 85, 0.34)';
+                    sidebarQuoteStatus.style.color = '#ff8b8b';
+                    sidebarQuoteStatus.style.display = 'block';
+                }
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalBtnText;
+                }
             }
         });
     }
-
-    // Let sidebar quote form submit to server naturally
-    // JS listener is removed to let PHP controller handle submission and flash message.
 });
-
 </script>
+@include('web/components_cta_banner')
 
 @include('web/footer')
-

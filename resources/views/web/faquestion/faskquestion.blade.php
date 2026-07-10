@@ -17,6 +17,7 @@ html, body {
     font-family: 'Segoe UI', Arial, sans-serif;
     background-color: #1a1a1a;
     color: #ffffff;
+    overflow-x: hidden;
 }
 
 html {
@@ -31,6 +32,7 @@ html {
     width: 100%;
     min-height: 340px;
     display: flex;
+    justify-content: center;
     align-items: flex-end; /* content sits in lower half like figma */
     padding: 0;
     overflow: hidden;
@@ -67,7 +69,7 @@ html {
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 140px 40px 52px 90px; /* left: 90px aligns with header logo */
+    padding: 24px 40px 52px 90px; /* top spacing for breadcrumb */
     display: flex;
     flex-direction: column;
     align-items: center; /* centered like figma */
@@ -77,67 +79,7 @@ html {
 /* ============================================
    BREADCRUMB
    ============================================ */
-.faq-breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    font-size: 13px;
-    color: #cccccc;
-    margin-bottom: 24px;
-    align-self: flex-start;
-    margin-top: 10px; /* stays left while hero-inner is centered */
-}
 
-.faq-bc-home {
-    font-size: 14px;
-    color: #F5C542;
-    line-height: 1;
-    cursor: pointer;
-    transition: color 0.25s ease;
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-.faq-bc-home svg {
-    width: 16px;
-    height: 16px;
-    display: block;
-    flex-shrink: 0;
-    stroke: #F5C542;
-    transition: stroke 0.25s ease;
-}
-
-.faq-bc-home:hover { color: #f5c542; }
-.faq-bc-home:hover svg { stroke: #fff; }
-
-.faq-bc-sep {
-    color: #C5C5C5;
-    font-size: 13px;
-    line-height: 1;
-    line-height: 1;
-    display: flex;
-    align-items: center;
-}
-
-.faq-bc-current {
-
-font-family: Inter;
-font-weight: 400;
-font-style: Regular;
-font-size: 14px;
-leading-trim: NONE;
-line-height: 18px;
-letter-spacing: 0%;
-text-align: justify;
-vertical-align: middle;
-color: #C5C5C5;
-
-}
-
-.faq-bc-current:hover {
-    color: #F5C542;
- }
 
 /* ============================================
    HERO CONTENT WRAPPER
@@ -183,7 +125,7 @@ opacity: 1;
 font-family: Inter;
 font-weight: 800;
 font-style: Extra Bold;
-font-size: 42px;
+font-size: 28px;
 leading-trim: NONE;
 line-height: 50px;
 letter-spacing: 4%;
@@ -198,7 +140,7 @@ vertical-align: middle;
     font-family: Inter;
 font-weight: 800;
 font-style: Extra Bold;
-font-size: 42px;
+font-size: 28px;
 leading-trim: NONE;
 line-height: 50px;
 letter-spacing: 4%;
@@ -220,7 +162,7 @@ opacity: 1;
 font-family: Inter;
 font-weight: 400;
 font-style: Regular;
-font-size: 18px;
+font-size: 16px;
 leading-trim: NONE;
 line-height: 26px;
 letter-spacing: 2%;
@@ -270,7 +212,13 @@ color: #C5C5C5;
     transition: background-color 0.25s ease, color 0.25s ease,
                 border-color 0.25s ease, box-shadow 0.25s ease,
                 transform 0.25s ease;
-}/* removed hover: .faq-filter-btn:hover { ... } */
+}
+
+.faq-filter-btn:focus,
+.faq-filter-btn:active {
+    outline: none;
+}
+/* removed hover: .faq-filter-btn:hover { ... } */
 
 .faq-filter-btn.active {
     background-color: #F5C542;
@@ -310,13 +258,26 @@ body.filters-visible .faq-filters-spacer {
 }
 
 .faq-section-title {
-    font-size: 1.5rem;
+    position: relative;
+    font-size: 20px;
     font-weight: 700;
     color: #ffffff;
     margin-bottom: 20px;
-    padding-left: 14px;
-    border-left: 4px solid #F5C542;
+    padding-left: 12px;
     line-height: 1.2;
+    display: flex;
+    align-items: center;
+}
+
+.faq-section-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 18px;
+    background-color: #F5C542;
 }
 
 /* ============================================
@@ -325,12 +286,12 @@ body.filters-visible .faq-filters-spacer {
 .faq-list {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 4px;
 }
 
 .faq-item {
     background-color: #242424;
-    border-radius: 6px;
+    border-radius: 4px;
     overflow: hidden;
     transition: background-color 0.2s ease;
 }
@@ -344,12 +305,12 @@ body.filters-visible .faq-filters-spacer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 20px;
+    padding: 18px 20px;
     background: transparent;
     border: none;
-    color: #ffffff;
-    font-size: 1.1rem;
-    font-weight: 500;
+    color: #b0b0b0;
+    font-size: 15px;
+    font-weight: 400;
     text-align: left;
     cursor: pointer;
     transition: color 0.2s ease;
@@ -363,9 +324,9 @@ body.filters-visible .faq-filters-spacer {
 }
 
 .faq-icon {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 300;
-    color: #F5C542;
+    color: #e0e0e0;
     flex-shrink: 0;
     line-height: 1;
     transition: transform 0.3s ease;
@@ -382,7 +343,7 @@ body.filters-visible .faq-filters-spacer {
 
 .faq-answer p {
     color: #ffffff;
-    font-size: 1rem;
+    font-size: 16px;
     line-height: 1.75;
     padding-bottom: 16px;
     margin: 0;
@@ -391,8 +352,12 @@ body.filters-visible .faq-filters-spacer {
 
 .faq-item.open .faq-question {
     color: #000000;
-    background-color: #c9a84c;
-    border-radius: 6px 6px 0 0;
+    background-color: #F5C542;
+    border-radius: 4px 4px 0 0;
+}
+
+.faq-item.open .faq-icon {
+    color: #000000;
 }
 
 .faq-item.open .faq-answer {
@@ -402,20 +367,47 @@ body.filters-visible .faq-filters-spacer {
 
 /* ============================================
    MOBILE RESPONSIVE — max 768px
+   Header already adds body top spacing, so the
+   hero must not add the header height again.
    ============================================ */
 @media (max-width: 768px) {
 
     .faq-hero {
         min-height: auto;
+        background-position: center center;
     }
 
     .faq-hero-inner {
-        padding: 140px 20px 40px;
+        padding: 20px 16px 32px;
         align-items: center;
         text-align: center;
     }
 
-    /* FAQS badge */
+    /* Breadcrumb: close to the top of the hero, like Figma */
+    .faq-breadcrumb {
+        align-self: flex-start;
+        font-size: 12px;
+        margin: 0 0 20px;
+        gap: 7px;
+    }
+
+    .faq-bc-current {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .faq-bc-home,
+    .faq-bc-home svg {
+        width: 15px;
+        height: 15px;
+        font-size: 13px;
+    }
+
+    .faq-hero-content {
+        width: 100%;
+        max-width: 520px;
+    }
+
     .faq-badge {
         font-size: 10px;
         padding: 5px 18px;
@@ -423,37 +415,44 @@ body.filters-visible .faq-filters-spacer {
         margin-bottom: 14px;
     }
 
+    /* !important is required because header.blade.php has global h1 rules */
     .faq-heading {
-        font-size: 28px;
-        margin-bottom: 12px;
-        line-height: 1.2;
+        width: auto;
+        height: auto;
+        font-size: 28px !important;
+        line-height: 1.2 !important;
+        margin: 0 0 12px;
         font-weight: 800;
+        letter-spacing: 0.02em;
     }
 
+    .faq-heading-gold {
+        font-size: 28px !important;
+        line-height: 1.2 !important;
+        letter-spacing: 0.02em;
+    }
+
+    /* Header has a global p font-size with !important */
     .faq-subtext {
-        font-size: 13px;
-        line-height: 1.8;
+        width: auto;
+        height: auto;
         max-width: 100%;
+        margin: 0;
+        font-size: 13px !important;
+        line-height: 1.7 !important;
+        letter-spacing: 0.01em;
     }
 
-    /* Breadcrumb */
-    .faq-breadcrumb {
-        font-size: 12px;
-        margin-bottom: 16px;
-    }
-
-    /* Filter buttons — sticky + horizontally scrollable inner */
+    /* Sticky filter remains directly below the fixed header */
     .faq-filters {
         position: sticky;
-        top: 80px;
+        top: var(--faq-header-offset, 95px);
         box-shadow: 0 2px 16px rgba(0, 0, 0, 0.7);
     }
 
-    .faq-filters::-webkit-scrollbar { display: none; }
-
     .faq-filter-scroll {
         flex-wrap: nowrap;
-        overflow-x: scroll;
+        overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         padding: 12px 16px;
@@ -463,41 +462,44 @@ body.filters-visible .faq-filters-spacer {
         user-select: none;
     }
 
-    .faq-filter-scroll::-webkit-scrollbar { display: none; }
+    .faq-filter-scroll::-webkit-scrollbar,
+    .faq-filters::-webkit-scrollbar {
+        display: none;
+    }
 
     .faq-filter-btn {
         padding: 9px 18px;
         font-size: 12px;
         font-weight: 600;
         border-radius: 6px;
-        flex-shrink: 0;
+        flex: 0 0 auto;
         white-space: nowrap;
     }
 
-    /* FAQ Main */
     .faq-main {
         padding: 24px 16px 60px;
         max-width: 100%;
     }
 
-    /* Section title */
+    /* Header also has global h2/h3 rules with !important */
     .faq-section-title {
-        font-size: 18px;
+        font-size: 18px !important;
+        line-height: 1.2 !important;
         margin-bottom: 14px;
     }
 
     .faq-section {
         margin-bottom: 36px;
-        scroll-margin-top: 160px;
+        scroll-margin-top: calc(var(--faq-header-offset, 95px) + 75px);
     }
 
-    /* Accordion */
     .faq-item {
         border-radius: 8px;
     }
 
     .faq-question {
-        font-size: 13px;
+        font-size: 13px !important;
+        line-height: 1.35 !important;
         padding: 14px 16px;
     }
 
@@ -506,7 +508,9 @@ body.filters-visible .faq-filters-spacer {
     }
 
     .faq-answer p {
-        font-size: 13px;
+        font-size: 13px !important;
+        line-height: 1.7 !important;
+        padding-top: 12px;
         padding-bottom: 12px;
     }
 
@@ -520,16 +524,50 @@ body.filters-visible .faq-filters-spacer {
    ============================================ */
 @media (max-width: 480px) {
 
+    .faq-hero {
+        height: 398px;
+        min-height: 398px;
+        max-height: 398px;
+        display: flex;
+        align-items: stretch;
+    }
+
     .faq-hero-inner {
-        padding: 130px 16px 32px;
+        height: 100%;
+        padding: 24px 16px 28px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    /* Keep breadcrumb near the top instead of pushing it to the bottom */
+    .faq-breadcrumb {
+        margin: 0 0 28px;
+        align-self: flex-start;
+    }
+
+    .faq-hero-content {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .faq-heading,
+    .faq-heading-gold {
+        font-size: 28px !important;
+        line-height: 1.2 !important;
     }
 
     .faq-heading {
-        font-size: 24px;
+        margin-bottom: 10px;
     }
 
     .faq-subtext {
-        font-size: 13px;
+        font-size: 16px !important;
+        line-height: 1.65 !important;
+    }
+
+    .faq-filter-scroll {
+        padding: 12px;
     }
 
     .faq-filter-btn {
@@ -542,11 +580,218 @@ body.filters-visible .faq-filters-spacer {
     }
 
     .faq-question {
-        font-size: 13px;
+        font-size: 13px !important;
         padding: 12px 14px;
     }
 }
+
+/* =========================================================
+   FINAL MOBILE FIGMA OVERRIDES
+   Keeps the hero at 398px and removes unwanted empty spaces.
+   ========================================================= */
+@media (max-width: 480px) {
+
+    .faq-hero {
+        width: 100%;
+        height: 398px !important;
+        min-height: 398px !important;
+        max-height: 398px !important;
+        display: block;
+        position: relative;
+        background-size: cover;
+        background-position: center center;
+        overflow: hidden;
+    }
+
+    .faq-hero-inner {
+        width: 100%;
+        height: 398px !important;
+        min-height: 398px !important;
+        max-height: 398px !important;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 52px 16px 22px !important;
+        margin: 0;
+        text-align: center;
+    }
+
+    /* Breadcrumb stays at the top and does not affect content centering */
+    .faq-breadcrumb {
+        position: absolute;
+        top: 18px;
+        left: 16px;
+        right: auto;
+        margin: 0 !important;
+        padding: 0;
+        align-self: auto;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 12px;
+        line-height: 1;
+    }
+
+    .faq-bc-home {
+        width: auto !important;
+        height: auto !important;
+        font-size: 14px;
+        line-height: 1;
+    }
+
+    .faq-bc-current {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .faq-hero-content {
+        width: 100%;
+        max-width: 380px;
+        margin: 0 auto !important;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .faq-badge {
+        margin: 0 0 12px;
+        padding: 5px 17px;
+        font-size: 9px;
+        line-height: 1;
+        letter-spacing: .28em;
+    }
+
+    .faq-heading {
+        width: 100%;
+        height: auto;
+        margin: 0 0 12px !important;
+        padding: 0;
+        font-size: 28px !important;
+        line-height: 1.18 !important;
+        letter-spacing: 0 !important;
+        text-align: center;
+    }
+
+    .faq-heading-gold {
+        display: block;
+        font-size: 28px !important;
+        line-height: 1.18 !important;
+        letter-spacing: 0 !important;
+    }
+
+    .faq-subtext {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        margin: 0 !important;
+        padding: 0;
+        font-size: 16px !important;
+        line-height: 1.55 !important;
+        letter-spacing: 0 !important;
+        text-align: center;
+    }
+
+    /* Filter bar must only be as tall as its buttons */
+    .faq-filters {
+        width: 100%;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        position: sticky;
+        top: var(--faq-header-offset, 95px);
+        overflow: hidden;
+        background: #202020;
+    }
+
+    .faq-filter-scroll {
+        width: 100%;
+        height: 64px !important;
+        min-height: 64px !important;
+        max-height: 64px !important;
+        margin: 0 !important;
+        padding: 10px 12px !important;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        gap: 10px;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .faq-filter-btn {
+        height: 44px;
+        min-height: 44px;
+        padding: 0 18px !important;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        margin: 0 !important;
+        font-size: 12px !important;
+        line-height: 1;
+        white-space: nowrap;
+    }
+
+    /* Main content starts immediately after filter bar */
+    .faq-main {
+        width: 100%;
+        margin: 0 auto !important;
+        padding: 28px 12px 50px !important;
+    }
+
+    .faq-section {
+        margin: 0 0 34px !important;
+    }
+
+    .faq-section-title {
+        margin: 0 0 14px !important;
+        padding-left: 12px;
+        font-size: 18px !important;
+        line-height: 1.2 !important;
+    }
+
+    .faq-list {
+        gap: 6px;
+    }
+
+    .faq-item {
+        margin: 0;
+        border-radius: 8px;
+    }
+
+    .faq-question {
+        min-height: 50px;
+        margin: 0 !important;
+        padding: 13px 14px !important;
+        font-size: 13px !important;
+        line-height: 1.35 !important;
+    }
+}
+
 </style>
+
+<script>
+    (function () {
+        function setFaqHeaderOffset() {
+            var header = document.getElementById('site-header');
+            if (!header) return;
+            var h = Math.ceil(header.getBoundingClientRect().height);
+            // Inline style overrides any stylesheet !important rule
+            document.body.style.setProperty('padding-top', h + 'px', 'important');
+            document.documentElement.style.setProperty('--faq-header-offset', h + 'px');
+        }
+        setFaqHeaderOffset();
+        window.addEventListener('load', setFaqHeaderOffset);
+        window.addEventListener('resize', setFaqHeaderOffset);
+    })();
+</script>
 @php
 $html = $frequently_ask_question[0]->description ?? '';
 $html = preg_replace('/<p>\s*&nbsp;\s*<\/p>/', '', $html);
@@ -565,18 +810,14 @@ foreach($parts as $part) {
     <!-- FAQ Hero Banner -->
     <section class="faq-hero">
         <div class="faq-hero-inner">
-            <nav class="faq-breadcrumb">
-                <a href="/" class="faq-bc-home">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Home">
-                        <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9.5z"/>
-                        <polyline points="9 21 9 12 15 12 15 21"/>
-                    </svg>
-                </a>
-                <span class="faq-bc-sep">&#187;</span>
-                <span class="faq-bc-current">FAQs</span>
-            </nav>
+            @include('web.components.breadcrumb', [
+                'class' => 'faq-breadcrumb',
+                'items' => [
+                    ['label' => 'FAQs']
+                ]
+            ])
             <div class="faq-hero-content">
-                <span class="faq-badge">FAQS</span>
+               
                 <h1 class="faq-heading">
                     Answers to Every
                     <span class="faq-heading-gold">Packaging Question</span>
@@ -766,9 +1007,13 @@ foreach($parts as $part) {
         // ============================================
         //  FILTER BUTTON CLICK HANDLER
         // ============================================
+        let isScrollingFromClick = false;
+
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const targetId = btn.getAttribute('data-target');
+
+                isScrollingFromClick = true;
 
                 // Scroll filter bar to active button
                 setActiveBtn(targetId);
@@ -784,6 +1029,13 @@ foreach($parts as $part) {
                     const totalOffset = navbarHeight + filterBarHeight + extraOffset;
                     const sectionTop = targetSection.getBoundingClientRect().top + window.scrollY - totalOffset;
                     window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+
+                    // Re-enable scroll spy after smooth scroll finishes
+                    setTimeout(() => {
+                        isScrollingFromClick = false;
+                    }, 800);
+                } else {
+                    isScrollingFromClick = false;
                 }
             });
         });
@@ -874,6 +1126,8 @@ foreach($parts as $part) {
         let scrollTicking = false;
 
         window.addEventListener('scroll', () => {
+            if (isScrollingFromClick) return;
+
             if (!scrollTicking) {
                 requestAnimationFrame(() => {
                     const currentSection = getCurrentSection();

@@ -211,6 +211,80 @@ input:-webkit-autofill:active {
     -webkit-text-fill-color: #ffffff !important;
 }
 
+/* Custom Header Container to match Footer */
+.header-container {
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+@media (min-width: 769px) {
+    .header-container {
+        max-width: 1380px !important;
+        padding-left: 55px !important;
+        padding-right: 55px !important;
+    }
+}
+
+/* ============================================
+   GLOBAL BREADCRUMB
+   ============================================ */
+.global-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    color: #cccccc;
+    margin-bottom: 20px;
+    align-self: flex-start;
+    flex-wrap: wrap;
+}
+
+.global-breadcrumb .gb-home {
+    font-size: 14px;
+    color: #F5C542;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.25s ease;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.global-breadcrumb .gb-home:hover {
+    color: #d4af37;
+}
+
+.global-breadcrumb .gb-sep {
+    color: #C5C5C5;
+    font-size: 13px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+}
+
+.global-breadcrumb .gb-link {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #C5C5C5;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.global-breadcrumb .gb-link:hover {
+    color: #F5C542;
+}
+
+.global-breadcrumb .gb-current {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #ffffff;
+}
 </style>
 
 <body>
@@ -288,7 +362,7 @@ input:-webkit-autofill:active {
 
     <!-- ===== TOP BAR ===== -->
     <div class="top-bar-container" style="background-color: #1a1a1a;">
-        <div class="container" style="display: flex; align-items: center; justify-content: space-between; padding: 14px 15px;">
+        <div class="header-container" style="display: flex; align-items: center; justify-content: space-between; padding: 14px 15px;">
 
         <!-- Left Group: Logo + Search -->
         <div class="top-bar-left" style="display: flex; align-items: center; gap: 40px;">
@@ -349,6 +423,19 @@ input:-webkit-autofill:active {
 
     <!-- ===== NAVBAR ===== -->
     <style>
+        .header-logo-link {
+            margin-left: 15px !important;
+        }
+        @media (min-width: 1200px) {
+            .header-logo-link {
+                margin-left: 20px !important;
+            }
+        }
+        @media (min-width: 1440px) {
+            .header-logo-link {
+                margin-left: 40px !important;
+            }
+        }
         .nav-group {
             display: flex;
             align-items: stretch;
@@ -386,6 +473,10 @@ input:-webkit-autofill:active {
 
         /* Mobile Header Adjustments */
         @media (max-width: 768px) {
+            html, body {
+                overflow-x: hidden;
+                max-width: 100vw;
+            }
             body { padding-top: 95px !important; }
             .top-bar-left { display: none !important; }
             .top-bar-container { display: block !important; }
@@ -428,19 +519,26 @@ input:-webkit-autofill:active {
                 gap: 15px !important; 
                 padding: 0 !important;
             }
+            /* Mobile header height & logo size */
+            #main-nav-inner {
+                min-height: 70px !important;
+            }
+            .mobile-logo-img {
+                height: 48px !important;
+            }
         }
     </style>
     <nav style="background-color: #202020; border-top: 1px solid #333; position: relative; z-index: 100;">
-        <div class="container main-nav-inner" style="display: flex; align-items: stretch; justify-content: space-between; min-height: 48px; width: 100%;">
+        <div class="header-container main-nav-inner" style="display: flex; align-items: stretch; justify-content: space-between; min-height: 48px; width: 100%;">
 
         <!-- Mobile Hamburger (Hidden on Desktop) -->
         <div class="mobile-menu-btn" onclick="openMobileSidebar()" style="display: none; align-items: center; cursor: pointer;">
-            <svg width="28" height="28" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            <svg width="34" height="34" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </div>
 
         <!-- Mobile Logo (Hidden on Desktop) -->
         <a href="/" class="mobile-logo" style="display: none; align-items: center; justify-content: center; flex: 1;">
-            <img src="{{ asset('uploads/Premium-boxes-logo.svg') }}" alt="premium boxes logo" title="Premium Boxes Logo" style="height: 36px; width: auto; filter: var(--logo-filter, none);" />
+            <img src="{{ asset('uploads/Premium-boxes-logo.svg') }}" alt="premium boxes logo" title="Premium Boxes Logo" style="height: 36px; width: auto; filter: var(--logo-filter, none);" class="mobile-logo-img" />
         </a>
 
         <!-- Nav Links -->
@@ -662,7 +760,7 @@ input:-webkit-autofill:active {
 
             <!-- Mobile Search Icon (Hidden on Desktop) -->
             <div class="mobile-search-btn" style="display: none; align-items: center; cursor: pointer;" onclick="toggleMobileSearch()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#ffffff" stroke-width="2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="#ffffff" stroke-width="2">
                     <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
                 </svg>
             </div>

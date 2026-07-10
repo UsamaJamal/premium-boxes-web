@@ -1,471 +1,422 @@
 
 @include('web/header')
-<style>*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+<style>
+*, *::before, *::after { box-sizing: border-box; }
 
 html, body {
     width: 100%;
     min-height: 100%;
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
     background-color: #1a1a1a;
     color: #ffffff;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
 }
 
-/* ── HERO ─────────────────────────────────── */
-.qu-hero {
-    position: relative;
-    width: 100%;
-    min-height: 320px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 190px 40px 60px;
-    overflow: hidden;
-    background: #1a1a1a;
-}
-.qu-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: #1a1a1a;
-    z-index: 0;
-}
-.qu-hero > * { position: relative; z-index: 1; }
-
 .qu-breadcrumb {
-    position: absolute;
-    top: 150px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(1200px, calc(100% - 96px));
-    display: flex;
+    width: calc(100% - 192px);
+    max-width: 1856px;
+    margin: 0 auto 10px;
+    display: flex !important;
     align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    color: #c5c5c5;
-
-}
-.qu-bc-home {
-    font-size: 18px;
-    color: #F5C542;
-    cursor: pointer;
-    transition: color .25s;
-}
-.qu-bc-home:hover { color: #f5c542}
-.qu-bc-sep { color: #C5C5C5; font-size: 14px; }
-.qu-bc-current {
-    color: #ddd;
+    gap: 18px;
+    color: #9a9a9a;
+    font-size: 15px !important;
     font-weight: 500;
-    cursor: pointer;
-    transition: color .25s;
-}
-.qu-bc-current:hover { color: #c9a84c; }
-
-.qu-hero-content { display: flex; flex-direction: column; align-items: center; }
-
-.qu-hero-badge {
-    border: 1px solid #f5c542;
-    color: #f5c542;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    padding: 6px 24px;
-    border-radius: 50px;
-    margin-bottom: 22px;
-    background: transparent;
-    cursor: pointer;
-    transition: background-color .25s, color .25s, box-shadow .25s;
-
-
-
-
-
-
-}
-.qu-hero-badge:hover {
-    background-color: #c9a84c;
-    color: #000;
-    box-shadow: 0 0 14px rgba(201,168,76,.5);
+    line-height: 1;
+    text-align: left;
 }
 
-.qu-hero-heading {
-    font-family: Inter, sans-serif;
-    font-weight: 800;
-    font-size: 42px;
-    line-height: 1.2;
+
+.qu-hero {
+    width: 100%;
+    background: #1a1a1a;
     text-align: center;
-    color: #FFFFFF;
+    padding: 158px 0 38px;
+}
+.qu-hero-content {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+.qu-hero-heading {
+    margin: 0 0 12px;
+    color: #ffffff;
+    font-size: 30px !important;
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: 0;
 }
 .qu-hero-gold {
     color: #f5c542;
-    font-family: Inter, sans-serif;
-    font-weight: 800;
-    font-size: inherit;
-    display: inline;
 }
-
 .qu-hero-subtext {
-    /* font-size: 16px;
-    font-weight: 400;
-    line-height: 28px;
-    color: #C5C5C5;
-    max-width: 520px; */
- color: #C5C5C5;
-font-family: Inter;
-font-weight: 400;
-font-style: Regular;
-font-size: 18px;
-leading-trim: NONE;
-line-height: 26px;
-letter-spacing: 2%;
-text-align: center;
-vertical-align: middle;
-}
-
-/* ── FORM SECTION ─────────────────────────── */
-.qu-form-section {
-    padding: 0 48px 48px;
-    max-width: 1200px;
     margin: 0 auto;
-    background-color: #202020;
-    border-radius: 10px;
-    border: 1px solid #f5c542;
-}
-
-.qu-form-wrapper {
-    background-color: #202020;
-    border-radius: 10px;
-    padding: 40px 48px 40px;
-    border: none;
-}
-
-.qu-form-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #fff;
+    max-width: 470px;
+    color: #b8b8b8;
+    font-size: 13px !important;
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: 0.02em;
     text-align: center;
-    padding-bottom: 14px;
-    border-bottom: 3px solid #f5c542;
-    display: table;
-    margin: 0 auto 32px;
 }
 
-/* ── FORM LAYOUT ─────────────────────────── */
+.qu-form-section {
+    width: min(100% - 48px, 760px);
+    margin: 0 auto;
+    padding: 0;
+    background: #202020;
+    border: 1px solid #f5c542;
+    border-radius: 18px;
+}
+.qu-form-wrapper {
+    padding: 34px 72px 32px;
+}
+.qu-form-title {
+    width: fit-content;
+    margin: 0 auto 24px;
+    padding: 0 0 12px;
+    color: #ffffff;
+    border-bottom: 3px solid #f5c542;
+    font-size: 23px !important;
+    font-weight: 800;
+    line-height: 1.15;
+    text-align: center;
+}
 .qu-form {
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 18px;
 }
-
 .qu-row {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
+    display: grid;
+    gap: 18px;
+    align-items: start;
 }
-.qu-row .qu-field { flex: 1; }
-
-.qu-row-2 { display: flex; gap: 20px; align-items: flex-start; }
-.qu-row-2 .qu-field { flex: 1; }
-
-.qu-row-d2 { display: flex; gap: 20px; align-items: flex-start; }
-.qu-row-d2 .qu-field { flex: 1; }
-
-.qu-row-3 { display: flex; gap: 20px; align-items: flex-start; }
-.qu-row-3 .qu-field { flex: 1; }
-
-.qu-row-4 { display: flex; gap: 20px; align-items: flex-start; }
-.qu-row-4 .qu-field { flex: 1; }
-
+.qu-row-d2,
+.qu-row-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.qu-row-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.qu-row-4 {
+    grid-template-columns: 1.15fr 1.15fr 1.15fr 0.75fr;
+}
+.qu-row-qty-upload {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
 .qu-field {
+    min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: 9px;
+    gap: 8px;
 }
-
 .qu-field label {
-    font-size: 15px;
+    margin: 0;
+    color: #ededed;
+    font-size: 11px !important;
     font-weight: 500;
-    color: #ffffff;
-    letter-spacing: 0;
-    line-height: 1;
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    line-height: 1.2;
 }
-
-.qu-req {
-    color: #f5c542; }
-
-/* ── INPUTS ──────────────────────────────── */
+.qu-req { color: #ffffff; }
 .qu-field input,
 .qu-field select,
 .qu-field textarea {
+    width: 100%;
+    min-width: 0;
+    height: 40px;
+    margin: 0;
+    padding: 0 16px;
     background-color: #1a1a1a;
-    border: 1px solid #333;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 14px;
-    padding: 11px 14px;
+    border: 1px solid #414141;
+    border-radius: 6px;
+    color: #ffffff;
     outline: none;
     font-family: inherit;
-    transition: border-color .25s;
-    width: 100%;
+    font-size: 12px !important;
+    line-height: 1.2;
     appearance: none;
     -webkit-appearance: none;
+    transition: border-color .2s, box-shadow .2s;
 }
 .qu-field input::placeholder,
-.qu-field textarea::placeholder { color: #555; }
+.qu-field textarea::placeholder {
+    color: #6e6e6e;
+}
+.qu-field input:-webkit-autofill,
+.qu-field input:-webkit-autofill:hover,
+.qu-field input:-webkit-autofill:focus,
+.qu-field textarea:-webkit-autofill,
+.qu-field textarea:-webkit-autofill:hover,
+.qu-field textarea:-webkit-autofill:focus,
+.qu-field select:-webkit-autofill,
+.qu-field select:-webkit-autofill:hover,
+.qu-field select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px #1a1a1a inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+    caret-color: #ffffff;
+    border-color: #f5c542;
+}
+.qu-field input[type="number"]::-webkit-outer-spin-button,
+.qu-field input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.qu-field input[type="number"] {
+    -moz-appearance: textfield;
+}
 .qu-field input:focus,
 .qu-field select:focus,
-.qu-field textarea:focus { border-color: #c9a84c; }
-
+.qu-field textarea:focus,
+.qu-upload-wrap:focus-within {
+    border-color: #f5c542;
+    box-shadow: 0 0 0 1px rgba(245, 197, 66, 0.16);
+}
 .qu-field select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    padding-right: 38px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23bdbdbd' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 14px center;
-    padding-right: 36px;
-    cursor: pointer;
 }
-.qu-field select option { background-color: #242424; color: #fff; }
-.qu-field textarea { resize: none; height: 120px; line-height: 1.6; }
-
-/* ── FILE UPLOAD ─────────────────────────── */
+.qu-field select option {
+    background-color: #202020;
+    color: #ffffff;
+}
+.qu-field textarea {
+    height: 84px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    resize: none;
+    line-height: 1.45;
+}
 .qu-upload-wrap {
     display: flex;
-    align-items: center;
-    background-color: #1a1a1a;
-    border: 1px solid #333;
-    border-radius: 8px;
+    min-width: 0;
+    height: 40px;
     overflow: hidden;
-    transition: border-color .25s;
-}
-.qu-upload-wrap:focus-within {
-    border-color: #c5c5c5;
-
-
-
+    background-color: #1a1a1a;
+    border: 1px solid #414141;
+    border-radius: 6px;
+    transition: border-color .2s, box-shadow .2s;
 }
 .qu-file-name {
     flex: 1;
-    padding: 11px 14px;
-    font-size: 14px;
-    color: #555;
+    min-width: 0;
+    padding: 0 16px;
+    color: #6e6e6e;
+    font-size: 12px !important;
+    line-height: 40px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 .qu-upload-btn {
+    width: 76px;
+    flex: 0 0 76px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background-color: #f5c542;
     color: #000000 !important;
-    font-size: 14px;
-    font-weight: 700;
-    padding: 11px 24px;
-    display: flex;
-    align-items: center;
     cursor: pointer;
-    white-space: nowrap;
-    transition: background-color .25s;
     font-family: inherit;
-}/* removed hover: .qu-upload-btn:hover { ... } */
-
-/* ── SUBMIT BUTTON ───────────────────────── */
-.qu-submit-row { display: flex; justify-content: center; margin-top: 10px; }
-
+    font-size: 11px !important;
+    font-weight: 900 !important;
+    line-height: 1;
+}
+.qu-submit-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+}
 .qu-btn {
-    background-color: #f5c542;
-    color: #000;
-    border: none;
-    padding: 17px 0;
     width: 100%;
-    border-radius: 50px;
-    font-size: 1.05rem;
-    font-weight: 700;
-    cursor: pointer;
-    font-family: inherit;
-    letter-spacing: .5px;
-    transition: background-color .25s, transform .25s, box-shadow .25s;
-}/* removed hover: .qu-btn:hover { ... } */
-
-/* ── WHY CHOOSE US ────────────────────────── */
-.qu-why-section {
-    padding: 52px 48px 64px;
-    max-width: 1400px;
-    margin: 0 auto;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.qu-why-badge {
-    border: 0.5px solid #f5c542;
-    color: #f5c542;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    padding: 6px 24px;
-    border-radius: 50px;
-    margin-bottom: 18px;
-    background: transparent;
-    cursor: pointer;
-    transition: background-color 0.25s, color 0.25s, box-shadow 0.25s;
-}
-.qu-why-badge:hover {
+    height: 40px;
+    border: 0;
+    border-radius: 999px;
     background-color: #f5c542;
     color: #000000;
-    box-shadow: 0 0 14px rgba(245, 197, 66, 0.5);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13px !important;
+    font-weight: 800;
+    line-height: 1;
+}
+.qu-form-status {
+    display: none;
+    margin-top: 14px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: rgba(245, 197, 66, 0.12);
+    border: 1px solid rgba(245, 197, 66, 0.34);
+    color: #f5c542;
+    font-size: 13px !important;
+    font-weight: 600;
+    line-height: 1.45;
+    text-align: center;
+}
+.qu-form-status.is-error {
+    background: rgba(255, 85, 85, 0.12);
+    border-color: rgba(255, 85, 85, 0.34);
+    color: #ff8b8b;
 }
 
+.qu-why-section {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    padding: 46px 0 54px;
+    background: #1a1a1a;
+    text-align: center;
+    scroll-margin-top: 170px;
+}
+.qu-why-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 28px;
+    margin: 0 0 18px;
+    padding: 0 18px;
+    border: 1px solid rgba(245, 197, 66, 0.8);
+    border-radius: 999px;
+    color: #f5c542;
+    font-size: 10px !important;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
 .qu-why-heading {
-    font-size: clamp(22px, 2.8vw, 36px);
+    margin: 0 0 12px;
+    color: #ffffff;
+    font-size: 24px !important;
     font-weight: 800;
-    color: #fff;
-    margin-bottom: 12px;
     line-height: 1.2;
 }
 .qu-why-subtext {
-    font-size: 15px;
-    color: #C5C5C5;
-    line-height: 26px;
-    margin-bottom: 36px;
-    max-width: 560px;
+    max-width: 520px;
+    margin: 0 auto 34px;
+    color: #bdbdbd;
+    font-size: 13px !important;
+    line-height: 1.65;
 }
-
 .qu-why-cards {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 20px;
-    width: 100%;
+    width: calc(100% - 192px);
+    max-width: 1856px;
+    margin: 0 auto;
 }
 .qu-why-card {
+    min-height: 178px;
+    padding: 28px 22px 24px;
     background-color: #242424;
-    border-radius: 14px;
-    padding: 28px 20px;
+    border: 1px solid rgba(245, 197, 66, 0.34);
+    border-radius: 4px;
     text-align: center;
-    border: 0.3px solid #F5C542;
-    transition: transform .25s, box-shadow .25s;
 }
-.qu-why-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.4); }
-
 .qu-why-icon {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    border: 2px solid #f5c542;
+    width: 34px;
+    height: 34px;
+    margin: 0 auto 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 16px;
-    color: #f5c542;
-    font-size: 20px;
 }
-.qu-why-card h3 { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 12px; line-height: 1.4; }
-.qu-why-card p  { font-size: 13px; color: #aaa; line-height: 1.65; }
-
-/* Mobile-only line break */
-.qu-mob-br    { display: none; }
+.qu-why-icon img {
+    width: 34px !important;
+    height: 34px !important;
+    object-fit: contain;
+}
+.qu-why-card h3 {
+    margin: 0 0 12px;
+    color: #ffffff;
+    font-size: 14px !important;
+    font-weight: 800;
+    line-height: 1.25;
+}
+.qu-why-card p {
+    margin: 0;
+    color: #b8b8b8;
+    font-size: 13px !important;
+    line-height: 1.55;
+}
+.qu-mob-br,
 .qu-mob-break { display: none; }
 
-/* ── TABLET  ≤ 1100px ────────────────────── */
-@media (max-width: 1100px) {
-    .qu-form-section  { max-width: 1000px; padding: 0 36px 40px; }
-    .qu-form-wrapper  { padding: 36px 36px; }
-    .qu-why-section   { padding: 44px 36px 56px; }
-    .qu-why-cards     { gap: 16px; }
+@media (max-width: 900px) {
+    .qu-form-section { width: min(100% - 32px, 760px); }
+    .qu-form-wrapper { padding: 30px 34px; }
+    .qu-why-cards { width: calc(100% - 32px); grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .qu-why-card { min-height: 190px; padding: 28px 22px; }
+    .qu-breadcrumb { width: calc(100% - 32px); }
 }
 
-/* ── MOBILE  ≤ 768px ─────────────────────── */
-@media (max-width: 768px) {
-    .qu-mob-br    { display: inline; }
-    .qu-mob-break { display: block; }
-
-    .qu-hero {
-        min-height: unset;
-        padding: 25vw 6vw 10vw;
-    }
+@media (max-width: 640px) {
+    .qu-hero { padding: 46px 0 28px; }
     .qu-breadcrumb {
-        top: 18vw;
-        left: 50%;
-        width: calc(100% - 8vw);
-        font-size: 3.5vw;
+        width: calc(100% - 32px);
+        gap: 10px;
+        margin-bottom: 20px;
+        font-size: 13px !important;
     }
-
-    .qu-hero-badge {
-        font-size: 2.8vw;
-        padding: 1.5vw 6vw;
-        letter-spacing: 0.4em;
-        margin-bottom: 4vw;
+    .qu-hero-heading { font-size: 27px !important; }
+    .qu-hero-subtext { font-size: 12px !important; }
+    .qu-form-section {
+        width: calc(100% - 24px);
+        border-radius: 14px;
     }
-    .qu-hero-heading {
-        font-size: 6.5vw;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1vw;
+    .qu-form-wrapper { padding: 24px 18px; }
+    .qu-form-title { font-size: 22px !important; margin-bottom: 22px; }
+    .qu-form { gap: 16px; }
+    .qu-row,
+    .qu-row-d2,
+    .qu-row-2,
+    .qu-row-3,
+    .qu-row-4,
+    .qu-row-qty-upload {
+        grid-template-columns: 1fr;
+        gap: 16px;
     }
-    .qu-hero-gold { display: block; }
-    .qu-hero-subtext { font-size: 3.8vw; line-height: 1.75; }
-
-    .qu-form-section  { max-width: 100%; padding: 0 4vw 8vw; border: none !important; box-shadow: none !important; background: transparent !important; }
-    .qu-form-wrapper  { padding: 7vw 4vw; border: none !important; background: transparent !important; }
-    .qu-form-title    { font-size: 5vw; }
-
-    .qu-field label { font-size: 3.8vw; }
     .qu-field input,
     .qu-field select,
-    .qu-field textarea { font-size: 3.8vw; padding: 3vw 3.5vw; }
-
-    .qu-row-d2 { flex-direction: column; gap: 5vw; }
-    .qu-row-d2 .qu-field { flex: 1 1 100%; width: 100%; }
-
-    .qu-row-4 { flex-wrap: wrap; gap: 3vw; }
-    .qu-row-4 .qu-field { flex: 0 0 calc(50% - 1.5vw); }
-
-    .qu-row-3 { flex-wrap: wrap; gap: 3vw; }
-    .qu-row-3 .qu-field { flex: 0 0 calc(50% - 1.5vw); }
-
-    .qu-row-2 { gap: 3vw; }
-
-    .qu-upload-btn { font-size: 3.8vw; padding: 3vw 6vw; }
-    .qu-file-name  { font-size: 3.8vw; }
-
-    .qu-btn { font-size: 4.5vw; padding: 4.5vw 0; }
-
-    .qu-why-section { padding: 10vw 4vw 14vw; }
-    .qu-why-heading { font-size: 6.5vw; }
-    .qu-why-badge   { font-size: 2.8vw; padding: 1.5vw 6vw; letter-spacing: 0.4em; }
-    .qu-why-subtext { font-size: 3.8vw; }
-    .qu-why-cards   { grid-template-columns: repeat(2, 1fr); gap: 3.5vw; }
-    .qu-why-card    { padding: 5.5vw 3.5vw; }
-    .qu-why-card h3 { font-size: 3.8vw; }
-    .qu-why-card p  { font-size: 3.5vw; }
-}
-
-@media (max-width: 480px) {
-    .qu-hero { padding: 190px 20px 40px; }
-    .qu-hero-heading { font-size: 8vw; }
-    .qu-why-cards    { grid-template-columns: 1fr; }
+    .qu-field textarea,
+    .qu-upload-wrap,
+    .qu-btn {
+        height: 42px;
+    }
+    .qu-field textarea { height: 86px; }
+    .qu-file-name { line-height: 42px; }
+    .qu-why-section { padding: 28px 12px 28px; scroll-margin-top: 120px; }
+    .qu-why-badge { font-size: 9px !important; }
+    .qu-why-heading { font-size: 23px !important; }
+    .qu-why-subtext { font-size: 12px !important; }
+    .qu-why-cards { grid-template-columns: 1fr; }
+    .qu-why-card { min-height: auto; padding: 28px 22px; }
+    .qu-why-card h3 { font-size: 16px !important; }
+    .qu-why-card p { font-size: 14px !important; }
 }
 </style>
 
     <!-- Hero Section -->
     <section class="qu-hero">
-        <nav class="qu-breadcrumb">
-            <span class="qu-bc-home">&#8962;</span>
-            <span class="qu-bc-sep">&#187;</span>
-            <span class="qu-bc-current">Get Instant Quote</span>
-        </nav>
+        @include('web.components.breadcrumb', [
+            'class' => 'qu-breadcrumb',
+            'items' => [
+                ['label' => 'Get Instant Quote']
+            ]
+        ])
         <div class="qu-hero-content">
             <!-- <button class="qu-hero-badge">GET QUOTE</button> -->
             <h1 class="qu-hero-heading">
                 Request An <span class="qu-hero-gold">Instant Quote</span>
             </h1>
             <p class="qu-hero-subtext">
-                Fill in the details below and receive a tailored<br>
-                estimate within minutes. No steps, just<br>
-                straightforward.
+                Fill in the details below and receive a tailored estimate within minutes. No steps, just straightforward.
             </p>
         </div>
     </section>
@@ -530,8 +481,8 @@ vertical-align: middle;
                     </div>
                 </div>
 
-                <!-- Material + Color -->
-                <div class="qu-row qu-row-2">
+                <!-- Material + Color + Addons -->
+                <div class="qu-row qu-row-3">
                     <div class="qu-field">
                         <label>Select Material</label>
                         @php
@@ -554,27 +505,32 @@ vertical-align: middle;
                             <option>No Print</option>
                         </select>
                     </div>
+                    <div class="qu-field">
+                        <label>Addons</label>
+                        <select name="product_name">
+                            <option value="">Choose option</option>
+                            <option>Embossing</option>
+                            <option>Debossing</option>
+                            <option>Foil Stamping</option>
+                            <option>Spot UV</option>
+                            <option>Window Patching</option>
+                        </select>
+                    </div>
                 </div>
 
-                <!-- Product Name + Quantity -->
-                <div class="qu-row qu-row-2">
-                    <div class="qu-field">
-                        <label>Select Product Name</label>
-                        <input type="text" name="product_name" placeholder="Enter product name">
-                    </div>
+                <!-- Quantity + Upload -->
+                <div class="qu-row qu-row-qty-upload">
                     <div class="qu-field">
                         <label>Quantity <span class="qu-req">*</span></label>
                         <input type="number" name="quantity" placeholder="Enter quantity" required oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                     </div>
-                </div>
-
-                <!-- Upload -->
-                <div class="qu-field">
-                    <label>Upload File Here</label>
-                    <div class="qu-upload-wrap">
-                        <span class="qu-file-name" id="fileName">No file choosen</span>
-                        <label for="fileInput" class="qu-upload-btn">Upload</label>
-                        <input type="file" name="artwork" id="fileInput" hidden>
+                    <div class="qu-field">
+                        <label>Upload File Here</label>
+                        <div class="qu-upload-wrap">
+                            <span class="qu-file-name" id="fileName">No file chosen</span>
+                            <label for="fileInput" class="qu-upload-btn">Upload</label>
+                            <input type="file" name="artwork" id="fileInput" hidden>
+                        </div>
                     </div>
                 </div>
 
@@ -587,6 +543,7 @@ vertical-align: middle;
                 <div class="qu-submit-row">
                     <button type="submit" class="qu-btn">Instant Quote</button>
                 </div>
+                <div class="qu-form-status" id="quoteFormStatus" role="status" aria-live="polite"></div>
 
             </form>
         </div>
@@ -594,7 +551,7 @@ vertical-align: middle;
 
     <!-- Why Choose Us -->
     <section class="qu-why-section">
-       
+      
         <h2 class="qu-why-heading">Packaging Excellence<span class="qu-mob-br"><br></span> You Can Trust</h2>
         <p class="qu-why-subtext">
             We craft premium custom packaging that<br class="qu-mob-break">
@@ -668,12 +625,64 @@ if (fileInput) {
 //  QUOTE FORM — submit handler
 // ============================================
 const quoteForm = document.getElementById('quoteForm');
+const quoteFormStatus = document.getElementById('quoteFormStatus');
 
 if (quoteForm) {
-    quoteForm.addEventListener('submit', (e) => {
+    quoteForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        quoteForm.submit();
+        const submitBtn = quoteForm.querySelector('.qu-btn');
+        const originalBtnText = submitBtn ? submitBtn.textContent : '';
+
+        if (quoteFormStatus) {
+            quoteFormStatus.style.display = 'none';
+            quoteFormStatus.classList.remove('is-error');
+            quoteFormStatus.textContent = '';
+        }
+
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+        }
+
+        try {
+            const response = await fetch(quoteForm.action, {
+                method: 'POST',
+                body: new FormData(quoteForm),
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Unable to submit quote');
+            }
+
+            const result = await response.json();
+            quoteForm.reset();
+
+            if (fileName) {
+                fileName.textContent = 'No file chosen';
+                fileName.style.color = '#555555';
+            }
+
+            if (quoteFormStatus) {
+                quoteFormStatus.textContent = result.message || 'Thank you for the inquiry, our sales representative will contact soon!';
+                quoteFormStatus.style.display = 'block';
+            }
+        } catch (error) {
+            if (quoteFormStatus) {
+                quoteFormStatus.textContent = 'Sorry, something went wrong. Please try again.';
+                quoteFormStatus.classList.add('is-error');
+                quoteFormStatus.style.display = 'block';
+            }
+        } finally {
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
+        }
     });
 }
 

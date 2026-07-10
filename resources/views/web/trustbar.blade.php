@@ -126,11 +126,11 @@
         width: 100%;
     }
     .tb-logos-track {
-        gap: 24px;
+        gap: 40px;
     }
     .tb-logo {
-        width: 60px;
-        height: 24px;
+        width: 120px;
+        height: 50px;
     }
 }
 </style>

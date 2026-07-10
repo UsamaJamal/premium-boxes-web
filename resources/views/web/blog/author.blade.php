@@ -40,7 +40,7 @@ html, body {
     width: 100%;
     background-color: var(--au-bg-hero);
     border-top: 2px solid var(--au-gold);
-    padding-top: 36px;
+    padding-top: 100px;
     padding-bottom: 60px;
     min-height: 340px;
 }
@@ -51,26 +51,7 @@ html, body {
     min-height: 340px;
 }
 
-/* BREADCRUMB */
-.au-breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--au-text-muted);
-    margin-bottom: 32px;
-    white-space: nowrap;
-}
-.au-bc-home {
-    color: var(--au-gold);
-    font-size: 15px;
-    text-decoration: none;
-    line-height: 1;
-    transition: color 0.2s;
-}
-.au-bc-home:hover { color: #fff; }
-.au-bc-sep     { color: #444; font-size: 12px; }
-.au-bc-current { color: var(--au-text-muted); font-size: 13px; font-weight: 500; }
+
 
 /* AUTHOR CARD */
 .au-card {
@@ -242,8 +223,8 @@ html, body {
 @media (max-width: 600px) {
     :root { --au-px: 5vw; }
 
-    .au-hero        { padding-top: 5vw; padding-bottom: 9vw; background-color: #1f1f1f; }
-    .au-breadcrumb  { display: none; }
+    .au-hero        { padding-top: 18vw; padding-bottom: 9vw; background-color: #1f1f1f; }
+    /* Removed au-breadcrumb display: none; */
 
     .au-card {
         flex-direction: column;
@@ -285,13 +266,12 @@ html, body {
         <div class="au-container">
 
             <!-- Breadcrumb -->
-            <nav class="au-breadcrumb" aria-label="Breadcrumb">
-                <a href="premiumboxes.html" class="au-bc-home" aria-label="Home">
-                    <i class="fas fa-house"></i>
-                </a>
-                <span class="au-bc-sep">&#187;</span>
-                <span class="au-bc-current">Author</span>
-            </nav>
+            @include('web.components.breadcrumb', [
+                'class' => 'au-breadcrumb',
+                'items' => [
+                    ['label' => 'Author']
+                ]
+            ])
 
             <!-- Author card -->
             <div class="au-card">
