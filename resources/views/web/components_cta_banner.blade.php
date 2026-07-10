@@ -4,7 +4,7 @@
 <style>
 /* CSS Styles for the CTA Banner Component */
 .cp-cta-banner-component {
-    background: #1e1e1e;
+    background: #202020;
     position: relative;
     overflow: hidden;
     display: flex;
