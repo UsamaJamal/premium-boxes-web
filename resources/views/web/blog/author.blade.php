@@ -37,21 +37,24 @@ html, body {
 
 
 .au-hero {
+    position: relative;
     width: 100%;
     background-color: var(--au-bg-hero);
     border-top: 2px solid var(--au-gold);
-    padding-top: 100px;
+    padding-top: 140px;
     padding-bottom: 60px;
-    min-height: 340px;
+    min-height: 380px;
 }
 
 .au-hero .au-container {
     display: flex;
     flex-direction: column;
-    min-height: 340px;
 }
 
-
+.au-breadcrumb {
+    padding-top: 30px;
+    margin-bottom: 30px;
+}
 
 /* AUTHOR CARD */
 .au-card {
@@ -61,8 +64,7 @@ html, body {
     justify-content: center;
     max-width: 860px;
     margin-inline: auto;
-    margin-top: auto;
-    margin-bottom: auto;
+    margin-top: 40px;
 }
 
 .au-avatar {
@@ -223,7 +225,7 @@ html, body {
 @media (max-width: 600px) {
     :root { --au-px: 5vw; }
 
-    .au-hero        { padding-top: 18vw; padding-bottom: 9vw; background-color: #1f1f1f; }
+    .au-hero        { padding-top: 6vw; padding-bottom: 9vw; background-color: #1f1f1f; }
     /* Removed au-breadcrumb display: none; */
 
     .au-card {
@@ -269,7 +271,8 @@ html, body {
             @include('web.components.breadcrumb', [
                 'class' => 'au-breadcrumb',
                 'items' => [
-                    ['label' => 'Author']
+                    ['label' => 'Blogs', 'url' => url('our-blog')],
+                    ['label' => $author->name]
                 ]
             ])
 
@@ -277,15 +280,24 @@ html, body {
             <div class="au-card">
 
                 <div class="au-avatar" style="display:flex; justify-content:center; align-items:center; background:#333;">
-                    <i class="fas fa-user" style="font-size: 60px; color: #fff;"></i>
+                    @if($author->profile_image)
+                        <img src="{{ url('uploads/authors/'.$author->profile_image) }}" alt="{{ $author->name }}" style="width:100%; height:100%; object-fit:cover;">
+                    @else
+                        <i class="fas fa-user" style="font-size: 60px; color: #fff;"></i>
+                    @endif
                 </div>
 
                 <div class="au-info">
-                    <h1 class="au-name">{{ $author_name }}</h1>
-                    <p class="au-role">Content Writer</p>
+                    <h1 class="au-name">{{ $author->name }}</h1>
+                    <p class="au-role">Packaging Specialist & Content Writer</p>
                     <p class="au-bio">
-                        {{ $author_description ?? '' }}
+                        {{ $author->bio }}
                     </p>
+                    @if($author->linkedin)
+                    <a href="{{ $author->linkedin }}" target="_blank" class="au-linkedin" style="display:flex; align-items:center; text-decoration:none; gap: 8px;">
+                        <img src="{{ asset('uploads/linkedin.svg') }}" alt="LinkedIn" style="width: 24px; height: 24px;"> LinkedIn
+                    </a>
+                    @endif
                 </div>
 
             </div>
@@ -304,7 +316,11 @@ html, body {
                     <div class="au-post-thumb" style="background-image:url('{{ asset('images/'.$blog_item->image) }}')"></div>
                     <div class="au-post-body">
                         <div class="au-post-meta">
-                            <span class="au-post-author">{{ $blog_item->author_name }}</span>
+                            <span class="au-post-author">
+                                <a href="{{ url('author/'.$author->slug) }}" onclick="event.stopPropagation();" style="color:inherit; text-decoration:none;">
+                                    {{ $author->name }}
+                                </a>
+                            </span>
                             <span class="au-post-date">{{ date('M d, Y', strtotime($blog_item->date)) }}</span>
                         </div>
                         <h3 class="au-post-title">{{ $blog_item->blog_title }}</h3>

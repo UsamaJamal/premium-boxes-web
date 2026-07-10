@@ -137,6 +137,15 @@ Route::post('admin/update_banner/{blog_banner_id}', 'AdminBlogController@updateB
 
 Route::get('admin/delete_banner/{blog_banner_id}', 'AdminBlogController@deleteBanner');
 // All Blogs page and  Controller of Blogs (Route)
+
+// Authors Routes
+Route::get('admin/authors', 'AdminAuthorController@index');
+Route::get('admin/authors/create', 'AdminAuthorController@create');
+Route::post('admin/authors/store', 'AdminAuthorController@store');
+Route::get('admin/authors/edit/{id}', 'AdminAuthorController@edit');
+Route::post('admin/authors/update/{id}', 'AdminAuthorController@update');
+Route::get('admin/authors/delete/{id}', 'AdminAuthorController@destroy');
+
 // All Tags and Controller of All Tags
 
 

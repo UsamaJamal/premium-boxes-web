@@ -63,18 +63,30 @@ class BlogController extends Controller
     $data['meta_description']= $data['blog_single_value'][0]->meta_description;
       return view ('web/blog/blogdetails',$data);
   }
-  public function AuthorPage($name) {
-    $decodedName = urldecode($name);
-    $data['author_name'] = $decodedName;
+  public function AuthorPage($slug) {
+    // Try finding by slug first, then try by name (for backward compatibility)
+    $decodedName = urldecode($slug);
+    $author = DB::table('authors')->where('slug', $slug)->orWhere('name', $decodedName)->first();
     
-    $authorBlogs = DB::table('blog')->where('author_name', $decodedName)->where('status', 1)->get();
-    
-    if ($authorBlogs->isEmpty()) {
-        abort(404);
+    if ($author) {
+        $data['author'] = $author;
+        $data['blogs'] = DB::table('blog')->where('author_id', $author->id)->where('status', 1)->get();
+    } else {
+        // Fallback for blogs that don't have an assigned author in the new table yet
+        $authorBlogs = DB::table('blog')->where('author_name', $decodedName)->where('status', 1)->get();
+        if ($authorBlogs->isEmpty()) {
+            abort(404);
+        }
+        $author = (object) [
+            'name' => $decodedName,
+            'slug' => $slug,
+            'bio' => $authorBlogs[0]->author_description ?? '',
+            'profile_image' => null,
+            'linkedin' => null,
+        ];
+        $data['author'] = $author;
+        $data['blogs'] = $authorBlogs;
     }
-    
-    $data['author_description'] = $authorBlogs[0]->author_description;
-    $data['blogs'] = $authorBlogs;
     
     $data['all_category'] = DB::table('add_category')->where('parent_category',0)->where('status',1)->get();
     $data['sub_category_link'] = DB::table('add_category')->where('status',1)->get();
@@ -84,9 +96,9 @@ class BlogController extends Controller
     $data['contact'] = DB::table('contact')->get();
     
     // Default meta for author page
-    $data['meta_title'] = "Posts by " . $decodedName . " | Premium Boxes";
-    $data['meta_tags'] = "author, " . $decodedName . ", blog posts, premium boxes";
-    $data['meta_description'] = "Read all articles written by " . $decodedName . " on Premium Boxes.";
+    $data['meta_title'] = "Posts by " . $author->name . " | Premium Boxes";
+    $data['meta_tags'] = "author, " . $author->name . ", blog posts, premium boxes";
+    $data['meta_description'] = "Read all articles written by " . $author->name . " on Premium Boxes.";
     
     return view('web/blog/author', $data);
   }
