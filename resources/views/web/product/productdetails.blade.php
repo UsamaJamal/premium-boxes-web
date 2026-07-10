@@ -13,7 +13,17 @@
     --product-text-muted: rgba(255, 255, 255, 0.7);
     --product-border: rgba(255, 255, 255, 0.1);
     --product-font: 'Inter', sans-serif;
-    --product-container-max: 1200px;
+    --product-container-max: 1140px;
+}
+
+/* Fix autofill styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #1e1e1e inset !important;
+    -webkit-text-fill-color: white !important;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 body {
@@ -25,18 +35,18 @@ body {
     font-family: var(--product-font);
 }
 
-.product-wrapper { width: 100%; min-height: 100vh; background-color: var(--product-bg); overflow-x: hidden; }
-.product-container { max-width: var(--product-container-max); margin: 0 auto; padding: 0 50px; }
+.product-wrapper { width: 100%; min-height: 100vh; background-color: #1a1a1a; overflow-x: hidden; }
+.product-container { max-width: var(--product-container-max); margin: 0 auto; padding: 0 15px; }
 h1,h2,h3,h4,h5,h6,p { margin: 0; padding: 0; }
 ul { margin: 0; padding: 0; list-style: none; }
 a { text-decoration: none; color: inherit; }
 
 /* HERO */
 .product-hero-section { padding: 33px 0; }
-.product-hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5.5px; align-items: start; }
+.product-hero-grid { display: grid; grid-template-columns: 0.9fr 1.15fr; gap: 40px; align-items: start; }
 
 /* Breadcrumbs */
-.product-breadcrumbs { display: flex; align-items: center; gap: 12.5px; flex-wrap: wrap; font-size: 16.2px; color: var(--product-text-muted); margin-bottom: 50px; }
+.product-breadcrumbs { display: flex; align-items: center; gap: 12.5px; flex-wrap: wrap; font-size: 16.2px; color: var(--product-text-muted); margin-bottom: 18px; }
 .product-breadcrumbs a { color: var(--product-text-muted); transition: color 0.3s ease; }
 .product-breadcrumbs a:first-of-type { color: var(--product-gold); }
 .product-breadcrumbs a:hover { color: var(--product-gold); }
@@ -45,7 +55,7 @@ a { text-decoration: none; color: inherit; }
 
 /* Images */
 .product-hero-images { display: flex; flex-direction: column; gap: 25px; min-width: 0; }
-.product-main-img-wrap { width: 92%; margin: 0 auto; border-radius: 10px; overflow: hidden; background-color: var(--product-bg-card); aspect-ratio: 5 / 4; }
+.product-main-img-wrap { width: 100%; max-width: calc(100% - 4px); margin: 0 auto; box-sizing: border-box; border-radius: 10px; overflow: hidden; background-color: var(--product-bg-card); aspect-ratio: 1 / 1; border: 1.5px solid var(--product-gold); }
 .product-main-img { width: 100%; height: 100%; object-fit: cover; }
 .product-thumbnails { display: flex; justify-content: center; gap: 18.8px; }
 .product-thumb { width: 100px; height: 100px; border-radius: 10px; overflow: hidden; cursor: pointer; border: 2.5px solid transparent; transition: all 0.3s ease; }
@@ -64,15 +74,15 @@ a { text-decoration: none; color: inherit; }
 
 /* Details */
 .product-hero-details { display: flex; flex-direction: column; }
-.product-title-row { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 18.8px; }
+.product-title-row { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 5px; }
 .product-title { font-size: 40px; font-weight: 700; }
 .product-status-badge { color: var(--product-gold); font-size: 17.5px; font-weight: 600; margin-top: 12px; }
-.product-desc { font-size: 17.5px; line-height: 1.6; color: rgba(255,255,255,0.85) !important; margin-bottom: 50px; }
+.product-desc { font-size: 17.5px; line-height: 1.6; color: rgba(255,255,255,0.85) !important; margin-bottom: 20px; }
 .product-desc *, .product-desc p, .product-desc span, .product-desc li, .product-desc strong, .product-desc b { color: rgba(255,255,255,0.85) !important; }
 .product-read-more { color: var(--product-gold) !important; font-weight: 600; text-decoration: none; }
 
 /* Quote Box */
-.product-quote-box { background-color: var(--product-bg-card); border-radius: 15px; padding: 25px 25px 18px 25px; }
+.product-quote-box { background-color: #202020; border-radius: 15px; padding: 25px 25px 18px 25px; }
 .product-quote-title { text-align: center; font-size: 23px; font-weight: 600; margin-bottom: 15px; }
 
 .pf-wrap { display: contents; }
@@ -119,14 +129,25 @@ a { text-decoration: none; color: inherit; }
 .product-quote-form select option { background-color: var(--product-bg-card); color: var(--product-text-main); }
 .product-quote-form input:focus,
 .product-quote-form select:focus,
-.product-quote-form textarea:focus { border-color: var(--product-gold); }
+.product-quote-form textarea:focus { border-color: var(--product-gold); color: #ffffff !important; }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
 
 .product-upload-group { display: flex; gap: 0; width: 100%; }
 .product-upload-group input { flex: 1; min-width: 0; border-radius: 10px 0 0 10px !important; }
-.product-btn-upload { background-color: var(--product-gold); color: #111; border: none; border-radius: 0 10px 10px 0; padding: 0 22px; font-weight: 700; font-size: 15px; cursor: pointer; transition: background-color 0.3s ease; white-space: nowrap; flex-shrink: 0; }/* removed hover: .product-btn-upload:hover { ... } */
-.product-quote-form textarea { resize: vertical; min-height: 100px; white-space: normal; overflow: auto; }
+.product-btn-upload { background-color: var(--product-gold); color: #111; border: none; border-radius: 0 10px 10px 0; padding: 0 22px; font-weight: 700; font-size: 15px; cursor: pointer; transition: background-color 0.3s ease; white-space: nowrap; flex-shrink: 0; outline: none; }
+.product-btn-upload:focus, .product-btn-upload:active, .product-btn-upload:focus-visible { outline: none !important; box-shadow: none !important; }
+/* removed hover: .product-btn-upload:hover { ... } */
+.product-quote-form textarea { resize: vertical; min-height: 45px; white-space: normal; overflow: auto; }
 .product-submit-wrap { display: flex; justify-content: center; margin-top: 18px; }
-.product-btn-primary { background-color: var(--product-gold); color: #111; border: none; border-radius: 50px; padding: 14px 40px; font-size: 16px; font-weight: 700; cursor: pointer; transition: background-color 0.3s ease; letter-spacing: 0.5px; }/* removed hover: .product-btn-primary:hover { ... } */
+.product-btn-primary { background-color: var(--product-gold); color: #121212; border: none !important; border-radius: 50px; padding: 10px 20px; font-size: 15px; font-weight: 700; cursor: pointer; transition: background-color 0.3s ease; letter-spacing: 0px; outline: none !important; box-shadow: none !important; width: 298px; height: 42px; display: flex; justify-content: center; align-items: center; font-family: var(--font-heading), sans-serif; }
+.product-btn-primary:focus, .product-btn-primary:active, .product-btn-primary:focus-visible { outline: none !important; box-shadow: none !important; border: none !important; }
 
 /* INFO TABS */
 .product-info-section { padding: 20px 0 40px; }
@@ -159,16 +180,16 @@ a { text-decoration: none; color: inherit; }
 .spec-value { padding: 18.8px 0 18.8px 25px; color: var(--product-text-muted); }
 
 /* RELATED PRODUCTS */
-.product-related-section { padding: 0px 0; }
+.product-related-section { padding: 0px 0 20px; }
 .product-related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
-.product-related-card { display: flex; flex-direction: column; gap: 18.8px; text-decoration: none; transition: transform 0.3s ease; }
-.product-related-card:hover { transform: translateY(-5px); }
-.product-related-img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background-color: var(--product-bg-card); border-radius: 10px; border: 1px solid rgba(212,175,55,0.45); transition: border-color 0.25s; }
-.product-related-card:hover .product-related-img { border-color: var(--product-gold); }
+.product-related-card { display: flex; flex-direction: column; gap: 0px; text-decoration: none; }
+/* removed hover: .product-related-card:hover { transform: translateY(-5px); } */
+.product-related-img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background-color: var(--product-bg-card); border-radius: 10px; border: 1px solid rgba(212,175,55,0.45); }
+/* removed hover: .product-related-card:hover .product-related-img { border-color: var(--product-gold); } */
 .product-related-title { font-size: 17.5px; font-weight: 500; color: var(--product-text-main); text-align: center; }
 
 /* ── FINAL QUOTE SECTION ── */
-.product-final-quote-section { padding: 50px 0; background-color: var(--product-bg); }
+.product-final-quote-section { padding: 50px 0 10px; background-color: var(--product-bg); }
 .product-final-quote-wrapper { display: grid; grid-template-columns: 1fr 323px; gap: 0; align-items: stretch; background-color: #1e1e1e; border-radius: 14px; overflow: hidden; border: 1px solid var(--product-border); }
 .product-final-quote-form-area { padding: 24px; }
 .product-final-quote-form-area .product-section-title { font-size: 20px; font-weight: 800; color: #fff; text-align: left; margin-bottom: 18px; line-height: 1.2; }
@@ -180,48 +201,56 @@ a { text-decoration: none; color: inherit; }
 
 /* ==================== CUSTOMIZE TABS ==================== */
 .customize-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
-.cust-tab-btn { flex-shrink: 0; transition: all 0.3s; white-space: nowrap; }
+.cust-tab-btn { flex-shrink: 0; transition: all 0.3s; white-space: nowrap; outline: none !important; box-shadow: none !important; }
+.cust-tab-btn:focus, .cust-tab-btn:active { outline: none !important; box-shadow: none !important; }
 
-.cust-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; text-align: center; }
+.cust-card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+.cust-card-title { font-size: 16px !important; }
+@media (max-width: 960px) { .cust-card-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px) { .cust-card-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; } }
+@media (max-width: 480px) { .cust-card-grid { grid-template-columns: 1fr; } }
 
 /* ==================== PFR SECTION ==================== */
-.product-pfr-section { padding: 0px 0; background-color: var(--product-bg);  }
-.pfr-wrapper { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; }
-.pfr-features { display: grid; grid-template-columns: 1fr 1fr; gap: 45px 30px; }
-.pfr-feature { display: flex; flex-direction: column; align-items: center; text-align: center; background-color: #1f1f1f; border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 30px 20px; gap: 12px; transition: transform 0.3s; }
-.pfr-feature:hover { transform: translateY(-5px); }
-.pfr-icon { color: var(--product-gold); display: flex; justify-content: center; margin-bottom: 5px; }
+.product-pfr-section { padding: 0px 0;  }
+.pfr-wrapper { display: grid; grid-template-columns: 1.2fr 1fr; gap: 0px; align-items: start; }
+.pfr-features { display: grid; grid-template-columns: 1fr 1fr; gap: 0px 30px; margin-top: 0; }
+.pfr-feature { display: flex; flex-direction: column; align-items: flex-start; text-align: left; background-color: transparent; border: none; padding: 10px 0; gap: 8px; transition: transform 0.3s; }
+/* removed hover animation */
+.pfr-icon { color: var(--product-gold); display: flex; justify-content: flex-start; margin-bottom: 0; }
 .pfr-icon img, .pfr-icon svg { width: 40px; height: 40px; }
-.pfr-feature h4 { font-size: 16px; font-weight: 700; color: #fff; margin: 0; }
-.pfr-feature p { font-size: 13.5px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0; }
+.pfr-feature h4 { font-size: 17px; font-weight: 700; color: #fff; margin: 0 0 10px 0; }
+.pfr-feature p { font-size: 14px !important; color: rgba(255,255,255,0.7); line-height: 1.6; margin: 0; }
 
-.pfr-reviews { background-color: #1f1f1f; border-radius: 20px; padding: 45px 25px; display: flex; flex-direction: column; justify-content: center; position: relative; min-width: 0; width: 100%; box-sizing: border-box; }
-.pfr-reviews-inner { display: flex; align-items: center; justify-content: center; position: relative; padding: 0 55px; width: 100%; box-sizing: border-box; }
-.pfr-nav { position: absolute; top: calc(50% + 15px); transform: translateY(-50%); z-index: 10; background: #1f1f1f; border: 1px solid rgba(255,255,255,0.1); width: 36px; height: 36px; border-radius: 50%; color: rgba(255,255,255,0.5); font-size: 20px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; }
+.pfr-reviews { background-color: #202020; border-radius: 20px; padding: 45px 0px; display: flex; flex-direction: column; justify-content: center; position: relative; min-width: 0; width: 100%; box-sizing: border-box; }
+.pfr-reviews-inner { display: flex; align-items: center; justify-content: center; position: relative; padding: 0 65px; width: 100%; box-sizing: border-box; }
+.pfr-nav { position: absolute; top: calc(50% + 5px); transform: translateY(-50%); z-index: 10; background: #222; border: 1px solid rgba(255,255,255,0.15); width: 44px; height: 44px; border-radius: 50%; color: rgba(255,255,255,0.6); font-size: 24px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; font-family: sans-serif; }
 .pfr-nav.prev { left: 5px; }
 .pfr-nav.next { right: 5px; }
-.pfr-nav:hover, .pfr-nav:active, .pfr-nav:focus, .pfr-nav.active { border-color: var(--product-gold) !important; color: var(--product-gold) !important; outline: none !important; box-shadow: none !important; }
-.pfr-slider-wrap { overflow: hidden; width: 100%; padding-top: 35px; margin-top: -35px; box-sizing: border-box; }
+.pfr-nav:hover, .pfr-nav:active, .pfr-nav:focus, .pfr-nav.active { border-color: rgba(255,255,255,0.4) !important; color: #fff !important; outline: none !important; box-shadow: none !important; background: #333; }
+.pfr-slider-wrap { overflow: hidden; width: 100%; padding-top: 40px; margin-top: -40px; box-sizing: border-box; }
 .pfr-slider { display: flex; width: 100%; transition: transform 0.5s ease; }
-.pfr-slide { flex: 0 0 100%; width: 100%; border: 1px solid rgba(255,193,7,0.15); border-radius: 12px; padding: 45px 30px 30px; text-align: center; position: relative; box-sizing: border-box; }
-.pfr-avatar { width: 64px; height: 64px; border-radius: 50%; border: 3px solid #1f1f1f; position: absolute; top: -32px; left: 50%; transform: translateX(-50%); overflow: hidden; background-color: #333; z-index: 2; }
+.pfr-slide { flex: 0 0 100%; width: 100%; background-color: #171717; border: 1px solid rgba(212, 175, 55, 0.25); border-radius: 18px; padding: 50px 25px 10px; text-align: center; position: relative; box-sizing: border-box; }
+.pfr-avatar { width: 55px; height: 55px; border-radius: 50%; border: 3px solid #222; box-shadow: none; position: absolute; top: -27px; left: 50%; transform: translateX(-50%); overflow: hidden; background-color: #333; z-index: 2; }
 .pfr-avatar img { width: 100%; height: 100%; object-fit: cover; }
-.pfr-text { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 25px; }
-.pfr-name { font-size: 15px; font-weight: 700; color: var(--product-gold); margin: 0 0 4px 0; }
-.pfr-title { font-size: 11px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.5px; }
-.pfr-dots { display: flex; justify-content: center; gap: 8px; margin-top: 25px; }
-.pfr-dot { width: 30px; height: 3px; background-color: rgba(255,255,255,0.15); border-radius: 2px; cursor: pointer; transition: 0.3s; }
-.pfr-dot.active { background-color: var(--product-gold); }
+.pfr-text { font-size: 14.5px; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 20px; text-align: justify; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.pfr-text.expanded { display: block; -webkit-line-clamp: unset; }
+.pfr-read-more-btn { background: none; border: none; color: rgba(255,255,255,0.7); font-size: 0.85rem; cursor: pointer; margin-top: -15px; margin-bottom: 15px; padding: 0; text-decoration: none; display: inline-block; font-weight: 500; outline: none; }
+.pfr-read-more-btn:focus, .pfr-read-more-btn:active { outline: none !important; box-shadow: none !important; }
+.pfr-name { font-size: 1.25rem; font-weight: 500; color: var(--product-gold); margin: 0 0 4px 0; }
+.pfr-title { font-size: 12px; color: rgba(255,255,255,0.5); text-transform: capitalize; letter-spacing: 0px; }
+.pfr-dots { display: flex; justify-content: center; gap: 8px; margin-top: 30px; }
+.pfr-dot { width: 35px; height: 4px; border: 1px solid rgba(255,255,255,0.4); background-color: transparent; border-radius: 4px; cursor: pointer; transition: 0.3s; }
+.pfr-dot.active { background-color: var(--product-gold); border-color: var(--product-gold); }
 .product-form-group select { background-color: #141414; border: 1px solid #333333; border-radius: 6px; padding: 7px 10px; color: #fff; font-family: var(--product-font); font-size: 11.5px; outline: none; transition: border-color 0.25s; width: 100%; appearance: none; -webkit-appearance: none; }
 .product-form-group input::placeholder { color: #555; }
-.product-form-group input:focus, .product-form-group select:focus { border-color: var(--product-gold); }
+.product-form-group input:focus, .product-form-group select:focus { border-color: var(--product-gold); color: #ffffff !important; }
 .product-form-group select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 34px; cursor: pointer; }
 .product-form-group select option { background-color: #1e1e1e; color: #fff; }
 .product-form-row-box-qty { display: grid; grid-template-columns: 1.2fr 1fr; gap: 10px 14px; margin-top: 12px; }
 .product-form-group.span-2 { grid-column: span 2; }
 .product-final-form textarea { width: 100%; max-width: 100%; background-color: #141414; border: 1px solid #333333; border-radius: 6px; padding: 7px 10px; color: #fff; font-family: var(--product-font); font-size: 11.5px; outline: none; resize: none; transition: border-color 0.25s; margin-bottom: 16px; box-sizing: border-box; }
 .product-final-form textarea::placeholder { color: #555; }
-.product-final-form textarea:focus { border-color: var(--product-gold); }
+.product-final-form textarea:focus { border-color: var(--product-gold); color: #ffffff !important; }
 .product-submit-btn { display: block; margin: 0 auto; background-color: var(--product-gold); color: #111111; border: none; border-radius: 50px; padding: 13px 36px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: var(--product-font); transition: background-color 0.25s, transform 0.2s; letter-spacing: 0.3px; min-width: 160px; }/* removed hover: .product-submit-btn:hover { ... } */
 .product-final-quote-image { background-color: #1e1e1e; display: flex; align-items: center; justify-content: center; border-left: 1px solid var(--product-border); width: 323px; flex-shrink: 0; padding: 24px 32px; }
 .product-placeholder-img { margin-left: -92px; width: 220px; height: 260px; background-color: #2a2a2a; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; color: rgba(255,255,255,0.25); font-weight: 500; flex-shrink: 0; overflow: hidden; }
@@ -229,7 +258,7 @@ a { text-decoration: none; color: inherit; }
 
 /* INSTANT QUOTE SECTION */
 .instant-quote-section { padding: 30px 0 40px; }
-.iq-card { background-color: #222222; border-radius: 12px; padding: 40px; display: grid; grid-template-columns: 1fr 280px; gap: 40px; align-items: start; max-width: 1200px; margin: 0 auto; box-sizing: border-box; }
+.iq-card { background-color: #202020; border-radius: 12px; padding: 40px; display: grid; grid-template-columns: 1fr 280px; gap: 40px; align-items: start; max-width: 1200px; margin: 0 auto; box-sizing: border-box; }
 .iq-content { flex: 1; }
 .iq-title { font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 25px; }
 .iq-form { display: flex; flex-direction: column; gap: 18px; }
@@ -239,9 +268,10 @@ a { text-decoration: none; color: inherit; }
 .iq-group label { font-size: 11px; color: #fff; font-weight: 600; }
 .iq-group input, .iq-group select, .iq-group textarea { background-color: #161616; border: 1px solid transparent; border-radius: 6px; padding: 12px 14px; color: #fff; font-size: 13px; font-family: var(--product-font); outline: none; transition: border-color 0.3s; width: 100%; box-sizing: border-box; }
 .iq-group input:focus, .iq-group select:focus, .iq-group textarea:focus { border-color: var(--product-gold); }
-.iq-group textarea { resize: vertical; min-height: 80px; }
-.iq-submit { margin-top: 10px; display: flex; justify-content: flex-start; }
-.iq-btn { background-color: var(--product-gold); color: #111; font-weight: 700; padding: 12px 40px; border-radius: 50px; border: none; font-size: 14px; cursor: pointer; transition: background-color 0.3s; width: 100%; max-width: 250px; text-align: center; }/* removed hover: .iq-btn:hover { ... } */
+.iq-group textarea { resize: vertical; min-height: 45px; }
+.iq-submit { margin-top: 5px; display: flex; justify-content: center; }
+.iq-btn { background-color: var(--product-gold); color: #121212; font-weight: 700; padding: 10px 20px; border-radius: 50px; border: none !important; font-size: 15px; cursor: pointer; transition: background-color 0.3s; width: 298px; max-width: 100%; height: 42px; text-align: center; display: flex; justify-content: center; align-items: center; outline: none !important; box-shadow: none !important; }
+.iq-btn:focus, .iq-btn:active, .iq-btn:focus-visible { outline: none !important; box-shadow: none !important; border: none !important; }
 .iq-image-wrap { background-color: #333333; border-radius: 8px; width: 100%; aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; color: #111; font-size: 24px; font-weight: 700; }
 
 /* Section headings */
@@ -280,7 +310,7 @@ a { text-decoration: none; color: inherit; }
     .product-desc { font-size: 3.8vw; line-height: 1.75; }
     .product-quote-box { padding: 5vw 4.5vw; }
     .product-quote-title { font-size: 6vw; margin-bottom: 6vw; }
-    .pf-mob-label { display: block; font-size: 3.5vw; font-weight: 600; margin-bottom: 1.5vw; color: rgba(255,255,255,0.85); }
+    .pf-mob-label { display: none !important; font-size: 3.5vw; font-weight: 600; margin-bottom: 1.5vw; color: rgba(255,255,255,0.85); }
     .pf-wrap { display: flex; flex-direction: column; width: 100%; }
     .pf-upload-wrap { width: 100%; }
     .product-form-row-3:not(.product-form-row-options) { grid-template-columns: 1fr; gap: 4vw; }
@@ -313,7 +343,9 @@ a { text-decoration: none; color: inherit; }
     .product-final-form textarea { font-size: 3.8vw; padding: 2.5vw 3vw; }
     .product-submit-btn { font-size: 4vw; padding: 3.5vw 8vw; }
 
-    .pfr-features { grid-template-columns: 1fr; gap: 30px; }
+    .pfr-features { grid-template-columns: 1fr; gap: 0px; }
+    .pfr-feature { align-items: center; text-align: center; }
+    .pfr-icon { justify-content: center; }
     .pfr-reviews { padding: 30px 20px; margin-top: 20px; }
     .pfr-reviews-inner { padding: 0 0 70px 0; }
     .pfr-nav { top: auto; bottom: 0; transform: none; width: 45px; height: 45px; font-size: 20px; }
@@ -359,11 +391,11 @@ a { text-decoration: none; color: inherit; }
 
 /* Order Process */
 .order-process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.op-card { background-color: #222222; border: 1px solid rgba(255, 193, 7, 0.2); border-radius: 8px; padding: 30px 20px; text-align: center; transition: transform 0.3s ease, border-color 0.3s ease; }
-.op-card:hover { transform: translateY(-5px); border-color: rgba(255, 193, 7, 0.5); }
-.op-icon { font-size: 35px; color: var(--product-gold); margin-bottom: 20px; }
-.op-title { font-size: 17px; font-weight: 600; color: #fff; margin-bottom: 15px; }
-.op-desc { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.6); }
+.op-card { background-color: #222222; border: 1px solid rgba(245, 197, 66, 0.2); border-radius: 8px; padding: 15px 15px; text-align: center; transition: transform 0.3s ease; cursor: pointer; }
+/* removed hover animation */
+.op-icon { font-size: 40px; color: var(--product-gold); margin-bottom: 12px; text-align: center; }
+.op-title { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 10px; text-align: center; }
+.op-desc { font-size: 13.5px; line-height: 1.5; color: rgba(255,255,255,0.7); text-align: center; }
 
 @media (max-width: 960px) {
     .order-process-grid { grid-template-columns: repeat(2, 1fr); }
@@ -416,6 +448,25 @@ a { text-decoration: none; color: inherit; }
     .review-submit-btn { width: 100%; min-width: unset; }
     .review-card { padding: 12vw 6vw 6vw; }
 }
+/* --- Inline Human Verification (Inside Form) --- */
+.human-verification-inline {
+  width: 100%; margin-top: -5px; padding: 10px 15px;
+  background-color: #1c1c1c; border: 1px solid rgba(255, 193, 7, 0.3);
+  border-radius: 8px; box-sizing: border-box; display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.human-verification-header { display: flex; flex-direction: column; gap: 2px; }
+.human-verification-inline-title { color: #fff; font-size: 20px !important; font-weight: 800; margin: 0 !important; line-height: 1.2 !important; }
+.human-verification-inline-copy { color: #ccc; font-size: 13px !important; margin: 0 !important; line-height: 1.4 !important; }
+.human-verification-inline-control { display: flex; align-items: center; gap: 12px; margin-top: 0; }
+.human-question { color: var(--product-gold); font-size: 16px !important; font-weight: 700; white-space: nowrap; }
+.human-answer { width: 85px !important; max-width: 85px !important; flex: 0 0 85px; height: 38px !important; background-color: #111; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 6px; color: #fff; font-size: 14px !important; text-align: center; outline: none; padding: 0 !important; }
+.human-answer:focus { border-color: var(--product-gold); }
+.human-check-btn { height: 38px !important; padding: 0 24px !important; background-color: var(--product-gold); color: #111; border: none !important; outline: none !important; box-shadow: none !important; border-radius: 50px; font-size: 14px !important; font-weight: 700; cursor: pointer; transition: all 0.2s; width: auto !important; }
+.human-check-btn:hover { opacity: 0.9; }
+.human-status { font-size: 13px !important; font-weight: 700; margin: 0 0 0 5px !important; width: auto; display: none; }
+.human-status:not(:empty) { display: block; }
+.human-status.is-success { color: #4caf50; display: block; }
+.human-status.is-error { color: #f44336; display: block; }
 </style>
 
 <div class="product-wrapper">
@@ -468,9 +519,9 @@ a { text-decoration: none; color: inherit; }
                         position: relative;
                         display: flex;
                         align-items: center;
-                        gap: 30px;
-                        margin-top: 25px;
-                        height: 40px;
+                        gap: 35px;
+                        margin-top: 5px;
+                        height: 60px;
                         mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
                         -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
                     }
@@ -478,7 +529,7 @@ a { text-decoration: none; color: inherit; }
                         display: flex;
                         flex-direction: row;
                         align-items: center;
-                        gap: 30px;
+                        gap: 35px;
                         will-change: transform;
                         white-space: nowrap;
                         flex-wrap: nowrap;
@@ -487,7 +538,7 @@ a { text-decoration: none; color: inherit; }
                         display: inline-flex;
                         align-items: center;
                         justify-content: center;
-                        height: 28px;
+                        height: 42px;
                         flex-shrink: 0;
                         opacity: 0.6;
                         transition: opacity 0.3s ease;
@@ -544,6 +595,50 @@ a { text-decoration: none; color: inherit; }
                         }
                         
                         animate();
+                        animate();
+                    });
+
+                    document.addEventListener("DOMContentLoaded", function() {
+                        const readMoreBtns = document.querySelectorAll('.pfr-read-more-btn');
+                        
+                        function collapseAllCards() {
+                            document.querySelectorAll('.pfr-text.expanded').forEach(p => {
+                                p.classList.remove('expanded');
+                                if(p.nextElementSibling && p.nextElementSibling.classList.contains('pfr-read-more-btn')) {
+                                    p.nextElementSibling.textContent = 'Read more';
+                                }
+                            });
+                        }
+
+                        readMoreBtns.forEach(btn => {
+                            btn.addEventListener('click', function() {
+                                const textPara = this.previousElementSibling;
+                                const isExpanded = textPara.classList.contains('expanded');
+                                
+                                collapseAllCards();
+
+                                if (!isExpanded) {
+                                    textPara.classList.add('expanded');
+                                    this.textContent = 'Read less';
+                                }
+                            });
+                        });
+                        
+                        // Override movePfrSlide to collapse text when sliding
+                        if(typeof window.movePfrSlide === 'function') {
+                            const originalMove = window.movePfrSlide;
+                            window.movePfrSlide = function(step) {
+                                collapseAllCards();
+                                originalMove(step);
+                            }
+                        }
+                        if(typeof window.goToPfrSlide === 'function') {
+                            const originalGoTo = window.goToPfrSlide;
+                            window.goToPfrSlide = function(index) {
+                                collapseAllCards();
+                                originalGoTo(index);
+                            }
+                        }
                     });
                     </script>
                 </div>
@@ -557,7 +652,7 @@ a { text-decoration: none; color: inherit; }
                         <span class="product-status-badge" style="white-space: nowrap;">In Stock</span>
                     </div>
 
-                    <div class="product-desc" style="font-size: 15px; line-height: 1.6; color: #b3b3b3; margin-top: 15px;">
+                    <div class="product-desc" style="font-size: 15px; line-height: 1.6; color: #b3b3b3; margin-top: 0px;">
                         @php
                             $clean_desc = strip_tags($p->description);
                         @endphp
@@ -567,8 +662,11 @@ a { text-decoration: none; color: inherit; }
                                 <a onclick="document.getElementById('desc-short').style.display='none'; document.getElementById('desc-full').style.display='block';" style="color: #F5C542 !important; font-weight: 600; text-decoration: none; cursor: pointer; white-space: nowrap;">Read More</a>
                             </div>
                             <div id="desc-full" style="display: none;">
+                                <style>
+                                    #desc-full p:last-of-type { display: inline; margin-bottom: 0; }
+                                </style>
                                 {!! $p->description !!} 
-                                <a onclick="document.getElementById('desc-full').style.display='none'; document.getElementById('desc-short').style.display='block';" style="color: #F5C542 !important; font-weight: 600; text-decoration: none; cursor: pointer; white-space: nowrap;">Show Less</a>
+                                &nbsp;<a onclick="document.getElementById('desc-full').style.display='none'; document.getElementById('desc-short').style.display='block';" style="color: #F5C542 !important; font-weight: 600; text-decoration: none; cursor: pointer; white-space: nowrap;">Show Less</a>
                             </div>
                         @else
                             {!! $p->description !!}
@@ -578,62 +676,68 @@ a { text-decoration: none; color: inherit; }
                     <!-- Quote Form -->
                     <div class="product-quote-box">
                         <h3 class="product-quote-title">Get Custom Quote</h3>
-                        <form class="product-quote-form" id="quoteform" method="post" action="{{ url('product-mail') }}" enctype="multipart/form-data">
+                        <form class="product-quote-form" id="quoteform" method="post" action="{{ url('product-mail') }}" enctype="multipart/form-data" spellcheck="false">
                             @csrf
                             <input type="hidden" name="p_boxname" value="{{ $p->title }}">
                             <input type="hidden" name="source" value="Product detail custom quote">
                             <input type="hidden" name="page_url" value="{{ url()->current() }}">
 
-                            <!-- Row 1: First Name | Last Name -->
-                            <div class="product-form-row product-form-row-options">
+                            <!-- Row 1: Name | Email | Phone -->
+                            <div class="product-form-row product-form-row-3">
                                 <div class="pf-wrap">
-                                    <label class="pf-mob-label">First Name *</label>
-                                    <input type="text" name="p_first_name" placeholder="First name" required>
+                                    <label class="pf-mob-label">Name *</label>
+                                    <input type="text" name="p_first_name" placeholder="Name *" required oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
+                                    <input type="hidden" name="p_last_name" value="-">
                                 </div>
-                                <div class="pf-wrap">
-                                    <label class="pf-mob-label">Last Name *</label>
-                                    <input type="text" name="p_last_name" placeholder="Last name" required>
-                                </div>
-                            </div>
-
-                            <!-- Row 2: Email | Phone -->
-                            <div class="product-form-row product-form-row-options">
                                 <div class="pf-wrap">
                                     <label class="pf-mob-label">Email Address *</label>
-                                    <input type="email" name="p_email" placeholder="Enter your email" required>
+                                    <input type="email" name="p_email" placeholder="Email *" required>
                                 </div>
                                 <div class="pf-wrap">
                                     <label class="pf-mob-label">Phone *</label>
-                                    <input type="tel" name="p_phone" placeholder="Enter your number" required>
+                                    <input type="tel" name="p_phone" placeholder="Phone number *" required oninput="this.value = this.value.replace(/[^0-9+]/g, '')">
                                 </div>
                             </div>
 
-                            <!-- Row 3: Width | Length | Height | Unit -->
+                            <!-- Row 2: Width | Length | Depth | Unit -->
                             <div class="product-form-row product-form-row-4">
                                 <div class="pf-wrap">
                                     <label class="pf-mob-label">Width *</label>
-                                    <input type="text" name="p_width" placeholder="Width" required>
+                                    <input type="text" name="p_width" placeholder="Width *" required oninput="this.value = this.value.replace(/[^0-9.]/g, '')">
                                 </div>
                                 <div class="pf-wrap">
                                     <label class="pf-mob-label">Length *</label>
-                                    <input type="text" name="p_length" placeholder="Length" required>
+                                    <input type="text" name="p_length" placeholder="Length *" required oninput="this.value = this.value.replace(/[^0-9.]/g, '')">
                                 </div>
                                 <div class="pf-wrap">
-                                    <label class="pf-mob-label">Height *</label>
-                                    <input type="text" name="p_height" placeholder="Height" required>
+                                    <label class="pf-mob-label">Depth *</label>
+                                    <input type="text" name="p_height" placeholder="Depth *" required oninput="this.value = this.value.replace(/[^0-9.]/g, '')">
                                 </div>
                                 <div class="pf-wrap">
                                     <label class="pf-mob-label">Units *</label>
                                     <select name="p_unit">
+                                        <option value="mm">mm *</option>
                                         <option value="Inch">Inch</option>
                                         <option value="cm">cm</option>
-                                        <option value="mm">mm</option>
                                     </select>
                                 </div>
                             </div>
 
-                            <!-- Row 4: Printing Options | Quantity -->
+                            <!-- Row 3: Material | Printing -->
                             <div class="product-form-row product-form-row-options">
+                                <div class="pf-wrap">
+                                    <label class="pf-mob-label">Select Material</label>
+                                    @php
+                                        $parentCatMatQuote = \DB::table('add_category')->where('name', 'Box by Material')->first();
+                                        $materialsQuote = $parentCatMatQuote ? \DB::table('add_category')->where('parent_category', $parentCatMatQuote->cat_id)->get() : [];
+                                    @endphp
+                                    <select name="p_material">
+                                        <option value="">Select Material</option>
+                                        @foreach($materialsQuote as $mat)
+                                            <option value="{{ $mat->name }}">{{ $mat->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                                 <div class="pf-wrap">
                                     <label class="pf-mob-label">Printing Options</label>
                                     <select name="p_color">
@@ -646,9 +750,22 @@ a { text-decoration: none; color: inherit; }
                                         <option value="4 Color+PMS">4 Color + PMS</option>
                                     </select>
                                 </div>
+                            </div>
+
+                            <!-- Row 4: Finishing | Quantity -->
+                            <div class="product-form-row product-form-row-options">
+                                <div class="pf-wrap">
+                                    <label class="pf-mob-label">Finishing Options</label>
+                                    <select name="p_finishing">
+                                        <option value="">Finishing Options</option>
+                                        <option value="Gloss">Gloss</option>
+                                        <option value="Matte">Matte</option>
+                                        <option value="UV">UV</option>
+                                    </select>
+                                </div>
                                 <div class="pf-wrap">
                                     <label class="pf-mob-label">Quantity *</label>
-                                    <input type="text" name="p_qty1" placeholder="Enter quantity" required>
+                                    <input type="text" name="p_qty1" placeholder="Quantity" required oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                                 </div>
                             </div>
 
@@ -657,19 +774,38 @@ a { text-decoration: none; color: inherit; }
                                 <div class="pf-wrap pf-upload-wrap">
                                     <label class="pf-mob-label">Upload File Here</label>
                                     <div class="product-upload-group">
-                                        <input type="text" placeholder="No file chosen" readonly id="uploadFileName">
+                                        <input type="text" placeholder="No file choosen" readonly id="uploadFileName">
                                         <input type="file" name="p_file" id="fileUploadInput" style="display:none" onchange="document.getElementById('uploadFileName').value = this.files[0]?.name || ''">
                                         <button type="button" class="product-btn-upload" onclick="document.getElementById('fileUploadInput').click()">Upload</button>
                                     </div>
                                 </div>
                             </div>
 
+                            <!-- Row 6: Message -->
                             <div class="product-form-row">
                                 <textarea name="message" placeholder="Enter your message" rows="3"></textarea>
                             </div>
 
+                            <div class="product-form-row">
+                                <div class="human-verification-inline">
+                                    <div class="human-verification-header">
+                                        <h3 class="human-verification-inline-title">Are you a human?</h3>
+                                        <p class="human-verification-inline-copy">Solve this quick addition before continuing.</p>
+                                    </div>
+                                    <div class="human-verification-inline-control">
+                                        <span class="human-question" id="prodHumanQuestion1">0 + 0 =</span>
+                                        <input type="number" class="human-answer" id="prodHumanAnswer1" placeholder="Answer" aria-label="Human verification answer">
+                                        <button type="button" class="human-check-btn" id="prodHumanCheckBtn1">Verify</button>
+                                        <span class="human-status" id="prodHumanStatus1" aria-live="polite"></span>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="product-submit-wrap">
                                 <button type="submit" class="product-btn-primary">Send Instant Quote</button>
+                            </div>
+                            <div class="ajax-success-msg" id="quoteform-success" style="display: none; background-color: rgba(227, 176, 54, 0.15); border: 1px solid #e3b036; color: #e3b036; padding: 15px; border-radius: 8px; margin-top: 15px; text-align: center; font-weight: 600; font-size: 14px;">
+                                Thank you for the inquiry, our sales representative will contact soon!
                             </div>
                         </form>
                     </div>
@@ -736,46 +872,32 @@ a { text-decoration: none; color: inherit; }
                         <button class="pfr-nav prev" onclick="movePfrSlide(-1)">&#8249;</button>
                         <div class="pfr-slider-wrap">
                             <div class="pfr-slider" id="pfrSlider">
-                                
-                                
+                                @php
+                                    if(!isset($testimonial)) {
+                                        $testimonial = \DB::table('testimonila')->get();
+                                    }
+                                @endphp
+                                @foreach($testimonial as $testi)
                                 <div class="pfr-slide">
                                     <div class="pfr-avatar">
-                                        <img src="{{ asset('uploads/avatar1.jpg') }}" onerror="this.src='https://i.pravatar.cc/150?img=11'" alt="avatar" title="Avatar">
+                                        <img src="{{ asset('images/' . $testi->image) }}" onerror="this.src='https://ui-avatars.com/api/?name={{ urlencode($testi->name) }}&background=random'" alt="{{ $testi->name }}" title="{{ $testi->name }}">
                                     </div>
-                                    <p class="pfr-text">We've been working with PremiumBoxes for 3 years now. Their consistency, attention to detail, and timely delivery make them our go-to packaging partner.</p>
-                                    <h5 class="pfr-name">Mike Torello</h5>
-                                    <span class="pfr-title">CEO, Jewels Co.</span>
+                                    <p class="pfr-text">{{ $testi->comment }}</p>
+                                    @if(strlen($testi->comment) > 130)
+                                        <button class="pfr-read-more-btn">Read more</button>
+                                    @endif
+                                    <h5 class="pfr-name">{{ $testi->name }}</h5>
+                                    <span class="pfr-title">{{ $testi->profile_link ?? 'Customer' }}</span>
                                 </div>
-                                
-                                <div class="pfr-slide">
-                                    <div class="pfr-avatar">
-                                        <img src="{{ asset('uploads/avatar2.jpg') }}" onerror="this.src='https://i.pravatar.cc/150?img=32'" alt="avatar" title="Avatar">
-                                    </div>
-                                    <p class="pfr-text">Absolutely fantastic quality and customer service. They helped us redesign our boxes from scratch and the final result was beyond our expectations.</p>
-                                    <h5 class="pfr-name">Sarah Jenkins</h5>
-                                    <span class="pfr-title">Founder, Glow Cosmetics</span>
-                                </div>
-                                
-                                <div class="pfr-slide">
-                                    <div class="pfr-avatar">
-                                        <img src="{{ asset('uploads/avatar3.jpg') }}" onerror="this.src='https://i.pravatar.cc/150?img=59'" alt="avatar" title="Avatar">
-                                    </div>
-                                    <p class="pfr-text">Fast shipping and affordable pricing. We compared many suppliers but this one offered the best value for premium custom printed boxes.</p>
-                                    <h5 class="pfr-name">David Chen</h5>
-                                    <span class="pfr-title">Manager, TechGear</span>
-                                </div>
-                                
-                                
+                                @endforeach
                             </div>
                         </div>
                         <button class="pfr-nav next" onclick="movePfrSlide(1)">&#8250;</button>
                     </div>
                     <div class="pfr-dots" id="pfrDots">
-                        
-                            <span class="pfr-dot active" onclick="goToPfrSlide(0)"></span>
-                            <span class="pfr-dot" onclick="goToPfrSlide(1)"></span>
-                            <span class="pfr-dot" onclick="goToPfrSlide(2)"></span>
-                        
+                        @foreach($testimonial as $index => $testi)
+                            <span class="pfr-dot {{ $index == 0 ? 'active' : '' }}" onclick="goToPfrSlide({{ $index }})"></span>
+                        @endforeach
                     </div>
                 </div>
 
@@ -849,12 +971,7 @@ a { text-decoration: none; color: inherit; }
                     </div>
                     <div class="op-card">
                         <div class="op-icon">
-                            <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
-                                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
-                                <path d="M2 2l7.586 7.586"></path>
-                                <circle cx="11" cy="11" r="2"></circle>
-                            </svg>
+                            <img src="{{ asset('uploads/design-code.svg') }}" style="width:1em; height:1em; display:inline-block;" alt="Design & Quote">
                         </div>
                         <h4 class="op-title">Design & Quote</h4>
                         <p class="op-desc">You receive a structural die line, finish spec sheet, and transparent pricing. Revisions are included at no extra cost &mdash; no surprises, no hidden fees.</p>
@@ -952,17 +1069,17 @@ a { text-decoration: none; color: inherit; }
     </section>
 
     <!-- ==================== CUSTOMIZE YOUR BOX ==================== -->
-    <section class="product-customize-section" style="background-color: #1a1a1a; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
+    <section class="product-customize-section" style="background-color: #1a1a1a; padding: 20px 0; text-align: center;">
         <div class="product-container">
             <!-- <span class="product-sec-badge" style="display:inline-block; border:1px solid #e3b036; color:#e3b036; padding:4px 12px; border-radius:20px; font-size:10px; font-weight:bold; letter-spacing:1px; margin-bottom:15px; text-transform:uppercase;">Options & Materials</span> -->
             <h2 style="color:#ffffff; font-size:28px; margin-bottom:10px;">Customize Your Box</h2>
-            <p style="color:rgba(255,255,255,0.6); font-size:14px; margin-bottom:40px;">Choose materials, finishes, and add-ons to build your perfect rigid box.</p>
+            <p style="color:rgba(255,255,255,0.6); font-size:14px; margin-bottom:10px;">Choose materials, finishes, and add-ons to build your perfect rigid box.</p>
 
-            <div class="customize-tabs">
-                <button class="cust-tab-btn active" data-target="mat" style="background-color:#e3b036; color:#000; border:none; padding:10px 25px; border-radius:4px; font-weight:600; cursor:pointer;">Materials</button>
-                <button class="cust-tab-btn" data-target="print" style="background-color:transparent; color:rgba(255,255,255,0.8); border:1px solid rgba(255,255,255,0.2); padding:10px 25px; border-radius:4px; font-weight:600; cursor:pointer;">Printing Options</button>
-                <button class="cust-tab-btn" data-target="finish" style="background-color:transparent; color:rgba(255,255,255,0.8); border:1px solid rgba(255,255,255,0.2); padding:10px 25px; border-radius:4px; font-weight:600; cursor:pointer;">Special Finishes</button>
-                <button class="cust-tab-btn" data-target="coat" style="background-color:transparent; color:rgba(255,255,255,0.8); border:1px solid rgba(255,255,255,0.2); padding:10px 25px; border-radius:4px; font-weight:600; cursor:pointer;">Coating & Laminations</button>
+            <div class="customize-tabs" style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                <button class="cust-tab-btn active" data-target="mat" style="flex: 0 0 200px; height: 58px; background-color:#e3b036; color:#000; border:1px solid #e3b036; padding:0; border-radius:6px; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center;">Materials</button>
+                <button class="cust-tab-btn" data-target="print" style="flex: 0 0 200px; height: 58px; background-color:transparent; color:rgba(255,255,255,0.8); border:1px solid #e3b036; padding:0; border-radius:6px; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center;">Printing Options</button>
+                <button class="cust-tab-btn" data-target="finish" style="flex: 0 0 200px; height: 58px; background-color:transparent; color:rgba(255,255,255,0.8); border:1px solid #e3b036; padding:0; border-radius:6px; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center;">Special Finishes</button>
+                <button class="cust-tab-btn" data-target="coat" style="flex: 0 0 200px; height: 58px; background-color:transparent; color:rgba(255,255,255,0.8); border:1px solid #e3b036; padding:0; border-radius:6px; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center;">Coating & Laminations</button>
             </div>
 
 <!-- Materials Content -->
@@ -973,15 +1090,15 @@ a { text-decoration: none; color: inherit; }
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
         <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Corrugated/bleached-white-board-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="bleached white board" title="Bleached White Board"></div>
-        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Corrugated</div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:14px; font-weight:600;">Corrugated</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
         <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Fluted Grades Images/A-flute.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="a flute" title="A Flute"></div>
-        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Fluted Grades</div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:14px; font-weight:600;">Fluted Grades</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
         <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Rigid Material/Duplex-Chipboard-.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="duplex chipboard" title="Duplex Chipboard"></div>
-        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Rigid Material</div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:14px; font-weight:600;">Rigid Material</div>
     </div>
 </div>
             </div>
@@ -1102,55 +1219,63 @@ a { text-decoration: none; color: inherit; }
         <div class="product-container">
             <div class="iq-card">
                 <div class="iq-content">
-                    <h2 class="iq-title">Instant Quotes, Quick Service</h2>
-                    <form action="{{ url('submit-quote') }}" method="POST" class="iq-form" enctype="multipart/form-data">
+                    <h2 class="iq-title">Order a Sample Kit</h2>
+                    <form action="{{ url('submit-quote') }}" method="POST" class="iq-form" enctype="multipart/form-data" spellcheck="false">
                         @csrf
                         <input type="hidden" name="source" value="Product detail instant quote">
                         <input type="hidden" name="page_url" value="{{ url()->current() }}">
                         <div class="iq-row">
                             <div class="iq-group">
-                                <label>Name *</label>
-                                <input type="text" name="name" placeholder="Name" required>
+                                <input type="text" name="name" placeholder="Name" required oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '')">
                             </div>
                             <div class="iq-group">
-                                <label>Email Address *</label>
                                 <input type="email" name="email" placeholder="Email" required>
                             </div>
                             <div class="iq-group">
-                                <label>Phone *</label>
-                                <input type="text" name="phone" placeholder="Phone number" required>
+                                <input type="text" name="phone" placeholder="Phone number" required oninput="this.value = this.value.replace(/[^0-9+\-\s]/g, '')">
                             </div>
                         </div>
                         <div class="iq-row">
                             <div class="iq-group">
-                                <label>Company Name</label>
                                 <input type="text" name="company" placeholder="Company">
                             </div>
                             <div class="iq-group">
-                                <label>Website</label>
                                 <input type="text" name="website" placeholder="Website">
                             </div>
                             <div class="iq-group">
-                                <label>Physical Address</label>
                                 <input type="text" name="address" placeholder="Address">
                             </div>
                         </div>
                         <div class="iq-row-2">
                             <div class="iq-group">
-                                <label>Product Name *</label>
                                 <input type="text" name="product_name" value="{{ $p->title ?? '' }}" placeholder="Enter product name" required>
                             </div>
                             <div class="iq-group">
-                                <label>Quantity *</label>
-                                <input type="number" name="quantity" placeholder="Enter quantity" required>
+                                <input type="number" name="quantity" placeholder="Enter quantity" required min="1" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                             </div>
                         </div>
                         <div class="iq-group">
-                            <label>Message</label>
                             <textarea name="message" placeholder="Enter your message"></textarea>
                         </div>
+                        <div class="iq-group mt-3" style="margin-top: 15px;">
+                            <div class="human-verification-inline">
+                                <div class="human-verification-header">
+                                    <h3 class="human-verification-inline-title">Are you a human?</h3>
+                                    <p class="human-verification-inline-copy">Solve this quick addition before continuing.</p>
+                                </div>
+                                <div class="human-verification-inline-control">
+                                    <span class="human-question" id="prodHumanQuestion2">0 + 0 =</span>
+                                    <input type="number" class="human-answer" id="prodHumanAnswer2" placeholder="Answer" aria-label="Human verification answer">
+                                    <button type="button" class="human-check-btn" id="prodHumanCheckBtn2">Verify</button>
+                                    <span class="human-status" id="prodHumanStatus2" aria-live="polite"></span>
+                                </div>
+                            </div>
+                        </div>
                         <div class="iq-submit">
-                            <button type="submit" class="iq-btn">Instant Quote</button>
+                            <button type="submit" class="iq-btn">Send Instant Quote</button>
+                        </div>
+                        <div class="ajax-success-msg" id="iqform-success" style="display: none; background-color: rgba(227, 176, 54, 0.15); border: 1px solid #e3b036; color: #e3b036; padding: 15px; border-radius: 8px; margin-top: 15px; text-align: center; font-weight: 600; font-size: 14px;">
+                            Thank you for the inquiry, our sales representative will contact soon!
                         </div>
                     </form>
                 </div>
@@ -1188,7 +1313,7 @@ a { text-decoration: none; color: inherit; }
     <section class="product-related-section">
         <div class="product-container">
             <!-- <span class="product-sec-badge">EXPLORE MORE</span> -->
-            <h2 class="product-section-title" style="margin-bottom:40px">Related Products</h2>
+            <h2 class="product-section-title" style="margin-bottom:20px">Related Products</h2>
             <div class="product-related-grid">
                 @foreach($product as $p)
                 @php $temp = json_decode($p->related_product); @endphp
@@ -1196,9 +1321,9 @@ a { text-decoration: none; color: inherit; }
                 @foreach($all_product as $rel)
                 @foreach($temp as $tv)
                 @if($tv == $rel->product_id)
-                <a href="{{ url($rel->url) }}" class="product-related-card">
+                <a href="{{ url($rel->url) }}" class="product-related-card" style="text-decoration: none;">
                     <img src="{{ url('images/'.$rel->image) }}" alt="{{ strtolower(str_replace('-', ' ', $rel->title)) }}" class="product-related-img" title="{{ ucwords(strtolower(str_replace('-', ' ', $rel->title))) }}">
-                    <span class="product-related-title">{{ $rel->title }}</span>
+                    <span class="product-related-title" style="text-decoration: none !important; display: inline-block; margin-top: 15px;">{{ $rel->title }}</span>
                 </a>
                 @endif
                 @endforeach
@@ -1394,6 +1519,143 @@ document.querySelectorAll('.cust-tab-btn').forEach(btn => {
         resetPfrInterval();
     }
 })();
+    // Math verification Form 1
+    var hQ1 = document.getElementById('prodHumanQuestion1');
+    var hA1 = document.getElementById('prodHumanAnswer1');
+    var hB1 = document.getElementById('prodHumanCheckBtn1');
+    var hS1 = document.getElementById('prodHumanStatus1');
+    var hT1 = 0;
+    var hV1 = false;
+    function genQ1() {
+        var a = Math.floor(Math.random() * 9) + 1;
+        var b = Math.floor(Math.random() * 9) + 1;
+        hT1 = a + b;
+        if (hQ1) hQ1.textContent = a + ' + ' + b + ' =';
+        if (hA1) { hA1.value = ''; hA1.style.border = ''; }
+        if (hS1) { hS1.textContent = ''; hS1.className = 'human-status'; }
+        hV1 = false;
+    }
+    if (hQ1 && hA1 && hB1) {
+        genQ1();
+        hB1.addEventListener('click', function() {
+            var correct = hA1.value.trim() !== '' && Number(hA1.value.trim()) === hT1;
+            if (correct) {
+                hV1 = true;
+                hA1.style.border = '';
+                if (hS1) { hS1.textContent = 'Verified.'; hS1.className = 'human-status is-success'; }
+            } else {
+                hV1 = false;
+                hA1.style.border = '1px solid red';
+                if (hS1) { hS1.textContent = 'Please solve the addition correctly.'; hS1.className = 'human-status is-error'; }
+                hA1.focus();
+            }
+        });
+    }
+
+    var form1 = document.getElementById('quoteform');
+    if (form1) {
+        form1.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (!hV1) {
+                alert('Please complete the human verification.');
+                hA1.focus();
+                return;
+            }
+            var formData = new FormData(form1);
+            var submitBtn = form1.querySelector('.product-submit-btn') || form1.querySelector('button[type="submit"]');
+            var origText = submitBtn ? submitBtn.textContent : 'Submit';
+            if(submitBtn) submitBtn.textContent = 'Submitting...';
+            
+            fetch(form1.action, {
+                method: form1.method,
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => {
+                var successMsg = document.getElementById('quoteform-success');
+                if(successMsg) successMsg.style.display = 'block';
+                form1.reset();
+                genQ1();
+                if(submitBtn) submitBtn.textContent = origText;
+                setTimeout(() => { if(successMsg) successMsg.style.display = 'none'; }, 8000);
+            })
+            .catch(error => {
+                alert('An error occurred. Please try again.');
+                if(submitBtn) submitBtn.textContent = origText;
+            });
+        });
+    }
+
+    // Math verification Form 2
+    var hQ2 = document.getElementById('prodHumanQuestion2');
+    var hA2 = document.getElementById('prodHumanAnswer2');
+    var hB2 = document.getElementById('prodHumanCheckBtn2');
+    var hS2 = document.getElementById('prodHumanStatus2');
+    var hT2 = 0;
+    var hV2 = false;
+    function genQ2() {
+        var a = Math.floor(Math.random() * 9) + 1;
+        var b = Math.floor(Math.random() * 9) + 1;
+        hT2 = a + b;
+        if (hQ2) hQ2.textContent = a + ' + ' + b + ' =';
+        if (hA2) { hA2.value = ''; hA2.style.border = ''; }
+        if (hS2) { hS2.textContent = ''; hS2.className = 'human-status'; }
+        hV2 = false;
+    }
+    if (hQ2 && hA2 && hB2) {
+        genQ2();
+        hB2.addEventListener('click', function() {
+            var correct = hA2.value.trim() !== '' && Number(hA2.value.trim()) === hT2;
+            if (correct) {
+                hV2 = true;
+                hA2.style.border = '';
+                if (hS2) { hS2.textContent = 'Verified.'; hS2.className = 'human-status is-success'; }
+            } else {
+                hV2 = false;
+                hA2.style.border = '1px solid red';
+                if (hS2) { hS2.textContent = 'Please solve the addition correctly.'; hS2.className = 'human-status is-error'; }
+                hA2.focus();
+            }
+        });
+    }
+
+    var form2 = document.querySelector('.iq-form');
+    if (form2) {
+        form2.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (!hV2) {
+                alert('Please complete the human verification.');
+                hA2.focus();
+                return;
+            }
+            var formData = new FormData(form2);
+            var submitBtn = form2.querySelector('.iq-submit-btn') || form2.querySelector('button[type="submit"]');
+            var origText = submitBtn ? submitBtn.textContent : 'Submit';
+            if(submitBtn) submitBtn.textContent = 'Submitting...';
+            
+            fetch(form2.action, {
+                method: form2.method,
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => {
+                var successMsg = document.getElementById('iqform-success');
+                if(successMsg) successMsg.style.display = 'block';
+                form2.reset();
+                genQ2();
+                if(submitBtn) submitBtn.textContent = origText;
+                setTimeout(() => { if(successMsg) successMsg.style.display = 'none'; }, 8000);
+            })
+            .catch(error => {
+                alert('An error occurred. Please try again.');
+                if(submitBtn) submitBtn.textContent = origText;
+            });
+        });
+    }
 </script>
 
 @include('web/footer')
