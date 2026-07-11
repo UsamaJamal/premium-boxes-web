@@ -1031,7 +1031,7 @@ body {
                         <input type="hidden" name="source" value="Blog sidebar quote form">
                         <input type="hidden" name="page_url" value="{{ url()->current() }}">
 
-                        <input type="text" name="name" placeholder="Name" required>
+                        <input type="text" name="name" placeholder="Name" required spellcheck="false" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
                         <input type="email" name="email" placeholder="Email" required>
                         <input type="tel" name="phone" placeholder="Phone number" required>
                         <textarea name="message" placeholder="Message" required></textarea>

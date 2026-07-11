@@ -61,7 +61,7 @@
   </div>
  <div class="form-group">
     <label>Name</label>
-    <input type="text" class="form-control" id="" placeholder="Name" name="name" required>
+    <input type="text" class="form-control" id="" placeholder="Name" name="name" required spellcheck="false" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
   </div>
   
   <div class="form-group">

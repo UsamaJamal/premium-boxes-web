@@ -448,7 +448,7 @@ html, body {
                 <div class="qu-row qu-row-d2">
                     <div class="qu-field">
                         <label>Name <span class="qu-req">*</span></label>
-                        <input type="text" name="name" placeholder="Enter your name" required oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
+                        <input type="text" name="name" placeholder="Enter your name" required spellcheck="false" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
                     </div>
                     <div class="qu-field">
                         <label>Email Address <span class="qu-req">*</span></label>

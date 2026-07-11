@@ -717,7 +717,7 @@ a { text-decoration: none; color: inherit; }
                             <div class="product-form-row product-form-row-3">
                                 <div class="pf-wrap">
                                     <label class="pf-mob-label">Name *</label>
-                                    <input type="text" name="p_first_name" placeholder="Name *" required oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
+                                    <input type="text" name="p_first_name" placeholder="Name *" required spellcheck="false" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
                                     <input type="hidden" name="p_last_name" value="-">
                                 </div>
                                 <div class="pf-wrap">
@@ -1055,7 +1055,7 @@ a { text-decoration: none; color: inherit; }
                             </div>
                             <div class="review-form-group">
                                 <label>Name *</label>
-                                <input type="text" name="name" placeholder="Name" required>
+                                <input type="text" name="name" placeholder="Name" required spellcheck="false" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
                             </div>
                             <div class="review-form-group">
                                 <label>Email Address *</label>

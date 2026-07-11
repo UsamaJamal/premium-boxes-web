@@ -340,7 +340,7 @@ input:-webkit-autofill:active {
              <input type="hidden" name="_token" value="{!! csrf_token() !!}">
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Name:</label>
-            <input type="text" name="name" class="form-control" placeholder="Enter your name:" required oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
+            <input type="text" name="name" class="form-control" placeholder="Enter your name:" required spellcheck="false" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Contact Number:</label>
