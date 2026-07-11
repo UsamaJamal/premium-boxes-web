@@ -691,18 +691,18 @@ html, body {
                     <p>Say something to start a live chat!</p>
                     <div class="contact-info-item">
                     <i class="fas fa-phone-alt contact-icon"></i>
-                    <a href="tel:18005189441"><p>1800-518-9441</p></a>
+                    <a href="tel:(886)-472-5540"><p>(886)-472-5540</p></a>
                 </div>
 
                 <div class="contact-info-item">
                     <i class="fas fa-envelope contact-icon"></i>
-                    <a href="mailto:support@myboxpackaging.com"><p>support@myboxpackaging.com</p></a>
+                    <a href="mailto:support@premiumboxes.com"><p>support@premiumboxes.com</p></a>
                 </div>
 
                 <div class="contact-info-item">
                     <i class="fas fa-map-marker-alt contact-icon"></i>
-                    <a href="https://maps.google.com/?q=132+Dartmouth+Street+Boston,+Massachusetts+02156+United+States" target="_blank">
-                        <p>132 Dartmouth Street Boston, <br>Massachusetts 02156 United States</p>
+                    <a href="" target="_blank">
+                        <p>9931 Franklin Ave, Suite 1-A, <br>Franklin Park, IL 60131</p>
                     </a>
                 </div>
 
