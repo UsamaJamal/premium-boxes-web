@@ -184,8 +184,8 @@
 
                 <div class="testimonials-header">
                     <!-- <span class="section-badge-text">TESTIMONIALS</span> -->
-                    <h2>What Our Customers Say</h2>
-                    <p>Hear from brands who trust us with their packaging needs.</p>
+                    <h2>Hear from Our Happy Customers</h2>
+                    <p> Let’s hear from our customers, what they say about our services.</p>
                 </div>
 
                 <div class="testimonial-grid">

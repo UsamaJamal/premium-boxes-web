@@ -1525,16 +1525,16 @@ h3 {
   .order-process-section {
     padding: 50px 0;
   }
-  
+
   .order-process-header h2 {
     font-size: 2rem;
   }
-  
+
   .order-process-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  
+
   .process-card {
     padding: 30px 20px;
   }
@@ -3720,9 +3720,12 @@ section + section {
         <div class="container">
             <div class="sectors-header">
 
-                <h2>Tailored For Every Sector</h2>
-                <p>We specialize in rigid packaging solutions across diverse industries, each with<br>unique
-                    requirements.</p>
+                <h2>Our Custom Packaging Boxes for Every Business Need</h2>
+                <p>PremiumBoxes offer a variety of Custom Packaging.
+                    Whether you belong to food industry, pharmaceutical, 
+                    cosmetic,<br/> gifting, apparel or jewelry, we have covered you.
+                     Either you need quality or quantity; you have us on your back.
+</p>
             </div>
             <div class="sectors-grid">
                 @foreach($industry_products as $product)
@@ -3752,18 +3755,20 @@ section + section {
     <section class="order-process-section">
         <div class="container">
             <div class="order-process-header">
-                <h2>Our Easy Order Process</h2>
-                <p>Follow our simple step-by-step process to bring your custom packaging to life.</p>
+                <h2>How Our Custom Box Ordering Process Works</h2>
+                <p>Our process of ordering custom Premium Boxes is quite efficient and easy. All you have to do is:
+</p>
             </div>
-            
+
             <div class="order-process-grid">
                 <!-- Step 1 -->
                 <div class="process-card">
                     <div class="process-icon">
                         <img src="{{ asset('images/icons/customize-icon.svg') }}" alt="customize icon" title="Customize Icon">
                     </div>
-                    <h3 class="step-title">Customize Your Packaging</h3>
-                    <p>Choose from our extensive packaging solutions and personalize them with a variety of options to bring your ideal packaging to life.</p>
+                    <h3 class="step-title">Tell Us About Your Product and Packaging Goals
+</h3>
+                    <p>Let us know about your product and the end-goal. Our expert designers will reach out to you and further guide you.</p>
                 </div>
 
                 <!-- Step 2 -->
@@ -3771,8 +3776,8 @@ section + section {
                     <div class="process-icon">
                         <img src="{{ asset('images/icons/quote-icon.svg') }}" alt="quote icon" title="Quote Icon">
                     </div>
-                    <h3 class="step-title">Request a Quote</h3>
-                    <p>After customizing your packaging, simply request a quote, and our packaging specialists will review your submission.</p>
+                    <h3 class="step-title">Request a Free Quote for Custom Boxes</h3>
+                    <p>If you are interested in getting Customized Packaging with high quality finishes, you are at the right platform. Contact us right now and get a free quote for Custom Boxes.</p>
                 </div>
 
                 <!-- Step 3 -->
@@ -3780,8 +3785,8 @@ section + section {
                     <div class="process-icon">
                         <img src="{{ asset('images/icons/consultation-icon.svg') }}" alt="consultation icon" title="Consultation Icon">
                     </div>
-                    <h3 class="step-title">Expert Consultation</h3>
-                    <p>Get expert consultation on your quote to reduce costs, improve efficiency, and minimize environmental impact.</p>
+                    <h3 class="step-title">Get Expert Help Choosing the Right Box Style</h3>
+                    <p>Confused about the right box style? No worries, we are here to guide you. You can get our expert’s help for choosing the right style without any extra charges.</p>
                 </div>
 
                 <!-- Step 4 -->
@@ -3789,8 +3794,8 @@ section + section {
                     <div class="process-icon">
                         <img src="{{ asset('images/icons/delivery-icon.svg') }}" alt="delivery icon" title="Delivery Icon">
                     </div>
-                    <h3 class="step-title">Production & Delivery</h3>
-                    <p>After finalizing the details, we'll handle the entire production and shipping process. Just sit back and wait for your packaging to arrive!</p>
+                    <h3 class="step-title">Commitment to Quality Manufacturing And Delivery</h3>
+                    <p>Every Box is designed with product safety in Mind. As soon as you final the design, we forward it to manufacturing unit. No need to worry, you will get your products on time.</p>
                 </div>
             </div>
         </div>
@@ -3802,8 +3807,9 @@ section + section {
 
             <div class="premium-header">
                 <!-- <span class="section-badge-text">PREMIUM ADDONS</span> -->
-                <h2>Elevate With Exclusive Finishes</h2>
-                <p>Add that extra touch of luxury with our range of premium finishing options.</p>
+                <h2>Premium And Thoughtful Finishing Options</h2>
+                <p>To take your Custom packaging on another level, choose your finishing style carefully. You will have <br/>
+                 extensive range of finishing. Choose your required finishing option.</p>
             </div>
 
             <div class="premium-gallery-single" style="width: 100%; margin: 0 auto; overflow: hidden; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
@@ -3815,46 +3821,46 @@ section + section {
 
     <section class="why-home-section">
         <div class="container">
-            <h2 class="why-title">Why Choose Us?</h2>
+            <h2 class="why-title">Why Choose PremiumBoxes for Custom Packaging?</h2>
 
             <div class="why-home-wrapper">
 
                 <div class="why-cards-grid">
 
                     <div class="why-box">
-                        <i class="fas fa-edit"></i>
-                        <h4>Custom Sizes & Shapes</h4>
-                        <p>Fully customized packaging tailored to fit your products perfectly.</p>
+                        <i class="fas fa-user-tie"></i>
+                        <h4>Packaging Experts With Product-Specific Guidance</h4>
+                        <p>If you want to work with a professional manufacturer, then your first stop is Premium Packaging. With the help of experts who understand the market trends and new technologies, we guide our customers for best solutions.</p>
                     </div>
 
                     <div class="why-box">
-                        <i class="fas fa-dollar-sign"></i>
-                        <h4>Competitive Pricing</h4>
-                        <p>Premium packaging solutions at affordable and market-competitive rates.</p>
+                        <i class="fas fa-medal"></i>
+                        <h4>High-Quality Materials and Reliable Manufacturing</h4>
+                        <p>Every business wants high-quality packaging for their products. Many manufacturers claim it so why us? We use high-quality materials and have transparent and reliable manufacturing process.</p>
                     </div>
 
                     <div class="why-box">
-                        <i class="fas fa-cog"></i>
-                        <h4>Premium Finishing</h4>
-                        <p>From matte to glossy textures, we add the perfect premium finishing touch.</p>
+                        <i class="fas fa-shapes"></i>
+                        <h4>Custom Sizes, Shapes, Styles, and Finishes</h4>
+                        <p>You can get customization in size, shape, style, finishes and printing styles. We listen to our customers, validate their opinion and give them best suggestions for their benefits.</p>
                     </div>
 
                     <div class="why-box">
-                        <i class="fas fa-print"></i>
-                        <h4>High-Quality Printing</h4>
-                        <p>Sharp colours and premium print finishes that create a lasting impression.</p>
+                        <i class="fas fa-palette"></i>
+                        <h4>Design Support From Concept to Final Box</h4>
+                        <p>At PremiumBoxes, we have a design team. The team is specially created for our customers to understand their design requirements and help them to choose the best design.</p>
                     </div>
 
                     <div class="why-box">
-                        <i class="fas fa-recycle"></i>
-                        <h4>Circular Packaging Solutions</h4>
-                        <p>Innovative eco-friendly packaging solutions designed for modern brands.</p>
+                        <i class="fas fa-rocket"></i>
+                        <h4>Flexible Packaging Solutions for New Brands</h4>
+                        <p>At PremiumBoxes, we offer you flexible packaging solutions. You can get Premium Boxes that are cost efficient and in your budget.</p>
                     </div>
 
                     <div class="why-box">
-                        <i class="fas fa-truck"></i>
-                        <h4>Fast & Reliable Delivery</h4>
-                        <p>On-time production and shipping you can always count on.</p>
+                        <i class="fas fa-boxes"></i>
+                        <h4>Custom Boxes with No Minimum Rule</h4>
+                        <p>We have rule of “Custom Boxes with No Minimum” quantity. We won’t cost your arm and leg just to provide customized packaging boxes for your brand.</p>
                     </div>
 
                 </div>
@@ -3999,28 +4005,28 @@ section + section {
                         .guide-col-one.guide-content p { font-size: 15px !important; line-height: 1.8 !important; margin-bottom: 15px !important; font-weight: 400; text-align: left !important; }
                         .guide-col-one.guide-content ul { margin-bottom: 15px !important; padding-left: 20px !important; }
                         .guide-col-one.guide-content li { margin-bottom: 8px !important; font-size: 15px !important; line-height: 1.7 !important; }
-                        
+
                         /* Custom Scrollbar for guide content */
                         .guide-col-one::-webkit-scrollbar {
                             width: 6px;
                         }
                         .guide-col-one::-webkit-scrollbar-track {
-                            background: rgba(255, 255, 255, 0.05); 
+                            background: rgba(255, 255, 255, 0.05);
                             border-radius: 10px;
                         }
                         .guide-col-one::-webkit-scrollbar-thumb {
-                            background: var(--accent-gold); 
+                            background: var(--accent-gold);
                             border-radius: 10px;
                         }
                         .guide-col-one::-webkit-scrollbar-thumb:hover {
-                            background: #d4af37; 
+                            background: #d4af37;
                         }
                         /* FAQ styling fixes */
                         .pg-accordion-btn {
                             padding: 15px 0 0px 0 !important;
                         }
                         .pg-accordion-body {
-                            padding-top: 0 !important; 
+                            padding-top: 0 !important;
                             padding-left: 22px !important;
                         }
                         .pg-accordion-body p {
@@ -4352,7 +4358,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     function initAccordion() {
         if (initialized) return;
         initialized = true;
-        
+
         const accordionButtons = document.querySelectorAll('.pg-accordion-btn');
 
         if (accordionButtons.length === 0) {
