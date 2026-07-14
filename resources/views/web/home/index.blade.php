@@ -2581,7 +2581,7 @@ section + section {
 /* Home hero: mobile composition */
 @media (max-width: 576px) {
   .home-hero {
-    padding: 32px 0 24px !important;
+    padding: 10px 0 24px !important;
     background: #171717;
     border-bottom: 0;
   }
@@ -2601,6 +2601,7 @@ section + section {
     display: block !important;
     width: 100% !important;
     height: 318px !important;
+    margin-top: 0 !important;
   }
 
   .home-hero-images .img-left {
@@ -2725,10 +2726,7 @@ section + section {
     font-size: 1.7rem !important;
   }
 
-  .home-hero {
-    padding-top: 100px;
-    padding-bottom: 20px;
-  }
+  .home-hero { padding-bottom: 20px !important; }
 }
 
 /* Box By Style: Figma mobile layout */
