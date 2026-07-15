@@ -18,11 +18,17 @@ class AdminProductController extends Controller
     }
     public function product_delete($id) { 
        DB::table('product')->where('product_id', $id)->delete();
-         return redirect('admin/showproduct');
-    }
+         return redirect()->back()->with('success', 'Product deleted successfully.');
+      }
  
 	public function updateProduct(Request $request,$id) {
     // $id= $request->post('id');
+
+    $categories = $request->post('productcategory');
+    if (!is_array($categories)) {
+        $categories = [$categories];
+    }
+    $primary_cat = !empty($categories) ? $categories[0] : null;
 
 		 $data=[
 
@@ -33,8 +39,9 @@ class AdminProductController extends Controller
  'meta_title' => $request->post('metatitle'),
  'description' => $request->post('ckeditor'),
  'long_description' => $request->post('long_ckeditor'),
+ 'schema' => $request->post('schema'),
  'altname' => $request->post('altname'), 
- 'cat_id' => $request->post('productcategory'), 
+ 'cat_id' => $primary_cat, 
  'status' => $request->post('status'),
  'show_home' => $request->post('show_home'),
  'related_product' => json_encode($request->post('related')),
@@ -68,6 +75,22 @@ class AdminProductController extends Controller
                  }
                 
         $data['s']=DB::table('product')->where('product_id', $id)->update($data);
+
+        DB::table('category_product')->where('product_id', $id)->delete();
+        if (!empty($categories) && is_array($categories)) {
+            $catData = [];
+            foreach ($categories as $cat) {
+                if (!empty($cat)) {
+                    $catData[] = [
+                        'product_id' => $id,
+                        'category_id' => $cat
+                    ];
+                }
+            }
+            if (count($catData) > 0) {
+                DB::table('category_product')->insert($catData);
+            }
+        }
                  // echo "<pre>";
                  // print_r($data);
                  // die();
@@ -97,7 +120,7 @@ class AdminProductController extends Controller
             }
         }
 
-          return redirect('admin/showproduct');
+          return redirect()->back()->with('success', 'Product updated successfully.');
 	}
 	
 
@@ -113,6 +136,12 @@ public function product() {
     return view ('adminlte/product/product',$data); 
 }
 public function addproduct(Request $request) {
+$categories = $request->get('category_id');
+if (!is_array($categories)) {
+    $categories = [$categories];
+}
+$primary_cat = !empty($categories) ? $categories[0] : null;
+
   $data=[
 
  'title' => $request->get('title'),
@@ -122,9 +151,10 @@ public function addproduct(Request $request) {
  'meta_title' => $request->get('metatitle'),
  'description' => $request->get('ckeditor'),
  'long_description' => $request->get('long_ckeditor'),
+ 'schema' => $request->get('schema'),
  'image' => $request->get('image'),
  'altname' => $request->get('altname'),
- 'cat_id' => $request->get('category_id'),
+ 'cat_id' => $primary_cat,
  'status' => $request->post('status'),
  'show_home' => $request->post('show_home'),
  'related_product' => json_encode($request->post('related')),
@@ -158,6 +188,21 @@ if($request->hasfile('image')){
 // print_r($data);
 // die();
 $product_id = DB::table('product')->insertGetId($data);
+
+        if (!empty($categories) && is_array($categories)) {
+            $catData = [];
+            foreach ($categories as $cat) {
+                if (!empty($cat)) {
+                    $catData[] = [
+                        'product_id' => $product_id,
+                        'category_id' => $cat
+                    ];
+                }
+            }
+            if (count($catData) > 0) {
+                DB::table('category_product')->insert($catData);
+            }
+        }
 
         // Process FAQs
         $faqQuestions = $request->input('faq_question');

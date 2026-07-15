@@ -79,6 +79,9 @@ a { text-decoration: none; color: inherit; }
 .product-status-badge { color: var(--product-gold); font-size: 17.5px; font-weight: 600; margin-top: 12px; }
 .product-desc { font-size: 17.5px; line-height: 1.6; color: rgba(255,255,255,0.85) !important; margin-bottom: 20px; }
 .product-desc *, .product-desc p, .product-desc span, .product-desc li, .product-desc strong, .product-desc b { color: rgba(255,255,255,0.85) !important; }
+.product-desc ul { list-style-type: disc !important; padding-left: 30px !important; margin-bottom: 10px !important; }
+.product-desc ol { list-style-type: decimal !important; padding-left: 30px !important; margin-bottom: 10px !important; }
+.product-desc li { display: list-item !important; list-style-position: inside !important; margin-bottom: 5px !important; }
 .product-read-more { color: var(--product-gold) !important; font-weight: 600; text-decoration: none; }
 
 /* Quote Box */
@@ -167,8 +170,9 @@ a { text-decoration: none; color: inherit; }
 .product-info-text p { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.85) !important; margin-bottom: 18px; }
 .product-info-text strong, .product-info-text b, .product-info-text strong * { font-weight: 700; color: #fff !important; }
 .product-info-text h1, .product-info-text h2, .product-info-text h3, .product-info-text h4, .product-info-text h1 *, .product-info-text h2 *, .product-info-text h3 *, .product-info-text h4 * { color: #ffffff !important; margin-bottom: 14px; margin-top: 24px; }
-.product-info-text ul { list-style: disc; padding-left: 24px; }
-.product-info-text ul li { font-size: 16px; color: rgba(255,255,255,0.85) !important; line-height: 1.7; margin-bottom: 8px; }
+.product-info-text ul { list-style-type: disc !important; padding-left: 30px !important; margin-bottom: 10px !important; }
+.product-info-text ol { list-style-type: decimal !important; padding-left: 30px !important; margin-bottom: 10px !important; }
+.product-info-text li { display: list-item !important; list-style-position: inside !important; font-size: 16px; color: rgba(255,255,255,0.85) !important; line-height: 1.7; margin-bottom: 8px !important; }
 .product-info-text img { max-width: 100%; height: auto; }
 .product-info-subheading { font-size: 25px; font-weight: 600; margin-bottom: 25px; }
 .product-info-list { display: flex; flex-direction: column; gap: 18.8px; }
@@ -1352,7 +1356,7 @@ a { text-decoration: none; color: inherit; }
                 @foreach($all_product as $rel)
                 @foreach($temp as $tv)
                 @if($tv == $rel->product_id)
-                <a href="{{ url($rel->url) }}" class="product-related-card" style="text-decoration: none;">
+                <a href="{{ url($rel->url) }}/" class="product-related-card" style="text-decoration: none;">
                     <img src="{{ url('images/'.$rel->image) }}" alt="{{ strtolower(str_replace('-', ' ', $rel->title)) }}" class="product-related-img" title="{{ ucwords(strtolower(str_replace('-', ' ', $rel->title))) }}">
                     <span class="product-related-title" style="text-decoration: none !important; display: inline-block; margin-top: 15px;">{{ $rel->title }}</span>
                 </a>

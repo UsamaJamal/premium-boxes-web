@@ -244,7 +244,7 @@
             <p class="cp-cta-banner-comp-text">
                 Let's bring your packaging vision to life. Our team of experts is ready to design and deliver rigid boxes that will make your brand unforgettable.
             </p>
-            <a href="{{ url('request-quote') }}" class="cp-cta-banner-comp-btn">Get Your Free Quote Today</a>
+            <a href="{{ url('request-quote') }}/" class="cp-cta-banner-comp-btn">Get Your Free Quote Today</a>
         </div>
 
         <div class="cp-cta-banner-comp-imgs">

@@ -227,6 +227,25 @@
                   </div>
 
                 </div>
+               </div>
+
+              <!-- Products Section Header (Category Page) -->
+              <div class="card" style="width: 66%; margin-left: 15px;">
+                  <div class="card-header header-2">Products Section Header (Category Page)</div>
+                  <div class="card-body">
+                      <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Products Heading</label>
+                          <div class="col-sm-9">
+                              <input type="text" class="form-control" name="products_heading" placeholder="e.g. Premium Gift Boxes Solutions">
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Products Paragraph</label>
+                          <div class="col-sm-9">
+                              <textarea id="products_description" class="form-control" name="products_description" rows="3" placeholder="Enter description or HTML above products list..."></textarea>
+                          </div>
+                      </div>
+                  </div>
               </div>
 
               <!-- Why Choose Section -->
@@ -242,7 +261,7 @@
                       <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Why Choose Description</label>
                           <div class="col-sm-9">
-                              <textarea class="form-control" name="why_choose_desc" rows="4" placeholder="Enter description..."></textarea>
+                              <textarea id="why_choose_desc" class="form-control" name="why_choose_desc" rows="4" placeholder="Enter description..."></textarea>
                           </div>
                       </div>
                       <div class="form-group row">
@@ -300,6 +319,18 @@
   <script src="{{URL::asset('ckeditor/ckeditor.js')}}"></script>
 <script>
     CKEDITOR.replace('ckeditor', {
+        filebrowserUploadUrl: "{{URL::asset('ckeditor/ck_upload.php')}}",
+        filebrowserUploadMethod: 'form'
+    });
+    CKEDITOR.replace('feature_description', {
+        filebrowserUploadUrl: "{{URL::asset('ckeditor/ck_upload.php')}}",
+        filebrowserUploadMethod: 'form'
+    });
+    CKEDITOR.replace('why_choose_desc', {
+        filebrowserUploadUrl: "{{URL::asset('ckeditor/ck_upload.php')}}",
+        filebrowserUploadMethod: 'form'
+    });
+    CKEDITOR.replace('products_description', {
         filebrowserUploadUrl: "{{URL::asset('ckeditor/ck_upload.php')}}",
         filebrowserUploadMethod: 'form'
     });

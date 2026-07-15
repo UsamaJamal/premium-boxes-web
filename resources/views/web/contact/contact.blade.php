@@ -701,7 +701,7 @@ html, body {
 
                 <div class="contact-info-item">
                     <i class="fas fa-map-marker-alt contact-icon"></i>
-                    <a href="" target="_blank">
+                    <a href="https://maps.google.com/?q=9931+Franklin+Ave,+Suite+1-A,+Franklin+Park,+IL+60131" target="_blank">
                         <p>9931 Franklin Ave, Suite 1-A, <br>Franklin Park, IL 60131</p>
                     </a>
                 </div>

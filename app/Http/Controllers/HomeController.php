@@ -72,7 +72,8 @@ return response()->view('web/404',$data,404);
     $style_cat = DB::table('add_category')->where('name', 'like', '%style%')->orWhere('name', 'like', '%Style%')->first();
     if ($style_cat) {
         $sub_cats_style = DB::table('add_category')->where('parent_category', $style_cat->cat_id)->pluck('cat_id')->toArray();
-        $data['style_products'] = DB::table('product')->whereIn('cat_id', $sub_cats_style)->where('status', 1)->inRandomOrder()->take(8)->get();
+        $style_product_ids = \Illuminate\Support\Facades\DB::table('category_product')->whereIn('category_id', $sub_cats_style)->pluck('product_id')->toArray();
+        $data['style_products'] = DB::table('product')->whereIn('product_id', $style_product_ids)->where('status', 1)->inRandomOrder()->take(8)->get();
     } else {
         $data['style_products'] = [];
     }
@@ -247,7 +248,6 @@ function contact_mail(Request $request)
         'company'=>$request->company,
         'subject_query' =>$request->subject_query,
         'message'=>$request->message,
-        'g-recaptcha-response' => 'required|captcha',
        
         'subject'=>$contact
     );
@@ -274,7 +274,6 @@ function TrackOrdermail(Request $request)
         'ordername'=>$request->ordername,
         'orderid' =>$request->orderid,
         'message'=>$request->message,
-        'g-recaptcha-response' => 'required|captcha',
        
         'subject'=>$contact
     );
@@ -321,7 +320,6 @@ function product_mail(Request $request)
         'message'=>$request->message,
         'source'=>$request->source,
         'page_url'=>$request->page_url,
-        'g-recaptcha-response' => 'required|captcha',
         'subject'=>$product
     );
     $this->sendQuoteEmail($data, $request->file('p_file'));
@@ -449,7 +447,6 @@ public function callBack(Request $request){
            'email'=>$email,
           'name'=>$request->name,
           'number'=>$request->number,
-          'g-recaptcha-response' => 'required|captcha',
           'subject'=>$order
       );
 // echo"<pre>";
@@ -470,7 +467,7 @@ public function PromotionMail(Request $request){
           'number'=>$request->contact,
           'message'=>$request->message,
           'im'=>$request->image,
-        //   'g-recaptcha-response' => 'required|captcha',
+        //
           'subject'=>$promotion
       );
 // echo"<pre>";
@@ -504,7 +501,6 @@ function req_quote_mail(Request $request)
         'r_color'=>$request->r_color,
         'r_type'=>$request->r_type,
         'r_message'=>$request->r_message,
-        'g-recaptcha-response' => 'required|captcha',
         'subject'=>$request_quote
     );
     if($request->hasfile('image')){

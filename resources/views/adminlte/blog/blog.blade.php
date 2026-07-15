@@ -170,6 +170,12 @@
                     </select>
                     </div>
                   </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Schema</label>
+                    <div class="col-sm-9">
+                       <textarea class="form-control" name="schema" rows="5" placeholder="<script type='application/ld+json'>..."></textarea>
+                    </div>
+                  </div>
                
                 <!-- /.card-body -->
 
@@ -208,6 +214,10 @@
   <script src="{{URL::asset('ckeditor/ckeditor.js')}}"></script>
 <script>
     CKEDITOR.replace('ckeditor', {
+        filebrowserUploadUrl: "{{URL::asset('ckeditor/ck_upload.php')}}",
+        filebrowserUploadMethod: 'form'
+    });
+    CKEDITOR.replace('author_description', {
         filebrowserUploadUrl: "{{URL::asset('ckeditor/ck_upload.php')}}",
         filebrowserUploadMethod: 'form'
     });

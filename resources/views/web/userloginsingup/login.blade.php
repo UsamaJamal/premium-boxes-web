@@ -56,10 +56,10 @@
                
             </div>
              <div class="div">
-               <div class="g-recaptcha mt-4 ml-4" id="recapchaheader" required></div>
+               
                </div>
-            <span><a class="a" href="{{url('user-register')}}">Register Now</a></span>
-                 <span><a class="a" href="{{url('user/forget-password')}}">Forgot Password?</a></span>
+            <span><a class="a" href="{{url('user-register')}}/">Register Now</a></span>
+                 <span><a class="a" href="{{url('user/forget-password')}}/">Forgot Password?</a></span>
             <input type="submit" class="btn registration-btn" value="Login" style="margin: 1rem 0;">
         </form>
     </div>

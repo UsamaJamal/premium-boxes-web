@@ -70,11 +70,11 @@
                           <img src="#" id="blah" class="img-view" width="50" height="50">
                       </div>
                       <div class="form-group">
-                          <div class="g-recaptcha mt-4" id="recapchaheader" required></div>
+                          
                       </div>
                     <button type="submit" name="submit" class="btn registration-btn ">Create Account</button>
                     <div class="form-group">
-                     <p style="font-size: 13px;width: 305px;text-align:center;">If You have already account please<a href="{{url('user-login')}}"> Login Here</a></p>
+                     <p style="font-size: 13px;width: 305px;text-align:center;">If You have already account please<a href="{{url('user-login')}}/"> Login Here</a></p>
                     </div>
                   </form>
               </div>

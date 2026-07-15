@@ -23,7 +23,7 @@ class AdminCategoryController extends Controller
       {
          DB::table('category_faqs')->where('category_id', $id)->delete();
          DB::table('add_category')->where('cat_id', $id)->delete();
-         return redirect('admin/showcategory');
+         return redirect()->back()->with('success', 'Category deleted successfully.');
       }
 
   public function updateCategory(Request $request,$id) {
@@ -47,6 +47,8 @@ class AdminCategoryController extends Controller
    'image_badge' => $request->post('image_badge'),
    'feature_title' => $request->post('feature_title'),
    'feature_description' => $request->post('feature_description'),
+   'products_heading' => $request->post('products_heading'),
+   'products_description' => $request->post('products_description'),
 	   'show_in_nav' => $request->has('show_in_nav') ? 1 : 0,
 	];
     if (Schema::hasColumn('add_category', 'robots')) {
@@ -170,7 +172,7 @@ if($request->hasfile('image')){
             }
         }
 
-          return redirect('admin/showcategory');
+          return redirect()->back()->with('success', 'Category updated successfully.');
 }
 
 public function category() {
@@ -227,6 +229,8 @@ public function addcategory(Request $request) {
    'image_badge' => $request->post('image_badge'),
    'feature_title' => $request->post('feature_title'),
    'feature_description' => $request->post('feature_description'),
+   'products_heading' => $request->post('products_heading'),
+   'products_description' => $request->post('products_description'),
  'show_in_nav' => $request->has('show_in_nav') ? 1 : 0,
 	];
     if (Schema::hasColumn('add_category', 'robots')) {

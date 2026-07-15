@@ -77,15 +77,15 @@
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background-color: var(--white);
-    color: #111;
+    background-color: #333333;
+    color: #ffffff;
     text-decoration: none;
     transition: background-color 0.3s, opacity 0.3s;
 }
 
 .cp-social-icons a:hover {
     background-color: #f5c542;
-    color: #fff;
+    color: #111;
     opacity: 0.9;
 }
 
@@ -484,7 +484,7 @@
                 <ul class="cp-footer-links">
                     @if(count($f_categories) > 0)
                         @foreach($f_categories as $cat)
-                            <li><a href="{{ url($cat->category_url) }}">{{ $cat->name }}</a></li>
+                            <li><a href="{{ url($cat->category_url) }}/">{{ $cat->name }}</a></li>
                         @endforeach
                     @else
                         <li><a href="#">Glass Jar & Bottles</a></li>
@@ -505,7 +505,7 @@
                 <ul class="cp-footer-links">
                     @if(count($f_products) > 0)
                         @foreach($f_products as $prod)
-                            <li><a href="{{ url($prod->url) }}">{{ $prod->title }}</a></li>
+                            <li><a href="{{ url($prod->url) }}/">{{ $prod->title }}</a></li>
                         @endforeach
                     @else
                         <li><a href="#">Custom Boxes</a></li>
@@ -526,15 +526,15 @@
                 <span class="cp-footer-title" >Company</span>
                 <ul class="cp-footer-links">
                    
-                    <li><a href="{{ url('request-quote') }}">Get a Quote</a></li>
-                    <li><a href="{{ url('contact-us') }}">Contact Us</a></li>
-                          <li><a href="{{ url('frequently-asked-questions') }}">FAQ</a></li>
-                    <li><a href="{{ url('return-policy') }}">Return Policy</a></li>
-                    <li><a href="{{ url('privacy-policy') }}">Privacy Policy</a></li>
-                    <li><a href="{{ url('term-and-services') }}">Terms & Services</a></li>
+                    <li><a href="{{ url('request-quote') }}/">Get a Quote</a></li>
+                    <li><a href="{{ url('contact-us') }}/">Contact Us</a></li>
+                          <li><a href="{{ url('frequently-asked-questions') }}/">FAQ</a></li>
+                    <li><a href="{{ url('return-policy') }}/">Return Policy</a></li>
+                    <li><a href="{{ url('privacy-policy') }}/">Privacy Policy</a></li>
+                    <li><a href="{{ url('term-and-services') }}/">Terms & Services</a></li>
                 
-                    <li><a href="{{ url('about-us') }}">About Us</a></li>
-                    <li><a href="{{ url('sitemap') }}">Sitemap</a></li>
+                    <li><a href="{{ url('about-us') }}/">About Us</a></li>
+                    <li><a href="{{ url('sitemap') }}/">Sitemap</a></li>
                 </ul>
             </div>
  
@@ -548,11 +548,11 @@
                     <a href="mailto:support@premiumboxes.com">
                         <i class="fas fa-envelope"></i> support@premiumboxes.com
                     </a>
-                    <div>
+                    <a href="https://maps.google.com/?q=9931+Franklin+Ave,+Suite+1-A,+Franklin+Park,+IL+60131" target="_blank" style="align-items: flex-start;">
                         <i class="fas fa-map-marker-alt"></i> 
                         <span>9931 Franklin Ave, Suite 1-A
 <br>Franklin Park, IL 60131</span>
-                    </div>
+                    </a>
                 </div>
                 
                 <span class="cp-footer-title cp-newsletter-title" style="display: flex; justify-content: space-between; align-items: center; font-weight: 700; margin-bottom: 20px; margin-top: 10px;">News letter</span>
@@ -649,30 +649,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-         <script>
-    var contactid = "";
-    var recid = "";
-    var headerid = "";
-    var onloadCallback = function ()
-    {
-    headerid = grecaptcha.render('headercaptcha', {
-    'sitekey':'6LePsD8bAAAAACWospU_SOX7EMi5ZAZrlYE4LG8H'
-    });
-    contactid = grecaptcha.render('recapchaheader', {
-    'sitekey':'6LePsD8bAAAAACWospU_SOX7EMi5ZAZrlYE4LG8H'
-    });
-    recid = grecaptcha.render('recapchaheader2', {
-    'sitekey':'6LePsD8bAAAAACWospU_SOX7EMi5ZAZrlYE4LG8H'
-    });
- 
-   
-    };
-    </script>
+         
     
     
     
     
-    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+    
            <!--  <script>
             document.getElementById("call").addEventListener("submit",function(evt)
     {

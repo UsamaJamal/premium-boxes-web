@@ -108,7 +108,7 @@
     <p class="error-text">
         It looks like the page you are trying to visit doesn't exist, has been moved, or is temporarily unavailable. Let's get you back on track!
     </p>
-    <a href="{{ url('/') }}" class="error-btn">
+    <a href="{{ url('/') }}/" class="error-btn">
         <i class="fas fa-arrow-left"></i> Back to Home
     </a>
 </section>

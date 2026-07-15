@@ -3494,7 +3494,7 @@ section + section {
     text-align: left;
 }
 .pg-accordion-q {
-    font-size: 15px !important;
+    font-size: 20px!important;
     line-height: 1.65 !important;
     color: #ffffff !important;
     font-weight: 600 !important;
@@ -3704,7 +3704,7 @@ section + section {
                 <h1>{!! (isset($home_banner[0]) && !empty($home_banner[0]->heading_1)) ? $home_banner[0]->heading_1 : 'Premium <span class="highlight">Rigid Boxes</span><br>That Elevate Your Brand' !!}</h1>
                 <div class="home-hero-desc" style="margin-bottom: 24px;">{!! (isset($home_banner[0]) && !empty($home_banner[0]->description)) ? $home_banner[0]->description : '<p>We create custom rigid packaging solutions designed to protect your products while delivering a premium luxury experience. Our boxes combine durability with elegant, high-quality presentation to strengthen your brand identity and leave a lasting impression worldwide.</p>' !!}</div>
                 <div class="hero-buttons">
-                    <a href="{{ url('request-quote') }}" class="btn btn-yellow" style="padding: 14px 36px; font-size: 16px; font-family: Inter, sans-serif; font-weight: 600; background-color: #FFC542; color: #000000; border: none; border-radius: 50px; display: inline-flex; justify-content: center; align-items: center; text-decoration: none;">Design Custom Boxes</a>
+                    <a href="{{ url('request-quote') }}/" class="btn btn-yellow" style="padding: 14px 36px; font-size: 16px; font-family: Inter, sans-serif; font-weight: 600; background-color: #FFC542; color: #000000; border: none; border-radius: 50px; display: inline-flex; justify-content: center; align-items: center; text-decoration: none;">Design Custom Boxes</a>
 
                 </div>
             </div>
@@ -3726,7 +3726,7 @@ section + section {
             </div>
             <div class="sectors-grid">
                 @foreach($industry_products as $product)
-                <a href="{{ url($product->category_url) }}" class="sector-card" style="display: block; text-decoration: none; color: inherit;">
+                <a href="{{ url($product->category_url) }}/" class="sector-card" style="display: block; text-decoration: none; color: inherit;">
                     <div class="sector-img-placeholder">
                         <img src="{{ asset('images/'.($product->feature_product ? $product->feature_product : ($product->image ? $product->image : $product->bimage))) }}" onerror="this.src='./assets/jewellry and watch.jfif'; this.onerror=null;" alt="{{ strtolower(str_replace('-', ' ', $product->name)) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $product->name))) }}">
                         @if(!empty($product->image_badge))
@@ -3736,14 +3736,14 @@ section + section {
                     <div class="sector-info">
                         <h3 class="sector-title">{{ $product->feature_title ? $product->feature_title : $product->name }}</h3>
                         @if($product->feature_description)
-                            <p>{{ $product->feature_description }}</p>
+                            <p>{!! $product->feature_description !!}</p>
                         @endif
                     </div>
                 </a>
                 @endforeach
             </div>
             <div class="sectors-action">
-                <!-- <a href="{{ url('box-by-industry') }}" class="btn btn-primary">Explore All Products</a> -->
+                <!-- <a href="{{ url('box-by-industry') }}/" class="btn btn-primary">Explore All Products</a> -->
             </div>
         </div>
     </section>
@@ -4069,7 +4069,7 @@ section + section {
                         <div class="pg-cta-box" style="background-color: var(--bg-darker); border-radius: 8px; padding: 24px; text-align: center; margin-top: 30px; border: 1px solid rgba(255,255,255,0.05);">
                             <h4 class="pg-cta-title" style="color: #ffffff; font-size: 18px; font-weight: 700; margin-bottom: 8px; font-family: var(--font-heading), sans-serif;">Need help choosing?</h4>
                             <p class="pg-cta-sub" style="color: rgba(255, 255, 255, 0.8); font-size: 13px; margin-bottom: 20px;">Our team responds within 2 hours</p>
-                            <a href="{{ url('contact-us') }}" class="pg-cta-btn" style="display: inline-block; background-color: var(--accent-gold); color: #000000; font-weight: 600; font-size: 14px; padding: 12px 24px; border-radius: 40px; text-decoration: none; transition: background-color 0.2s;">Chat with an expert</a>
+                            <a href="{{ url('contact-us') }}/" class="pg-cta-btn" style="display: inline-block; background-color: var(--accent-gold); color: #000000; font-weight: 600; font-size: 14px; padding: 12px 24px; border-radius: 40px; text-decoration: none; transition: background-color 0.2s;">Chat with an expert</a>
                         </div>
                     </div>
                 </div>
@@ -4108,7 +4108,7 @@ section + section {
                         <span class="author">{{ $main_blog->author_name }}</span>
                         <span class="date">{{ date('M d, Y', strtotime($main_blog->date)) }}</span>
                     </div>
-                    <h4><a href="{{ url('blog/'.$main_blog->blog_url) }}">{{ $main_blog->blog_title }}</a></h4>
+                    <h4><a href="{{ url('blog/'.$main_blog->blog_url) }}/">{{ $main_blog->blog_title }}</a></h4>
                     <p>{!! strip_tags(Str::limit($main_blog->long_description, 150)) !!}</p>
                 </div>
 
@@ -4123,14 +4123,14 @@ section + section {
                                 <span class="author">{{ $side_blog->author_name }}</span>
                                 <span class="date">{{ date('M d, Y', strtotime($side_blog->date)) }}</span>
                             </div>
-                            <h4><a href="{{ url('blog/'.$side_blog->blog_url) }}">{{ $side_blog->blog_title }}</a></h4>
+                            <h4><a href="{{ url('blog/'.$side_blog->blog_url) }}/">{{ $side_blog->blog_title }}</a></h4>
                             <p>{!! strip_tags(Str::limit($side_blog->long_description, 80)) !!}</p>
                         </div>
                     </div>
                     @endforeach
 
                     <div class="view-all-wrapper">
-                        <a href="{{ url('our-blog') }}" class="view-all-link">View All &rarr;</a>
+                        <a href="{{ url('our-blog') }}/" class="view-all-link">View All &rarr;</a>
                     </div>
 
                 </div>
@@ -4149,7 +4149,7 @@ section + section {
                         <span class="author">{{ $blog->author_name }}</span>
                         <span class="date">{{ date('M d, Y', strtotime($blog->date)) }}</span>
                     </div>
-                    <h4><a href="{{ url('blog/'.$blog->blog_url) }}">{{ $blog->blog_title }}</a></h4>
+                    <h4><a href="{{ url('blog/'.$blog->blog_url) }}/">{{ $blog->blog_title }}</a></h4>
                     <p>{!! strip_tags(Str::limit($blog->long_description, 100)) !!}</p>
                 </div>
                 @endforeach
@@ -4157,7 +4157,7 @@ section + section {
 
             @if(count($home_blogs) > 1)
             <div class="blog-mobile-action">
-                <a href="{{ url('our-blog') }}" class="btn btn-primary" style="width: 100%;">View All <span aria-hidden="true">&rarr;</span></a>
+                <a href="{{ url('our-blog') }}/" class="btn btn-primary" style="width: 100%;">View All <span aria-hidden="true">&rarr;</span></a>
             </div>
             @endif
 

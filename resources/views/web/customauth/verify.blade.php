@@ -51,7 +51,7 @@
                         </div>
                     @endif
                     <p>Verification code: {{$token}}</p>
-                    <a href="{{url($token.'/reset-password') }}">Click Here</a>. 
+                    <a href="{{url($token.'/reset-password') }}/">Click Here</a>. 
                 </div>
             </div>
         </div>

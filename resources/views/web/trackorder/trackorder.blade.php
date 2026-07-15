@@ -275,7 +275,7 @@
                                                         <div class="col-md-6 form-group align-self-center">
                                             <!-- <center> -->
                                             
-                                                <!--<div class="g-recaptcha" id="recapchaheader" required></div>-->
+                                                <!---->
                                                     
                                                  
                                             <!-- </center> -->

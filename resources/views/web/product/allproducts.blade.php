@@ -53,7 +53,7 @@
                                                 />
                                             </a>
                                         </div>
-                                        <h4 class="entry-title"><a href="{{ url($products->url) }}" rel="bookmark">{{ $products->title }}</a></h4>
+                                        <h4 class="entry-title"><a href="{{ url($products->url) }}/" rel="bookmark">{{ $products->title }}</a></h4>
                                         <div class="pb-post-meta">
                                             <div>
                                                 <span class="newspaper-x-category"> 

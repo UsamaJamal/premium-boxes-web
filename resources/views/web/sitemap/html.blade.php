@@ -115,11 +115,11 @@ body {
         <h2 class="sitemap-section-title">Pages</h2>
         <div class="sitemap-grid-1">
             <ul class="sitemap-list">
-                <li><a href="{{ url('/') }}">Home</a></li>
-                <li><a href="{{ url('/about-us') }}">About Us</a></li>
-                <li><a href="{{ url('/contact-us') }}">Contact Us</a></li>
+                <li><a href="{{ url('/') }}/">Home</a></li>
+                <li><a href="{{ url('/about-us') }}/">About Us</a></li>
+                <li><a href="{{ url('/contact-us') }}/">Contact Us</a></li>
                 @foreach($dynamic_pages as $page)
-                    <li><a href="{{ url($page->page_url) }}">{{ $page->page_title }}</a></li>
+                    <li><a href="{{ url($page->page_url) }}/">{{ $page->page_title }}</a></li>
                 @endforeach
             </ul>
         </div>
@@ -138,7 +138,7 @@ body {
                         @if(isset($grouped_prods[$sub_cat->cat_id]))
                             <ul class="sitemap-list">
                                 @foreach($grouped_prods[$sub_cat->cat_id] as $prod)
-                                    <li><a href="{{ url($prod->url) }}">{{ $prod->title }}</a></li>
+                                    <li><a href="{{ url($prod->url) }}/">{{ $prod->title }}</a></li>
                                 @endforeach
                             </ul>
                         @endif
@@ -150,7 +150,7 @@ body {
                     <div>
                         <ul class="sitemap-list">
                             @foreach($grouped_prods[$top_cat->cat_id] as $prod)
-                                <li><a href="{{ url($prod->url) }}">{{ $prod->title }}</a></li>
+                                <li><a href="{{ url($prod->url) }}/">{{ $prod->title }}</a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -168,7 +168,7 @@ body {
             <!-- Actually, if we just output a single ul with CSS grid, or output two divs -->
             <ul class="sitemap-list" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 30px;">
                 @foreach($blogs as $blog)
-                    <li><a href="{{ url('/blog/' . $blog->blog_url) }}">{{ $blog->blog_title }}</a></li>
+                    <li><a href="{{ url('/blog/' . $blog->blog_url) }}/">{{ $blog->blog_title }}</a></li>
                 @endforeach
             </ul>
         </div>
