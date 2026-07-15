@@ -2298,6 +2298,17 @@ img {
     color: #f1f1f1 !important;
 }
 
+/* Keep every editor-generated heading in the category guide pure white. */
+.pg-left h1,
+.pg-left h2,
+.pg-left h3,
+.pg-left h4,
+.pg-left h5,
+.pg-left h6 {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
 .category-ckeditor-content p {
     margin-top: 0;
     margin-bottom: 14px;
@@ -2743,6 +2754,9 @@ img {
     display: flex;
     align-items: center;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
     background: none;
     border: none;
     color: inherit;
@@ -2758,6 +2772,18 @@ img {
     margin: 0 !important;
     padding: 0 !important;
     flex: 1;
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+}
+
+.pg-accordion-q > span:last-child {
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
 }
 
 .pg-accordion-btn:focus,
@@ -2971,6 +2997,35 @@ img {
   margin-top: 0;
   padding: 0;
   color: #ffffff;
+}
+
+/* Category pages use white headings across every section. */
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6,
+body .cp-sec-title,
+body .cp-why-title,
+body .cp-testi-title,
+body .testimonials-header .testimonials-title {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+body .industry-hero-left h1 *,
+body .cp-sec-title *,
+body .cp-why-title *,
+body .cp-testi-title *,
+body .testimonials-header .testimonials-title *,
+body .pg-left h1 *,
+body .pg-left h2 *,
+body .pg-left h3 *,
+body .pg-left h4 *,
+body .pg-left h5 *,
+body .pg-left h6 * {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
 }
 .highlight-yellow {
   color: var(--accent-gold);
