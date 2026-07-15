@@ -78,7 +78,7 @@
     <textarea class="form-control" row="3" name="message"></textarea>
   </div>
            <div class="form-group">
-   <div class="g-recaptcha" id="recapchaheader" required></div>
+   
   </div>
 <div class="modal-footer">
 

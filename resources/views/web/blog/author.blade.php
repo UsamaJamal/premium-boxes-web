@@ -317,7 +317,7 @@ html, body {
                     <div class="au-post-body">
                         <div class="au-post-meta">
                             <span class="au-post-author">
-                                <a href="{{ url('author/'.$author->slug) }}" onclick="event.stopPropagation();" style="color:inherit; text-decoration:none;">
+                                <a href="{{ url('author/'.$author->slug) }}/" onclick="event.stopPropagation();" style="color:inherit; text-decoration:none;">
                                     {{ $author->name }}
                                 </a>
                             </span>

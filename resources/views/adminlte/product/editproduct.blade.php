@@ -193,19 +193,17 @@
                    <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Product Category</label>
                     <div class="col-sm-9">
-                    <select type="text" class="form-control"id="" placeholder="" 
-                    name="productcategory">
-                  <option value="0">--select a Category--
-                  </option>
+                    <select id="productcategory" name="productcategory[]" class="select2" multiple="multiple" data-placeholder="Select Categories" style="width: 100%;">
                    @foreach ($category_data as $index) 
                   
-                  <option  value="{{$index->cat_id}}" <?php if($index->cat_id == $pro[0]->cat_id){echo "selected";} ?> >
+                  <option  value="{{$index->cat_id}}" <?php 
+                  $product_cats = DB::table('category_product')->where('product_id', $pro[0]->product_id)->pluck('category_id')->toArray();
+                  if(in_array($index->cat_id, $product_cats) || $index->cat_id == $pro[0]->cat_id){echo "selected";} 
+                  ?> >
 
                     {{$index->name}}</option>
                   @endforeach
 
-          
-           
                   </select>
                 </div>
                   </div>
@@ -239,8 +237,14 @@
                   
            
                   </select>
-                </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Schema</label>
+                    <div class="col-sm-9">
+                       <textarea class="form-control" name="schema" rows="5" placeholder="<script type='application/ld+json'>...">{{ $pro[0]->schema ?? '' }}</textarea>
+                    </div>
                   </div>
+                </div>
+              </div>
               <!-- FAQs Section -->
               <div class="card" style="width: 66%; margin-left: 15px;">
                   <div class="card-header header-2">Frequently Asked Questions (FAQs)</div>

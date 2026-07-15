@@ -71,4 +71,11 @@
   </section>
 </div>
 
+<script src="{{URL::asset('ckeditor/ckeditor.js')}}"></script>
+<script>
+    CKEDITOR.replace('answer', {
+        filebrowserUploadUrl: "{{URL::asset('ckeditor/ck_upload.php')}}",
+        filebrowserUploadMethod: 'form'
+    });
+</script>
 @include('adminlte/footer')

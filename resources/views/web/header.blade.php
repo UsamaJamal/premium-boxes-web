@@ -39,16 +39,16 @@
 	<!-- <link rel="stylesheet" href="css/animate.css"> -->
 
 
-    <link rel="stylesheet" href="{{url('web/assets/css/bootstrap.min.css')}}" />
-    <link rel="stylesheet" href="{{url('web/assets/css/owl.carousel.min.css')}}" />
-    <link rel="stylesheet" href="{{url('web/assets/css/owl.theme.default.min.css')}}" />
+    <link rel="stylesheet" href="{{url('web/assets/css/bootstrap.min.css')}}/" />
+    <link rel="stylesheet" href="{{url('web/assets/css/owl.carousel.min.css')}}/" />
+    <link rel="stylesheet" href="{{url('web/assets/css/owl.theme.default.min.css')}}/" />
     <!-- <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/home.css" />
     <link rel="stylesheet" href="assets/css/blogs.css" />
     <link rel="stylesheet" href="assets/css/progress.css" /> -->
 
-    <link href="{{url('web/assets/css/styles.css')}}" rel="stylesheet" />
-    <link href="{{url('web/assets/css/jquery.smartmenus.bootstrap-4.css')}}" rel="stylesheet" />
+    <link href="{{url('web/assets/css/styles.css')}}/" rel="stylesheet" />
+    <link href="{{url('web/assets/css/jquery.smartmenus.bootstrap-4.css')}}/" rel="stylesheet" />
 
     @if(isset($value) && count($value) > 0 && isset($value[0]->schema) && !empty($value[0]->schema))
     {!! $value[0]->schema !!}
@@ -58,8 +58,49 @@
     {!! $blog_single_value[0]->schema !!}
     @endif
 
+    @if(isset($product) && count($product) > 0 && isset($product[0]->schema) && !empty($product[0]->schema))
+    {!! $product[0]->schema !!}
+    @endif
+
     <!--  -->
     
+<style>
+/* Global fix for CKEditor lists in all dynamic content areas */
+.product-desc ul, .product-info-text ul, .pg-left ul, .cp-why-para ul, .bp-article ul, .faq-answer ul, .home-hero-desc ul, .terms-content ul, .privacy-content ul {
+    list-style-type: none !important;
+    padding-left: 15px !important;
+    margin-bottom: 15px !important;
+}
+
+.product-desc ol, .product-info-text ol, .pg-left ol, .cp-why-para ol, .bp-article ol, .faq-answer ol, .home-hero-desc ol, .terms-content ol, .privacy-content ol {
+    list-style-type: decimal !important;
+    padding-left: 30px !important;
+    margin-bottom: 15px !important;
+}
+
+.product-desc ul > li, .product-info-text ul > li, .pg-left ul > li, .cp-why-para ul > li, .bp-article ul > li, .faq-answer ul > li, .home-hero-desc ul > li, .terms-content ul > li, .privacy-content ul > li {
+    position: relative !important;
+    display: block !important;
+    padding-left: 15px !important;
+    margin-bottom: 8px !important;
+}
+
+.product-desc ul > li::before, .product-info-text ul > li::before, .pg-left ul > li::before, .cp-why-para ul > li::before, .bp-article ul > li::before, .faq-answer ul > li::before, .home-hero-desc ul > li::before, .terms-content ul > li::before, .privacy-content ul > li::before {
+    content: "•" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    color: #F5C542 !important; /* Premium Gold Bullet */
+    font-size: 20px !important;
+    line-height: 1.4 !important;
+}
+
+.product-desc ol > li, .product-info-text ol > li, .pg-left ol > li, .cp-why-para ol > li, .bp-article ol > li, .faq-answer ol > li, .home-hero-desc ol > li, .terms-content ol > li, .privacy-content ol > li {
+    display: list-item !important;
+    list-style-position: inside !important;
+    margin-bottom: 8px !important;
+}
+</style>
 </head>
 
 <style>
@@ -326,7 +367,7 @@ input:-webkit-autofill:active {
 
 
 </script>
- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index:999999999;">
+ <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index:999999999;">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -347,7 +388,7 @@ input:-webkit-autofill:active {
               <input type="text" name="number" class="form-control" placeholder="Enter your Contact Number:" required>
           </div>
           
-           <div class="g-recaptcha" id="headercaptcha"></div>
+           
         
       </div>
       <div class="modal-footer">
@@ -357,7 +398,7 @@ input:-webkit-autofill:active {
       </form>
     </div>
   </div>
-</div>
+</div> -->
 <header id="site-header" class="w-full" style="background-color: #1a1a1a; position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; box-shadow: 0 2px 20px rgba(0,0,0,0.5);">
 
     <!-- ===== TOP BAR ===== -->
@@ -399,8 +440,8 @@ input:-webkit-autofill:active {
         <!-- Contact Info -->
         <div class="top-bar-contact" style="display: flex; align-items: center; gap: 28px; flex-shrink: 0;">
             <!-- Phone -->
-            <a href="tel:18005189441" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-muted-light);">
-                <div style="width: 38px; height: 38px; border-radius: 50%; background-color: #333333; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <a href="tel:18005189441" class="header-contact-link header-phone-link" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-muted-light);">
+                <div class="header-contact-icon" style="width: 38px; height: 38px; border-radius: 50%; background-color: #333333; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="#f5c542" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                     </svg>
@@ -409,8 +450,8 @@ input:-webkit-autofill:active {
             </a>
 
             <!-- Email -->
-            <a href="mailto:support@premiumboxes.com" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-muted-light);">
-                <div style="width: 38px; height: 38px; border-radius: 50%; background-color: #333333; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <a href="mailto:support@premiumboxes.com" class="header-contact-link header-email-link" aria-label="Email Premium Boxes support" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-muted-light);">
+                <div class="header-contact-icon" style="width: 38px; height: 38px; border-radius: 50%; background-color: #333333; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="#f5c542" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                     </svg>
@@ -455,6 +496,15 @@ input:-webkit-autofill:active {
             border-bottom-right-radius: 8px;
             animation: megaSlideDown 0.2s ease;
         }
+        .mega-menu-content::before, .dropdown-menu-content::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: transparent;
+        }
         @keyframes megaSlideDown {
             from { opacity: 0; transform: translateY(-8px); }
             to   { opacity: 1; transform: translateY(0); }
@@ -477,23 +527,45 @@ input:-webkit-autofill:active {
                 overflow-x: hidden;
                 max-width: 100vw;
             }
-            body { padding-top: 95px !important; }
+            body { padding-top: 76px !important; }
             .top-bar-left { display: none !important; }
-            .top-bar-container { display: block !important; }
+            .top-bar-container {
+                display: none !important;
+            }
             .top-bar-container > div { 
-                padding: 10px !important; 
+                min-height: 36px;
+                padding: 6px 15px !important;
                 justify-content: center !important; 
             }
             .top-bar-contact { 
-                width: fit-content; 
+                width: 100%;
                 margin: 0 auto;
-                flex-direction: column; 
                 align-items: center !important;
                 justify-content: center;
-                gap: 10px !important;
+                gap: 0 !important;
             }
-            .top-bar-contact a:nth-child(1) { display: none !important; } /* Hide phone */
-            .top-bar-contact a:nth-child(2) { display: flex !important; } /* Show email */
+            .header-phone-link { display: none !important; }
+            .header-email-link {
+                display: inline-flex !important;
+                max-width: 100%;
+                gap: 8px !important;
+                letter-spacing: 0.1px;
+            }
+            .header-email-link .header-contact-icon {
+                width: 24px !important;
+                height: 24px !important;
+                background: rgba(245, 197, 66, 0.1) !important;
+                border: 1px solid rgba(245, 197, 66, 0.25);
+            }
+            .header-email-link .header-contact-icon svg {
+                width: 13px;
+                height: 13px;
+            }
+            .header-email-link span {
+                font-size: 13px !important;
+                font-weight: 600 !important;
+                line-height: 1;
+            }
             .main-nav-inner {
                 padding: 0 15px !important;
                 align-items: center !important;
@@ -505,12 +577,28 @@ input:-webkit-autofill:active {
                 display: flex !important; 
                 position: absolute;
                 left: 15px;
+                width: 38px;
+                height: 38px;
+                align-items: center;
+                justify-content: center;
+                border-radius: 10px;
+                background: rgba(255,255,255,0.04);
             }
+            .mobile-menu-btn svg { width: 25px; height: 25px; }
             .mobile-logo { 
                 display: flex !important; 
                 flex: 0 0 auto !important; 
             }
-            .mobile-search-btn { display: flex !important; }
+            .mobile-search-btn {
+                display: flex !important;
+                width: 38px;
+                height: 38px;
+                align-items: center;
+                justify-content: center;
+                border-radius: 10px;
+                background: rgba(255,255,255,0.04);
+            }
+            .mobile-search-btn svg { width: 24px; height: 24px; }
             /* Hide Get Instant Quote button on mobile */
             .nav-right-container > a { display: none !important; }
             .nav-right-container { 
@@ -521,12 +609,20 @@ input:-webkit-autofill:active {
             }
             /* Mobile header height & logo size */
             .main-nav-inner {
-                height: 70px !important;
-                min-height: 70px !important;
+                height: 76px !important;
+                min-height: 76px !important;
             }
             .mobile-logo-img {
-                height: 48px !important;
+                height: 55px !important;
             }
+        }
+
+        @media (max-width: 380px) {
+            .header-email-link span { font-size: 12px !important; }
+            .main-nav-inner { padding: 0 10px !important; }
+            .mobile-menu-btn { left: 10px; }
+            .nav-right-container { right: 10px; }
+            .mobile-logo-img { height: 55px !important; }
         }
     </style>
     <nav style="background-color: #202020; border-top: 1px solid #333; position: relative; z-index: 100;">
@@ -560,7 +656,7 @@ input:-webkit-autofill:active {
                                 $industries = $parentCat ? \DB::table('add_category')->where('parent_category', $parentCat->cat_id)->where('show_in_nav', 1)->get() : [];
                                 @endphp
                                 @foreach($industries as $industry)
-                                <a href="{{ url($industry->category_url) }}" style="display: flex; align-items: center; gap: 10px; color: #cccccc; text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#cccccc'">
+                                <a href="{{ url($industry->category_url) }}/" style="display: flex; align-items: center; gap: 10px; color: #cccccc; text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#cccccc'">
                                     @if(!empty($industry->icon))
                                         <img src="{{ asset('images/' . $industry->icon) }}" style="width: 32px; height: 32px; object-fit: contain; filter: brightness(0) saturate(100%) invert(86%) sepia(30%) saturate(1376%) hue-rotate(335deg) brightness(101%) contrast(93%);" alt="{{ strtolower(str_replace('-', ' ', $industry->name . ' icon')) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $industry->name . ' icon'))) }}">
                                     @else
@@ -586,7 +682,7 @@ input:-webkit-autofill:active {
                                     <span style="color: #aaaaaa; font-size: 13px;">Get your custom packaging plan within 24 hours.</span>
                                 </div>
                             </div>
-                            <a href="/contact" style="background-color: #f5c542; color: #111; font-weight: 700; padding: 10px 28px; border-radius: 50px; text-decoration: none; font-size: 14px; transition: background 0.2s; white-space: nowrap; flex-shrink: 0;">Talk to us</a>
+                            <a href="/contact-us/" style="background-color: #f5c542; color: #111; font-weight: 700; padding: 10px 28px; border-radius: 50px; text-decoration: none; font-size: 14px; transition: background 0.2s; white-space: nowrap; flex-shrink: 0;">Talk to us</a>
                         </div>
                     </div>
                 </div>
@@ -604,7 +700,7 @@ input:-webkit-autofill:active {
                         $materials = $parentCatMat ? \DB::table('add_category')->where('parent_category', $parentCatMat->cat_id)->where('show_in_nav', 1)->get() : [];
                         @endphp
                         @foreach($materials as $material)
-                        <a href="{{ url($material->category_url) }}" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; color: #cccccc; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.color='#f5c542'; this.style.backgroundColor='#333333'" onmouseout="this.style.color='#cccccc'; this.style.backgroundColor='transparent'">
+                        <a href="{{ url($material->category_url) }}/" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; color: #cccccc; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.color='#f5c542'; this.style.backgroundColor='#333333'" onmouseout="this.style.color='#cccccc'; this.style.backgroundColor='transparent'">
                             {{ $material->name }}
                         </a>
                         @endforeach
@@ -627,7 +723,7 @@ input:-webkit-autofill:active {
                                 $styles = $parentCatStyle ? \DB::table('add_category')->where('parent_category', $parentCatStyle->cat_id)->where('show_in_nav', 1)->get() : [];
                                 @endphp
                                 @foreach($styles as $style)
-                                <a href="{{ url($style->category_url) }}" style="display: flex; align-items: center; gap: 10px; color: #cccccc; text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#cccccc'">
+                                <a href="{{ url($style->category_url) }}/" style="display: flex; align-items: center; gap: 10px; color: #cccccc; text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#cccccc'">
                                     @if(!empty($style->icon))
                                         <img src="{{ asset('images/' . $style->icon) }}" style="width: 32px; height: 32px; object-fit: contain; filter: brightness(0) saturate(100%) invert(86%) sepia(30%) saturate(1376%) hue-rotate(335deg) brightness(101%) contrast(93%);" alt="{{ strtolower(str_replace('-', ' ', $style->name . ' icon')) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $style->name . ' icon'))) }}">
                                     @else
@@ -653,7 +749,7 @@ input:-webkit-autofill:active {
                                     <span style="color: #aaaaaa; font-size: 13px;">Get your custom packaging plan within 24 hours.</span>
                                 </div>
                             </div>
-                            <a href="/contact" style="background-color: #f5c542; color: #111; font-weight: 700; padding: 10px 28px; border-radius: 50px; text-decoration: none; font-size: 14px; transition: background 0.2s; white-space: nowrap; flex-shrink: 0;">Talk to us</a>
+                            <a href="/contact-us/" style="background-color: #f5c542; color: #111; font-weight: 700; padding: 10px 28px; border-radius: 50px; text-decoration: none; font-size: 14px; transition: background 0.2s; white-space: nowrap; flex-shrink: 0;">Talk to us</a>
                         </div>
                     </div>
                 </div>
@@ -675,7 +771,7 @@ input:-webkit-autofill:active {
                         <div style="display: flex; gap: 40px;">
                             <div style="flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px 20px; align-content: start;">
                                 @foreach($promoSubcats as $subcat)
-                                <a href="{{ url($subcat->category_url) }}" style="display: flex; align-items: center; gap: 10px; color: #cccccc; text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#cccccc'">
+                                <a href="{{ url($subcat->category_url) }}/" style="display: flex; align-items: center; gap: 10px; color: #cccccc; text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#cccccc'">
                                     @if(!empty($subcat->icon))
                                         <img src="{{ asset('images/' . $subcat->icon) }}" style="width: 32px; height: 32px; object-fit: contain; filter: brightness(0) saturate(100%) invert(86%) sepia(30%) saturate(1376%) hue-rotate(335deg) brightness(101%) contrast(93%);" alt="{{ strtolower(str_replace('-', ' ', $subcat->name . ' icon')) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $subcat->name . ' icon'))) }}">
                                     @else
@@ -701,7 +797,7 @@ input:-webkit-autofill:active {
                                     <span style="color: #aaaaaa; font-size: 13px;">Get your custom packaging plan within 24 hours.</span>
                                 </div>
                             </div>
-                            <a href="/contact" style="background-color: #f5c542; color: #111; font-weight: 700; padding: 10px 28px; border-radius: 50px; text-decoration: none; font-size: 14px; transition: background 0.2s; white-space: nowrap; flex-shrink: 0;">Talk to us</a>
+                            <a href="/contact-us/" style="background-color: #f5c542; color: #111; font-weight: 700; padding: 10px 28px; border-radius: 50px; text-decoration: none; font-size: 14px; transition: background 0.2s; white-space: nowrap; flex-shrink: 0;">Talk to us</a>
                         </div>
                     </div>
                 </div>
@@ -720,7 +816,7 @@ input:-webkit-autofill:active {
 
             @foreach($otherParents as $otherParent)
             <div class="nav-group" style="position: relative;">
-                <a href="{{ url($otherParent->category_url) }}" style="display: flex; align-items: center; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; padding: 0 10px;">{{ $otherParent->name }}</a>
+                <a href="{{ url($otherParent->category_url) }}/" style="display: flex; align-items: center; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; padding: 0 10px;">{{ $otherParent->name }}</a>
                 
                 @php
                     $subCats = \DB::table('add_category')->where('parent_category', $otherParent->cat_id)->where('show_in_nav', 1)->get();
@@ -731,7 +827,7 @@ input:-webkit-autofill:active {
                 <div class="dropdown-menu-content" style="position: absolute; top: 100%; left: 10px; width: 260px; background-color: #252525;  box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #333; border-top: 2px solid #f5c542; z-index: 999;">
                     <div style="padding: 10px 0;">
                         @foreach($subCats as $subCat)
-                        <a href="{{ url($subCat->category_url) }}" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; color: #cccccc; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.color='#f5c542'; this.style.backgroundColor='#333333'" onmouseout="this.style.color='#cccccc'; this.style.backgroundColor='transparent'">
+                        <a href="{{ url($subCat->category_url) }}/" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; color: #cccccc; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.color='#f5c542'; this.style.backgroundColor='#333333'" onmouseout="this.style.color='#cccccc'; this.style.backgroundColor='transparent'">
                             {{ $subCat->name }}
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="9 18 15 12 9 6"></polyline>
@@ -740,7 +836,7 @@ input:-webkit-autofill:active {
                         @endforeach
                     </div>
                     <div style="border-top: 1px solid #333; padding: 12px 24px; background-color: #222222; border-radius: 0 0 4px 4px;">
-                        <a href="{{ url($otherParent->category_url) }}" style="display: flex; align-items: center; gap: 8px; color: #aaaaaa; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#aaaaaa'">
+                        <a href="{{ url($otherParent->category_url) }}/" style="display: flex; align-items: center; gap: 8px; color: #aaaaaa; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#aaaaaa'">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                                 <polyline points="12 5 19 12 12 19"></polyline>
@@ -753,7 +849,7 @@ input:-webkit-autofill:active {
             </div>
             @endforeach
 
-            <a href="{{ url('our-blog') }}" style="display: flex; align-items: center; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#ffffff'">Blogs</a>
+            <a href="{{ url('our-blog') }}/" style="display: flex; align-items: center; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#ffffff'">Blogs</a>
         </div>
 
         <!-- Right: Toggle + CTA -->
@@ -775,7 +871,7 @@ input:-webkit-autofill:active {
             </div> -->
 
             <!-- Get Instant Quote -->
-            <a href="{{ url('request-quote') }}"
+            <a href="{{ url('request-quote') }}/"
                 style="display: inline-flex; align-items: center !important; justify-content: center !important; box-sizing: border-box !important; background-color: #f5c542 !important; color: #111 !important; font-size: 14px !important; font-weight: 800 !important; padding: 10px 22px !important; border-radius: 50px !important; text-decoration: none !important; white-space: nowrap !important; line-height: normal !important; height: 40px !important; transition: background 0.2s;">
                 Get Instant Quote
             </a>
@@ -838,7 +934,7 @@ input:-webkit-autofill:active {
                 $industriesSidebar = $parentCat ? \DB::table('add_category')->where('parent_category', $parentCat->cat_id)->where('show_in_nav', 1)->get() : [];
                 @endphp
                 @foreach($industriesSidebar as $industry)
-                    <a href="{{ url($industry->category_url) }}" style="display: block; color: #cccccc; text-decoration: none; font-size: 14px; padding: 8px 0;">{{ $industry->name }}</a>
+                    <a href="{{ url($industry->category_url) }}/" style="display: block; color: #cccccc; text-decoration: none; font-size: 14px; padding: 8px 0;">{{ $industry->name }}</a>
                 @endforeach
             </div>
         </div>
@@ -854,7 +950,7 @@ input:-webkit-autofill:active {
                 $materialsSidebar = $parentCatMat ? \DB::table('add_category')->where('parent_category', $parentCatMat->cat_id)->where('show_in_nav', 1)->get() : [];
                 @endphp
                 @foreach($materialsSidebar as $material)
-                    <a href="{{ url($material->category_url) }}" style="display: block; color: #cccccc; text-decoration: none; font-size: 14px; padding: 8px 0;">{{ $material->name }}</a>
+                    <a href="{{ url($material->category_url) }}/" style="display: block; color: #cccccc; text-decoration: none; font-size: 14px; padding: 8px 0;">{{ $material->name }}</a>
                 @endforeach
             </div>
         </div>
@@ -870,7 +966,7 @@ input:-webkit-autofill:active {
                 $stylesSidebar = $parentCatStyle ? \DB::table('add_category')->where('parent_category', $parentCatStyle->cat_id)->where('show_in_nav', 1)->get() : [];
                 @endphp
                 @foreach($stylesSidebar as $style)
-                    <a href="{{ url($style->category_url) }}" style="display: block; color: #cccccc; text-decoration: none; font-size: 14px; padding: 8px 0;">{{ $style->name }}</a>
+                    <a href="{{ url($style->category_url) }}/" style="display: block; color: #cccccc; text-decoration: none; font-size: 14px; padding: 8px 0;">{{ $style->name }}</a>
                 @endforeach
             </div>
         </div>
@@ -893,13 +989,13 @@ input:-webkit-autofill:active {
             @if(count($promoSidebar) > 0)
             <div class="mobile-submenu" style="display: none; padding-left: 15px; padding-top: 10px; padding-bottom: 10px; border-bottom: 1px solid #333333; background-color: #1a1a1a;">
                 @foreach($promoSidebar as $promo)
-                    <a href="{{ url($promo->category_url) }}" style="display: block; color: #cccccc; text-decoration: none; font-size: 14px; padding: 8px 0;">{{ $promo->name }}</a>
+                    <a href="{{ url($promo->category_url) }}/" style="display: block; color: #cccccc; text-decoration: none; font-size: 14px; padding: 8px 0;">{{ $promo->name }}</a>
                 @endforeach
             </div>
             @endif
         </div>
 
-        <a href="{{ url('our-blog') }}" style="display: block; color: #cccccc; text-decoration: none; font-size: 16px; padding: 15px 0; border-bottom: 1px solid #333333;">Blogs</a>
+        <a href="{{ url('our-blog') }}/" style="display: block; color: #cccccc; text-decoration: none; font-size: 16px; padding: 15px 0; border-bottom: 1px solid #333333;">Blogs</a>
 
         <div style="margin-top: auto; padding-top: 30px; padding-bottom: 20px;">
             <!-- Contact Info -->
@@ -915,7 +1011,7 @@ input:-webkit-autofill:active {
 
             </div>
 
-            <a href="{{ url('/request-quote') }}" style="display: block; width: 100%; text-align: center; background-color: #f5c542; color: #1a1a1a; font-weight: 700; font-size: 16px; padding: 14px 0; border-radius: 50px; text-decoration: none; transition: opacity 0.2s;">
+            <a href="{{ url('/request-quote') }}/" style="display: block; width: 100%; text-align: center; background-color: #f5c542; color: #1a1a1a; font-weight: 700; font-size: 16px; padding: 14px 0; border-radius: 50px; text-decoration: none; transition: opacity 0.2s;">
                 Get Instant Quote
             </a>
         </div>
@@ -1000,7 +1096,3 @@ function toggleMobileSubmenu(element) {
     </script>
 @endif
     <!-- ====================== cmb-Header End ======================  -->
-
-
-
-

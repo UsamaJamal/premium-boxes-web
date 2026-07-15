@@ -1267,7 +1267,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                             $relatedAlt = $related->alt_tag ?: $relatedTitle;
                         @endphp
                         <article class="bp-related-card">
-                            <a href="{{ url('blog/'.$related->blog_url) }}" class="bp-related-link">
+                            <a href="{{ url('blog/'.$related->blog_url) }}/" class="bp-related-link">
                                 <div class="bp-related-image">
                                     <img src="{{ asset('images/'.$related->image) }}" alt="{{ strtolower($relatedAlt) }}" title="{{ $relatedTitle }}" loading="lazy">
                                 </div>

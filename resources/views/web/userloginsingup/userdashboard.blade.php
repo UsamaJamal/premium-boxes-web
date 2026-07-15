@@ -86,7 +86,7 @@
                         <button class="tablinks" onclick="openCity(event, 'Profile')">Manage Profile</button>
                         <button class="tablinks" onclick="openCity(event, 'Setting')">Account Setting</button>
                         <button class="tablinks" onclick="openCity(event, 'Password')">Update Password</button>
-                        <button class="tablinks" onclick="openCity(event, 'Payment')"><a href="{{url('userlogout')}}">Logout</a></button>
+                        <button class="tablinks" onclick="openCity(event, 'Payment')"><a href="{{url('userlogout')}}/">Logout</a></button>
                       </div>
                       <!-- show message for user -->
                       <!-- show message for user -->

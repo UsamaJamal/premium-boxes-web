@@ -225,7 +225,8 @@ class ProductController extends Controller
                 
                       $data['sub'] = DB::table('add_category')->where('parent_category',$data['value'][0]->cat_id)->where('status',1)->get();
                       
-                      $data['sub_product'] = DB::table('product')->where('cat_id',$data['value'][0]->cat_id)->where('status',1)->get();
+                      $sub_product_ids = \Illuminate\Support\Facades\DB::table('category_product')->where('category_id',$data['value'][0]->cat_id)->pluck('product_id')->toArray();
+                      $data['sub_product'] = DB::table('product')->whereIn('product_id',$sub_product_ids)->where('status',1)->get();
                       
                       $data['parent_cat'] = null;
                       if ($data['value'][0]->parent_category != 0) {
@@ -244,7 +245,8 @@ $data['meta'] = DB::table('add_category')->where('category_url',$url)->get();
                             
                             foreach ($temp as $index) {
                                 
-                                $temp1=DB::table('product')->where('status',1)->where('cat_id',$index->cat_id)->get();
+                                $temp_product_ids = \Illuminate\Support\Facades\DB::table('category_product')->where('category_id', $index->cat_id)->pluck('product_id')->toArray();
+                                $temp1=DB::table('product')->where('status',1)->whereIn('product_id',$temp_product_ids)->get();
                                 
                                 $data['product'] =$data['product']->toBase()->merge($temp1);
                             }

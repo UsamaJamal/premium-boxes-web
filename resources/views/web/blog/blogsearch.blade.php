@@ -177,7 +177,7 @@ article.post p {
                                                 $str2 = $str2[0] ; 
                                             ?>
                                                 
-                                        <h4 class="entry-title"><a href="{{url($blogs->blog_url)}}" rel="bookmark"><?php 
+                                        <h4 class="entry-title"><a href="{{url($blogs->blog_url)}}/" rel="bookmark"><?php 
                                                 echo substr($str2, 0, 50). '....'; 
                                                ?></a></h4>
                                         <div class="pb-post-meta">

@@ -908,7 +908,7 @@ img {
 .cp-sec-sub {
     font-size: 16px;
     color: var(--muted);
-    max-width: 460px;
+    max-width: 800px;
     line-height: 1.75;
 }
 
@@ -2286,6 +2286,49 @@ img {
     color: #f1f1f1 !important;
 }
 
+.category-ckeditor-content p {
+    margin-top: 0;
+    margin-bottom: 14px;
+    line-height: 1.75;
+}
+
+.category-ckeditor-content h1, .category-ckeditor-content h2, .category-ckeditor-content h3, .category-ckeditor-content h4, .category-ckeditor-content h5, .category-ckeditor-content h6 {
+    margin-top: 24px;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.category-ckeditor-content > *:first-child {
+    margin-top: 0;
+}
+
+.category-ckeditor-content > *:last-child {
+    margin-bottom: 0;
+}
+
+.category-ckeditor-content p:empty,
+.category-ckeditor-content p:has(> br:only-child) {
+    display: none;
+}
+
+.pg-left ul, .cp-why-para ul {
+    list-style-type: disc !important;
+    padding-left: 30px !important;
+    margin-bottom: 10px !important;
+}
+
+.pg-left ol, .cp-why-para ol {
+    list-style-type: decimal !important;
+    padding-left: 30px !important;
+    margin-bottom: 10px !important;
+}
+
+.pg-left li, .cp-why-para li {
+    display: list-item !important;
+    list-style-position: inside !important;
+    margin-bottom: 5px !important;
+}
+
 /* Custom Scrollbar for pg-left */
 .pg-left::-webkit-scrollbar {
     width: 6px;
@@ -2694,7 +2737,7 @@ img {
 }
 
 .pg-accordion-q {
-    font-size: 14px !important;
+    font-size: 20px!important;
     line-height: 1.65 !important;
     color: #ffffff !important;
     font-weight: 500 !important;
@@ -2753,7 +2796,7 @@ img {
     }
 
     .pg-left {
-        display: none;
+        display: block;
     }
 
     /* hide article text on mobile */
@@ -4078,7 +4121,7 @@ img {
 
                     <p>
                         @if(!empty($value[0]->hero_desc))
-                            {{ $value[0]->hero_desc }}
+                            {!! $value[0]->hero_desc !!}
                         @elseif(!empty($value[0]->description))
                             {{ Str::limit(strip_tags($value[0]->description), 300) }}
                         @else
@@ -4086,7 +4129,7 @@ img {
                         @endif
                     </p>
 
-                    <a href="{{ url('request-quote') }}" class="btn btn-yellow">Design Custom Boxes</a>
+                    <a href="{{ url('request-quote') }}/" class="btn btn-yellow">Design Custom Boxes</a>
                 </div>
 
                 <div class="industry-hero-right">
@@ -4106,10 +4149,15 @@ img {
 <section class="cp-products">
     <div class="cp-wrap">
 
+        <div class="cp-sec-head">
+            <h2 class="cp-sec-title">{!! !empty($value[0]->products_heading) ? $value[0]->products_heading : (!empty($value[0]->name) ? 'Premium ' . $value[0]->name . ' Solutions' : 'Premium Packaging Solutions') !!}</h2>
+            <div class="cp-sec-sub">{!! !empty($value[0]->products_description) ? $value[0]->products_description : (!empty($value[0]->name) ? 'We offer custom-designed packaging solutions for ' . strtolower($value[0]->name) . ', crafted with high-quality materials to elevate your brand\'s appeal.' : 'We offer custom-designed packaging solutions, crafted with high-quality materials to elevate your brand\'s appeal.') !!}</div>
+        </div>
+
         <div class="cp-grid">
             @if(isset($sub_product) && count($sub_product) > 0)
                 @foreach($sub_product->take(8) as $product)
-                <a href="{{ url($product->url) }}" style="text-decoration: none; color: inherit;">
+                <a href="{{ url($product->url) }}/" style="text-decoration: none; color: inherit;">
                     <div class="cp-card">
                         <div class="cp-card-img" style="background-image: url('{{ asset('images/'.$product->image) }}'); background-size: cover; background-position: center;"></div>
                         <p class="cp-card-name">{{ $product->title }}</p>
@@ -4148,7 +4196,6 @@ img {
         <div class="cp-why-grid">
 
             <div class="cp-why-text">
-                <span class="cp-badge">OVERVIEW</span>
                 <h2 class="cp-why-title">{{ $value[0]->why_choose_title }}</h2>
                 <div class="cp-why-para" style="color: #cccccc;">
                     {!! $value[0]->why_choose_desc !!}
@@ -4163,7 +4210,7 @@ img {
                         <img src="{{ asset('assets/images/default.jpg') }}" alt="why choose" title="Why Choose" class="cp-why-photo">
                     @endif
                 </div>
-                <a href="{{ url('request-quote') }}" class="cp-cta cp-why-quote-btn">Get a Quote</a>
+                <a href="{{ url('request-quote') }}/" class="cp-cta cp-why-quote-btn">Get a Quote</a>
             </div>
 
         </div>
@@ -4471,7 +4518,9 @@ img {
         <!-- Left: article content -->
         <div class="pg-left">
             @if(!empty($value[0]->description))
-                {!! $value[0]->description !!}
+                <div class="category-ckeditor-content">
+                    {!! $value[0]->description !!}
+                </div>
             @else
                 <span class="pg-badge">PACKAGING GUIDE</span>
                 <h2 class="pg-title">Everything you need to know about custom boxes</h2>
@@ -4531,7 +4580,7 @@ img {
                 <div class="pg-cta-box">
                     <h4 class="pg-cta-title">Need help choosing?</h4>
                     <p class="pg-cta-sub">Our team responds within 2 hours</p>
-                    <a href="{{ url('contact-us') }}" class="pg-cta-btn">Chat with an expert</a>
+                    <a href="{{ url('contact-us') }}/" class="pg-cta-btn">Chat with an expert</a>
                 </div>
             </div>
         </div>

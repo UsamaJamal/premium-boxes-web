@@ -198,7 +198,7 @@
             </div>
             <div class="grid-4">
                 <?php foreach($search_categories as $products){ ?>
-                <a href="{{ url($products->category_url ?? '') }}" class="cat-card">
+                <a href="{{ url($products->category_url ?? '') }}/" class="cat-card">
                     <div class="card-img" style="background-image: url('{{url('images/'.$products->image)}}'); background-size: cover; background-position: center;"></div>
                     <p class="card-label">{{ $products->name }}</p>
                 </a>
@@ -217,7 +217,7 @@
             </div>
             <div class="grid-4" id="prodGrid">
                 <?php foreach($search_products as $products){ ?>
-                <a href="{{ url($products->url ?? '') }}" class="prod-card">
+                <a href="{{ url($products->url ?? '') }}/" class="prod-card">
                     <div class="prod-img" style="background-image: url('{{url('images/'.$products->image)}}'); background-size: cover; background-position: center;"></div>
                     <p class="prod-label">{{ $products->title }}</p>
                 </a>

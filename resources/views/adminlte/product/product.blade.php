@@ -161,16 +161,10 @@
                    <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Product Category</label>
                     <div class="col-sm-9">
-                    <select type="text" class="form-control"id="" placeholder="" 
-                    name="category_id">
-                  <option value="0">--select a Category--
-                  </option>
-
+                    <select id="category_id" name="category_id[]" class="select2" multiple="multiple" data-placeholder="Select Categories" style="width: 100%;">
                 
                 @foreach ($addcategory as $value) 
-                 
                   <option value="{{$value->cat_id}}">{{$value->name}}</option>
-                 
                   @endforeach
            
                   </select>
@@ -204,6 +198,11 @@
                  
                   </select>
                 </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Schema</label>
+                    <div class="col-sm-9">
+                       <textarea class="form-control" name="schema" rows="5" placeholder="<script type='application/ld+json'>..."></textarea>
+                    </div>
                   </div>
                   
                 </div>

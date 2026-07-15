@@ -126,11 +126,26 @@
         width: 100%;
     }
     .tb-logos-track {
-        gap: 40px;
+        gap: 20px;
     }
     .tb-logo {
-        width: 120px;
-        height: 50px;
+        width: 75px;
+        height: 32px;
+    }
+    .tb-logo img {
+        max-height: 26px;
+    }
+}
+@media (max-width: 480px) {
+    .tb-logos-track {
+        gap: 14px;
+    }
+    .tb-logo {
+        width: 65px;
+        height: 28px;
+    }
+    .tb-logo img {
+        max-height: 22px;
     }
 }
 </style>

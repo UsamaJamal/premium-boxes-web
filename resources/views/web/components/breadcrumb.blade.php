@@ -1,5 +1,5 @@
 <nav class="global-breadcrumb {{ $class ?? '' }}" aria-label="Breadcrumb" @if(isset($style)) style="{{ $style }}" @endif>
-    <a href="{{ url('/') }}" class="gb-home" title="Home">
+    <a href="{{ url('/') }}/" class="gb-home" title="Home">
         <i class="fas fa-home"></i>
     </a>
     @if(isset($items))
