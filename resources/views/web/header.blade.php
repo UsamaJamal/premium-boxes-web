@@ -440,8 +440,8 @@ input:-webkit-autofill:active {
         <!-- Contact Info -->
         <div class="top-bar-contact" style="display: flex; align-items: center; gap: 28px; flex-shrink: 0;">
             <!-- Phone -->
-            <a href="tel:18005189441" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-muted-light);">
-                <div style="width: 38px; height: 38px; border-radius: 50%; background-color: #333333; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <a href="tel:18005189441" class="header-contact-link header-phone-link" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-muted-light);">
+                <div class="header-contact-icon" style="width: 38px; height: 38px; border-radius: 50%; background-color: #333333; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="#f5c542" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                     </svg>
@@ -450,8 +450,8 @@ input:-webkit-autofill:active {
             </a>
 
             <!-- Email -->
-            <a href="mailto:support@premiumboxes.com" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-muted-light);">
-                <div style="width: 38px; height: 38px; border-radius: 50%; background-color: #333333; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <a href="mailto:support@premiumboxes.com" class="header-contact-link header-email-link" aria-label="Email Premium Boxes support" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-muted-light);">
+                <div class="header-contact-icon" style="width: 38px; height: 38px; border-radius: 50%; background-color: #333333; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="#f5c542" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                     </svg>
@@ -527,23 +527,45 @@ input:-webkit-autofill:active {
                 overflow-x: hidden;
                 max-width: 100vw;
             }
-            body { padding-top: 95px !important; }
+            body { padding-top: 76px !important; }
             .top-bar-left { display: none !important; }
-            .top-bar-container { display: block !important; }
+            .top-bar-container {
+                display: none !important;
+            }
             .top-bar-container > div { 
-                padding: 10px !important; 
+                min-height: 36px;
+                padding: 6px 15px !important;
                 justify-content: center !important; 
             }
             .top-bar-contact { 
-                width: fit-content; 
+                width: 100%;
                 margin: 0 auto;
-                flex-direction: column; 
                 align-items: center !important;
                 justify-content: center;
-                gap: 10px !important;
+                gap: 0 !important;
             }
-            .top-bar-contact a:nth-child(1) { display: none !important; } /* Hide phone */
-            .top-bar-contact a:nth-child(2) { display: flex !important; } /* Show email */
+            .header-phone-link { display: none !important; }
+            .header-email-link {
+                display: inline-flex !important;
+                max-width: 100%;
+                gap: 8px !important;
+                letter-spacing: 0.1px;
+            }
+            .header-email-link .header-contact-icon {
+                width: 24px !important;
+                height: 24px !important;
+                background: rgba(245, 197, 66, 0.1) !important;
+                border: 1px solid rgba(245, 197, 66, 0.25);
+            }
+            .header-email-link .header-contact-icon svg {
+                width: 13px;
+                height: 13px;
+            }
+            .header-email-link span {
+                font-size: 13px !important;
+                font-weight: 600 !important;
+                line-height: 1;
+            }
             .main-nav-inner {
                 padding: 0 15px !important;
                 align-items: center !important;
@@ -555,12 +577,28 @@ input:-webkit-autofill:active {
                 display: flex !important; 
                 position: absolute;
                 left: 15px;
+                width: 38px;
+                height: 38px;
+                align-items: center;
+                justify-content: center;
+                border-radius: 10px;
+                background: rgba(255,255,255,0.04);
             }
+            .mobile-menu-btn svg { width: 25px; height: 25px; }
             .mobile-logo { 
                 display: flex !important; 
                 flex: 0 0 auto !important; 
             }
-            .mobile-search-btn { display: flex !important; }
+            .mobile-search-btn {
+                display: flex !important;
+                width: 38px;
+                height: 38px;
+                align-items: center;
+                justify-content: center;
+                border-radius: 10px;
+                background: rgba(255,255,255,0.04);
+            }
+            .mobile-search-btn svg { width: 24px; height: 24px; }
             /* Hide Get Instant Quote button on mobile */
             .nav-right-container > a { display: none !important; }
             .nav-right-container { 
@@ -571,12 +609,20 @@ input:-webkit-autofill:active {
             }
             /* Mobile header height & logo size */
             .main-nav-inner {
-                height: 70px !important;
-                min-height: 70px !important;
+                height: 76px !important;
+                min-height: 76px !important;
             }
             .mobile-logo-img {
-                height: 48px !important;
+                height: 55px !important;
             }
+        }
+
+        @media (max-width: 380px) {
+            .header-email-link span { font-size: 12px !important; }
+            .main-nav-inner { padding: 0 10px !important; }
+            .mobile-menu-btn { left: 10px; }
+            .nav-right-container { right: 10px; }
+            .mobile-logo-img { height: 55px !important; }
         }
     </style>
     <nav style="background-color: #202020; border-top: 1px solid #333; position: relative; z-index: 100;">
@@ -1050,7 +1096,3 @@ function toggleMobileSubmenu(element) {
     </script>
 @endif
     <!-- ====================== cmb-Header End ======================  -->
-
-
-
-
