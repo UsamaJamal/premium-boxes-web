@@ -12,7 +12,12 @@
     margin-bottom: 50px;
 }
 
-.testimonials-header h2 {
+.testimonials-header h2,
+.testimonials-header .testimonials-title {
+    display: block;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.2;
     margin: 15px 0;
     font-size: 2.4rem;
 }
@@ -184,7 +189,7 @@
 
                 <div class="testimonials-header">
                     <!-- <span class="section-badge-text">TESTIMONIALS</span> -->
-                    <h2>Hear from Our Happy Customers</h2>
+                    <span class="testimonials-title" style="display: block;">Hear from Our Happy Customers</span>
                     <p> Let’s hear from our customers, what they say about our services.</p>
                 </div>
 

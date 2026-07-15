@@ -57,6 +57,7 @@
 }
 
 .cp-cta-banner-comp-heading {
+    display: block;
     font-size: clamp(30px, 3vw, 56px);
     font-weight: 800;
     color: #ffffff;
@@ -238,9 +239,9 @@
 <section class="cp-cta-banner-component">
     <div class="cp-cta-banner-comp-container">
         <div class="cp-cta-banner-comp-left">
-            <h2 class="cp-cta-banner-comp-heading">
+            <span class="cp-cta-banner-comp-heading">
                 Ready to Elevate Your <span class="cp-cta-banner-comp-gold">Packaging</span>?
-            </h2>
+            </span>
             <p class="cp-cta-banner-comp-text">
                 Let's bring your packaging vision to life. Our team of experts is ready to design and deliver rigid boxes that will make your brand unforgettable.
             </p>

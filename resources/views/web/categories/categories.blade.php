@@ -57,6 +57,12 @@ body {
     padding-top: 130px; /* Fixed header height — top bar ~82px + nav ~48px */
 }
 
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px; /* Mobile header is smaller */
+    }
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -118,7 +124,7 @@ img {
    ================================================ */
 .cp-hero {
     background: var(--bg);
-    padding: 130px 0 0; /* Adjusted padding to clear fixed header */
+    padding: 20px 0 0;
 }
 
 /* Breadcrumb */
@@ -397,6 +403,7 @@ img {
 }
 
 .hiw-title {
+    display: block;
     font-family: 'Inter', sans-serif;
     font-size: 32px;
     font-weight: 800;
@@ -583,7 +590,9 @@ img {
   margin: 0 auto 24px;
 }
 
-.customize-header h2 {
+.customize-header h2,
+.customize-header .customize-title {
+  display: block;
   font-family: "Inter", sans-serif;
   font-size: 32px;
   font-weight: 700;
@@ -756,7 +765,9 @@ img {
     text-align: center;
   }
 
-  .customize-header h2 {
+  .customize-header h2,
+  .customize-header .customize-title {
+    display: block;
     font-size: 24px;
     font-weight: 800;
     line-height: 1.25;
@@ -2278,6 +2289,9 @@ img {
     flex-direction: column;
     gap: 18px;
     color: #f1f1f1;
+    max-height: 700px;
+    overflow-y: auto;
+    padding-right: 20px;
 }
 
 .pg-left p, .pg-left span, .pg-left li, .pg-left h1, .pg-left h2, .pg-left h3, .pg-left h4, .pg-left h5, .pg-left h6, .pg-left strong, .pg-left b {
@@ -2457,6 +2471,8 @@ img {
 }
 
 .pg-cta-title {
+    display: block;
+    margin: 0;
     font-size: 18px;
     font-weight: 700;
     color: #ffffff;
@@ -2795,6 +2811,9 @@ img {
 
     .pg-left {
         display: block;
+        max-height: 500px;
+        overflow-y: auto;
+        padding-right: 0;
     }
 
     /* hide article text on mobile */
@@ -2827,7 +2846,7 @@ img {
         padding: 4vw 0;
         gap: 3vw;
         display: flex;
-        align-items: center;
+        align-items: flex-start !important;
         width: 100%;
 
     }
@@ -2844,9 +2863,9 @@ img {
         color: #ffffff !important;
         font-weight: 500 !important;
         flex: 1;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
         text-align: left;
         margin: 0 !important;
         padding: 0 !important;
@@ -2920,7 +2939,7 @@ img {
 @media (max-width: 768px) {
   .hero-breadcrumb-desktop {
     display: flex !important;
-    padding-top: 18vw;
+    padding-top: 20px;
   }
 }
 .industry-hero-content {
@@ -3016,7 +3035,7 @@ img {
 
 @media (max-width: 768px) {
   body {
-    padding-top: 130px;
+    padding-top: 60px;
   }
 
   /* ── Hero Section ── */
@@ -3048,7 +3067,7 @@ img {
     justify-content: center;
     align-items: flex-end;
     padding: 0 !important;
-    margin: 80px 0 0 0 !important;
+    margin: 0 !important;
     background: #1a1a1a;
     overflow: hidden;
   }
@@ -4154,7 +4173,7 @@ img {
 
         <div class="cp-grid">
             @if(isset($sub_product) && count($sub_product) > 0)
-                @foreach($sub_product->take(8) as $product)
+                @foreach($sub_product as $product)
                 <a href="{{ url($product->url) }}/" style="text-decoration: none; color: inherit;">
                     <div class="cp-card">
                         <div class="cp-card-img" style="background-image: url('{{ asset('images/'.$product->image) }}'); background-size: cover; background-position: center;"></div>
@@ -4223,7 +4242,7 @@ img {
     <div class="hiw-wrap">
 
         <div class="hiw-header">
-            <h2 class="hiw-title">How it Works</h2>
+            <span class="hiw-title" style="display: block;">How it Works</span>
             <p class="hiw-subtitle">Follow our simple step-by-step process to bring your custom packaging to life.</p>
         </div>
 
@@ -4256,7 +4275,7 @@ img {
 
 <section class="customize-section">
     <div class="customize-header">
-        <h2>Customize Your Box</h2>
+        <span class="customize-title" style="display: block;">Customize Your Box</span>
         <p>Choose materials, finishes, and add-ons to build your perfect rigid box.</p>
     </div>
 
@@ -4563,9 +4582,12 @@ img {
                 @if(isset($faqs) && count($faqs) > 0)
                     @foreach($faqs as $faq)
                     <div class="pg-step-item pg-accordion-item">
-                        <button class="pg-accordion-btn">
-                            <h3 class="pg-accordion-q"><span style="color: var(--accent-gold); margin-right: 8px;">{{ $loop->iteration }}.</span> {{ strip_tags($faq->question) }}</h3>
-                            <span class="pg-accordion-icon">+</span>
+                        <button class="pg-accordion-btn" style="align-items: flex-start;">
+                            <h3 class="pg-accordion-q" style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: var(--accent-gold); flex-shrink: 0;">{{ $loop->iteration }}.</span> 
+                                <span style="line-height: 1.4;">{{ strip_tags($faq->question) }}</span>
+                            </h3>
+                            <span class="pg-accordion-icon" style="margin-top: 2px;">+</span>
                         </button>
                         <div class="pg-accordion-body">
                             <p>{{$faq->answer}}</p>
@@ -4576,7 +4598,7 @@ img {
 
                 <!-- Help box -->
                 <div class="pg-cta-box">
-                    <h4 class="pg-cta-title">Need help choosing?</h4>
+                    <span class="pg-cta-title">Need help choosing?</span>
                     <p class="pg-cta-sub">Our team responds within 2 hours</p>
                     <a href="{{ url('contact-us') }}/" class="pg-cta-btn">Chat with an expert</a>
                 </div>

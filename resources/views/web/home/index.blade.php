@@ -75,7 +75,14 @@ body .guide-section .pg-steps-box {
     background-color: #303030 !important;
   }
 
-  body .guide-section .container,
+  body .guide-section .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    padding: 0 15px !important;
+  }
+
   body .guide-section .guide-container,
   body .guide-section .guide-col-one,
   body .guide-section .guide-col-two {
@@ -110,7 +117,7 @@ body .guide-section .pg-steps-box {
   }
 
   body .guide-section .pg-steps-box {
-    padding: 24px 20px !important;
+    padding: 20px 15px !important;
     border-radius: 12px !important;
     overflow: hidden;
   }
@@ -128,10 +135,9 @@ body .guide-section .pg-steps-box {
   }
 
   body .guide-section .pg-accordion-q {
-    display: block !important;
     min-width: 0 !important;
     padding-right: 6px !important;
-    font-size: 14px !important;
+    font-size: 15px !important;
     line-height: 1.4 !important;
     white-space: normal !important;
     overflow: visible !important;
@@ -3976,20 +3982,22 @@ section + section {
                             align-items: start;
                         }
                         .guide-col-one.guide-content {
-                            color: #fff;
-                            max-height: 600px;
+                            max-height: 700px;
                             overflow-y: auto;
                             padding-right: 20px;
                         }
                         @media (max-width: 991px) {
+                            .guide-section .container {
+                                flex-direction: column;
+                            }
                             .guide-container {
                                 grid-template-columns: 1fr;
                                 gap: 40px;
                             }
                             .guide-col-one.guide-content {
-                                max-height: 400px;
+                                max-height: 500px;
                                 overflow-y: auto;
-                                padding-right: 12px;
+                                padding-right: 0;
                                 padding-left: 0;
                             }
                         }
@@ -4058,9 +4066,12 @@ section + section {
                         @if(isset($home_faqs) && count($home_faqs) > 0)
                             @foreach($home_faqs as $faq)
                             <div class="pg-step-item pg-accordion-item">
-                                <button class="pg-accordion-btn">
-                                    <h3 class="pg-accordion-q"><span style="color: var(--accent-gold); margin-right: 8px;">{{ $loop->iteration }}.</span> {{ strip_tags($faq->question) }}</h3>
-                                    <span class="pg-accordion-icon">+</span>
+                                <button class="pg-accordion-btn" style="align-items: flex-start;">
+                                    <h3 class="pg-accordion-q" style="display: flex; align-items: flex-start; gap: 10px;">
+                                        <span style="color: var(--accent-gold); flex-shrink: 0;">{{ $loop->iteration }}.</span> 
+                                        <span style="line-height: 1.4;">{{ strip_tags($faq->question) }}</span>
+                                    </h3>
+                                    <span class="pg-accordion-icon" style="margin-top: 2px;">+</span>
                                 </button>
                                 <div class="pg-accordion-body">
                                     {!! $faq->answer !!}
@@ -4071,7 +4082,7 @@ section + section {
 
                         <!-- Help box -->
                         <div class="pg-cta-box" style="background-color: var(--bg-darker); border-radius: 8px; padding: 24px; text-align: center; margin-top: 30px; border: 1px solid rgba(255,255,255,0.05);">
-                            <h4 class="pg-cta-title" style="color: #ffffff; font-size: 18px; font-weight: 700; margin-bottom: 8px; font-family: var(--font-heading), sans-serif;">Need help choosing?</h4>
+                            <span class="pg-cta-title" style="display: block; color: #ffffff; font-size: 18px; font-weight: 700; margin-bottom: 8px; font-family: var(--font-heading), sans-serif;">Need help choosing?</span>
                             <p class="pg-cta-sub" style="color: rgba(255, 255, 255, 0.8); font-size: 13px; margin-bottom: 20px;">Our team responds within 2 hours</p>
                             <a href="{{ url('contact-us') }}/" class="pg-cta-btn" style="display: inline-block; background-color: var(--accent-gold); color: #000000; font-weight: 600; font-size: 14px; padding: 12px 24px; border-radius: 40px; text-decoration: none; transition: background-color 0.2s;">Chat with an expert</a>
                         </div>

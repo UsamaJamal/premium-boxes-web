@@ -252,18 +252,28 @@ input:-webkit-autofill:active {
     -webkit-text-fill-color: #ffffff !important;
 }
 
+/* Universal Box-Sizing for Header */
+#site-header,
+#site-header *,
+#site-header *::before,
+#site-header *::after {
+    box-sizing: border-box !important;
+}
+
 /* Custom Header Container to match Footer */
 .header-container {
     width: 100%;
     margin: 0 auto;
     padding-left: 15px;
     padding-right: 15px;
+    box-sizing: border-box !important;
 }
 @media (min-width: 769px) {
     .header-container {
         max-width: 1380px !important;
         padding-left: 55px !important;
         padding-right: 55px !important;
+        box-sizing: border-box !important;
     }
 }
 

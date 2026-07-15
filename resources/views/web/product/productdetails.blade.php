@@ -16,6 +16,12 @@
     --product-container-max: 1380px;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 /* Fix autofill styles */
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
@@ -86,7 +92,7 @@ a { text-decoration: none; color: inherit; }
 
 /* Quote Box */
 .product-quote-box { background-color: #202020; border-radius: 15px; padding: 25px 25px 18px 25px; }
-.product-quote-title { text-align: center; font-size: 23px; font-weight: 600; margin-bottom: 15px; }
+.product-quote-title { display: block; text-align: center; font-size: 23px; font-weight: 600; margin-bottom: 15px; }
 
 .pf-wrap { display: contents; }
 .pf-mob-label { display: none; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.80); margin-bottom: 4px; }
@@ -224,7 +230,7 @@ a { text-decoration: none; color: inherit; }
 /* removed hover animation */
 .pfr-icon { color: var(--product-gold); display: flex; justify-content: flex-start; margin-bottom: 0; }
 .pfr-icon img, .pfr-icon svg { width: 40px; height: 40px; }
-.pfr-feature h4 { font-size: 17px; font-weight: 700; color: #fff; margin: 0 0 10px 0; }
+.pfr-feature h4, .pfr-feature .pfr-heading { display: block; font-size: 17px; font-weight: 700; color: #fff; margin: 0 0 10px 0; }
 .pfr-feature p { font-size: 14px !important; color: rgba(255,255,255,0.7); line-height: 1.6; margin: 0; }
 
 .pfr-reviews { background-color: #202020; border-radius: 20px; padding: 45px 0px; display: flex; flex-direction: column; justify-content: center; position: relative; min-width: 0; width: 100%; box-sizing: border-box; }
@@ -242,7 +248,7 @@ a { text-decoration: none; color: inherit; }
 .pfr-text.expanded { display: block; -webkit-line-clamp: unset; }
 .pfr-read-more-btn { background: none; border: none; color: rgba(255,255,255,0.7); font-size: 0.85rem; cursor: pointer; margin-top: -15px; margin-bottom: 15px; padding: 0; text-decoration: none; display: inline-block; font-weight: 500; outline: none; }
 .pfr-read-more-btn:focus, .pfr-read-more-btn:active { outline: none !important; box-shadow: none !important; }
-.pfr-name { font-size: 1.25rem; font-weight: 500; color: var(--product-gold); margin: 0 0 4px 0; }
+.pfr-name { display: block; font-size: 1.25rem; font-weight: 500; color: var(--product-gold); margin: 0 0 4px 0; }
 .pfr-title { font-size: 12px; color: rgba(255,255,255,0.5); text-transform: capitalize; letter-spacing: 0px; }
 .pfr-dots { display: flex; justify-content: center; gap: 8px; margin-top: 30px; }
 .pfr-dot { width: 35px; height: 4px; border: 1px solid rgba(255,255,255,0.4); background-color: transparent; border-radius: 4px; cursor: pointer; transition: 0.3s; }
@@ -274,7 +280,7 @@ a { text-decoration: none; color: inherit; }
 .instant-quote-section { padding: 30px 0 40px; }
 .iq-card { background-color: #202020; border-radius: 12px; padding: 40px; display: grid; grid-template-columns: 1fr 280px; gap: 40px; align-items: start; max-width: 1200px; margin: 0 auto; box-sizing: border-box; }
 .iq-content { flex: 1; }
-.iq-title { font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 25px; }
+.iq-title { display: block; font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 25px; }
 .iq-form { display: flex; flex-direction: column; gap: 18px; }
 .iq-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
 .iq-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
@@ -420,7 +426,7 @@ a { text-decoration: none; color: inherit; }
 .op-card { background-color: #222222; border: 1px solid rgba(245, 197, 66, 0.2); border-radius: 8px; padding: 15px 15px; text-align: center; transition: transform 0.3s ease; cursor: pointer; }
 /* removed hover animation */
 .op-icon { font-size: 40px; color: var(--product-gold); margin-bottom: 12px; text-align: center; }
-.op-title { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 10px; text-align: center; }
+.op-title { display: block; font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 10px; text-align: center; }
 .op-desc { font-size: 13.5px; line-height: 1.5; color: rgba(255,255,255,0.7); text-align: center; }
 
 @media (max-width: 960px) {
@@ -710,7 +716,7 @@ a { text-decoration: none; color: inherit; }
 
                     <!-- Quote Form -->
                     <div class="product-quote-box">
-                        <h3 class="product-quote-title">Get Custom Quote</h3>
+                        <span class="product-quote-title">Get Custom Quote</span>
                         <form class="product-quote-form" id="quoteform" method="post" action="{{ url('product-mail') }}" enctype="multipart/form-data" spellcheck="false">
                             @csrf
                             <input type="hidden" name="p_boxname" value="{{ $p->title }}">
@@ -824,7 +830,7 @@ a { text-decoration: none; color: inherit; }
                             <div class="product-form-row">
                                 <div class="human-verification-inline">
                                     <div class="human-verification-header">
-                                        <h3 class="human-verification-inline-title">Are you a human?</h3>
+                                        <span class="human-verification-inline-title" style="display: block;">Are you a human?</span>
                                         <p class="human-verification-inline-copy">Solve this quick addition before continuing.</p>
                                     </div>
                                     <div class="human-verification-inline-control">
@@ -865,7 +871,7 @@ a { text-decoration: none; color: inherit; }
                             <img src="{{ asset('uploads/product/freedesign.svg') }}" alt="free design assistance" title="Free Design Assistance" width="32" height="32" >
                         </div>
                         <div class="pfr-content">
-                            <h4>Free Design Assistance</h4>
+                            <span class="pfr-heading">Free Design Assistance</span>
                             <p>Our expert designers provide free guidance and mockups to create packaging that perfectly reflects your brand at no extra cost.</p>
                         </div>
                     </div>
@@ -875,7 +881,7 @@ a { text-decoration: none; color: inherit; }
                             <img src="{{ asset('uploads/product/custom-size.svg') }}" alt="custom size" title="Custom Size" width="32" height="32" >
                         </div>
                         <div class="pfr-content">
-                            <h4>Custom Size And Shape</h4>
+                            <span class="pfr-heading">Custom Size And Shape</span>
                             <p>We create packaging tailored to your exact dimensions and style, ensuring a perfect fit and standout presentation for every product.</p>
                         </div>
                     </div>
@@ -885,7 +891,7 @@ a { text-decoration: none; color: inherit; }
                             <img src="{{ asset('uploads/product/price.svg') }}" alt="low price" title="Low Price" width="32" height="32" >
                         </div>
                         <div class="pfr-content">
-                            <h4>Low Price</h4>
+                            <span class="pfr-heading">Low Price</span>
                             <p>We offer high-quality custom packaging at the most competitive rates, giving you premium results without exceeding your budget.</p>
                         </div>
                     </div>
@@ -895,7 +901,7 @@ a { text-decoration: none; color: inherit; }
                             <img src="{{ asset('uploads/product/shipping-fast.svg') }}" alt="free shipping" title="Free Shipping" width="32" height="32" >
                         </div>
                         <div class="pfr-content">
-                            <h4>Free Shipping</h4>
+                            <span class="pfr-heading">Free Shipping</span>
                             <p>We offer free nationwide delivery on all custom packaging orders, ensuring you get premium boxes without extra costs or hidden fees.</p>
                         </div>
                     </div>
@@ -921,7 +927,7 @@ a { text-decoration: none; color: inherit; }
                                     @if(strlen($testi->comment) > 130)
                                         <button class="pfr-read-more-btn">Read more</button>
                                     @endif
-                                    <h5 class="pfr-name">{{ $testi->name }}</h5>
+                                    <span class="pfr-name">{{ $testi->name }}</span>
                                     <span class="pfr-title">{{ $testi->profile_link ?? 'Customer' }}</span>
                                 </div>
                                 @endforeach
@@ -1001,19 +1007,19 @@ a { text-decoration: none; color: inherit; }
                 <div class="order-process-grid">
                     <div class="op-card">
                         <div class="op-icon"><i class="far fa-paper-plane"></i></div>
-                        <h4 class="op-title">Submit Your Brief</h4>
+                        <span class="op-title">Submit Your Brief</span>
                         <p class="op-desc">Share your product dimensions, quantities, and vision. We respond within 24 hours with initial recommendations and a structural concept tailored to your needs.</p>
                     </div>
                     <div class="op-card">
                         <div class="op-icon">
                             <img src="{{ asset('uploads/design-code.svg') }}" style="width:1em; height:1em; display:inline-block;" alt="Design & Quote">
                         </div>
-                        <h4 class="op-title">Design & Quote</h4>
+                        <span class="op-title">Design & Quote</span>
                         <p class="op-desc">You receive a structural die line, finish spec sheet, and transparent pricing. Revisions are included at no extra cost &mdash; no surprises, no hidden fees.</p>
                     </div>
                     <div class="op-card">
                         <div class="op-icon"><i class="far fa-check-circle"></i></div>
-                        <h4 class="op-title">Approve & Produce</h4>
+                        <span class="op-title">Approve & Produce</span>
                         <p class="op-desc">Once artwork is approved, production begins immediately in our certified manufacturing facility. Pre-production physical samples available before full run.</p>
                     </div>
                     <div class="op-card">
@@ -1025,7 +1031,7 @@ a { text-decoration: none; color: inherit; }
                                 <circle cx="18.5" cy="18.5" r="2.5"></circle>
                             </svg>
                         </div>
-                        <h4 class="op-title">Ship & Arrive</h4>
+                        <span class="op-title">Ship & Arrive</span>
                         <p class="op-desc">Your order ships with full tracking and quality documentation. Custom orders take approximately 15 days production, plus shipping.</p>
                     </div>
                 </div>
@@ -1107,7 +1113,7 @@ a { text-decoration: none; color: inherit; }
     <section class="product-customize-section" style="background-color: #1a1a1a; padding: 20px 0; text-align: center;">
         <div class="product-container">
             <!-- <span class="product-sec-badge" style="display:inline-block; border:1px solid #e3b036; color:#e3b036; padding:4px 12px; border-radius:20px; font-size:10px; font-weight:bold; letter-spacing:1px; margin-bottom:15px; text-transform:uppercase;">Options & Materials</span> -->
-            <h2 style="color:#ffffff; font-size:28px; margin-bottom:10px;">Customize Your Box</h2>
+            <span style="display:block; color:#ffffff; font-size:28px; font-weight:700; margin-bottom:10px;">Customize Your Box</span>
             <p style="color:rgba(255,255,255,0.6); font-size:14px; margin-bottom:10px;">Choose materials, finishes, and add-ons to build your perfect rigid box.</p>
 
             <div class="customize-tabs">
@@ -1254,7 +1260,7 @@ a { text-decoration: none; color: inherit; }
         <div class="product-container">
             <div class="iq-card">
                 <div class="iq-content">
-                    <h2 class="iq-title">Order a Sample Kit</h2>
+                    <span class="iq-title">Order a Sample Kit</span>
                     <form action="{{ url('submit-quote') }}" method="POST" class="iq-form" enctype="multipart/form-data" spellcheck="false">
                         @csrf
                         <input type="hidden" name="source" value="Product detail instant quote">
@@ -1295,7 +1301,7 @@ a { text-decoration: none; color: inherit; }
                         <div class="iq-group mt-3" style="margin-top: 15px;">
                             <div class="human-verification-inline">
                                 <div class="human-verification-header">
-                                    <h3 class="human-verification-inline-title">Are you a human?</h3>
+                                    <span class="human-verification-inline-title" style="display: block;">Are you a human?</span>
                                     <p class="human-verification-inline-copy">Solve this quick addition before continuing.</p>
                                 </div>
                                 <div class="human-verification-inline-control">

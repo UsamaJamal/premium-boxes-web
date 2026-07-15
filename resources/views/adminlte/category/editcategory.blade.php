@@ -53,7 +53,7 @@
 
              <input type="hidden" name="old_parent_cat" value="{{$value[0]->parent_category}}">
 
-                <div class="card" style="width: 66%; margin-left: 15px;">
+                <div class="card" style="width: 100%;">
     <div class="card-header header-2">Update Category Data</div>
     <div class="card-body">
                    <div class="form-group row">
@@ -95,7 +95,7 @@
                   </div>
                 </div>
               </div>
-              <div class="card" style="width: 66%; margin-left: 15px;">
+              <div class="card" style="width: 100%;">
               <div class="card-header header-2">Update Meta Data</div>
               <div class="card-body">
                   <div class="form-group row">
@@ -139,7 +139,7 @@
 
                     
 
-                  <div class="card" style="width: 66%; margin-left: 15px;">
+                  <div class="card" style="width: 100%;">
               <div class="card-header header-2">Update Image</div>
               <div class="card-body">
                    <div class="form-group row">
@@ -234,7 +234,7 @@
                  </div>
                </div>
 
-              <div class="card" style="width: 66%; margin-left: 15px;">
+              <div class="card" style="width: 100%;">
               <div class="card-header header-2">Other</div>
               <div class="card-body">
 
@@ -315,7 +315,7 @@
                 </div>
 
               <!-- Products Section Header (Category Page) -->
-              <div class="card" style="width: 66%; margin-left: 15px;">
+              <div class="card" style="width: 100%;">
                   <div class="card-header header-2">Products Section Header (Category Page)</div>
                   <div class="card-body">
                       <div class="form-group row">
@@ -334,7 +334,7 @@
               </div>
 
               <!-- Why Choose Section -->
-              <div class="card" style="width: 66%; margin-left: 15px;">
+              <div class="card" style="width: 100%;">
                   <div class="card-header header-2">Why Choose Section</div>
                   <div class="card-body">
                       <div class="form-group row">
@@ -371,7 +371,7 @@
               </div>
 
               <!-- FAQs Section -->
-              <div class="card" style="width: 66%; margin-left: 15px;">
+              <div class="card" style="width: 100%;">
                   <div class="card-header header-2">Frequently Asked Questions (FAQs)</div>
                   <div class="card-body" id="faq-container">
                       @if(isset($faqs) && count($faqs) > 0)

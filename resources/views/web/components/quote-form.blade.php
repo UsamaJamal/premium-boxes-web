@@ -64,7 +64,9 @@
 }
 
 /* Main Form Heading */
-.quote-form-col h2 {
+.quote-form-col h2,
+.quote-form-col .quote-form-title {
+  display: block;
   width: 400px;
   height: 44px;
   font-family: var(--font-heading), sans-serif;
@@ -80,7 +82,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0px;
+  gap: 15px;
 }
 
 /* --- Structural Form Grids --- */
@@ -396,7 +398,9 @@
   }
 }
 @media (max-width: 768px) {
-  .quote-form-col h2 {
+  .quote-form-col h2,
+  .quote-form-col .quote-form-title {
+    display: block;
     font-family: "Inter", sans-serif;
     font-weight: 700;
     font-size: 24px;
@@ -761,7 +765,7 @@
                     </div>
                 </div>
                 <div class="quote-form-col">
-                    <h2>Request a Free Quote</h2>
+                    <span class="quote-form-title" style="display: block;">Request a Free Quote</span>
 
                     @if(Session::has('success'))
                         <div class="alert alert-success" style="background: #28a745; color: white; padding: 12px 20px; border-radius: 8px; margin-bottom: 20px; font-weight: 600; text-align: center;">
@@ -873,7 +877,7 @@
                              ================================================ -->
                         <div class="human-verification-inline">
                             <div class="human-verification-header">
-                                <h3 class="human-verification-inline-title">Are you a human?</h3>
+                                <span class="human-verification-inline-title" style="display: block;">Are you a human?</span>
                                 <p class="human-verification-inline-copy">Solve this quick addition before continuing.</p>
                             </div>
                             <div class="human-verification-inline-control">
