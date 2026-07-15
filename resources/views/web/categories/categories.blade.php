@@ -2273,12 +2273,10 @@ img {
 
 /* Left */
 .pg-left {
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 18px;
-    max-height: 613px;
-    overflow-y: auto;
-    padding-right: 15px; /* space for scrollbar */
     color: #f1f1f1;
 }
 
