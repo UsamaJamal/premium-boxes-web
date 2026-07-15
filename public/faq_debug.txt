@@ -1,80 +1,203 @@
 Array
 (
-    [_token] => 0LnBpymqWoTEc9pgNuxJaKFSn0mDJrjp9MGqGZpO
-    [oldbaner] => 1782908839-b-Gift-Boxes.webp
-    [oldfav-icon] => 1783405559-i-Gift-Boxes.webp
-    [oldimage] => 1782908839-Gift-Boxes.webp
-    [old_hero_image] => 1782908839-h-Gift-Boxes.webp
-    [old_feature_product] => 
+    [_token] => qC78HCAFiPIrzZ9dulEOCicnSc3NnNToXrPqVSuw
+    [oldbaner] => 1782909108-b-Cosmetics-Boxes.webp
+    [oldfav-icon] => 1783405618-i-Cosmetic-Boxes.webp
+    [oldimage] => 1782909108-Cosmetics-Boxes.webp
+    [old_hero_image] => 1782909108-h-Cosmetics-Boxes.webp
+    [old_feature_product] => 1783498757-fp-Cosmetic.webp
     [old_parent_cat] => 110
-    [name] => Gift Boxes
-    [categoryurl] => gift-boxes
-    [ckeditor] => <h1><span style="font-size:20px"><strong><span style="color:#000000">Personalized Gift Boxes</span></strong></span></h1>
+    [name] => Cosmetic Boxes
+    [categoryurl] => cosmetic-boxes
+    [ckeditor] => <h3>Packaging Designed to Increase Shelf Appeal</h3>
 
-<p style="text-align:justify"><span style="color:#000000">Gift boxes are made with eco-friendly materials such as cardboard, kraft, corrugated cardboard, and paper stocks. PremiumBoxes offers various customization options for these boxes. The size, style, shape, and design of these boxes are customizable, following the clients&rsquo; preferences. Advanced printing techniques along with CMYK and PMS color schemes are used for these boxes. Finishing options such as soft-touch, spot UV, matte, glossy, and smudge-free are available. The clients can choose to get die-cut windows, handles, and placeholders added to these boxes if needed.&nbsp;</span></p>
+<p>We believe in quality products that increase shelf appeal. Our main purpose is to create designs that pull customers towards your brand products. With an expert design team, we follow creativeness that is not only attractive but also represents your brand identity and product at best.</p>
 
-<p style="text-align:justify"><span style="color:#000000"><strong>Gift boxes</strong>&nbsp;are used across the globe on various occasions. PremiumBoxes offers&nbsp;<strong>gift box packaging</strong>&nbsp;with customizations preferences chosen by the clients.&nbsp;</span></p>
+<h3>Built for Product Protection and Brand Recognition</h3>
 
-<h2 style="text-align:justify"><span style="font-size:18px"><span style="color:#000000"><strong>Customizable Packaging Solutions</strong></span></span></h2>
+<p>Product protection and brand identity go hand in hand. Premium packaging that is exceptionally designed uplifts brand identity and ensures product protection. We guarantee that the brands get custom cosmetics boxes that protect the products with an improved brand identity.</p>
 
-<p style="text-align:justify"><span style="color:#000000">We offer various customization options for&nbsp;<strong>custom gift boxes</strong>. Clients can choose the size, style, shape, and design of the boxes following their needs.&nbsp;</span></p>
+<h3>Custom Sizes for Every Cosmetic Product</h3>
 
-<p style="text-align:justify"><span style="font-size:16px"><span style="color:#000000"><strong>Affordable for Everyone</strong></span></span></p>
+<p>Cosmetic custom boxes are a requirement of the time. Brands wanted packaging that is customized according to their product and brand vision. Looking carefully into these facts, we promote customized packaging. We have solutions for your problems. Give us your vision and we will turn it into reality.</p>
 
-<p style="text-align:justify"><span style="color:#000000">We understand that&nbsp;<strong>gift boxes packaging</strong>&nbsp;is a common need. To facilitate a maximum number of clients, we strive hard to keep our prices the lowest. We also offer special discounts on large volume orders.&nbsp;</span></p>
+<p><strong>Here&rsquo;s an example of different sizes of the boxes:</strong></p>
 
-<h3 style="text-align:justify"><span style="font-size:16px"><span style="color:#000000"><strong>Sustainable Packaging</strong></span></span></h3>
+<table border="1" cellpadding="1" cellspacing="1" style="width:500px">
+	<tbody>
+		<tr>
+			<td><strong>Product</strong></td>
+			<td><strong>Common Box Dimensions (L &times; W &times; H)</strong></td>
+		</tr>
+		<tr>
+			<td><strong>Lipstick Boxes</strong></td>
+			<td>1&quot; &times; 1&quot; &times; 3.5&quot;, 1.1&quot; &times; 1.1&quot; &times; 4&quot;, 1.25&quot; &times; 1.25&quot; &times; 4.5&quot;</td>
+		</tr>
+		<tr>
+			<td><strong>Foundation Boxes</strong></td>
+			<td>1.5&quot; &times; 1.5&quot; &times; 5&quot;, 2&quot; &times; 2&quot; &times; 6&quot;, 2.25&quot; &times; 2.25&quot; &times; 6.5&quot;</td>
+		</tr>
+		<tr>
+			<td><strong>Eyeliner Boxes</strong></td>
+			<td>0.75&quot; &times; 0.75&quot; &times; 5&quot;, 1&quot; &times; 1&quot; &times; 5.5&quot;, 1&quot; &times; 1&quot; &times; 6&quot;</td>
+		</tr>
+		<tr>
+			<td><strong>Mascara Boxes</strong></td>
+			<td>0.9&quot; &times; 0.9&quot; &times; 5&quot;, 1&quot; &times; 1&quot; &times; 5.5&quot;, 1.25&quot; &times; 1.25&quot; &times; 6&quot;</td>
+		</tr>
+		<tr>
+			<td><strong>Eyeshadow Boxes</strong></td>
+			<td>2.5&quot; &times; 2.5&quot; &times; 0.75&quot;, 3&quot; &times; 3&quot; &times; 1&quot;, 4&quot; &times; 4&quot; &times; 1.25&quot;</td>
+		</tr>
+	</tbody>
+</table>
 
-<p style="text-align:justify"><span style="color:#000000">PremiumBoxes understands corporate social responsibility and manufactures all the products using organic supplies only. Cardboard, corrugated, kraft, and paper stocks, along with plant-based inks, are used for the manufacturing and printing of these boxes.&nbsp;</span></p>
+<p>These are common dimensions you can get according to your product size.</p>
 
-<p style="text-align:justify"><span style="font-size:16px"><span style="color:#000000"><strong>Free Design Support</strong></span></span></p>
+<h3>Low Minimum Orders with Premium Quality</h3>
 
-<p style="text-align:justify"><span style="color:#000000">We offer complimentary design support to our clients. A 2D or 3D mockup of their personalized gift boxes design idea is available for free.&nbsp;</span></p>
+<p>Are you afraid before ordering? No worries because you are at the right place. We understand you, and that&rsquo;s why we are proposing no minimum order quantity for you. Without forgoing the quality, we are offering you cosmetic packaging boxes with no minimum order number. You can order as many units as you want.</p>
 
-<p style="text-align:justify"><span style="font-size:16px"><span style="color:#000000"><strong>Free Doorstep Delivery</strong></span></span></p>
+<h3>Fast Production and Worldwide Shipping</h3>
 
-<p style="text-align:justify"><span style="color:#000000">PremiumBoxes offers free doorstep delivery for standard orders of&nbsp;<strong>gift boxes</strong>&nbsp;across North America. Shipping for clients in other parts of the world is also available.&nbsp;</span></p>
+<p>Another reason why leading beauty brands approach us for custom cosmetic boxes is our quick manufacturing process. As soon as the brand finalizes the design, we start working on the production without delaying it further. Moreover, if a brand wants it urgently, we will provide you with an exclusive service that delivers within 3 days. Cherry on top, we do worldwide shipping. You can contact us from anywhere in the world without thinking twice.</p>
 
-<p style="text-align:justify"><span style="font-size:16px"><span style="color:#000000"><strong>Exclusive Features</strong></span></span></p>
+<h2>Design Cosmetic Boxes That Imitate Your Brand&#39;s Persona</h2>
 
-<p style="text-align:justify"><span style="color:#000000">The following are some more features that make us unique among the competitors.</span></p>
+<p>Designing cosmetic packaging boxes is a critical and creative work. Brands can&rsquo;t trust anyone with their reputation. Here comes packaging veteran PremiumBoxes with premium services. Either you want to get foundation boxes or mascara boxes; we have the industry&#39;s best designers. &nbsp;</p>
+
+<h3>Choose Premium Packaging Materials</h3>
+
+<p>The cosmetic industry is the world&rsquo;s second biggest industry. Thus, the audience is in masses and well-educated. To target such an audience and get satisfactory reviews, cosmetic packaging plays a crucial and critical role. To ensure the safety of the product during the harsh conditions of shipment, material is the main thing. You can opt for cardboard boxes or paperboard boxes. Furthermore, we also have high-quality eco-friendly materials.</p>
+
+<h3>Explore Luxury Printing Techniques</h3>
+
+<p>The beauty industry is all about aesthetics, and packaging should reflect it. We understand it, and that&rsquo;s why we have luxury printing techniques for your custom printed cosmetic boxes. For your luxury product lineup, choose from our high-quality printing options.</p>
+
+<p><strong>You can choose according to your requirements and brand vision. We offer:</strong></p>
 
 <ul>
-	<li style="text-align:justify"><span style="color:#000000">Minimum 100 boxes</span></li>
-	<li style="text-align:justify"><span style="color:#000000">Fastest turnaround time</span></li>
-	<li style="text-align:justify"><span style="color:#000000">Professional customer care</span></li>
-	<li style="text-align:justify"><span style="color:#000000">Safe and easy payment options</span></li>
-	<li style="text-align:justify"><span style="color:#000000">No die-cut or plate charges</span></li>
+	<li>Digital printing</li>
+	<li>Offset printing</li>
+	<li>Oil-based ink printing</li>
+	<li>UV printing</li>
+	<li>Soy ink printing</li>
+	<li>Water-based printing</li>
 </ul>
 
-    [hero_title] => Premium Gift Boxes for Every Special Occasion
-    [hero_desc] => Discover our premium gift box collection, designed to enhance every special occasion with elegant and stylish packaging. Our custom gift boxes combine durability, premium materials, and attractive designs to protect your gifts while creating a memorable unboxing experience.
-    [mtitle] => Gift Boxes | Over 100 Sizes, Styles & Colours In Stock
-    [mdescription] => Gift boxes are made with sustainable materials. PremiumBoxes offers these boxes several customization options following the clients’ needs.
-    [mtags] => Gift Boxes, gift boxes packaging, Sustainable packaging, personalized gift boxespersonalized gift boxes
-    [robots] => index, follow
+<h3>Add Elegant Finishing Touches</h3>
+
+<p>Cosmetic customers follow the beauty rule that is &ldquo;it should look pretty.&quot; Therefore, we offer thoughtful finishing touches that give an elegant and premium vibe to your cosmetic product packaging. From metallic foiling to embossing and debossing, we use different techniques to give an elegant finishing look to boxes.</p>
+
+<h3>Customize Inserts, Windows &amp; Closures</h3>
+
+<p>To make the cosmetic custom box design useful, you have several add-on options. Brands can add inserts for deal packaging, windows to give a preview of the products, and closures to make the product safe.</p>
+
+<h2>Premium Materials That Protect, Present &amp; Perform</h2>
+
+<p>The protection and safety of the product solely depend on the material. We use high-quality materials to manufacture cosmetic product packaging. From our wide range of materials, brands can choose according to their product type and requirements.</p>
+
+<h3>Sustainable Kraft Packaging</h3>
+
+<p>If brands are looking for sustainable packaging, then our kraft boxes have the best value for you. Kraft packaging is organic, recyclable, and eco-friendly. They give a natural look with no harm to the environment. Mostly this material is used for Facewash boxes, Soapbar boxes, etc.</p>
+
+<h3>Premium Cardstock Boxes</h3>
+
+<p>Cardstock boxes are perfect, as printing on this material is vibrant and delivers shelf appeal. To stand out on the shelf among other brands, the best option is to get our premium cardstock boxes. These boxes are generally used for lipstick boxes, foundation boxes, and eyeshadow boxes.</p>
+
+<h3>Corrugated Shipping Protection</h3>
+
+<p>Because of the wavy layered structure, corrugated boxes are perfect for shipping purposes. These boxes are highly strong and can tolerate the weight of the product and even drops. &nbsp;Furthermore, if you are looking for a low-cost custom cosmetic product packaging for shipping, then the best option we offer is corrugated boxes.</p>
+
+<h3>Luxury Rigid Packaging</h3>
+
+<p>Premium brands prefer luxury rigid boxes. These boxes offer several features and protection. Custom cosmetic boxes that give out a luxurious, high-end, and premium look are made from rigid packaging. These boxes are not only strong but also non-foldable. High-end brands prefer rigid packaging for perfume boxes, skincare boxes, and gift boxes.</p>
+
+<h2>Packaging Styles Crafted Around Your Cosmetic Products</h2>
+
+<p>Brands prefer custom cosmetic printed boxes because of the freedom of style and size. We offer various packaging styles to protect, enhance the presentation, and increase shelf appeal of products. Some of the most common packaging styles we offer are the following:</p>
+
+<ul>
+	<li>Tuck-End Boxes</li>
+	<li>Sleeve Packaging</li>
+	<li>Two-Piece Boxes</li>
+	<li>Magnetic Closure Boxes</li>
+	<li>Display Boxes</li>
+	<li>Mailer Boxes</li>
+</ul>
+
+<h2>From Your Vision to a Finished Cosmetic Box: Why us?</h2>
+
+<p>Looking for a dedicated manufacturer for custom cosmetic boxes wholesale in the USA? PremiumBoxes is the finest manufacturer for several reasons. Let&rsquo;s look into these:</p>
+
+<h3>Consultation &amp; Packaging Strategy</h3>
+
+<p>When a client approaches us for consultation, our dedicated team properly guides them. After listening to your requirements, the team will design a packaging strategy for you to understand the complete process.</p>
+
+<h3>Artwork Review</h3>
+
+<p>Our design team continuously keeps in touch with the clients for references and their vision. After working on the design, our team further sends it to the artwork review team. After getting the approval, now the artwork is ready for finalization by the client. We don&rsquo;t proceed further until the client is satisfied with the packaging design. We have the finest skilled team of designers in the industry that offers smooth communication.</p>
+
+<h3>Prototype Approval</h3>
+
+<p>Before working on the big orders, our manufacturing team just creates a prototype. This prototype is sent to the client for final approval before proceeding further.</p>
+
+<h3>Quality Inspection &amp; Delivery</h3>
+
+<p>Custom cosmetic boxes with logos are not just ordinary packaging. These boxes hold a brand&rsquo;s identity, reputation, and sales. We understand the importance of packaging boxes. Therefore, we have a quality and inspection department, where each box is inspected before shipping. Furthermore, our after-delivery service is available if you receive a faulty product. We will compensate for it by changing the product or the payment form.</p>
+
+<p>Packaging Experts with Years of Manufacturing Experience</p>
+
+<p>We have been manufacturing custom cosmetic boxes with designs for more than 10 years. We now have regular customers and have worked with big brands. Always choose a manufacturer that has years of experience and a team of experts.</p>
+
+<h3>Transparent Pricing</h3>
+
+<p>We offer a fair and transparent pricing system for cosmetic custom boxes. No hidden charges, no more tax, just a transparent pricing policy.</p>
+
+<h3>FSC-Certified Paper Options</h3>
+
+<p>Saving the environment is our top priority, as we have to take care of our planet too. To add our part into this great mission, we use FSC-certified papers. Our boxes are recyclable and eco-friendly, which ensures protection of the product and the environment.<br />
+&nbsp;</p>
+
+    [hero_title] => Custom Cosmetic Boxes
+    [hero_desc] => Give your brand an enriching look with PremiumBoxes. Order cosmetic boxes that boost your brand identity. With 10 years of experience, we deliver quality, expertise, and value. Order your Custom cosmetic packaging boxes and take your brand identity to incomparable heights.
+    [mtitle] => Buy Custom Cosmetic Packaging Boxes at Wholesale
+    [mdescription] => Buy custom cosmetic packaging boxes in bulk with free design support and fast delivery. Ideal for makeup skincare and beauty product brands
+    [mtags] => cosmetic box packaging suppliers, cosmetic packaging, cosmetic boxes, custom cosmetic boxes, cosmetics packaging boxes
+    [robots] => index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
     [image_badge] => 
-    [feature_title] => 
-    [feature_description] => 
+    [feature_title] => Cosmetic
+    [feature_description] => Premium packaging for elegant jewelry and luxury watches.
     [schema] => 
     [parentcategory] => 110
     [status] => 1
-    [show_home] => 0
+    [show_home] => 1
     [show_in_nav] => 1
-    [why_choose_title] => 
-    [why_choose_desc] => 
+    [why_choose_title] => Why Leading Beauty Brands Choose PremiumBoxes for Cosmetic Packaging
+    [why_choose_desc] => If you are searching for a reliable manufacturer for Custom cosmetic boxes at wholesale rates, then PremiumBoxes is your first stop. Luxury cosmetic brands want to uplift their products using high-quality luxury cosmetic packaging.
+PremiumBoxes is a trusted top manufacturer in the USA for custom printed cosmetic boxes. With years of industry experience, we are the first choice of leading brands.
     [faq_question] => Array
         (
-            [0] => What are gift boxes used for?
-            [1] => Can I customize my gift boxes?
-            [2] => What materials are used for gift boxes?
+            [0] => What materials are best for cosmetic boxes?
+            [1] => Can I order custom sizes and shapes?
+            [2] => What is your minimum order quantity?
+            [3] => Do you offer sustainable packaging?
+            [4] => Can I request a physical sample?
+            [5] => How long does production take?
+            [6] => Do you provide free design assistance?
+            [7] => Do you ship internationally?
         )
 
     [faq_answer] => Array
         (
-            [0] => Gift boxes are designed to package and present gifts in an elegant and secure way. They are ideal for birthdays, weddings, holidays, corporate events, and special occasions.
-            [1] => Yes, we offer fully customizable gift boxes in different sizes, styles, colors, finishes, and printing options to match your brand or event theme.
-            [2] => Our gift boxes are made from high-quality materials such as rigid cardboard, kraft paper, and premium paperboard to ensure durability and a luxury appearance.
+            [0] => There are different types of materials that are used for cosmetic boxes. However, if it’s about high quality, safety, and presentation of the product, then PremiumBoxes has the best options for you. We offer you materials such as rigid boxes, corrugated boxes, cardstock boxes, and kraft boxes.
+            [1] => We are open to any customization that our clients require. You can get custom sizes and shapes of cosmetic boxes. All you have to do is provide us product dimensions and weight details.
+            [2] => PremiumBoxes is the biggest cheerleader of start-ups and small businesses. Hence, we have no minimum order quantity. You can even order a single unit of a packaging box.
+            [3] => Yes, we understand the packaging impact on the environment. To save our plant, we use FSC-certified papers that are 100% natural, eco-friendly, and recyclable.
+            [4] => If you want to get a physical sample before a large order, we welcome you. We provide physical samples so clients can be satisfied with our quality. Contact our team and provide your product details to get a sample.
+            [5] => Normally production is done within 3-4 days after finalizing the design. However, we have an exclusive service if the client is in urgency. We can start production of your boxes within 1 day. To get more details, reach out to our customer support.
+            [6] => We have a skilled team of designers who have years of experience in this industry. They provide you free design assistance.
+            [7] => Yes, we ship internationally. Besides the USA, you can order from anywhere in the world, and you will get your boxes without any hesitation.
         )
 
     [submit] => 
