@@ -3491,6 +3491,9 @@ section + section {
     display: flex;
     align-items: center;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
     background: none;
     border: none;
     color: inherit;
@@ -3503,14 +3506,24 @@ section + section {
     color: #ffffff !important;
     font-weight: 600 !important;
     flex: 1;
+    min-width: 0;
+    max-width: 100%;
     margin: 0 !important;
     padding: 0 !important;
     text-align: left;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
     display: flex;
     align-items: center;
+}
+.pg-accordion-q > span:last-child {
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
 }
 .pg-accordion-btn:focus {
     outline: none;
