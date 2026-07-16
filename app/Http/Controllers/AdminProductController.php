@@ -20,6 +20,16 @@ class AdminProductController extends Controller
        DB::table('product')->where('product_id', $id)->delete();
          return redirect()->back()->with('success', 'Product deleted successfully.');
       }
+
+    public function deleteMultiple(Request $request)
+      {
+          $ids = $request->input('ids');
+          if (!empty($ids)) {
+              DB::table('product')->whereIn('product_id', $ids)->delete();
+              return redirect()->back()->with('success', 'Selected products deleted successfully.');
+          }
+          return redirect()->back()->with('error', 'No product selected.');
+      }
  
 	public function updateProduct(Request $request,$id) {
     // $id= $request->post('id');

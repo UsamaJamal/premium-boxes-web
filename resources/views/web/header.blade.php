@@ -213,9 +213,9 @@ form.example button {
    =========================== */
 
 /* Desktop (default) */
-h1 { font-size: 48px !important; }
-h2 { font-size: 36px !important; }
-h3 { font-size: 28px !important; }
+h1 { font-size: 40px !important; }
+h2 { font-size: 32px !important; }
+h3 { font-size: 26px !important; }
 h4 { font-size: 22px !important; }
 h5 { font-size: 20px !important; }
 h6 { font-size: 18px !important; }

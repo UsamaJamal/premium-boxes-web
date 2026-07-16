@@ -49,6 +49,8 @@ Route::post('admin/update_category/{cat_id}', 'AdminCategoryController@updateCat
 
 Route::get('admin/delete_category/{cat_id}', 'AdminCategoryController@deleteData');
 
+Route::post('admin/delete_multiple_categories', 'AdminCategoryController@deleteMultiple');
+
 // All Category page and  Controller of Category (Route)
 
 // All Product page and  Controller of Product (Route)
@@ -63,6 +65,8 @@ Route::get('admin/editproduct/{product_id}','AdminProductController@getProduct')
 Route::post('admin/update_product/{product_id}', 'AdminProductController@updateProduct');
 
 Route::get('admin/delete_product/{product_id}', 'AdminProductController@product_delete');
+
+Route::post('admin/delete_multiple_products', 'AdminProductController@deleteMultiple');
 
 // All Product page and  Controller of Product (Route)
 
@@ -124,6 +128,8 @@ Route::get('admin/editblog/{blog_id}','AdminBlogController@getBlog');
 Route::post('admin/update_blog/{blog_id}', 'AdminBlogController@updateBlog');
 
 Route::get('admin/delete_blog/{blog_id}', 'AdminBlogController@deleteBlog');
+
+Route::post('admin/delete_multiple_blogs', 'AdminBlogController@deleteMultiple');
 
 Route::get('admin/blogbanner','AdminBlogController@blogBanner');
 

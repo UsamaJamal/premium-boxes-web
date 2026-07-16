@@ -37,9 +37,13 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
+            <form action="{{url('admin/delete_multiple_blogs')}}" method="POST" id="multiDeleteForm">
+              @csrf
+              <button type="submit" class="btn btn-danger mb-3" onclick="return confirm('Are you sure you want to delete selected blogs?');">Delete Selected</button>
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
+         <th><input type="checkbox" id="selectAll"></th>
          <th>Id</th>
          <th>Name</th>
          <th>Image</th>
@@ -53,6 +57,7 @@
                 
                    @foreach ($blog as $blog)              
              <tr>
+       <td><input type="checkbox" name="ids[]" value="{{$blog->blog_id}}" class="selectItem"></td>
        <td>{{$blog->blog_id}}</td>
        <td>{{$blog->blog_title}}</td>
        <td><img style="height:50px; width:50px;" src="{{url('images/'.$blog->image)}}"></td>
@@ -64,15 +69,16 @@
          @endif
        </td>
        <td><a href="#">
-         <button class="btn btn-primary editdata" style="background-color:#0da8ca;border-color:#0da8ca;" data-uid="<?php echo $blog->blog_id;?>">Edit</button>
+         <button type="button" class="btn btn-primary editdata" style="background-color:#0da8ca;border-color:#0da8ca;" data-uid="<?php echo $blog->blog_id;?>">Edit</button>
        </a></td>
        <td><a href="#">
-       <button class="btn btn-danger deleteButton" data-uid="<?php echo $blog->blog_id;?>">Delete</button></a></td>
+       <button type="button" class="btn btn-danger deleteButton" data-uid="<?php echo $blog->blog_id;?>">Delete</button></a></td>
  </tr>
  @endforeach
                 </tbody>
                 
               </table>
+            </form>
             </div>
             <!-- /.card-body -->
           </div>
@@ -98,8 +104,8 @@
  <script type="text/javascript">
      $(document).ready(function () {
 
-      $('.deleteButton').click(function(){
-     
+      $('.deleteButton').click(function(e){
+      e.preventDefault();
      $product_id=$(this).attr('data-uid');
   
     $src = "{{url('admin/delete_blog/')}}"+'/'+$product_id;
@@ -122,8 +128,8 @@
 
       });
 
-          $('.editdata').click(function(){
-          
+          $('.editdata').click(function(e){
+          e.preventDefault();
           $id=$(this).attr('data-uid');
           $src = "{{url('admin/editblog/')}}"+'/'+$id;
             
@@ -154,7 +160,16 @@ confirmButtonText:'next',
 <!-- page script -->
 <script>
   $(function () {
-    $("#example1").DataTable();
+    $("#selectAll").click(function(){
+      $("input[class=selectItem]").prop('checked', $(this).prop('checked'));
+    });
+
+    $("#example1").DataTable({
+        "stateSave": true,
+        "columnDefs": [
+            { "orderable": false, "targets": 0 }
+        ]
+    });
     $('#example2').DataTable({
       "paging": true,
       "lengthChange": false,

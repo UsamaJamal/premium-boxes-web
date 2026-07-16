@@ -26,6 +26,17 @@ class AdminCategoryController extends Controller
          return redirect()->back()->with('success', 'Category deleted successfully.');
       }
 
+   public function deleteMultiple(Request $request)
+      {
+          $ids = $request->input('ids');
+          if (!empty($ids)) {
+              DB::table('category_faqs')->whereIn('category_id', $ids)->delete();
+              DB::table('add_category')->whereIn('cat_id', $ids)->delete();
+              return redirect()->back()->with('success', 'Selected categories deleted successfully.');
+          }
+          return redirect()->back()->with('error', 'No category selected.');
+      }
+
   public function updateCategory(Request $request,$id) {
    
      $data=[
@@ -231,6 +242,8 @@ public function addcategory(Request $request) {
    'feature_description' => $request->post('feature_description'),
    'products_heading' => $request->post('products_heading'),
    'products_description' => $request->post('products_description'),
+   'hero_title' => $request->post('hero_title'),
+   'hero_desc' => $request->post('hero_desc'),
  'show_in_nav' => $request->has('show_in_nav') ? 1 : 0,
 	];
     if (Schema::hasColumn('add_category', 'robots')) {
@@ -259,7 +272,7 @@ if($request->hasfile('image')){
              } 
              else
         {
-             $data['image']=''; 
+             $data['bimage']=''; 
 
         }
 
@@ -271,9 +284,19 @@ if($request->hasfile('image')){
    } 
    else
 {
-   $data['image']=''; 
+   $data['icon']=''; 
 
 }
+
+        if($request->hasfile('hero_image')){
+          $file=$request->file('hero_image');
+          $filename= str_replace(' ', '-', $file->getClientOriginalName());
+          $file->move('images/',$filename);
+          $data['hero_image']=$filename;
+        } else {
+          $data['hero_image']='';
+        }
+
 
         if($request->hasfile('feature_product')){
           $file=$request->file('feature_product');

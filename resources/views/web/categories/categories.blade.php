@@ -4151,8 +4151,18 @@ img {
 
                 <div class="industry-hero-right">
                     <div class="hero-image-wrapper">
-                        <img src="{{ !empty($value[0]->hero_image) ? (file_exists(public_path('uploads/'.$value[0]->hero_image)) ? asset('uploads/'.$value[0]->hero_image) : asset('images/'.$value[0]->hero_image)) : './assets/Box packing home banner.png' }}" alt="{{ strtolower(str_replace('-', ' ', !empty($value[0]->hero_title) ? $value[0]->hero_title : 'Premium packaging boxes')) }}"
-                            class="hero-main-img" title="{{ ucwords(strtolower(str_replace('-', ' ', !empty($value[0]->hero_title) ? $value[0]->hero_title : 'Premium packaging boxes'))) }}">
+                        <?php
+                            $heroImgSrc = asset('assets/Box packing home banner.png');
+                            if (!empty($value[0]->hero_image)) {
+                                $heroImgSrc = file_exists(public_path('uploads/'.$value[0]->hero_image)) ? asset('uploads/'.$value[0]->hero_image) : asset('images/'.$value[0]->hero_image);
+                            } elseif (!empty($value[0]->bimage)) {
+                                $heroImgSrc = file_exists(public_path('uploads/'.$value[0]->bimage)) ? asset('uploads/'.$value[0]->bimage) : asset('images/'.$value[0]->bimage);
+                            } elseif (!empty($value[0]->image)) {
+                                $heroImgSrc = file_exists(public_path('uploads/'.$value[0]->image)) ? asset('uploads/'.$value[0]->image) : asset('images/'.$value[0]->image);
+                            }
+                        ?>
+                        <img src="{{ $heroImgSrc }}" alt="{{ strtolower(str_replace('-', ' ', !empty($value[0]->hero_title) ? $value[0]->hero_title : (!empty($value[0]->name) ? $value[0]->name : 'Premium packaging boxes'))) }}"
+                            class="hero-main-img" title="{{ ucwords(strtolower(str_replace('-', ' ', !empty($value[0]->hero_title) ? $value[0]->hero_title : (!empty($value[0]->name) ? $value[0]->name : 'Premium packaging boxes')))) }}">
                     </div>
                 </div>
             </div>
@@ -4174,9 +4184,13 @@ img {
         <div class="cp-grid">
             @if(isset($sub_product) && count($sub_product) > 0)
                 @foreach($sub_product as $product)
+                <?php
+                    $prodImg = !empty($product->image) ? $product->image : (!empty($product->feature_product) ? $product->feature_product : ($product->bimage ?? 'default.jpg'));
+                    $prodImgPath = file_exists(public_path('uploads/'.$prodImg)) ? asset('uploads/'.$prodImg) : asset('images/'.$prodImg);
+                ?>
                 <a href="{{ url($product->url) }}/" style="text-decoration: none; color: inherit;">
                     <div class="cp-card">
-                        <div class="cp-card-img" style="background-image: url('{{ asset('images/'.$product->image) }}'); background-size: cover; background-position: center;"></div>
+                        <div class="cp-card-img" style="background-image: url('{{ $prodImgPath }}'); background-size: cover; background-position: center;"></div>
                         <p class="cp-card-name">{{ $product->title }}</p>
                     </div>
                 </a>
@@ -4222,7 +4236,8 @@ img {
             <div class="cp-why-img">
                 <div class="cp-why-photo-wrap">
                     @if(!empty($value[0]->why_choose_img))
-                        <img src="{{ asset('images/' . $value[0]->why_choose_img) }}" alt="{{ strtolower(str_replace('-', ' ', $value[0]->why_choose_title)) }}" class="cp-why-photo" title="{{ ucwords(strtolower(str_replace('-', ' ', $value[0]->why_choose_title))) }}">
+                        <?php $whyImgPath = file_exists(public_path('uploads/'.$value[0]->why_choose_img)) ? asset('uploads/'.$value[0]->why_choose_img) : asset('images/'.$value[0]->why_choose_img); ?>
+                        <img src="{{ $whyImgPath }}" alt="{{ strtolower(str_replace('-', ' ', $value[0]->why_choose_title)) }}" class="cp-why-photo" title="{{ ucwords(strtolower(str_replace('-', ' ', $value[0]->why_choose_title))) }}">
                     @else
                         <img src="{{ asset('assets/images/default.jpg') }}" alt="why choose" title="Why Choose" class="cp-why-photo">
                     @endif

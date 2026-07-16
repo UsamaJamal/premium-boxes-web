@@ -3825,7 +3825,8 @@ section + section {
 
     <section class="why-home-section">
         <div class="container">
-            <h2 class="why-title">Why Choose PremiumBoxes for Custom Packaging?</h2>
+            <h2 class="why-title">Why PremiumBoxes for Custom Packaging?
+</h2>
 
             <div class="why-home-wrapper">
 
@@ -3833,37 +3834,44 @@ section + section {
 
                     <div class="why-box">
                         <i class="fas fa-user-tie"></i>
-                        <h4>Packaging Experts With Product-Specific Guidance</h4>
+                        <h4>Packaging Experts </h4>
                         <p>If you want to work with a professional manufacturer, then your first stop is Premium Packaging. With the help of experts who understand the market trends and new technologies, we guide our customers for best solutions.</p>
                     </div>
 
                     <div class="why-box">
                         <i class="fas fa-medal"></i>
-                        <h4>High-Quality Materials and Reliable Manufacturing</h4>
+                        <h4>High-Quality Materials 
+</h4>
                         <p>Every business wants high-quality packaging for their products. Many manufacturers claim it so why us? We use high-quality materials and have transparent and reliable manufacturing process.</p>
                     </div>
 
                     <div class="why-box">
                         <i class="fas fa-shapes"></i>
-                        <h4>Custom Sizes, Shapes, Styles, and Finishes</h4>
+                        <h4>Customization
+</h4>
                         <p>You can get customization in size, shape, style, finishes and printing styles. We listen to our customers, validate their opinion and give them best suggestions for their benefits.</p>
                     </div>
 
                     <div class="why-box">
                         <i class="fas fa-palette"></i>
-                        <h4>Design Support From Concept to Final Box</h4>
+                        <h4>Design Support 
+</h4>
                         <p>At PremiumBoxes, we have a design team. The team is specially created for our customers to understand their design requirements and help them to choose the best design.</p>
                     </div>
 
                     <div class="why-box">
                         <i class="fas fa-rocket"></i>
-                        <h4>Flexible Packaging Solutions for New Brands</h4>
-                        <p>At PremiumBoxes, we offer you flexible packaging solutions. You can get Premium Boxes that are cost efficient and in your budget.</p>
+                        <h4>Cost-efficient packaging
+
+</h4>
+                        <p>At PremiumBoxes, we offer you flexible packaging solutions. You can get Premium Boxes that are cost efficient and in your budget.
+</p>
                     </div>
 
                     <div class="why-box">
                         <i class="fas fa-boxes"></i>
-                        <h4>Custom Boxes with No Minimum Rule</h4>
+                        <h4>No Minimum Rule
+</h4>
                         <p>We have rule of “Custom Boxes with No Minimum” quantity. We won’t cost your arm and leg just to provide customized packaging boxes for your brand.</p>
                     </div>
 

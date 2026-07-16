@@ -225,6 +225,17 @@ public function deleteBlog($id)
          return redirect('admin/showblog');
       }
 
+    public function deleteMultiple(Request $request)
+      {
+          $ids = $request->input('ids');
+          if (!empty($ids)) {
+              DB::table('blog')->whereIn('blog_id', $ids)->delete();
+              return redirect()->back()->with('success', 'Selected blogs deleted successfully.');
+          }
+          return redirect()->back()->with('error', 'No blog selected.');
+      }
+
+
 
 
    public function getBlog($id) {
