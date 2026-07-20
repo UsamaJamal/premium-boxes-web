@@ -49,7 +49,7 @@ class AdminCategoryController extends Controller
 	   'description' => $request->post('ckeditor'),
    'parent_category' => $request->post('parentcategory'),
    'status' => $request->post('status'),
-   'show_home' => $request->post('show_home'),
+   'show_home' => $request->has('show_home') ? 1 : 0,
    'hero_title' => $request->post('hero_title'),
    'hero_desc' => $request->post('hero_desc'),
    'schema' => $request->post('schema'),
@@ -217,6 +217,16 @@ public function showCategory() {
     
 }
 
+public function updateFeatureOrder(Request $request) {
+    $cat_id = $request->post('cat_id');
+    $feature_order = $request->post('feature_order');
+    
+    if($cat_id) {
+        DB::table('add_category')->where('cat_id', $cat_id)->update(['feature_order' => $feature_order]);
+        return response()->json(['success' => true]);
+    }
+    return response()->json(['success' => false]);
+}
 
 public function addcategory(Request $request) {
  
@@ -233,7 +243,7 @@ public function addcategory(Request $request) {
    'bimage' => $request->post('bimage'),
    'parent_category' => $request->post('parentcategory'),
    'status' => $request->post('status'),
-   'show_home' => $request->post('show_home'),
+   'show_home' => $request->has('show_home') ? 1 : 0,
    'schema' => $request->post('schema'),
    'why_choose_title' => $request->post('why_choose_title'),
    'why_choose_desc' => $request->post('why_choose_desc'),

@@ -178,6 +178,12 @@
                             </div>
                         </div>
                      @endif
+                     <div class="form-check" style="margin-top: 10px;">
+                        <input class="form-check-input" type="checkbox" name="show_home" id="show_home" value="1" {{ $value[0]->show_home == 1 ? 'checked' : '' }}>
+                        <label class="form-check-label" for="show_home">
+                            Show on Home Page
+                        </label>
+                     </div>
                    </div>
                    </div>
 
@@ -282,21 +288,7 @@
                 </div>
                   </div>
                   
-                      <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Show on Home</label>
-                    <div class="col-sm-9">
-                    <select type="text" class="form-control"id="" placeholder="" 
-                    name="show_home">
-                  
-                  <option <?php if($value[0]->show_home==0){echo "selected";} ?> value="0">Select</option>
-                  <option <?php if($value[0]->show_home==1){echo "selected";} ?> value="1">Section 2</option>
 
-                 
-                  
-           
-                  </select>
-                </div>
-                  </div>
 
                   <div class="form-group row">
                       <label class="col-sm-3 col-form-label">Show in Nav</label>
@@ -437,23 +429,28 @@
 <script>
     CKEDITOR.replace('ckeditor', {
         filebrowserUploadUrl: "{{URL::asset('ckeditor/ck_upload.php')}}",
-        filebrowserUploadMethod: 'form'
+        filebrowserUploadMethod: 'form',
+        allowedContent: true
     });
     CKEDITOR.replace('hero_desc', {
         filebrowserUploadUrl: "{{URL::asset('ckeditor/ck_upload.php')}}",
-        filebrowserUploadMethod: 'form'
+        filebrowserUploadMethod: 'form',
+        allowedContent: true
     });
     CKEDITOR.replace('feature_description', {
         filebrowserUploadUrl: "{{URL::asset('ckeditor/ck_upload.php')}}",
-        filebrowserUploadMethod: 'form'
+        filebrowserUploadMethod: 'form',
+        allowedContent: true
     });
     CKEDITOR.replace('why_choose_desc', {
         filebrowserUploadUrl: "{{URL::asset('ckeditor/ck_upload.php')}}",
-        filebrowserUploadMethod: 'form'
+        filebrowserUploadMethod: 'form',
+        allowedContent: true
     });
     CKEDITOR.replace('products_description', {
         filebrowserUploadUrl: "{{URL::asset('ckeditor/ck_upload.php')}}",
-        filebrowserUploadMethod: 'form'
+        filebrowserUploadMethod: 'form',
+        allowedContent: true
     });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>

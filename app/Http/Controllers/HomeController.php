@@ -64,8 +64,9 @@ return response()->view('web/404',$data,404);
         ->whereNotNull('feature_product')
         ->where('feature_product', '!=', '')
         ->where('status', 1)
+        ->where('show_home', 1)
+        ->orderBy('feature_order', 'asc')
         ->orderBy('cat_id', 'asc')
-        ->take(8)
         ->get();
 
     // Box By Style products

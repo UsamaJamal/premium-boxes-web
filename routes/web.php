@@ -50,6 +50,7 @@ Route::post('admin/update_category/{cat_id}', 'AdminCategoryController@updateCat
 Route::get('admin/delete_category/{cat_id}', 'AdminCategoryController@deleteData');
 
 Route::post('admin/delete_multiple_categories', 'AdminCategoryController@deleteMultiple');
+Route::post('admin/update_feature_order', 'AdminCategoryController@updateFeatureOrder');
 
 // All Category page and  Controller of Category (Route)
 
