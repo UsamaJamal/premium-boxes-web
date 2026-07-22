@@ -29,9 +29,16 @@
 	      if (isset($robots) && !empty($robots)) {
 	          $finalRobots = $robots;
 	      }
+
+	      $canonicalUrl = url()->current();
+	      if ($currentUrl === '/' || $currentUrl === '') {
+	          $canonicalUrl = rtrim($canonicalUrl, '/');
+	      } else {
+	          $canonicalUrl = rtrim($canonicalUrl, '/') . '/';
+	      }
 	  @endphp
   <meta name="robots" content="{{ $finalRobots }}">
-  <link rel="canonical" href="{{ url()->current() }}" />
+  <link rel="canonical" href="{{ $canonicalUrl }}" />
   
 
 
@@ -39,16 +46,16 @@
 	<!-- <link rel="stylesheet" href="css/animate.css"> -->
 
 
-    <link rel="stylesheet" href="{{url('web/assets/css/bootstrap.min.css')}}/" />
-    <link rel="stylesheet" href="{{url('web/assets/css/owl.carousel.min.css')}}/" />
-    <link rel="stylesheet" href="{{url('web/assets/css/owl.theme.default.min.css')}}/" />
+    <link rel="stylesheet" href="{{url('web/assets/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{url('web/assets/css/owl.carousel.min.css')}}" />
+    <link rel="stylesheet" href="{{url('web/assets/css/owl.theme.default.min.css')}}" />
     <!-- <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/home.css" />
     <link rel="stylesheet" href="assets/css/blogs.css" />
     <link rel="stylesheet" href="assets/css/progress.css" /> -->
 
-    <link href="{{url('web/assets/css/styles.css')}}/" rel="stylesheet" />
-    <link href="{{url('web/assets/css/jquery.smartmenus.bootstrap-4.css')}}/" rel="stylesheet" />
+    <link href="{{url('web/assets/css/styles.css')}}" rel="stylesheet" />
+    <link href="{{url('web/assets/css/jquery.smartmenus.bootstrap-4.css')}}" rel="stylesheet" />
 
     @if(isset($value) && count($value) > 0 && isset($value[0]->schema) && !empty($value[0]->schema))
     {!! $value[0]->schema !!}
