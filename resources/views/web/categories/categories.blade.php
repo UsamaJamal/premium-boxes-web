@@ -822,7 +822,7 @@ img {
     box-sizing: border-box;
     border: 1px solid #4a4a4a;
   }
-  
+
   .filter-btn.active {
     background: #f5c542;
     color: #000;
@@ -3876,7 +3876,7 @@ body .pg-left h6 * {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
   }
-  
+
   /* Reduce gap between Quote section and FAQs */
   .pg-section {
     padding-top: 10px !important;
@@ -3884,9 +3884,9 @@ body .pg-left h6 * {
   }
 }
 /* Standardize all wrappers to align with header logo (responsive spacing) */
-.cp-wrap, 
-.hiw-wrap, 
-.pg-wrap, 
+.cp-wrap,
+.hiw-wrap,
+.pg-wrap,
 .product-container,
 .industry-hero-content,
 .hero-breadcrumb-desktop,
@@ -3908,9 +3908,9 @@ body .pg-left h6 * {
 }
 
 @media (min-width: 1200px) {
-    .cp-wrap, 
-    .hiw-wrap, 
-    .pg-wrap, 
+    .cp-wrap,
+    .hiw-wrap,
+    .pg-wrap,
     .product-container,
     .industry-hero-content,
     .hero-breadcrumb-desktop,
@@ -3923,9 +3923,9 @@ body .pg-left h6 * {
 }
 
 @media (min-width: 1440px) {
-    .cp-wrap, 
-    .hiw-wrap, 
-    .pg-wrap, 
+    .cp-wrap,
+    .hiw-wrap,
+    .pg-wrap,
     .product-container,
     .industry-hero-content,
     .hero-breadcrumb-desktop,
@@ -3938,9 +3938,9 @@ body .pg-left h6 * {
 }
 
 @media (max-width: 768px) {
-    .cp-wrap, 
-    .hiw-wrap, 
-    .pg-wrap, 
+    .cp-wrap,
+    .hiw-wrap,
+    .pg-wrap,
     .product-container,
     .industry-hero-content,
     .hero-breadcrumb-desktop,
@@ -4012,8 +4012,8 @@ body .pg-left h6 * {
 
 /* Quote form styling overrides: autofill, placeholder, invalid states */
 .quote-section input:-webkit-autofill,
-.quote-section input:-webkit-autofill:hover, 
-.quote-section input:-webkit-autofill:focus, 
+.quote-section input:-webkit-autofill:hover,
+.quote-section input:-webkit-autofill:focus,
 .quote-section input:-webkit-autofill:active,
 .quote-section select:-webkit-autofill,
 .quote-section textarea:-webkit-autofill {
@@ -4201,13 +4201,23 @@ body .pg-left h6 * {
                         @endif
                     </p>
 
-                    <a href="{{ url('request-quote') }}/" class="btn btn-yellow">Design Custom Boxes</a>
+                    <a href="{{ url('request-quote') }}/" class="btn btn-yellow">Get Instant Quote</a>
                 </div>
 
                 <div class="industry-hero-right">
                     <div class="hero-image-wrapper">
-                        <img src="{{ !empty($value[0]->hero_image) ? (file_exists(public_path('uploads/'.$value[0]->hero_image)) ? asset('uploads/'.$value[0]->hero_image) : asset('images/'.$value[0]->hero_image)) : './assets/Box packing home banner.png' }}" alt="{{ strtolower(str_replace('-', ' ', !empty($value[0]->hero_title) ? $value[0]->hero_title : 'Premium packaging boxes')) }}"
-                            class="hero-main-img" title="{{ ucwords(strtolower(str_replace('-', ' ', !empty($value[0]->hero_title) ? $value[0]->hero_title : 'Premium packaging boxes'))) }}">
+                        <?php
+                            $heroImgSrc = asset('assets/Box packing home banner.png');
+                            if (!empty($value[0]->hero_image)) {
+                                $heroImgSrc = file_exists(public_path('uploads/'.$value[0]->hero_image)) ? asset('uploads/'.$value[0]->hero_image) : asset('images/'.$value[0]->hero_image);
+                            } elseif (!empty($value[0]->bimage)) {
+                                $heroImgSrc = file_exists(public_path('uploads/'.$value[0]->bimage)) ? asset('uploads/'.$value[0]->bimage) : asset('images/'.$value[0]->bimage);
+                            } elseif (!empty($value[0]->image)) {
+                                $heroImgSrc = file_exists(public_path('uploads/'.$value[0]->image)) ? asset('uploads/'.$value[0]->image) : asset('images/'.$value[0]->image);
+                            }
+                        ?>
+                        <img src="{{ $heroImgSrc }}" alt="{{ strtolower(str_replace('-', ' ', !empty($value[0]->hero_title) ? $value[0]->hero_title : (!empty($value[0]->name) ? $value[0]->name : 'Premium packaging boxes'))) }}"
+                            class="hero-main-img" title="{{ ucwords(strtolower(str_replace('-', ' ', !empty($value[0]->hero_title) ? $value[0]->hero_title : (!empty($value[0]->name) ? $value[0]->name : 'Premium packaging boxes')))) }}">
                     </div>
                 </div>
             </div>
@@ -4229,9 +4239,13 @@ body .pg-left h6 * {
         <div class="cp-grid">
             @if(isset($sub_product) && count($sub_product) > 0)
                 @foreach($sub_product as $product)
+                <?php
+                    $prodImg = !empty($product->image) ? $product->image : (!empty($product->feature_product) ? $product->feature_product : ($product->bimage ?? 'default.jpg'));
+                    $prodImgPath = file_exists(public_path('uploads/'.$prodImg)) ? asset('uploads/'.$prodImg) : asset('images/'.$prodImg);
+                ?>
                 <a href="{{ url($product->url) }}/" style="text-decoration: none; color: inherit;">
                     <div class="cp-card">
-                        <div class="cp-card-img" style="background-image: url('{{ asset('images/'.$product->image) }}'); background-size: cover; background-position: center;"></div>
+                        <div class="cp-card-img" style="background-image: url('{{ $prodImgPath }}'); background-size: cover; background-position: center;"></div>
                         <p class="cp-card-name">{{ $product->title }}</p>
                     </div>
                 </a>
@@ -4259,7 +4273,7 @@ body .pg-left h6 * {
     $whyDescHtml = $value[0]->why_choose_desc ?? '';
     $whyDescClean = trim(strip_tags(str_replace(['&nbsp;', '<br>', '<br/>'], '', $whyDescHtml)));
     $whyImg = $value[0]->why_choose_img ?? '';
-    
+
     $hasWhyChoose = !empty($whyTitle) || !empty($whyDescClean) || !empty($whyImg);
 ?>
 @if($hasWhyChoose)
@@ -4277,7 +4291,8 @@ body .pg-left h6 * {
             <div class="cp-why-img">
                 <div class="cp-why-photo-wrap">
                     @if(!empty($value[0]->why_choose_img))
-                        <img src="{{ asset('images/' . $value[0]->why_choose_img) }}" alt="{{ strtolower(str_replace('-', ' ', $value[0]->why_choose_title)) }}" class="cp-why-photo" title="{{ ucwords(strtolower(str_replace('-', ' ', $value[0]->why_choose_title))) }}">
+                        <?php $whyImgPath = file_exists(public_path('uploads/'.$value[0]->why_choose_img)) ? asset('uploads/'.$value[0]->why_choose_img) : asset('images/'.$value[0]->why_choose_img); ?>
+                        <img src="{{ $whyImgPath }}" alt="{{ strtolower(str_replace('-', ' ', $value[0]->why_choose_title)) }}" class="cp-why-photo" title="{{ ucwords(strtolower(str_replace('-', ' ', $value[0]->why_choose_title))) }}">
                     @else
                         <img src="{{ asset('assets/images/default.jpg') }}" alt="why choose" title="Why Choose" class="cp-why-photo">
                     @endif
@@ -4297,32 +4312,33 @@ body .pg-left h6 * {
     <div class="hiw-wrap">
 
         <div class="hiw-header">
-            <span class="hiw-title" style="display: block;">How it Works</span>
-            <p class="hiw-subtitle">Follow our simple step-by-step process to bring your custom packaging to life.</p>
+            <span class="hiw-title" style="display: block;">Start Your Packaging Journey</span>
+            <p class="hiw-subtitle">We have a simple user-friendly 3-step process. Follow these 3-steps to start your packaging journey</p>
         </div>
 
         <div class="hiw-grid">
 
             <div class="hiw-step" data-num="1">
                 <div class="hiw-step-body">
-                    <span class="hiw-step-title">Share Your Idea</span>
-                    <p class="hiw-step-text">Send us your design, logo, or packaging request.</p>
+                    <span class="hiw-step-title">Tell Us What You Need</span>
+                    <p class="hiw-step-text">Tell to our team on call or you can drop an email. Tell us about your design and expectations.</p>
                 </div>
             </div>
 
             <div class="hiw-step" data-num="2">
                 <div class="hiw-step-body">
-                    <span class="hiw-step-title">Get Your Free Quote &amp; Mockup</span>
-                    <p class="hiw-step-text">We'll provide a custom price and a visual preview of your box.</p>
+                    <span class="hiw-step-title">Get custom Quote & Sample</span>
+                    <p class="hiw-step-text">Drop an email with product details. Our team will get in touch with you for custom quote. You can also get a physical sample.</p>
                 </div>
             </div>
 
             <div class="hiw-step" data-num="3">
                 <div class="hiw-step-body">
-                    <span class="hiw-step-title">Approve &amp; Receive</span>
-                    <p class="hiw-step-text">Once approved, we produce and deliver your premium packaging with <strong>free shipping.</strong></p>
+                    <span class="hiw-step-title">Approve & Get It Delivered</span>
+                    <p class="hiw-step-text">As you approve the sample, we start working on the production. <strong>Within 8-10 business days, you will get your order.</strong></p>
                 </div>
             </div>
+
 
         </div>
     </div>
@@ -4330,8 +4346,9 @@ body .pg-left h6 * {
 
 <section class="customize-section">
     <div class="customize-header">
-        <span class="customize-title" style="display: block;">Customize Your Box</span>
-        <p>Choose materials, finishes, and add-ons to build your perfect rigid box.</p>
+        <span class="customize-title" style="display: block;">Customize Your Packaging Your Way</span>
+        <p>We offer complete customization options. Explore our offers and choose what you required.
+</p>
     </div>
 
     <div class="filter-buttons">
@@ -4349,35 +4366,35 @@ body .pg-left h6 * {
         <div class="customize-grid" id="cat-tab-coating-and-laminations" style="display: grid;">
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Lamination.webp') }}" alt="lamination" title="Lamination"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Lamination</span><p>Laminated protective film that adheres to the surface of packaging materials to maximize durability.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Lamination</span><p>Lamination comes in two variations as glossy and matte. It is layer on packaging that protects the box and gives it durability.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/UV Coating .webp') }}" alt="uv" title="Uv"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">UV</span><p>Fast-drying coating cured with ultraviolet light. Available in gloss or matte finish.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
+                <div class="card-content"><span class="card-title" style="display: block;">UV</span><p>Enhance the durability of the box by getting uv coating on the surface.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Varnish .webp') }}" alt="varnish" title="Varnish"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Varnish</span><p>Clear coating applied using the CMYK printing method. Available in gloss, satin, or matte.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Varnish</span><p>Protect your packaging boxes with varnish. It protects the box from light with a shiny surface.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Anti-scratch Lamination .webp') }}" alt="anti scratch lamination" title="Anti Scratch Lamination"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Anti Scratch Lamination</span><p>Laminated BOPP film that is scratch, scuff, and fingerprint resistant. Cost-effective option.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Anti Scratch Lamination</span><p>Premium packaging requires anti-scratching lamination. It prevents scratches, cuffs and handling marks.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Aqueous Coating .webp') }}" alt="aqueous coating" title="Aqueous Coating"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Aqueous Coating</span><p>Clear, fast-drying, water-based, and eco-friendly coating. Available in gloss or matte finish.</p><div class="card-icons"><span class="icon-circle">♻️</span><span class="icon-circle">🍃</span></div></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Aqueous Coating</span><p>Water-based coating offers protection against light. It comes in gloss, matte and satin finishing. It quickly dries as it is water based.</p><div class="card-icons"><span class="icon-circle">♻️</span><span class="icon-circle">🍃</span></div></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Soft Touch Coating.webp') }}" alt="soft touch coating" title="Soft Touch Coating"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Soft Touch Coating</span><p>Soft to the touch coating that creates a velvety texture for a more tactile appeal.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Soft Touch Coating</span><p>For a luxury touch to your packaging, choose soft touch coating. It offers a velvety and smooth surface.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Soft Touch Silk Lamination .webp') }}" alt="soft touch silk lamination" title="Soft Touch Silk Lamination"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Soft Touch Silk Lamination</span><p>Soft to the touch lamination similar to peach skin. Available in a satin or matte finish.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Soft Touch Silk Lamination</span><p>Soft touch silk lamination is known for its luxurious look. It protects the box and gives a silky and luxurious look.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/coating and lamination/Spot Gloss UV.webp') }}" alt="spot gloss uv" title="Spot Gloss Uv"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Spot Gloss UV</span><p>UV coating that is applied to a specified area and cured using ultraviolet light.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Spot Gloss UV</span><p>To highlight specific part of the box, we use spot glass UV. It makes selected area glossy and keeps the remaining area matte.</p><div class="card-icons"><span class="icon-circle">♻️</span></div></div>
             </div>
         </div>
 
@@ -4385,35 +4402,35 @@ body .pg-left h6 * {
         <div class="customize-grid" id="cat-tab-printing-options" style="display: none;">
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/digital-print.webp') }}" alt="digital print" title="Digital Print"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Digital Print</span><p>Fast and cost-effective printing with sharp, high-quality colors ideal for shorter runs and quick turnaround times.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Digital Print</span><p>Digital printing is considered best for samples, small quantity and quick setups. Artwork is directly printed on the material</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/offset-print.webp') }}" alt="offset print" title="Offset Print"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Offset Print</span><p>The industry standard for high-volume printing, offering unparalleled color accuracy and premium finish quality.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Offset Print</span><p>For sharp, vibrant and larger orders, offset printing is best.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/oil-based-Inks.webp') }}" alt="oil based inks" title="Oil Based Inks"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Oil Based Inks</span><p>Traditional inks that deliver rich, vibrant colors with a smooth, glossy finish for high-impact designs.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Oil Based Inks</span><p>Oil-based inks give shiny and strong color coverage. However, the drying time vary by formulation.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/pantone-metallic.webp') }}" alt="pantone metallic" title="Pantone Metallic"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Pantone Metallic</span><p>Premium inks blended with metallic particles to give your packaging a luxurious, eye-catching shine.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Pantone Metallic</span><p>To add extra charms to packaging choose pantone metallic. It creates gold, silver, rose-gold and other metallic-like colors.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/pantone.webp') }}" alt="pantone" title="Pantone"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Pantone</span><p>Standardized color matching system ensuring absolute consistency for your brand colors across all prints.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Pantone</span><p>To match artwork color with brand colors, pantone printing is best. It gives more accurate printing results.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/soy-vegetable-based-Inks.webp') }}" alt="soy vegetable based inks" title="Soy Vegetable Based Inks"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Soy Vegetable Based Inks</span><p>Eco-friendly, sustainable inks that produce bright colors while minimizing environmental impact.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Soy Vegetable Based Inks</span><p>Soy and vegetable-based inks are an eco-friendly printing option. They are non-toxic and provide a clear printing result.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/uv-print.webp') }}" alt="uv print" title="Uv Print"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">UV Print</span><p>Ultra-violet cured printing that dries instantly, offering superior durability, scuff-resistance, and sharp details.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">UV Print</span><p>For quick drying and durable printing, always choose uv printing.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Printing Options/water-based-Inks.webp') }}" alt="water based inks" title="Water Based Inks"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Water Based Inks</span><p>Non-toxic and environmentally safe inks that provide a soft, natural finish perfect for sustainable packaging.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Water Based Inks</span><p>These inks have a water base and are commonly used for corrugated and paper packaging.</p></div>
             </div>
         </div>
 
@@ -4421,31 +4438,31 @@ body .pg-left h6 * {
         <div class="customize-grid" id="cat-tab-special-finishes" style="display: none;">
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/blind-debossing-.webp') }}" alt="blind debossing" title="Blind Debossing"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Blind Debossing</span><p>A classic technique that presses your design down into the material, creating a subtle, indented texture.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Blind Debossing</span><p>It presses the designs, logos and other artwork on the material and gives a recessed impression.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/blind-embossing.webp') }}" alt="blind embossing" title="Blind Embossing"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Blind Embossing</span><p>Elevates your design by raising it above the material surface, adding a tactile, premium 3D effect.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Blind Embossing</span><p>Blind embossing highlights the artwork on surface by raising it without adding ink and foil.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/cold-foil-printing.webp') }}" alt="cold foil printing" title="Cold Foil Printing"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Cold Foil Printing</span><p>A fast inline process that applies metallic foil to your packaging for a striking, reflective finish.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Cold Foil Printing</span><p>Metallic foil is used on the box surface with glue and pressure.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/combination-embossing.webp') }}" alt="combination embossing" title="Combination Embossing"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Combination Embossing</span><p>Combines foil stamping with embossing to create a stunning, raised metallic design that stands out.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Combination Embossing</span><p>In combination embossing, we can use foil or print to create raised, colored, or metallic details.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/hot-foil-stamping.webp') }}" alt="hot foil stamping" title="Hot Foil Stamping"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Hot Foil Stamping</span><p>Uses heat and pressure to apply metallic or pigmented foil, adding a luxurious, high-end feel.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Hot Foil Stamping</span><p>Heat and a strong pressure is used to add metallic color or foil to selected areas.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/registered-embossing-.webp') }}" alt="registered embossing" title="Registered Embossing"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Registered Embossing</span><p>Precisely aligns the embossed texture with printed ink, creating a detailed and highly tactile design element.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Registered Embossing</span><p>It is perfect for raised details with printed artwork or foil.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/window-patching.webp') }}" alt="window patching" title="Window Patching"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Window Patching</span><p>Adds a transparent film window to your box, allowing customers to view the product inside securely.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Window Patching</span><p>We can add a window using transparent film behind a die-cut opening.</p></div>
             </div>
         </div>
 
@@ -4461,27 +4478,27 @@ body .pg-left h6 * {
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/ccnb.webp') }}" alt="ccnb" title="Ccnb"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">CCNB</span><p>Clay Coated News Back board made from recycled materials, offering a cost-effective solution with good print quality.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">CCNB</span><p>CCNB has a white printing surface with a gray recycled-fiber back side.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/fully-recycled-ccnb.webp') }}" alt="fully recycled ccnb" title="Fully Recycled Ccnb"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Fully Recycled CCNB</span><p>100% recycled paperboard with a clay coating, perfect for eco-conscious brands needing vibrant prints.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Fully Recycled CCNB</span><p>It is made from recycled fibers and has a white printable front and gray back.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/natural-brown-kraft.webp') }}" alt="natural brown kraft" title="Natural Brown Kraft"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Natural Brown Kraft</span><p>Unbleached, durable kraft board that gives your packaging a rustic, organic, and eco-friendly aesthetic.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Natural Brown Kraft</span><p>It is made from recycled fibers and has a white printable front and gray back.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/white-kraft.webp') }}" alt="white kraft" title="White Kraft"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">White Kraft</span><p>Bleached kraft board combining the strength of kraft with a clean, white surface for excellent print contrast.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">White Kraft</span><p>It is a kraft-based paperboard and has a white surface. It supports cleaner and brighter printed graphics.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/black-kraft.webp') }}" alt="black kraft" title="Black Kraft"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Black Kraft</span><p>Solid black throughout the board, providing a sleek, modern, and premium look without edge whitening.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Black Kraft</span><p>Black-kraft paperboard is best for bold, minimal and premium packaging.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Paper Board/uncoated-unbleached-kraft-(uuk).webp') }}" alt="uncoated unbleached kraft (uuk)" title="Uncoated Unbleached Kraft (uuk)"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Uncoated Unbleached Kraft (UUK)</span><p>A raw, natural texture that maximizes sustainability and provides an earthy, minimalist vibe.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Uncoated Unbleached Kraft (UUK)</span><p>UUK has a strong and uncoated brown Kraft board with a natural texture and appearance.</p></div>
             </div>
         </div>
 
@@ -4489,19 +4506,19 @@ body .pg-left h6 * {
         <div class="customize-grid" id="cat-tab-corrugated" style="display: none;">
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Corrugated/bleached-white-board-.webp') }}" alt="bleached white board" title="Bleached White Board"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Bleached White Board</span><p>A strong corrugated material with a bright white outer layer, ensuring vibrant and accurate color printing.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Bleached White Board</span><p>For clean surface and bright printing bleached white board is best. It has clean surface with white liner.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Corrugated/kemi-white-board-.webp') }}" alt="kemi white board" title="Kemi White Board"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Kemi White Board</span><p>Premium coated corrugated board offering superior ink holdout for high-resolution, photographic prints.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Kemi White Board</span><p>Kemi white board is known for luxury presentation. It has top white linerboard and gives strong graphics output.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Corrugated/natural-brown-kraft-linerboard-.webp') }}" alt="natural brown kraft linerboard" title="Natural Brown Kraft Linerboard"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Natural Brown Kraft Linerboard</span><p>Standard unbleached corrugated board offering maximum strength and a classic, eco-friendly appearance.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Natural Brown Kraft Linerboard</span><p>It is eco-friendly and durable material. It is commonly used for shipping because of the great strength.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Corrugated/oyster-white-board-.webp') }}" alt="oyster white board" title="Oyster White Board"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Oyster White Board</span><p>A mottled white corrugated board that provides a clean background while maintaining structural integrity.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Oyster White Board</span><p>For minimal option, choose oyster white board. It gives a softer appearance.</p></div>
             </div>
         </div>
 
@@ -4509,31 +4526,31 @@ body .pg-left h6 * {
         <div class="customize-grid" id="cat-tab-fluted-grades" style="display: none;">
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades Images/A-flute.webp') }}" alt="a flute" title="A Flute"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">A Flute</span><p>The thickest flute profile (1/4"), providing maximum cushioning and stacking strength for fragile items.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">A Flute</span><p>Delicate items need to be packed using A-flute as it offers a strong cushioning.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades Images/b-flute.webp') }}" alt="b flute" title="B Flute"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">B Flute</span><p>A versatile profile (1/8") offering excellent crush resistance and a smooth surface for high-quality printing.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">B Flute</span><p>It has thinner cushioning and offers rupture resistance.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades Images/c-flute.webp') }}" alt="c flute" title="C Flute"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">C Flute</span><p>The most common corrugated flute (3/16"), offering an ideal balance of cushioning and compression strength.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">C Flute</span><p>If you want medium thickness flute then C-flute is best.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades Images/Double-Wall.webp') }}" alt="double wall" title="Double Wall"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Double Wall</span><p>Combines two flute layers for exceptional durability and protection, ideal for heavy or bulk shipping.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Double Wall</span><p>To enhance the protection and cushioning, two layers are combined.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades Images/e-flute.webp') }}" alt="e flute" title="E Flute"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">E Flute</span><p>A very thin profile (1/16") that provides excellent printability and a sleek, retail-ready appearance.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">E Flute</span><p>It has thin flute and used for printed retail boxes and compact mailers.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades Images/f-flute.webp') }}" alt="f flute" title="F Flute"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">F Flute</span><p>Ultra-thin micro-flute (1/32") offering premium structural rigidity for small, high-end retail boxes.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">F Flute</span><p>To pack small products, the thinnest flute is used.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Fluted Grades Images/Triple-Wall.webp') }}" alt="triple wall" title="Triple Wall"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Triple Wall</span><p>Three layers of fluting providing industrial-grade strength, often used as a lightweight alternative to wood.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Triple Wall</span><p>To protect the heavy products during shipping, we combine three layers of flutes.</p></div>
             </div>
         </div>
 
@@ -4541,11 +4558,11 @@ body .pg-left h6 * {
         <div class="customize-grid" id="cat-tab-rigid-materials" style="display: none;">
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Rigid Material/Duplex-Chipboard-.webp') }}" alt="duplex chipboard" title="Duplex Chipboard"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Duplex Chipboard</span><p>A sturdy, rigid board with a white coated exterior and grey interior, perfect for premium setup boxes.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Duplex Chipboard</span><p>Duplex chipboard has a layered structure and wrapped with printed paper for rigid boxes.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Rigid Material/grey-chipboard-cardboard.webp') }}" alt="grey chipboard cardboard" title="Grey Chipboard Cardboard"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Grey Chipboard Cardboard</span><p>Thick, recycled rigid board that serves as the strong foundational core for luxury wrapped boxes.</p></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Grey Chipboard Cardboard</span><p>For grey chipboard cardboard, a thick recycled-fiber board is used.  It is best for rigid and luxury packaging.</p></div>
             </div>
         </div>
     </div><!-- /.tab-contents-container -->
@@ -4618,7 +4635,7 @@ body .pg-left h6 * {
                     padding: 15px 0 5px 0 !important;
                 }
                 .pg-accordion-body {
-                    padding-top: 0 !important; 
+                    padding-top: 0 !important;
                     padding-left: 22px !important;
                 }
                 .pg-accordion-body p {
@@ -4639,7 +4656,7 @@ body .pg-left h6 * {
                     <div class="pg-step-item pg-accordion-item">
                         <button class="pg-accordion-btn" style="align-items: flex-start;">
                             <h3 class="pg-accordion-q" style="display: flex; align-items: flex-start; gap: 10px;">
-                                <span style="color: var(--accent-gold); flex-shrink: 0;">{{ $loop->iteration }}.</span> 
+                                <span style="color: var(--accent-gold); flex-shrink: 0;">{{ $loop->iteration }}.</span>
                                 <span style="line-height: 1.4;">{{ strip_tags($faq->question) }}</span>
                             </h3>
                             <span class="pg-accordion-icon" style="margin-top: 2px;">+</span>
@@ -4754,10 +4771,10 @@ document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('click', function(e) {
         var btn = e.target.closest('.pg-accordion-btn');
         if (!btn) return;
-        
+
         var item = btn.closest('.pg-accordion-item');
         if (!item) return;
-        
+
         var isOpen = item.classList.contains('open');
 
         // close all, reset icons to +

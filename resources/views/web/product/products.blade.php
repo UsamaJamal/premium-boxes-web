@@ -1,6 +1,10 @@
 @include('web/header')
 
-    <div class="hero-wrap" style="background-image: url('{{url('images/'.$category['0']->bimage)}}'); background-attachment: fixed;">
+    <?php
+        $bgImg = !empty($category['0']->bimage) ? $category['0']->bimage : (!empty($category['0']->hero_image) ? $category['0']->hero_image : ($category['0']->image ?? ''));
+        $bgImgUrl = !empty($bgImg) ? (file_exists(public_path('uploads/'.$bgImg)) ? asset('uploads/'.$bgImg) : asset('images/'.$bgImg)) : asset('assets/Box packing home banner.png');
+    ?>
+    <div class="hero-wrap" style="background-image: url('{{ $bgImgUrl }}'); background-attachment: fixed;">
         <div class="overlay-masthead"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">

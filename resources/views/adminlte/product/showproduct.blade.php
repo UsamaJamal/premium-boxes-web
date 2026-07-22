@@ -37,9 +37,13 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
+            <form action="{{url('admin/delete_multiple_products')}}" method="POST" id="multiDeleteForm">
+              @csrf
+              <button type="submit" class="btn btn-danger mb-3" onclick="return confirm('Are you sure you want to delete selected products?');">Delete Selected</button>
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
+        <th><input type="checkbox" id="selectAll"></th>
         <th>Sr</th>
         <th>Title</th>
         <th>Description</th>
@@ -53,23 +57,25 @@
                   
                   <?php $sr=0; foreach ($product as $product){ $sr++; ?>              
             <tr>
+      <td><input type="checkbox" name="ids[]" value="{{$product->product_id}}" class="selectItem"></td>
       <td>{{$sr}}</td>
       <td>{{$product->title}}</td>
       <td>{{$product->meta_description}}</td>
 
       <td><img style="height:50px; width:50px;" src="{{url('images/'.$product->image)}}"></td>
       <td><a href="#">
-        <button class="btn btn-primary editdata"style="background-color:#0da8ca;border-color:#0da8ca;" data-uid="<?php echo $product->product_id;?>">Edit</button>
+        <button type="button" class="btn btn-primary editdata"style="background-color:#0da8ca;border-color:#0da8ca;" data-uid="<?php echo $product->product_id;?>">Edit</button>
       </a></td>
      
       <td><a href="#">
-      <button class="btn btn-danger deleteButton" data-uid="<?php echo $product->product_id;?>">Delete</button>
+      <button type="button" class="btn btn-danger deleteButton" data-uid="<?php echo $product->product_id;?>">Delete</button>
       </a></td>
 </tr>
 <?php } ?>
                 </tbody>
                 
               </table>
+            </form>
             </div>
             <!-- /.card-body -->
           </div>
@@ -97,8 +103,8 @@
  <script type="text/javascript">
      $(document).ready(function () {
 
-      $('.deleteButton').click(function(){
-     
+      $('.deleteButton').click(function(e){
+      e.preventDefault();
      $product_id=$(this).attr('data-uid');
   
     $src = "{{url('admin/delete_product/')}}"+'/'+$product_id;
@@ -121,8 +127,8 @@
 
       });
 
-          $('.editdata').click(function(){
-          
+          $('.editdata').click(function(e){
+          e.preventDefault();
           $id=$(this).attr('data-uid');
           $src = "{{url('admin/editproduct/')}}"+'/'+$id;
             
@@ -152,7 +158,16 @@ confirmButtonText:'next',
 <!-- page script -->
 <script>
   $(function () {
-    $("#example1").DataTable();
+    $("#selectAll").click(function(){
+      $("input[class=selectItem]").prop('checked', $(this).prop('checked'));
+    });
+
+    $("#example1").DataTable({
+        "stateSave": true,
+        "columnDefs": [
+            { "orderable": false, "targets": 0 }
+        ]
+    });
     $('#example2').DataTable({
       "paging": true,
       "lengthChange": false,

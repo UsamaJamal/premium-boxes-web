@@ -130,6 +130,12 @@
                     <label class="col-sm-3 col-form-label">Feature Image</label>
                     <div class="col-sm-9">
                     <input id="feature_product" style="padding-bottom: 35px;" type="file" class="form-control" name="feature_product">
+                    <div class="form-check" style="margin-top: 10px;">
+                        <input class="form-check-input" type="checkbox" name="show_home" id="show_home" value="1">
+                        <label class="form-check-label" for="show_home">
+                            Show on Home Page
+                        </label>
+                    </div>
                   </div>
                   </div>
 
@@ -161,6 +167,32 @@
                     </div>
                   </div>
                 </div>
+              </div>
+
+
+              <!-- Hero Section -->
+              <div class="card" style="width: 66%; margin-left: 15px;">
+                  <div class="card-header header-2">Hero Section</div>
+                  <div class="card-body">
+                      <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Hero Title</label>
+                          <div class="col-sm-9">
+                              <input type="text" class="form-control" name="hero_title" placeholder="Hero Title">
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Hero Description</label>
+                          <div class="col-sm-9">
+                              <textarea class="form-control" name="hero_desc" rows="4" placeholder="Hero Description"></textarea>
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Hero Image</label>
+                          <div class="col-sm-9">
+                              <input type="file" class="form-control" name="hero_image" style="padding-bottom: 35px;">
+                          </div>
+                      </div>
+                  </div>
               </div>
 
 
@@ -201,18 +233,7 @@
                 </div>
                   </div>
                   
-                     <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Show on Home</label>
-                    <div class="col-sm-9">
-                    <select type="text" class="form-control"id="" placeholder="" 
-                    name="show_home">
-                  
-                  <option value="0">Select</option>
-                  <option value="1">Section 2</option>
-                 
-                  </select>
-                </div>
-                  </div>
+
 
                   <div class="form-group row">
                       <label class="col-sm-3 col-form-label">Show in Nav</label>
@@ -320,19 +341,28 @@
 <script>
     CKEDITOR.replace('ckeditor', {
         filebrowserUploadUrl: "{{URL::asset('ckeditor/ck_upload.php')}}",
-        filebrowserUploadMethod: 'form'
+        filebrowserUploadMethod: 'form',
+        allowedContent: true
     });
     CKEDITOR.replace('feature_description', {
         filebrowserUploadUrl: "{{URL::asset('ckeditor/ck_upload.php')}}",
-        filebrowserUploadMethod: 'form'
+        filebrowserUploadMethod: 'form',
+        allowedContent: true
     });
     CKEDITOR.replace('why_choose_desc', {
         filebrowserUploadUrl: "{{URL::asset('ckeditor/ck_upload.php')}}",
-        filebrowserUploadMethod: 'form'
+        filebrowserUploadMethod: 'form',
+        allowedContent: true
     });
     CKEDITOR.replace('products_description', {
         filebrowserUploadUrl: "{{URL::asset('ckeditor/ck_upload.php')}}",
-        filebrowserUploadMethod: 'form'
+        filebrowserUploadMethod: 'form',
+        allowedContent: true
+    });
+    CKEDITOR.replace('hero_desc', {
+        filebrowserUploadUrl: "{{URL::asset('ckeditor/ck_upload.php')}}",
+        filebrowserUploadMethod: 'form',
+        allowedContent: true
     });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>

@@ -37,12 +37,17 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
+            <form action="{{url('admin/delete_multiple_categories')}}" method="POST" id="multiDeleteForm">
+              @csrf
+              <button type="submit" class="btn btn-danger mb-3" onclick="return confirm('Are you sure you want to delete selected categories?');">Delete Selected</button>
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
+        <th><input type="checkbox" id="selectAll"></th>
         <th>Id</th>
         <th>Name</th>
         <th>Image</th>
+        <th>Feature Order</th>
         <th>Edit</th>
         <th>Delete</th>
 
@@ -52,6 +57,7 @@
                 <?php $sr=0; foreach ($data as $value){ $sr++; ?> 
                               
             <tr>
+            <td><input type="checkbox" name="ids[]" value="{{$value->cat_id}}" class="selectItem"></td>
             <td>{{$sr}}</td>
       <td>
         {{$value->name}}
@@ -60,17 +66,25 @@
         <?php endif; ?>
       </td>
       <td><img style="height:50px; width:50px;" src="{{url('images/'.$value->image)}}"></td>
+      <td>
+        @if($value->feature_product)
+          <input type="number" class="form-control update-feature-order" data-id="{{$value->cat_id}}" value="{{$value->feature_order}}" style="width: 80px;">
+        @else
+          <span class="text-muted">-</span>
+        @endif
+      </td>
       <td><a href="#">
-        <button class="btn btn-primary editdata" style="background-color:#0da8ca;border-color:#0da8ca;" data-uid="<?php echo $value->cat_id;?>">Edit</button>
+        <button type="button" class="btn btn-primary editdata" style="background-color:#0da8ca;border-color:#0da8ca;" data-uid="<?php echo $value->cat_id;?>">Edit</button>
       </a></td>
       <td><a href="#">
-      <button class="btn btn-danger deleteButton" data-uid="<?php echo $value->cat_id;?>">Delete</button>
+      <button type="button" class="btn btn-danger deleteButton" data-uid="<?php echo $value->cat_id;?>">Delete</button>
       </a></td>
 </tr>
 <?php } ?>
                 </tbody>
                 
               </table>
+            </form>
             </div>
             <!-- /.card-body -->
           </div>
@@ -98,8 +112,8 @@
  <script type="text/javascript">
      $(document).ready(function () {
 
-      $('.deleteButton').click(function(){
-     
+      $('.deleteButton').click(function(e){
+      e.preventDefault();
      $product_id=$(this).attr('data-uid');
   
     $src = "{{url('admin/delete_category/')}}"+'/'+$product_id;
@@ -122,8 +136,8 @@
 
       });
 
-          $('.editdata').click(function(){
-          
+          $('.editdata').click(function(e){
+          e.preventDefault();
           $id=$(this).attr('data-uid');
           $src = "{{url('admin/editcategory/')}}"+'/'+$id;
             
@@ -146,6 +160,29 @@ confirmButtonText:'next',
 
           });
     });  
+
+    $('.update-feature-order').on('change', function() {
+        var catId = $(this).data('id');
+        var order = $(this).val();
+        
+        $.ajax({
+            url: "{{url('admin/update_feature_order')}}",
+            type: "POST",
+            data: {
+                _token: "{{ csrf_token() }}",
+                cat_id: catId,
+                feature_order: order
+            },
+            success: function(response) {
+                if(response.success) {
+                    swal.fire('Success', 'Order updated successfully', 'success');
+                } else {
+                    swal.fire('Error', 'Failed to update order', 'error');
+                }
+            }
+        });
+    });
+
   });
 
 
@@ -154,7 +191,16 @@ confirmButtonText:'next',
 <!-- page script -->
 <script>
   $(function () {
-    $("#example1").DataTable();
+    $("#selectAll").click(function(){
+      $("input[class=selectItem]").prop('checked', $(this).prop('checked'));
+    });
+
+    $("#example1").DataTable({
+        "stateSave": true,
+        "columnDefs": [
+            { "orderable": false, "targets": 0 }
+        ]
+    });
     $('#example2').DataTable({
       "paging": true,
       "lengthChange": false,

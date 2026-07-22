@@ -3721,7 +3721,7 @@ section + section {
                 <h1>{!! (isset($home_banner[0]) && !empty($home_banner[0]->heading_1)) ? $home_banner[0]->heading_1 : 'Premium <span class="highlight">Rigid Boxes</span><br>That Elevate Your Brand' !!}</h1>
                 <div class="home-hero-desc" style="margin-bottom: 24px;">{!! (isset($home_banner[0]) && !empty($home_banner[0]->description)) ? $home_banner[0]->description : '<p>We create custom rigid packaging solutions designed to protect your products while delivering a premium luxury experience. Our boxes combine durability with elegant, high-quality presentation to strengthen your brand identity and leave a lasting impression worldwide.</p>' !!}</div>
                 <div class="hero-buttons">
-                    <a href="{{ url('request-quote') }}/" class="btn btn-yellow" style="padding: 14px 36px; font-size: 16px; font-family: Inter, sans-serif; font-weight: 600; background-color: #FFC542; color: #000000; border: none; border-radius: 50px; display: inline-flex; justify-content: center; align-items: center; text-decoration: none;">Design Custom Boxes</a>
+                    <a href="{{ url('request-quote') }}/" class="btn btn-yellow" style="padding: 14px 36px; font-size: 16px; font-family: Inter, sans-serif; font-weight: 600; background-color: #FFC542; color: #000000; border: none; border-radius: 50px; display: inline-flex; justify-content: center; align-items: center; text-decoration: none;">Get Instant Quote</a>
 
                 </div>
             </div>
@@ -3739,7 +3739,7 @@ section + section {
 
                 <h2>Our Custom Packaging Boxes for Every Business Need</h2>
                 <p>PremiumBoxes offer a variety of Custom Packaging.
-                    Whether you belong to food industry, pharmaceutical, 
+                    Whether you belong to food industry, pharmaceutical,
                     cosmetic,<br/> gifting, apparel or jewelry, we have covered you.
                      Either you need quality or quantity; you have us on your back.
 </p>
@@ -3838,7 +3838,8 @@ section + section {
 
     <section class="why-home-section">
         <div class="container">
-            <h2 class="why-title">Why Choose PremiumBoxes for Custom Packaging?</h2>
+            <h2 class="why-title">Why PremiumBoxes for Custom Packaging?
+</h2>
 
             <div class="why-home-wrapper">
 
@@ -3846,37 +3847,44 @@ section + section {
 
                     <div class="why-box">
                         <i class="fas fa-user-tie"></i>
-                        <h4>Packaging Experts With Product-Specific Guidance</h4>
+                        <h4>Packaging Experts </h4>
                         <p>If you want to work with a professional manufacturer, then your first stop is Premium Packaging. With the help of experts who understand the market trends and new technologies, we guide our customers for best solutions.</p>
                     </div>
 
                     <div class="why-box">
                         <i class="fas fa-medal"></i>
-                        <h4>High-Quality Materials and Reliable Manufacturing</h4>
+                        <h4>High-Quality Materials
+</h4>
                         <p>Every business wants high-quality packaging for their products. Many manufacturers claim it so why us? We use high-quality materials and have transparent and reliable manufacturing process.</p>
                     </div>
 
                     <div class="why-box">
                         <i class="fas fa-shapes"></i>
-                        <h4>Custom Sizes, Shapes, Styles, and Finishes</h4>
+                        <h4>Customization
+</h4>
                         <p>You can get customization in size, shape, style, finishes and printing styles. We listen to our customers, validate their opinion and give them best suggestions for their benefits.</p>
                     </div>
 
                     <div class="why-box">
                         <i class="fas fa-palette"></i>
-                        <h4>Design Support From Concept to Final Box</h4>
+                        <h4>Design Support
+</h4>
                         <p>At PremiumBoxes, we have a design team. The team is specially created for our customers to understand their design requirements and help them to choose the best design.</p>
                     </div>
 
                     <div class="why-box">
                         <i class="fas fa-rocket"></i>
-                        <h4>Flexible Packaging Solutions for New Brands</h4>
-                        <p>At PremiumBoxes, we offer you flexible packaging solutions. You can get Premium Boxes that are cost efficient and in your budget.</p>
+                        <h4>Cost-efficient packaging
+
+</h4>
+                        <p>At PremiumBoxes, we offer you flexible packaging solutions. You can get Premium Boxes that are cost efficient and in your budget.
+</p>
                     </div>
 
                     <div class="why-box">
                         <i class="fas fa-boxes"></i>
-                        <h4>Custom Boxes with No Minimum Rule</h4>
+                        <h4>No Minimum Rule
+</h4>
                         <p>We have rule of “Custom Boxes with No Minimum” quantity. We won’t cost your arm and leg just to provide customized packaging boxes for your brand.</p>
                     </div>
 
@@ -4081,7 +4089,7 @@ section + section {
                             <div class="pg-step-item pg-accordion-item">
                                 <button class="pg-accordion-btn" style="align-items: flex-start;">
                                     <h3 class="pg-accordion-q" style="display: flex; align-items: flex-start; gap: 10px;">
-                                        <span style="color: var(--accent-gold); flex-shrink: 0;">{{ $loop->iteration }}.</span> 
+                                        <span style="color: var(--accent-gold); flex-shrink: 0;">{{ $loop->iteration }}.</span>
                                         <span style="line-height: 1.4;">{{ strip_tags($faq->question) }}</span>
                                     </h3>
                                     <span class="pg-accordion-icon" style="margin-top: 2px;">+</span>
