@@ -4201,7 +4201,7 @@ body .pg-left h6 * {
                         @endif
                     </p>
 
-                    <a href="{{ url('request-quote') }}/" class="btn btn-yellow">Design Custom Boxes</a>
+                    <a href="{{ url('request-quote') }}/" class="btn btn-yellow">Get Instant Quote</a>
                 </div>
 
                 <div class="industry-hero-right">
