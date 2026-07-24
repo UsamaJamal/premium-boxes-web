@@ -4456,5 +4456,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     // Fallback initialization
     setTimeout(initAccordion, 1000);
 })();
+</script>
 @include('web.footer')
 </body>

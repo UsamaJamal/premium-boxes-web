@@ -87,9 +87,9 @@ a { text-decoration: none; color: inherit; }
 .product-desc *, .product-desc p, .product-desc span, .product-desc li, .product-desc strong, .product-desc b { color: rgba(255,255,255,0.85) !important; }
 .product-desc a { color: #f5c542 !important; text-decoration: underline !important; }
 .product-desc a:hover { color: #ffffff !important; text-decoration: none !important; }
-.product-desc ul { list-style-type: disc !important; padding-left: 30px !important; margin-bottom: 10px !important; }
-.product-desc ol { list-style-type: decimal !important; padding-left: 30px !important; margin-bottom: 10px !important; }
-.product-desc li { display: list-item !important; list-style-position: inside !important; margin-bottom: 5px !important; }
+.product-desc ul { list-style-type: disc !important; list-style-position: outside !important; margin-left: 30px !important; padding-left: 10px !important; margin-bottom: 10px !important; }
+.product-desc ol { list-style-type: decimal !important; list-style-position: outside !important; margin-left: 30px !important; padding-left: 10px !important; margin-bottom: 10px !important; }
+.product-desc li { display: list-item !important; margin-bottom: 5px !important; }
 .product-read-more { color: var(--product-gold) !important; font-weight: 600; text-decoration: none; }
 
 /* Quote Box */
