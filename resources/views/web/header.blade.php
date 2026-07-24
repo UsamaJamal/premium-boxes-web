@@ -788,7 +788,7 @@ input:-webkit-autofill:active {
 
             <!-- Dynamic Parent Categories -->
             @php
-            $hardcodedParents = ['Box by Industry', 'Box by Material', 'Box by Style', 'Promotional Products', 'Promotional Product'];
+            $hardcodedParents = ['Box by Industry', 'Box by Material', 'Box by Style'];
             $otherParents = \DB::table('add_category')
                 ->where(function($q) {
                     $q->where('parent_category', 0)->orWhere('parent_category', -1);
