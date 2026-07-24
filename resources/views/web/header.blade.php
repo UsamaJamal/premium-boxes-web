@@ -68,11 +68,14 @@
     @if(isset($product) && count($product) > 0 && isset($product[0]->schema) && !empty($product[0]->schema))
     {!! $product[0]->schema !!}
     @endif
+    @if(isset($schema))
+    {!! $schema !!}
+    @endif
 
     <!--  -->
     
 <style>
-/* Fix for CKEditor links in dynamic content areas */
+
 .product-desc a, .product-info-text a, .pg-left a, .cp-why-para a, .bp-article a, .faq-answer a, .home-hero-desc a, .terms-content a, .privacy-content a, .cp-desc a, .guide-content a {
     color: #f5c542 !important;
     text-decoration: underline !important;
@@ -85,7 +88,7 @@
     text-decoration: none !important;
 }
 
-/* Global fix for CKEditor lists in all dynamic content areas */
+
 .product-desc ul, .product-info-text ul, .pg-left ul, .cp-why-para ul, .bp-article ul, .faq-answer ul, .home-hero-desc ul, .terms-content ul, .privacy-content ul, .cp-desc ul, .guide-content ul {
     list-style-type: none !important;
     padding-left: 15px !important;

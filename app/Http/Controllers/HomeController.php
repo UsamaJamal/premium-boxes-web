@@ -99,6 +99,158 @@ return response()->view('web/404',$data,404);
     }
     $data['home_blogs'] = $home_blogs;
 
+    $data['schema'] = <<<'SCHEMA'
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "LocalBusiness",
+"@id": "https://www.premiumboxes.com/",
+"name": "Premium Boxes",
+"description": "Premium Boxes provides custom packaging solutions including cosmetic boxes, retail boxes, and shipping packaging tailored to your brand needs. We offer premium printing, durable materials, and fully customizable designs at wholesale prices with fast turnaround and reliable delivery services worldwide.",
+"url": "https://www.premiumboxes.com/",
+"logo": "https://www.premiumboxes.com/uploads/Premium-boxes-logo.svg",
+"image": "https://www.premiumboxes.com/images/1782819534.hero-banner.webp",
+"telephone": "+1(886)-472-5540",
+"email": "support@premiumboxes.com",
+"address": {
+"@type": "PostalAddress",
+"streetAddress": "9931 Franklin Ave, Suite 1-A",
+"addressLocality": "Franklin Park",
+"addressRegion": "IL",
+"postalCode": "60131",
+"addressCountry": "US"
+},
+"geo": {
+"@type": "GeoCoordinates",
+"latitude": 41.9339,
+"Longitude": -87.8656
+},
+"sameAs": [
+"https://www.facebook.com/premiumboxesusa",
+"https://x.com/PremiumBoxesUSA",
+"https://www.instagram.com/premiumboxes.usa/"
+],
+"openingHours": [
+"Mo-Fr 09:00-18:00"
+],
+"paymentAccepted": "Credit Card, PayPal, Bank Transfer",
+"priceRange": "$$$",
+"serviceArea": {
+"@type": "AdministrativeArea",
+"name": "United States"
+},
+"department": {
+"@type": "Organization",
+"name": "Customer Support",
+"contactPoint": {
+"@type": "ContactPoint",
+"telephone": "+1(886)-472-5540",
+"email": "support@premiumboxes.com",
+"contactType": "Customer Service",
+"areaServed": "US",
+"availableLanguage": "English"
+}
+},
+"aggregateRating": {
+"@type": "AggregateRating",
+"ratingValue": "5",
+"reviewCount": "1500"
+},
+"review": {
+"@type": "Review",
+"author": {
+"@type": "Person",
+"name": "Michael R"
+},
+"reviewRating": {
+"@type": "Rating",
+"ratingValue": "5"
+},
+"datePublished": "2025-06-20",
+"reviewBody": "I’m extremely satisfied with the custom packaging I received from Premium Boxes. The print quality, material, and finishing were outstanding. Their team was responsive, professional, and ensured everything matched my brand perfectly. Highly recommended for anyone looking for premium custom packaging solutions!",
+"name": "Outstanding Custom Packaging Experience"
+}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "1. What are custom boxes?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Custom boxes are packaging boxes that comes with customization according to business requirements. Packagingboxes offers you a variety of customization features for packaging boxes."
+    }
+  },{
+    "@type": "Question",
+    "name": "2. Can I order custom boxes with logo?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, to get Custom boxes with Logo contact us. Premium Boxes offers you reliable and high-quality custom boxes with logo."
+    }
+  },{
+    "@type": "Question",
+    "name": "3. What materials are used for custom packaging boxes?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "We use different materials for packaging boxes. It solely depends on customers and their products. They can choose from the wide range of high-quality materials. We offer you Rigid boxes, Corrugated boxes, Paperboard boxes, Kraft boxes and Cardboard boxes."
+    }
+  },{
+    "@type": "Question",
+    "name": "4. Do you offer custom sizes and shapes?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, we offer customized size and shape of packaging boxes. Businesses can get boxes that are according to their product type and size. We manufacture custom boxes of different styles such as Mailer boxes, Windows boxes, Display boxes, pillow boxes and many other options."
+    }
+  },{
+    "@type": "Question",
+    "name": "5. Can I get custom printed boxes for my business?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "PremiumBoxes is an authentic and reliable manufacturer of custom printed boxes. Here we use modern printing technologies for vibrant and colorful results."
+    }
+  },{
+    "@type": "Question",
+    "name": "6. Are eco-friendly custom boxes available?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Customers nowadays opt for eco-friendly packaging because of the environmental changes. PremiumBoxes understands it and offers you customized boxes made from eco-friendly material such as Kraft boxes."
+    }
+  },{
+    "@type": "Question",
+    "name": "7. How do I get a quote for custom packaging?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Contact us or reach out to our team to get a free quote for custom packaging. You can reach to our team by mailing us at support@premiumboxes.com."
+    }
+  },{
+    "@type": "Question",
+    "name": "8. What payment methods do you offer?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "PremiumBoxes believes in offering legal and authentic services. Hence, our payment methods are completely legal and protected. You can pay us through PayPal, credit card, debit card, bank transfer, and invoice payments."
+    }
+  },{
+    "@type": "Question",
+    "name": "9. Can I get a sample of my custom boxes before placing a large order?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, absolutely; you can get a sample before placing a large quantity. All you have to do is reach out to our team and share your requirements. We’ll definitely send you a sample before the actual order."
+    }
+  },{
+    "@type": "Question",
+    "name": "10. Will I see my box design before it's made?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "PremiumBoxes doesn’t process further until the client is satisfied with the design. It is our policy that we don't proceed further. After finalizing the design, our team will contact you to approve it. If you want any changes, the team will work on it. After the final draft, we move to the manufacturing process."
+    }
+  }]
+}
+</script>
+SCHEMA;
+
     return view ('web/home/index',$data);
 }
 public function RequestQuote() {

@@ -4074,7 +4074,7 @@ section + section {
                         .pg-accordion-body *:first-child {
                             margin-top: 0 !important;
                         }
-                        /* Hide empty tags that CKEditor might generate */
+                       
                         .pg-accordion-body p:empty {
                             display: none !important;
                         }
@@ -4456,7 +4456,5 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     // Fallback initialization
     setTimeout(initAccordion, 1000);
 })();
-</script>
-
 @include('web.footer')
 </body>
