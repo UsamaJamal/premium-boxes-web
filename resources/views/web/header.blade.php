@@ -785,54 +785,7 @@ input:-webkit-autofill:active {
                 </div>
             </div>
 
-                                                <!-- Promotional Products with Mega Menu -->
-            @php
-                $parentCatPromo = \DB::table('add_category')->where('name', 'Promotional Product')->first();
-                $promoSubcats = [];
-                if (false) { // Disabled for now 
-}
-@endphp
-            <div class="nav-group">
-                <a style="cursor: pointer; display: flex; align-items: center; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; padding: 0 10px;">Promotional Products</a>
-                
-                @if(count($promoSubcats) > 0)
-                <div class="mega-menu-content">
-                    <div style="padding: 14px 40px 16px;">
-                        <div style="display: flex; gap: 40px;">
-                            <div style="flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px 20px; align-content: start;">
-                                @foreach($promoSubcats as $subcat)
-                                <a href="{{ url($subcat->category_url) }}/" style="display: flex; align-items: center; gap: 10px; color: #cccccc; text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#cccccc'">
-                                    @if(!empty($subcat->icon))
-                                        <img src="{{ asset('images/' . $subcat->icon) }}" style="width: 32px; height: 32px; object-fit: contain; filter: brightness(0) saturate(100%) invert(86%) sepia(30%) saturate(1376%) hue-rotate(335deg) brightness(101%) contrast(93%);" alt="{{ strtolower(str_replace('-', ' ', $subcat->name . ' icon')) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $subcat->name . ' icon'))) }}">
-                                    @else
-                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M10 2.5L11.5 7.5L16.5 9L11.5 10.5L10 15.5L8.5 10.5L3.5 9L8.5 7.5L10 2.5Z"></path>
-                                            <path d="M19 14.5L19.5 16.5L21.5 17L19.5 17.5L19 19.5L18.5 17.5L16.5 17L18.5 16.5L19 14.5Z"></path>
-                                            <path d="M19 3.5L19.5 5.5L21.5 6L19.5 6.5L19 8.5L18.5 6.5L16.5 6L18.5 5.5L19 3.5Z"></path>
-                                        </svg>
-                                    @endif
-                                    {{ $subcat->name }}
-                                </a>
-                                @endforeach
-                            </div>
-                        </div>
-                        <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #333; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M3 18v-6a9 9 0 0118 0v6"></path>
-                                    <path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"></path>
-                                </svg>
-                                <div>
-                                    <span style="font-weight: 600; color: #ffffff; margin-right: 8px;">Need a custom packaging solution?</span>
-                                    <span style="color: #aaaaaa; font-size: 13px;">Get your custom packaging plan within 24 hours.</span>
-                                </div>
-                            </div>
-                            <a href="/contact-us/" style="background-color: #f5c542; color: #111; font-weight: 700; padding: 10px 28px; border-radius: 50px; text-decoration: none; font-size: 14px; transition: background 0.2s; white-space: nowrap; flex-shrink: 0;">Talk to us</a>
-                        </div>
-                    </div>
-                </div>
-                @endif
-            </div>
+
             <!-- Dynamic Parent Categories -->
             @php
             $hardcodedParents = ['Box by Industry', 'Box by Material', 'Box by Style', 'Promotional Products', 'Promotional Product'];
@@ -1001,29 +954,7 @@ input:-webkit-autofill:active {
             </div>
         </div>
 
-                        @php
-        $parentCatPromoMobile = \DB::table('add_category')->where('name', 'Promotional Product')->first();
-        $promoSidebar = [];
-        if (false) { // Disabled for now 
-}
-@endphp
-        
-        <div class="mobile-nav-group">
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #333333; cursor: pointer;" @if(count($promoSidebar) > 0) onclick="toggleMobileSubmenu(this)" @endif>
-                <span style="color: #cccccc; font-size: 16px;">Promotional Products</span>
-                @if(count($promoSidebar) > 0)
-                <svg class="chevron-icon" width="16" height="16" fill="none" stroke="#cccccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                @endif
-            </div>
-            
-            @if(count($promoSidebar) > 0)
-            <div class="mobile-submenu" style="display: none; padding-left: 15px; padding-top: 10px; padding-bottom: 10px; border-bottom: 1px solid #333333; background-color: #1a1a1a;">
-                @foreach($promoSidebar as $promo)
-                    <a href="{{ url($promo->category_url) }}/" style="display: block; color: #cccccc; text-decoration: none; font-size: 14px; padding: 8px 0;">{{ $promo->name }}</a>
-                @endforeach
-            </div>
-            @endif
-        </div>
+
 
         <a href="{{ url('our-blog') }}/" style="display: block; color: #cccccc; text-decoration: none; font-size: 16px; padding: 15px 0; border-bottom: 1px solid #333333;">Blogs</a>
 
