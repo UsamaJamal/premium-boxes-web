@@ -19,7 +19,7 @@ foreach ($dynamic as $bb) {?>
 </url>
 <?php }?> 
 
-<?php $add_category=DB::table('add_category')->get();
+<?php $add_category=DB::table('add_category')->whereNotIn('name', ['Box by Material', 'Box by Style', 'Box by Industry'])->get();
 foreach ($add_category as $bb) {?>
 
 <url>

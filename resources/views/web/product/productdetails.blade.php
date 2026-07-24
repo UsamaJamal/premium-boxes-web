@@ -85,6 +85,8 @@ a { text-decoration: none; color: inherit; }
 .product-status-badge { color: var(--product-gold); font-size: 17.5px; font-weight: 600; margin-top: 12px; }
 .product-desc { font-size: 17.5px; line-height: 1.6; color: rgba(255,255,255,0.85) !important; margin-bottom: 20px; }
 .product-desc *, .product-desc p, .product-desc span, .product-desc li, .product-desc strong, .product-desc b { color: rgba(255,255,255,0.85) !important; }
+.product-desc a { color: #f5c542 !important; text-decoration: underline !important; }
+.product-desc a:hover { color: #ffffff !important; text-decoration: none !important; }
 .product-desc ul { list-style-type: disc !important; padding-left: 30px !important; margin-bottom: 10px !important; }
 .product-desc ol { list-style-type: decimal !important; padding-left: 30px !important; margin-bottom: 10px !important; }
 .product-desc li { display: list-item !important; list-style-position: inside !important; margin-bottom: 5px !important; }
@@ -173,6 +175,8 @@ a { text-decoration: none; color: inherit; }
 .product-info-heading { font-size: 30px; font-weight: 700; margin-bottom: 25px; }
 .product-info-text { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.85) !important; margin-bottom: 37.5px; font-family: inherit; }
 .product-info-text * { color: rgba(255,255,255,0.85) !important; }
+.product-info-text a { color: #f5c542 !important; text-decoration: underline !important; }
+.product-info-text a:hover { color: #ffffff !important; text-decoration: none !important; }
 .product-info-text p { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.85) !important; margin-bottom: 18px; }
 .product-info-text strong, .product-info-text b, .product-info-text strong * { font-weight: 700; color: #fff !important; }
 .product-info-text h1, .product-info-text h2, .product-info-text h3, .product-info-text h4, .product-info-text h1 *, .product-info-text h2 *, .product-info-text h3 *, .product-info-text h4 * { color: #ffffff !important; margin-bottom: 14px; margin-top: 24px; }
@@ -974,16 +978,40 @@ a { text-decoration: none; color: inherit; }
 
             <!-- Specifications Tab -->
             <div class="product-tab-content" id="tab-specs" style="display:none">
-                @if(isset($dimension) && count($dimension) > 0)
                 <div class="product-specs-table">
-                    @foreach($dimension as $dim)
-                    <div class="spec-label">{{ $dim->title }}</div>
-                    <div class="spec-value">{{ $dim->specification }}</div>
-                    @endforeach
+                    <div class="spec-label">Box Style</div>
+                    <div class="spec-value">{{ $product[0]->title ?? 'Custom Box' }}</div>
+
+                    <div class="spec-label">Dimension (L + W + H)</div>
+                    <div class="spec-value">All Custom Sizes & Shapes</div>
+                    
+                    <div class="spec-label">Quantities</div>
+                    <div class="spec-value">Low Minimum Order Required</div>
+                    
+                    <div class="spec-label">Stock</div>
+                    <div class="spec-value">10pt to 28pt (60lb to 400lb) Eco-Friendly Kraft, E-flute Corrugated, Bux Board, Cardstock</div>
+                    
+                    <div class="spec-label">Printing</div>
+                    <div class="spec-value">No Printing, CMYK, CMYK + 1 PMS color, CMYK + 2 PMS colors</div>
+                    
+                    <div class="spec-label">Finishing</div>
+                    <div class="spec-value">Gloss Lamination, Matte Lamination, Gloss AQ, Gloss UV, Matte UV, Spot UV, Embossing, Foiling</div>
+                    
+                    <div class="spec-label">Included Options</div>
+                    <div class="spec-value">Die Cutting, Gluing, Scoring, Perforation</div>
+                    
+                    <div class="spec-label">Additional Options</div>
+                    <div class="spec-value">Eco-Friendly, Recycled Boxes, Biodegradable</div>
+                    
+                    <div class="spec-label">Proof</div>
+                    <div class="spec-value">Flat View, 3D Mock-up, Physical Sampling (On request)</div>
+                    
+                    <div class="spec-label">Turnaround</div>
+                    <div class="spec-value">4 - 6 Business Days, RUSH</div>
+                    
+                    <div class="spec-label">Shipping</div>
+                    <div class="spec-value">FREE</div>
                 </div>
-                @else
-                <p style="color:rgba(255,255,255,0.5)">No specifications available.</p>
-                @endif
             </div>
 
             @if(isset($product_faqs) && count($product_faqs) > 0)
@@ -1032,7 +1060,7 @@ a { text-decoration: none; color: inherit; }
                             </svg>
                         </div>
                         <span class="op-title">Ship & Arrive</span>
-                        <p class="op-desc">Your order ships with full tracking and quality documentation. Custom orders take approximately 15 days production, plus shipping.</p>
+                        <p class="op-desc">Your order ships with full tracking and quality documentation. Custom orders take approximately 4-6 days production, plus rush shipping.</p>
                     </div>
                 </div>
             </div>

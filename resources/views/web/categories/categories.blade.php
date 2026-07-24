@@ -437,7 +437,7 @@ img {
 .hiw-step {
     position: relative;
     padding-top: 120px; /* space for ghost number to peek behind */
-    padding-bottom: 60px; /* prevent text spilling out */
+    padding-bottom: 85px; /* prevent text spilling out, increased slightly */
 }
 
 /* Ghost number rendered as ::before — top-left, huge, very faint */
@@ -1291,12 +1291,7 @@ img {
 
     /* Get a Quote button — below image */
     .cp-why-quote-btn {
-        display: inline-flex !important;
-        width: fit-content;
-        margin-left: 0;
-        font-size: 15px;
-        padding: 14px 36px;
-        border-radius: 50px;
+        display: none !important;
     }
 }
 
@@ -4158,7 +4153,7 @@ body .pg-left h6 * {
         top: -15px;
     }
     .hiw-step-body {
-        top: 50px !important;
+        top: 30px !important;
     }
 }
 
@@ -4294,7 +4289,7 @@ body .pg-left h6 * {
                         <?php $whyImgPath = file_exists(public_path('uploads/'.$value[0]->why_choose_img)) ? asset('uploads/'.$value[0]->why_choose_img) : asset('images/'.$value[0]->why_choose_img); ?>
                         <img src="{{ $whyImgPath }}" alt="{{ strtolower(str_replace('-', ' ', $value[0]->why_choose_title)) }}" class="cp-why-photo" title="{{ ucwords(strtolower(str_replace('-', ' ', $value[0]->why_choose_title))) }}">
                     @else
-                        <img src="{{ asset('assets/images/default.jpg') }}" alt="why choose" title="Why Choose" class="cp-why-photo">
+                        <img src="{{ asset('assets/images/default.jpg') }}" alt="why choose" title="Why Choose" class="cp-why-photo" onerror="this.style.display='none'">
                     @endif
                 </div>
                 <a href="{{ url('request-quote') }}/" class="cp-cta cp-why-quote-btn">Get a Quote</a>
@@ -4335,7 +4330,7 @@ body .pg-left h6 * {
             <div class="hiw-step" data-num="3">
                 <div class="hiw-step-body">
                     <span class="hiw-step-title">Approve & Get It Delivered</span>
-                    <p class="hiw-step-text">As you approve the sample, we start working on the production. <strong>Within 8-10 business days, you will get your order.</strong></p>
+                    <p class="hiw-step-text">As you approve the sample, we start working on the production. <strong>Within 4-6 business days, you will get your order.</strong></p>
                 </div>
             </div>
 

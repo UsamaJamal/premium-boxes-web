@@ -74,7 +74,7 @@
 
 
 @include('adminlte/footer')
- <script src="node_modules/@coreui/coreui/dist/js/coreui.bundle.min.js"></script>
+ <script src="{{ asset('node_modules/@coreui/coreui/dist/js/coreui.bundle.min.js') }}"></script>
     <!--[if IE]><!-->
-    <script src="node_modules/@coreui/icons/js/svgxuse.min.js"></script>
+    <script src="{{ asset('node_modules/@coreui/icons/js/svgxuse.min.js') }}"></script>
     <!--<![endif]-->

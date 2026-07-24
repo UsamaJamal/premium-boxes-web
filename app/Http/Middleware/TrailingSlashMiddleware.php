@@ -19,7 +19,7 @@ class TrailingSlashMiddleware
             $path = $request->getPathInfo();
             
             // Exclude root and specific files
-            if ($path !== '/' && !preg_match('/\.(xml|txt|png|jpg|jpeg|gif|css|js|svg|webp|ico)$/i', $path)) {
+            if ($path !== '/' && !preg_match('/\.(xml|txt|png|jpg|jpeg|gif|css|js|svg|webp|ico|php)$/i', $path)) {
                 
                 // If it DOES NOT have a trailing slash, redirect to the trailing slash version
                 if (!str_ends_with($path, '/')) {

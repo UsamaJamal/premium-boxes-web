@@ -72,27 +72,40 @@
     <!--  -->
     
 <style>
+/* Fix for CKEditor links in dynamic content areas */
+.product-desc a, .product-info-text a, .pg-left a, .cp-why-para a, .bp-article a, .faq-answer a, .home-hero-desc a, .terms-content a, .privacy-content a, .cp-desc a, .guide-content a {
+    color: #f5c542 !important;
+    text-decoration: underline !important;
+    cursor: pointer !important;
+    position: relative;
+    z-index: 10;
+}
+.product-desc a:hover, .product-info-text a:hover, .pg-left a:hover, .cp-why-para a:hover, .bp-article a:hover, .faq-answer a:hover, .home-hero-desc a:hover, .terms-content a:hover, .privacy-content a:hover, .cp-desc a:hover, .guide-content a:hover {
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
 /* Global fix for CKEditor lists in all dynamic content areas */
-.product-desc ul, .product-info-text ul, .pg-left ul, .cp-why-para ul, .bp-article ul, .faq-answer ul, .home-hero-desc ul, .terms-content ul, .privacy-content ul {
+.product-desc ul, .product-info-text ul, .pg-left ul, .cp-why-para ul, .bp-article ul, .faq-answer ul, .home-hero-desc ul, .terms-content ul, .privacy-content ul, .cp-desc ul, .guide-content ul {
     list-style-type: none !important;
     padding-left: 15px !important;
     margin-bottom: 15px !important;
 }
 
-.product-desc ol, .product-info-text ol, .pg-left ol, .cp-why-para ol, .bp-article ol, .faq-answer ol, .home-hero-desc ol, .terms-content ol, .privacy-content ol {
+.product-desc ol, .product-info-text ol, .pg-left ol, .cp-why-para ol, .bp-article ol, .faq-answer ol, .home-hero-desc ol, .terms-content ol, .privacy-content ol, .cp-desc ol, .guide-content ol {
     list-style-type: decimal !important;
     padding-left: 30px !important;
     margin-bottom: 15px !important;
 }
 
-.product-desc ul > li, .product-info-text ul > li, .pg-left ul > li, .cp-why-para ul > li, .bp-article ul > li, .faq-answer ul > li, .home-hero-desc ul > li, .terms-content ul > li, .privacy-content ul > li {
+.product-desc ul > li, .product-info-text ul > li, .pg-left ul > li, .cp-why-para ul > li, .bp-article ul > li, .faq-answer ul > li, .home-hero-desc ul > li, .terms-content ul > li, .privacy-content ul > li, .cp-desc ul > li, .guide-content ul > li {
     position: relative !important;
     display: block !important;
     padding-left: 15px !important;
     margin-bottom: 8px !important;
 }
 
-.product-desc ul > li::before, .product-info-text ul > li::before, .pg-left ul > li::before, .cp-why-para ul > li::before, .bp-article ul > li::before, .faq-answer ul > li::before, .home-hero-desc ul > li::before, .terms-content ul > li::before, .privacy-content ul > li::before {
+.product-desc ul > li::before, .product-info-text ul > li::before, .pg-left ul > li::before, .cp-why-para ul > li::before, .bp-article ul > li::before, .faq-answer ul > li::before, .home-hero-desc ul > li::before, .terms-content ul > li::before, .privacy-content ul > li::before, .cp-desc ul > li::before, .guide-content ul > li::before {
     content: "•" !important;
     position: absolute !important;
     left: 0 !important;
@@ -102,7 +115,7 @@
     line-height: 1.4 !important;
 }
 
-.product-desc ol > li, .product-info-text ol > li, .pg-left ol > li, .cp-why-para ol > li, .bp-article ol > li, .faq-answer ol > li, .home-hero-desc ol > li, .terms-content ol > li, .privacy-content ol > li {
+.product-desc ol > li, .product-info-text ol > li, .pg-left ol > li, .cp-why-para ol > li, .bp-article ol > li, .faq-answer ol > li, .home-hero-desc ol > li, .terms-content ol > li, .privacy-content ol > li, .cp-desc ol > li, .guide-content ol > li {
     display: list-item !important;
     list-style-position: inside !important;
     margin-bottom: 8px !important;
@@ -675,7 +688,7 @@ input:-webkit-autofill:active {
                                 @foreach($industries as $industry)
                                 <a href="{{ url($industry->category_url) }}/" style="display: flex; align-items: center; gap: 10px; color: #cccccc; text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#cccccc'">
                                     @if(!empty($industry->icon))
-                                        <img src="{{ asset('images/' . $industry->icon) }}" style="width: 32px; height: 32px; object-fit: contain; filter: brightness(0) saturate(100%) invert(86%) sepia(30%) saturate(1376%) hue-rotate(335deg) brightness(101%) contrast(93%);" alt="{{ strtolower(str_replace('-', ' ', $industry->name . ' icon')) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $industry->name . ' icon'))) }}">
+                                        <img src="{{ asset('images/' . $industry->icon) }}" style="width: 25px; height: 25px; object-fit: contain; filter: brightness(0) saturate(100%) invert(86%) sepia(30%) saturate(1376%) hue-rotate(335deg) brightness(101%) contrast(93%);" alt="{{ strtolower(str_replace('-', ' ', $industry->name . ' icon')) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $industry->name . ' icon'))) }}">
                                     @else
                                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <path d="M10 2.5L11.5 7.5L16.5 9L11.5 10.5L10 15.5L8.5 10.5L3.5 9L8.5 7.5L10 2.5Z"></path>
@@ -742,7 +755,7 @@ input:-webkit-autofill:active {
                                 @foreach($styles as $style)
                                 <a href="{{ url($style->category_url) }}/" style="display: flex; align-items: center; gap: 10px; color: #cccccc; text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#cccccc'">
                                     @if(!empty($style->icon))
-                                        <img src="{{ asset('images/' . $style->icon) }}" style="width: 32px; height: 32px; object-fit: contain; filter: brightness(0) saturate(100%) invert(86%) sepia(30%) saturate(1376%) hue-rotate(335deg) brightness(101%) contrast(93%);" alt="{{ strtolower(str_replace('-', ' ', $style->name . ' icon')) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $style->name . ' icon'))) }}">
+                                        <img src="{{ asset('images/' . $style->icon) }}" style="width: 25px; height: 25px; object-fit: contain; filter: brightness(0) saturate(100%) invert(86%) sepia(30%) saturate(1376%) hue-rotate(335deg) brightness(101%) contrast(93%);" alt="{{ strtolower(str_replace('-', ' ', $style->name . ' icon')) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $style->name . ' icon'))) }}">
                                     @else
                                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <path d="M10 2.5L11.5 7.5L16.5 9L11.5 10.5L10 15.5L8.5 10.5L3.5 9L8.5 7.5L10 2.5Z"></path>

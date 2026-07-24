@@ -4025,6 +4025,14 @@ section + section {
                         .guide-col-one.guide-content * {
                             color: #ffffff !important;
                         }
+                        .guide-col-one.guide-content a {
+                            color: #f5c542 !important;
+                            text-decoration: underline !important;
+                        }
+                        .guide-col-one.guide-content a:hover {
+                            color: #ffffff !important;
+                            text-decoration: none !important;
+                        }
                         .guide-col-one.guide-content h1 { font-size: 2.2rem !important; margin-bottom: 15px !important; font-weight: 700; line-height: 1.3; text-align: left !important; }
                         .guide-col-one.guide-content h2 { font-size: 1.8rem !important; margin-bottom: 15px !important; font-weight: 700; line-height: 1.4; text-align: left !important; }
                         .guide-col-one.guide-content h3 { font-size: 1.5rem !important; margin-bottom: 12px !important; font-weight: 600; line-height: 1.4; text-align: left !important; }
