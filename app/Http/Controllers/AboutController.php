@@ -123,11 +123,7 @@ public function SitemapHTML() {
     
     // Fetch data for sitemap
     $data['dynamic_pages'] = DB::table('dynamic')->where('status',1)->get();
-    $data['top_categories'] = DB::table('add_category')
-        ->where('parent_category',0)
-        ->where('status',1)
-        ->whereNotIn('name', ['Box by Material', 'Box by Style', 'Box by Industry'])
-        ->get();
+    $data['top_categories'] = DB::table('add_category')->where('parent_category',0)->where('status',1)->get();
     
     // We will group subcategories by their parent_category
     $sub_cats = DB::table('add_category')->where('parent_category','!=',0)->where('status',1)->get();

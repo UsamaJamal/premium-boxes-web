@@ -116,8 +116,7 @@ body {
         <div class="sitemap-grid-1">
             <ul class="sitemap-list">
                 <li><a href="{{ url('/') }}/">Home</a></li>
-                <li><a href="{{ url('/about-us') }}/">About Us</a></li>
-                <li><a href="{{ url('/contact-us') }}/">Contact Us</a></li>
+
                 @foreach($dynamic_pages as $page)
                     <li><a href="{{ url($page->page_url) }}/">{{ $page->page_title }}</a></li>
                 @endforeach
@@ -134,7 +133,9 @@ body {
             @if(isset($grouped_sub_cats[$top_cat->cat_id]))
                 @foreach($grouped_sub_cats[$top_cat->cat_id] as $sub_cat)
                     <div>
-                        <h3 class="sitemap-sub-title">{{ $sub_cat->name }}</h3>
+                        <h3 class="sitemap-sub-title">
+                            <a href="{{ url($sub_cat->category_url) }}/" style="color: inherit; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='inherit'">{{ $sub_cat->name }}</a>
+                        </h3>
                         @if(isset($grouped_prods[$sub_cat->cat_id]))
                             <ul class="sitemap-list">
                                 @foreach($grouped_prods[$sub_cat->cat_id] as $prod)
