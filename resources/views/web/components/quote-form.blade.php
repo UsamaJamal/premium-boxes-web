@@ -7,6 +7,16 @@
   font-family: var(--font-body), sans-serif;
 }
 
+/* Hide number input spinners */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .quote-container {
   width: 100%;
   max-width: 1239px;
