@@ -55,10 +55,16 @@ body {
 .dynamic-content-wrapper h1,
 .dynamic-content-wrapper h2,
 .dynamic-content-wrapper h3,
+.dynamic-content-wrapper h4,
+.dynamic-content-wrapper h5,
+.dynamic-content-wrapper h6,
 .dynamic-content-wrapper h1 span,
 .dynamic-content-wrapper h2 span,
-.dynamic-content-wrapper h3 span {
-    color: #f5c542 !important;
+.dynamic-content-wrapper h3 span,
+.dynamic-content-wrapper h4 span,
+.dynamic-content-wrapper h5 span,
+.dynamic-content-wrapper h6 span {
+    color: #ffffff !important;
     margin-top: 40px;
     margin-bottom: 20px;
     font-family: "Outfit", sans-serif;
@@ -66,8 +72,7 @@ body {
 
 .dynamic-content-wrapper p,
 .dynamic-content-wrapper span,
-.dynamic-content-wrapper div,
-.dynamic-content-wrapper li {
+.dynamic-content-wrapper div {
     color: #c5c5c5 !important;
     margin-bottom: 20px;
     font-size: 16px;
@@ -80,7 +85,7 @@ body {
 </style>
 
 @php
-    $noBannerPages = ['privacy-policy', 'term-and-services', 'return-policy'];
+    $noBannerPages = ['privacy-policy', 'term-and-services', 'return-policy', 'delivery-information'];
     $isNoBanner = in_array($meta['0']->page_url ?? '', $noBannerPages);
 @endphp
 

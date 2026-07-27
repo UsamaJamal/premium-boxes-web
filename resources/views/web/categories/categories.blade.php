@@ -4191,8 +4191,6 @@ body .pg-left h6 * {
                             {!! $value[0]->hero_desc !!}
                         @elseif(!empty($value[0]->description))
                             {{ Str::limit(strip_tags($value[0]->description), 300) }}
-                        @else
-                            Tailor-made packaging solutions designed to reflect the unique demands of your industry. From opulent jewellery boxes and luxury retail packaging to sleek tech solutions, we combine premium craftsmanship, functionality, and attention to detail to elevate your brand and create a memorable unboxing experience.
                         @endif
                     </p>
 
@@ -4605,20 +4603,6 @@ body .pg-left h6 * {
                 <div class="category-ckeditor-content">
                     {!! $value[0]->description !!}
                 </div>
-            @else
-                <span class="pg-badge">PACKAGING GUIDE</span>
-                <h2 class="pg-title">Everything you need to know about custom boxes</h2>
-                <p class="pg-text">Custom packaging is one of the most powerful tools a brand can use to create a lasting impression. Research shows that 72% of consumers say that packaging design influences their purchase decision, and 40% share photos of exciting unboxing experiences on social media.</p>
-                <p class="pg-text">At KayPackaging, we believe every business — no matter the size — deserves packaging that reflects the quality of what's inside. Whether you're a solo founder shipping your first 10 orders or a growing brand sending thousands of packages per week, our custom box solutions are built to scale with you.</p>
-
-                <h3 class="pg-subtitle">What to consider when choosing custom packaging:</h3>
-                <ul class="pg-list">
-                    <li><strong>Box style</strong> — mailer, rigid, folding carton, or corrugated shipping box depending on product type and fragility</li>
-                    <li><strong>Size</strong> — always measure your product first, then add 1–2cm clearance on each side for a snug fit</li>
-                    <li><strong>Material</strong> — E-flute corrugated for mailers, SBS paperboard for cosmetics, kraft for eco-friendly positioning</li>
-                    <li><strong>Finish</strong> — matte gives a premium feel, gloss increases vibrancy, soft touch adds texture, foil elevates luxury perception</li>
-                    <li><strong>Quantity</strong> — higher quantities dramatically reduce per-unit cost; order samples first to validate quality</li>
-                </ul>
             @endif
         </div>
 

@@ -43,8 +43,17 @@ body {
 
 .policy-content-wrapper h1,
 .policy-content-wrapper h2,
-.policy-content-wrapper h3 {
-    color: #f5c542;
+.policy-content-wrapper h3,
+.policy-content-wrapper h4,
+.policy-content-wrapper h5,
+.policy-content-wrapper h6,
+.policy-content-wrapper h1 span,
+.policy-content-wrapper h2 span,
+.policy-content-wrapper h3 span,
+.policy-content-wrapper h4 span,
+.policy-content-wrapper h5 span,
+.policy-content-wrapper h6 span {
+    color: #ffffff !important;
     margin-top: 40px;
     margin-bottom: 20px;
     font-family: "Outfit", sans-serif;

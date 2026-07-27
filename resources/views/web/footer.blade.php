@@ -532,6 +532,7 @@
                     <li><a href="{{ url('return-policy') }}/">Return Policy</a></li>
                     <li><a href="{{ url('privacy-policy') }}/">Privacy Policy</a></li>
                     <li><a href="{{ url('term-and-services') }}/">Terms & Services</a></li>
+                    <li><a href="{{ url('delivery-information') }}/">Delivery Information</a></li>
                 
                     <li><a href="{{ url('about-us') }}/">About Us</a></li>
                     <li><a href="{{ url('sitemap') }}/">Sitemap</a></li>

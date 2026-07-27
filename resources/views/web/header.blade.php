@@ -89,26 +89,26 @@
 }
 
 
-.product-desc ul, .product-info-text ul, .pg-left ul, .cp-why-para ul, .bp-article ul, .faq-answer ul, .home-hero-desc ul, .terms-content ul, .privacy-content ul, .cp-desc ul, .guide-content ul {
+.product-desc ul, .product-info-text ul, .pg-left ul, .cp-why-para ul, .bp-article ul, .faq-answer ul, .home-hero-desc ul, .terms-content ul, .privacy-content ul, .cp-desc ul, .guide-content ul, .dynamic-content-wrapper ul, .policy-content-wrapper ul, .dynamic-content ul, .policy-content ul {
     list-style-type: none !important;
     padding-left: 15px !important;
     margin-bottom: 15px !important;
 }
 
-.product-desc ol, .product-info-text ol, .pg-left ol, .cp-why-para ol, .bp-article ol, .faq-answer ol, .home-hero-desc ol, .terms-content ol, .privacy-content ol, .cp-desc ol, .guide-content ol {
+.product-desc ol, .product-info-text ol, .pg-left ol, .cp-why-para ol, .bp-article ol, .faq-answer ol, .home-hero-desc ol, .terms-content ol, .privacy-content ol, .cp-desc ol, .guide-content ol, .dynamic-content-wrapper ol, .policy-content-wrapper ol, .dynamic-content ol, .policy-content ol {
     list-style-type: decimal !important;
     padding-left: 30px !important;
     margin-bottom: 15px !important;
 }
 
-.product-desc ul > li, .product-info-text ul > li, .pg-left ul > li, .cp-why-para ul > li, .bp-article ul > li, .faq-answer ul > li, .home-hero-desc ul > li, .terms-content ul > li, .privacy-content ul > li, .cp-desc ul > li, .guide-content ul > li {
+.product-desc ul > li, .product-info-text ul > li, .pg-left ul > li, .cp-why-para ul > li, .bp-article ul > li, .faq-answer ul > li, .home-hero-desc ul > li, .terms-content ul > li, .privacy-content ul > li, .cp-desc ul > li, .guide-content ul > li, .dynamic-content-wrapper ul > li, .policy-content-wrapper ul > li, .dynamic-content ul > li, .policy-content ul > li {
     position: relative !important;
     display: block !important;
     padding-left: 15px !important;
     margin-bottom: 8px !important;
 }
 
-.product-desc ul > li::before, .product-info-text ul > li::before, .pg-left ul > li::before, .cp-why-para ul > li::before, .bp-article ul > li::before, .faq-answer ul > li::before, .home-hero-desc ul > li::before, .terms-content ul > li::before, .privacy-content ul > li::before, .cp-desc ul > li::before, .guide-content ul > li::before {
+.product-desc ul > li::before, .product-info-text ul > li::before, .pg-left ul > li::before, .cp-why-para ul > li::before, .bp-article ul > li::before, .faq-answer ul > li::before, .home-hero-desc ul > li::before, .terms-content ul > li::before, .privacy-content ul > li::before, .cp-desc ul > li::before, .guide-content ul > li::before, .dynamic-content-wrapper ul > li::before, .policy-content-wrapper ul > li::before, .dynamic-content ul > li::before, .policy-content ul > li::before {
     content: "•" !important;
     position: absolute !important;
     left: 0 !important;
@@ -118,10 +118,15 @@
     line-height: 1.4 !important;
 }
 
-.product-desc ol > li, .product-info-text ol > li, .pg-left ol > li, .cp-why-para ol > li, .bp-article ol > li, .faq-answer ol > li, .home-hero-desc ol > li, .terms-content ol > li, .privacy-content ol > li, .cp-desc ol > li, .guide-content ol > li {
+.product-desc ol > li, .product-info-text ol > li, .pg-left ol > li, .cp-why-para ol > li, .bp-article ol > li, .faq-answer ol > li, .home-hero-desc ol > li, .terms-content ol > li, .privacy-content ol > li, .cp-desc ol > li, .guide-content ol > li, .dynamic-content-wrapper ol > li, .policy-content-wrapper ol > li, .dynamic-content ol > li, .policy-content ol > li {
     display: list-item !important;
     list-style-position: inside !important;
     margin-bottom: 8px !important;
+}
+
+.dynamic-content-wrapper li p, .policy-content-wrapper li p, .terms-content li p, .privacy-content li p {
+    margin-bottom: 0 !important;
+    display: inline !important;
 }
 </style>
 </head>
