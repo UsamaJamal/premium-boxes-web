@@ -841,6 +841,7 @@ input:-webkit-autofill:active {
             @endforeach
 
             <a href="{{ url('our-blog') }}/" style="display: flex; align-items: center; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#ffffff'">Blogs</a>
+            <a href="{{ url('contact-us') }}/" style="display: flex; align-items: center; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s;" onmouseover="this.style.color='#f5c542'" onmouseout="this.style.color='#ffffff'">Contact Us</a>
         </div>
 
         <!-- Right: Toggle + CTA -->
@@ -965,6 +966,7 @@ input:-webkit-autofill:active {
 
 
         <a href="{{ url('our-blog') }}/" style="display: block; color: #cccccc; text-decoration: none; font-size: 16px; padding: 15px 0; border-bottom: 1px solid #333333;">Blogs</a>
+        <a href="{{ url('contact-us') }}/" style="display: block; color: #cccccc; text-decoration: none; font-size: 16px; padding: 15px 0; border-bottom: 1px solid #333333;">Contact Us</a>
 
         <div style="margin-top: auto; padding-top: 30px; padding-bottom: 20px;">
             <!-- Contact Info -->
