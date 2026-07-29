@@ -5,6 +5,10 @@
 
     RewriteEngine On
 
+    # Canonical domain: always use www and HTTPS.
+    RewriteCond %{HTTP_HOST} ^premiumboxes\.com$ [NC]
+    RewriteRule ^ https://www.premiumboxes.com%{REQUEST_URI} [L,R=301]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
