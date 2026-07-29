@@ -549,7 +549,7 @@
                     <a href="mailto:support@premiumboxes.com">
                         <i class="fas fa-envelope"></i> support@premiumboxes.com
                     </a>
-                    <a href="https://maps.google.com/?q=9931+Franklin+Ave,+Suite+1-A,+Franklin+Park,+IL+60131" target="_blank" style="align-items: flex-start;">
+                    <a href="https://maps.google.com/?q=9931+Franklin+Ave,+Suite+1-A,+Franklin+Park,+IL+60131" target="_blank" rel="noopener noreferrer" style="align-items: flex-start;">
                         <i class="fas fa-map-marker-alt"></i> 
                         <span>9931 Franklin Ave, Suite 1-A
 <br>Franklin Park, IL 60131</span>

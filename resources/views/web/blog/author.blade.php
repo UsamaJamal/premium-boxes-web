@@ -294,7 +294,7 @@ html, body {
                         {{ $author->bio }}
                     </p>
                     @if($author->linkedin)
-                    <a href="{{ $author->linkedin }}" target="_blank" class="au-linkedin" style="display:flex; align-items:center; text-decoration:none; gap: 8px;">
+                    <a href="{{ $author->linkedin }}" target="_blank" rel="noopener noreferrer" class="au-linkedin" style="display:flex; align-items:center; text-decoration:none; gap: 8px;">
                         <img src="{{ asset('uploads/linkedin.svg') }}" alt="LinkedIn" style="width: 24px; height: 24px;"> LinkedIn
                     </a>
                     @endif

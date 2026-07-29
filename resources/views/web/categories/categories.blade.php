@@ -4286,8 +4286,6 @@ body .pg-left h6 * {
                     @if(!empty($value[0]->why_choose_img))
                         <?php $whyImgPath = file_exists(public_path('uploads/'.$value[0]->why_choose_img)) ? asset('uploads/'.$value[0]->why_choose_img) : asset('images/'.$value[0]->why_choose_img); ?>
                         <img src="{{ $whyImgPath }}" alt="{{ strtolower(str_replace('-', ' ', $value[0]->why_choose_title)) }}" class="cp-why-photo" title="{{ ucwords(strtolower(str_replace('-', ' ', $value[0]->why_choose_title))) }}">
-                    @else
-                        <img src="{{ asset('assets/images/default.jpg') }}" alt="why choose" title="Why Choose" class="cp-why-photo" onerror="this.style.display='none'">
                     @endif
                 </div>
                 <a href="{{ url('request-quote') }}/" class="cp-cta cp-why-quote-btn">Get a Quote</a>

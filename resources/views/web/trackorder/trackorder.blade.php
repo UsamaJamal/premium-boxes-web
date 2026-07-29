@@ -183,14 +183,14 @@
     <div class="container-fluid" style=" margin-bottom: 5px;">
     <div class="row">
     <div class="col-md-6 ml-auto mob-p-r-14" style="padding-right: 6px;">
-    <a href="https://tools.usps.com/go/TrackConfirmAction_input" target="_blank" title="" onclick="aa()">
+    <a href="https://tools.usps.com/go/TrackConfirmAction_input" target="_blank" rel="noopener noreferrer" title="" onclick="aa()">
      <img height="200" width="100%" ;="" src="{{URL::asset('web/img/usa postal.jpg')}}" alt="fedex" title="Fedex">
     </a>
           </div>
 
 
            <div class="col-md-3 mr-auto mob-p-l-15" style="padding-left: 0px;">
-    <a href="https://www.ups.com/track?loc=en_US&amp;requester=ST/" target="_blank"  onclick="aa1()" title="">
+    <a href="https://www.ups.com/track?loc=en_US&amp;requester=ST/" target="_blank" rel="noopener noreferrer" onclick="aa1()" title="">
      <img height="200" width="100%" ;="" src="{{URL::asset('web/img/UPS.jpg')}}" alt="ups" title="Ups">
     </a>
             </div>
@@ -200,14 +200,14 @@
     <div class="container-fluid">
     <div class="row">
     <div class="col-md-3 ml-auto mob-p-r-14" style="padding-right: 6px;">
-    <a href="https://www.fedex.com/en-us/tracking.html" target="_blank" onclick="aa2()" title="">
+    <a href="https://www.fedex.com/en-us/tracking.html" target="_blank" rel="noopener noreferrer" onclick="aa2()" title="">
      <img height="200" width="100%" ;="" src="{{URL::asset('web/img/fedexss.jpg')}}" alt="usps" title="Usps">
                                         </a>
           </div>
 
 
            <div class="col-md-6 mr-auto mob-p-l-15" style="padding-left: 0px;">
-           <a href="https://www.dhl.com/en/express/tracking/tracking_tools.html" target="_blank" onclick="aa3()" title=""> 
+           <a href="https://www.dhl.com/en/express/tracking/tracking_tools.html" target="_blank" rel="noopener noreferrer" onclick="aa3()" title=""> 
            <img height="200" width="100%" ;="" src="{{URL::asset('web/img/dhl 2.jpg')}}" alt="dhl" title="Dhl">
                                         </a>
             </div>

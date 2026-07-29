@@ -6,7 +6,7 @@
         @foreach($items as $item)
             <span class="gb-sep"><i class="fas fa-chevron-right" style="font-size: 10px;"></i></span>
             @if(!$loop->last && isset($item['url']))
-                <a href="{{ $item['url'] }}" class="gb-link">{{ $item['label'] }}</a>
+                <a href="{{ rtrim($item['url'], '/') . '/' }}" class="gb-link">{{ $item['label'] }}</a>
             @else
                 <span class="gb-current">{{ $item['label'] }}</span>
             @endif

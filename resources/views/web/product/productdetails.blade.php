@@ -771,7 +771,7 @@ a { text-decoration: none; color: inherit; }
                                 <div class="pf-wrap">
                                     <label class="pf-mob-label">Units *</label>
                                     <select name="p_unit">
-                                        <option value="mm">mm *</option>
+                                        <option value="mm">mm</option>
                                         <option value="Inch">Inch</option>
                                         <option value="cm">cm</option>
                                     </select>

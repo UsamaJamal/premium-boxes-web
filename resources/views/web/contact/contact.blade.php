@@ -701,7 +701,7 @@ html, body {
 
                 <div class="contact-info-item">
                     <i class="fas fa-map-marker-alt contact-icon"></i>
-                    <a href="https://maps.google.com/?q=9931+Franklin+Ave,+Suite+1-A,+Franklin+Park,+IL+60131" target="_blank">
+                    <a href="https://maps.google.com/?q=9931+Franklin+Ave,+Suite+1-A,+Franklin+Park,+IL+60131" target="_blank" rel="noopener noreferrer">
                         <p>9931 Franklin Ave, Suite 1-A, <br>Franklin Park, IL 60131</p>
                     </a>
                 </div>
@@ -710,10 +710,10 @@ html, body {
                     $socialLinks = \Illuminate\Support\Facades\DB::table('footer_settings')->first();
                 @endphp
                 <div class="contact-social">
-                    <a href="{{ $socialLinks->facebook_url ?? '#' }}" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="{{ $socialLinks->twitter_url ?? '#' }}" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="{{ $socialLinks->instagram_url ?? '#' }}" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="{{ $socialLinks->youtube_url ?? '#' }}" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="{{ $socialLinks->facebook_url ?? '#' }}" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="{{ $socialLinks->twitter_url ?? '#' }}" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="{{ $socialLinks->instagram_url ?? '#' }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="{{ $socialLinks->youtube_url ?? '#' }}" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
                     <div class="contact-circle-big" aria-hidden="true">
                         <img src="{{ asset('images/contactus/Ellipse 793.png') }}" alt="" title="">

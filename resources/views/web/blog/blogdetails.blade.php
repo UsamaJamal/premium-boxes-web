@@ -1079,13 +1079,13 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                         <div class="bp-share-container">
                             <span class="bp-share-label">Share:</span>
                             <div class="bp-share-icons">
-                                <a href="{{ $fb_share }}" target="_blank" class="bp-share-btn" aria-label="Share on Facebook">
+                                <a href="{{ $fb_share }}" target="_blank" rel="noopener noreferrer" class="bp-share-btn" aria-label="Share on Facebook">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
-                                <a href="{{ $tw_share }}" target="_blank" class="bp-share-btn" aria-label="Instagram">
-                                    <i class="fab fa-instagram"></i>
+                                <a href="{{ $tw_share }}" target="_blank" rel="noopener noreferrer" class="bp-share-btn" aria-label="Instagram">
+                                    <i class="fab fa-twitter"></i>
                                 </a>
-                                <a href="{{ $li_share }}" target="_blank" class="bp-share-btn" aria-label="YouTube">
+                                <a href="{{ $li_share }}" target="_blank" rel="noopener noreferrer" class="bp-share-btn" aria-label="YouTube">
                                     <i class="fab fa-youtube"></i>
                                 </a>
                             </div>
@@ -1188,13 +1188,13 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                 <div class="bp-mob-share">
                     <span class="bp-mob-share-label">Share:</span>
                     <div class="bp-mob-share-icons">
-                        <a href="{{ $fb_share }}" target="_blank" class="bp-mob-share-btn" aria-label="Share on Facebook">
+                        <a href="{{ $fb_share }}" target="_blank" rel="noopener noreferrer" class="bp-mob-share-btn" aria-label="Share on Facebook">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="{{ $tw_share }}" target="_blank" class="bp-mob-share-btn" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
+                        <a href="{{ $tw_share }}" target="_blank" rel="noopener noreferrer" class="bp-mob-share-btn" aria-label="Instagram">
+                            <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="{{ $li_share }}" target="_blank" class="bp-mob-share-btn" aria-label="YouTube">
+                        <a href="{{ $li_share }}" target="_blank" rel="noopener noreferrer" class="bp-mob-share-btn" aria-label="YouTube">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>
