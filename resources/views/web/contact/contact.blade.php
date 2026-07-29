@@ -710,10 +710,24 @@ html, body {
                     $socialLinks = \Illuminate\Support\Facades\DB::table('footer_settings')->first();
                 @endphp
                 <div class="contact-social">
-                    <a href="{{ $socialLinks->facebook_url ?? '#' }}" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="{{ $socialLinks->twitter_url ?? '#' }}" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="{{ $socialLinks->instagram_url ?? '#' }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="{{ $socialLinks->youtube_url ?? '#' }}" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    @if(!empty($socialLinks->facebook_url))
+                    <a href="{{ $socialLinks->facebook_url }}" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    @endif
+                    @if(!empty($socialLinks->twitter_url))
+                    <a href="{{ $socialLinks->twitter_url }}" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    @endif
+                    @if(!empty($socialLinks->instagram_url))
+                    <a href="{{ $socialLinks->instagram_url }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    @endif
+                    @if(!empty($socialLinks->youtube_url))
+                    <a href="{{ $socialLinks->youtube_url }}" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    @endif
+                    @if(!empty($socialLinks->pinterest_url))
+                    <a href="{{ $socialLinks->pinterest_url }}" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    @endif
+                    @if(!empty($socialLinks->linkedin_url))
+                    <a href="{{ $socialLinks->linkedin_url }}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    @endif
                 </div>
                     <div class="contact-circle-big" aria-hidden="true">
                         <img src="{{ asset('images/contactus/Ellipse 793.png') }}" alt="" title="">

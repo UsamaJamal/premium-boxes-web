@@ -470,10 +470,24 @@
                 <div class="cp-footer-social">
                     <span class="cp-footer-title" >Follow us</span>
                     <div class="cp-social-icons">
-                        <a href="{{ $footerSettings->facebook_url ?? '#' }}"><i class="fab fa-facebook-f"></i></a>
-                        <a href="{{ $footerSettings->twitter_url ?? '#' }}"><i class="fab fa-twitter"></i></a>
-                        <a href="{{ $footerSettings->instagram_url ?? '#' }}"><i class="fab fa-instagram"></i></a>
-                        <a href="{{ $footerSettings->youtube_url ?? '#' }}"><i class="fab fa-youtube"></i></a>
+                        @if(!empty($footerSettings->facebook_url))
+                        <a href="{{ $footerSettings->facebook_url }}" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        @endif
+                        @if(!empty($footerSettings->twitter_url))
+                        <a href="{{ $footerSettings->twitter_url }}" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        @endif
+                        @if(!empty($footerSettings->instagram_url))
+                        <a href="{{ $footerSettings->instagram_url }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        @endif
+                        @if(!empty($footerSettings->youtube_url))
+                        <a href="{{ $footerSettings->youtube_url }}" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        @endif
+                        @if(!empty($footerSettings->pinterest_url))
+                        <a href="{{ $footerSettings->pinterest_url }}" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                        @endif
+                        @if(!empty($footerSettings->linkedin_url))
+                        <a href="{{ $footerSettings->linkedin_url }}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        @endif
                     </div>
                 </div>
             </div>
