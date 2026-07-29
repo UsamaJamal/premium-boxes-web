@@ -1325,7 +1325,7 @@ h3 {
   display: grid;
   grid-template-columns: minmax(0, 680px) minmax(0, 1fr);
   gap: 48px;
-  align-items: center;
+  align-items: stretch;
 }
 
 .why-cards-grid {
@@ -1375,17 +1375,19 @@ h3 {
 
 .why-image {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   min-width: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .why-image img {
   display: block;
-  width: min(100%, 420px);
-  height: 420px;
-  object-fit: cover;
-  object-position: center 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
   mix-blend-mode: normal;
   filter: brightness(1.08) contrast(1.04) saturate(1.08);
   opacity: 1;
@@ -3891,7 +3893,7 @@ section + section {
                 </div>
 
                 <div class="why-image">
-                    <img src="{{asset('uploads/why-choise-us.webp')}}" alt="luxury box" title="Luxury Box">
+                    <img src="{{asset('uploads/why-premiumboxes.webp')}}" alt="luxury box" title="Luxury Box">
                 </div>
 
             </div>
