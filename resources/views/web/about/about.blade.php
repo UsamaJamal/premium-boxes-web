@@ -24,6 +24,19 @@ body {
     color: var(--about-text);
 }
 
+/* Justify all long paragraphs on desktop */
+@media (min-width: 861px) {
+    .ab-us-hero-text,
+    .ab-us-story-para,
+    .ab-us-why-para,
+    .ab-us-process-text,
+    .ab-us-quality-sub,
+    .ab-quality-card-content p,
+    .ab-worldwide-para {
+        text-align: justify;
+    }
+}
+
 .ab-us-hero,
 .ab-us-story,
 .ab-us-why,
@@ -170,18 +183,8 @@ body {
 .ab-us-story-img-wrap {
     position: relative;
     width: 100%;
-    aspect-ratio: 1 / 1;
-}
-
-.ab-us-gold-accent {
-    position: absolute;
-    left: -10px;
-    bottom: -10px;
-    width: calc(100% - 8px);
-    height: calc(100% - 8px);
-    z-index: 1;
-    border-radius: 2px;
-    background: var(--about-gold);
+    max-width: 427px;
+    aspect-ratio: 427 / 408;
 }
 
 .ab-us-story-img {
@@ -192,7 +195,7 @@ body {
     height: 100%;
     display: block;
     object-fit: cover;
-    border-radius: 2px;
+    border-radius: 10px;
 }
 
 .ab-us-story-content {
@@ -218,6 +221,9 @@ body {
     font-size: 14px;
     line-height: 1.85;
 }
+
+.ab-us-accessible { background: var(--about-bg-alt); }
+.ab-us-accessible-container { grid-template-columns: minmax(0, 1fr) minmax(320px, 470px); }
 
 /* Why choose us */
 .ab-us-why {
@@ -435,7 +441,7 @@ body {
 /* Process */
 .ab-us-process {
     width: 100%;
-    padding-block: 44px 56px;
+    padding-block: 20px 20px;
     background: var(--about-bg);
     text-align: center;
 }
@@ -465,31 +471,35 @@ body {
 }
 
 .ab-us-process-card {
-    min-width: 0;
-    min-height: 300px;
-    padding: 34px 24px;
+    width: 100%;
+    max-width: 222px;
+    height: 258px;
+    margin: 0 auto;
+    border-radius: 6px;
+    border-width: 0.3px;
+    padding: 20px 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 14px;
+    gap: 10px;
 }
 
 .ab-us-process-icon {
-    width: 58px;
-    height: 58px;
+    width: 44px;
+    height: 44px;
 }
 
 .ab-us-process-icon img {
-    width: 46px !important;
-    height: 46px !important;
+    width: 32px !important;
+    height: 32px !important;
     object-fit: contain;
 }
 
 .ab-us-process-title {
     margin: 0;
     color: #fff;
-    font-size: clamp(15px, 1vw, 18px) !important;
+    font-size: 14px !important;
     font-weight: 700;
     line-height: 1.3;
 }
@@ -498,8 +508,8 @@ body {
     max-width: 240px;
     margin: 0;
     color: rgba(255,255,255,.64);
-    font-size: clamp(16px, .82vw, 14px) !important;
-    line-height: 1.55;
+    font-size: 12px !important;
+    line-height: 1.5;
 }
 
 @media (max-width: 1100px) {
@@ -541,6 +551,10 @@ body {
         grid-template-columns: 1fr;
     }
 
+    .ab-us-accessible-img-wrap {
+        order: -1;
+    }
+
     .ab-us-story-container { gap: 40px; }
     .ab-us-story-img-wrap { width: calc(100% - 50px); max-width: 520px; margin-left: 30px; margin-right: 20px; margin-bottom: 20px; }
     .ab-us-story-content { max-width: 100%; padding-inline: 16px; }
@@ -578,6 +592,8 @@ body {
     .ab-us-hero-heading br { display: none; }
     .ab-us-hero-para { font-size: 13px; }
 
+    .ab-us-story-para { text-align: justify; }
+
     .ab-us-story,
     .ab-us-why,
     .ab-us-numbers,
@@ -590,7 +606,10 @@ body {
     .ab-us-process-heading { font-size: 27px !important; }
 
     .ab-us-why-cards-row,
-    .ab-us-process-cards { grid-template-columns: 1fr; }
+    .ab-us-process-cards { 
+        grid-template-columns: 1fr; 
+        justify-items: center;
+    }
 
     .ab-us-why-card,
     .ab-us-why-feature-img { min-height: 230px; }
@@ -651,147 +670,678 @@ body {
         </div>
     </section>
 
-    <!-- OUR STORY SECTION -->
+    <!-- OUR PURPOSE SECTION -->
     <section class="ab-us-story">
         <div class="ab-us-story-container">
             <div class="ab-us-story-img-wrap">
-                <div class="ab-us-gold-accent" aria-hidden="true"></div>
                 <img
-                    src="{{ url('images/about/our-story.jpg') }}"
-                    alt="premium rigid packaging boxes" title="Premium Rigid Packaging Boxes"
+                    src="{{ url('uploads/our-purpose.png') }}"
+                    alt="Our Purpose" title="Our Purpose"
                     class="ab-us-story-img"
                 >
             </div>
             <div class="ab-us-story-content">
                
-                <h2 class="ab-us-story-heading">
-                    Built on Quality, Driven by Innovation
+                <h2 class="ab-us-story-heading" style="color: var(--about-text);">
+                    Our Purpose
                 </h2>
                 <p class="ab-us-story-para">
-                    We specialize in creating premium custom rigid boxes and luxury packaging
-                    solutions for brands that value quality, presentation, and customer experience.
-                    From apparel and cosmetics to jewelry and gift packaging, we help businesses
-                    elevate their products through innovative designs, exceptional craftsmanship,
-                    and fully customized packaging solutions.
+                    Premiumboxes was started with a clear purpose. We want to manufacture custom packaging boxes that are accessible from big brands to growing businesses. We aim to create packaging that is not only high-quality, low costly but also adds value to your branding. Our focus is to create thoughtful designs that are aesthetically pleasing, satisfy branding and have practical use.
+                    <br>
+                    As a direct manufacturer, we ought to help customers. We manufacture packaging with customized size, material, structure, printing, and finishing.  We believe in quality over everything; hence we make boxes that represent your brand at its best. From sample to bulk orders, our packaging has one purpose to take your brand to highest level.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- WHY CHOOSE US SECTION -->
-    <section class="ab-us-why">
-        <div class="ab-us-why-inner">
-
-            <div class="ab-us-why-left">
-                <div class="ab-us-why-copy">
-                
-                    <h2 class="ab-us-why-title">Packaging Excellence You Can Trust</h2>
-                    <p class="ab-us-why-desc">
-                        We craft premium custom packaging that elevates your brand and
-                        delivers a flawless unboxing experience.
-                    </p>
-                </div>
-                <div class="ab-us-why-cards-row">
-                    <div class="ab-us-why-card">
-                        <div class="ab-us-why-icon"><img src="{{ url('images/about/circular- packaging -solutions.svg') }}" style="width:24px; height:24px;"></div>
-                        <h3>Circular Packaging Solutions</h3>
-                        <p>We offer sustainable circular packaging solutions designed to reduce waste while maintaining premium quality and structural strength standards.</p>
-                    </div>
-                    <div class="ab-us-why-card">
-                        <div class="ab-us-why-icon"><img src="{{ url('images/about/price.svg') }}" style="width:24px; height:24px;"></div>
-                        <h3>Competitive Prices</h3>
-                        <p>We deliver high quality packaging solutions at competitive prices ensuring value for money without compromising design or durability.</p>
-                    </div>
-                </div>
+    <!-- ACCESSIBLE PACKAGING SECTION -->
+    <section class="ab-us-story ab-us-accessible">
+        <div class="ab-us-story-container ab-us-accessible-container">
+            <div class="ab-us-story-content">
+                <h2 class="ab-us-story-heading" style="color: var(--about-text);">
+                    Packaging Made Accessible Since 2016
+                </h2>
+                <p class="ab-us-story-para">
+                    PremiumBoxes is started in 2016 with a straightforward goal. We want to make boxes that do not cost businesses an arm and a leg. We removed the restriction that customers will get customization only on bulk orders. Now you can buy customized packaging boxes as many as you want. With 10 years of experience, we have finest design team, dedicated customer support and high-quality manufacturing process. As a direct manufacturer we operate our own production facility. Therefore, proudly we can say that we have complete control over quality, materials, designs and finishing.
+                </p>
             </div>
-
-            <div class="ab-us-why-right">
-                <div class="ab-us-why-cards-row">
-                    <div class="ab-us-why-card">
-                        <div class="ab-us-why-icon"><img src="{{ url('images/about/Premium-quality.svg') }}" style="width:24px; height:24px;"></div>
-                        <h3>Premium Quality</h3>
-                        <p>We use high-quality materials and precision craftsmanship to deliver packaging that reflects your brand's value.</p>
-                    </div>
-                    <div class="ab-us-why-card">
-                        <div class="ab-us-why-icon"><img src="{{ url('images/about/end-toend-service.svg') }}" style="width:24px; height:24px;"></div>
-                        <h3>End To End Service</h3>
-                        <p>We provide complete end to end packaging solutions from concept design to production and final delivery support.</p>
-                    </div>
-                </div>
-                <div class="ab-us-why-feature-img">
-                    <img src="{{ url('images/about/packaging-excellence.jpg') }}" alt="luxury packaging" title="Luxury Packaging">
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- NUMBERS SECTION -->
-    <section class="ab-us-numbers">
-        <div class="ab-us-numbers-inner">
-            <div class="ab-us-numbers-left">
-               
-                <h2 class="ab-us-numbers-heading">Numbers That Define<br>Our Excellence</h2>
-            </div>
-            <div class="ab-us-numbers-right">
-                <p class="ab-us-numbers-para">We take pride in delivering premium packaging solutions backed by years of experience and expertise. Our portfolio includes thousands of successfully completed projects across multiple industries worldwide. We serve clients in over 30 countries with reliable and consistent service standards. Our focus is on maintaining exceptional quality in every packaging solution we create.</p>
-            </div>
-        </div>
-
-        <div class="ab-us-numbers-stats">
-            <div class="ab-us-numbers-stat ab-us-stat-sep">
-                <span class="ab-us-stat-num">10+</span>
-                <span class="ab-us-stat-lbl">Years Experience</span>
-            </div>
-            <div class="ab-us-numbers-stat ab-us-stat-sep">
-                <span class="ab-us-stat-num">500+</span>
-                <span class="ab-us-stat-lbl">Projects</span>
-            </div>
-            <div class="ab-us-numbers-stat ab-us-stat-sep">
-                <span class="ab-us-stat-num">30+</span>
-                <span class="ab-us-stat-lbl">Countries Serve</span>
-            </div>
-            <div class="ab-us-numbers-stat">
-                <span class="ab-us-stat-num">98%</span>
-                <span class="ab-us-stat-lbl">Satisfaction</span>
+            <div class="ab-us-story-img-wrap ab-us-accessible-img-wrap">
+                <img
+                    src="{{ url('uploads/packing-made-accessible.png') }}"
+                    alt="packaging made accessible" title="Packaging Made Accessible"
+                    class="ab-us-story-img"
+                >
             </div>
         </div>
     </section>
+
+    <!-- MADE IN OUR OWN FACILITY SECTION -->
+    <style>
+        .facility-checkboxes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-top: 24px;
+        }
+        .facility-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 18px;
+            background: var(--about-card);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--about-text);
+        }
+        .ab-us-facility-img-wrap {
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+        .ab-us-facility-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 20px;
+        }
+        @media (max-width: 860px) {
+            .facility-checkbox {
+                padding: 10px 10px;
+                font-size: 11px;
+                gap: 6px;
+            }
+            .facility-checkbox img {
+                width: 14px !important;
+                height: 14px !important;
+            }
+            .ab-us-facility-img-wrap img {
+                height: auto;
+                object-fit: contain;
+            }
+        }
+    </style>
+    <section class="ab-us-story" style="background: #202020;">
+        <div class="ab-us-story-container" style="align-items: stretch;">
+            <div class="ab-us-facility-img-wrap">
+                <img
+                    src="{{ url('uploads/made-in-our-own-facility.webp') }}"
+                    alt="made in our own facility"
+                    title="Made in Our Own Facility"
+                >   
+            </div>
+            <div class="ab-us-story-content" style="display: flex; flex-direction: column; justify-content: center; padding: 20px 0;">
+                <h2 class="ab-us-story-heading" style="color: var(--about-text);">
+                    Made in Our Own Facility
+                </h2>
+                <p class="ab-us-story-para">
+                    We own and operate our packaging production facility in USA. As we are direct manufacturer, our team is involved from the first step to end product. Our design team is available for assistance regarding design, right material, size, structure, printing, finishing and add-ons. As we own production facility, our dedicated team keeps involved until the boxes have shipped to customers. We keep in touch with businesses until they get final product.
+                </p>
+                <div class="facility-checkboxes">
+                    <div class="facility-checkbox">
+                        <img src="{{ url('uploads/tick-check.svg') }}" alt="Tick" style="width: 16px; height: 16px;">
+                        <span>Material selection</span>
+                    </div>
+                    <div class="facility-checkbox">
+                        <img src="{{ url('uploads/tick-check.svg') }}" alt="Tick" style="width: 16px; height: 16px;">
+                        <span>Structural design</span>
+                    </div>
+                    <div class="facility-checkbox">
+                        <img src="{{ url('uploads/tick-check.svg') }}" alt="Tick" style="width: 16px; height: 16px;">
+                        <span>Printing methods</span>
+                    </div>
+                    <div class="facility-checkbox">
+                        <img src="{{ url('uploads/tick-check.svg') }}" alt="Tick" style="width: 16px; height: 16px;">
+                        <span>Finishes and add-ons</span>
+                    </div>
+                    <div class="facility-checkbox">
+                        <img src="{{ url('uploads/tick-check.svg') }}" alt="Tick" style="width: 16px; height: 16px;">
+                        <span>Production checks</span>
+                    </div>
+                    <div class="facility-checkbox">
+                        <img src="{{ url('uploads/tick-check.svg') }}" alt="Tick" style="width: 16px; height: 16px;">
+                        <span>Shipping coordination</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 
     <!-- OUR PROCESS SECTION -->
     <section class="ab-us-process">
         <div class="ab-us-process-inner">
        
-        <h2 class="ab-us-process-heading">From Concept to Creation</h2>
+        <h2 class="ab-us-process-heading">How We Produce Your Boxes</h2>
         <p class="ab-us-process-sub">
             We follow a simple process that turns your ideas into premium packaging through
             design, production, and delivery.
         </p>
         <div class="ab-us-process-cards">
             <div class="ab-us-process-card">
-                <div class="ab-us-process-icon"><img src="{{ url('images/about/sumbit.svg') }}" style="width:28px; height:28px;"></div>
-                <h3 class="ab-us-process-title">Submit Your Brief</h3>
-                <p class="ab-us-process-text">Share your product dimensions, quantities, and vision. We respond within 24 hours with initial recommendations and a structural concept tailored to your needs.</p>
+                <div class="ab-us-process-icon"><img src="{{ url('uploads/share-your-vision.svg') }}" alt="share your vision" style="width:28px; height:28px;"></div>
+                <h3 class="ab-us-process-title">Share Your Vision</h3>
+                <p class="ab-us-process-text">First of all, we ask our customers to share their vision, references, artwork, box dimensions, style, quantity, product weight, presentation goals, material, printing requirements, and delivery destination.</p>
             </div>
             <div class="ab-us-process-card">
-                <div class="ab-us-process-icon"><img src="{{ url('images/about/design.svg') }}" style="width:28px; height:28px;"></div>
-                <h3 class="ab-us-process-title">Design &amp; Quote</h3>
-                <p class="ab-us-process-text">You receive a structural die line, finish spec sheet, and transparent pricing. Revisions are included at no extra cost — no surprises, no hidden fees.</p>
+                <div class="ab-us-process-icon"><img src="{{ url('uploads/planning-and-analysis.svg') }}" alt="planning and analysis" style="width:28px; height:28px;"></div>
+                <h3 class="ab-us-process-title">Planning &amp; Analysis</h3>
+                <p class="ab-us-process-text">We carefully review every project instead of using standard box sizes. Our team analyzes dimensions, product weight, material, printing, quantity, and delivery requirements to create packaging that perfectly fits your needs.</p>
             </div>
             <div class="ab-us-process-card">
-                <div class="ab-us-process-icon"><img src="{{ url('images/about/approve.svg') }}" style="width:28px; height:28px;"></div>
-                <h3 class="ab-us-process-title">Approve &amp; Produce</h3>
-                <p class="ab-us-process-text">Once artwork is approved, production begins immediately in our certified manufacturing facility. Pre-production physical samples available before full run.</p>
+                <div class="ab-us-process-icon"><img src="{{ url('uploads/dieline-and-prototype.svg') }}" alt="dieline and prototype" style="width:28px; height:28px;"></div>
+                <h3 class="ab-us-process-title">Dieline &amp; Prototype</h3>
+                <p class="ab-us-process-text">With all of these details, we create a prototype. Our dieline includes cut lines, folds, flaps, glue areas, and printable panels to ensure the box is production-ready.</p>
             </div>
             <div class="ab-us-process-card">
-                <div class="ab-us-process-icon"><img src="{{ url('images/about/shipping.svg') }}" style="width:28px; height:28px;"></div>
-                <h3 class="ab-us-process-title">Ship &amp; Arrive</h3>
-                <p class="ab-us-process-text">Your order ships with full tracking and quality documentation. Custom orders take approximately 15 days production, plus shipping.</p>
+                <div class="ab-us-process-icon"><img src="{{ url('uploads/sample-and-production.svg') }}" alt="sample and production" style="width:28px; height:28px;"></div>
+                <h3 class="ab-us-process-title">Sample &amp; Production</h3>
+                <p class="ab-us-process-text">After this, we create a physical sample. As soon as we receive your approval, we begin the full production process while maintaining strict quality standards.</p>
             </div>
         </div>
         </div>
     </section>
 
-@include('web/components_cta_banner')
+    <!-- QUALITY CHECK SECTION -->
+    <style>
+        .ab-us-quality {
+            padding: 20px 0;
+            background: var(--about-bg);
+        }
+        .ab-us-quality-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            text-align: center;
+        }
+        .ab-us-quality-heading {
+            color: var(--about-text);
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .ab-us-quality-sub {
+            color: var(--about-text-muted);
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+        .ab-us-quality-grid {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .ab-us-quality-col {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .ab-quality-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            text-align: left;
+            background: #E8E8E81A;
+            border: 1px solid #7E757633;
+            border-radius: 12px;
+        }
+        .ab-quality-card img {
+            width: 24px;
+            height: 24px;
+        }
+        .ab-quality-card-content h3 {
+            color: var(--about-text);
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            line-height: 24px;
+            letter-spacing: 1px;
+            margin: 0 0 5px;
+        }
+        .ab-quality-card-content p {
+            color: var(--about-text-muted);
+            font-size: 13px;
+            margin: 0;
+        }
+        .ab-us-quality-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            display: flex;
+        }
+        .ab-us-quality-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            max-width: 400px;
+            border-radius: 16px;
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 0 40px rgba(245, 197, 66, 0.18);
+        }
+
+        @media (max-width: 860px) {
+            .ab-us-quality-image {
+                display: none;
+            }
+            .ab-us-quality-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+            .ab-us-quality-col {
+                display: contents;
+            }
+            .ab-quality-card {
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                padding: 15px 10px;
+            }
+            .ab-quality-card-content h3 {
+                font-size: 13px;
+                line-height: 1.3;
+                letter-spacing: 0.5px;
+                font-weight: 600;
+            }
+            .ab-quality-card-content p {
+                font-size: 11px;
+                line-height: 1.4;
+            }
+        }
+    </style>
+    <section class="ab-us-quality">
+        <div class="ab-us-quality-inner">
+            <h2 class="ab-us-quality-heading">Quality Is Checked in Stages</h2>
+            <p class="ab-us-quality-sub">
+                We just don't check the quality after the final product is created. We have complete control over the quality from first step to final product. We have dedicated quality check team that makes sure from the beginning that every step is going in right direction.
+            </p>
+            
+            <div class="ab-us-quality-grid">
+                
+                <!-- Left Cards -->
+                <div class="ab-us-quality-col">
+                    <div class="ab-quality-card">
+                        <img src="{{ url('uploads/box-dimensions.svg') }}" alt="box dimensions">
+                        <div class="ab-quality-card-content">
+                            <h3>Box Dimensions</h3>
+                            <p>Micrometer precision for snug fits.</p>
+                        </div>
+                    </div>
+                    <div class="ab-quality-card">
+                        <img src="{{ url('uploads/text-alignment.svg') }}" alt="text alignment">
+                        <div class="ab-quality-card-content">
+                            <h3>Text Alignment</h3>
+                            <p>Clear and accurate positioning.</p>
+                        </div>
+                    </div>
+                    <div class="ab-quality-card">
+                        <img src="{{ url('uploads/print-and-color.svg') }}" alt="print and color">
+                        <div class="ab-quality-card-content">
+                            <h3>Print &amp; Color</h3>
+                            <p>Consistent colors in every batch.</p>
+                        </div>
+                    </div>
+                    <div class="ab-quality-card">
+                        <img src="{{ url('uploads/foil-and-laminations.svg') }}" alt="foil and laminations">
+                        <div class="ab-quality-card-content">
+                            <h3>Foil &amp; Lamination</h3>
+                            <p>Flawless premium finish applied.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center Image -->
+                <div class="ab-us-quality-image">
+                    <img src="{{ url('uploads/quality-check.png') }}" alt="quality check">
+                </div>
+
+                <!-- Right Cards -->
+                <div class="ab-us-quality-col">
+                    <div class="ab-quality-card">
+                        <img src="{{ url('uploads/structure-check.svg') }}" alt="structure check">
+                        <div class="ab-quality-card-content">
+                            <h3>Structure Check</h3>
+                            <p>Engineered for lasting strength.</p>
+                        </div>
+                    </div>
+                    <div class="ab-quality-card">
+                        <img src="{{ url('uploads/artwork-placement.svg') }}" alt="artwork placement">
+                        <div class="ab-quality-card-content">
+                            <h3>Artwork Placement</h3>
+                            <p>Perfectly aligned visual elements.</p>
+                        </div>
+                    </div>
+                    <div class="ab-quality-card">
+                        <img src="{{ url('uploads/assembly-and-closure.svg') }}" alt="assembly and closure">
+                        <div class="ab-quality-card-content">
+                            <h3>Assembly &amp; Closure</h3>
+                            <p>Secure folds and reliable closure.</p>
+                        </div>
+                    </div>
+                    <div class="ab-quality-card">
+                        <img src="{{ url('uploads/packing-and-quality.svg') }}" alt="packing and quality">
+                        <div class="ab-quality-card-content">
+                            <h3>Packing &amp; Quantity</h3>
+                            <p>Accurate counts, safely packed.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- MEET THE TEAM SECTION -->
+    <style>
+        .ab-us-team {
+            padding: 20px 0;
+            background: var(--about-bg);
+            text-align: center;
+        }
+        .ab-us-team-heading {
+            color: var(--about-text);
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            font-family: 'Inter', sans-serif;
+        }
+        .ab-us-team-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            flex-wrap: nowrap;
+        }
+        .ab-team-card {
+            flex: 1;
+            min-width: 200px;
+            text-align: left;
+        }
+        .ab-team-img-wrap {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .ab-team-img-wrap > img {
+            width: 100%;
+            aspect-ratio: 228.66 / 342.2;
+            object-fit: cover;
+            border-radius: 12px;
+            display: block;
+        }
+        .ab-team-linkedin {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            width: 34px;
+            height: 34px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ab-team-linkedin img {
+            width: 18px !important;
+            height: 18px !important;
+            filter: brightness(0);
+            border-radius: 0;
+            aspect-ratio: auto;
+        }
+        .ab-team-card h3 {
+            color: var(--about-text);
+            font-size: 16px;
+            font-weight: 700;
+            margin: 0 0 5px;
+            font-family: 'Inter', sans-serif;
+        }
+        .ab-team-card p {
+            color: var(--about-text-muted);
+            font-size: 13px;
+            margin: 0;
+        }
+
+        @media (max-width: 860px) {
+            .ab-us-team-grid {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 20px;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+            .ab-us-team-grid::-webkit-scrollbar {
+                display: none;
+            }
+            .ab-team-card {
+                flex: 0 0 75%;
+                max-width: 300px;
+            }
+        }
+    </style>
+    <section class="ab-us-team">
+        <h2 class="ab-us-team-heading">Meet the People Behind Your Packaging</h2>
+        <div class="ab-us-team-grid">
+            <div class="ab-team-card">
+                <div class="ab-team-img-wrap">
+                    <img src="{{ url('uploads/marcus-vance.jpg') }}" alt="marcus vance">
+                    <a href="#" class="ab-team-linkedin">
+                        <img src="{{ url('uploads/linkedin.svg') }}" alt="linkedin">
+                    </a>
+                </div>
+                <h3>Marcus Vance</h3>
+                <p>Founder and Managing Director</p>
+            </div>
+            <div class="ab-team-card">
+                <div class="ab-team-img-wrap">
+                    <img src="{{ url('uploads/elena-rossi.jpg') }}" alt="elena rossi">
+                    <a href="#" class="ab-team-linkedin">
+                        <img src="{{ url('uploads/linkedin.svg') }}" alt="linkedin">
+                    </a>
+                </div>
+                <h3>Elena Rossi</h3>
+                <p>Production Manager</p>
+            </div>
+            <div class="ab-team-card">
+                <div class="ab-team-img-wrap">
+                    <img src="{{ url('uploads/simon-chen.jpg') }}" alt="simon chen">
+                    <a href="#" class="ab-team-linkedin">
+                        <img src="{{ url('uploads/linkedin.svg') }}" alt="linkedin">
+                    </a>
+                </div>
+                <h3>Simon Chen</h3>
+                <p>Structural Packaging Designer</p>
+            </div>
+            <div class="ab-team-card">
+                <div class="ab-team-img-wrap">
+                    <img src="{{ url('uploads/sarah-jenkins.jpg') }}" alt="sarah jenkins">
+                    <a href="#" class="ab-team-linkedin">
+                        <img src="{{ url('uploads/linkedin.svg') }}" alt="linkedin">
+                    </a>
+                </div>
+                <h3>Sarah Jenkins</h3>
+                <p>Quality Control Manager</p>
+            </div>
+            <div class="ab-team-card">
+                <div class="ab-team-img-wrap">
+                    <img src="{{ url('uploads/julian-throne.jpg') }}" alt="julian thorne">
+                    <a href="#" class="ab-team-linkedin">
+                        <img src="{{ url('uploads/linkedin.svg') }}" alt="linkedin">
+                    </a>
+                </div>
+                <h3>Julian Thorne</h3>
+                <p>Customer Project Manager</p>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const teamGrid = document.querySelector('.ab-us-team-grid');
+            if (window.innerWidth <= 860 && teamGrid) {
+                let scrollStep = 0.5; 
+                let isHovered = false;
+
+                teamGrid.addEventListener('mouseenter', () => isHovered = true);
+                teamGrid.addEventListener('mouseleave', () => isHovered = false);
+                teamGrid.addEventListener('touchstart', () => isHovered = true);
+                teamGrid.addEventListener('touchend', () => {
+                    setTimeout(() => isHovered = false, 2000);
+                });
+
+                function autoScroll() {
+                    if (!isHovered) {
+                        teamGrid.scrollLeft += scrollStep;
+                        if (teamGrid.scrollLeft >= (teamGrid.scrollWidth - teamGrid.clientWidth - 1)) {
+                            scrollStep = -0.5;
+                        } else if (teamGrid.scrollLeft <= 0) {
+                            scrollStep = 0.5;
+                        }
+                    }
+                    requestAnimationFrame(autoScroll);
+                }
+                requestAnimationFrame(autoScroll);
+            }
+        });
+    </script>
+
+    <!-- WORLDWIDE SUPPORT SECTION -->
+    <style>
+        .ab-us-worldwide {
+            padding: 20px 0;
+            background: var(--about-bg);
+        }
+        .ab-worldwide-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        .ab-worldwide-text {
+            flex: 1;
+        }
+        .ab-worldwide-heading {
+            color: var(--about-text);
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-family: 'Inter', sans-serif;
+        }
+        .ab-worldwide-para {
+            color: var(--about-text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        .ab-worldwide-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .ab-worldwide-btn {
+            background: #232222;
+            color: #fff;
+            border: 1px solid #333;
+            padding: 10px 30px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+        }
+        .ab-worldwide-map-container {
+            flex: 1.2;
+            position: relative;
+        }
+        .ab-worldwide-map-bg {
+            width: 100%;
+            display: block;
+            border-radius: 24px;
+            box-shadow: 0 0 45px rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .ab-map-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 85%;
+        }
+        .ab-worldwide-map-img {
+            width: 100%;
+            height: auto;
+            opacity: 0.82;
+            display: block;
+        }
+        .ab-map-dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: #F5C541;
+            border-radius: 50%;
+            box-shadow: 0 0 28px 0 rgba(245, 197, 65, 0.55), 0 0 0 7px rgba(245, 197, 65, 0.15);
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+        @media (max-width: 860px) {
+            .ab-worldwide-inner {
+                flex-direction: column-reverse;
+            }
+            .ab-worldwide-map-container {
+                width: 100%;
+                margin-top: 0;
+                margin-bottom: 30px;
+            }
+            .ab-worldwide-buttons {
+                flex-wrap: nowrap;
+                gap: 10px;
+            }
+            .ab-worldwide-btn {
+                flex: 1;
+                padding: 10px 5px;
+                text-align: center;
+                font-size: 12px;
+            }
+        }
+    </style>
+    <section class="ab-us-worldwide">
+        <div class="ab-worldwide-inner">
+            <div class="ab-worldwide-text">
+                <h2 class="ab-worldwide-heading">Worldwide Packaging Support</h2>
+                <p class="ab-worldwide-para">
+                    PremiumBoxes have customers worldwide, therefore, we ship our orders to all the corners of the world. To make the shipping process authentic, easier, and trustworthy, we use trusted, reliable and established carriers. For shipping, we use the services of UPS, FedEx, and DHL. Cost depends on several factors. It can be varying to destination country, package size, and delivery requirements. International orders cost extra charges because of taxes and import restrictions.
+                </p>
+                <div class="ab-worldwide-buttons">
+                    <div class="ab-worldwide-btn">UPS</div>
+                    <div class="ab-worldwide-btn">FedEx</div>
+                    <div class="ab-worldwide-btn">DHL</div>
+                </div>
+            </div>
+            <div class="ab-worldwide-map-container">
+                <img src="{{ url('uploads/world-map-background.png') }}" class="ab-worldwide-map-bg" alt="world map background">
+                <div class="ab-map-wrapper">
+                    <img src="{{ url('uploads/world-map.png') }}" class="ab-worldwide-map-img" alt="world map">
+                    <!-- Dots -->
+                    <div class="ab-map-dot" style="top: 37%; left: 20%;"></div>
+                    <div class="ab-map-dot" style="top: 80%; left: 38%;"></div>
+                    <div class="ab-map-dot" style="top: 30%; left: 45%;"></div>
+                    <div class="ab-map-dot" style="top: 45%; left: 70%;"></div>
+                    <div class="ab-map-dot" style="top: 78%; left: 81%;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 @include('web/footer')

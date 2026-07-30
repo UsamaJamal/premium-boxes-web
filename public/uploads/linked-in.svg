@@ -1,0 +1,24 @@
+<svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-6.03828" y="-7.04511" width="48.3109" height="48.3119"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(4.03px);clip-path:url(#bgblur_0_2026_332_clip_path);height:100%;width:100%"></div></foreignObject><g filter="url(#filter0_d_2026_332)" data-figma-bg-blur-radius="8.05195">
+<rect x="2.01367" y="1.00684" width="32.2078" height="32.2078" rx="16.1039" fill="white" fill-opacity="0.9" shape-rendering="crispEdges"/>
+<g clip-path="url(#clip1_2026_332)">
+<path d="M22.7331 9.05957H13.3997C11.5591 9.05957 10.0664 10.5522 10.0664 12.3929V21.7262C10.0664 23.5669 11.5591 25.0596 13.3997 25.0596H22.7331C24.5737 25.0596 26.0664 23.5669 26.0664 21.7262V12.3929C26.0664 10.5522 24.5737 9.05957 22.7331 9.05957ZM15.3997 21.7262H13.3997V14.3929H15.3997V21.7262ZM14.3997 13.5476C13.7557 13.5476 13.2331 13.0209 13.2331 12.3716Cnan nan 13.7557 11.1956 14.3997 11.1956Cnan nan 15.5664 11.7222 15.5664 12.3716Cnan nan 15.0444 13.5476 14.3997 13.5476ZM23.3997 21.7262H21.3997V17.9902C21.3997 15.7449 18.7331 15.9149 18.7331 17.9902V21.7262H16.7331V14.3929H18.7331V15.5696C19.6637 13.8456 23.3997 13.7182 23.3997 17.2202V21.7262Z" fill="black"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_d_2026_332" x="-6.03828" y="-7.04511" width="48.3109" height="48.3119" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1.00649"/>
+<feGaussianBlur stdDeviation="1.00649"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2026_332"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2026_332" result="shape"/>
+</filter>
+<clipPath id="bgblur_0_2026_332_clip_path" transform="translate(6.03828 7.04511)"><rect x="2.01367" y="1.00684" width="32.2078" height="32.2078" rx="16.1039"/>
+</clipPath><clipPath id="clip1_2026_332">
+<rect width="16.1039" height="16.1039" fill="white" transform="translate(10.0664 9.05859)"/>
+</clipPath>
+</defs>
+</svg>
