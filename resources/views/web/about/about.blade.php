@@ -222,7 +222,7 @@ body {
     line-height: 1.85;
 }
 
-.ab-us-accessible { background: var(--about-bg-alt); }
+.ab-us-accessible { background: transparent; }
 .ab-us-accessible-container { grid-template-columns: minmax(0, 1fr) minmax(320px, 470px); }
 
 /* Why choose us */
@@ -556,7 +556,7 @@ body {
     }
 
     .ab-us-story-container { gap: 40px; }
-    .ab-us-story-img-wrap { width: calc(100% - 50px); max-width: 520px; margin-left: 30px; margin-right: 20px; margin-bottom: 20px; }
+    .ab-us-story-img-wrap { width: calc(100% - 50px); max-width: 520px; margin-left: 30px; margin-right: 20px; margin-bottom: 0px; }
     .ab-us-story-content { max-width: 100%; padding-inline: 16px; }
 
     .ab-us-why-left,
@@ -586,7 +586,7 @@ body {
         width: min(100% - 28px, var(--about-container));
     }
 
-    .ab-us-inner { min-height: 320px; padding-block: 14px 34px; }
+    .ab-us-inner { min-height: 320px; padding-block: 14px 20px; }
 
     .ab-us-hero-heading { font-size: 26px !important; }
     .ab-us-hero-heading br { display: none; }
@@ -620,7 +620,8 @@ body {
     .ab-us-numbers-stat::after { height: 42px !important; }
     .ab-us-stat-lbl { font-size: 11px; }
 
-    .ab-us-process-card { min-height: 260px; }
+    .ab-us-process-card { min-height: 260px; max-width: 100%; }
+    .ab-us-process-text { max-width: 100%; }
 }
 
 @media (max-width: 400px) {
@@ -659,12 +660,10 @@ body {
             <div class="ab-us-hero-content">
             
                 <h1 class="ab-us-hero-heading">
-                    Crafting <span class="ab-us-gold">Premium Packaging</span><br>
-                    That Tells Your Story
+                    ABOUT US
                 </h1>
                 <p class="ab-us-hero-para">
-                    We are more than a box manufacturer — we are your brand's silent ambassador.
-                    Every rigid box we create is a fusion of art, engineering, and passion.
+                    We are a leading packaging manufacturer committed to providing premium, reliable, <br>and customized packaging solutions
                 </p>
             </div>
         </div>
@@ -869,6 +868,7 @@ body {
             line-height: 1.6;
             max-width: 800px;
             margin: 0 auto 50px;
+            text-align: center;
         }
         .ab-us-quality-grid {
             display: flex;
@@ -898,18 +898,19 @@ body {
             width: 24px;
             height: 24px;
         }
-        .ab-quality-card-content h3 {
+        .ab-quality-card-content .ab-quality-title {
             color: var(--about-text);
             font-family: 'Inter', sans-serif;
             font-weight: 700;
-            font-size: 15px;
-            line-height: 24px;
-            letter-spacing: 1px;
-            margin: 0 0 5px;
+            font-size: 17px;
+            line-height: 1.4;
+            letter-spacing: 0.5px;
+            margin: 0 0 0;
+            display: block;
         }
-        .ab-quality-card-content p {
+        .ab-quality-card-content p:not(.ab-quality-title) {
             color: var(--about-text-muted);
-            font-size: 13px;
+            font-size: 16px;
             margin: 0;
         }
         .ab-us-quality-image {
@@ -947,14 +948,15 @@ body {
                 text-align: center;
                 padding: 15px 10px;
             }
-            .ab-quality-card-content h3 {
-                font-size: 13px;
+            .ab-quality-card-content .ab-quality-title {
+                font-size: 15px;
                 line-height: 1.3;
-                letter-spacing: 0.5px;
-                font-weight: 600;
+                letter-spacing: 0.3px;
+                font-weight: 700;
+                margin-bottom: 4px;
             }
-            .ab-quality-card-content p {
-                font-size: 11px;
+            .ab-quality-card-content p:not(.ab-quality-title) {
+                font-size: 12px;
                 line-height: 1.4;
             }
         }
@@ -973,28 +975,28 @@ body {
                     <div class="ab-quality-card">
                         <img src="{{ url('uploads/box-dimensions.svg') }}" alt="box dimensions">
                         <div class="ab-quality-card-content">
-                            <h3>Box Dimensions</h3>
+                            <p class="ab-quality-title">Box Dimensions</p>
                             <p>Micrometer precision for snug fits.</p>
                         </div>
                     </div>
                     <div class="ab-quality-card">
                         <img src="{{ url('uploads/text-alignment.svg') }}" alt="text alignment">
                         <div class="ab-quality-card-content">
-                            <h3>Text Alignment</h3>
+                            <p class="ab-quality-title">Text Alignment</p>
                             <p>Clear and accurate positioning.</p>
                         </div>
                     </div>
                     <div class="ab-quality-card">
                         <img src="{{ url('uploads/print-and-color.svg') }}" alt="print and color">
                         <div class="ab-quality-card-content">
-                            <h3>Print &amp; Color</h3>
+                            <p class="ab-quality-title">Print &amp; Color</p>
                             <p>Consistent colors in every batch.</p>
                         </div>
                     </div>
                     <div class="ab-quality-card">
                         <img src="{{ url('uploads/foil-and-laminations.svg') }}" alt="foil and laminations">
                         <div class="ab-quality-card-content">
-                            <h3>Foil &amp; Lamination</h3>
+                            <p class="ab-quality-title">Foil &amp; Lamination</p>
                             <p>Flawless premium finish applied.</p>
                         </div>
                     </div>
@@ -1010,28 +1012,28 @@ body {
                     <div class="ab-quality-card">
                         <img src="{{ url('uploads/structure-check.svg') }}" alt="structure check">
                         <div class="ab-quality-card-content">
-                            <h3>Structure Check</h3>
+                            <p class="ab-quality-title">Structure Check</p>
                             <p>Engineered for lasting strength.</p>
                         </div>
                     </div>
                     <div class="ab-quality-card">
                         <img src="{{ url('uploads/artwork-placement.svg') }}" alt="artwork placement">
                         <div class="ab-quality-card-content">
-                            <h3>Artwork Placement</h3>
+                            <p class="ab-quality-title">Artwork Placement</p>
                             <p>Perfectly aligned visual elements.</p>
                         </div>
                     </div>
                     <div class="ab-quality-card">
                         <img src="{{ url('uploads/assembly-and-closure.svg') }}" alt="assembly and closure">
                         <div class="ab-quality-card-content">
-                            <h3>Assembly &amp; Closure</h3>
+                            <p class="ab-quality-title">Assembly &amp; Closure</p>
                             <p>Secure folds and reliable closure.</p>
                         </div>
                     </div>
                     <div class="ab-quality-card">
                         <img src="{{ url('uploads/packing-and-quality.svg') }}" alt="packing and quality">
                         <div class="ab-quality-card-content">
-                            <h3>Packing &amp; Quantity</h3>
+                            <p class="ab-quality-title">Packing &amp; Quantity</p>
                             <p>Accurate counts, safely packed.</p>
                         </div>
                     </div>
@@ -1043,7 +1045,7 @@ body {
 
 
     <!-- MEET THE TEAM SECTION -->
-    <style>
+    <!-- <style>
         .ab-us-team {
             padding: 20px 0;
             background: var(--about-bg);
@@ -1213,7 +1215,7 @@ body {
                 requestAnimationFrame(autoScroll);
             }
         });
-    </script>
+    </script> -->
 
     <!-- WORLDWIDE SUPPORT SECTION -->
     <style>
@@ -1244,6 +1246,7 @@ body {
             font-size: 15px;
             line-height: 1.8;
             margin-bottom: 30px;
+            text-align: justify;
         }
         .ab-worldwide-buttons {
             display: flex;
