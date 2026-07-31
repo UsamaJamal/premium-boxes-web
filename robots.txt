@@ -1,8 +1,7 @@
-User-agent:  *
+User-agent: *
 Disallow: /cgi-bin/
 Disallow: /admin/login
 Disallow: /admin/
-Disallow: /portfolio/
 Disallow: /thank-you/
 Disallow: /category-thank-you/
 Disallow: /instant-thank-you/
@@ -21,9 +20,10 @@ Disallow: /*?gclid=
 Disallow: /*?srsltid=
 Disallow: /*?gmb=
 Disallow: /*?gmc=
-Disallow:  /item/
+Disallow: /item/
 Disallow: /*&msclkid=
 Disallow: /*&gad=
 Disallow: /*&gmb=
 Disallow: /*&gmc=
-Sitemap: https://www.premiumboxes.com/
+
+Sitemap: https://www.premiumboxes.com/sitemap.xml
