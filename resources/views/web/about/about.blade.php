@@ -24,6 +24,16 @@ body {
     color: var(--about-text);
 }
 
+.premiumboxes-link {
+    color: #ffffff;
+    text-decoration: none !important;
+    transition: color 0.3s ease;
+}
+
+.premiumboxes-link:hover {
+    color: var(--about-gold);
+}
+
 /* Justify all long paragraphs on desktop */
 @media (min-width: 861px) {
     .ab-us-hero-text,
@@ -597,7 +607,7 @@ body {
     .ab-us-story,
     .ab-us-why,
     .ab-us-numbers,
-    .ab-us-process { padding-block: 38px; }
+    .ab-us-process { padding-block: 25px; }
 
     .ab-us-story-container { gap: 34px; }
     .ab-us-story-heading,
@@ -685,7 +695,7 @@ body {
                     Our Purpose
                 </h2>
                 <p class="ab-us-story-para">
-                    Premiumboxes was started with a clear purpose. We want to manufacture custom packaging boxes that are accessible from big brands to growing businesses. We aim to create packaging that is not only high-quality, low costly but also adds value to your branding. Our focus is to create thoughtful designs that are aesthetically pleasing, satisfy branding and have practical use.
+                    <a href="{{ url('/') }}" class="premiumboxes-link">Premiumboxes</a> was started with a clear purpose. We want to manufacture custom packaging boxes that are accessible from big brands to growing businesses. We aim to create packaging that is not only high-quality, low costly but also adds value to your branding. Our focus is to create thoughtful designs that are aesthetically pleasing, satisfy branding and have practical use.
                     <br>
                     As a direct manufacturer, we ought to help customers. We manufacture packaging with customized size, material, structure, printing, and finishing.  We believe in quality over everything; hence we make boxes that represent your brand at its best. From sample to bulk orders, our packaging has one purpose to take your brand to highest level.
                 </p>
@@ -701,7 +711,7 @@ body {
                     Packaging Made Accessible Since 2016
                 </h2>
                 <p class="ab-us-story-para">
-                    PremiumBoxes is started in 2016 with a straightforward goal. We want to make boxes that do not cost businesses an arm and a leg. We removed the restriction that customers will get customization only on bulk orders. Now you can buy customized packaging boxes as many as you want. With 10 years of experience, we have finest design team, dedicated customer support and high-quality manufacturing process. As a direct manufacturer we operate our own production facility. Therefore, proudly we can say that we have complete control over quality, materials, designs and finishing.
+                    <a href="{{ url('/') }}" class="premiumboxes-link">PremiumBoxes</a> is started in 2016 with a straightforward goal. We want to make boxes that do not cost businesses an arm and a leg. We removed the restriction that customers will get customization only on bulk orders. Now you can buy customized packaging boxes as many as you want. With 10 years of experience, we have finest design team, dedicated customer support and high-quality manufacturing process. As a direct manufacturer we operate our own production facility. Therefore, proudly we can say that we have complete control over quality, materials, designs and finishing.
                 </p>
             </div>
             <div class="ab-us-story-img-wrap ab-us-accessible-img-wrap">
@@ -760,6 +770,16 @@ body {
                 height: auto;
                 object-fit: contain;
             }
+            .ab-facility-content {
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+            }
+        }
+        .ab-facility-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px 0;
         }
     </style>
     <section class="ab-us-story" style="background: #202020;">
@@ -771,7 +791,7 @@ body {
                     title="Made in Our Own Facility"
                 >   
             </div>
-            <div class="ab-us-story-content" style="display: flex; flex-direction: column; justify-content: center; padding: 20px 0;">
+            <div class="ab-us-story-content ab-facility-content">
                 <h2 class="ab-us-story-heading" style="color: var(--about-text);">
                     Made in Our Own Facility
                 </h2>
@@ -1301,11 +1321,12 @@ body {
         @media (max-width: 860px) {
             .ab-worldwide-inner {
                 flex-direction: column-reverse;
+                gap: 40px;
             }
             .ab-worldwide-map-container {
                 width: 100%;
                 margin-top: 0;
-                margin-bottom: 30px;
+                margin-bottom: 0;
             }
             .ab-worldwide-buttons {
                 flex-wrap: nowrap;
@@ -1318,13 +1339,18 @@ body {
                 font-size: 12px;
             }
         }
+        @media (max-width: 560px) {
+            .ab-worldwide-inner {
+                gap: 34px;
+            }
+        }
     </style>
     <section class="ab-us-worldwide">
         <div class="ab-worldwide-inner">
             <div class="ab-worldwide-text">
                 <h2 class="ab-worldwide-heading">Worldwide Packaging Support</h2>
                 <p class="ab-worldwide-para">
-                    PremiumBoxes have customers worldwide, therefore, we ship our orders to all the corners of the world. To make the shipping process authentic, easier, and trustworthy, we use trusted, reliable and established carriers. For shipping, we use the services of UPS, FedEx, and DHL. Cost depends on several factors. It can be varying to destination country, package size, and delivery requirements. International orders cost extra charges because of taxes and import restrictions.
+                    <a href="{{ url('/') }}" class="premiumboxes-link">PremiumBoxes</a> have customers worldwide, therefore, we ship our orders to all the corners of the world. To make the shipping process authentic, easier, and trustworthy, we use trusted, reliable and established carriers. For shipping, we use the services of UPS, FedEx, and DHL. Cost depends on several factors. It can be varying to destination country, package size, and delivery requirements. International orders cost extra charges because of taxes and import restrictions.
                 </p>
                 <div class="ab-worldwide-buttons">
                     <div class="ab-worldwide-btn">UPS</div>
