@@ -701,7 +701,7 @@ html, body {
 
                 <div class="contact-info-item">
                     <i class="fas fa-map-marker-alt contact-icon"></i>
-                    <a href="https://maps.google.com/?q=1S285+Summit+Avenue+Oakbrook+Terrace,+IL+60181" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.google.com/maps/place/Premium+Boxes+(Custom+Printing+Services)/@41.8552185,-87.9723695,17z/data=!3m1!4b1!4m6!3m5!1s0x880e4db792c4068b:0x914fa218c120d680!8m2!3d41.8552185!4d-87.9723695!16s%2Fg%2F11j2z244w3?entry=ttu&g_ep=EgoyMDI2MDcyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
                         <p>1S285 Summit Avenue, <br>Oakbrook Terrace, IL 60181</p>
                     </a>
                 </div>
