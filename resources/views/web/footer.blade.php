@@ -563,10 +563,10 @@
                     <a href="mailto:support@premiumboxes.com">
                         <i class="fas fa-envelope"></i> support@premiumboxes.com
                     </a>
-                    <a href="https://maps.google.com/?q=9931+Franklin+Ave,+Suite+1-A,+Franklin+Park,+IL+60131" target="_blank" rel="noopener noreferrer" style="align-items: flex-start;">
-                        <i class="fas fa-map-marker-alt"></i> 
-                        <span>9931 Franklin Ave, Suite 1-A
-<br>Franklin Park, IL 60131</span>
+                    <a href="https://maps.google.com/?q=1S285+Summit+Avenue+Oakbrook+Terrace,+IL+60181" target="_blank" rel="noopener noreferrer" style="align-items: flex-start;">
+                        <i class="fas fa-map-marker-alt" style="margin-top: 5px;"></i> 
+                        <span>1S285 Summit Avenue
+<br>Oakbrook Terrace, IL 60181</span>
                     </a>
                 </div>
                 

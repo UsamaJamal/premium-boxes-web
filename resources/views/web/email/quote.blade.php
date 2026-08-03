@@ -11,24 +11,24 @@
 <body>
     <h2>Quote Request</h2>
     <table>
-        <tr><th>Source</th><td>{{ $data['source'] ?? '' }}</td></tr>
-        <tr><th>Page URL</th><td>{{ $data['page_url'] ?? '' }}</td></tr>
-        <tr><th>Name</th><td>{{ $data['p_name'] ?? '' }}</td></tr>
-        <tr><th>Email</th><td>{{ $data['email'] ?? '' }}</td></tr>
-        <tr><th>Phone</th><td>{{ $data['p_phone'] ?? '' }}</td></tr>
-        <tr><th>Address</th><td>{{ $data['address'] ?? '' }}</td></tr>
-        <tr><th>Company</th><td>{{ $data['company'] ?? '' }}</td></tr>
-        <tr><th>Website</th><td>{{ $data['website'] ?? '' }}</td></tr>
-        <tr><th>Product / Box Style</th><td>{{ $data['p_boxname'] ?? '' }}</td></tr>
-        <tr><th>Material</th><td>{{ $data['p_stock'] ?? '' }}</td></tr>
-        <tr><th>Color Options</th><td>{{ $data['p_color'] ?? '' }}</td></tr>
-        <tr><th>Printing Options</th><td>{{ $data['p_type'] ?? '' }}</td></tr>
-        <tr><th>Width</th><td>{{ $data['p_width'] ?? '' }}</td></tr>
-        <tr><th>Length</th><td>{{ $data['p_length'] ?? '' }}</td></tr>
-        <tr><th>Depth / Height</th><td>{{ $data['p_height'] ?? '' }}</td></tr>
-        <tr><th>Unit</th><td>{{ $data['p_unit'] ?? '' }}</td></tr>
-        <tr><th>Quantity</th><td>{{ $data['p_qty1'] ?? '' }}</td></tr>
-        <tr><th>Message</th><td>{{ $data['message'] ?? '' }}</td></tr>
+        @if(!empty($data['source']))<tr><th>Source</th><td>{{ $data['source'] }}</td></tr>@endif
+        @if(!empty($data['page_url']))<tr><th>Page URL</th><td>{{ $data['page_url'] }}</td></tr>@endif
+        @if(!empty($data['p_name']))<tr><th>Name</th><td>{{ $data['p_name'] }}</td></tr>@endif
+        @if(!empty($data['email']))<tr><th>Email</th><td>{{ $data['email'] }}</td></tr>@endif
+        @if(!empty($data['p_phone']))<tr><th>Phone</th><td>{{ $data['p_phone'] }}</td></tr>@endif
+        @if(!empty($data['address']))<tr><th>Address</th><td>{{ $data['address'] }}</td></tr>@endif
+        @if(!empty($data['company']))<tr><th>Company</th><td>{{ $data['company'] }}</td></tr>@endif
+        @if(!empty($data['website']))<tr><th>Website</th><td>{{ $data['website'] }}</td></tr>@endif
+        @if(!empty($data['p_boxname']))<tr><th>Product / Box Style</th><td>{{ $data['p_boxname'] }}</td></tr>@endif
+        @if(!empty($data['p_stock']))<tr><th>Material</th><td>{{ $data['p_stock'] }}</td></tr>@endif
+        @if(!empty($data['p_color']))<tr><th>Color Options</th><td>{{ $data['p_color'] }}</td></tr>@endif
+        @if(!empty($data['p_type']))<tr><th>Printing Options</th><td>{{ $data['p_type'] }}</td></tr>@endif
+        @if(!empty($data['p_width']))<tr><th>Width</th><td>{{ $data['p_width'] }}</td></tr>@endif
+        @if(!empty($data['p_length']))<tr><th>Length</th><td>{{ $data['p_length'] }}</td></tr>@endif
+        @if(!empty($data['p_height']))<tr><th>Depth / Height</th><td>{{ $data['p_height'] }}</td></tr>@endif
+        @if(!empty($data['p_unit']))<tr><th>Unit</th><td>{{ $data['p_unit'] }}</td></tr>@endif
+        @if(!empty($data['p_qty1']))<tr><th>Quantity</th><td>{{ $data['p_qty1'] }}</td></tr>@endif
+        @if(!empty($data['message']))<tr><th>Message</th><td>{{ $data['message'] }}</td></tr>@endif
     </table>
 </body>
 </html>
