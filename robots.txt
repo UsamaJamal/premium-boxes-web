@@ -20,7 +20,7 @@ Disallow: /*?gclid=
 Disallow: /*?srsltid=
 Disallow: /*?gmb=
 Disallow: /*?gmc=
-Disallow: /item/
+
 Disallow: /*&msclkid=
 Disallow: /*&gad=
 Disallow: /*&gmb=
