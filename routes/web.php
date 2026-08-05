@@ -449,13 +449,9 @@ Route::get('box-by-material', function () { abort(404); });
 Route::get('box-by-style', function () { abort(404); });
 Route::get('promotional-product', function () { abort(404); });
 
-// Hacked spam URLs under /item/* : return a direct HTTP 410 Gone (no redirect,
-// no Location header) so search engines permanently de-index them.
-// Matches /item, /item/, and /item/<anything>/at/any/depth for any HTTP method.
-Route::any('item/{path?}', function () {
-    return response('410 Gone', 410)
-        ->header('Content-Type', 'text/plain; charset=UTF-8');
-})->where('path', '.*');
+// NOTE: Hacked spam URLs under /item/* are returned as a hard HTTP 410 Gone by
+// the global App\Http\Middleware\GoneUrls middleware (registered in Http/Kernel),
+// so they never reach the router. See that middleware to retire more paths.
 
 Route::get('/{any}','ProductController@Product');
 Route::post('user-image-update','UserLogin@EditUserImage');
