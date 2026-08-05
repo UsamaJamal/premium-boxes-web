@@ -3034,6 +3034,10 @@ body .pg-left h6 * {
   text-align: justify;
   margin-bottom: 20px;
 }
+.industry-hero-left p a {
+  color: var(--accent-gold);
+  text-decoration: none;
+}
 .btn-yellow {
   background-color: #ffc542;
   color: #000;

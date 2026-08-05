@@ -95,7 +95,7 @@ a { text-decoration: none; color: inherit; }
 .product-status-badge { color: var(--product-gold); font-size: 17.5px; font-weight: 600; margin-top: 12px; }
 .product-desc { font-size: 17.5px; line-height: 1.6; color: rgba(255,255,255,0.85) !important; margin-bottom: 20px; }
 .product-desc *, .product-desc p, .product-desc span, .product-desc li, .product-desc strong, .product-desc b { color: rgba(255,255,255,0.85) !important; }
-.product-desc a { color: #f5c542 !important; text-decoration: underline !important; }
+.product-desc a { color: #f5c542 !important; text-decoration: none !important; }
 .product-desc a:hover { color: #ffffff !important; text-decoration: none !important; }
 .product-desc ul { list-style-type: disc !important; list-style-position: outside !important; margin-left: 30px !important; padding-left: 10px !important; margin-bottom: 10px !important; }
 .product-desc ol { list-style-type: decimal !important; list-style-position: outside !important; margin-left: 30px !important; padding-left: 10px !important; margin-bottom: 10px !important; }
@@ -183,16 +183,16 @@ a { text-decoration: none; color: inherit; }
 .product-tab-item.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 2.5px; background-color: var(--product-gold); }
 .product-tab-content { width: 100%; }
 .product-info-heading { font-size: 30px; font-weight: 700; margin-bottom: 25px; }
-.product-info-text { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.85) !important; margin-bottom: 37.5px; font-family: inherit; }
-.product-info-text * { color: rgba(255,255,255,0.85) !important; }
-.product-info-text a { color: #f5c542 !important; text-decoration: underline !important; }
+.product-info-text { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.85); margin-bottom: 37.5px; font-family: inherit; }
+.product-info-text a { color: #f5c542 !important; text-decoration: none !important; }
 .product-info-text a:hover { color: #ffffff !important; text-decoration: none !important; }
-.product-info-text p { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.85) !important; margin-bottom: 18px; }
-.product-info-text strong, .product-info-text b, .product-info-text strong * { font-weight: 700; color: #fff !important; }
-.product-info-text h1, .product-info-text h2, .product-info-text h3, .product-info-text h4, .product-info-text h1 *, .product-info-text h2 *, .product-info-text h3 *, .product-info-text h4 * { color: #ffffff !important; margin-bottom: 14px; margin-top: 24px; }
+.product-info-text p { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.85); margin-bottom: 18px; }
+.product-info-text p:empty { display: none; }
+.product-info-text strong, .product-info-text b { font-weight: 700; color: #fff; }
+.product-info-text h1, .product-info-text h2, .product-info-text h3, .product-info-text h4 { color: #ffffff; margin-bottom: 14px; margin-top: 24px; }
 .product-info-text ul { list-style-type: disc !important; padding-left: 30px !important; margin-bottom: 10px !important; }
 .product-info-text ol { list-style-type: decimal !important; padding-left: 30px !important; margin-bottom: 10px !important; }
-.product-info-text li { display: list-item !important; list-style-position: inside !important; font-size: 16px; color: rgba(255,255,255,0.85) !important; line-height: 1.7; margin-bottom: 8px !important; }
+.product-info-text li { display: list-item !important; list-style-position: inside !important; font-size: 16px; color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 8px !important; }
 .product-info-text img { max-width: 100%; height: auto; }
 .product-info-subheading { font-size: 25px; font-weight: 600; margin-bottom: 25px; }
 .product-info-list { display: flex; flex-direction: column; gap: 18.8px; }
@@ -714,14 +714,14 @@ a { text-decoration: none; color: inherit; }
                         @if(strlen($clean_desc) > 180)
                             <div id="desc-short" style="display: block;">
                                 {{ Str::limit($clean_desc, 180, ' ....') }} 
-                                <a onclick="document.getElementById('desc-short').style.display='none'; document.getElementById('desc-full').style.display='block';" style="color: #F5C542 !important; font-weight: 600; text-decoration: none; cursor: pointer; white-space: nowrap;">Read More</a>
+                                <a onclick="document.getElementById('desc-short').style.display='none'; document.getElementById('desc-full').style.display='block';" style="color: #F5C542 !important; font-weight: 600; text-decoration: none !important; border-bottom: none !important; cursor: pointer; white-space: nowrap;">Read More</a>
                             </div>
                             <div id="desc-full" style="display: none;">
                                 <style>
                                     #desc-full p:last-of-type { display: inline; margin-bottom: 0; }
                                 </style>
                                 {!! $p->description !!} 
-                                &nbsp;<a onclick="document.getElementById('desc-full').style.display='none'; document.getElementById('desc-short').style.display='block';" style="color: #F5C542 !important; font-weight: 600; text-decoration: none; cursor: pointer; white-space: nowrap;">Show Less</a>
+                                &nbsp;<a onclick="document.getElementById('desc-full').style.display='none'; document.getElementById('desc-short').style.display='block';" style="color: #F5C542 !important; font-weight: 600; text-decoration: none !important; border-bottom: none !important; cursor: pointer; white-space: nowrap;">Show Less</a>
                             </div>
                         @else
                             {!! $p->description !!}
@@ -978,13 +978,45 @@ a { text-decoration: none; color: inherit; }
 
             <!-- Description Tab -->
             <div class="product-tab-content" id="tab-description">
-                <div class="product-info-text">
+                <div class="product-info-text" id="long-desc-wrapper" style="position: relative; overflow: hidden; max-height: 420px; transition: max-height 0.3s ease;">
                     @foreach($product as $p)
                         {!! $p->long_description !!}
                     @break
                     @endforeach
                 </div>
+                <div style="margin-top: 8px;">
+                    <a id="long-desc-toggle" style="color: #F5C542 !important; font-weight: 600; text-decoration: none !important; cursor: pointer; display: none;">Read More</a>
+                </div>
             </div>
+            
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    const wrapper = document.getElementById('long-desc-wrapper');
+                    const toggleBtn = document.getElementById('long-desc-toggle');
+                    const initialMaxHeight = 420;
+                    
+                    if (wrapper && toggleBtn) {
+                        if (wrapper.scrollHeight > initialMaxHeight + 30) {
+                            toggleBtn.style.display = 'inline-block';
+                            
+                            toggleBtn.addEventListener('click', function() {
+                                if (wrapper.style.maxHeight === initialMaxHeight + 'px' || wrapper.style.maxHeight === '') {
+                                    wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
+                                    toggleBtn.textContent = 'Show Less';
+                                } else {
+                                    wrapper.style.maxHeight = initialMaxHeight + 'px';
+                                    toggleBtn.textContent = 'Read More';
+                                    const yOffset = -140;
+                                    const y = wrapper.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                                    window.scrollTo({ top: y, behavior: 'smooth' });
+                                }
+                            });
+                        } else {
+                            wrapper.style.maxHeight = 'none';
+                        }
+                    }
+                });
+            </script>
 
             <!-- Specifications Tab -->
             <div class="product-tab-content" id="tab-specs" style="display:none">
