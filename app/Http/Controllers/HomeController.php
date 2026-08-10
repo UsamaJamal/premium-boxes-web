@@ -114,10 +114,10 @@ return response()->view('web/404',$data,404);
 "email": "support@premiumboxes.com",
 "address": {
 "@type": "PostalAddress",
-"streetAddress": "9931 Franklin Ave, Suite 1-A",
-"addressLocality": "Franklin Park",
+"streetAddress": "1S285 Summit Avenue",
+"addressLocality": "Oakbrook Terrace",
 "addressRegion": "IL",
-"postalCode": "60131",
+"postalCode": "60181",
 "addressCountry": "US"
 },
 "geo": {
