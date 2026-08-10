@@ -108,6 +108,11 @@ public function FAQuestion() {
     $data['frequently_ask_question'] = DB::table('frequently_ask_question')->get();
     $data['dynamic'] = DB::table('dynamic')->get();
     $data['contact'] = DB::table('contact')->get();
+    
+    // Fetch dynamic FAQ categories and their questions
+    $data['dynamic_faqs'] = \App\FaqCategory::with(['faqQuestions' => function($q) {
+        $q->where('status', 1);
+    }])->where('status', 1)->get();
   
     return view ('web/faquestion/faskquestion',$data); 
 }

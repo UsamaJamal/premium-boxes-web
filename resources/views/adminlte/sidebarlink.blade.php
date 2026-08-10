@@ -245,6 +245,28 @@
             </ul>
           </li>
           
+          <li class="nav-header">Dynamic FAQs</li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-question-circle"></i>
+              <p>
+              FAQ Manager
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url('admin/faq-manager/categories')}}" class="nav-link">
+                  <p>FAQ Categories</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('admin/faq-manager/questions')}}" class="nav-link">
+                  <p>FAQ Questions</p>
+                </a>
+              </li>
+            </ul>
+          </li>
           
           
           <li class="nav-item has-treeview">

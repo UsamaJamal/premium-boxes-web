@@ -833,138 +833,27 @@ foreach($parts as $part) {
     <!-- FAQ Filter Buttons -->
     <section class="faq-filters">
         <div class="faq-filter-scroll">
-            <button class="faq-filter-btn active" data-target="design">Design &amp; Artwork</button>
-            <button class="faq-filter-btn" data-target="order">Order &amp; Prices</button>
-            <button class="faq-filter-btn" data-target="sales">Sales</button>
-            <button class="faq-filter-btn" data-target="shipping">Shipping</button>
-            <button class="faq-filter-btn" data-target="support">Customer Support</button>
+            @foreach($dynamic_faqs as $index => $category)
+                <button class="faq-filter-btn {{ $index == 0 ? 'active' : '' }}" data-target="category-{{ $category->id }}">{{ $category->name }}</button>
+            @endforeach
         </div>
     </section>
 
     <!-- FAQ Sections -->
     <main class="faq-main">
-
-        <!-- Design & Artwork -->
-        <section class="faq-section" id="design">
-            <h2 class="faq-section-title">Design &amp; Artwork</h2>
+        @foreach($dynamic_faqs as $category)
+        <section class="faq-section" id="category-{{ $category->id }}">
+            <h2 class="faq-section-title">{{ $category->name }}</h2>
             <div class="faq-list">
-                @foreach($faqs as $faq)
+                @foreach($category->faqQuestions as $faq)
                 <div class="faq-item">
-                    <h3 class="faq-question">{{ $faq['question'] }} <span class="faq-icon">+</span></h3>
-                    <div class="faq-answer">{!! $faq['answer'] !!}</div>
+                    <h3 class="faq-question">{{ $faq->question }} <span class="faq-icon">+</span></h3>
+                    <div class="faq-answer"><p>{!! nl2br(e($faq->answer)) !!}</p></div>
                 </div>
                 @endforeach
             </div>
         </section>
-
-        <!-- Order & Prices -->
-        <section class="faq-section" id="order">
-            <h2 class="faq-section-title">Order &amp; Prices</h2>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <h3 class="faq-question">Which printing method is best for small orders? <span class="faq-icon">+</span></h3>
-                    <div class="faq-answer"><p>Digital printing is ideal for small orders due to lower setup costs and faster turnaround times.</p></div>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">Do you offer free design support? <span class="faq-icon">+</span></h3>
-                    <div class="faq-answer"><p>Yes, we offer free design support with every order to ensure your artwork meets print-ready specifications.</p></div>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">What is the minimum order quantity? <span class="faq-icon">+</span></h3>
-                    <div class="faq-answer"><p>Minimum order quantity is 50 units for most box styles. Custom sizes may have different minimums.</p></div>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">Which printing method is best for small orders? <span class="faq-icon">+</span></h3>
-                    <div class="faq-answer"><p>For small orders, digital printing is the recommended method for cost and quality balance.</p></div>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">Which printing method is best for small orders? <span class="faq-icon">+</span></h3>
-                    <div class="faq-answer"><p>Digital printing remains the best choice for small runs offering flexibility and vibrant colors.</p></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sales -->
-        <section class="faq-section" id="sales">
-            <h2 class="faq-section-title">Sales</h2>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <h3 class="faq-question">Which printing method is best for small orders? <span class="faq-icon">+</span></h3>
-                    <div class="faq-answer"><p>For small orders, digital printing is typically the most cost-effective method as it requires no plate setup and allows for shorter runs with high quality results.</p></div>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">Do you offer free design support? <span class="faq-icon">+</span></h3>
-                    <div class="faq-answer"><p>Yes, our in-house design team provides complimentary design assistance to help you create packaging that perfectly represents your brand.</p></div>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">What is the minimum order quantity? <span class="faq-icon">+</span></h3>
-                    <div class="faq-answer"><p>Our minimum order quantity starts at 50 units, though this may vary depending on the box style and customization options selected.</p></div>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">Which printing method is best for small orders? <span class="faq-icon">+</span></h3>
-                    <div class="faq-answer"><p>Digital printing works best for smaller quantities while offset printing becomes more economical at higher volumes.</p></div>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">Which printing method is best for small orders? <span class="faq-icon">+</span></h3>
-                    <div class="faq-answer"><p>Digital printing remains the best choice for small runs offering flexibility and vibrant colors at a lower entry cost.</p></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Shipping -->
-        <section class="faq-section" id="shipping">
-            <h2 class="faq-section-title">Shipping</h2>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <h3 class="faq-question">Which printing method is best for small orders? <span class="faq-icon">+</span></h3>
-                    <div class="faq-answer"><p>For small orders, digital printing is typically the most cost-effective method as it requires no plate setup and allows for shorter runs.</p></div>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">Do you offer free design support? <span class="faq-icon">+</span></h3>
-                    <div class="faq-answer"><p>Yes, we offer free design support with every order to ensure your artwork meets print-ready specifications.</p></div>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">What is the minimum order quantity? <span class="faq-icon">+</span></h3>
-                    <div class="faq-answer"><p>Minimum order quantity is 50 units for most box styles. Custom sizes may have different minimums.</p></div>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">Which printing method is best for small orders? <span class="faq-icon">+</span></h3>
-                    <div class="faq-answer"><p>For small orders, digital printing is the recommended method for cost and quality balance.</p></div>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">Which printing method is best for small orders? <span class="faq-icon">+</span></h3>
-                    <div class="faq-answer"><p>Digital printing remains the best choice for small runs offering flexibility and vibrant colors.</p></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Customer Support -->
-        <section class="faq-section" id="support">
-            <h2 class="faq-section-title">Customer Support</h2>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <h3 class="faq-question">Which printing method is best for small orders? <span class="faq-icon">+</span></h3>
-                    <div class="faq-answer"><p>For small orders, digital printing is typically the most cost-effective method as it requires no plate setup.</p></div>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">Do you offer free design support? <span class="faq-icon">+</span></h3>
-                    <div class="faq-answer"><p>Yes, our support team is available to guide you through the design process at no additional charge.</p></div>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">What is the minimum order quantity? <span class="faq-icon">+</span></h3>
-                    <div class="faq-answer"><p>Our minimum order quantity starts at 50 units. Reach out to support for exceptions on special orders.</p></div>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">Which printing method is best for small orders? <span class="faq-icon">+</span></h3>
-                    <div class="faq-answer"><p>Digital printing works best for smaller quantities while offset printing becomes more economical at higher volumes.</p></div>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">Which printing method is best for small orders? <span class="faq-icon">+</span></h3>
-                    <div class="faq-answer"><p>Digital printing is ideal for short runs with fast turnaround and no minimum plate costs.</p></div>
-                </div>
-            </div>
-        </section>
-
+        @endforeach
     </main>
 
 <script>

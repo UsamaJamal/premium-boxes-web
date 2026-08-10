@@ -184,6 +184,22 @@ Route::post('admin/update_homefaq/{id}', 'AdminHomeFaqController@update');
 Route::get('admin/delete_homefaq/{id}', 'AdminHomeFaqController@delete');
 // Home FAQs Admin Routes
 
+// FAQ Manager (Dynamic FAQs) Routes
+Route::get('admin/faq-manager/categories', 'AdminFaqManagerController@indexCategories');
+Route::get('admin/faq-manager/categories/create', 'AdminFaqManagerController@createCategory');
+Route::post('admin/faq-manager/categories', 'AdminFaqManagerController@storeCategory');
+Route::get('admin/faq-manager/categories/edit/{id}', 'AdminFaqManagerController@editCategory');
+Route::post('admin/faq-manager/categories/update/{id}', 'AdminFaqManagerController@updateCategory');
+Route::get('admin/faq-manager/categories/delete/{id}', 'AdminFaqManagerController@deleteCategory');
+
+Route::get('admin/faq-manager/questions', 'AdminFaqManagerController@indexQuestions');
+Route::get('admin/faq-manager/questions/create', 'AdminFaqManagerController@createQuestion');
+Route::post('admin/faq-manager/questions', 'AdminFaqManagerController@storeQuestion');
+Route::get('admin/faq-manager/questions/edit/{id}', 'AdminFaqManagerController@editQuestion');
+Route::post('admin/faq-manager/questions/update/{id}', 'AdminFaqManagerController@updateQuestion');
+Route::get('admin/faq-manager/questions/delete/{id}', 'AdminFaqManagerController@deleteQuestion');
+// End FAQ Manager Routes
+
 // Dimensions
 Route::get('admin/adddimension','DimensionPageController@adddimension');
 Route::post('admin/insertdimension','DimensionPageController@insertdimension');
