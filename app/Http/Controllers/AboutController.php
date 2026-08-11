@@ -97,9 +97,14 @@ public function ReturnPolicy() {
 public function FAQuestion() {
     $meta = DB::table('frequently_ask_question')->get();
 
-    $data['meta_title']= $meta[0]->meta_title;
-    $data['meta_description']= $meta[0]->meta_description;
-    $data['meta_tags']= $meta[0]->meta_tags;
+    $data['meta_title']= $meta[0]->meta_title ?? '';
+    $data['meta_description']= $meta[0]->meta_description ?? '';
+    $data['meta_tags']= $meta[0]->meta_tags ?? '';
+    $data['robots'] = $meta[0]->meta_robots ?? '';
+    $data['schema'] = $meta[0]->schema ?? '';
+    $data['page_title'] = $meta[0]->page_title ?? 'Answers to Every';
+    $data['page_subtitle'] = $meta[0]->page_subtitle ?? 'Packaging Question';
+    $data['page_description'] = $meta[0]->page_description ?? 'Find clear guidance on custom rigid boxes, materials, finishes, pricing, production timelines, and shipping all in one place.';
     $data['all_category'] = DB::table('add_category')->where('parent_category',0)->where('status',1)->get();
     $data['sub_category_link'] = DB::table('add_category')->where('status',1)->get();
     $data['all_product'] = DB::table('product')->where('status',1)->get();

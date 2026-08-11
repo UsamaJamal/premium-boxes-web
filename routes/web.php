@@ -186,6 +186,7 @@ Route::get('admin/delete_homefaq/{id}', 'AdminHomeFaqController@delete');
 
 // FAQ Manager (Dynamic FAQs) Routes
 Route::get('admin/faq-manager/categories', 'AdminFaqManagerController@indexCategories');
+Route::post('admin/faq-manager/seo', 'AdminFaqManagerController@updateFaqSeo');
 Route::get('admin/faq-manager/categories/create', 'AdminFaqManagerController@createCategory');
 Route::post('admin/faq-manager/categories', 'AdminFaqManagerController@storeCategory');
 Route::get('admin/faq-manager/categories/edit/{id}', 'AdminFaqManagerController@editCategory');

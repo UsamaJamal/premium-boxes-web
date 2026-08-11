@@ -25,7 +25,31 @@ class AdminFaqManagerController extends Controller
     public function indexCategories()
     {
         $categories = FaqCategory::all();
-        return view('adminlte.faq_manager.categories.index', compact('categories'));
+        $faq_seo = DB::table('frequently_ask_question')->first();
+        return view('adminlte.faq_manager.categories.index', compact('categories', 'faq_seo'));
+    }
+
+    public function updateFaqSeo(Request $request)
+    {
+        $data = [
+            'meta_title' => $request->input('meta_title'),
+            'meta_description' => $request->input('meta_description'),
+            'meta_tags' => $request->input('meta_keywords'),
+            'meta_robots' => $request->input('meta_robots'),
+            'schema' => $request->input('schema'),
+            'page_title' => $request->input('page_title'),
+            'page_subtitle' => $request->input('page_subtitle'),
+            'page_description' => $request->input('page_description'),
+        ];
+        
+        $exists = DB::table('frequently_ask_question')->first();
+        if ($exists) {
+            DB::table('frequently_ask_question')->update($data);
+        } else {
+            DB::table('frequently_ask_question')->insert($data);
+        }
+
+        return redirect()->back()->with('success', 'FAQ Page SEO Settings updated successfully.');
     }
 
     public function createCategory()

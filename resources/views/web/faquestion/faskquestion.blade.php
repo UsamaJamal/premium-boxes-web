@@ -819,12 +819,11 @@ foreach($parts as $part) {
             <div class="faq-hero-content">
                
                 <h1 class="faq-heading">
-                    Answers to Every
-                    <span class="faq-heading-gold">Packaging Question</span>
+                    {{ $page_title }}
+                    <span class="faq-heading-gold">{{ $page_subtitle }}</span>
                 </h1>
                 <p class="faq-subtext">
-                    Find clear guidance on custom rigid boxes, materials, finishes, pricing,
-                    production timelines, and shipping all in one place.
+                    {{ $page_description }}
                 </p>
             </div>
         </div>
