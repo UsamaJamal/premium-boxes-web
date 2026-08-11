@@ -191,12 +191,18 @@ color: #C5C5C5;
 .faq-filter-scroll {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
     gap: 12px;
     max-width: 1440px;
     margin: 0 auto;
     padding: 20px 40px;
     width: 100%;
+}
+.faq-filter-scroll::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
 .faq-filter-btn {
@@ -209,6 +215,8 @@ color: #C5C5C5;
     background-color: transparent;
     color: #dddddd;
     letter-spacing: 0.3px;
+    white-space: nowrap;
+    flex: 0 0 auto;
     transition: background-color 0.25s ease, color 0.25s ease,
                 border-color 0.25s ease, box-shadow 0.25s ease,
                 transform 0.25s ease;
@@ -309,8 +317,8 @@ body.filters-visible .faq-filters-spacer {
     background: transparent;
     border: none;
     color: #b0b0b0;
-    font-size: 16px !important;
-    font-weight: 400;
+    font-size: 18px !important;
+    font-weight: 600;
     text-align: left;
     cursor: pointer;
     transition: color 0.2s ease;
