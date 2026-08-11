@@ -478,7 +478,7 @@ input:-webkit-autofill:active {
         <!-- Contact Info -->
         <div class="top-bar-contact" style="display: flex; align-items: center; gap: 28px; flex-shrink: 0;">
             <!-- Phone -->
-            <a href="tel:18005189441" class="header-contact-link header-phone-link" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-muted-light);">
+            <a href="tel:8864725540" class="header-contact-link header-phone-link" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-muted-light);">
                 <div class="header-contact-icon" style="width: 38px; height: 38px; border-radius: 50%; background-color: #333333; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="#f5c542" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
@@ -971,7 +971,7 @@ input:-webkit-autofill:active {
         <div style="margin-top: auto; padding-top: 30px; padding-bottom: 20px;">
             <!-- Contact Info -->
             <div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 20px; border-bottom: 1px solid #333333; padding-bottom: 20px;">
-                <a href="tel:18005189441" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #ffffff;">
+                <a href="tel:8864725540" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #ffffff;">
                     <div style="width: 32px; height: 32px; border-radius: 50%; background-color: #333333; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="#f5c542" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
