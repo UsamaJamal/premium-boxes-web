@@ -20,7 +20,8 @@
 
     <link href="{{URL::asset('web/vendors/pace-progress/css/pace.min.css')}}" rel="stylesheet">
     <link href="{{URL::asset('web/vendors/pace-progress/css/pace.css" rel="stylesheet')}}">
-    <link rel="icon" href="{{ asset('uploads/Premium-boxes.webp') }}?v=2">
+    <link rel="icon" type="image/webp" href="{{ asset('uploads/Premium-boxes.webp') }}">
+    <link rel="icon" type="image/png" href="{{ asset('uploads/premium-boxes.png') }}">
     <meta name="theme-color" content="#ffffff">
     <!-- Main styles for this application-->
     <link href="{{URL::asset('web/css/style.css')}}" rel="stylesheet">
