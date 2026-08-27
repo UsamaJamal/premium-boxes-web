@@ -391,6 +391,14 @@ public function userEditForm() {
 
 function contact_mail(Request $request)
 {
+    $spamReason = \App\Helpers\SpamDetector::isSpam($request->message ?? '', $request->subject_query ?? 'Contact Form', $request->email ?? '');
+    if ($spamReason !== false) {
+        if ($request->ajax() || $request->wantsJson()) {
+            return response()->json(['success' => true, 'message' => 'Thank you for the inquiry, our sales representative will contact soon!']);
+        }
+        return back()->with('success', 'Thank you for the inquiry, our sales representative will contact soon!');
+    }
+    
     Session::flash('contact-us','Thanks for your Intrest');
     $contact='contact';
     $name = $request->first_name ? trim($request->first_name . ' ' . $request->last_name) : $request->name;
@@ -418,6 +426,11 @@ function contact_mail(Request $request)
 
 function TrackOrdermail(Request $request)
 {
+    $spamReason = \App\Helpers\SpamDetector::isSpam($request->message ?? '', 'Track Order', $request->email ?? '');
+    if ($spamReason !== false) {
+        return back()->with('success', 'Thank you for the inquiry, our sales representative will contact soon!');
+    }
+
     Session::flash('contact-us','Thanks for your Intrest');
     $contact='trackorder';
     $data=array(
@@ -438,6 +451,11 @@ function TrackOrdermail(Request $request)
 }
 function subscribe_email(Request $request)
 {
+    $spamReason = \App\Helpers\SpamDetector::isSpam('', 'Subscribe', $request->email ?? '');
+    if ($spamReason !== false) {
+        return back()->with('success', 'Thank you for subscription!');
+    }
+
     Session::flash('category','Thanks for your Intrest');
     $subscribe='subscribe';
     $data=array(
@@ -452,6 +470,11 @@ function subscribe_email(Request $request)
 }
 function product_mail(Request $request)
 {
+    $spamReason = \App\Helpers\SpamDetector::isSpam($request->message ?? '', 'Product Inquiry', $request->p_email ?? '');
+    if ($spamReason !== false) {
+        return back()->with('success', 'Thank you for the inquiry, our sales representative will contact soon!');
+    }
+
     Session::flash('product','Thanks for your Intrest');
     $product='product';
     $data=array(
@@ -482,6 +505,14 @@ function product_mail(Request $request)
 
 function submitQuote(Request $request)
 {
+    $spamReason = \App\Helpers\SpamDetector::isSpam($request->message ?? '', 'Request Quote', $request->email ?? '');
+    if ($spamReason !== false) {
+        if ($request->ajax()) {
+            return response()->json(['success' => true, 'message' => 'Thank you for the inquiry, our sales representative will contact soon!']);
+        }
+        return back()->with('success', 'Thank you for the inquiry, our sales representative will contact soon!');
+    }
+
     Session::flash('request_quote', 'Thanks for your Intrest');
 
     $data = array(
@@ -593,6 +624,11 @@ private function sendContactEmail($data)
 
 public function callBack(Request $request){
  
+    $spamReason = \App\Helpers\SpamDetector::isSpam($request->name ?? '', 'Callback', $request->number ?? '');
+    if ($spamReason !== false) {
+        return back()->with('success','Thank you for the inquiry, our sales representative will contact soon!');
+    }
+
       Session::flash('callback','Thank you for the inquiry, our sales representative will contact soon!');
       $email = 'contact@premiumboxes.com';
       $order='callback';
@@ -612,6 +648,11 @@ return back()->with('success','Thank you for the inquiry, our sales representati
 
 public function PromotionMail(Request $request){
  
+    $spamReason = \App\Helpers\SpamDetector::isSpam($request->message ?? '', 'Promotion', $request->email ?? '');
+    if ($spamReason !== false) {
+        return back()->with('success','Thank you for the inquiry, our sales representative will contact soon!');
+    }
+
       Session::flash('Promotion','Thank you for the inquiry, our sales representative will contact soon!');
       $promotion='promotion';
       $data=array(
@@ -636,6 +677,11 @@ return back()->with('success','Thank you for the inquiry, our sales representati
 
 function req_quote_mail(Request $request)
 {
+    $spamReason = \App\Helpers\SpamDetector::isSpam($request->r_message ?? '', 'Request Quote', $request->r_email ?? '');
+    if ($spamReason !== false) {
+        return back()->with('success', 'Thank you for the inquiry, our sales representative will contact soon!');
+    }
+
     Session::flash('request_quote','Thanks for your Intrest');
     $request_quote='request_quote';
     $data=array(
