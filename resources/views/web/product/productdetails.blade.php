@@ -1263,8 +1263,8 @@ a { text-decoration: none; color: inherit; }
         <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Blind Embossing</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
-        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/cold-foil-printing.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="cold foil printing" title="Cold Foil Printing"></div>
-        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Cold Foil Printing</div>
+        <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/cold-foil-printing.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="gold foil printing" title="Gold Foil Printing"></div>
+        <div class="cust-card-title" style="color:#fff; padding:15px; font-size:12px; font-weight:600;">Gold Foil Printing</div>
     </div>
     <div class="cust-card" style="background:#1f1f1f; border-radius:8px; overflow:hidden;">
         <div class="cust-card-img" style="height:180px;"><img src="{{ asset('uploads/Special Finishes/combination-embossing.webp') }}" style="width:100%; height:100%; object-fit:cover;" alt="combination embossing" title="Combination Embossing"></div>

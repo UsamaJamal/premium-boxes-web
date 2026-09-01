@@ -4440,8 +4440,8 @@ body .pg-left h6 * {
                 <div class="card-content"><span class="card-title" style="display: block;">Blind Embossing</span><p>Blind embossing highlights the artwork on surface by raising it without adding ink and foil.</p></div>
             </div>
             <div class="customize-card">
-                <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/cold-foil-printing.webp') }}" alt="cold foil printing" title="Cold Foil Printing"></div>
-                <div class="card-content"><span class="card-title" style="display: block;">Cold Foil Printing</span><p>Metallic foil is used on the box surface with glue and pressure.</p></div>
+                <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/cold-foil-printing.webp') }}" alt="gold foil printing" title="Gold Foil Printing"></div>
+                <div class="card-content"><span class="card-title" style="display: block;">Gold Foil Printing</span><p>Metallic foil is used on the box surface with glue and pressure.</p></div>
             </div>
             <div class="customize-card">
                 <div class="card-image-area"><img src="{{ asset('uploads/Special Finishes/combination-embossing.webp') }}" alt="combination embossing" title="Combination Embossing"></div>
