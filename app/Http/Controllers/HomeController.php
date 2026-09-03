@@ -445,7 +445,7 @@ function TrackOrdermail(Request $request)
     );
     // print_r($data);
     // die();
- Mail::to('support@premiumboxes.com')->send(new SendMail($data));
+ Mail::to(env('QUOTE_MAIL_TO') ?: 'quote@premiumboxes.com')->send(new SendMail($data));
  return back()->with('success', 'Thank you for the inquiry, our sales representative will contact soon!');
 
 }
@@ -464,7 +464,7 @@ function subscribe_email(Request $request)
     );
     // print_r($data);
     // die();
- Mail::to('support@premiumboxes.com')->send(new SendMail($data));
+ Mail::to(env('QUOTE_MAIL_TO') ?: 'quote@premiumboxes.com')->send(new SendMail($data));
  return back()->with('success', 'Thank you for subscription!');
 
 }
@@ -641,7 +641,7 @@ public function callBack(Request $request){
 // echo"<pre>";
 //   print_r($data);
 //     die();
-Mail::to('support@premiumboxes.com')->send(new SendMail($data));
+Mail::to(env('QUOTE_MAIL_TO') ?: 'quote@premiumboxes.com')->send(new SendMail($data));
 
 return back()->with('success','Thank you for the inquiry, our sales representative will contact soon!');
     }
@@ -667,7 +667,7 @@ public function PromotionMail(Request $request){
 // echo"<pre>";
 //   print_r($data);
 //     die();
-Mail::to('support@premiumboxes.com')->send(new SendMail($data));
+Mail::to(env('QUOTE_MAIL_TO') ?: 'quote@premiumboxes.com')->send(new SendMail($data));
 
 return back()->with('success','Thank you for the inquiry, our sales representative will contact soon!');
     }
@@ -708,15 +708,12 @@ function req_quote_mail(Request $request)
         $filename = str_replace(' ', '-', $extension);
         $file->move('images/',$filename);
         $data['image']=$filename;
- } 
+ }
  else
 {
-return  $request;
-$data->image=''; 
+$data['image']='';
 }
-    print_r($data);
-    die();
- Mail::to('Support@procustom.us')->send(new SendMail($data));
+ Mail::to(env('QUOTE_MAIL_TO') ?: 'quote@premiumboxes.com')->send(new SendMail($data));
  return back()->with('success', 'Thank you for the inquiry, our sales representative will contact soon!');
 
 }
