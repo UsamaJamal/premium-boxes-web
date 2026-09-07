@@ -465,6 +465,7 @@ Route::get('box-by-industry', function () { abort(404); });
 Route::get('box-by-material', function () { abort(404); });
 Route::get('box-by-style', function () { abort(404); });
 Route::get('promotional-product', function () { abort(404); });
+Route::get('index.php', function () { abort(404); });
 
 // NOTE: Hacked spam URLs under /item/* are returned as a hard HTTP 410 Gone by
 // the global App\Http\Middleware\GoneUrls middleware (registered in Http/Kernel),

@@ -22,6 +22,7 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\GoneUrls::class,
         \App\Http\Middleware\TrailingSlashMiddleware::class,
         \App\Http\Middleware\SecurityHeadersMiddleware::class,
+        \App\Http\Middleware\BlockIndexPhp::class,
     ];
 
     /**
