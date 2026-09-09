@@ -560,6 +560,11 @@ function submitQuote(Request $request)
 
 private function sendQuoteEmail($data, $file = null)
 {
+    $emailLogId = null;
+    $quoteSubject = 'Quote Request - Premium Boxes';
+    $quoteTo = env('QUOTE_MAIL_TO') ?: 'quote@premiumboxes.com';
+    $replyTo = !empty($data['email']) ? $data['email'] : null;
+
     try {
         if ($file) {
             $data['file_name'] = $file->getClientOriginalName();
@@ -573,14 +578,31 @@ private function sendQuoteEmail($data, $file = null)
         $mailPassword = config('mail.password') ?: env('MAIL_PASSWORD');
         $fromAddress = config('mail.from.address') ?: $mailUsername;
         $fromName = config('mail.from.name') ?: 'Premium Boxes';
-        $quoteTo = env('QUOTE_MAIL_TO') ?: 'quote@premiumboxes.com';
+
+        try {
+            $emailLogId = DB::table('email_logs')->insertGetId([
+                'to_email' => $quoteTo,
+                'from_email' => $fromAddress,
+                'subject' => $quoteSubject,
+                'body' => $body,
+                'reply_to' => $replyTo,
+                'status' => 'pending',
+                'form_type' => !empty($data['source']) ? $data['source'] : 'Quote Request',
+                'ip_address' => request()->ip(),
+                'user_agent' => request()->userAgent(),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        } catch (\Exception $logException) {
+            \Log::error('Quote email log could not be created: ' . $logException->getMessage());
+        }
 
         $transport = (new \Swift_SmtpTransport($mailHost, $mailPort, $mailEncryption))
             ->setUsername($mailUsername)
             ->setPassword($mailPassword)
             ->setAuthMode('login');
 
-        $message = (new \Swift_Message('Quote Request - Premium Boxes'))
+        $message = (new \Swift_Message($quoteSubject))
             ->setFrom(array($fromAddress => $fromName))
             ->setTo(array($quoteTo))
             ->setBody($body, 'text/html');
@@ -598,11 +620,33 @@ private function sendQuoteEmail($data, $file = null)
         $sent = (new \Swift_Mailer($transport))->send($message);
 
         if ($sent > 0) {
+            if ($emailLogId) {
+                DB::table('email_logs')->where('id', $emailLogId)->update([
+                    'status' => 'sent',
+                    'updated_at' => now(),
+                ]);
+            }
+
             return true;
         }
 
+        if ($emailLogId) {
+            DB::table('email_logs')->where('id', $emailLogId)->update([
+                'status' => 'failed',
+                'error_message' => 'The SMTP server did not accept the message.',
+                'updated_at' => now(),
+            ]);
+        }
         \Log::error('Quote email was not accepted by the SMTP server.', ['source' => $data['source'] ?? 'Unknown']);
     } catch (\Exception $e) {
+        if ($emailLogId) {
+            DB::table('email_logs')->where('id', $emailLogId)->update([
+                'status' => 'failed',
+                'error_message' => $e->getMessage(),
+                'updated_at' => now(),
+            ]);
+        }
+
         \Log::error('Quote email sending failed: ' . $e->getMessage(), ['source' => $data['source'] ?? 'Unknown']);
     }
 
