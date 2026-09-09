@@ -605,9 +605,9 @@ private function sendQuoteEmail($data, $file = null)
             ->setTo(array($quoteTo))
             ->setBody($body, 'text/html');
 
-        if (!empty($data['email'])) {
-            $message->setReplyTo(array($data['email'] => !empty($data['p_name']) ? $data['p_name'] : $data['email']));
-        }
+        // if (!empty($data['email'])) {
+        //     $message->setReplyTo(array($data['email'] => !empty($data['p_name']) ? $data['p_name'] : $data['email']));
+        // }
 
         if ($file) {
             $message->attach(\Swift_Attachment::fromPath($file->getRealPath())
@@ -673,9 +673,9 @@ private function sendContactEmail($data)
         ->setTo(array($quoteTo))
         ->setBody($body, 'text/html');
 
-    if (!empty($data['email'])) {
-        $message->setReplyTo(array($data['email'] => !empty($data['name']) ? $data['name'] : $data['email']));
-    }
+    // if (!empty($data['email'])) {
+    //     $message->setReplyTo(array($data['email'] => !empty($data['name']) ? $data['name'] : $data['email']));
+    // }
 
     try {
         (new \Swift_Mailer($transport))->send($message);
