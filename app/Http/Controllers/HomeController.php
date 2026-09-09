@@ -482,9 +482,9 @@ function product_mail(Request $request)
         'email'=>$request->p_email,
         'p_phone' =>$request->p_phone,
         'p_boxname'=>$request->p_boxname,
-        'p_stock'=>$request->p_stock,
+        'p_stock'=>$request->p_material,
         'p_color'=>$request->p_color,
-        'p_type'=>$request->p_type,
+        'p_coating'=>$request->p_finishing,
         'p_length'=>$request->p_length,
         'p_width' =>$request->p_width,
         'p_height'=>$request->p_height,
@@ -551,6 +551,10 @@ function submitQuote(Request $request)
 
 private function sendQuoteEmail($data, $file = null)
 {
+    if ($file) {
+        $data['file_name'] = $file->getClientOriginalName();
+    }
+
     $body = view('web/email/quote', array('data' => $data))->render();
     $mailHost = config('mail.host') ?: 'smtp.hostinger.com';
     $mailPort = config('mail.port') ?: 465;
