@@ -498,8 +498,11 @@ function product_mail(Request $request)
         'page_url'=>$request->page_url,
         'subject'=>$product
     );
-    $this->sendQuoteEmail($data, $request->file('p_file'));
- return back()->with('success', 'Thank you for the inquiry, our sales representative will contact soon!');
+    if (!$this->sendQuoteEmail($data, $request->file('p_file'))) {
+        return back()->with('error', 'Sorry, we could not send your quote request. Please try again shortly.');
+    }
+
+    return back()->with('success', 'Thank you for the inquiry, our sales representative will contact soon!');
 
 }
 
@@ -540,7 +543,13 @@ function submitQuote(Request $request)
         'subject' => 'product'
     );
 
-    $this->sendQuoteEmail($data, $request->file('artwork'));
+    if (!$this->sendQuoteEmail($data, $request->file('artwork'))) {
+        if ($request->ajax()) {
+            return response()->json(['success' => false, 'message' => 'Sorry, we could not send your quote request. Please try again shortly.'], 500);
+        }
+
+        return back()->with('error', 'Sorry, we could not send your quote request. Please try again shortly.');
+    }
 
     if ($request->ajax()) {
         return response()->json(['success' => true, 'message' => 'Thank you for the inquiry, our sales representative will contact soon!']);
@@ -551,45 +560,53 @@ function submitQuote(Request $request)
 
 private function sendQuoteEmail($data, $file = null)
 {
-    if ($file) {
-        $data['file_name'] = $file->getClientOriginalName();
-    }
-
-    $body = view('web/email/quote', array('data' => $data))->render();
-    $mailHost = config('mail.host') ?: 'smtp.hostinger.com';
-    $mailPort = config('mail.port') ?: 465;
-    $mailEncryption = config('mail.encryption') ?: 'ssl';
-    $mailUsername = config('mail.username') ?: env('MAIL_USERNAME');
-    $mailPassword = config('mail.password') ?: env('MAIL_PASSWORD');
-    $fromAddress = config('mail.from.address') ?: $mailUsername;
-    $fromName = config('mail.from.name') ?: 'Premium Boxes';
-    $quoteTo = env('QUOTE_MAIL_TO') ?: 'quote@premiumboxes.com';
-
-    $transport = (new \Swift_SmtpTransport($mailHost, $mailPort, $mailEncryption))
-        ->setUsername($mailUsername)
-        ->setPassword($mailPassword)
-        ->setAuthMode('login');
-
-    $message = (new \Swift_Message('Quote Request - Premium Boxes'))
-        ->setFrom(array($fromAddress => $fromName))
-        ->setTo(array($quoteTo))
-        ->setBody($body, 'text/html');
-
-    if (!empty($data['email'])) {
-        $message->setReplyTo(array($data['email'] => !empty($data['p_name']) ? $data['p_name'] : $data['email']));
-    }
-
-    if ($file) {
-        $message->attach(\Swift_Attachment::fromPath($file->getRealPath())
-            ->setFilename($file->getClientOriginalName())
-            ->setContentType($file->getMimeType()));
-    }
-
     try {
-        (new \Swift_Mailer($transport))->send($message);
+        if ($file) {
+            $data['file_name'] = $file->getClientOriginalName();
+        }
+
+        $body = view('web/email/quote', array('data' => $data))->render();
+        $mailHost = config('mail.host') ?: 'smtp.hostinger.com';
+        $mailPort = config('mail.port') ?: 465;
+        $mailEncryption = config('mail.encryption') ?: 'ssl';
+        $mailUsername = config('mail.username') ?: env('MAIL_USERNAME');
+        $mailPassword = config('mail.password') ?: env('MAIL_PASSWORD');
+        $fromAddress = config('mail.from.address') ?: $mailUsername;
+        $fromName = config('mail.from.name') ?: 'Premium Boxes';
+        $quoteTo = env('QUOTE_MAIL_TO') ?: 'quote@premiumboxes.com';
+
+        $transport = (new \Swift_SmtpTransport($mailHost, $mailPort, $mailEncryption))
+            ->setUsername($mailUsername)
+            ->setPassword($mailPassword)
+            ->setAuthMode('login');
+
+        $message = (new \Swift_Message('Quote Request - Premium Boxes'))
+            ->setFrom(array($fromAddress => $fromName))
+            ->setTo(array($quoteTo))
+            ->setBody($body, 'text/html');
+
+        if (!empty($data['email'])) {
+            $message->setReplyTo(array($data['email'] => !empty($data['p_name']) ? $data['p_name'] : $data['email']));
+        }
+
+        if ($file) {
+            $message->attach(\Swift_Attachment::fromPath($file->getRealPath())
+                ->setFilename($file->getClientOriginalName())
+                ->setContentType($file->getMimeType()));
+        }
+
+        $sent = (new \Swift_Mailer($transport))->send($message);
+
+        if ($sent > 0) {
+            return true;
+        }
+
+        \Log::error('Quote email was not accepted by the SMTP server.', ['source' => $data['source'] ?? 'Unknown']);
     } catch (\Exception $e) {
-        \Log::error('Mail sending failed: ' . $e->getMessage());
+        \Log::error('Quote email sending failed: ' . $e->getMessage(), ['source' => $data['source'] ?? 'Unknown']);
     }
+
+    return false;
 }
 
 private function sendContactEmail($data)
