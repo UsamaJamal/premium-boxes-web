@@ -498,7 +498,9 @@ function product_mail(Request $request)
         'page_url'=>$request->page_url,
         'subject'=>$product
     );
-    $this->sendQuoteEmail($data, $request->file('p_file'));
+    if (!$this->sendQuoteEmail($data, $request->file('p_file'))) {
+        return back()->with('error', 'Sorry, we could not send your quote request. Please try again shortly.');
+    }
     return back()->with('success', 'Thank you for the inquiry, our sales representative will contact soon!');
 
 }
@@ -540,7 +542,12 @@ function submitQuote(Request $request)
         'subject' => 'product'
     );
 
-    $this->sendQuoteEmail($data, $request->file('artwork'));
+    if (!$this->sendQuoteEmail($data, $request->file('artwork'))) {
+        if ($request->ajax()) {
+            return response()->json(['success' => false, 'message' => 'Sorry, we could not send your quote request. Please try again shortly.'], 500);
+        }
+        return back()->with('error', 'Sorry, we could not send your quote request. Please try again shortly.');
+    }
 
     if ($request->ajax()) {
         return response()->json(['success' => true, 'message' => 'Thank you for the inquiry, our sales representative will contact soon!']);
