@@ -162,7 +162,7 @@
                 <svg viewBox="0 0 24 24" fill="#f5c542" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                 <svg viewBox="0 0 24 24" fill="#f5c542" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
-            <a href="#" class="tb-review-link">5.0 Google Reviews</a>
+            <a href="https://www.google.com/maps/place/Premium+Boxes/@41.8552185,-87.9723695,17z/data=!4m8!3m7!1s0x880e4db792c4068b:0x914fa218c120d680!8m2!3d41.8552185!4d-87.9723695!9m1!1b1!16s%2Fg%2F11j2z244w3?entry=ttu&amp;g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D" class="tb-review-link" target="_blank" rel="noopener noreferrer">5.0 Google Reviews</a>
         </div>
 
         {{-- Divider --}}

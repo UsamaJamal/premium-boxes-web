@@ -193,26 +193,8 @@
                     <p> Let’s hear from our customers, what they say about our services.</p>
                 </div>
 
-                <div class="testimonial-grid">
-                    @foreach($testimonial as $testi)
-                    <div class="testimonial-card">
-                        <img src="{{ asset('images/' . $testi->image) }}" alt="{{ strtolower(str_replace('-', ' ', $testi->name)) }}" class="avatar-img" title="{{ ucwords(strtolower(str_replace('-', ' ', $testi->name))) }}">
-                        <p class="testimonial-text">
-                            {{ $testi->comment }}
-                        </p>
-                        @if(strlen($testi->comment) > 130)
-                        <button class="read-more-btn">Read more</button>
-                        @endif
-
-                        <span class="testi-name">{{ $testi->name }}</span>
-                        <span>{{ $testi->profile_link }}</span>
-                    </div>
-                    @endforeach
-                </div>
-
-                <div class="testimonial-nav">
-                    <button class="testimonial-prev-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-                    <button class="testimonial-next-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                <div class="testimonial-grid trustindex-google-reviews">
+                    <script defer async src="https://cdn.trustindex.io/loader.js?abec70a818ea1453016688aed75"></script>
                 </div>
 
             </div>
