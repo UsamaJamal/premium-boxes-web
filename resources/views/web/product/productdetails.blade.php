@@ -924,35 +924,11 @@ a { text-decoration: none; color: inherit; }
                 <!-- Right: Reviews Slider -->
                 <div class="pfr-reviews">
                     <div class="pfr-reviews-inner">
-                        <button class="pfr-nav prev" onclick="movePfrSlide(-1)">&#8249;</button>
                         <div class="pfr-slider-wrap">
                             <div class="pfr-slider" id="pfrSlider">
-                                @php
-                                    if(!isset($testimonial)) {
-                                        $testimonial = \DB::table('testimonila')->get();
-                                    }
-                                @endphp
-                                @foreach($testimonial as $testi)
-                                <div class="pfr-slide">
-                                    <div class="pfr-avatar">
-                                        <img src="{{ asset('images/' . $testi->image) }}" onerror="this.src='https://ui-avatars.com/api/?name={{ urlencode($testi->name) }}&background=random'" alt="{{ $testi->name }}" title="{{ $testi->name }}">
-                                    </div>
-                                    <p class="pfr-text">{{ $testi->comment }}</p>
-                                    @if(strlen($testi->comment) > 130)
-                                        <button class="pfr-read-more-btn">Read more</button>
-                                    @endif
-                                    <span class="pfr-name">{{ $testi->name }}</span>
-                                    <span class="pfr-title">{{ $testi->profile_link ?? 'Customer' }}</span>
-                                </div>
-                                @endforeach
+                                <script defer async src="https://cdn.trustindex.io/loader.js?abec70a818ea1453016688aed75"></script>
                             </div>
                         </div>
-                        <button class="pfr-nav next" onclick="movePfrSlide(1)">&#8250;</button>
-                    </div>
-                    <div class="pfr-dots" id="pfrDots">
-                        @foreach($testimonial as $index => $testi)
-                            <span class="pfr-dot {{ $index == 0 ? 'active' : '' }}" onclick="goToPfrSlide({{ $index }})"></span>
-                        @endforeach
                     </div>
                 </div>
 
