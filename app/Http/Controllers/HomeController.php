@@ -566,6 +566,8 @@ private function sendQuoteEmail($data, $file = null)
 
     if ($quoteSource === 'Home Page Quote Form') {
         $quoteSubject = 'Home Request A Quote';
+    } elseif ($quoteSource === 'Category Page Quote Form') {
+        $quoteSubject = 'Category Request A Quote';
     } elseif (in_array($quoteSource, ['Product detail custom quote', 'Product detail instant quote'], true)) {
         $quoteSubject = 'Product Request A Quote';
     } elseif ($quoteSource === 'Request quote page') {
