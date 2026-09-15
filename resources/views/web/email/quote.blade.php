@@ -13,7 +13,7 @@
 </head>
 <body>
     <table>
-        @if((empty($data['source']) || !in_array($data['source'], ['Home Page Quote Form', 'Request quote page'], true)) && !empty($data['p_boxname']))<tr><th>Product Name:</th><td>{{ $data['p_boxname'] }}</td></tr>@endif
+        @if(!empty($data['box_style']))<tr><th>Box Style:</th><td>{{ $data['box_style'] }}</td></tr>@elseif((empty($data['source']) || !in_array($data['source'], ['Home Page Quote Form', 'Category Page Quote Form', 'Request quote page'], true)) && !empty($data['p_boxname']))<tr><th>Product Name:</th><td>{{ $data['p_boxname'] }}</td></tr>@endif
         @if(!empty($data['p_name']))<tr><th>Client Name:</th><td>{{ $data['p_name'] }}</td></tr>@endif
         @if(!empty($data['email']))<tr><th>Client Email:</th><td><a href="mailto:{{ $data['email'] }}">{{ $data['email'] }}</a></td></tr>@endif
         @if(!empty($data['p_phone']))<tr><th>Client Phone:</th><td>{{ $data['p_phone'] }}</td></tr>@endif
@@ -21,7 +21,7 @@
         @if(!empty($data['p_width']))<tr><th>Width:</th><td>{{ $data['p_width'] }}</td></tr>@endif
         @if(!empty($data['p_height']))<tr><th>Height:</th><td>{{ $data['p_height'] }}</td></tr>@endif
         @if(!empty($data['p_unit']))<tr><th>Unit:</th><td>{{ $data['p_unit'] }}</td></tr>@endif
-        @if(!empty($data['p_stock']))<tr><th>Stock:</th><td>{{ $data['p_stock'] }}</td></tr>@endif
+        @if(!empty($data['p_stock']))<tr><th>Paper Stock:</th><td>{{ $data['p_stock'] }}</td></tr>@endif
         @if(!empty($data['p_color']))<tr><th>Color:</th><td>{{ $data['p_color'] }}</td></tr>@endif
         @if(!empty($data['p_coating']))<tr><th>Coating:</th><td>{{ $data['p_coating'] }}</td></tr>@endif
         @if(!empty($data['cad_sample']))<tr><th>CAD Sample:</th><td>{{ $data['cad_sample'] }}</td></tr>@endif

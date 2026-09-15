@@ -525,8 +525,10 @@ function submitQuote(Request $request)
         'company' => $request->company,
         'website' => $request->website,
         'p_boxname' => $request->product_name ?: $request->box_style,
+        'box_style' => $request->box_style,
         'p_stock' => $request->material,
         'p_color' => $request->color_options,
+        'p_coating' => $request->coating,
         'p_type' => $request->printing_options,
         'p_length' => $request->length,
         'p_width' => $request->width,
@@ -560,6 +562,16 @@ private function sendQuoteEmail($data, $file = null)
 {
     $emailLogId = null;
     $quoteSubject = 'Quote Request - Premium Boxes';
+    $quoteSource = $data['source'] ?? '';
+
+    if ($quoteSource === 'Home Page Quote Form') {
+        $quoteSubject = 'Home Request A Quote';
+    } elseif (in_array($quoteSource, ['Product detail custom quote', 'Product detail instant quote'], true)) {
+        $quoteSubject = 'Product Request A Quote';
+    } elseif ($quoteSource === 'Request quote page') {
+        $quoteSubject = 'Request A Quote';
+    }
+
     $quoteTo = env('QUOTE_MAIL_TO') ?: 'quote@premiumboxes.com';
     $replyTo = !empty($data['email']) ? $data['email'] : null;
 

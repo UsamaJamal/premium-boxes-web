@@ -114,7 +114,7 @@ input[type=number] {
   width: 100%;
 }
 
-/* Dropdown selections: Material, Colors, Addons */
+/* Dropdown selections and quote options */
 .options-grid-custom {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -128,6 +128,93 @@ input[type=number] {
 .options-grid-custom > .form-group:nth-child(4),
 .options-grid-custom > .form-group:nth-child(5) {
   grid-column: span 3;
+}
+
+/* Home page: Box Style and Paper Stock on the first row, quantity and upload below. */
+.options-grid-custom.home-quote-options > .form-group:nth-child(1),
+.options-grid-custom.home-quote-options > .form-group:nth-child(2),
+.options-grid-custom.home-quote-options > .form-group:nth-child(3) {
+  grid-column: span 2;
+}
+
+.options-grid-custom.home-quote-options > .form-group:nth-child(4),
+.options-grid-custom.home-quote-options > .form-group:nth-child(5),
+.options-grid-custom.home-quote-options > .form-group:nth-child(6) {
+  grid-column: span 2;
+}
+
+.box-style-search-group {
+  position: relative;
+  overflow: visible;
+}
+
+.box-style-search {
+  position: relative;
+  width: 100%;
+}
+
+.box-style-search input {
+  padding-right: 38px !important;
+}
+
+.box-style-search::after {
+  content: '';
+  position: absolute;
+  top: 18px;
+  right: 14px;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #aaa;
+  border-bottom: 2px solid #aaa;
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+.box-style-options {
+  position: absolute;
+  z-index: 1000;
+  top: calc(100% + 5px);
+  left: 0;
+  right: 0;
+  max-height: 220px;
+  overflow-y: auto;
+  display: none;
+  padding: 4px 0;
+  border: 1px solid #3b3b3b;
+  border-radius: 6px;
+  background: #111;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
+}
+
+.box-style-search.is-open .box-style-options {
+  display: block;
+}
+
+.box-style-option {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.box-style-option:hover,
+.box-style-option:focus {
+  background: #f5c542;
+  color: #111;
+  outline: none;
+}
+
+.box-style-empty {
+  display: none;
+  padding: 10px 12px;
+  color: #aaa;
+  font-size: 13px;
 }
 
 .triple-grid {
@@ -470,6 +557,12 @@ input[type=number] {
   }
   /* Upload (5th item) spans both columns */
   .options-grid-custom > .form-group:nth-child(5) {
+    grid-column: span 2;
+  }
+  .options-grid-custom.home-quote-options > .form-group:nth-child(5) {
+    grid-column: span 1;
+  }
+  .options-grid-custom.home-quote-options > .form-group:nth-child(6) {
     grid-column: span 2;
   }
   .form-group,
@@ -836,7 +929,79 @@ input[type=number] {
                             </div>
                         </div>
 
-                        <div class="form-row options-grid-custom">
+                        @php
+                            $usesStyleStockColorQuote = in_array(($source ?? ''), ['Home Page Quote Form', 'Category Page Quote Form'], true);
+                        @endphp
+                        <div class="form-row options-grid-custom {{ $usesStyleStockColorQuote ? 'home-quote-options' : '' }}">
+                            @if($usesStyleStockColorQuote)
+                            <div class="form-group box-style-search-group">
+                                <label>Select Box Style</label>
+                                @php
+                                    if (($source ?? '') === 'Category Page Quote Form' && !empty($value) && isset($value[0]->cat_id)) {
+                                        $categoryProductIds = DB::table('category_product')
+                                            ->where('category_id', $value[0]->cat_id)
+                                            ->pluck('product_id');
+                                        $boxStyles = DB::table('product')
+                                            ->whereIn('product_id', $categoryProductIds)
+                                            ->where('status', 1)
+                                            ->orderBy('title')
+                                            ->get();
+                                    } else {
+                                        $boxStyles = DB::table('product')->where('status', 1)->orderBy('title')->get();
+                                    }
+                                @endphp
+                                <div class="box-style-search" data-box-style-search>
+                                    <input type="text" name="box_style" placeholder="Select Box Style" autocomplete="off" required data-box-style-input>
+                                    <div class="box-style-options" data-box-style-options>
+                                        @foreach($boxStyles as $boxStyle)
+                                            <button type="button" class="box-style-option" data-box-style-option>{{ $boxStyle->title }}</button>
+                                        @endforeach
+                                        <div class="box-style-empty" data-box-style-empty>No box style found.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Select Paper Stock</label>
+                                <select name="material" required>
+                                    <option value="">Select Paper Stock</option>
+                                    <option value="12pt Cardboard Stock">12pt Cardboard Stock</option>
+                                    <option value="14pt Cardboard Stock">14pt Cardboard Stock</option>
+                                    <option value="16pt Cardboard Stock">16pt Cardboard Stock</option>
+                                    <option value="18pt Cardboard Stock">18pt Cardboard Stock</option>
+                                    <option value="20pt Cardboard Stock">20pt Cardboard Stock</option>
+                                    <option value="22pt Cardboard Stock">22pt Cardboard Stock</option>
+                                    <option value="24pt Cardboard Stock">24pt Cardboard Stock</option>
+                                    <option value="Kraft Stock">Kraft Stock</option>
+                                    <option value="Recycled BuxBoard">Recycled BuxBoard</option>
+                                    <option value="Corrugated Stock">Corrugated Stock</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Select Color</label>
+                                <select name="color_options" required>
+                                    <option value="">Select Color</option>
+                                    <option value="1 color">1 color</option>
+                                    <option value="2 color">2 color</option>
+                                    <option value="3 color">3 color</option>
+                                    <option value="4 color">4 color</option>
+                                    <option value="4/1 color">4/1 color</option>
+                                    <option value="4/2 color">4/2 color</option>
+                                    <option value="4/3 color">4/3 color</option>
+                                    <option value="4/4 color">4/4 color</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Select Paper Coating</label>
+                                <select name="coating">
+                                    <option value="">Select Paper Coating</option>
+                                    <option value="Aqueous Coating">Aqueous Coating</option>
+                                    <option value="Semi Gloss">Semi Gloss</option>
+                                    <option value="Gloss UV">Gloss UV</option>
+                                    <option value="Matte UV">Matte UV</option>
+                                    <option value="Semi Matte">Semi Matte</option>
+                                </select>
+                            </div>
+                            @else
                             <div class="form-group">
                                 <label>Select Material</label>
                                 @php
@@ -864,6 +1029,7 @@ input[type=number] {
                                 <label>Select Product Name</label>
                                 <input type="text" name="product_name" placeholder="Enter product name" oninput="this.value = this.value.replace(/[0-9]/g, '')">
                             </div>
+                            @endif
                             <div class="form-group">
                                 <label>Quantity *</label>
                                 <input type="number" name="quantity" placeholder="Enter quantity" required oninput="this.value = this.value.replace(/[^0-9]/g, '')">
@@ -923,6 +1089,51 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    // Searchable Box Style dropdown used on the home page quote form.
+    document.querySelectorAll('[data-box-style-search]').forEach(function (search) {
+        const input = search.querySelector('[data-box-style-input]');
+        const options = search.querySelector('[data-box-style-options]');
+        const choices = search.querySelectorAll('[data-box-style-option]');
+        const emptyState = search.querySelector('[data-box-style-empty]');
+
+        if (!input || !options) return;
+
+        function filterChoices() {
+            const query = input.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            choices.forEach(function (choice) {
+                const isMatch = choice.textContent.toLowerCase().includes(query);
+                choice.style.display = isMatch ? '' : 'none';
+                if (isMatch) visibleCount++;
+            });
+
+            if (emptyState) emptyState.style.display = visibleCount ? 'none' : 'block';
+        }
+
+        input.addEventListener('focus', function () {
+            search.classList.add('is-open');
+            filterChoices();
+        });
+
+        input.addEventListener('input', function () {
+            search.classList.add('is-open');
+            filterChoices();
+        });
+
+        choices.forEach(function (choice) {
+            choice.addEventListener('click', function () {
+                input.value = choice.textContent.trim();
+                input.style.border = '';
+                search.classList.remove('is-open');
+            });
+        });
+
+        document.addEventListener('click', function (event) {
+            if (!search.contains(event.target)) search.classList.remove('is-open');
+        });
+    });
 
     // Standalone human verification section
     const humanQuestion = document.getElementById('humanQuestion');

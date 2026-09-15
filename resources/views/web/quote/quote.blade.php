@@ -186,6 +186,64 @@ html, body {
     background-color: #202020;
     color: #ffffff;
 }
+.qu-box-style-search {
+    position: relative;
+}
+.qu-box-style-search input {
+    padding-right: 40px;
+}
+.qu-box-style-search::after {
+    content: '';
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #bdbdbd;
+    border-bottom: 2px solid #bdbdbd;
+    transform: rotate(45deg);
+    pointer-events: none;
+}
+.qu-box-style-options {
+    position: absolute;
+    z-index: 1000;
+    top: calc(100% + 5px);
+    left: 0;
+    right: 0;
+    display: none;
+    max-height: 220px;
+    overflow-y: auto;
+    padding: 4px 0;
+    border: 1px solid #414141;
+    border-radius: 6px;
+    background: #111111;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, .45);
+}
+.qu-box-style-search.is-open .qu-box-style-options { display: block; }
+.qu-box-style-option {
+    display: block;
+    width: 100%;
+    padding: 10px 16px;
+    border: 0;
+    background: transparent;
+    color: #ffffff;
+    font: inherit;
+    font-size: 12px;
+    text-align: left;
+    cursor: pointer;
+}
+.qu-box-style-option:hover,
+.qu-box-style-option:focus {
+    background: #f5c542;
+    color: #111111;
+    outline: none;
+}
+.qu-box-style-empty {
+    display: none;
+    padding: 10px 16px;
+    color: #aaaaaa;
+    font-size: 12px;
+}
 .qu-field textarea {
     height: 84px;
     padding-top: 14px;
@@ -492,45 +550,68 @@ html, body {
                     </div>
                 </div>
 
-                <!-- Material + Color + Addons -->
+                <!-- Box Style + Paper Stock + Color -->
                 <div class="qu-row qu-row-3">
                     <div class="qu-field">
-                        <label>Select Material</label>
+                        <label>Select Box Style</label>
                         @php
-                            $materialCategory = DB::table('add_category')->where('name', 'Box by Material')->first();
-                            $materials = $materialCategory ? DB::table('add_category')->where('parent_category', $materialCategory->cat_id)->where('status', 1)->get() : collect([]);
+                            $quoteBoxStyles = DB::table('product')->where('status', 1)->orderBy('title')->get();
                         @endphp
-                        <select name="material">
-                            <option value="">Choose option</option>
-                            @foreach($materials as $material)
-                                <option value="{{ $material->name }}">{{ $material->name }}</option>
-                            @endforeach
+                        <div class="qu-box-style-search" data-quote-box-style-search>
+                            <input type="text" name="box_style" placeholder="Select Box Style" autocomplete="off" required data-quote-box-style-input>
+                            <div class="qu-box-style-options" data-quote-box-style-options>
+                                @foreach($quoteBoxStyles as $quoteBoxStyle)
+                                    <button type="button" class="qu-box-style-option" data-quote-box-style-option>{{ $quoteBoxStyle->title }}</button>
+                                @endforeach
+                                <div class="qu-box-style-empty" data-quote-box-style-empty>No box style found.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="qu-field">
+                        <label>Select Paper Stock</label>
+                        <select name="material" required>
+                            <option value="">Select Paper Stock</option>
+                            <option value="12pt Cardboard Stock">12pt Cardboard Stock</option>
+                            <option value="14pt Cardboard Stock">14pt Cardboard Stock</option>
+                            <option value="16pt Cardboard Stock">16pt Cardboard Stock</option>
+                            <option value="18pt Cardboard Stock">18pt Cardboard Stock</option>
+                            <option value="20pt Cardboard Stock">20pt Cardboard Stock</option>
+                            <option value="22pt Cardboard Stock">22pt Cardboard Stock</option>
+                            <option value="24pt Cardboard Stock">24pt Cardboard Stock</option>
+                            <option value="Kraft Stock">Kraft Stock</option>
+                            <option value="Recycled BuxBoard">Recycled BuxBoard</option>
+                            <option value="Corrugated Stock">Corrugated Stock</option>
                         </select>
                     </div>
                     <div class="qu-field">
-                        <label>Color Options</label>
-                        <select name="color_options">
-                            <option value="">Choose option</option>
-                            <option>CMYK</option>
-                            <option>PMS</option>
-                            <option>No Print</option>
-                        </select>
-                    </div>
-                    <div class="qu-field">
-                        <label>Addons</label>
-                        <select name="product_name">
-                            <option value="">Choose option</option>
-                            <option>Embossing</option>
-                            <option>Debossing</option>
-                            <option>Foil Stamping</option>
-                            <option>Spot UV</option>
-                            <option>Window Patching</option>
+                        <label>Select Color</label>
+                        <select name="color_options" required>
+                            <option value="">Select Color</option>
+                            <option value="1 color">1 color</option>
+                            <option value="2 color">2 color</option>
+                            <option value="3 color">3 color</option>
+                            <option value="4 color">4 color</option>
+                            <option value="4/1 color">4/1 color</option>
+                            <option value="4/2 color">4/2 color</option>
+                            <option value="4/3 color">4/3 color</option>
+                            <option value="4/4 color">4/4 color</option>
                         </select>
                     </div>
                 </div>
 
-                <!-- Quantity + Upload -->
-                <div class="qu-row qu-row-qty-upload">
+                <!-- Paper Coating + Quantity + Upload -->
+                <div class="qu-row qu-row-3">
+                    <div class="qu-field">
+                        <label>Select Paper Coating</label>
+                        <select name="coating">
+                            <option value="">Select Paper Coating</option>
+                            <option value="Aqueous Coating">Aqueous Coating</option>
+                            <option value="Semi Gloss">Semi Gloss</option>
+                            <option value="Gloss UV">Gloss UV</option>
+                            <option value="Matte UV">Matte UV</option>
+                            <option value="Semi Matte">Semi Matte</option>
+                        </select>
+                    </div>
                     <div class="qu-field">
                         <label>Quantity <span class="qu-req">*</span></label>
                         <input type="number" name="quantity" placeholder="Enter quantity" required oninput="this.value = this.value.replace(/[^0-9]/g, '')">
@@ -619,6 +700,50 @@ window.addEventListener('DOMContentLoaded', () => {
 // ============================================
 const fileInput = document.getElementById('fileInput');
 const fileName = document.getElementById('fileName');
+
+document.querySelectorAll('[data-quote-box-style-search]').forEach(function (search) {
+    const input = search.querySelector('[data-quote-box-style-input]');
+    const options = search.querySelector('[data-quote-box-style-options]');
+    const choices = search.querySelectorAll('[data-quote-box-style-option]');
+    const emptyState = search.querySelector('[data-quote-box-style-empty]');
+
+    if (!input || !options) return;
+
+    function filterChoices() {
+        const query = input.value.toLowerCase().trim();
+        let visibleCount = 0;
+
+        choices.forEach(function (choice) {
+            const isMatch = choice.textContent.toLowerCase().includes(query);
+            choice.style.display = isMatch ? '' : 'none';
+            if (isMatch) visibleCount++;
+        });
+
+        if (emptyState) emptyState.style.display = visibleCount ? 'none' : 'block';
+    }
+
+    input.addEventListener('focus', function () {
+        search.classList.add('is-open');
+        filterChoices();
+    });
+
+    input.addEventListener('input', function () {
+        search.classList.add('is-open');
+        filterChoices();
+    });
+
+    choices.forEach(function (choice) {
+        choice.addEventListener('click', function () {
+            input.value = choice.textContent.trim();
+            input.style.border = '';
+            search.classList.remove('is-open');
+        });
+    });
+
+    document.addEventListener('click', function (event) {
+        if (!search.contains(event.target)) search.classList.remove('is-open');
+    });
+});
 
 if (fileInput) {
     fileInput.addEventListener('change', () => {
