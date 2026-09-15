@@ -13,7 +13,7 @@
 </head>
 <body>
     <table>
-        @if(!empty($data['box_style']))<tr><th>Box Style:</th><td>{{ $data['box_style'] }}</td></tr>@elseif((empty($data['source']) || !in_array($data['source'], ['Home Page Quote Form', 'Category Page Quote Form', 'Request quote page'], true)) && !empty($data['p_boxname']))<tr><th>Product Name:</th><td>{{ $data['p_boxname'] }}</td></tr>@endif
+        @if(!empty($data['box_style']))<tr><th>Product Name:</th><td>{{ $data['box_style'] }}</td></tr>@elseif((empty($data['source']) || !in_array($data['source'], ['Home Page Quote Form', 'Category Page Quote Form', 'Request quote page'], true)) && !empty($data['p_boxname']))<tr><th>Product Name:</th><td>{{ $data['p_boxname'] }}</td></tr>@endif
         @if(!empty($data['p_name']))<tr><th>Client Name:</th><td>{{ $data['p_name'] }}</td></tr>@endif
         @if(!empty($data['email']))<tr><th>Client Email:</th><td><a href="mailto:{{ $data['email'] }}">{{ $data['email'] }}</a></td></tr>@endif
         @if(!empty($data['p_phone']))<tr><th>Client Phone:</th><td>{{ $data['p_phone'] }}</td></tr>@endif
