@@ -561,17 +561,10 @@ function submitQuote(Request $request)
 private function sendQuoteEmail($data, $file = null)
 {
     $emailLogId = null;
-    $quoteSubject = 'Quote Request - Premium Boxes';
-    $quoteSource = $data['source'] ?? '';
+    $quoteSubject = 'Request A Quote';
 
-    if ($quoteSource === 'Home Page Quote Form') {
-        $quoteSubject = 'Home Request A Quote';
-    } elseif ($quoteSource === 'Category Page Quote Form') {
-        $quoteSubject = 'Category Request A Quote';
-    } elseif (in_array($quoteSource, ['Product detail custom quote', 'Product detail instant quote'], true)) {
+    if (in_array($data['source'] ?? '', ['Product detail custom quote', 'Product detail instant quote'], true)) {
         $quoteSubject = 'Product Request A Quote';
-    } elseif ($quoteSource === 'Request quote page') {
-        $quoteSubject = 'Request A Quote';
     }
 
     $quoteTo = env('QUOTE_MAIL_TO') ?: 'quote@premiumboxes.com';
@@ -682,7 +675,7 @@ private function sendContactEmail($data)
         ->setPassword($mailPassword)
         ->setAuthMode('login');
 
-    $message = (new \Swift_Message('Contact Us - Premium Boxes'))
+    $message = (new \Swift_Message('Contact Us'))
         ->setFrom(array($fromAddress => $fromName))
         ->setTo(array($quoteTo))
         ->setBody($body, 'text/html');
