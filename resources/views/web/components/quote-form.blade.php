@@ -210,6 +210,16 @@ input[type=number] {
   outline: none;
 }
 
+.box-style-category {
+  display: block;
+  padding: 10px 12px 6px;
+  color: #f5c542;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
 .box-style-empty {
   display: none;
   padding: 10px 12px;
@@ -937,23 +947,23 @@ input[type=number] {
                             <div class="form-group box-style-search-group">
                                 <label>Select Box Style</label>
                                 @php
-                                    if (($source ?? '') === 'Category Page Quote Form' && !empty($value) && isset($value[0]->cat_id)) {
-                                        $categoryProductIds = DB::table('category_product')
-                                            ->where('category_id', $value[0]->cat_id)
-                                            ->pluck('product_id');
-                                        $boxStyles = DB::table('product')
-                                            ->whereIn('product_id', $categoryProductIds)
-                                            ->where('status', 1)
-                                            ->orderBy('title')
-                                            ->get();
-                                    } else {
-                                        $boxStyles = DB::table('product')->where('status', 1)->orderBy('title')->get();
-                                    }
+                                    $boxStyles = DB::table('product as products')
+                                        ->leftJoin('add_category as categories', 'products.cat_id', '=', 'categories.cat_id')
+                                        ->where('products.status', 1)
+                                        ->select('products.title', DB::raw("COALESCE(categories.name, 'Other Products') as category_name"))
+                                        ->orderBy('category_name')
+                                        ->orderBy('products.title')
+                                        ->get();
                                 @endphp
                                 <div class="box-style-search" data-box-style-search>
                                     <input type="text" name="box_style" placeholder="Select Box Style" autocomplete="off" required data-box-style-input>
                                     <div class="box-style-options" data-box-style-options>
+                                        @php $currentBoxStyleCategory = null; @endphp
                                         @foreach($boxStyles as $boxStyle)
+                                            @if($currentBoxStyleCategory !== $boxStyle->category_name)
+                                                <div class="box-style-category">{{ $boxStyle->category_name }}</div>
+                                                @php $currentBoxStyleCategory = $boxStyle->category_name; @endphp
+                                            @endif
                                             <button type="button" class="box-style-option" data-box-style-option>{{ $boxStyle->title }}</button>
                                         @endforeach
                                         <div class="box-style-empty" data-box-style-empty>No box style found.</div>
@@ -1107,6 +1117,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 const isMatch = choice.textContent.toLowerCase().includes(query);
                 choice.style.display = isMatch ? '' : 'none';
                 if (isMatch) visibleCount++;
+            });
+
+            options.querySelectorAll('.box-style-category').forEach(function (category) {
+                let hasVisibleProduct = false;
+                let item = category.nextElementSibling;
+
+                while (item && !item.classList.contains('box-style-category')) {
+                    if (item.classList.contains('box-style-option') && item.style.display !== 'none') {
+                        hasVisibleProduct = true;
+                        break;
+                    }
+                    item = item.nextElementSibling;
+                }
+
+                category.style.display = hasVisibleProduct ? '' : 'none';
             });
 
             if (emptyState) emptyState.style.display = visibleCount ? 'none' : 'block';

@@ -238,6 +238,15 @@ html, body {
     color: #111111;
     outline: none;
 }
+.qu-box-style-category {
+    display: block;
+    padding: 10px 16px 6px;
+    color: #f5c542;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
 .qu-box-style-empty {
     display: none;
     padding: 10px 16px;
@@ -555,12 +564,23 @@ html, body {
                     <div class="qu-field">
                         <label>Select Box Style</label>
                         @php
-                            $quoteBoxStyles = DB::table('product')->where('status', 1)->orderBy('title')->get();
+                            $quoteBoxStyles = DB::table('product as products')
+                                ->leftJoin('add_category as categories', 'products.cat_id', '=', 'categories.cat_id')
+                                ->where('products.status', 1)
+                                ->select('products.title', DB::raw("COALESCE(categories.name, 'Other Products') as category_name"))
+                                ->orderBy('category_name')
+                                ->orderBy('products.title')
+                                ->get();
                         @endphp
                         <div class="qu-box-style-search" data-quote-box-style-search>
                             <input type="text" name="box_style" placeholder="Select Box Style" autocomplete="off" required data-quote-box-style-input>
                             <div class="qu-box-style-options" data-quote-box-style-options>
+                                @php $currentQuoteBoxStyleCategory = null; @endphp
                                 @foreach($quoteBoxStyles as $quoteBoxStyle)
+                                    @if($currentQuoteBoxStyleCategory !== $quoteBoxStyle->category_name)
+                                        <div class="qu-box-style-category">{{ $quoteBoxStyle->category_name }}</div>
+                                        @php $currentQuoteBoxStyleCategory = $quoteBoxStyle->category_name; @endphp
+                                    @endif
                                     <button type="button" class="qu-box-style-option" data-quote-box-style-option>{{ $quoteBoxStyle->title }}</button>
                                 @endforeach
                                 <div class="qu-box-style-empty" data-quote-box-style-empty>No box style found.</div>
@@ -717,6 +737,21 @@ document.querySelectorAll('[data-quote-box-style-search]').forEach(function (sea
             const isMatch = choice.textContent.toLowerCase().includes(query);
             choice.style.display = isMatch ? '' : 'none';
             if (isMatch) visibleCount++;
+        });
+
+        options.querySelectorAll('.qu-box-style-category').forEach(function (category) {
+            let hasVisibleProduct = false;
+            let item = category.nextElementSibling;
+
+            while (item && !item.classList.contains('qu-box-style-category')) {
+                if (item.classList.contains('qu-box-style-option') && item.style.display !== 'none') {
+                    hasVisibleProduct = true;
+                    break;
+                }
+                item = item.nextElementSibling;
+            }
+
+            category.style.display = hasVisibleProduct ? '' : 'none';
         });
 
         if (emptyState) emptyState.style.display = visibleCount ? 'none' : 'block';
