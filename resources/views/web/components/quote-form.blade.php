@@ -1112,14 +1112,24 @@ document.addEventListener('DOMContentLoaded', function () {
         function filterChoices() {
             const query = input.value.toLowerCase().trim();
             let visibleCount = 0;
+            let activeCategory = '';
 
-            choices.forEach(function (choice) {
-                const isMatch = choice.textContent.toLowerCase().includes(query);
-                choice.style.display = isMatch ? '' : 'none';
+            Array.from(options.children).forEach(function (item) {
+                if (item.classList.contains('box-style-category')) {
+                    activeCategory = item.textContent.toLowerCase().trim();
+                    return;
+                }
+
+                if (!item.classList.contains('box-style-option')) return;
+
+                const productName = item.textContent.toLowerCase();
+                const isMatch = productName.includes(query) || activeCategory.includes(query);
+                item.style.display = isMatch ? '' : 'none';
                 if (isMatch) visibleCount++;
             });
 
             options.querySelectorAll('.box-style-category').forEach(function (category) {
+                const categoryMatches = category.textContent.toLowerCase().includes(query);
                 let hasVisibleProduct = false;
                 let item = category.nextElementSibling;
 
@@ -1131,7 +1141,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     item = item.nextElementSibling;
                 }
 
-                category.style.display = hasVisibleProduct ? '' : 'none';
+                category.style.display = categoryMatches || hasVisibleProduct ? '' : 'none';
             });
 
             if (emptyState) emptyState.style.display = visibleCount ? 'none' : 'block';
