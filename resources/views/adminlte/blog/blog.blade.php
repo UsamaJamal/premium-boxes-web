@@ -219,7 +219,9 @@
 <script>
     CKEDITOR.replace('ckeditor', {
         filebrowserUploadUrl: "{{URL::asset('ckeditor/ck_upload.php')}}",
-        filebrowserUploadMethod: 'form'
+        filebrowserUploadMethod: 'form',
+        allowedContent: true,
+        protectedSource: [ /<style[\s\S]*?<\/style>/gi ]
     });
     CKEDITOR.replace('author_description', {
         filebrowserUploadUrl: "{{URL::asset('ckeditor/ck_upload.php')}}",
