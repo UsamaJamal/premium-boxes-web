@@ -12,12 +12,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>blog</h1>
+            <h1>Blog</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">blog</li>
+              <li class="breadcrumb-item active">Blog</li>
             </ol>
           </div>
         </div>
@@ -29,13 +29,27 @@
       <div class="row">
         <div class="col-12">
           
-          <!-- /.card -->
-
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Show blog</h3>
+              <h3 class="card-title">Show Blog</h3>
             </div>
             <!-- /.card-header -->
+
+            <!-- ✅ Flash Messages -->
+            @if(session('success'))
+            <div class="alert alert-success alert-dismissible fade show mx-3 mt-3" role="alert" style="border-left: 5px solid #28a745; font-weight:600;">
+                <i class="fas fa-check-circle mr-1"></i> {{ session('success') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button>
+            </div>
+            @endif
+            @if(session('error'))
+            <div class="alert alert-danger alert-dismissible fade show mx-3 mt-3" role="alert" style="border-left: 5px solid #dc3545; font-weight:600;">
+                <i class="fas fa-exclamation-triangle mr-1"></i> {{ session('error') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button>
+            </div>
+            @endif
+            <!-- /.Flash Messages -->
+
             <div class="card-body">
             <form action="{{url('admin/delete_multiple_blogs')}}" method="POST" id="multiDeleteForm">
               @csrf
@@ -47,6 +61,7 @@
          <th>Id</th>
          <th>Name</th>
          <th>Image</th>
+         <th>Status</th>
          <th>Home Page</th>
          <th>Edit</th>
          <th>Delete</th>
@@ -61,6 +76,13 @@
        <td>{{$blog->blog_id}}</td>
        <td>{{$blog->blog_title}}</td>
        <td><img style="height:50px; width:50px;" src="{{url('images/'.$blog->image)}}"></td>
+       <td>
+         @if($blog->status == 1)
+           <span class="badge badge-success">Published</span>
+         @else
+           <span class="badge badge-warning">Draft</span>
+         @endif
+       </td>
        <td>
          @if($blog->set_home == 1)
            <span class="badge badge-success">Yes</span>
@@ -108,7 +130,7 @@
       e.preventDefault();
      $product_id=$(this).attr('data-uid');
   
-    $src = "{{url('admin/delete_blog/')}}"+'/'+$product_id;
+    $src = "{{url('admin/delete_blog/')}}"+'/'+ $product_id;
     
        swal.fire({
 
@@ -131,7 +153,7 @@
           $('.editdata').click(function(e){
           e.preventDefault();
           $id=$(this).attr('data-uid');
-          $src = "{{url('admin/editblog/')}}"+'/'+$id;
+          $src = "{{url('admin/editblog/')}}"+'/'+ $id;
             
            swal.fire({
 

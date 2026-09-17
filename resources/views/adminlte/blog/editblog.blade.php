@@ -145,14 +145,14 @@
                   </div>
 
                   <div class="form-group row">
-                    <label for="blogtitle" class="col-sm-3 col-form-label">Status</label>
+                    <label for="blogtitle" class="col-sm-3 col-form-label">Publication Status</label>
                     <div class="col-sm-9">
                     <select type="text" class="form-control"id="" placeholder="" 
                     name="status">
                   
                 
-                  <option <?php if($blog[0]->status==1){echo "selected";} ?> value="1">Active</option>
-                  <option <?php if($blog[0]->status==0){echo "selected";} ?> value="0">Disable</option>
+                  <option <?php if($blog[0]->status==0){echo "selected";} ?> value="0">Draft</option>
+                  <option <?php if($blog[0]->status==1){echo "selected";} ?> value="1">Publish</option>
                  
                   
            

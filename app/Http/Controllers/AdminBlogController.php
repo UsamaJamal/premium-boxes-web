@@ -221,8 +221,12 @@ public function showBlog() {
 
 public function deleteBlog($id)
       {
-         DB::table('blog')->where('blog_id', $id)->delete();
-         return redirect('admin/showblog');
+         try {
+             DB::table('blog')->where('blog_id', $id)->delete();
+             return redirect('admin/showblog')->with('success', '✅ Blog successfully delete ho gaya!');
+         } catch (\Exception $e) {
+             return redirect('admin/showblog')->with('error', '❌ Blog delete nahi hua! Error: ' . $e->getMessage());
+         }
       }
 
     public function deleteMultiple(Request $request)
@@ -251,6 +255,7 @@ public function deleteBlog($id)
 }
 
  public function updateBlog(Request $request,$id) {
+     try {
      $data=[
 
  'blog_title' => $request->get('blogtitle'),
@@ -267,11 +272,7 @@ public function deleteBlog($id)
     'set_home' => $request->get('set_home') ?? 0,
     'schema' => $request->get('schema'),
    
-   
 ];
-
-
-
 
 if($request->hasfile('image')){
                     $file=$request->file('image');
@@ -285,50 +286,65 @@ if($request->hasfile('image')){
                 $data['image']=$request->input('oldimage');
              }
 
-          
- $data['s']=DB::table('blog')->where('blog_id', $id)->update($data);
- // echo "<pre>";
- // print_r($data);
- //   die();
-          return redirect('admin/showblog');
+ DB::table('blog')->where('blog_id', $id)->update($data);
+          return redirect('admin/showblog')->with('success', '✅ Blog successfully update ho gaya!');
+
+     } catch (\Exception $e) {
+         return redirect('admin/showblog')->with('error', '❌ Blog update nahi hua! Error: ' . $e->getMessage());
+     }
 }
 
 public function addBlog(Request $request) {
-	$data=[
-
- 'blog_title' => $request->get('blogtitle'),
- 'blog_url' => str_replace(' ','-',strtolower($request->get('blogurl'))),
-  'meta_title' => $request->get('blogmtitle'),
-   'meta_description' => $request->get('blogmdescrioption'),
-   'meta_tags' => $request->get('blogmtags'),
-   'author_name' => $request->get('bloganame'),
-   'author_description' => $request->get('author_description'),
-   'tag_cloud' => $request->get('blogtcloud'),
-   'long_description' => $request->get('ckeditor'),
-   'image' => $request->get('image'),
-    'alt_tag' => $request->get('blogalttag'),  
-    'date' => date('Y-m-d'), 
-    'status' => $request->post('status'),
-    'set_home' => $request->post('set_home') ?? 0,
-    'schema' => $request->get('schema'),
-];
-
-if($request->hasfile('image')){
-                    $file=$request->file('image');
-                    $extension=$file->getClientOriginalName();
-                    $filename = str_replace(' ', '-', $extension);
-                    $file->move('images/',$filename);
-                    $data['image']=$filename;
-             } 
-             else
-        {
-            return  $request;
-            $data->image=''; 
-
+    try {
+        // Validate required fields
+        if(empty($request->get('blogtitle'))) {
+            return redirect()->back()->withInput()->with('error', '❌ Blog Title zaroori hai!');
         }
- 
+        if(empty($request->get('blogurl'))) {
+            return redirect()->back()->withInput()->with('error', '❌ Blog URL zaroori hai!');
+        }
+        if(!$request->hasfile('image')) {
+            return redirect()->back()->withInput()->with('error', '❌ Image select karo! Bina image ke blog save nahi hoga.');
+        }
+
+        $data=[
+         'blog_title' => $request->get('blogtitle'),
+         'blog_url' => str_replace(' ','-',strtolower($request->get('blogurl'))),
+         'meta_title' => $request->get('blogmtitle'),
+         'meta_description' => $request->get('blogmdescrioption'),
+         'meta_tags' => $request->get('blogmtags'),
+         'author_name' => $request->get('bloganame'),
+         'author_description' => $request->get('author_description'),
+         'tag_cloud' => $request->get('blogtcloud'),
+         'long_description' => $request->get('ckeditor'),
+         'image' => '',
+         'alt_tag' => $request->get('blogalttag'),
+         'date' => date('Y-m-d'),
+         'status' => $request->post('status'),
+         'set_home' => $request->post('set_home') ?? 0,
+         'schema' => $request->get('schema'),
+        ];
+
+        $file = $request->file('image');
+        $filename = str_replace(' ', '-', $file->getClientOriginalName());
+        $moved = $file->move('images/', $filename);
+        if(!$moved) {
+            return redirect()->back()->withInput()->with('error', '❌ Image upload fail ho gayi! images/ folder check karo.');
+        }
+        $data['image'] = $filename;
+
+        // Check duplicate blog_url
+        $exists = DB::table('blog')->where('blog_url', $data['blog_url'])->exists();
+        if($exists) {
+            return redirect()->back()->withInput()->with('error', '❌ Yeh Blog URL pehle se exist karta hai! Alag URL use karo.');
+        }
+
         DB::table('blog')->insert($data);
-return redirect('admin/blog');
+        return redirect('admin/showblog')->with('success', '✅ Blog successfully add ho gaya!');
+
+    } catch (\Exception $e) {
+        return redirect()->back()->withInput()->with('error', '❌ Blog save nahi hua! Error: ' . $e->getMessage());
+    }
 }
 
 

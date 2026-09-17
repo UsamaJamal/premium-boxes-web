@@ -32,12 +32,34 @@
                 <h5>Add Blog</h5>
               </div>
               <!-- /.card-header -->
-              <!-- form start -->
-         <div class="card-body">
-                  
+
+              <!-- ✅ Flash Messages -->
+              @if(session('success'))
+              <div class="alert alert-success alert-dismissible fade show mx-3 mt-3" role="alert" style="border-left: 5px solid #28a745; font-weight:600;">
+                  <i class="fas fa-check-circle mr-1"></i> {{ session('success') }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button>
               </div>
-               <form id="basic-form" method="post" action="{{url('admin/addblog')}}"enctype="multipart/form-data"
->@csrf
+              @endif
+              @if(session('error'))
+              <div class="alert alert-danger alert-dismissible fade show mx-3 mt-3" role="alert" style="border-left: 5px solid #dc3545; font-weight:600;">
+                  <i class="fas fa-exclamation-triangle mr-1"></i> {{ session('error') }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button>
+              </div>
+              @endif
+              @if($errors->any())
+              <div class="alert alert-danger mx-3 mt-3" style="border-left: 5px solid #dc3545;">
+                  <strong>❌ Validation Errors:</strong>
+                  <ul class="mb-0 mt-1">
+                      @foreach($errors->all() as $err)
+                          <li>{{ $err }}</li>
+                      @endforeach
+                  </ul>
+              </div>
+              @endif
+              <!-- /.Flash Messages -->
+
+              <!-- form start -->
+               <form id="basic-form" method="post" action="{{url('admin/addblog')}}" enctype="multipart/form-data">@csrf
 
                <div class="card" style="width: 66%; margin-left: 15px;">
     <div class="card-header header-2">Add Blog Data</div>
@@ -45,13 +67,13 @@
     <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Blog Title</label>
                     <div class="col-sm-9">
-                    <input id="blogtitle" type="text" class="form-control" placeholder="Blog Title" name="blogtitle" required>
+                    <input id="blogtitle" type="text" class="form-control" placeholder="Blog Title" name="blogtitle" value="{{ old('blogtitle') }}" required>
                   </div>
   </div>
   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Blog URL</label>
                     <div class="col-sm-9">
-                    <input id="blogurl" type="text" class="form-control"placeholder="Blog URL" name="blogurl" required>
+                    <input id="blogurl" type="text" class="form-control" placeholder="Blog URL" name="blogurl" value="{{ old('blogurl') }}" required>
                   </div>
                   </div>
 
@@ -72,21 +94,21 @@
     <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Meta Title</label>
                     <div class="col-sm-9">
-                    <input id="blogmtitle" type="text" class="form-control"placeholder="Meta Title" name="blogmtitle" required>
+                    <input id="blogmtitle" type="text" class="form-control" placeholder="Meta Title" name="blogmtitle" value="{{ old('blogmtitle') }}" required>
                   </div>
                   </div>
 
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Meta Description</label>
                     <div class="col-sm-9">
-                    <input id="blogmdescrioption" type="text" class="form-control"placeholder="Meta Description" name="blogmdescrioption" required>
+                    <input id="blogmdescrioption" type="text" class="form-control" placeholder="Meta Description" name="blogmdescrioption" value="{{ old('blogmdescrioption') }}" required>
                   </div>
                   </div>
 
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Meta Tags</label>
                     <div class="col-sm-9">
-                    <input id="blogmtags" type="text" class="form-control"placeholder="Meta Tags" name="blogmtags" required>
+                    <input id="blogmtags" type="text" class="form-control" placeholder="Meta Tags" name="blogmtags" value="{{ old('blogmtags') }}" required>
                   </div>
                   </div>
                 </div>
@@ -113,7 +135,7 @@
                <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Alttag</label>
                     <div class="col-sm-9">
-                    <input id="blogalttag" type="text" class="form-control"placeholder="Alttag" name="blogalttag" required>
+                    <input id="blogalttag" type="text" class="form-control" placeholder="Alttag" name="blogalttag" value="{{ old('blogalttag') }}" required>
                   </div>
                   </div>
                 </div>
@@ -126,37 +148,32 @@
                   <div class="form-group row">
                     <label for="bloganame" class="col-sm-3 col-form-label">Author Name</label>
                     <div class="col-sm-9">
-                    <input id="bloganame" type="text" class="form-control"placeholder="Author Name" name="bloganame" required>
+                    <input id="bloganame" type="text" class="form-control" placeholder="Author Name" name="bloganame" value="{{ old('bloganame') }}" required>
                   </div>
                   </div>
 
                   <div class="form-group row">
                     <label for="author_description" class="col-sm-3 col-form-label">Author Description</label>
                     <div class="col-sm-9">
-                    <textarea id="author_description" class="form-control" placeholder="Author Description" name="author_description" rows="3" required></textarea>
+                    <textarea id="author_description" class="form-control" placeholder="Author Description" name="author_description" rows="3" required>{{ old('author_description') }}</textarea>
                   </div>
                   </div>
 
                    <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Tag Cloud</label>
                     <div class="col-sm-9">
-                    <input id="blogtcloud" type="text" class="form-control"placeholder="Tag Cloud" name="blogtcloud" required>
+                    <input id="blogtcloud" type="text" class="form-control" placeholder="Tag Cloud" name="blogtcloud" value="{{ old('blogtcloud') }}" required>
                   </div>
                   </div>
 
 
                   <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Status</label>
+                    <label class="col-sm-3 col-form-label">Publication Status</label>
                     <div class="col-sm-9">
                     <select type="text" class="form-control" id="status" placeholder="" 
                     name="status">
-                  
-                
-                  <option value="1">Active</option>
-                  <option value="0">Disable</option>
-                 
-                  
-           
+                      <option value="0" selected>Draft</option>
+                      <option value="1">Publish</option>
                   </select>
                   </div>
 </div>
@@ -181,23 +198,10 @@
 
                 <div class="form-group row">
     <div class="col-sm-10">
-      <button type="submit" class="save" name="offersubmit">Save</button>
-
-<script type="text/javascript">
-
-  document.querySelector(".save").addEventListener('click', function(){
-  Swal.fire({
-  position: 'top-end',
-  icon: 'success',
-  title: 'Your work has been saved',
-  showConfirmButton: false,
-  timer: 2000
-});
-});
-  
-
-</script>
-</div>
+      <button type="submit" class="btn btn-success btn-lg" name="offersubmit" style="min-width:150px;">
+          <i class="fas fa-save mr-1"></i> Save Blog
+      </button>
+    </div>
               </form>
                </div>
             </div>
