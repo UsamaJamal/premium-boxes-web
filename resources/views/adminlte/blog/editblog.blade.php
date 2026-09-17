@@ -140,7 +140,7 @@
                    <div class="form-group row">
                     <label for="blogtcloud" class="col-sm-3 col-form-label">Tag Cloud</label>
                     <div class="col-sm-9">
-                    <input id="blogtcloud" type="text" class="form-control"placeholder="Tag Cloud" name="blogtcloud" value="{{$blog[0]->tag_cloud}}" required>
+                    <input id="blogtcloud" type="text" class="form-control"placeholder="Tag Cloud (optional)" name="blogtcloud" value="{{$blog[0]->tag_cloud}}">
                   </div>
                   </div>
 

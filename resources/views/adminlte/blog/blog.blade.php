@@ -162,7 +162,7 @@
                    <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Tag Cloud</label>
                     <div class="col-sm-9">
-                    <input id="blogtcloud" type="text" class="form-control" placeholder="Tag Cloud" name="blogtcloud" value="{{ old('blogtcloud') }}" required>
+                    <input id="blogtcloud" type="text" class="form-control" placeholder="Tag Cloud (optional)" name="blogtcloud" value="{{ old('blogtcloud') }}">
                   </div>
                   </div>
 
