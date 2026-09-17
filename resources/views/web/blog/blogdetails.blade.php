@@ -1042,9 +1042,12 @@ body { padding-top: var(--bp-header-h) !important; }
     $blog_image = asset('images/'.$post->image);
     $author_name = $post->author_name;
     $author_description = $post->author_description;
+    $has_author = !empty(trim((string) $author_name));
     $blog_date = date('F d, Y', strtotime($post->date));
     $blog_date_short = date('M d, Y', strtotime($post->date));
-    $blog_desc = strip_tags(Str::limit($post->long_description, 200));
+    // Do not include CSS/JS from the editor's source mode in the visible summary.
+    $blog_intro_html = preg_replace('/<(style|script)\b[^>]*>.*?<\/\1>/is', '', $post->long_description);
+    $blog_desc = Str::limit(trim(preg_replace('/\s+/', ' ', strip_tags($blog_intro_html))), 200);
     $blog_url = url($post->blog_url);
     $long_desc = $post->long_description;
     $current_url = url()->current();
@@ -1069,7 +1072,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     'class' => 'bp-breadcrumb',
     'items' => [
         ['label' => 'Blogs', 'url' => url('our-blog')],
-        ['label' => 'Rigid Packaging Gluing ...']
+        ['label' => $blog_title]
     ]
 ])
 
@@ -1092,8 +1095,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                         </div>
                     </div>
 
-                    <p class="bp-desc">The right box doesn't just hold your baked goods. It shows off your brand, sparks joy, and turns every treat into an experience. Get inspired by these designs that are as sweet the treats inside.</p>
+                    <p class="bp-desc">{{ $blog_desc }}</p>
 
+                    @if($has_author)
                     <div class="bp-author">
                         <div class="bp-author-avatar">
                             <img src="{{ asset('images/1606478490.Adam_Smith.jpg') }}" alt="{{ strtolower(str_replace('-', ' ', $author_name)) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $author_name))) }}">
@@ -1107,6 +1111,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                             </div>
                         </div>
                     </div>
+                    @endif
 
                     <figure class="bp-image">
                         <img src="{{ $blog_image }}" alt="{{ strtolower(str_replace('-', ' ', $post->alt_tag)) }}" loading="eager" title="{{ ucwords(strtolower(str_replace('-', ' ', $post->alt_tag))) }}">
@@ -1168,8 +1173,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
                 <h1 class="bp-mob-title">{{ $blog_title }}</h1>
 
-                <p class="bp-mob-desc">The right box doesn't just hold your baked goods. It shows off your brand, sparks joy, and turns every treat into an experience. Get inspired by these designs that are as sweet the treats inside.</p>
+                <p class="bp-mob-desc">{{ $blog_desc }}</p>
 
+                @if($has_author)
                 <div class="bp-mob-meta-row">
                     <div class="bp-mob-author">
                         <div class="bp-mob-author-avatar">
@@ -1184,6 +1190,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                         </div>
                     </div>
                 </div>
+                @endif
 
                 <div class="bp-mob-share">
                     <span class="bp-mob-share-label">Share:</span>
@@ -1216,21 +1223,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
                 <div class="bp-hero-left">
                     <div class="bp-article">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet sem ut dolor vulputate dignissim sit amet id dolor. Etiam viverra sem ac erat rutrum, id feugiat nisi porttitor. Phasellus volutpat, tortor nec cursus rhoncus, metus nulla lobortis urna, quis condimentum sapien magna sed erat. Suspendisse imperdiet orci sem, ut accumsan augue volutpat quis. Pellentesque feugiat rutrum venenatis. Cras sollicitudin vestibulum enim, vitae scelerisque orci placerat at. In hac habitasse platea dictumst. Sed ac tempor felis. Pellentesque dictum turpis a leo suscipit, nec ullamcorper magna tincidunt. Maecenas vel tellus non orci suscipit bibendum. Aenean porta purus turpis, a luctus nulla ultrices vitae. Nulla eleifend mollis libero, a pellentesque eros eleifend ut. Proin sodales felis sed tortor placerat, sed facilisis nisi vehicula.</p>
-
-                        <p>Duis erat libero, elementum ac maximus a, pretium ac nibh. In vehicula posuere fermentum. Nullam condimentum sit amet ex eu eleifend. Pellentesque blandit scelerisque imperdiet. Nunc viverra nulla eu lectus feugiat, quis accumsan mauris vulputate. Aliquam porttitor ex id fermentum scelerisque. Quisque ac commodo turpis. Donec cursus, nisi vel rutrum lobortis, dolor mauris dapibus nunc, eget pellentesque sem enim a massa. Integer fringilla nulla elit, ut rhoncus metus rhoncus nec.</p>
-
-                        <p>Nulla consectetur iaculis elementum. Praesent porttitor mattis turpis sed interdum. Vestibulum rhoncus lobortis erat, nec rhoncus orci euismod elementum. Mauris viverra ligula eget ex auctor, ut fringilla purus porttitor. Pellentesque egestas lectus id neque gravida porttitor. Suspendisse maximus erat in sapien laoreet ultricies. Etiam aliquam neque a purus sollicitudin varius. Praesent ac ante magna. Duis et consequat odio. Suspendisse nec purus libero. Cras non ante semper, vestibulum nulla non, condimentum erat. Sed faucibus, lorem in volutpat pharetra, urna sapien tincidunt orci, a aliquam risus nunc in ex. Integer vehicula, quam bibendum aliquam tristique, sapien ante tincidunt ipsum, volutpat rhoncus ligula odio in urna. Vivamus ac arcu non orci tempus tristique eu eget magna. Quisque quam elit, posuere id augue id, pretium varius enim. Donec neque arcu, maximus quis eros ac, suscipit luctus libero.</p>
-
-                        <p>Cras consectetur suscipit tellus, et mollis nisi consectetur quis. Ut suscipit nisl mi, at pretium dui feugiat vitae. Fusce facilisis sem vel massa pretium tempor. Maecenas nec eros nibh. Nulla id orci laoreet, mollis erat in, posuere leo. Quisque sollicitudin, elit eget pharetra pretium, velit massa eleifend magna, ut iaculis tellus lorem ac tortor. Suspendisse tristique, dui non malesuada dignissim, sem erat vehicula nisi, nec dictum justo tortor et nulla. Suspendisse eu leo lacus. Sed elementum volutpat ipsum non efficitur. Aliquam a lobortis augue. Nullam turpis mi, imperdiet sit amet tincidunt vel, ultricies quis metus. Curabitur malesuada aliquet dui gravida placerat. Nam vel ultricies libero.</p>
-
-                        <p>Sed neque est, interdum id convallis eleifend, dignissim sed lorem. Fusce vel malesuada enim. Aliquam erat volutpat. Nulla efficitur maximus sagittis. Integer non nisl vestibulum, posuere purus tristique, volutpat augue. Suspendisse eget felis suscipit purus laoreet egestas eget eget purus. Donec ac elementum risus. Sed semper massa risus, sed luctus risus fringilla commodo. Nulla sed sem nec massa tincidunt dictum. Duis ligula risus, pulvinar in consectetur quis, sagittis ac diam.</p>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet sem ut dolor vulputate dignissim sit amet id dolor. Etiam viverra sem ac erat rutrum, id feugiat nisi porttitor. Phasellus volutpat, tortor nec cursus rhoncus, metus nulla lobortis urna, quis condimentum sapien magna sed erat. Suspendisse imperdiet orci sem, ut accumsan augue volutpat quis. Pellentesque feugiat rutrum venenatis. Cras sollicitudin vestibulum enim, vitae scelerisque orci placerat at. In hac habitasse platea dictumst. Sed ac tempor felis. Pellentesque dictum turpis a leo suscipit, nec ullamcorper magna tincidunt. Maecenas vel tellus non orci suscipit bibendum. Aenean porta purus turpis, a luctus nulla ultrices vitae. Nulla eleifend mollis libero, a pellentesque eros eleifend ut. Proin sodales felis sed tortor placerat, sed facilisis nisi vehicula.</p>
-                        
                         {!! $long_desc !!}
 
                         <!-- Author Profile Section -->
+                        @if($has_author)
                         <div class="bp-author-profile">
                             <div class="bp-author-profile-image">
                                 <img src="{{ asset('images/1606478490.Adam_Smith.jpg') }}" alt="{{ strtolower(str_replace('-', ' ', $author_name)) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $author_name))) }}">
@@ -1243,6 +1239,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                                 </a>
                             </div>
                         </div>
+                        @endif
 
                     </div>
                 </div>

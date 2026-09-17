@@ -148,7 +148,7 @@
                   <div class="form-group row">
                     <label for="bloganame" class="col-sm-3 col-form-label">Author Name</label>
                     <div class="col-sm-9">
-                    <input id="bloganame" type="text" class="form-control" placeholder="Author Name" name="bloganame" value="{{ old('bloganame') }}" required>
+                    <input id="bloganame" type="text" class="form-control" placeholder="Author Name (optional)" name="bloganame" value="{{ old('bloganame') }}">
                   </div>
                   </div>
 
