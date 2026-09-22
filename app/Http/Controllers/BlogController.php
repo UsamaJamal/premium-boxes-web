@@ -62,6 +62,9 @@ class BlogController extends Controller
         ->orderBy('blog_id', 'desc')
         ->limit(3)
         ->get();
+    $data['blog_faqs'] = DB::table('blog_faqs')
+        ->where('blog_id', $data['blog_single_value'][0]->blog_id)
+        ->get();
     $data['blog_main_banner'] = DB::table('blog_banner')->get(); 
     $data['dynamic'] = DB::table('dynamic')->get();
     $data['contact'] = DB::table('contact')->get();

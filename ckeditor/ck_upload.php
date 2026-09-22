@@ -11,7 +11,7 @@ $imgset = array(
     'maxheight' => 50000, 
     'minwidth' => 10, 
     'minheight' => 10, 
-    'type' => array('bmp', 'gif', 'jpg', 'jpeg', 'png'), 
+    'type' => array('bmp', 'gif', 'jpg', 'jpeg', 'png', 'webp'), 
 ); 
  
 // If 0, will OVERWRITE the existing file 
@@ -67,14 +67,18 @@ if(isset($_FILES['upload']) && strlen($_FILES['upload']['name']) > 1) {
     } 
      
     // File upload path 
-    $f_name = setFName($_SERVER['DOCUMENT_ROOT'] .'/'. $upload_dir, F_NAME, ".$type", 0); 
-    $uploadpath = $upload_dir . $f_name; 
+    $upload_path = __DIR__ . '/' . $upload_dir; 
+    if (!is_dir($upload_path)) {
+        mkdir($upload_path, 0755, true);
+    }
+    $f_name = setFName($upload_path, F_NAME, ".$type", 0); 
+    $uploadpath = $upload_path . $f_name; 
  
     // If no errors, upload the image, else, output the errors 
     if($re == ''){ 
         if(move_uploaded_file($_FILES['upload']['tmp_name'], $uploadpath)) { 
             $CKEditorFuncNum = $_GET['CKEditorFuncNum']; 
-            $url = '../../ckeditor/'. $upload_dir . $f_name; 
+            $url = '/ckeditor/'. $upload_dir . $f_name; 
             $msg = F_NAME .'.'. $type .' successfully uploaded: \\n- Size: '. number_format($_FILES['upload']['size']/1024, 2, '.', '') .' KB'; 
             $re = in_array($type, $imgset['type']) ? "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>":'<script>var cke_ob = window.parent.CKEDITOR; for(var ckid in cke_ob.instances) { if(cke_ob.instances[ckid].focusManager.hasFocus) break;} cke_ob.instances[ckid].insertHtml(\' \', \'unfiltered_html\'); alert("'. $msg .'"); var dialog = cke_ob.dialog.getCurrent();dialog.hide();</script>'; 
         }else{ 

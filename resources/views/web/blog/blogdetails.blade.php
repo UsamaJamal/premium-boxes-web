@@ -546,6 +546,91 @@ body { padding-top: var(--bp-header-h) !important; }
     justify-content: center;
 }
 
+.bp-blog-faqs {
+    width: 100%;
+    margin: 42px 0 0;
+    padding: 28px 0 0;
+    border-top: 1px solid #333;
+}
+
+.bp-blog-faqs h2 {
+    margin: 0 0 8px;
+    color: #fff;
+    font-size: 28px;
+    line-height: 1.3;
+}
+
+.bp-blog-faq-item {
+    border-bottom: 1px solid #333;
+}
+
+.bp-blog-faq-question {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 14px;
+    align-items: start;
+    padding: 24px 0 20px;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    text-align: left;
+    cursor: pointer;
+}
+
+.bp-blog-faq-question:focus,
+.bp-blog-faq-question:active {
+    outline: none;
+    box-shadow: none;
+}
+
+.bp-blog-faq-question:focus-visible {
+    outline: 1px solid var(--bp-gold);
+    outline-offset: 4px;
+}
+
+.bp-blog-faq-number {
+    color: var(--bp-gold);
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+.bp-blog-faq-text {
+    margin: 0;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+.bp-blog-faq-plus {
+    color: #aaa;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+    transition: transform .2s ease, color .2s ease;
+}
+
+.bp-blog-faq-answer {
+    display: none;
+    padding: 0 42px 22px;
+}
+
+.bp-blog-faq-answer p {
+    margin: 0 !important;
+    color: #b8b8b8 !important;
+    text-align: left !important;
+}
+
+.bp-blog-faq-item.is-open .bp-blog-faq-plus {
+    color: var(--bp-gold);
+}
+
+.bp-blog-faq-item.is-open .bp-blog-faq-answer {
+    display: block;
+}
+
 /* =========================
    RELATED POSTS
    ========================= */
@@ -1034,6 +1119,26 @@ body { padding-top: var(--bp-header-h) !important; }
         min-width: 41px;
     }
 }
+
+@media (max-width: 767px) {
+    .bp-blog-faq-question {
+        gap: 10px;
+        padding: 18px 0 16px;
+    }
+
+    .bp-blog-faq-number,
+    .bp-blog-faq-text {
+        font-size: 18px;
+    }
+
+    .bp-blog-faq-plus {
+        font-size: 22px;
+    }
+
+    .bp-blog-faq-answer {
+        padding: 0 0 18px 36px;
+    }
+}
 </style>
 
 @php
@@ -1054,6 +1159,7 @@ body { padding-top: var(--bp-header-h) !important; }
     $fb_share = 'https://www.facebook.com/sharer/sharer.php?u='.urlencode($current_url);
     $tw_share = 'https://twitter.com/intent/tweet?url='.urlencode($current_url).'&text='.urlencode($blog_title);
     $li_share = 'https://www.linkedin.com/sharing/share-offsite/?url='.urlencode($current_url);
+    $blog_faqs = $blog_faqs ?? collect([]);
 @endphp
 
     <!-- POST HERO -->
@@ -1239,6 +1345,24 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                                 </a>
                             </div>
                         </div>
+                        @endif
+
+                        @if(count($blog_faqs) > 0)
+                        <section class="bp-blog-faqs">
+                            <h2>Frequently Asked Questions</h2>
+                            @foreach($blog_faqs as $index => $faq)
+                            <div class="bp-blog-faq-item">
+                                <button type="button" class="bp-blog-faq-question" aria-expanded="false">
+                                    <span class="bp-blog-faq-number">{{ $index + 1 }}.</span>
+                                    <h3 class="bp-blog-faq-text">{{ $faq->question }}</h3>
+                                    <span class="bp-blog-faq-plus">+</span>
+                                </button>
+                                <div class="bp-blog-faq-answer">
+                                    <p>{!! nl2br(e($faq->answer)) !!}</p>
+                                </div>
+                            </div>
+                            @endforeach
+                        </section>
                         @endif
 
                     </div>
@@ -1443,6 +1567,21 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
             }
         });
     }
+})();
+
+// Blog FAQ accordion
+(function() {
+    document.querySelectorAll('.bp-blog-faq-question').forEach(function(button) {
+        button.addEventListener('click', function() {
+            const item = button.closest('.bp-blog-faq-item');
+            if (!item) return;
+
+            const isOpen = item.classList.toggle('is-open');
+            button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            const icon = button.querySelector('.bp-blog-faq-plus');
+            if (icon) icon.textContent = isOpen ? '-' : '+';
+        });
+    });
 })();
 
 // AJAX Form Submission for Instant Quote

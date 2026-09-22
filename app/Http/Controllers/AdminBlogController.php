@@ -222,6 +222,7 @@ public function showBlog() {
 public function deleteBlog($id)
       {
          try {
+             DB::table('blog_faqs')->where('blog_id', $id)->delete();
              DB::table('blog')->where('blog_id', $id)->delete();
              return redirect('admin/showblog')->with('success', '✅ Blog successfully delete ho gaya!');
          } catch (\Exception $e) {
@@ -233,6 +234,7 @@ public function deleteBlog($id)
       {
           $ids = $request->input('ids');
           if (!empty($ids)) {
+              DB::table('blog_faqs')->whereIn('blog_id', $ids)->delete();
               DB::table('blog')->whereIn('blog_id', $ids)->delete();
               return redirect()->back()->with('success', 'Selected blogs deleted successfully.');
           }
@@ -248,10 +250,39 @@ public function deleteBlog($id)
 
 
   $data['blog'] = DB::table('blog')->where('blog_id',$id)->get();
+  $data['faqs'] = DB::table('blog_faqs')->where('blog_id', $id)->get();
 
   
 
   return view ('adminlte/blog/editblog', $data,$blog_data);
+}
+
+private function saveBlogFaqs(Request $request, $blogId)
+{
+    $faqQuestions = $request->input('faq_question');
+    $faqAnswers = $request->input('faq_answer');
+
+    DB::table('blog_faqs')->where('blog_id', $blogId)->delete();
+
+    if (!empty($faqQuestions) && is_array($faqQuestions)) {
+        $faqData = [];
+        foreach ($faqQuestions as $index => $question) {
+            $answer = $faqAnswers[$index] ?? '';
+            if (!empty($question) && !empty($answer)) {
+                $faqData[] = [
+                    'blog_id' => $blogId,
+                    'question' => $question,
+                    'answer' => $answer,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ];
+            }
+        }
+
+        if (count($faqData) > 0) {
+            DB::table('blog_faqs')->insert($faqData);
+        }
+    }
 }
 
  public function updateBlog(Request $request,$id) {
@@ -287,6 +318,7 @@ if($request->hasfile('image')){
              }
 
  DB::table('blog')->where('blog_id', $id)->update($data);
+ $this->saveBlogFaqs($request, $id);
           return redirect('admin/showblog')->with('success', '✅ Blog successfully update ho gaya!');
 
      } catch (\Exception $e) {
@@ -339,7 +371,8 @@ public function addBlog(Request $request) {
             return redirect()->back()->withInput()->with('error', '❌ Yeh Blog URL pehle se exist karta hai! Alag URL use karo.');
         }
 
-        DB::table('blog')->insert($data);
+        $blogId = DB::table('blog')->insertGetId($data);
+        $this->saveBlogFaqs($request, $blogId);
         return redirect('admin/showblog')->with('success', '✅ Blog successfully add ho gaya!');
 
     } catch (\Exception $e) {

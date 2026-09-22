@@ -178,6 +178,54 @@
                 </div>
               </div>
 
+              <div class="card" style="width: 66%; margin-left: 15px;">
+                  <div class="card-header header-2">Frequently Asked Questions (FAQs)</div>
+                  <div class="card-body" id="faq-container">
+                      @if(isset($faqs) && count($faqs) > 0)
+                          @foreach($faqs as $faq)
+                          <div class="faq-item" style="border:1px solid #eee; padding: 15px; margin-bottom: 15px; position:relative;">
+                              <div class="form-group row">
+                                  <label class="col-sm-3 col-form-label">Question</label>
+                                  <div class="col-sm-9">
+                                      <input type="text" class="form-control" name="faq_question[]" value="{{$faq->question}}" placeholder="Enter FAQ Question">
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label class="col-sm-3 col-form-label">Answer</label>
+                                  <div class="col-sm-9">
+                                      <textarea class="form-control" name="faq_answer[]" rows="3" placeholder="Enter FAQ Answer">{{$faq->answer}}</textarea>
+                                  </div>
+                              </div>
+                              <div class="text-right">
+                                  <button type="button" class="btn btn-danger btn-sm" onclick="removeFaqRow(this)">Remove FAQ</button>
+                              </div>
+                          </div>
+                          @endforeach
+                      @else
+                          <div class="faq-item" style="border:1px solid #eee; padding: 15px; margin-bottom: 15px; position:relative;">
+                              <div class="form-group row">
+                                  <label class="col-sm-3 col-form-label">Question</label>
+                                  <div class="col-sm-9">
+                                      <input type="text" class="form-control" name="faq_question[]" placeholder="Enter FAQ Question">
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label class="col-sm-3 col-form-label">Answer</label>
+                                  <div class="col-sm-9">
+                                      <textarea class="form-control" name="faq_answer[]" rows="3" placeholder="Enter FAQ Answer"></textarea>
+                                  </div>
+                              </div>
+                              <div class="text-right">
+                                  <button type="button" class="btn btn-danger btn-sm" onclick="removeFaqRow(this)">Remove FAQ</button>
+                              </div>
+                          </div>
+                      @endif
+                  </div>
+                  <div class="card-footer">
+                      <button type="button" class="btn btn-success btn-sm" onclick="addFaqRow()">Add Another FAQ</button>
+                  </div>
+              </div>
+
                 
 
                 <!-- /.card-body -->
@@ -236,5 +284,30 @@
 $(document).ready(function() {
 $("#basic-form").validate();
 });
+
+function addFaqRow() {
+    var faqHtml = '<div class="faq-item" style="border:1px solid #eee; padding: 15px; margin-bottom: 15px; position:relative;">' +
+                      '<div class="form-group row">' +
+                          '<label class="col-sm-3 col-form-label">Question</label>' +
+                          '<div class="col-sm-9">' +
+                              '<input type="text" class="form-control" name="faq_question[]" placeholder="Enter FAQ Question">' +
+                          '</div>' +
+                      '</div>' +
+                      '<div class="form-group row">' +
+                          '<label class="col-sm-3 col-form-label">Answer</label>' +
+                          '<div class="col-sm-9">' +
+                              '<textarea class="form-control" name="faq_answer[]" rows="3" placeholder="Enter FAQ Answer"></textarea>' +
+                          '</div>' +
+                      '</div>' +
+                      '<div class="text-right">' +
+                          '<button type="button" class="btn btn-danger btn-sm" onclick="removeFaqRow(this)">Remove FAQ</button>' +
+                      '</div>' +
+                  '</div>';
+    $('#faq-container').append(faqHtml);
+}
+
+function removeFaqRow(btn) {
+    $(btn).closest('.faq-item').remove();
+}
 </script>
 @include('adminlte/footer')

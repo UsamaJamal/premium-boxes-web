@@ -281,6 +281,7 @@ $data['meta'] = DB::table('add_category')->where('category_url',$url)->get();
                         $data['blog'] = DB::table('blog')->where('status',1)->orderBy('blog_id','DESC')->paginate(4);
                         
                         $data['meta'] = DB::table('blog')->where('blog_url',$url)->get();
+                        $data['blog_faqs'] = DB::table('blog_faqs')->where('blog_id', $data['meta'][0]->blog_id)->get();
                     
                         $data['meta_title'] = $data['meta']['0']->meta_title;
                         $data['meta_tags'] = $data['meta']['0']->meta_tags;
