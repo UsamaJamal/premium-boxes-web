@@ -619,7 +619,7 @@ html, body {
                     </div>
                 </div>
 
-                <!-- Paper Coating + Quantity + Upload -->
+                <!-- Paper Coating + Quantity + CAD Sample -->
                 <div class="qu-row qu-row-3">
                     <div class="qu-field">
                         <label>Select Paper Coating</label>
@@ -637,12 +637,22 @@ html, body {
                         <input type="number" name="quantity" placeholder="Enter quantity" required oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                     </div>
                     <div class="qu-field">
-                        <label>Upload File Here</label>
-                        <div class="qu-upload-wrap">
-                            <span class="qu-file-name" id="fileName">No file chosen</span>
-                            <label for="fileInput" class="qu-upload-btn">Upload</label>
-                            <input type="file" name="artwork" id="fileInput" hidden>
-                        </div>
+                        <label>CAD SAMPLE <span class="qu-req">*</span></label>
+                        <select name="cad_sample" required>
+                            <option value="" disabled selected>Select CAD Sample</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Upload File -->
+                <div class="qu-field">
+                    <label>Upload File Here</label>
+                    <div class="qu-upload-wrap">
+                        <span class="qu-file-name" id="fileName">No file chosen</span>
+                        <label for="fileInput" class="qu-upload-btn">Upload</label>
+                        <input type="file" name="artwork" id="fileInput" hidden>
                     </div>
                 </div>
 

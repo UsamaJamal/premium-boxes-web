@@ -111,6 +111,7 @@ a { text-decoration: none; color: inherit; }
 
 .product-form-row { display: grid; gap: 14px; margin-bottom: 14px; }
 .product-form-row-3 { grid-template-columns: repeat(3, 1fr); }
+.product-form-row-cad-qty { grid-template-columns: 1.2fr 0.6fr 1.2fr; }
 .product-form-row-4 { grid-template-columns: repeat(4, 1fr); }
 .product-form-row-options { grid-template-columns: repeat(2, 1fr); }
 .product-form-row-upload { grid-template-columns: 1fr 1.5fr; }
@@ -337,7 +338,7 @@ a { text-decoration: none; color: inherit; }
 
 @media (max-width: 960px) {
     .product-tabs-nav { gap: 40px; }
-    .product-form-row-3:not(.product-form-row-options) { grid-template-columns: 1fr; }
+    .product-form-row-3:not(.product-form-row-options), .product-form-row-cad-qty { grid-template-columns: 1fr; }
     .product-form-group.span-2 { grid-column: span 1; }
 }
 
@@ -357,7 +358,7 @@ a { text-decoration: none; color: inherit; }
     .pf-mob-label { display: none !important; font-size: 3.5vw; font-weight: 600; margin-bottom: 1.5vw; color: rgba(255,255,255,0.85); }
     .pf-wrap { display: flex; flex-direction: column; width: 100%; }
     .pf-upload-wrap { width: 100%; }
-    .product-form-row-3:not(.product-form-row-options) { grid-template-columns: 1fr; gap: 4vw; }
+    .product-form-row-3:not(.product-form-row-options), .product-form-row-cad-qty { grid-template-columns: 1fr; gap: 4vw; }
     .product-form-row-4 { grid-template-columns: 1fr 1fr !important; gap: 3.5vw 4vw; }
     .product-form-row-options { grid-template-columns: 1fr 1fr !important; gap: 3.5vw 4vw; }
     .product-form-row-upload { grid-template-columns: 1fr 1fr !important; gap: 3.5vw 4vw; }
@@ -778,19 +779,21 @@ a { text-decoration: none; color: inherit; }
                                 </div>
                             </div>
 
-                            <!-- Row 3: Material | Printing -->
-                            <div class="product-form-row product-form-row-options">
+                            <!-- Row 3: Material | Printing | Finishing -->
+                            <div class="product-form-row product-form-row-3">
                                 <div class="pf-wrap">
                                     <label class="pf-mob-label">Select Material</label>
-                                    @php
-                                        $parentCatMatQuote = \DB::table('add_category')->where('name', 'Box by Material')->first();
-                                        $materialsQuote = $parentCatMatQuote ? \DB::table('add_category')->where('parent_category', $parentCatMatQuote->cat_id)->get() : [];
-                                    @endphp
                                     <select name="p_material">
-                                        <option value="">Select Material</option>
-                                        @foreach($materialsQuote as $mat)
-                                            <option value="{{ $mat->name }}">{{ $mat->name }}</option>
-                                        @endforeach
+                                        <option value="12pt Cardboard Stock" selected>12pt Cardboard Stock</option>
+                                        <option value="14pt Cardboard Stock">14pt Cardboard Stock</option>
+                                        <option value="16pt Cardboard Stock">16pt Cardboard Stock</option>
+                                        <option value="18pt Cardboard Stock">18pt Cardboard Stock</option>
+                                        <option value="20pt Cardboard Stock">20pt Cardboard Stock</option>
+                                        <option value="22pt Cardboard Stock">22pt Cardboard Stock</option>
+                                        <option value="24pt Cardboard Stock">24pt Cardboard Stock</option>
+                                        <option value="Kraft Stock">Kraft Stock</option>
+                                        <option value="Recycled BuxBoard">Recycled BuxBoard</option>
+                                        <option value="Corrugated Stock">Corrugated Stock</option>
                                     </select>
                                 </div>
                                 <div class="pf-wrap">
@@ -805,10 +808,6 @@ a { text-decoration: none; color: inherit; }
                                         <option value="4 Color+PMS">4 Color + PMS</option>
                                     </select>
                                 </div>
-                            </div>
-
-                            <!-- Row 4: Finishing | Quantity -->
-                            <div class="product-form-row product-form-row-options">
                                 <div class="pf-wrap">
                                     <label class="pf-mob-label">Finishing Options</label>
                                     <select name="p_finishing">
@@ -818,14 +817,23 @@ a { text-decoration: none; color: inherit; }
                                         <option value="UV">UV</option>
                                     </select>
                                 </div>
+                            </div>
+
+                            <!-- Row 4: CAD Sample | Quantity | Upload -->
+                            <div class="product-form-row product-form-row-3 product-form-row-cad-qty">
+                                <div class="pf-wrap">
+                                    <label class="pf-mob-label">Select CAD Sample</label>
+                                    <select name="cad_sample">
+                                        <option value="">Select CAD Sample</option>
+                                        <option value="Digital">Digital</option>
+                                        <option value="Physical">Physical</option>
+                                        <option value="None">None</option>
+                                    </select>
+                                </div>
                                 <div class="pf-wrap">
                                     <label class="pf-mob-label">Quantity *</label>
                                     <input type="text" name="p_qty1" placeholder="Quantity" required oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                                 </div>
-                            </div>
-
-                            <!-- Row 5: Upload -->
-                            <div class="product-form-row">
                                 <div class="pf-wrap pf-upload-wrap">
                                     <label class="pf-mob-label">Upload File Here</label>
                                     <div class="product-upload-group">

@@ -117,30 +117,37 @@ input[type=number] {
 /* Dropdown selections and quote options */
 .options-grid-custom {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(48, 1fr);
   width: 100%;
 }
 .options-grid-custom > .form-group:nth-child(1),
 .options-grid-custom > .form-group:nth-child(2),
 .options-grid-custom > .form-group:nth-child(3) {
-  grid-column: span 2;
+  grid-column: span 16;
 }
 .options-grid-custom > .form-group:nth-child(4),
 .options-grid-custom > .form-group:nth-child(5) {
-  grid-column: span 3;
+  grid-column: span 24;
 }
 
 /* Home page: Box Style and Paper Stock on the first row, quantity and upload below. */
 .options-grid-custom.home-quote-options > .form-group:nth-child(1),
 .options-grid-custom.home-quote-options > .form-group:nth-child(2),
 .options-grid-custom.home-quote-options > .form-group:nth-child(3) {
-  grid-column: span 2;
+  grid-column: span 16;
 }
 
-.options-grid-custom.home-quote-options > .form-group:nth-child(4),
-.options-grid-custom.home-quote-options > .form-group:nth-child(5),
+.options-grid-custom.home-quote-options > .form-group:nth-child(4) {
+  grid-column: span 13;
+}
+.options-grid-custom.home-quote-options > .form-group:nth-child(5) {
+  grid-column: span 7;
+}
 .options-grid-custom.home-quote-options > .form-group:nth-child(6) {
-  grid-column: span 2;
+  grid-column: span 12;
+}
+.options-grid-custom.home-quote-options > .form-group:nth-child(7) {
+  grid-column: span 16;
 }
 
 .box-style-search-group {
@@ -558,22 +565,19 @@ input[type=number] {
   .options-grid-custom {
     grid-template-columns: repeat(2, 1fr);
   }
-  /* Reset the span overrides from desktop so all 4 items show 2x2 */
-  .options-grid-custom > .form-group:nth-child(1),
-  .options-grid-custom > .form-group:nth-child(2),
-  .options-grid-custom > .form-group:nth-child(3),
-  .options-grid-custom > .form-group:nth-child(4) {
-    grid-column: span 1;
+  /* Reset the span overrides from desktop so items show 2x2 */
+  .options-grid-custom > .form-group {
+    grid-column: span 1 !important;
   }
-  /* Upload (5th item) spans both columns */
+  /* Upload spans both columns if it's the last item to maintain symmetry */
   .options-grid-custom > .form-group:nth-child(5) {
-    grid-column: span 2;
+    grid-column: span 2 !important;
   }
   .options-grid-custom.home-quote-options > .form-group:nth-child(5) {
-    grid-column: span 1;
+    grid-column: span 1 !important;
   }
-  .options-grid-custom.home-quote-options > .form-group:nth-child(6) {
-    grid-column: span 2;
+  .options-grid-custom.home-quote-options > .form-group:nth-child(7) {
+    grid-column: span 2 !important;
   }
   .form-group,
   .form-row,
@@ -1042,8 +1046,19 @@ input[type=number] {
                             @endif
                             <div class="form-group">
                                 <label>Quantity *</label>
-                                <input type="number" name="quantity" placeholder="Enter quantity" required oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                <input type="number" name="quantity" placeholder="Quantity" required oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                             </div>
+                            @if($usesStyleStockColorQuote)
+                            <div class="form-group">
+                                <label>Select CAD Sample</label>
+                                <select name="cad_sample">
+                                    <option value="">Select CAD Sample</option>
+                                    <option value="Digital">Digital</option>
+                                    <option value="Physical">Physical</option>
+                                    <option value="None">None</option>
+                                </select>
+                            </div>
+                            @endif
                             <div class="form-group upload-group">
                                 <label>Upload File Here</label>
                                 <div class="file-upload-wrapper">
