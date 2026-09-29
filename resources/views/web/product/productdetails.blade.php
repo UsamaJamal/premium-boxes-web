@@ -1366,6 +1366,43 @@ a { text-decoration: none; color: inherit; }
                         </div>
                         <div class="iq-row-2">
                             <div class="iq-group">
+                                <select name="box_style" required>
+                                    <option value="" disabled selected>Select Your Box Style</option>
+                                    <option value="Tuck End Auto Bottom">Tuck End Auto Bottom</option>
+                                    <option value="Seal End Auto Bottom">Seal End Auto Bottom</option>
+                                    <option value="Straight Tuck End">Straight Tuck End</option>
+                                    <option value="Reverse Tuck End">Reverse Tuck End</option>
+                                    <option value="Snap Lock Bottom">Snap Lock Bottom</option>
+                                    <option value="Tuck Top Auto Bottom">Tuck Top Auto Bottom</option>
+                                    <option value="Mailer Box">Mailer Box</option>
+                                    <option value="Display Box">Display Box</option>
+                                    <option value="Gable Box">Gable Box</option>
+                                    <option value="Sleeve Box">Sleeve Box</option>
+                                    <option value="Pillow Box">Pillow Box</option>
+                                    <option value="Two Piece Box">Two Piece Box</option>
+                                    <option value="Hexagon Box">Hexagon Box</option>
+                                    <option value="Octagon Box">Octagon Box</option>
+                                    <option value="Cube Box">Cube Box</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="iq-group">
+                                <select name="color" required>
+                                    <option value="" disabled selected>1 Colour</option>
+                                    <option value="1 Colour">1 Colour</option>
+                                    <option value="2 Colours">2 Colours</option>
+                                    <option value="3 Colours">3 Colours</option>
+                                    <option value="4 Colours">4 Colours</option>
+                                    <option value="4/1 Colours">4/1 Colours</option>
+                                    <option value="4/2 Colours">4/2 Colours</option>
+                                    <option value="4/3 Colours">4/3 Colours</option>
+                                    <option value="4/4 Colours">4/4 Colours</option>
+                                    <option value="Plain">Plain</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="iq-row-2">
+                            <div class="iq-group">
                                 <input type="text" name="product_name" value="{{ $p->title ?? '' }}" placeholder="Enter product name" required>
                             </div>
                             <div class="iq-group">
