@@ -825,9 +825,8 @@ a { text-decoration: none; color: inherit; }
                                     <label class="pf-mob-label">Select CAD Sample</label>
                                     <select name="cad_sample">
                                         <option value="">Select CAD Sample</option>
-                                        <option value="Digital">Digital</option>
-                                        <option value="Physical">Physical</option>
-                                        <option value="None">None</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
                                     </select>
                                 </div>
                                 <div class="pf-wrap">

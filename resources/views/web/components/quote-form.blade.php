@@ -1053,9 +1053,8 @@ input[type=number] {
                                 <label>Select CAD Sample</label>
                                 <select name="cad_sample">
                                     <option value="">Select CAD Sample</option>
-                                    <option value="Digital">Digital</option>
-                                    <option value="Physical">Physical</option>
-                                    <option value="None">None</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
                                 </select>
                             </div>
                             @endif
