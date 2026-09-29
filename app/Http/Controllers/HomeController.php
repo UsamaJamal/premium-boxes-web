@@ -477,27 +477,11 @@ function product_mail(Request $request)
 
     Session::flash('product','Thanks for your Intrest');
     $product='product';
-    $data=array(
-        'p_name'=>$request->p_first_name . ' ' . $request->p_last_name,
-        'email'=>$request->p_email,
-        'p_phone' =>$request->p_phone,
-        'p_boxname'=>$request->p_boxname,
-        'p_stock'=>$request->p_material,
-        'p_color'=>$request->p_color,
-        'p_coating'=>$request->p_finishing,
-        'p_length'=>$request->p_length,
-        'p_width' =>$request->p_width,
-        'p_height'=>$request->p_height,
-        'p_unit'=>$request->p_unit,
-        'p_qty1'=>$request->p_qty1,
-        'p_qty2' =>$request->p_qty2,
-        'p_qty3'=>$request->p_qty3,
-        'p_qty4'=>$request->p_qty4,
-        'message'=>$request->message,
-        'source'=>$request->source,
-        'page_url'=>$request->page_url,
-        'subject'=>$product
-    );
+    $data = $request->except(['_token']);
+    $data['subject'] = $product;
+    if ($request->has('p_first_name') || $request->has('p_last_name')) {
+        $data['p_name'] = trim($request->p_first_name . ' ' . $request->p_last_name);
+    }
     if (!$this->sendQuoteEmail($data, $request->file('p_file'))) {
         return back()->with('error', 'Sorry, we could not send your quote request. Please try again shortly.');
     }
@@ -754,24 +738,8 @@ function req_quote_mail(Request $request)
 
     Session::flash('request_quote','Thanks for your Intrest');
     $request_quote='request_quote';
-    $data=array(
-        'r_name'=>$request->r_name,
-        'r_number'=>$request->r_number,
-        'r_email' =>$request->r_email,
-        'image'=>$request->image,
-        'r_boxname'=>$request->r_boxname,
-        'r_stock'=>$request->r_stock,
-        'r_length' =>$request->r_length,
-        'r_width'=>$request->r_width,
-        'r_height'=>$request->r_height,
-        'r_unit'=>$request->r_unit,
-        'r_qty1' =>$request->r_qty1,
-        'r_qty2'=>$request->r_qty2,
-        'r_color'=>$request->r_color,
-        'r_type'=>$request->r_type,
-        'r_message'=>$request->r_message,
-        'subject'=>$request_quote
-    );
+    $data = $request->except(['_token', 'image']);
+    $data['subject'] = $request_quote;
     if($request->hasfile('image')){
         $file=$request->file('image');
         $extension=$file->getClientOriginalName();
