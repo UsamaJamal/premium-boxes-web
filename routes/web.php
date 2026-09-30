@@ -471,6 +471,8 @@ Route::get('index.php', function () { abort(404); });
 // the global App\Http\Middleware\GoneUrls middleware (registered in Http/Kernel),
 // so they never reach the router. See that middleware to retire more paths.
 
+
+
 Route::get('/{any}','ProductController@Product');
 Route::post('user-image-update','UserLogin@EditUserImage');
 

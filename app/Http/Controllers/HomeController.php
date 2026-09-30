@@ -477,11 +477,28 @@ function product_mail(Request $request)
 
     Session::flash('product','Thanks for your Intrest');
     $product='product';
-    $data = $request->except(['_token']);
-    $data['subject'] = $product;
-    if ($request->has('p_first_name') || $request->has('p_last_name')) {
-        $data['p_name'] = trim($request->p_first_name . ' ' . $request->p_last_name);
-    }
+    $data=array(
+        'p_name'=>$request->p_first_name . ' ' . $request->p_last_name,
+        'email'=>$request->p_email,
+        'p_phone' =>$request->p_phone,
+        'p_boxname'=>$request->p_boxname,
+        'p_stock'=>$request->p_material,
+        'p_color'=>$request->p_color,
+        'p_coating'=>$request->p_finishing,
+        'p_length'=>$request->p_length,
+        'p_width' =>$request->p_width,
+        'p_height'=>$request->p_height,
+        'p_unit'=>$request->p_unit,
+        'p_qty1'=>$request->p_qty1,
+        'p_qty2' =>$request->p_qty2,
+        'p_qty3'=>$request->p_qty3,
+        'p_qty4'=>$request->p_qty4,
+        'message'=>$request->message,
+        'source'=>$request->source,
+        'page_url'=>$request->page_url,
+        'cad_sample'=>$request->cad_sample,
+        'subject'=>$product
+    );
     if (!$this->sendQuoteEmail($data, $request->file('p_file'))) {
         return back()->with('error', 'Sorry, we could not send your quote request. Please try again shortly.');
     }
@@ -525,6 +542,7 @@ function submitQuote(Request $request)
         'message' => $request->message,
         'source' => $request->source,
         'page_url' => $request->page_url,
+        'cad_sample' => $request->cad_sample,
         'subject' => 'product'
     );
 
@@ -560,6 +578,7 @@ private function sendQuoteEmail($data, $file = null)
         }
 
         $body = view('web/email/quote', array('data' => $data))->render();
+
         $mailHost = config('mail.host') ?: 'smtp.hostinger.com';
         $mailPort = config('mail.port') ?: 465;
         $mailEncryption = config('mail.encryption') ?: 'ssl';
