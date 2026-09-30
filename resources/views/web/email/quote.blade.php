@@ -3,32 +3,31 @@
 <head>
     <meta charset="utf-8">
     <style>
-        body { margin: 0; padding: 20px; background: #ffffff; font-family: Arial, sans-serif; color: #333333; }
-        table { border-collapse: collapse; width: 450px; max-width: 100%; font-family: Arial, sans-serif; }
-        th, td { border: 1px solid #cccccc; padding: 9px 8px; text-align: left; font-size: 14px; line-height: 1.25; }
-        th { background: #379bd3; color: #ffffff; width: 88px; font-weight: bold; }
-        td { background: #ffffff; word-break: break-word; }
-        a { color: #0b67d1; }
+        body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4; color: #333333; margin: 0; }
+        table { width: 100%; max-width: 600px; border-collapse: collapse; background-color: #fff; border: 1px solid #ddd; margin: 0 auto; font-family: Arial, sans-serif; }
+        th, td { border: 1px solid #ddd; padding: 12px 15px; text-align: left; font-size: 15px; line-height: 1.4; }
+        th { background-color: #3598db; color: #ffffff; font-weight: bold; width: 35%; }
+        td { background-color: #ffffff; word-break: break-word; width: 65%; color: #333; }
+        a { color: #3598db; text-decoration: none; }
     </style>
 </head>
 <body>
-    <table>
-        @if(!empty($data['box_style']))<tr><th>Product Name:</th><td>{{ $data['box_style'] }}</td></tr>@elseif((empty($data['source']) || !in_array($data['source'], ['Home Page Quote Form', 'Category Page Quote Form', 'Request quote page'], true)) && !empty($data['p_boxname']))<tr><th>Product Name:</th><td>{{ $data['p_boxname'] }}</td></tr>@endif
-        @if(!empty($data['p_name']))<tr><th>Client Name:</th><td>{{ $data['p_name'] }}</td></tr>@endif
-        @if(!empty($data['email']))<tr><th>Client Email:</th><td><a href="mailto:{{ $data['email'] }}">{{ $data['email'] }}</a></td></tr>@endif
-        @if(!empty($data['p_phone']))<tr><th>Client Phone:</th><td>{{ $data['p_phone'] }}</td></tr>@endif
-        @if(!empty($data['p_length']))<tr><th>Length:</th><td>{{ $data['p_length'] }}</td></tr>@endif
-        @if(!empty($data['p_width']))<tr><th>Width:</th><td>{{ $data['p_width'] }}</td></tr>@endif
-        @if(!empty($data['p_height']))<tr><th>Height:</th><td>{{ $data['p_height'] }}</td></tr>@endif
-        @if(!empty($data['p_unit']))<tr><th>Unit:</th><td>{{ $data['p_unit'] }}</td></tr>@endif
-        @if(!empty($data['p_stock']))<tr><th>Paper Stock:</th><td>{{ $data['p_stock'] }}</td></tr>@endif
-        @if(!empty($data['p_color']))<tr><th>Color:</th><td>{{ $data['p_color'] }}</td></tr>@endif
-        @if(!empty($data['p_coating']))<tr><th>Coating:</th><td>{{ $data['p_coating'] }}</td></tr>@endif
-        @if(!empty($data['cad_sample']))<tr><th>CAD Sample:</th><td>{{ $data['cad_sample'] }}</td></tr>@endif
-        @if(!empty($data['p_qty1']))<tr><th>Qty:</th><td>{{ $data['p_qty1'] }}</td></tr>@endif
-        @if(!empty($data['file_name']))<tr><th>File:</th><td>{{ $data['file_name'] }} (attached)</td></tr>@endif
-        @if(!empty($data['message']))<tr><th>Message:</th><td>{{ $data['message'] }}</td></tr>@endif
-        @if(!empty($data['source']))<tr><th>Source:</th><td>{{ $data['source'] }}</td></tr>@endif
+    <table class="mail-table">
+        <tr><th>Product Name:</th><td>{{ $data['box_style'] ?? ($data['p_boxname'] ?? '') }}</td></tr>
+        <tr><th>Client Name:</th><td>{{ $data['p_name'] ?? '' }}</td></tr>
+        <tr><th>Client Email:</th><td>{{ $data['email'] ?? '' }}</td></tr>
+        <tr><th>Client Phone:</th><td>{{ $data['p_phone'] ?? '' }}</td></tr>
+        <tr><th>Length:</th><td>{{ $data['p_length'] ?? '' }}</td></tr>
+        <tr><th>Width:</th><td>{{ $data['p_width'] ?? '' }}</td></tr>
+        <tr><th>Height:</th><td>{{ $data['p_height'] ?? '' }}</td></tr>
+        <tr><th>Unit:</th><td>{{ $data['p_unit'] ?? '' }}</td></tr>
+        <tr><th>Stock:</th><td>{{ $data['p_stock'] ?? '' }}</td></tr>
+        <tr><th>Color:</th><td>{{ $data['p_color'] ?? '' }}</td></tr>
+        <tr><th>Coating:</th><td>{{ $data['p_coating'] ?? '' }}</td></tr>
+        <tr><th>CAD Sample:</th><td>{{ $data['cad_sample'] ?? 'Yes' }}</td></tr>
+        <tr><th>Qty:</th><td>{{ $data['p_qty1'] ?? '' }}</td></tr>
+        <tr><th>File:</th><td>{{ $data['file_name'] ?? 'No file uploaded' }}</td></tr>
+        <tr><th>Message:</th><td>{{ $data['message'] ?? '' }}</td></tr>
     </table>
 </body>
 </html>

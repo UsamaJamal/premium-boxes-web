@@ -496,6 +496,7 @@ function product_mail(Request $request)
         'message'=>$request->message,
         'source'=>$request->source,
         'page_url'=>$request->page_url,
+        'cad_sample'=>$request->cad_sample,
         'subject'=>$product
     );
     if (!$this->sendQuoteEmail($data, $request->file('p_file'))) {
@@ -541,6 +542,7 @@ function submitQuote(Request $request)
         'message' => $request->message,
         'source' => $request->source,
         'page_url' => $request->page_url,
+        'cad_sample' => $request->cad_sample,
         'subject' => 'product'
     );
 
@@ -576,6 +578,7 @@ private function sendQuoteEmail($data, $file = null)
         }
 
         $body = view('web/email/quote', array('data' => $data))->render();
+
         $mailHost = config('mail.host') ?: 'smtp.hostinger.com';
         $mailPort = config('mail.port') ?: 465;
         $mailEncryption = config('mail.encryption') ?: 'ssl';
