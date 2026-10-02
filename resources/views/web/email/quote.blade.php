@@ -41,6 +41,12 @@
         <tr><th>Qty:</th><td>{{ $data['p_qty1'] ?? '' }}</td></tr>
         <tr><th>File:</th><td>{{ $data['file_name'] ?? 'No file uploaded' }}</td></tr>
         <tr><th>Message:</th><td>{{ $data['message'] ?? '' }}</td></tr>
+        @if(!empty($data['source']))
+        <tr><th>Source:</th><td>{{ $data['source'] }}</td></tr>
+        @endif
+        @if(!empty($data['page_url']))
+        <tr><th>Page URL:</th><td><a href="{{ $data['page_url'] }}" target="_blank">{{ $data['page_url'] }}</a></td></tr>
+        @endif
     </table>
 </body>
 </html>

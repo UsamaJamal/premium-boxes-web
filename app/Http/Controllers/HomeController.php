@@ -565,7 +565,8 @@ private function sendQuoteEmail($data, $file = null)
     $emailLogId = null;
     $quoteSubject = 'Request A Quote';
 
-    if (in_array($data['source'] ?? '', ['Product detail custom quote', 'Product detail instant quote'], true)) {
+    $source = $data['source'] ?? '';
+    if (stripos($source, 'Product') !== false || (!empty($data['page_url']) && stripos($data['page_url'], 'product') !== false)) {
         $quoteSubject = 'Product Request A Quote';
     }
 
