@@ -12,11 +12,24 @@
     </style>
 </head>
 <body>
+    @php
+        $productName = !empty($data['p_boxname']) ? $data['p_boxname'] : (!empty($data['product_name']) ? $data['product_name'] : (!empty($data['box_style']) ? $data['box_style'] : ''));
+        $boxStyle = !empty($data['box_style']) && $data['box_style'] !== $productName ? $data['box_style'] : '';
+    @endphp
     <table class="mail-table">
-        <tr><th>Product Name:</th><td>{{ $data['box_style'] ?? ($data['p_boxname'] ?? '') }}</td></tr>
+        <tr><th>Product Name:</th><td>{{ $productName }}</td></tr>
+        @if(!empty($boxStyle))
+        <tr><th>Box Style:</th><td>{{ $boxStyle }}</td></tr>
+        @endif
         <tr><th>Client Name:</th><td>{{ $data['p_name'] ?? '' }}</td></tr>
         <tr><th>Client Email:</th><td>{{ $data['email'] ?? '' }}</td></tr>
         <tr><th>Client Phone:</th><td>{{ $data['p_phone'] ?? '' }}</td></tr>
+        @if(!empty($data['address']))
+        <tr><th>Address:</th><td>{{ $data['address'] }}</td></tr>
+        @endif
+        @if(!empty($data['company']))
+        <tr><th>Company:</th><td>{{ $data['company'] }}</td></tr>
+        @endif
         <tr><th>Length:</th><td>{{ $data['p_length'] ?? '' }}</td></tr>
         <tr><th>Width:</th><td>{{ $data['p_width'] ?? '' }}</td></tr>
         <tr><th>Height:</th><td>{{ $data['p_height'] ?? '' }}</td></tr>

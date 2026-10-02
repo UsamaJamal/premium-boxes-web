@@ -387,6 +387,7 @@ Route::post('subscribe-email', 'HomeController@subscribe_email');
 
 Route::post('product-mail', 'HomeController@product_mail');
 Route::post('submit-quote', 'HomeController@submitQuote');
+Route::get('test-home-quote', 'HomeController@testHomeQuote');
 
 Route::post('track-your-orders', 'HomeController@TrackOrdermail');
 

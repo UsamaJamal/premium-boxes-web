@@ -525,11 +525,11 @@ function submitQuote(Request $request)
         'address' => $request->address,
         'company' => $request->company,
         'website' => $request->website,
-        'p_boxname' => $request->product_name ?: $request->box_style,
+        'p_boxname' => $request->product_name ?: ($request->p_boxname ?: $request->box_style),
         'box_style' => $request->box_style,
         'p_stock' => $request->material,
-        'p_color' => $request->color_options,
-        'p_coating' => $request->coating,
+        'p_color' => $request->color_options ?: $request->color,
+        'p_coating' => $request->coating ?: $request->p_finishing,
         'p_type' => $request->printing_options,
         'p_length' => $request->length,
         'p_width' => $request->width,
@@ -775,6 +775,68 @@ $data['image']='';
 
 }
 
+public function testHomeQuote(Request $request)
+{
+    $testRequest = new Request([
+        'source' => $request->get('source', 'Home Page Quote Form'),
+        'name' => $request->get('name', 'Ali Khan'),
+        'email' => $request->get('email', 'test@premiumboxes.com'),
+        'phone' => $request->get('phone', '+1234567890'),
+        'address' => $request->get('address', '123 Main Street, Suite 400'),
+        'company' => $request->get('company', 'Test Boxes Co'),
+        'website' => $request->get('website', 'https://premiumboxes.com'),
+        'width' => $request->get('width', '10'),
+        'length' => $request->get('length', '15'),
+        'depth' => $request->get('depth', '5'),
+        'unit' => $request->get('unit', 'inch'),
+        'box_style' => $request->get('box_style', 'Mailer Box'),
+        'product_name' => $request->get('product_name', ''),
+        'material' => $request->get('material', '16pt Cardboard Stock'),
+        'color_options' => $request->get('color_options', '4/4 Color'),
+        'coating' => $request->get('coating', 'Gloss UV'),
+        'quantity' => $request->get('quantity', '500'),
+        'cad_sample' => $request->get('cad_sample', 'Yes'),
+        'message' => $request->get('message', 'This is a test quotation from the Home Page quote form.')
+    ]);
+
+    $data = array(
+        'p_name' => trim(($testRequest->name ?: '') . ' ' . ($testRequest->last_name ?: '')),
+        'email' => $testRequest->email,
+        'p_phone' => $testRequest->phone,
+        'address' => $testRequest->address,
+        'company' => $testRequest->company,
+        'website' => $testRequest->website,
+        'p_boxname' => $testRequest->product_name ?: ($testRequest->p_boxname ?: $testRequest->box_style),
+        'box_style' => $testRequest->box_style,
+        'p_stock' => $testRequest->material,
+        'p_color' => $testRequest->color_options ?: $testRequest->color,
+        'p_coating' => $testRequest->coating ?: $testRequest->p_finishing,
+        'p_type' => $testRequest->printing_options,
+        'p_length' => $testRequest->length,
+        'p_width' => $testRequest->width,
+        'p_height' => $testRequest->depth ?: $testRequest->height,
+        'p_unit' => $testRequest->unit,
+        'p_qty1' => $testRequest->quantity,
+        'p_qty2' => '',
+        'p_qty3' => '',
+        'p_qty4' => '',
+        'message' => $testRequest->message,
+        'source' => $testRequest->source,
+        'page_url' => $testRequest->page_url,
+        'cad_sample' => $testRequest->cad_sample,
+        'subject' => 'product'
+    );
+
+    if ($request->get('send') == '1') {
+        $sent = $this->sendQuoteEmail($data);
+        $statusMsg = $sent 
+            ? "<div style='background:#d4edda; color:#155724; padding:15px; border-radius:8px; font-weight:bold; margin-bottom:20px; font-family:Arial;'>Email successfully sent via Hostinger SMTP to " . (env('QUOTE_MAIL_TO') ?: 'quote@premiumboxes.com') . "!</div>"
+            : "<div style='background:#f8d7da; color:#721c24; padding:15px; border-radius:8px; font-weight:bold; margin-bottom:20px; font-family:Arial;'>Email sending failed via SMTP. Check logs.</div>";
+        return response($statusMsg . view('web/email/quote', ['data' => $data])->render());
+    }
+
+    return view('web/email/quote', ['data' => $data]);
+}
 
 }
 
