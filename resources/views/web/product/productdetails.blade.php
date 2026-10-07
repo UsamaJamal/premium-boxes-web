@@ -303,6 +303,8 @@ a { text-decoration: none; color: inherit; }
 .iq-group label { font-size: 11px; color: #fff; font-weight: 600; }
 .iq-group input, .iq-group select, .iq-group textarea { background-color: #161616; border: 1px solid transparent; border-radius: 6px; padding: 12px 14px; color: #fff; font-size: 13px; font-family: var(--product-font); outline: none; transition: border-color 0.3s; width: 100%; box-sizing: border-box; }
 .iq-group input:focus, .iq-group select:focus, .iq-group textarea:focus { border-color: var(--product-gold); }
+.iq-group .quote-product-picker-trigger { min-height: 42px; padding: 12px 14px; background-color: #161616; border-color: transparent; border-radius: 6px; color: #fff; font-family: var(--product-font); font-size: 13px; }
+.iq-group .quote-product-picker-trigger:focus { border-color: var(--product-gold); }
 
 .iq-group input:-webkit-autofill,
 .iq-group input:-webkit-autofill:hover, 
@@ -1366,25 +1368,7 @@ a { text-decoration: none; color: inherit; }
                         </div>
                         <div class="iq-row-2">
                             <div class="iq-group">
-                                <select name="box_style" required>
-                                    <option value="" disabled selected>Select Your Box Style</option>
-                                    <option value="Tuck End Auto Bottom">Tuck End Auto Bottom</option>
-                                    <option value="Seal End Auto Bottom">Seal End Auto Bottom</option>
-                                    <option value="Straight Tuck End">Straight Tuck End</option>
-                                    <option value="Reverse Tuck End">Reverse Tuck End</option>
-                                    <option value="Snap Lock Bottom">Snap Lock Bottom</option>
-                                    <option value="Tuck Top Auto Bottom">Tuck Top Auto Bottom</option>
-                                    <option value="Mailer Box">Mailer Box</option>
-                                    <option value="Display Box">Display Box</option>
-                                    <option value="Gable Box">Gable Box</option>
-                                    <option value="Sleeve Box">Sleeve Box</option>
-                                    <option value="Pillow Box">Pillow Box</option>
-                                    <option value="Two Piece Box">Two Piece Box</option>
-                                    <option value="Hexagon Box">Hexagon Box</option>
-                                    <option value="Octagon Box">Octagon Box</option>
-                                    <option value="Cube Box">Cube Box</option>
-                                    <option value="Other">Other</option>
-                                </select>
+                                @include('web.components.searchable-product-select', ['id' => 'product-box-style'])
                             </div>
                             <div class="iq-group">
                                 <select name="color" required>

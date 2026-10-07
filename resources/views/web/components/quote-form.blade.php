@@ -155,6 +155,14 @@ input[type=number] {
   overflow: visible;
 }
 
+.box-style-search-group .quote-product-picker-trigger {
+  min-height: 44px;
+  border-color: #3b3b3b;
+  background: #111;
+  color: #fff;
+  font-size: 13px;
+}
+
 .box-style-search {
   position: relative;
   width: 100%;
@@ -950,29 +958,7 @@ input[type=number] {
                             @if($usesStyleStockColorQuote)
                             <div class="form-group box-style-search-group">
                                 <label>Select Box Style</label>
-                                @php
-                                    $boxStyles = DB::table('product as products')
-                                        ->leftJoin('add_category as categories', 'products.cat_id', '=', 'categories.cat_id')
-                                        ->where('products.status', 1)
-                                        ->select('products.title', DB::raw("COALESCE(categories.name, 'Other Products') as category_name"))
-                                        ->orderBy('category_name')
-                                        ->orderBy('products.title')
-                                        ->get();
-                                @endphp
-                                <div class="box-style-search" data-box-style-search>
-                                    <input type="text" name="box_style" placeholder="Select Box Style" autocomplete="off" required data-box-style-input>
-                                    <div class="box-style-options" data-box-style-options>
-                                        @php $currentBoxStyleCategory = null; @endphp
-                                        @foreach($boxStyles as $boxStyle)
-                                            @if($currentBoxStyleCategory !== $boxStyle->category_name)
-                                                <div class="box-style-category">{{ $boxStyle->category_name }}</div>
-                                                @php $currentBoxStyleCategory = $boxStyle->category_name; @endphp
-                                            @endif
-                                            <button type="button" class="box-style-option" data-box-style-option>{{ $boxStyle->title }}</button>
-                                        @endforeach
-                                        <div class="box-style-empty" data-box-style-empty>No box style found.</div>
-                                    </div>
-                                </div>
+                                @include('web.components.searchable-product-select', ['id' => 'home-category-box-style'])
                             </div>
                             <div class="form-group">
                                 <label>Select Paper Stock</label>

@@ -142,6 +142,20 @@ html, body {
     -webkit-appearance: none;
     transition: border-color .2s, box-shadow .2s;
 }
+.qu-field .quote-product-picker-trigger {
+    min-height: 40px;
+    height: 40px;
+    padding: 0 16px;
+    background-color: #1a1a1a;
+    border-color: #414141;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 12px !important;
+}
+.qu-field .quote-product-picker-trigger:focus {
+    border-color: #f5c542;
+    box-shadow: 0 0 0 1px rgba(245, 197, 66, 0.16);
+}
 .qu-field input::placeholder,
 .qu-field textarea::placeholder {
     color: #6e6e6e;
@@ -504,6 +518,12 @@ html, body {
         <div class="qu-form-wrapper">
             <h2 class="qu-form-title">Tell Us About Your Project</h2>
 
+            @if(request('from_search') && request('box_style'))
+                <p style="margin: 0 0 24px; padding: 14px 16px; border-left: 4px solid #f5c542; background: rgba(245, 197, 66, .12); color: #fff; font-size: 15px; line-height: 1.6;">
+                    We don’t currently list <strong>"{{ request('box_style') }}"</strong> on our website, but we can manufacture it to your requirements. Submit your specifications below to request a custom quote.
+                </p>
+            @endif
+
 
 
             <form class="qu-form" id="quoteForm" action="{{ url('submit-quote') }}" method="POST" enctype="multipart/form-data">
@@ -563,29 +583,7 @@ html, body {
                 <div class="qu-row qu-row-3">
                     <div class="qu-field">
                         <label>Select Box Style</label>
-                        @php
-                            $quoteBoxStyles = DB::table('product as products')
-                                ->leftJoin('add_category as categories', 'products.cat_id', '=', 'categories.cat_id')
-                                ->where('products.status', 1)
-                                ->select('products.title', DB::raw("COALESCE(categories.name, 'Other Products') as category_name"))
-                                ->orderBy('category_name')
-                                ->orderBy('products.title')
-                                ->get();
-                        @endphp
-                        <div class="qu-box-style-search" data-quote-box-style-search>
-                            <input type="text" name="box_style" placeholder="Select Box Style" autocomplete="off" required data-quote-box-style-input>
-                            <div class="qu-box-style-options" data-quote-box-style-options>
-                                @php $currentQuoteBoxStyleCategory = null; @endphp
-                                @foreach($quoteBoxStyles as $quoteBoxStyle)
-                                    @if($currentQuoteBoxStyleCategory !== $quoteBoxStyle->category_name)
-                                        <div class="qu-box-style-category">{{ $quoteBoxStyle->category_name }}</div>
-                                        @php $currentQuoteBoxStyleCategory = $quoteBoxStyle->category_name; @endphp
-                                    @endif
-                                    <button type="button" class="qu-box-style-option" data-quote-box-style-option>{{ $quoteBoxStyle->title }}</button>
-                                @endforeach
-                                <div class="qu-box-style-empty" data-quote-box-style-empty>No box style found.</div>
-                            </div>
-                        </div>
+                        @include('web.components.searchable-product-select', ['id' => 'request-quote-box-style'])
                     </div>
                     <div class="qu-field">
                         <label>Select Paper Stock</label>

@@ -48,7 +48,7 @@ class ProductController extends Controller
     }
     
     public function Search() {
-        $data['search_text'] = $_POST['query'] ?? '';
+        $data['search_text'] = trim((string) request('query', ''));
         
         $data['search_categories'] = DB::table('add_category')
             ->where('name', 'LIKE', '%' . $data['search_text'] . '%')
@@ -59,6 +59,12 @@ class ProductController extends Controller
             ->where('title', 'LIKE', '%' . $data['search_text'] . '%')
             ->where('status', 1)
             ->get();
+
+        // A visitor looking for a product we do not currently list should be
+        // taken straight to the quote form with their request pre-filled.
+        if ($data['search_text'] !== '' && $data['search_products']->isEmpty()) {
+            return redirect('request-quote?from_search=1&box_style=' . urlencode(ucfirst(strtolower($data['search_text']))));
+        }
             
         $data['search_blogs'] = DB::table('blog')
             ->where('blog_title', 'LIKE', '%' . $data['search_text'] . '%')
