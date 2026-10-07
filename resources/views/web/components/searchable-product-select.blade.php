@@ -26,7 +26,6 @@
     </div>
 </div>
 
-@once
 <style>
     .quote-product-picker { position: relative; width: 100%; min-width: 0; }
     .quote-product-picker-trigger { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; min-height: 44px; padding: 10px 14px; border: 1px solid currentColor; border-radius: 6px; background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer; box-sizing: border-box; }
@@ -117,4 +116,3 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 </script>
-@endonce
