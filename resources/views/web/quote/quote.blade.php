@@ -849,6 +849,9 @@ if (quoteForm) {
             if (quoteFormStatus) {
                 quoteFormStatus.textContent = result.message || 'Thank you for the inquiry, our sales representative will contact soon!';
                 quoteFormStatus.style.display = 'block';
+                setTimeout(function () {
+                    quoteFormStatus.style.display = 'none';
+                }, 5000);
             }
         } catch (error) {
             if (quoteFormStatus) {

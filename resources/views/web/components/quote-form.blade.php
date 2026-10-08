@@ -893,7 +893,7 @@ input[type=number] {
                     <span class="quote-form-title" style="display: block;">Request a Free Quote</span>
 
                     @if(Session::has('success'))
-                        <div class="alert alert-success" style="background: #28a745; color: white; padding: 12px 20px; border-radius: 8px; margin-bottom: 20px; font-weight: 600; text-align: center;">
+                        <div class="alert alert-success quote-success-message" style="background: #28a745; color: white; padding: 12px 20px; border-radius: 8px; margin-bottom: 20px; font-weight: 600; text-align: center;">
                             {{ Session::get('success') }}
                         </div>
                     @endif
@@ -1322,6 +1322,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         successMsg.style.display = 'block';
                         // Scroll to the message smoothly
                         successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        setTimeout(function () {
+                            successMsg.style.display = 'none';
+                        }, 5000);
                     }
                     
                     // Reset human verification
@@ -1335,5 +1338,11 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+});
+
+document.querySelectorAll('.quote-success-message').forEach(function (message) {
+    setTimeout(function () {
+        message.style.display = 'none';
+    }, 5000);
 });
 </script>

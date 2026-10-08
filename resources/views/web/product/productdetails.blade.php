@@ -1718,7 +1718,7 @@ document.querySelectorAll('.cust-tab-btn').forEach(btn => {
                 form1.reset();
                 genQ1();
                 if(submitBtn) submitBtn.textContent = origText;
-                setTimeout(() => { if(successMsg) successMsg.style.display = 'none'; }, 8000);
+                setTimeout(() => { if(successMsg) successMsg.style.display = 'none'; }, 5000);
             })
             .catch(error => {
                 alert('An error occurred. Please try again.');
@@ -1787,7 +1787,7 @@ document.querySelectorAll('.cust-tab-btn').forEach(btn => {
                 form2.reset();
                 genQ2();
                 if(submitBtn) submitBtn.textContent = origText;
-                setTimeout(() => { if(successMsg) successMsg.style.display = 'none'; }, 8000);
+                setTimeout(() => { if(successMsg) successMsg.style.display = 'none'; }, 5000);
             })
             .catch(error => {
                 alert('An error occurred. Please try again.');
