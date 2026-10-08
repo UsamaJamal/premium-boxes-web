@@ -13,15 +13,15 @@
 </head>
 <body>
     @php
-        $productName = !empty($data['p_boxname']) ? $data['p_boxname'] : (!empty($data['product_name']) ? $data['product_name'] : (!empty($data['box_style']) ? $data['box_style'] : ''));
-        $boxStyle = !empty($data['box_style']) && $data['box_style'] !== $productName ? $data['box_style'] : '';
         $isProductInstantQuote = ($data['source'] ?? '') === 'Product detail instant quote';
+        $productName = !empty($data['p_boxname']) ? $data['p_boxname'] : (!empty($data['product_name']) ? $data['product_name'] : (!empty($data['box_style']) ? $data['box_style'] : ''));
+        $boxStyle = !empty($data['box_style']) && ($isProductInstantQuote || $data['box_style'] !== $productName) ? $data['box_style'] : '';
     @endphp
     <table class="mail-table">
         @if(!empty($productName) && !$isProductInstantQuote)
         <tr><th>Product Name:</th><td>{{ $productName }}</td></tr>
         @endif
-        @if(!empty($boxStyle) && !$isProductInstantQuote)
+        @if(!empty($boxStyle))
         <tr><th>Box Style:</th><td>{{ $boxStyle }}</td></tr>
         @endif
         <tr><th>Client Name:</th><td>{{ $data['p_name'] ?? '' }}</td></tr>
