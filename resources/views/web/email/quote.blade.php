@@ -15,32 +15,64 @@
     @php
         $productName = !empty($data['p_boxname']) ? $data['p_boxname'] : (!empty($data['product_name']) ? $data['product_name'] : (!empty($data['box_style']) ? $data['box_style'] : ''));
         $boxStyle = !empty($data['box_style']) && $data['box_style'] !== $productName ? $data['box_style'] : '';
+        $isProductInstantQuote = ($data['source'] ?? '') === 'Product detail instant quote';
     @endphp
     <table class="mail-table">
         <tr><th>Product Name:</th><td>{{ $productName }}</td></tr>
-        @if(!empty($boxStyle))
+        @if(!empty($boxStyle) && !$isProductInstantQuote)
         <tr><th>Box Style:</th><td>{{ $boxStyle }}</td></tr>
         @endif
-        <tr><th>Client Name:</th><td>{{ $data['p_name'] ?? '' }}</td></tr>
-        <tr><th>Client Email:</th><td>{{ $data['email'] ?? '' }}</td></tr>
-        <tr><th>Client Phone:</th><td>{{ $data['p_phone'] ?? '' }}</td></tr>
+        @if(!empty($data['p_name']))
+        <tr><th>Client Name:</th><td>{{ $data['p_name'] }}</td></tr>
+        @endif
+        @if(!empty($data['email']))
+        <tr><th>Client Email:</th><td>{{ $data['email'] }}</td></tr>
+        @endif
+        @if(!empty($data['p_phone']))
+        <tr><th>Client Phone:</th><td>{{ $data['p_phone'] }}</td></tr>
+        @endif
         @if(!empty($data['address']))
         <tr><th>Address:</th><td>{{ $data['address'] }}</td></tr>
         @endif
         @if(!empty($data['company']))
         <tr><th>Company:</th><td>{{ $data['company'] }}</td></tr>
         @endif
-        <tr><th>Length:</th><td>{{ $data['p_length'] ?? '' }}</td></tr>
-        <tr><th>Width:</th><td>{{ $data['p_width'] ?? '' }}</td></tr>
-        <tr><th>Height:</th><td>{{ $data['p_height'] ?? '' }}</td></tr>
-        <tr><th>Unit:</th><td>{{ $data['p_unit'] ?? '' }}</td></tr>
-        <tr><th>Stock:</th><td>{{ $data['p_stock'] ?? '' }}</td></tr>
-        <tr><th>Color:</th><td>{{ $data['p_color'] ?? '' }}</td></tr>
-        <tr><th>Coating:</th><td>{{ $data['p_coating'] ?? '' }}</td></tr>
-        <tr><th>CAD Sample:</th><td>{{ $data['cad_sample'] ?? 'Yes' }}</td></tr>
-        <tr><th>Qty:</th><td>{{ $data['p_qty1'] ?? '' }}</td></tr>
-        <tr><th>File:</th><td>{{ $data['file_name'] ?? 'No file uploaded' }}</td></tr>
-        <tr><th>Message:</th><td>{{ $data['message'] ?? '' }}</td></tr>
+        @if(!empty($data['website']))
+        <tr><th>Website:</th><td>{{ $data['website'] }}</td></tr>
+        @endif
+        @if(!empty($data['p_length']))
+        <tr><th>Length:</th><td>{{ $data['p_length'] }}</td></tr>
+        @endif
+        @if(!empty($data['p_width']))
+        <tr><th>Width:</th><td>{{ $data['p_width'] }}</td></tr>
+        @endif
+        @if(!empty($data['p_height']))
+        <tr><th>Height:</th><td>{{ $data['p_height'] }}</td></tr>
+        @endif
+        @if(!empty($data['p_unit']))
+        <tr><th>Unit:</th><td>{{ $data['p_unit'] }}</td></tr>
+        @endif
+        @if(!empty($data['p_stock']))
+        <tr><th>Stock:</th><td>{{ $data['p_stock'] }}</td></tr>
+        @endif
+        @if(!empty($data['p_color']))
+        <tr><th>Color:</th><td>{{ $data['p_color'] }}</td></tr>
+        @endif
+        @if(!empty($data['p_coating']))
+        <tr><th>Coating:</th><td>{{ $data['p_coating'] }}</td></tr>
+        @endif
+        @if(!empty($data['cad_sample']))
+        <tr><th>CAD Sample:</th><td>{{ $data['cad_sample'] }}</td></tr>
+        @endif
+        @if(!empty($data['p_qty1']))
+        <tr><th>Qty:</th><td>{{ $data['p_qty1'] }}</td></tr>
+        @endif
+        @if(!empty($data['file_name']))
+        <tr><th>File:</th><td>{{ $data['file_name'] }}</td></tr>
+        @endif
+        @if(!empty($data['message']))
+        <tr><th>Message:</th><td>{{ $data['message'] }}</td></tr>
+        @endif
         @if(!empty($data['source']))
         <tr><th>Source:</th><td>{{ $data['source'] }}</td></tr>
         @endif
