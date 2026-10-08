@@ -1385,13 +1385,8 @@ a { text-decoration: none; color: inherit; }
                                 </select>
                             </div>
                         </div>
-                        <div class="iq-row-2">
-                            <div class="iq-group">
-                                <input type="text" name="product_name" value="{{ $p->title ?? ($product[0]->title ?? '') }}" placeholder="Enter product name" required>
-                            </div>
-                            <div class="iq-group">
-                                <input type="number" name="quantity" placeholder="Enter quantity" required min="1" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-                            </div>
+                        <div class="iq-group">
+                            <input type="number" name="quantity" placeholder="Enter quantity" required min="1" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                         </div>
                         <div class="iq-group">
                             <textarea name="message" placeholder="Enter your message"></textarea>
