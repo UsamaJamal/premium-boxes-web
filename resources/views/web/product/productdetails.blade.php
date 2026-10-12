@@ -208,8 +208,11 @@ a { text-decoration: none; color: inherit; }
 
 /* RELATED PRODUCTS */
 .product-related-section { padding: 0px 0 20px; }
-.product-related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
-.product-related-card { display: flex; flex-direction: column; gap: 0px; text-decoration: none; }
+.product-related-grid { display: flex; gap: 25px; overflow-x: auto; padding: 0 0 14px; scroll-behavior: smooth; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: var(--product-gold) #252525; }
+.product-related-grid::-webkit-scrollbar { height: 8px; }
+.product-related-grid::-webkit-scrollbar-track { background: #252525; border-radius: 99px; }
+.product-related-grid::-webkit-scrollbar-thumb { background: var(--product-gold); border-radius: 99px; }
+.product-related-card { display: flex; flex: 0 0 calc((100% - 75px) / 4); flex-direction: column; gap: 0px; min-width: 260px; scroll-snap-align: start; text-decoration: none; }
 /* removed hover: .product-related-card:hover { transform: translateY(-5px); } */
 .product-related-img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background-color: var(--product-bg-card); border-radius: 10px; border: 1px solid rgba(212,175,55,0.45); }
 /* removed hover: .product-related-card:hover .product-related-img { border-color: var(--product-gold); } */
@@ -333,7 +336,7 @@ a { text-decoration: none; color: inherit; }
 @media (max-width: 1240px) {
     .product-container { padding: 0 24px; }
     .product-hero-grid { grid-template-columns: 1fr; }
-    .product-related-grid { grid-template-columns: repeat(2, 1fr); }
+    .product-related-card { flex-basis: calc((100% - 50px) / 3); }
     .product-final-quote-wrapper { grid-template-columns: 1fr; }
     .pfr-wrapper { grid-template-columns: 1fr; }
 }
@@ -416,7 +419,7 @@ a { text-decoration: none; color: inherit; }
     .product-specs-table { grid-template-columns: 35vw 1fr; font-size: 3.5vw; }
     .spec-label, .spec-value { padding: 3vw; }
     .product-related-section { padding: 8vw 0; }
-    .product-related-grid { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 4vw; margin-left: -4.5vw; margin-right: -4.5vw; padding: 0 4.5vw 2vw; scroll-snap-type: x mandatory; grid-template-columns: unset; scrollbar-width: none; }
+    .product-related-grid { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 4vw; margin-left: -4.5vw; margin-right: -4.5vw; padding: 0 4.5vw 2vw; scroll-snap-type: x mandatory; scrollbar-width: none; }
     .product-related-grid::-webkit-scrollbar { display: none; }
     .product-related-card { flex: 0 0 44vw; width: 44vw; scroll-snap-align: start; }
     .product-related-title { font-size: 3.8vw; }
@@ -1434,36 +1437,17 @@ a { text-decoration: none; color: inherit; }
     </section>
 
     <!-- ==================== RELATED PRODUCTS ==================== -->
-    @php
-        $relatedExists = false;
-        foreach($product as $p) {
-            $temp = json_decode($p->related_product);
-            if (!empty($temp)) $relatedExists = true;
-            break;
-        }
-    @endphp
-
-    @if($relatedExists)
+    @if(isset($related_products) && $related_products->isNotEmpty())
     <section class="product-related-section">
         <div class="product-container">
             <!-- <span class="product-sec-badge">EXPLORE MORE</span> -->
             <h2 class="product-section-title" style="margin-bottom:20px">Related Products</h2>
             <div class="product-related-grid">
-                @foreach($product as $p)
-                @php $temp = json_decode($p->related_product); @endphp
-                @if(!empty($temp) && !empty($all_product))
-                @foreach($all_product as $rel)
-                @foreach($temp as $tv)
-                @if($tv == $rel->product_id)
+                @foreach($related_products as $rel)
                 <a href="{{ url($rel->url) }}/" class="product-related-card" style="text-decoration: none;">
                     <img src="{{ url('images/'.$rel->image) }}" alt="{{ strtolower(str_replace('-', ' ', $rel->title)) }}" class="product-related-img" title="{{ ucwords(strtolower(str_replace('-', ' ', $rel->title))) }}">
                     <span class="product-related-title" style="text-decoration: none !important; display: inline-block; margin-top: 15px;">{{ $rel->title }}</span>
                 </a>
-                @endif
-                @endforeach
-                @endforeach
-                @endif
-                @break
                 @endforeach
             </div>
         </div>

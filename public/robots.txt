@@ -1,2 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /search
+Disallow: /submit-contact
+Disallow: /submit-quote
+Disallow: /submit-newsletter
+
+Sitemap: https://www.premiumboxes.com/sitemap.xml

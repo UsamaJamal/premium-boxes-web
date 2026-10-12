@@ -165,6 +165,13 @@ class ProductController extends Controller
                 
                 // Fetch Category and Top Category
                 $cat_id = $data['product'][0]->cat_id;
+                $data['related_products'] = DB::table('product')
+                    ->where('status', 1)
+                    ->where('cat_id', $cat_id)
+                    ->where('product_id', '!=', $data['product'][0]->product_id)
+                    ->inRandomOrder()
+                    ->limit(7)
+                    ->get();
                 $category = DB::table('add_category')->where('cat_id', $cat_id)->first();
                 $data['product_category'] = $category;
                 

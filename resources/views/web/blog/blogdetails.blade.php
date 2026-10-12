@@ -735,7 +735,8 @@ body { padding-top: var(--bp-header-h) !important; }
     overflow: hidden;
 }
 
-.bp-mobile { display: none; }
+.bp-mob-share { display: none; }
+.bp-date-short { display: none; }
 .bp-slider-dots { display: none; }
 
 /* =========================
@@ -784,18 +785,20 @@ body { padding-top: var(--bp-header-h) !important; }
         padding: 16px 0 0;
     }
 
-    .bp-desktop-grid { display: none; }
-
-    .bp-mobile {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
+    .bp-hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
     }
 
-    .bp-mobile .bp-breadcrumb {
+    .bp-hero-right {
+        display: none;
+    }
+
+    .bp-desktop-share {
+        display: none;
+    }
+
+    .bp-hero-left .bp-breadcrumb {
         margin: 0 0 16px;
         font-size: 13px;
         display: flex;
@@ -807,13 +810,13 @@ body { padding-top: var(--bp-header-h) !important; }
         white-space: nowrap;
     }
 
-    .bp-mobile .bp-breadcrumb .gb-home,
-    .bp-mobile .bp-breadcrumb .gb-sep,
-    .bp-mobile .bp-breadcrumb .gb-link {
+    .bp-hero-left .bp-breadcrumb .gb-home,
+    .bp-hero-left .bp-breadcrumb .gb-sep,
+    .bp-hero-left .bp-breadcrumb .gb-link {
         flex: 0 0 auto;
     }
 
-    .bp-mobile .bp-breadcrumb .gb-current {
+    .bp-hero-left .bp-breadcrumb .gb-current {
         min-width: 0;
         flex: 1 1 auto;
         overflow: hidden;
@@ -821,7 +824,7 @@ body { padding-top: var(--bp-header-h) !important; }
         white-space: nowrap;
     }
 
-    .bp-mob-title {
+    .bp-title {
         width: 100%;
         margin: 0 0 18px;
         color: #fff;
@@ -832,7 +835,7 @@ body { padding-top: var(--bp-header-h) !important; }
         overflow-wrap: break-word;
     }
 
-    .bp-mob-desc {
+    .bp-desc {
         width: 100%;
         margin: 0 0 18px;
         color: var(--bp-copy);
@@ -843,21 +846,15 @@ body { padding-top: var(--bp-header-h) !important; }
         overflow-wrap: break-word;
     }
 
-    .bp-mob-meta-row {
+    .bp-author {
         width: 100%;
         margin: 0 0 8px;
-        display: flex;
-        align-items: center;
-    }
-
-    .bp-mob-author {
-        min-width: 0;
         display: flex;
         align-items: center;
         gap: 11px;
     }
 
-    .bp-mob-author-avatar {
+    .bp-author-avatar {
         width: 45px;
         height: 45px;
         min-width: 45px;
@@ -866,17 +863,18 @@ body { padding-top: var(--bp-header-h) !important; }
         background: #2a2a2a;
     }
 
-    .bp-mob-author-avatar img {
+    .bp-author-avatar img {
         display: block;
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
 
-    .bp-mob-author-text {
+    .bp-author-info {
         min-width: 0;
         display: flex;
         align-items: center;
+        flex-direction: row;
         flex-wrap: nowrap;
         gap: 7px;
         color: #d0d0d0;
@@ -885,18 +883,31 @@ body { padding-top: var(--bp-header-h) !important; }
         white-space: nowrap;
     }
 
-    .bp-mob-author-name,
-    .bp-mob-date,
-    .bp-mob-read,
-    .bp-mob-sep {
+    .bp-author-name {
         color: #d0d0d0;
         font-size: inherit;
         font-weight: 400;
         white-space: nowrap;
     }
 
-    .bp-mob-sep { color: #8a8a8a; }
-    .bp-mob-read i { display: none; }
+    .bp-author-meta-row {
+        gap: 7px;
+    }
+
+    .bp-author-date,
+    .bp-author-read,
+    .bp-author-sep {
+        color: #d0d0d0;
+        font-size: inherit;
+        font-weight: 400;
+        white-space: nowrap;
+    }
+
+    .bp-date-full { display: none; }
+    .bp-date-short { display: inline; }
+
+    .bp-author-sep { color: #8a8a8a; }
+    .bp-author-read i { display: none; }
 
     .bp-mob-share {
         width: 100%;
@@ -935,7 +946,7 @@ body { padding-top: var(--bp-header-h) !important; }
         text-decoration: none;
     }
 
-    .bp-mob-image {
+    .bp-image {
         width: 100%;
         margin: 0;
         overflow: hidden;
@@ -945,7 +956,7 @@ body { padding-top: var(--bp-header-h) !important; }
         aspect-ratio: auto;
     }
 
-    .bp-mob-image img {
+    .bp-image img {
         display: block;
         width: 100%;
         height: auto;
@@ -1108,12 +1119,12 @@ body { padding-top: var(--bp-header-h) !important; }
 @media (max-width: 390px) {
     :root { --bp-px: 18px; }
 
-    .bp-mob-author-text {
+    .bp-author-info {
         gap: 5px;
         font-size: 12px;
     }
 
-    .bp-mob-author-avatar {
+    .bp-author-avatar {
         width: 41px;
         height: 41px;
         min-width: 41px;
@@ -1168,8 +1179,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     <article class="bp-hero">
         <div class="bp-container">
 
-            <!-- DESKTOP HERO GRID -->
-            <div class="bp-hero-grid bp-desktop-grid">
+            <!-- HERO GRID -->
+            <div class="bp-hero-grid">
 
                 <!-- LEFT COLUMN -->
                 <div class="bp-hero-left">
@@ -1185,7 +1196,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                     <div class="bp-title-row">
                         <h1 class="bp-title">{{ $blog_title }}</h1>
 
-                        <div class="bp-share-container">
+                        <div class="bp-share-container bp-desktop-share">
                             <span class="bp-share-label">Share:</span>
                             <div class="bp-share-icons">
                                 <a href="{{ $fb_share }}" target="_blank" rel="noopener noreferrer" class="bp-share-btn" aria-label="Share on Facebook">
@@ -1211,13 +1222,29 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                         <div class="bp-author-info">
                             <span class="bp-author-name">By <a href="{{ url('author/'.urlencode($author_name)) }}" style="color:inherit; text-decoration:none;">{{ $author_name }}</a></span>
                             <div class="bp-author-meta-row">
-                                <span class="bp-author-date">{{ $blog_date }}</span>
+                                <span class="bp-author-date bp-date-full">{{ $blog_date }}</span>
+                                <span class="bp-author-date bp-date-short">{{ $blog_date_short }}</span>
                                 <span class="bp-author-sep">|</span>
                                 <span class="bp-author-read"><i class="far fa-clock"></i> 6 min read</span>
                             </div>
                         </div>
                     </div>
                     @endif
+
+                    <div class="bp-mob-share">
+                        <span class="bp-mob-share-label">Share:</span>
+                        <div class="bp-mob-share-icons">
+                            <a href="{{ $fb_share }}" target="_blank" rel="noopener noreferrer" class="bp-mob-share-btn" aria-label="Share on Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="{{ $tw_share }}" target="_blank" rel="noopener noreferrer" class="bp-mob-share-btn" aria-label="Instagram">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="{{ $li_share }}" target="_blank" rel="noopener noreferrer" class="bp-mob-share-btn" aria-label="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
 
                     <figure class="bp-image">
                         <img src="{{ $blog_image }}" alt="{{ strtolower(str_replace('-', ' ', $post->alt_tag)) }}" loading="eager" title="{{ ucwords(strtolower(str_replace('-', ' ', $post->alt_tag))) }}">
@@ -1263,59 +1290,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                     
                     <div class="bp-spacer"></div>
                 </div>
-
-            </div>
-
-            <!-- MOBILE HERO -->
-            <div class="bp-mobile">
-
-@include('web.components.breadcrumb', [
-    'class' => 'bp-breadcrumb',
-    'items' => [
-        ['label' => 'Blogs', 'url' => url('our-blog')],
-        ['label' => $blog_title]
-    ]
-])
-
-                <h1 class="bp-mob-title">{{ $blog_title }}</h1>
-
-                <p class="bp-mob-desc">{{ $blog_desc }}</p>
-
-                @if($has_author)
-                <div class="bp-mob-meta-row">
-                    <div class="bp-mob-author">
-                        <div class="bp-mob-author-avatar">
-                            <img src="{{ asset('images/1606478490.Adam_Smith.jpg') }}" alt="{{ strtolower(str_replace('-', ' ', $author_name)) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $author_name))) }}">
-                        </div>
-                        <div class="bp-mob-author-text">
-                            <span class="bp-mob-author-name">By <a href="{{ url('author/'.urlencode($author_name)) }}" style="color:inherit; text-decoration:none;">{{ $author_name }}</a></span>
-                            <span class="bp-mob-sep">|</span>
-                            <span class="bp-mob-date">{{ $blog_date_short }}</span>
-                            <span class="bp-mob-sep">|</span>
-                            <span class="bp-mob-read"><i class="far fa-clock"></i> 6 min read</span>
-                        </div>
-                    </div>
-                </div>
-                @endif
-
-                <div class="bp-mob-share">
-                    <span class="bp-mob-share-label">Share:</span>
-                    <div class="bp-mob-share-icons">
-                        <a href="{{ $fb_share }}" target="_blank" rel="noopener noreferrer" class="bp-mob-share-btn" aria-label="Share on Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="{{ $tw_share }}" target="_blank" rel="noopener noreferrer" class="bp-mob-share-btn" aria-label="Instagram">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="{{ $li_share }}" target="_blank" rel="noopener noreferrer" class="bp-mob-share-btn" aria-label="YouTube">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <figure class="bp-mob-image">
-                    <img src="{{ $blog_image }}" alt="{{ strtolower(str_replace('-', ' ', $post->alt_tag)) }}" loading="eager" title="{{ ucwords(strtolower(str_replace('-', ' ', $post->alt_tag))) }}">
-                </figure>
 
             </div>
 
