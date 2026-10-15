@@ -130,24 +130,28 @@ input[type=number] {
   grid-column: span 24;
 }
 
-/* Home page: Box Style and Paper Stock on the first row, quantity and upload below. */
-.options-grid-custom.home-quote-options > .form-group:nth-child(1),
-.options-grid-custom.home-quote-options > .form-group:nth-child(2),
-.options-grid-custom.home-quote-options > .form-group:nth-child(3) {
-  grid-column: span 16;
+/* Home/Category: Box Style | CAD Sample | Quantity | Upload. */
+.options-grid-custom.home-quote-options > .form-group:nth-child(1) {
+  grid-column: span 15;
 }
-
+.options-grid-custom.home-quote-options > .form-group:nth-child(2) {
+  grid-column: span 12;
+}
+.options-grid-custom.home-quote-options > .form-group:nth-child(3) {
+  grid-column: span 8;
+}
 .options-grid-custom.home-quote-options > .form-group:nth-child(4) {
   grid-column: span 13;
 }
-.options-grid-custom.home-quote-options > .form-group:nth-child(5) {
-  grid-column: span 7;
+
+/* Paper Coating | Paper Stock | Color, each with a "Watch Video Guide" button below. */
+.quote-guide-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
 }
-.options-grid-custom.home-quote-options > .form-group:nth-child(6) {
-  grid-column: span 12;
-}
-.options-grid-custom.home-quote-options > .form-group:nth-child(7) {
-  grid-column: span 16;
+.form-group.quote-guide-group {
+  height: auto;
+  min-width: 0;
 }
 
 .box-style-search-group {
@@ -581,11 +585,8 @@ input[type=number] {
   .options-grid-custom > .form-group:nth-child(5) {
     grid-column: span 2 !important;
   }
-  .options-grid-custom.home-quote-options > .form-group:nth-child(5) {
-    grid-column: span 1 !important;
-  }
-  .options-grid-custom.home-quote-options > .form-group:nth-child(7) {
-    grid-column: span 2 !important;
+  .quote-guide-grid {
+    grid-template-columns: 1fr;
   }
   .form-group,
   .form-row,
@@ -923,8 +924,8 @@ input[type=number] {
                                 <input type="tel" name="phone" placeholder="Enter your number" required oninput="this.value = this.value.replace(/[^0-9+]/g, '')">
                             </div>
                             <div class="form-group">
-                                <label>Physical Address</label>
-                                <input type="text" name="address" placeholder="Enter your address">
+                                <label>Physical Address *</label>
+                                <input type="text" name="address" placeholder="Enter your address" required>
                             </div>
                         </div>
 
@@ -957,48 +958,15 @@ input[type=number] {
                         <div class="form-row options-grid-custom {{ $usesStyleStockColorQuote ? 'home-quote-options' : '' }}">
                             @if($usesStyleStockColorQuote)
                             <div class="form-group box-style-search-group">
-                                <label>Select Box Style</label>
+                                <label>Select Box Style *</label>
                                 @include('web.components.searchable-product-select', ['id' => 'home-category-box-style'])
                             </div>
                             <div class="form-group">
-                                <label>Select Paper Stock</label>
-                                <select name="material">
-                                    <option value="">Select Paper Stock</option>
-                                    <option value="12pt Cardboard Stock">12pt Cardboard Stock</option>
-                                    <option value="14pt Cardboard Stock">14pt Cardboard Stock</option>
-                                    <option value="16pt Cardboard Stock">16pt Cardboard Stock</option>
-                                    <option value="18pt Cardboard Stock">18pt Cardboard Stock</option>
-                                    <option value="20pt Cardboard Stock">20pt Cardboard Stock</option>
-                                    <option value="22pt Cardboard Stock">22pt Cardboard Stock</option>
-                                    <option value="24pt Cardboard Stock">24pt Cardboard Stock</option>
-                                    <option value="Kraft Stock">Kraft Stock</option>
-                                    <option value="Recycled BuxBoard">Recycled BuxBoard</option>
-                                    <option value="Corrugated Stock">Corrugated Stock</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Select Color</label>
-                                <select name="color_options">
-                                    <option value="">Select Color</option>
-                                    <option value="1 color">1 color</option>
-                                    <option value="2 color">2 color</option>
-                                    <option value="3 color">3 color</option>
-                                    <option value="4 color">4 color</option>
-                                    <option value="4/1 color">4/1 color</option>
-                                    <option value="4/2 color">4/2 color</option>
-                                    <option value="4/3 color">4/3 color</option>
-                                    <option value="4/4 color">4/4 color</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Select Paper Coating</label>
-                                <select name="coating">
-                                    <option value="">Select Paper Coating</option>
-                                    <option value="Aqueous Coating">Aqueous Coating</option>
-                                    <option value="Semi Gloss">Semi Gloss</option>
-                                    <option value="Gloss UV">Gloss UV</option>
-                                    <option value="Matte UV">Matte UV</option>
-                                    <option value="Semi Matte">Semi Matte</option>
+                                <label>Select CAD Sample</label>
+                                <select name="cad_sample">
+                                    <option value="" disabled selected hidden>Select CAD Sample</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
                                 </select>
                             </div>
                             @else
@@ -1034,16 +1002,6 @@ input[type=number] {
                                 <label>Quantity *</label>
                                 <input type="number" name="quantity" placeholder="Quantity" required oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                             </div>
-                            @if($usesStyleStockColorQuote)
-                            <div class="form-group">
-                                <label>Select CAD Sample</label>
-                                <select name="cad_sample">
-                                    <option value="">Select CAD Sample</option>
-                                    <option value="Yes">Yes</option>
-                                    <option value="No">No</option>
-                                </select>
-                            </div>
-                            @endif
                             <div class="form-group upload-group">
                                 <label>Upload File Here</label>
                                 <div class="file-upload-wrapper">
@@ -1052,6 +1010,23 @@ input[type=number] {
                                 </div>
                             </div>
                         </div>
+
+                        @if($usesStyleStockColorQuote)
+                        <div class="form-row quote-guide-grid">
+                            <div class="form-group quote-guide-group">
+                                <label>Select Paper Coating</label>
+                                @include('web.components.quote-guide-select', ['type' => 'coating', 'name' => 'coating'])
+                            </div>
+                            <div class="form-group quote-guide-group">
+                                <label>Select Paper Stock</label>
+                                @include('web.components.quote-guide-select', ['type' => 'stock', 'name' => 'material'])
+                            </div>
+                            <div class="form-group quote-guide-group">
+                                <label>Select Color</label>
+                                @include('web.components.quote-guide-select', ['type' => 'color', 'name' => 'color_options'])
+                            </div>
+                        </div>
+                        @endif
 
                         <div class="form-group textarea-group">
                             <label>Message</label>
@@ -1329,6 +1304,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     
                     // Reset human verification
                     if (typeof generateHumanQuestion === 'function') generateHumanQuestion();
+                } else {
+                    alert(data.message || 'Sorry, we could not send your quote request. Please try again shortly.');
                 }
             })
             .catch(error => {

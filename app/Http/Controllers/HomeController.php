@@ -476,12 +476,18 @@ function product_mail(Request $request)
         return back()->with('success', 'Thank you for the inquiry, our sales representative will contact soon!');
     }
 
+    $missing = $this->missingQuoteFields($request, ['p_first_name', 'p_email', 'p_phone', 'p_address', 'p_width', 'p_length', 'p_height', 'p_unit', 'p_qty1']);
+    if ($missing) {
+        return $this->rejectIncompleteQuote($request, $missing);
+    }
+
     Session::flash('product','Thanks for your Intrest');
     $product='product';
     $data=array(
         'p_name'=>$request->p_first_name . ' ' . $request->p_last_name,
         'email'=>$request->p_email,
         'p_phone' =>$request->p_phone,
+        'address'=>$request->p_address,
         'p_boxname'=>$request->p_boxname,
         'p_stock'=>$request->p_material,
         'p_color'=>$request->p_color,
@@ -521,6 +527,18 @@ function submitQuote(Request $request)
             return response()->json(['success' => true, 'message' => 'Thank you for the inquiry, our sales representative will contact soon!']);
         }
         return back()->with('success', 'Thank you for the inquiry, our sales representative will contact soon!');
+    }
+
+    // Required fields per form; anything else (home, category, request-quote page or an unknown source) is a full quote form.
+    $requiredBySource = [
+        'Blog sidebar quote form' => ['name', 'email', 'phone', 'message'],
+        'Blog details quote form' => ['name', 'email'],
+        'Product detail instant quote' => ['name', 'email', 'phone', 'box_style', 'color', 'quantity'],
+    ];
+    $required = $requiredBySource[$request->source] ?? ['name', 'email', 'phone', 'address', 'width', 'length', 'depth', 'unit', 'box_style', 'quantity'];
+    $missing = $this->missingQuoteFields($request, $required);
+    if ($missing) {
+        return $this->rejectIncompleteQuote($request, $missing);
     }
 
     Session::flash('request_quote', 'Thanks for your Intrest');
@@ -565,6 +583,29 @@ function submitQuote(Request $request)
     }
 
     return back()->with('success', 'Thank you for the inquiry, our sales representative will contact soon!');
+}
+
+private function missingQuoteFields(Request $request, array $fields)
+{
+    return array_values(array_filter($fields, function ($field) use ($request) {
+        return trim((string) $request->input($field)) === '';
+    }));
+}
+
+// The browser forms already block these, so a hit here is almost always a bot posting directly.
+private function rejectIncompleteQuote(Request $request, array $missing)
+{
+    \Log::warning('Quote rejected, missing required fields', [
+        'source' => $request->source,
+        'missing' => $missing,
+        'ip' => $request->ip(),
+    ]);
+
+    $message = 'Please fill in all required fields.';
+    if ($request->ajax()) {
+        return response()->json(['success' => false, 'message' => $message], 422);
+    }
+    return back()->withInput()->with('error', $message);
 }
 
 private function sendQuoteEmail($data, $file = null)

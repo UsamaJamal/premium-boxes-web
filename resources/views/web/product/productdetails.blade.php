@@ -110,7 +110,9 @@ a { text-decoration: none; color: inherit; }
 .pf-mob-label { display: none; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.80); margin-bottom: 4px; }
 
 .product-form-row { display: grid; gap: 14px; margin-bottom: 14px; }
+.product-form-row-2 { grid-template-columns: repeat(2, 1fr); }
 .product-form-row-3 { grid-template-columns: repeat(3, 1fr); }
+.pf-wrap.pf-guide-wrap { display: flex; flex-direction: column; min-width: 0; }
 .product-form-row-cad-qty { grid-template-columns: 1.2fr 0.6fr 1.2fr; }
 .product-form-row-4 { grid-template-columns: repeat(4, 1fr); }
 .product-form-row-options { grid-template-columns: repeat(2, 1fr); }
@@ -343,7 +345,7 @@ a { text-decoration: none; color: inherit; }
 
 @media (max-width: 960px) {
     .product-tabs-nav { gap: 40px; }
-    .product-form-row-3:not(.product-form-row-options), .product-form-row-cad-qty { grid-template-columns: 1fr; }
+    .product-form-row-2, .product-form-row-3:not(.product-form-row-options), .product-form-row-cad-qty { grid-template-columns: 1fr; }
     .product-form-group.span-2 { grid-column: span 1; }
 }
 
@@ -743,8 +745,8 @@ a { text-decoration: none; color: inherit; }
                             <input type="hidden" name="source" value="Product detail custom quote">
                             <input type="hidden" name="page_url" value="{{ url()->current() }}">
 
-                            <!-- Row 1: Name | Email | Phone -->
-                            <div class="product-form-row product-form-row-3">
+                            <!-- Row 1: Name | Email -->
+                            <div class="product-form-row product-form-row-2">
                                 <div class="pf-wrap">
                                     <label class="pf-mob-label">Name *</label>
                                     <input type="text" name="p_first_name" placeholder="Name *" required spellcheck="false" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
@@ -754,9 +756,17 @@ a { text-decoration: none; color: inherit; }
                                     <label class="pf-mob-label">Email Address *</label>
                                     <input type="email" name="p_email" placeholder="Email *" required>
                                 </div>
+                            </div>
+
+                            <!-- Row 1b: Phone | Address -->
+                            <div class="product-form-row product-form-row-2">
                                 <div class="pf-wrap">
                                     <label class="pf-mob-label">Phone *</label>
                                     <input type="tel" name="p_phone" placeholder="Phone number *" required oninput="this.value = this.value.replace(/[^0-9+]/g, '')">
+                                </div>
+                                <div class="pf-wrap">
+                                    <label class="pf-mob-label">Physical Address *</label>
+                                    <input type="text" name="p_address" placeholder="Address *" required>
                                 </div>
                             </div>
 
@@ -784,59 +794,19 @@ a { text-decoration: none; color: inherit; }
                                 </div>
                             </div>
 
-                            <!-- Row 3: Material | Printing | Finishing -->
-                            <div class="product-form-row product-form-row-3">
-                                <div class="pf-wrap">
-                                    <label class="pf-mob-label">Select Material</label>
-                                    <select name="p_material">
-                                        <option value="12pt Cardboard Stock" selected>12pt Cardboard Stock</option>
-                                        <option value="14pt Cardboard Stock">14pt Cardboard Stock</option>
-                                        <option value="16pt Cardboard Stock">16pt Cardboard Stock</option>
-                                        <option value="18pt Cardboard Stock">18pt Cardboard Stock</option>
-                                        <option value="20pt Cardboard Stock">20pt Cardboard Stock</option>
-                                        <option value="22pt Cardboard Stock">22pt Cardboard Stock</option>
-                                        <option value="24pt Cardboard Stock">24pt Cardboard Stock</option>
-                                        <option value="Kraft Stock">Kraft Stock</option>
-                                        <option value="Recycled BuxBoard">Recycled BuxBoard</option>
-                                        <option value="Corrugated Stock">Corrugated Stock</option>
-                                    </select>
-                                </div>
-                                <div class="pf-wrap">
-                                    <label class="pf-mob-label">Printing Options</label>
-                                    <select name="p_color">
-                                        <option value="">Printing Options</option>
-                                        <option value="1 Color">1 Color</option>
-                                        <option value="2 Color">2 Color</option>
-                                        <option value="3 Color">3 Color</option>
-                                        <option value="4 Color">4 Color</option>
-                                        <option value="4/4 Color">4/4 Color</option>
-                                        <option value="4 Color+PMS">4 Color + PMS</option>
-                                    </select>
-                                </div>
-                                <div class="pf-wrap">
-                                    <label class="pf-mob-label">Finishing Options</label>
-                                    <select name="p_finishing">
-                                        <option value="">Finishing Options</option>
-                                        <option value="Gloss">Gloss</option>
-                                        <option value="Matte">Matte</option>
-                                        <option value="UV">UV</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- Row 4: CAD Sample | Quantity | Upload -->
+                            <!-- Row 3: CAD Sample | Quantity | Upload -->
                             <div class="product-form-row product-form-row-3 product-form-row-cad-qty">
                                 <div class="pf-wrap">
                                     <label class="pf-mob-label">Select CAD Sample</label>
                                     <select name="cad_sample">
-                                        <option value="">Select CAD Sample</option>
+                                        <option value="" disabled selected hidden>Select CAD Sample</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
                                     </select>
                                 </div>
                                 <div class="pf-wrap">
                                     <label class="pf-mob-label">Quantity *</label>
-                                    <input type="text" name="p_qty1" placeholder="Quantity" required oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                    <input type="text" name="p_qty1" placeholder="Quantity *" required oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                                 </div>
                                 <div class="pf-wrap pf-upload-wrap">
                                     <label class="pf-mob-label">Upload File Here</label>
@@ -845,6 +815,22 @@ a { text-decoration: none; color: inherit; }
                                         <input type="file" name="p_file" id="fileUploadInput" style="display:none" onchange="document.getElementById('uploadFileName').value = this.files[0]?.name || ''">
                                         <button type="button" class="product-btn-upload" onclick="document.getElementById('fileUploadInput').click()">Upload</button>
                                     </div>
+                                </div>
+                            </div>
+
+                            <!-- Row 4: Paper Coating | Paper Stock | Color (with video guides) -->
+                            <div class="product-form-row product-form-row-3">
+                                <div class="pf-wrap pf-guide-wrap">
+                                    <label class="pf-mob-label">Select Paper Coating</label>
+                                    @include('web.components.quote-guide-select', ['type' => 'coating', 'name' => 'p_finishing'])
+                                </div>
+                                <div class="pf-wrap pf-guide-wrap">
+                                    <label class="pf-mob-label">Select Paper Stock</label>
+                                    @include('web.components.quote-guide-select', ['type' => 'stock', 'name' => 'p_material'])
+                                </div>
+                                <div class="pf-wrap pf-guide-wrap">
+                                    <label class="pf-mob-label">Select Color</label>
+                                    @include('web.components.quote-guide-select', ['type' => 'color', 'name' => 'p_color'])
                                 </div>
                             </div>
 
@@ -1386,6 +1372,7 @@ a { text-decoration: none; color: inherit; }
                                     <option value="4/4 Colours">4/4 Colours</option>
                                     <option value="Plain">Plain</option>
                                 </select>
+                                @include('web.components.quote-video-guide-button', ['type' => 'color'])
                             </div>
                         </div>
                         <div class="iq-group">

@@ -16,10 +16,10 @@
         $isProductInstantQuote = ($data['source'] ?? '') === 'Product detail instant quote';
         $productName = !empty($data['p_boxname']) ? $data['p_boxname'] : (!empty($data['product_name']) ? $data['product_name'] : (!empty($data['box_style']) ? $data['box_style'] : ''));
         $boxStyle = !empty($data['box_style']) && ($isProductInstantQuote || $data['box_style'] !== $productName) ? $data['box_style'] : '';
-        // Optional fields left blank (or still on a "Select ..." placeholder) show as N/A.
-        $orNa = function ($value) {
+        // Optional fields left blank (or still on a "Select ..." placeholder) show a fallback instead.
+        $orNa = function ($value, $fallback = 'N/A') {
             $value = is_string($value) ? trim($value) : $value;
-            return ($value === null || $value === '' || preg_match('/^(select|choose)\b/i', (string) $value)) ? 'N/A' : $value;
+            return ($value === null || $value === '' || preg_match('/^(select|choose)\b/i', (string) $value)) ? $fallback : $value;
         };
     @endphp
     <table class="mail-table">
@@ -46,12 +46,12 @@
         <tr><th>Width:</th><td>{{ $data['p_width'] ?? '' }}</td></tr>
         <tr><th>Height:</th><td>{{ $data['p_height'] ?? '' }}</td></tr>
         <tr><th>Unit:</th><td>{{ $data['p_unit'] ?? '' }}</td></tr>
-        <tr><th>Stock:</th><td>{{ $orNa($data['p_stock'] ?? null) }}</td></tr>
+        <tr><th>Stock:</th><td>{{ $orNa($data['p_stock'] ?? null, 'Not Sure') }}</td></tr>
         @endif
-        <tr><th>Color:</th><td>{{ $orNa($data['p_color'] ?? null) }}</td></tr>
+        <tr><th>Color:</th><td>{{ $orNa($data['p_color'] ?? null, 'Not Sure') }}</td></tr>
         @if(!$isProductInstantQuote)
-        <tr><th>Coating:</th><td>{{ $orNa($data['p_coating'] ?? null) }}</td></tr>
-        <tr><th>CAD Sample:</th><td>{{ $orNa($data['cad_sample'] ?? null) }}</td></tr>
+        <tr><th>Coating:</th><td>{{ $orNa($data['p_coating'] ?? null, 'Not Sure') }}</td></tr>
+        <tr><th>CAD Sample:</th><td>{{ $orNa($data['cad_sample'] ?? null, 'No') }}</td></tr>
         @endif
         <tr><th>Qty:</th><td>{{ $data['p_qty1'] ?? '' }}</td></tr>
         @if(!$isProductInstantQuote)
