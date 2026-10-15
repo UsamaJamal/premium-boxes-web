@@ -1360,8 +1360,9 @@ a { text-decoration: none; color: inherit; }
                                 @include('web.components.searchable-product-select', ['id' => 'product-box-style'])
                             </div>
                             <div class="iq-group">
-                                <select name="color" required>
-                                    <option value="" disabled selected>1 Colour</option>
+                                <select name="color" aria-label="Select Colour">
+                                    <option value="" disabled selected hidden>Select Colour</option>
+                                    <option value="Not Sure">Not Sure</option>
                                     <option value="1 Colour">1 Colour</option>
                                     <option value="2 Colours">2 Colours</option>
                                     <option value="3 Colours">3 Colours</option>

@@ -533,7 +533,7 @@ function submitQuote(Request $request)
     $requiredBySource = [
         'Blog sidebar quote form' => ['name', 'email', 'phone', 'message'],
         'Blog details quote form' => ['name', 'email'],
-        'Product detail instant quote' => ['name', 'email', 'phone', 'box_style', 'color', 'quantity'],
+        'Product detail instant quote' => ['name', 'email', 'phone', 'box_style', 'quantity'],
     ];
     $required = $requiredBySource[$request->source] ?? ['name', 'email', 'phone', 'address', 'width', 'length', 'depth', 'unit', 'box_style', 'quantity'];
     $missing = $this->missingQuoteFields($request, $required);
