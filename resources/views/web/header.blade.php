@@ -58,7 +58,7 @@
     <link href="{{url('web/assets/css/styles.css')}}" rel="stylesheet" />
     <link href="{{url('web/assets/css/jquery.smartmenus.bootstrap-4.css')}}" rel="stylesheet" />
 
-    @if(isset($value) && count($value) > 0 && isset($value[0]->schema) && !empty($value[0]->schema))
+    @if(!request()->is('/') && isset($value) && count($value) > 0 && isset($value[0]->schema) && !empty($value[0]->schema))
     {!! $value[0]->schema !!}
     @endif
 
