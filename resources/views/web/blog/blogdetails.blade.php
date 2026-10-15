@@ -1261,6 +1261,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                         <h3 class="bp-quote-title">Instant Quote</h3>
                         <form id="bp-instant-quote-form" class="bp-quote-form" action="{{ url('submit-quote') }}" method="POST" enctype="multipart/form-data">
                             @csrf
+                            @include('web.components.spam-guard-fields')
                             <input type="hidden" name="source" value="Blog details quote form">
                             <input type="hidden" name="page_url" value="{{ url()->current() }}">
                             <div class="bp-quote-row">

@@ -1027,6 +1027,7 @@ body {
 
                     <form class="blog-quote-form" id="sidebarQuoteForm" action="{{ url('submit-quote') }}" method="POST">
                         @csrf
+                        @include('web.components.spam-guard-fields')
 
                         <input type="hidden" name="source" value="Blog sidebar quote form">
                         <input type="hidden" name="page_url" value="{{ url()->current() }}">
