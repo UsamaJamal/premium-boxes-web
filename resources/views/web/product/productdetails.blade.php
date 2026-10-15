@@ -1670,6 +1670,21 @@ document.querySelectorAll('.cust-tab-btn').forEach(btn => {
         });
     }
 
+    // Both quote forms post via AJAX; the controller answers with JSON { success, message }.
+    function readQuoteResponse(response) {
+        if (response.status === 419) {
+            return { success: false, message: 'Your session has expired. Please refresh the page and try again.' };
+        }
+        var isJson = (response.headers.get('content-type') || '').indexOf('application/json') !== -1;
+        if (isJson) {
+            return response.json().then(function (data) {
+                if (data.success === undefined) data.success = response.ok;
+                return data;
+            });
+        }
+        return { success: response.ok };
+    }
+
     var form1 = document.getElementById('quoteform');
     if (form1) {
         form1.addEventListener('submit', function(e) {
@@ -1691,15 +1706,21 @@ document.querySelectorAll('.cust-tab-btn').forEach(btn => {
                     'X-Requested-With': 'XMLHttpRequest'
                 }
             })
-            .then(response => {
+            .then(readQuoteResponse)
+            .then(data => {
+                if(submitBtn) submitBtn.textContent = origText;
+                if (!data.success) {
+                    alert(data.message || 'Sorry, we could not send your quote request. Please try again shortly.');
+                    return;
+                }
                 var successMsg = document.getElementById('quoteform-success');
                 if(successMsg) successMsg.style.display = 'block';
                 form1.reset();
                 genQ1();
-                if(submitBtn) submitBtn.textContent = origText;
                 setTimeout(() => { if(successMsg) successMsg.style.display = 'none'; }, 5000);
             })
             .catch(error => {
+                console.error(error);
                 alert('An error occurred. Please try again.');
                 if(submitBtn) submitBtn.textContent = origText;
             });
@@ -1760,15 +1781,21 @@ document.querySelectorAll('.cust-tab-btn').forEach(btn => {
                     'X-Requested-With': 'XMLHttpRequest'
                 }
             })
-            .then(response => {
+            .then(readQuoteResponse)
+            .then(data => {
+                if(submitBtn) submitBtn.textContent = origText;
+                if (!data.success) {
+                    alert(data.message || 'Sorry, we could not send your quote request. Please try again shortly.');
+                    return;
+                }
                 var successMsg = document.getElementById('iqform-success');
                 if(successMsg) successMsg.style.display = 'block';
                 form2.reset();
                 genQ2();
-                if(submitBtn) submitBtn.textContent = origText;
                 setTimeout(() => { if(successMsg) successMsg.style.display = 'none'; }, 5000);
             })
             .catch(error => {
+                console.error(error);
                 alert('An error occurred. Please try again.');
                 if(submitBtn) submitBtn.textContent = origText;
             });

@@ -472,6 +472,9 @@ function product_mail(Request $request)
 {
     $spamReason = \App\Helpers\SpamDetector::isSpam($request->message ?? '', 'Product Inquiry', $request->p_email ?? '');
     if ($spamReason !== false) {
+        if ($request->ajax()) {
+            return response()->json(['success' => true, 'message' => 'Thank you for the inquiry, our sales representative will contact soon!']);
+        }
         return back()->with('success', 'Thank you for the inquiry, our sales representative will contact soon!');
     }
 
@@ -500,7 +503,13 @@ function product_mail(Request $request)
         'subject'=>$product
     );
     if (!$this->sendQuoteEmail($data, $request->file('p_file'))) {
+        if ($request->ajax()) {
+            return response()->json(['success' => false, 'message' => 'Sorry, we could not send your quote request. Please try again shortly.'], 500);
+        }
         return back()->with('error', 'Sorry, we could not send your quote request. Please try again shortly.');
+    }
+    if ($request->ajax()) {
+        return response()->json(['success' => true, 'message' => 'Thank you for the inquiry, our sales representative will contact soon!']);
     }
     return back()->with('success', 'Thank you for the inquiry, our sales representative will contact soon!');
 

@@ -587,7 +587,7 @@ html, body {
                     </div>
                     <div class="qu-field">
                         <label>Select Paper Stock</label>
-                        <select name="material" required>
+                        <select name="material">
                             <option value="">Select Paper Stock</option>
                             <option value="12pt Cardboard Stock">12pt Cardboard Stock</option>
                             <option value="14pt Cardboard Stock">14pt Cardboard Stock</option>
@@ -603,7 +603,7 @@ html, body {
                     </div>
                     <div class="qu-field">
                         <label>Select Color</label>
-                        <select name="color_options" required>
+                        <select name="color_options">
                             <option value="">Select Color</option>
                             <option value="1 color">1 color</option>
                             <option value="2 color">2 color</option>
@@ -635,8 +635,8 @@ html, body {
                         <input type="number" name="quantity" placeholder="Enter quantity" required oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                     </div>
                     <div class="qu-field">
-                        <label>CAD SAMPLE <span class="qu-req">*</span></label>
-                        <select name="cad_sample" required>
+                        <label>Select CAD Sample</label>
+                        <select name="cad_sample">
                             <option value="" disabled selected>Select CAD Sample</option>
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>

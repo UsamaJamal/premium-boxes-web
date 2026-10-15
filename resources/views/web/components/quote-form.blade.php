@@ -962,7 +962,7 @@ input[type=number] {
                             </div>
                             <div class="form-group">
                                 <label>Select Paper Stock</label>
-                                <select name="material" required>
+                                <select name="material">
                                     <option value="">Select Paper Stock</option>
                                     <option value="12pt Cardboard Stock">12pt Cardboard Stock</option>
                                     <option value="14pt Cardboard Stock">14pt Cardboard Stock</option>
@@ -978,7 +978,7 @@ input[type=number] {
                             </div>
                             <div class="form-group">
                                 <label>Select Color</label>
-                                <select name="color_options" required>
+                                <select name="color_options">
                                     <option value="">Select Color</option>
                                     <option value="1 color">1 color</option>
                                     <option value="2 color">2 color</option>

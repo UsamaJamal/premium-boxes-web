@@ -16,6 +16,11 @@
         $isProductInstantQuote = ($data['source'] ?? '') === 'Product detail instant quote';
         $productName = !empty($data['p_boxname']) ? $data['p_boxname'] : (!empty($data['product_name']) ? $data['product_name'] : (!empty($data['box_style']) ? $data['box_style'] : ''));
         $boxStyle = !empty($data['box_style']) && ($isProductInstantQuote || $data['box_style'] !== $productName) ? $data['box_style'] : '';
+        // Optional fields left blank (or still on a "Select ..." placeholder) show as N/A.
+        $orNa = function ($value) {
+            $value = is_string($value) ? trim($value) : $value;
+            return ($value === null || $value === '' || preg_match('/^(select|choose)\b/i', (string) $value)) ? 'N/A' : $value;
+        };
     @endphp
     <table class="mail-table">
         @if(!empty($productName) && !$isProductInstantQuote)
@@ -41,18 +46,18 @@
         <tr><th>Width:</th><td>{{ $data['p_width'] ?? '' }}</td></tr>
         <tr><th>Height:</th><td>{{ $data['p_height'] ?? '' }}</td></tr>
         <tr><th>Unit:</th><td>{{ $data['p_unit'] ?? '' }}</td></tr>
-        <tr><th>Stock:</th><td>{{ $data['p_stock'] ?? '' }}</td></tr>
+        <tr><th>Stock:</th><td>{{ $orNa($data['p_stock'] ?? null) }}</td></tr>
         @endif
-        <tr><th>Color:</th><td>{{ $data['p_color'] ?? '' }}</td></tr>
+        <tr><th>Color:</th><td>{{ $orNa($data['p_color'] ?? null) }}</td></tr>
         @if(!$isProductInstantQuote)
-        <tr><th>Coating:</th><td>{{ $data['p_coating'] ?? '' }}</td></tr>
-        <tr><th>CAD Sample:</th><td>{{ $data['cad_sample'] ?? 'Yes' }}</td></tr>
+        <tr><th>Coating:</th><td>{{ $orNa($data['p_coating'] ?? null) }}</td></tr>
+        <tr><th>CAD Sample:</th><td>{{ $orNa($data['cad_sample'] ?? null) }}</td></tr>
         @endif
         <tr><th>Qty:</th><td>{{ $data['p_qty1'] ?? '' }}</td></tr>
         @if(!$isProductInstantQuote)
         <tr><th>File:</th><td>{{ $data['file_name'] ?? 'No file uploaded' }}</td></tr>
         @endif
-        <tr><th>Message:</th><td>{{ $data['message'] ?? '' }}</td></tr>
+        <tr><th>Message:</th><td>{{ $orNa($data['message'] ?? null) }}</td></tr>
         @if(!empty($data['source']))
         <tr><th>Source:</th><td>{{ $data['source'] }}</td></tr>
         @endif
