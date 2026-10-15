@@ -49,8 +49,6 @@ return response()->view('web/404',$data,404);
 
     $data['show_on_home_category'] = DB::table('add_category')->get();
 
-    $data['value'] = DB::table('add_category')->where('status',1)->get();
-
     $data['all_category'] = DB::table('add_category')->where('parent_category',0)->where('status',1)->get();
     $data['sub_category_link'] = DB::table('add_category')->where('parent_category','!=',0)->where('status',1)->get();
     $data['all_product'] = DB::table('product')->where('status',1)->get();
@@ -127,8 +125,8 @@ return response()->view('web/404',$data,404);
 },
 "sameAs": [
 "https://www.facebook.com/premiumboxesusa",
-"https://x.com/PremiumBoxesUSA",
-"https://www.instagram.com/premiumboxes.usa/"
+"https://www.pinterest.com/premiumboxes/",
+"https://www.instagram.com/premiumboxesusa/"
 ],
 "openingHours": [
 "Mo-Fr 09:00-18:00"
