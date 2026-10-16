@@ -739,6 +739,7 @@ html, body {
 
                 <!-- Form Side -->
                 <form class="contact-form" id="contactForm">
+                    @include('web.components.spam-guard-fields')
                     <div class="contact-form-row">
                         <div class="contact-input-group">
                             <label>First Name</label>

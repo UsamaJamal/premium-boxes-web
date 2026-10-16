@@ -905,6 +905,7 @@ input[type=number] {
 
                     <form class="instant-quote-form" data-ajax-managed="true" action="{{ url('submit-quote') }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        @include('web.components.spam-guard-fields', ['captcha' => true])
                         <input type="hidden" name="source" value="{{ $source ?? 'Instant Quote Form' }}">
                         <input type="hidden" name="page_url" value="{{ url()->current() }}">
                         <div class="form-row dual-grid">
@@ -1043,7 +1044,7 @@ input[type=number] {
                             </div>
                             <div class="human-verification-inline-control">
                                 <span class="human-question" id="humanQuestion">0 + 0 =</span>
-                                <input type="number" class="human-answer" id="humanAnswer" placeholder="Answer" aria-label="Human verification answer">
+                                <input type="number" class="human-answer" id="humanAnswer" name="human_answer" placeholder="Answer" aria-label="Human verification answer" autocomplete="off">
                                 <button type="button" class="human-check-btn" id="humanCheckBtn">Verify</button>
                                 <span class="human-status" id="humanStatus" aria-live="polite"></span>
                             </div>
@@ -1152,9 +1153,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const humanStatus = document.getElementById('humanStatus');
     let humanTotal = 0;
 
-    function generateHumanQuestion() {
-        const firstNumber = Math.floor(Math.random() * 9) + 1;
-        const secondNumber = Math.floor(Math.random() * 9) + 1;
+    // The question comes from the server (spam-guard-fields token) so the answer is
+    // verified server side too; this only mirrors it into the UI and resets the field.
+    function applyHumanQuestion(firstNumber, secondNumber) {
         humanTotal = firstNumber + secondNumber;
         if (humanQuestion) humanQuestion.textContent = firstNumber + ' + ' + secondNumber + ' =';
         if (humanAnswer) {
@@ -1164,6 +1165,18 @@ document.addEventListener('DOMContentLoaded', function () {
         if (humanStatus) {
             humanStatus.textContent = '';
             humanStatus.classList.remove('is-error', 'is-success');
+        }
+    }
+
+    function generateHumanQuestion() {
+        const form = humanAnswer ? humanAnswer.form : null;
+        const token = form ? form.querySelector('.fsg-token') : null;
+        if (humanTotal === 0 && token && token.dataset.a) {
+            // First load: numbers were rendered with the page.
+            applyHumanQuestion(Number(token.dataset.a), Number(token.dataset.b));
+        } else if (window.fsgRefresh) {
+            // After a submit: get a fresh token + question without reloading.
+            window.fsgRefresh(form, applyHumanQuestion);
         }
     }
 

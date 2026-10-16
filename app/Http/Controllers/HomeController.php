@@ -17,9 +17,10 @@ class HomeController extends Controller
      $data['all_category'] = DB::table('add_category')->where('parent_category',0)->where('status',1)->get();
     $data['sub_category_link'] = DB::table('add_category')->where('status',1)->get();
     $data['all_product'] = DB::table('product')->where('status',1)->get(); 
-    $data['meta_title'] = "404";
-    $data['meta_tags'] = "404" ;
-    $data['meta_description'] = "404";
+    $data['meta_title'] = "404 - Page Not Found";
+    $data['meta_tags'] = "404";
+    $data['meta_description'] = "404 - Page Not Found";
+    $data['robots'] = "noindex, nofollow";
 
     $data['dynamic'] = DB::table('dynamic')->get();
     $data['contact'] = DB::table('contact')->get();

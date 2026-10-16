@@ -377,24 +377,27 @@ Route::get('track-your-order','HomeController@TrackOrder');
 
 Route::get('request-quote','HomeController@RequestQuote');
 // Start route for mail
-Route::post('/callback', 'HomeController@callBack');
-
-Route::post('promotion-mail', 'HomeController@PromotionMail');
-
-Route::post('contact-mail', 'HomeController@contact_mail');
-
-Route::post('subscribe-email', 'HomeController@subscribe_email');
-
-Route::post('product-mail', 'HomeController@product_mail');
-Route::post('submit-quote', 'HomeController@submitQuote');
+// Every public form POST goes through spam.guard (honeypot, timing token, server-checked
+// captcha, email/phone sanity) and is rate limited per IP. See App\Support\SpamGuard.
+Route::group(['middleware' => ['spam.guard', 'throttle:8,10']], function () {
+    Route::post('/callback', 'HomeController@callBack');
+    Route::post('promotion-mail', 'HomeController@PromotionMail');
+    Route::post('contact-mail', 'HomeController@contact_mail');
+    Route::post('subscribe-email', 'HomeController@subscribe_email');
+    Route::post('product-mail', 'HomeController@product_mail');
+    Route::post('submit-quote', 'HomeController@submitQuote');
+    Route::post('track-your-orders', 'HomeController@TrackOrdermail');
+    Route::post('frequently-asked-questions', 'HomeController@TrackOrdermail');
+    Route::post('req_quote_mail', 'HomeController@req_quote_mail');
+});
+// Fresh anti-bot token (+ captcha numbers) so a form can be submitted again without a reload.
+Route::get('spam-guard/token', function (\Illuminate\Http\Request $request) {
+    return response()->json(
+        filter_var($request->query('captcha'), FILTER_VALIDATE_BOOLEAN) ? \App\Support\SpamGuard::captcha() : ['token' => \App\Support\SpamGuard::token()]
+    );
+})->middleware('throttle:30,1');
 Route::get('test-home-quote', 'HomeController@testHomeQuote');
-
-Route::post('track-your-orders', 'HomeController@TrackOrdermail');
-
-Route::post('frequently-asked-questions', 'HomeController@TrackOrdermail');
 Route::get('frequently-asked-questions', 'AboutController@FAQuestion');
-
-Route::post('req_quote_mail', 'HomeController@req_quote_mail');
 // End route for mail
  // User Login
  Route::get('user-register','HomeController@UserLogin');
@@ -459,7 +462,7 @@ Route::get('blog/{link}','BlogController@SingleBlogPage');
 
 Route::post('updatepassword', 'UserLogin@updateUserPassword');
 
-Route::post('submit-review', 'ProductController@submitReview');
+Route::post('submit-review', 'ProductController@submitReview')->middleware('throttle:8,10');
 
 // Block parent category routes
 Route::get('box-by-industry', function () { abort(404); });

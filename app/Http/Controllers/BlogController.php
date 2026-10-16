@@ -45,6 +45,7 @@ class BlogController extends Controller
         ->get();
     $data['dynamic'] = DB::table('dynamic')->get();
     $data['contact'] = DB::table('contact')->get();
+    $data['blog_faqs'] = DB::table('blog_faqs')->orderBy('id', 'asc')->limit(6)->get();
       return view ('web/blog/blog',$data);
   }
   public function SingleBlogPage($url) {

@@ -529,6 +529,7 @@ html, body {
 
             <form class="qu-form" id="quoteForm" action="{{ url('submit-quote') }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @include('web.components.spam-guard-fields')
                 <input type="hidden" name="source" value="Request quote page">
                 <input type="hidden" name="page_url" value="{{ url()->current() }}">
 

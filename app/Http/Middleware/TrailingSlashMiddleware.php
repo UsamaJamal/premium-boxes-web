@@ -18,6 +18,14 @@ class TrailingSlashMiddleware
         if ($request->isMethod('get')) {
             $path = $request->getPathInfo();
             
+            // If URL ends with a file extension followed by a trailing slash (e.g. /404.php/), redirect to remove the trailing slash
+            if (preg_match('/\.(xml|txt|png|jpg|jpeg|gif|css|js|svg|webp|ico|php)\/+$/i', $path)) {
+                $cleanPath = rtrim($path, '/');
+                $queryString = $request->getQueryString();
+                $redirectUrl = $request->getSchemeAndHttpHost() . $cleanPath . ($queryString ? '?' . $queryString : '');
+                return redirect()->to($redirectUrl, 301);
+            }
+
             // Exclude root and specific files
             if ($path !== '/' && !preg_match('/\.(xml|txt|png|jpg|jpeg|gif|css|js|svg|webp|ico|php)$/i', $path)) {
                 

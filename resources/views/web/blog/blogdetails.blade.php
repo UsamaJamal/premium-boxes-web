@@ -547,88 +547,175 @@ body { padding-top: var(--bp-header-h) !important; }
 }
 
 .bp-blog-faqs {
-    width: 100%;
-    margin: 42px 0 0;
-    padding: 28px 0 0;
-    border-top: 1px solid #333;
+    width: 100% !important;
+    margin: 45px 0 25px !important;
+    padding: 30px !important;
+    background: #1e1e1e !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
 }
 
+.bp-blog-faqs-header {
+    margin-bottom: 22px !important;
+    padding-bottom: 14px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.bp-blog-faqs-title,
 .bp-blog-faqs h2 {
-    margin: 0 0 8px;
-    color: #fff;
-    font-size: 28px;
-    line-height: 1.3;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #ffffff !important;
+    font-family: var(--font-heading, "Outfit", sans-serif) !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+}
+
+.bp-blog-faq-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100% !important;
 }
 
 .bp-blog-faq-item {
-    border-bottom: 1px solid #333;
+    background: #151515 !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    transition: border-color 0.25s ease, background-color 0.25s ease !important;
+}
+
+.bp-blog-faq-item:hover {
+    border-color: rgba(245, 197, 66, 0.3) !important;
+}
+
+.bp-blog-faq-item.is-open {
+    border-color: rgba(245, 197, 66, 0.5) !important;
+    background: #181818 !important;
 }
 
 .bp-blog-faq-question {
-    width: 100%;
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    gap: 14px;
-    align-items: start;
-    padding: 24px 0 20px;
-    border: 0;
-    background: transparent;
-    color: #fff;
-    text-align: left;
-    cursor: pointer;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 14px !important;
+    padding: 16px 20px !important;
+    border: none !important;
+    background: transparent !important;
+    color: #ffffff !important;
+    text-align: left !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    outline: none !important;
+    box-sizing: border-box !important;
+    transition: background-color 0.2s ease !important;
+}
+
+.bp-blog-faq-question:hover {
+    background: rgba(255, 255, 255, 0.02) !important;
 }
 
 .bp-blog-faq-question:focus,
 .bp-blog-faq-question:active {
-    outline: none;
-    box-shadow: none;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
-.bp-blog-faq-question:focus-visible {
-    outline: 1px solid var(--bp-gold);
-    outline-offset: 4px;
+.bp-blog-faq-title-wrap {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    gap: 10px !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    text-align: left !important;
 }
 
 .bp-blog-faq-number {
-    color: var(--bp-gold);
-    font-size: 22px;
-    font-weight: 800;
-    line-height: 1.35;
+    color: var(--bp-gold, #f5c542) !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+    flex-shrink: 0 !important;
 }
 
 .bp-blog-faq-text {
-    margin: 0;
-    color: #fff;
-    font-size: 22px;
-    font-weight: 800;
-    line-height: 1.35;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+    text-align: left !important;
+    flex: 1 1 auto !important;
+    display: inline !important;
+}
+
+.bp-blog-faq-item.is-open .bp-blog-faq-text {
+    color: var(--bp-gold, #f5c542) !important;
 }
 
 .bp-blog-faq-plus {
-    color: #aaa;
-    font-size: 26px;
-    font-weight: 700;
-    line-height: 1;
-    transition: transform .2s ease, color .2s ease;
+    color: var(--bp-gold, #f5c542) !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    flex-shrink: 0 !important;
+    width: 28px !important;
+    height: 28px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    background: rgba(245, 197, 66, 0.1) !important;
+    border: 1px solid rgba(245, 197, 66, 0.25) !important;
+    transition: all 0.25s ease !important;
+}
+
+.bp-blog-faq-item.is-open .bp-blog-faq-plus {
+    background: var(--bp-gold, #f5c542) !important;
+    color: #111111 !important;
+    border-color: var(--bp-gold, #f5c542) !important;
 }
 
 .bp-blog-faq-answer {
     display: none;
-    padding: 0 42px 22px;
+    padding: 0 20px 18px 46px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+    box-sizing: border-box !important;
 }
 
 .bp-blog-faq-answer p {
-    margin: 0 !important;
-    color: #b8b8b8 !important;
+    margin: 14px 0 0 !important;
+    color: #c5c5c5 !important;
+    font-size: 14px !important;
+    line-height: 1.65 !important;
     text-align: left !important;
-}
-
-.bp-blog-faq-item.is-open .bp-blog-faq-plus {
-    color: var(--bp-gold);
 }
 
 .bp-blog-faq-item.is-open .bp-blog-faq-answer {
     display: block;
+}
+
+@media (max-width: 768px) {
+    .bp-blog-faqs {
+        padding: 20px 16px !important;
+        margin-top: 30px !important;
+    }
+    .bp-blog-faq-question {
+        padding: 14px 14px !important;
+    }
+    .bp-blog-faq-answer {
+        padding: 0 14px 16px 36px !important;
+    }
+    .bp-blog-faq-text {
+        font-size: 15px !important;
+    }
 }
 
 /* =========================
@@ -1157,7 +1244,7 @@ body { padding-top: var(--bp-header-h) !important; }
     $blog_title = $post->blog_title;
     $blog_image = asset('images/'.$post->image);
     $author_name = $post->author_name;
-    $author_description = $post->author_description;
+    $author_description = $post->author_description ?? null;
     $has_author = !empty(trim((string) $author_name));
     $blog_date = date('F d, Y', strtotime($post->date));
     $blog_date_short = date('M d, Y', strtotime($post->date));
@@ -1261,6 +1348,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                         <h3 class="bp-quote-title">Instant Quote</h3>
                         <form id="bp-instant-quote-form" class="bp-quote-form" action="{{ url('submit-quote') }}" method="POST" enctype="multipart/form-data">
                             @csrf
+                            @include('web.components.spam-guard-fields')
                             <input type="hidden" name="source" value="Blog details quote form">
                             <input type="hidden" name="page_url" value="{{ url()->current() }}">
                             <div class="bp-quote-row">
@@ -1323,19 +1411,25 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
                         @if(count($blog_faqs) > 0)
                         <section class="bp-blog-faqs">
-                            <h2>Frequently Asked Questions</h2>
-                            @foreach($blog_faqs as $index => $faq)
-                            <div class="bp-blog-faq-item">
-                                <button type="button" class="bp-blog-faq-question" aria-expanded="false">
-                                    <span class="bp-blog-faq-number">{{ $index + 1 }}.</span>
-                                    <h3 class="bp-blog-faq-text">{{ $faq->question }}</h3>
-                                    <span class="bp-blog-faq-plus">+</span>
-                                </button>
-                                <div class="bp-blog-faq-answer">
-                                    <p>{!! nl2br(e($faq->answer)) !!}</p>
-                                </div>
+                            <div class="bp-blog-faqs-header">
+                                <h2 class="bp-blog-faqs-title">Frequently Asked Questions</h2>
                             </div>
-                            @endforeach
+                            <div class="bp-blog-faq-list">
+                                @foreach($blog_faqs as $index => $faq)
+                                <div class="bp-blog-faq-item">
+                                    <button type="button" class="bp-blog-faq-question" aria-expanded="false">
+                                        <div class="bp-blog-faq-title-wrap">
+                                            <span class="bp-blog-faq-number">{{ $index + 1 }}.</span>
+                                            <span class="bp-blog-faq-text">{{ strip_tags($faq->question) }}</span>
+                                        </div>
+                                        <span class="bp-blog-faq-plus">+</span>
+                                    </button>
+                                    <div class="bp-blog-faq-answer">
+                                        <p>{!! nl2br(e($faq->answer)) !!}</p>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
                         </section>
                         @endif
 

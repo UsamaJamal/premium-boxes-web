@@ -741,6 +741,7 @@ a { text-decoration: none; color: inherit; }
                         <span class="product-quote-title">Get Custom Quote</span>
                         <form class="product-quote-form" id="quoteform" method="post" action="{{ url('product-mail') }}" enctype="multipart/form-data" spellcheck="false">
                             @csrf
+                            @include('web.components.spam-guard-fields', ['captcha' => true])
                             <input type="hidden" name="p_boxname" value="{{ $p->title }}">
                             <input type="hidden" name="source" value="Product detail custom quote">
                             <input type="hidden" name="page_url" value="{{ url()->current() }}">
@@ -847,7 +848,7 @@ a { text-decoration: none; color: inherit; }
                                     </div>
                                     <div class="human-verification-inline-control">
                                         <span class="human-question" id="prodHumanQuestion1">0 + 0 =</span>
-                                        <input type="number" class="human-answer" id="prodHumanAnswer1" placeholder="Answer" aria-label="Human verification answer">
+                                        <input type="number" class="human-answer" id="prodHumanAnswer1" name="human_answer" placeholder="Answer" aria-label="Human verification answer" autocomplete="off">
                                         <button type="button" class="human-check-btn" id="prodHumanCheckBtn1">Verify</button>
                                         <span class="human-status" id="prodHumanStatus1" aria-live="polite"></span>
                                     </div>
@@ -1331,6 +1332,7 @@ a { text-decoration: none; color: inherit; }
                     <span class="iq-title">Order a Sample Kit</span>
                     <form action="{{ url('submit-quote') }}" method="POST" class="iq-form" enctype="multipart/form-data" spellcheck="false">
                         @csrf
+                        @include('web.components.spam-guard-fields', ['captcha' => true])
                         <input type="hidden" name="source" value="Product detail instant quote">
                         <input type="hidden" name="page_url" value="{{ url()->current() }}">
                         <div class="iq-row">
@@ -1390,7 +1392,7 @@ a { text-decoration: none; color: inherit; }
                                 </div>
                                 <div class="human-verification-inline-control">
                                     <span class="human-question" id="prodHumanQuestion2">0 + 0 =</span>
-                                    <input type="number" class="human-answer" id="prodHumanAnswer2" placeholder="Answer" aria-label="Human verification answer">
+                                    <input type="number" class="human-answer" id="prodHumanAnswer2" name="human_answer" placeholder="Answer" aria-label="Human verification answer" autocomplete="off">
                                     <button type="button" class="human-check-btn" id="prodHumanCheckBtn2">Verify</button>
                                     <span class="human-status" id="prodHumanStatus2" aria-live="polite"></span>
                                 </div>
@@ -1632,14 +1634,19 @@ document.querySelectorAll('.cust-tab-btn').forEach(btn => {
     var hS1 = document.getElementById('prodHumanStatus1');
     var hT1 = 0;
     var hV1 = false;
-    function genQ1() {
-        var a = Math.floor(Math.random() * 9) + 1;
-        var b = Math.floor(Math.random() * 9) + 1;
+    // Question numbers come from the server-issued spam-guard token (checked server side too).
+    function applyQ1(a, b) {
         hT1 = a + b;
         if (hQ1) hQ1.textContent = a + ' + ' + b + ' =';
         if (hA1) { hA1.value = ''; hA1.style.border = ''; }
         if (hS1) { hS1.textContent = ''; hS1.className = 'human-status'; }
         hV1 = false;
+    }
+    function genQ1() {
+        var form = hA1 ? hA1.form : null;
+        var tok = form ? form.querySelector('.fsg-token') : null;
+        if (hT1 === 0 && tok && tok.dataset.a) { applyQ1(Number(tok.dataset.a), Number(tok.dataset.b)); }
+        else if (window.fsgRefresh) { window.fsgRefresh(form, applyQ1); }
     }
     if (hQ1 && hA1 && hB1) {
         genQ1();
@@ -1722,14 +1729,19 @@ document.querySelectorAll('.cust-tab-btn').forEach(btn => {
     var hS2 = document.getElementById('prodHumanStatus2');
     var hT2 = 0;
     var hV2 = false;
-    function genQ2() {
-        var a = Math.floor(Math.random() * 9) + 1;
-        var b = Math.floor(Math.random() * 9) + 1;
+    // Question numbers come from the server-issued spam-guard token (checked server side too).
+    function applyQ2(a, b) {
         hT2 = a + b;
         if (hQ2) hQ2.textContent = a + ' + ' + b + ' =';
         if (hA2) { hA2.value = ''; hA2.style.border = ''; }
         if (hS2) { hS2.textContent = ''; hS2.className = 'human-status'; }
         hV2 = false;
+    }
+    function genQ2() {
+        var form = hA2 ? hA2.form : null;
+        var tok = form ? form.querySelector('.fsg-token') : null;
+        if (hT2 === 0 && tok && tok.dataset.a) { applyQ2(Number(tok.dataset.a), Number(tok.dataset.b)); }
+        else if (window.fsgRefresh) { window.fsgRefresh(form, applyQ2); }
     }
     if (hQ2 && hA2 && hB2) {
         genQ2();
