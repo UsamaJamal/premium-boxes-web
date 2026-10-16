@@ -30,9 +30,12 @@
 	      if (isset($robots) && !empty($robots)) {
 	          $finalRobots = $robots;
 	      }
+	      if ($currentUrl === '404.php' || request()->is('404*')) {
+	          $finalRobots = 'noindex, nofollow';
+	      }
 
 	      $canonicalUrl = url()->current();
-	      if ($currentUrl === '/' || $currentUrl === '') {
+	      if ($currentUrl === '/' || $currentUrl === '' || preg_match('/\.(php|xml|txt)$/i', $currentUrl)) {
 	          $canonicalUrl = rtrim($canonicalUrl, '/');
 	      } else {
 	          $canonicalUrl = rtrim($canonicalUrl, '/') . '/';

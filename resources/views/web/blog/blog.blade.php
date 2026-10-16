@@ -566,6 +566,185 @@ body {
 }
 
 /* =========================
+   BLOG MAIN COL & FAQS
+   ========================= */
+
+.blog-main-col {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+}
+
+.blog-faq-section {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.blog-faq-intro {
+    color: #c5c5c5;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0 0 20px;
+}
+
+.blog-faq-divider {
+    height: 1px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    margin-bottom: 24px;
+}
+
+.blog-faq-heading {
+    margin: 0 0 20px;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.blog-faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.blog-faq-item {
+    background: #1e1e1e;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.blog-faq-item:hover {
+    border-color: rgba(245, 197, 66, 0.35);
+}
+
+.blog-faq-item.is-open {
+    border-color: rgba(245, 197, 66, 0.5);
+    background: #222222;
+}
+
+.blog-faq-question {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 16px 20px;
+    border: none;
+    background: transparent;
+    color: #ffffff;
+    text-align: left;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease;
+}
+
+.blog-faq-question:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.blog-faq-question:focus,
+.blog-faq-question:active {
+    outline: none;
+    box-shadow: none;
+}
+
+.blog-faq-title-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 10px;
+    flex: 1 1 auto;
+    min-width: 0;
+    text-align: left;
+}
+
+.blog-faq-number {
+    color: #f5c542;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    flex-shrink: 0;
+}
+
+.blog-faq-text {
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: left;
+    flex: 1 1 auto;
+    display: inline;
+}
+
+.blog-faq-item.is-open .blog-faq-text {
+    color: #f5c542;
+}
+
+.blog-faq-icon {
+    color: #f5c542;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(245, 197, 66, 0.1);
+    border: 1px solid rgba(245, 197, 66, 0.25);
+    transition: all 0.25s ease;
+}
+
+.blog-faq-item.is-open .blog-faq-icon {
+    background: #f5c542;
+    color: #111111;
+    border-color: #f5c542;
+}
+
+.blog-faq-answer {
+    display: none;
+    padding: 0 20px 18px 46px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    box-sizing: border-box;
+}
+
+.blog-faq-answer p {
+    margin: 14px 0 0;
+    color: #c5c5c5;
+    font-size: 14px;
+    line-height: 1.65;
+    text-align: left;
+}
+
+.blog-faq-item.is-open .blog-faq-answer {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .blog-faq-question {
+        padding: 14px 14px;
+    }
+    .blog-faq-answer {
+        padding: 0 14px 16px 36px;
+    }
+    .blog-faq-text {
+        font-size: 15px;
+    }
+}
+
+/* =========================
    TABLET
    ========================= */
 
@@ -969,44 +1148,71 @@ body {
 
         <div class="blog-sidebar-row">
 
-            <div class="blog-grid" id="blogGrid">
+            <div class="blog-main-col">
                 @if(isset($all_blog) && count($all_blog) > 0)
-                    @foreach($all_blog as $blog_item)
-                        <article
-                            class="blog-card"
-                            onclick="window.location.href='{{ url('blog/'.$blog_item->blog_url) }}'"
-                        >
-                            <div
-                                class="blog-post-img blog-card-img"
-                                style="background-image:url('{{ asset('images/'.$blog_item->image) }}');"
-                            ></div>
+                    <div class="blog-grid" id="blogGrid">
+                        @foreach($all_blog as $blog_item)
+                            <article
+                                class="blog-card"
+                                onclick="window.location.href='{{ url('blog/'.$blog_item->blog_url) }}'"
+                            >
+                                <div
+                                    class="blog-post-img blog-card-img"
+                                    style="background-image:url('{{ asset('images/'.$blog_item->image) }}');"
+                                ></div>
 
-                            <div class="blog-card-body">
-                                <div class="blog-post-meta">
-                                    <span class="blog-post-author">
-                                        <a
-                                            href="{{ url('author/'.urlencode($blog_item->author_name)) }}"
-                                            onclick="event.stopPropagation();"
-                                        >
-                                            {{ $blog_item->author_name }}
-                                        </a>
-                                    </span>
+                                <div class="blog-card-body">
+                                    <div class="blog-post-meta">
+                                        <span class="blog-post-author">
+                                            <a
+                                                href="{{ url('author/'.urlencode($blog_item->author_name)) }}"
+                                                onclick="event.stopPropagation();"
+                                            >
+                                                {{ $blog_item->author_name }}
+                                            </a>
+                                        </span>
 
-                                    <span class="blog-post-date">
-                                        {{ date('M d, Y', strtotime($blog_item->date)) }}
-                                    </span>
+                                        <span class="blog-post-date">
+                                            {{ date('M d, Y', strtotime($blog_item->date)) }}
+                                        </span>
+                                    </div>
+
+                                    <h3 class="blog-card-title">
+                                        {{ $blog_item->blog_title }}
+                                    </h3>
+
+                                    <p class="blog-post-desc">
+                                        {!! strip_tags(Str::limit($blog_item->long_description, 150)) !!}
+                                    </p>
                                 </div>
+                            </article>
+                        @endforeach
+                    </div>
+                @endif
 
-                                <h3 class="blog-card-title">
-                                    {{ $blog_item->blog_title }}
-                                </h3>
-
-                                <p class="blog-post-desc">
-                                    {!! strip_tags(Str::limit($blog_item->long_description, 150)) !!}
-                                </p>
+                @if(isset($blog_faqs) && count($blog_faqs) > 0)
+                <section class="blog-faq-section">
+                    <p class="blog-faq-intro">Request a custom packaging quote today and be given a quote that is specific to your packaging needs and not a general quote.</p>
+                    <div class="blog-faq-divider"></div>
+                    <h2 class="blog-faq-heading">Frequently Asked Questions</h2>
+                    
+                    <div class="blog-faq-list">
+                        @foreach($blog_faqs as $index => $faq)
+                        <div class="blog-faq-item">
+                            <button type="button" class="blog-faq-question" aria-expanded="false">
+                                <div class="blog-faq-title-wrap">
+                                    <span class="blog-faq-number">{{ $index + 1 }}.</span>
+                                    <span class="blog-faq-text">{{ strip_tags($faq->question) }}</span>
+                                </div>
+                                <span class="blog-faq-icon">+</span>
+                            </button>
+                            <div class="blog-faq-answer">
+                                <p>{!! nl2br(e($faq->answer)) !!}</p>
                             </div>
-                        </article>
-                    @endforeach
+                        </div>
+                        @endforeach
+                    </div>
+                </section>
                 @endif
             </div>
 
@@ -1140,6 +1346,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const sidebarQuoteForm = document.getElementById('sidebarQuoteForm');
     const sidebarQuoteStatus = document.getElementById('sidebarQuoteStatus');
+
+    // Blog FAQ accordion toggle
+    document.querySelectorAll('.blog-faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            const item = btn.closest('.blog-faq-item');
+            if (!item) return;
+            const isOpen = item.classList.toggle('is-open');
+            btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            const icon = btn.querySelector('.blog-faq-icon');
+            if (icon) icon.textContent = isOpen ? '-' : '+';
+        });
+    });
 
     if (sidebarQuoteForm) {
         sidebarQuoteForm.addEventListener('submit', async (e) => {
