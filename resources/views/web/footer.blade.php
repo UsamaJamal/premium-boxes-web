@@ -557,8 +557,8 @@
             <div class="cp-footer-col cp-footer-col-5">
                 <span class="cp-footer-title">Office</span>
                 <div class="cp-footer-contact-details cp-footer-address">
-                    <a href="tel:8864725540">
-                        <i class="fas fa-phone-alt"></i> (886)-472-5540
+                    <a href="tel:+13128841999">
+                        <i class="fas fa-phone-alt"></i> +13128841999
                     </a>
                     <a href="mailto:support@premiumboxes.com">
                         <i class="fas fa-envelope"></i> support@premiumboxes.com

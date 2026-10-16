@@ -108,7 +108,7 @@ return response()->view('web/404',$data,404);
 "url": "https://www.premiumboxes.com/",
 "logo": "https://www.premiumboxes.com/uploads/Premium-boxes-logo.svg",
 "image": "https://www.premiumboxes.com/images/1782819534.hero-banner.webp",
-"telephone": "+1(886)-472-5540",
+"telephone": "+13128841999",
 "email": "support@premiumboxes.com",
 "address": {
 "@type": "PostalAddress",
@@ -142,7 +142,7 @@ return response()->view('web/404',$data,404);
 "name": "Customer Support",
 "contactPoint": {
 "@type": "ContactPoint",
-"telephone": "+1(886)-472-5540",
+"telephone": "+13128841999",
 "email": "support@premiumboxes.com",
 "contactType": "Customer Service",
 "areaServed": "US",

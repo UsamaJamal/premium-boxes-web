@@ -691,7 +691,7 @@ html, body {
                     <p>Say something to start a live chat!</p>
                     <div class="contact-info-item">
                     <i class="fas fa-phone-alt contact-icon"></i>
-                    <a href="tel:(886)-472-5540"><p>(886)-472-5540</p></a>
+                    <a href="tel:+13128841999"><p>+13128841999</p></a>
                 </div>
 
                 <div class="contact-info-item">
