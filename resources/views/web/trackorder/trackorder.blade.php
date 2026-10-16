@@ -233,7 +233,8 @@
                                       <!--         <h5>Your Personal Details</h5>-->
                                       <!--              </div>-->
                           <form class="" action="{{url('track-your-orders')}}" method="post" id="quoteform"  enctype="multipart/form-data" style="display:inline-flex;">
-      <input type="hidden" name="_token" value="{!! csrf_token() !!}">                         
+      <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+      @include('web.components.spam-guard-fields')
                <div class="row">
                                 
                            <!--<div class="col-lg-6 col-md-6">-->

@@ -47,6 +47,7 @@
                 <div class="col-md-12">
                    <form action="{{url('promotion-mail')}}" method="post" id="promotionform">
                                     @csrf
+                                    @include('web.components.spam-guard-fields')
       <input type="hidden" id="p-name" name="p-name" value="">
       
     <input type="hidden" id="image" name="image" value="">

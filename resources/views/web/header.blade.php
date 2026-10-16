@@ -421,6 +421,7 @@ input:-webkit-autofill:active {
       <div class="modal-body">
         <form action="{{url('callback')}}" method="Post" id="call">
              <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+             @include('web.components.spam-guard-fields')
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Name:</label>
             <input type="text" name="name" class="form-control" placeholder="Enter your name:" required spellcheck="false" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">

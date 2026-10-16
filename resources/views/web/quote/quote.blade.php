@@ -122,6 +122,7 @@ html, body {
     line-height: 1.2;
 }
 .qu-req { color: #ffffff; }
+.qu-field .quote-video-guide-btn { margin-top: 0; }
 .qu-field input,
 .qu-field select,
 .qu-field textarea {
@@ -528,6 +529,7 @@ html, body {
 
             <form class="qu-form" id="quoteForm" action="{{ url('submit-quote') }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @include('web.components.spam-guard-fields')
                 <input type="hidden" name="source" value="Request quote page">
                 <input type="hidden" name="page_url" value="{{ url()->current() }}">
 
@@ -550,8 +552,8 @@ html, body {
                         <input type="tel" name="phone" placeholder="Enter your number" required oninput="this.value = this.value.replace(/[^0-9+]/g, '')">
                     </div>
                     <div class="qu-field">
-                        <label>Physical Address</label>
-                        <input type="text" name="address" placeholder="Enter your address">
+                        <label>Physical Address <span class="qu-req">*</span></label>
+                        <input type="text" name="address" placeholder="Enter your address" required>
                     </div>
                 </div>
 
@@ -579,68 +581,39 @@ html, body {
                     </div>
                 </div>
 
-                <!-- Box Style + Paper Stock + Color -->
+                <!-- Box Style + CAD Sample + Quantity -->
                 <div class="qu-row qu-row-3">
                     <div class="qu-field">
-                        <label>Select Box Style</label>
+                        <label>Select Box Style <span class="qu-req">*</span></label>
                         @include('web.components.searchable-product-select', ['id' => 'request-quote-box-style'])
                     </div>
                     <div class="qu-field">
-                        <label>Select Paper Stock</label>
-                        <select name="material" required>
-                            <option value="">Select Paper Stock</option>
-                            <option value="12pt Cardboard Stock">12pt Cardboard Stock</option>
-                            <option value="14pt Cardboard Stock">14pt Cardboard Stock</option>
-                            <option value="16pt Cardboard Stock">16pt Cardboard Stock</option>
-                            <option value="18pt Cardboard Stock">18pt Cardboard Stock</option>
-                            <option value="20pt Cardboard Stock">20pt Cardboard Stock</option>
-                            <option value="22pt Cardboard Stock">22pt Cardboard Stock</option>
-                            <option value="24pt Cardboard Stock">24pt Cardboard Stock</option>
-                            <option value="Kraft Stock">Kraft Stock</option>
-                            <option value="Recycled BuxBoard">Recycled BuxBoard</option>
-                            <option value="Corrugated Stock">Corrugated Stock</option>
-                        </select>
-                    </div>
-                    <div class="qu-field">
-                        <label>Select Color</label>
-                        <select name="color_options" required>
-                            <option value="">Select Color</option>
-                            <option value="1 color">1 color</option>
-                            <option value="2 color">2 color</option>
-                            <option value="3 color">3 color</option>
-                            <option value="4 color">4 color</option>
-                            <option value="4/1 color">4/1 color</option>
-                            <option value="4/2 color">4/2 color</option>
-                            <option value="4/3 color">4/3 color</option>
-                            <option value="4/4 color">4/4 color</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Paper Coating + Quantity + CAD Sample -->
-                <div class="qu-row qu-row-3">
-                    <div class="qu-field">
-                        <label>Select Paper Coating</label>
-                        <select name="coating">
-                            <option value="">Select Paper Coating</option>
-                            <option value="Aqueous Coating">Aqueous Coating</option>
-                            <option value="Semi Gloss">Semi Gloss</option>
-                            <option value="Gloss UV">Gloss UV</option>
-                            <option value="Matte UV">Matte UV</option>
-                            <option value="Semi Matte">Semi Matte</option>
+                        <label>Select CAD Sample</label>
+                        <select name="cad_sample">
+                            <option value="" disabled selected hidden>Select CAD Sample</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
                         </select>
                     </div>
                     <div class="qu-field">
                         <label>Quantity <span class="qu-req">*</span></label>
                         <input type="number" name="quantity" placeholder="Enter quantity" required oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                     </div>
+                </div>
+
+                <!-- Paper Coating + Paper Stock + Color (with video guides) -->
+                <div class="qu-row qu-row-3">
                     <div class="qu-field">
-                        <label>CAD SAMPLE <span class="qu-req">*</span></label>
-                        <select name="cad_sample" required>
-                            <option value="" disabled selected>Select CAD Sample</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
+                        <label>Select Paper Coating</label>
+                        @include('web.components.quote-guide-select', ['type' => 'coating', 'name' => 'coating'])
+                    </div>
+                    <div class="qu-field">
+                        <label>Select Paper Stock</label>
+                        @include('web.components.quote-guide-select', ['type' => 'stock', 'name' => 'material'])
+                    </div>
+                    <div class="qu-field">
+                        <label>Select Color</label>
+                        @include('web.components.quote-guide-select', ['type' => 'color', 'name' => 'color_options'])
                     </div>
                 </div>
 
