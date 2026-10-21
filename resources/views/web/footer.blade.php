@@ -767,7 +767,7 @@ document.addEventListener('DOMContentLoaded', function () {
     @include('web.components.form-input-guard')
     @include('web.components.video-guide-modal')
 
-    <script src="https://chatlive.agency/widget.js" data-livechat-key="wk_939d1c075ebc" async></script>
+    <script src="https://chatlive.agency/widget.js" data-livechat-key="wk_92110a037412" async></script>
 </body>
 
 </html>
