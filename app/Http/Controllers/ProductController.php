@@ -60,16 +60,16 @@ class ProductController extends Controller
             ->where('status', 1)
             ->get();
 
-        // A visitor looking for a product we do not currently list should be
-        // taken straight to the quote form with their request pre-filled.
-        if ($data['search_text'] !== '' && $data['search_products']->isEmpty()) {
-            return redirect('request-quote?from_search=1&box_style=' . urlencode(ucfirst(strtolower($data['search_text']))));
-        }
-            
         $data['search_blogs'] = DB::table('blog')
             ->where('blog_title', 'LIKE', '%' . $data['search_text'] . '%')
             ->where('status', 1)
             ->get();
+
+        // A visitor looking for something we do not list (neither product, category, nor blog)
+        // should be taken straight to the quote form with their request pre-filled.
+        if ($data['search_text'] !== '' && $data['search_products']->isEmpty() && $data['search_categories']->isEmpty() && $data['search_blogs']->isEmpty()) {
+            return redirect('request-quote?from_search=1&box_style=' . urlencode(ucfirst(strtolower($data['search_text']))));
+        }
         
         $data['all_category'] = DB::table('add_category')->where('parent_category',0)->where('status',1)->get();
         $data['sub_category'] = DB::table('add_category')->where('parent_category','!=',0)->where('status',1)->get();
