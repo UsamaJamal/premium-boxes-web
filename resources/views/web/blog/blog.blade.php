@@ -1248,7 +1248,7 @@ body {
                             <button
                                 type="button"
                                 class="blog-quote-cancel"
-                                onclick="window.location.href='tel:8864725540'"
+                                onclick="window.location.href='tel:+13128841999'"
                             >
                                 Call Us
                             </button>
