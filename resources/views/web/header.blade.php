@@ -27,9 +27,12 @@
       if (isset($author) && is_object($author) && !empty($author->name)) {
           $metaAuthor = $author->name;
       } elseif (isset($blog_single_value) && count($blog_single_value) > 0) {
-          $metaBlogAuthor = trim((string) ($blog_single_value[0]->author_name ?? ''));
-          if ($metaBlogAuthor === '' && !empty($blog_single_value[0]->author_id)) {
-              $metaBlogAuthor = trim((string) \DB::table('authors')->where('id', $blog_single_value[0]->author_id)->value('name'));
+          // Same rule as the byline in blogdetails: the author from Admin > Authors first, then the post's own author_name.
+          $metaBlogAuthor = !empty($blog_single_value[0]->author_id)
+              ? trim((string) \DB::table('authors')->where('id', $blog_single_value[0]->author_id)->value('name'))
+              : '';
+          if ($metaBlogAuthor === '') {
+              $metaBlogAuthor = trim((string) ($blog_single_value[0]->author_name ?? ''));
           }
           if ($metaBlogAuthor !== '') {
               $metaAuthor = $metaBlogAuthor;

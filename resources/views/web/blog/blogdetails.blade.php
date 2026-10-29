@@ -1243,7 +1243,10 @@ body { padding-top: var(--bp-header-h) !important; }
     $post = $meta[0];
     $blog_title = $post->blog_title;
     $blog_image = asset('images/'.$post->image);
-    $author_name = $post->author_name;
+    // The author assigned in Admin > Authors wins, so the name matches the author page; old posts fall back to their own author_name.
+    $blog_author = !empty($post->author_id) ? \DB::table('authors')->where('id', $post->author_id)->first() : null;
+    $author_name = ($blog_author && !empty($blog_author->name)) ? $blog_author->name : $post->author_name;
+    $author_url = url('author/' . urlencode(($blog_author && !empty($blog_author->slug)) ? $blog_author->slug : (string) $author_name));
     $author_description = $post->author_description ?? null;
     $has_author = !empty(trim((string) $author_name));
     $blog_date = date('F d, Y', strtotime($post->date));
@@ -1307,7 +1310,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                             <img src="{{ asset('images/1606478490.Adam_Smith.jpg') }}" alt="{{ strtolower(str_replace('-', ' ', $author_name)) }}" title="{{ ucwords(strtolower(str_replace('-', ' ', $author_name))) }}">
                         </div>
                         <div class="bp-author-info">
-                            <span class="bp-author-name">By <a href="{{ url('author/'.urlencode($author_name)) }}" style="color:inherit; text-decoration:none;">{{ $author_name }}</a></span>
+                            <span class="bp-author-name">By <a href="{{ $author_url }}" style="color:inherit; text-decoration:none;">{{ $author_name }}</a></span>
                             <div class="bp-author-meta-row">
                                 <span class="bp-author-date bp-date-full">{{ $blog_date }}</span>
                                 <span class="bp-author-date bp-date-short">{{ $blog_date_short }}</span>
