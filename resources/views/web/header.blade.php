@@ -20,6 +20,28 @@
     <title>{{$meta_title}}</title>
     <meta name="description" content="<?php  echo $meta_description; ?>">
   <meta name="keywords" content="<?php echo $meta_tags; ?>">
+  @php
+      // Author is the site name everywhere, except a blog post (its own author, same name shown in the byline)
+      // and an author page (that author's name).
+      $metaAuthor = 'Premium Boxes';
+      if (isset($author) && is_object($author) && !empty($author->name)) {
+          $metaAuthor = $author->name;
+      } elseif (isset($blog_single_value) && count($blog_single_value) > 0) {
+          $metaBlogAuthor = trim((string) ($blog_single_value[0]->author_name ?? ''));
+          if ($metaBlogAuthor === '' && !empty($blog_single_value[0]->author_id)) {
+              $metaBlogAuthor = trim((string) \DB::table('authors')->where('id', $blog_single_value[0]->author_id)->value('name'));
+          }
+          if ($metaBlogAuthor !== '') {
+              $metaAuthor = $metaBlogAuthor;
+          }
+      }
+  @endphp
+  <meta name="author" content="{{ $metaAuthor }}">
+  <meta name="publisher" content="Premium Boxes">
+  {{-- Browser bar colour on mobile, same as the header background (#site-header). --}}
+  <meta name="theme-color" content="#1a1a1a">
+  <meta name="msapplication-navbutton-color" content="#1a1a1a">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 	  @php
 	      $currentUrl = request()->path();
@@ -43,6 +65,83 @@
 	  @endphp
   <meta name="robots" content="{{ $finalRobots }}">
   <link rel="canonical" href="{{ $canonicalUrl }}" />
+
+	  @php
+	      // Open Graph / Twitter: the page's own image (blog, product, category) when it has one, otherwise the site logo.
+	      $ogType = 'website';
+	      $ogRow = null;
+	      $ogPath = trim($currentUrl, '/');
+	      $ogImageFiles = [];
+	      if (isset($author) && is_object($author) && !empty($author->name)) {
+	          $ogType = 'profile';
+	          if (!empty($author->profile_image)) {
+	              $ogImageFiles = ['authors/' . $author->profile_image];
+	          }
+	      } elseif (isset($blog_single_value) && count($blog_single_value) > 0) {
+	          $ogRow = $blog_single_value[0];
+	          $ogType = 'article';
+	      } elseif ($ogPath !== '') {
+	          // Category/dynamic pages pass their row as $value, product pages as $product; use whichever belongs to this URL.
+	          foreach ([$value ?? null, $product ?? null] as $ogRows) {
+	              if (empty($ogRows) || count($ogRows) === 0) {
+	                  continue;
+	              }
+	              $ogCandidate = $ogRows[0];
+	              $ogRowUrl = $ogCandidate->category_url ?? $ogCandidate->url ?? $ogCandidate->page_url ?? null;
+	              if ($ogRowUrl !== null && trim($ogRowUrl, '/') === $ogPath) {
+	                  $ogRow = $ogCandidate;
+	                  break;
+	              }
+	          }
+	      }
+
+	      $ogImage = null;
+	      if ($ogRow) {
+	          $ogImageFiles = isset($ogRow->category_url)
+	              ? [$ogRow->hero_image ?? null, $ogRow->image ?? null, $ogRow->bimage ?? null]
+	              : [$ogRow->image ?? null];
+	          // Product pages show the first picture of the gallery ("images" JSON list) as the main image.
+	          $ogGallery = !empty($ogRow->images) ? json_decode($ogRow->images, true) : null;
+	          if (is_array($ogGallery) && !empty($ogGallery)) {
+	              array_unshift($ogImageFiles, reset($ogGallery));
+	          }
+	      } elseif ($ogPath === '' && isset($home_banner[0]) && !empty($home_banner[0]->image)) {
+	          $ogImageFiles = [$home_banner[0]->image];
+	      }
+	      foreach ($ogImageFiles as $ogFile) {
+	          foreach (['images/', 'uploads/'] as $ogDir) {
+	              if (!empty($ogFile) && file_exists(public_path($ogDir . $ogFile))) {
+	                  $ogImage = asset($ogDir . implode('/', array_map('rawurlencode', explode('/', $ogFile))));
+	                  break 2;
+	              }
+	          }
+	      }
+	      if (!$ogImage) {
+	          $ogImage = asset('uploads/' . rawurlencode('1626421690825004132.premium boxes Logo.png'));
+	      }
+
+	      $ogTitle = trim(strip_tags(html_entity_decode((string) $meta_title)));
+	      $ogDescription = trim(strip_tags(html_entity_decode((string) $meta_description)));
+	  @endphp
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Premium Boxes">
+  <meta property="og:type" content="{{ $ogType }}">
+  <meta property="og:title" content="{{ $ogTitle }}">
+  <meta property="og:description" content="{{ $ogDescription }}">
+  <meta property="og:url" content="{{ $canonicalUrl }}">
+  <meta property="og:image" content="{{ $ogImage }}">
+  <meta property="og:image:alt" content="{{ $ogTitle }}">
+  @if($ogType === 'article')
+  <meta property="article:author" content="{{ $metaAuthor }}">
+  <meta property="article:publisher" content="Premium Boxes">
+  @if(!empty($ogRow->date))
+  <meta property="article:published_time" content="{{ date('c', strtotime($ogRow->date)) }}">
+  @endif
+  @endif
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ $ogTitle }}">
+  <meta name="twitter:description" content="{{ $ogDescription }}">
+  <meta name="twitter:image" content="{{ $ogImage }}">
   
 
 
