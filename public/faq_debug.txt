@@ -1,58 +1,671 @@
 Array
 (
-    [_token] => n4RDE5ggjhbLV6M7VT34vdYCuaO3EuWylFDQq6mH
-    [oldbaner] => Rigid boxes.jpg
-    [oldfav-icon] => 
-    [oldimage] => 1782911045-Gift-Boxes.webp
-    [old_hero_image] => 1782911045-h-Gift-Boxes.webp
-    [old_feature_product] => Rigid.webp
-    [old_parent_cat] => 109
-    [name] => Rigid Boxes
-    [categoryurl] => rigid-boxes
-    [ckeditor] => <p>lorem ipsum dollar sumit&nbsp;Rigid Boxes</p>
+    [_token] => k9XcLGewogxPlOCAmOFzLNF5ioTcHzgtfp7sNTLN
+    [oldbaner] => 1782909151-b-Food-Boxes.webp
+    [oldfav-icon] => 1783405864-i-Food-Boxes.webp
+    [oldimage] => Food-Boxes.png
+    [old_hero_image] => 1782909151-h-Food-Boxes.webp
+    [old_feature_product] => Food-Boxes.png
+    [old_parent_cat] => 110
+    [name] => Food Boxes
+    [categoryurl] => food-boxes
+    [ckeditor] => <h2>Materials for Food Packaging</h2>
 
-    [hero_title] => Premium Rigid Boxes for Luxury Packaging
-    [hero_desc] => <p>Showcase your products with our premium custom rigid boxes, crafted for durability, elegance, and a luxurious unboxing experience. Ideal for gift items, cosmetics, electronics, and high-end retail products, these sturdy boxes enhance your brand while providing superior protection.</p>
+<p>Custom food boxes are manufactured using special materials. These materials have specific features to protect the food and keep it toxin free. Therefore, we use premium materials that are suitable for every type of food product. We are dealing in:</p>
 
-    [mtitle] => Luxury Rigid Boxes
-    [mdescription] => Luxury Rigid Boxes
-    [mtags] => Luxury Rigid Boxes
+<h3>Food-Grade Paperboard</h3>
+
+<p>Food-grade paperboard is a foldable food compatible material. It is light-weight and comes in different thickness variations. It is completely safe for customized food boxes. Mostly it is used for bakery cartons, <a href="https://www.premiumboxes.com/cereal-boxes/">cereal boxes</a>, <a href="https://www.premiumboxes.com/snack-boxes/">snack packaging</a>, confectionery boxes, food sleeves, and lightweight takeout products.</p>
+
+<h3>Kraft Paper</h3>
+
+<p>Kraft paper has a natural appearance and is safe to use for food wrapping. It comes in brown colour and is suitable for products such as bakery products, takeaway cartons, food trays and sleeves. This material offers great resistance against tearing.</p>
+
+<h3>Corrugated Board</h3>
+
+<p><a href="https://www.premiumboxes.com/corrugated-boxes/">Corrugated board</a> is a thick material and has different variations. It is best known for its rigidity and strength. It is used for products which need extra care. Commonly it is used for <a href="https://www.premiumboxes.com/pizza-boxes/">pizza boxes</a>, catering orders, delivery packaging, subscription meals, and outer shipping cartons. Businesses can choose from different flutes available in corrugated board.</p>
+
+<h3>Grease-Resistant Materials</h3>
+
+<p>Different food items need different type of protection and packaging. Fried foot items need packaging that offers grease resistance to prevent the oil leakage. We use grease-resistant material for such products. These boxes are wrapped with special paper that offers protection against oil and sauce spillage.</p>
+
+<p>Here&rsquo;s a simple comparison table for better understanding.</p>
+<style type="text/css">.premium-table-wrap {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    margin: 25px 0;
+    -webkit-overflow-scrolling: touch;
+}
+
+.premium-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    background: #161616;
+    font-family: inherit;
+}
+
+.premium-table th {
+    background: #161616;
+    color: #F5C541;
+    padding: 16px 18px;
+    text-align: left;
+    font-size: clamp(14px, 1.2vw, 16px);
+    font-weight: 700;
+    line-height: 1.4;
+    border: 1px solid #F5C541;
+    vertical-align: middle;
+}
+
+.premium-table td {
+    background: #161616;
+    color: #ffffff;
+    padding: 15px 18px;
+    text-align: left;
+    font-size: clamp(13px, 1.1vw, 15px);
+    line-height: 1.5;
+    border: 1px solid #F5C541;
+    vertical-align: middle;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.premium-table tbody tr:nth-child(even) td {
+    background: #161616;
+}
+
+.premium-table tbody tr:hover td {
+    background: #1d1d1d;
+}
+
+.premium-table td:first-child {
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* Tablet */
+@media only screen and (max-width: 1024px) {
+
+    .premium-table th {
+        padding: 14px 15px;
+    }
+
+    .premium-table td {
+        padding: 14px 15px;
+    }
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+
+    .premium-table-wrap {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .premium-table {
+        min-width: 650px;
+    }
+
+    .premium-table th {
+        padding: 12px 14px;
+        font-size: 14px;
+        white-space: normal;
+    }
+
+    .premium-table td {
+        padding: 12px 14px;
+        font-size: 13px;
+        line-height: 1.4;
+    }
+}
+
+/* Small Mobile */
+@media only screen and (max-width: 480px) {
+
+    .premium-table {
+        min-width: 600px;
+    }
+
+    .premium-table th {
+        padding: 11px 12px;
+        font-size: 13px;
+    }
+
+    .premium-table td {
+        padding: 11px 12px;
+        font-size: 13px;
+    }
+}
+</style>
+<div class="premium-table-wrap">
+<table class="premium-table">
+	<thead>
+		<tr>
+			<th>Material</th>
+			<th>Use</th>
+			<th>Features</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Food-grade paperboard</td>
+			<td>Bakery items, snacks, cereal and folding cartons</td>
+			<td>Smooth printing and compact construction</td>
+		</tr>
+		<tr>
+			<td>Kraft paper</td>
+			<td>Takeout boxes, sleeves and <a href="https://www.premiumboxes.com/bakery-boxes/">bakery packaging</a></td>
+			<td>Natural appearance and tear resistance</td>
+		</tr>
+		<tr>
+			<td>Corrugated board</td>
+			<td>Pizza, catering, delivery and heavier products</td>
+			<td>Rigidity, cushioning and stacking strength</td>
+		</tr>
+		<tr>
+			<td>Grease-resistant material</td>
+			<td>Fried food, pastries, burgers and pizza</td>
+			<td>Oil resistance during the expected holding time</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<h2>Match the Box to the Food</h2>
+
+<p>Matching the box with food is quite important for any business. You cannot use just any box to pack you food items. Every food item requires different type of protection. Some items are hot, some are cold, some are oily and some are liquid. Brands have to use customized food boxes.</p>
+
+<h3>Greasy and Fried Foods</h3>
+
+<p>Greasy and fried foods like burgers, pizza, fries, and pastries need grease-resistant packaging. On the other hand, these boxes also offer ventilation so the food doesn&rsquo;t get soggy. No need to worry; at Premiumboxes we have product-specific packaging materials.</p>
+
+<h3>Baked Goods and Desserts</h3>
+
+<p>Bakery items need special packaging that offers protection and doesn&rsquo;t damage the presentation. Products such as doughnuts, cakes, pastries etc have special toppings. So the box must offer enough safe for the protection of icing, glazing, shape and toppings. Therefore, before getting the box look carefully to the box size and product size.</p>
+
+<h3>Chilled and Frozen Foods</h3>
+
+<p>Frozen food items need special packaging that offers water resistance. Get custom food packaging boxes from Premiumboxes that are manufactured specially for frozen food. These boxes will have resistance against condensation, barcode readability and strong closure.</p>
+
+<h3>Dry and Shelf-Stable Foods</h3>
+
+<p>Dry food products that are placed on shelves need entirely different packaging. For these products preferable packaging is space saving, sealed and shelf compatible.</p>
+
+<h2>Printing That Builds Brand Recognition</h2>
+
+<p>At Premiumboxes, we have different printing options. Brands can choose according to their requirements and budget.</p>
+
+<ul>
+	<li>Digital Printing</li>
+	<li>Offset Printing</li>
+	<li>Flexographic Printing</li>
+	<li>CMYK and Pantone Colors</li>
+</ul>
+
+<p>Here&rsquo;s a comparison table, it will help you to choose the best printing method for custom food boxes with logo.</p>
+<style type="text/css">.premium-table-wrap {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    margin: 25px 0;
+    -webkit-overflow-scrolling: touch;
+}
+
+.premium-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    background: #161616;
+    font-family: inherit;
+}
+
+.premium-table th {
+    background: #161616;
+    color: #F5C541;
+    padding: 16px 18px;
+    text-align: left;
+    font-size: clamp(14px, 1.2vw, 16px);
+    font-weight: 700;
+    line-height: 1.4;
+    border: 1px solid #F5C541;
+    vertical-align: middle;
+}
+
+.premium-table td {
+    background: #161616;
+    color: #ffffff;
+    padding: 15px 18px;
+    text-align: left;
+    font-size: clamp(13px, 1.1vw, 15px);
+    line-height: 1.5;
+    border: 1px solid #F5C541;
+    vertical-align: middle;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.premium-table tbody tr:nth-child(even) td {
+    background: #161616;
+}
+
+.premium-table tbody tr:hover td {
+    background: #1d1d1d;
+}
+
+.premium-table td:first-child {
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* Tablet */
+@media only screen and (max-width: 1024px) {
+
+    .premium-table th {
+        padding: 14px 15px;
+    }
+
+    .premium-table td {
+        padding: 14px 15px;
+    }
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+
+    .premium-table-wrap {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .premium-table {
+        min-width: 650px;
+    }
+
+    .premium-table th {
+        padding: 12px 14px;
+        font-size: 14px;
+        white-space: normal;
+    }
+
+    .premium-table td {
+        padding: 12px 14px;
+        font-size: 13px;
+        line-height: 1.4;
+    }
+}
+
+/* Small Mobile */
+@media only screen and (max-width: 480px) {
+
+    .premium-table {
+        min-width: 600px;
+    }
+
+    .premium-table th {
+        padding: 11px 12px;
+        font-size: 13px;
+    }
+
+    .premium-table td {
+        padding: 11px 12px;
+        font-size: 13px;
+    }
+}
+</style>
+<div class="premium-table-wrap">
+<table class="premium-table">
+	<thead>
+		<tr>
+			<th>Printing Method</th>
+			<th>Best Suited To</th>
+			<th>Buyer Consideration</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Digital</td>
+			<td>Samples, short runs and changing artwork</td>
+			<td>Minimal setup and flexible quantities</td>
+		</tr>
+		<tr>
+			<td>Offset</td>
+			<td>Detailed designs and larger carton orders</td>
+			<td>Strong detail and consistent repeat production</td>
+		</tr>
+		<tr>
+			<td>Flexographic</td>
+			<td>Kraft and corrugated packaging</td>
+			<td>Efficient printing on packaging substrates</td>
+		</tr>
+		<tr>
+			<td>CMYK</td>
+			<td>Photography and multicolor artwork</td>
+			<td>Reproduces a broad range of colors</td>
+		</tr>
+		<tr>
+			<td>Pantone</td>
+			<td>Logos and controlled brand colors</td>
+			<td>Uses standardized premixed inks</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<h2>Packaging for Food Businesses</h2>
+
+<p>We manufactured packaging for food items that is business-specific. Whether you own a restaurant, caf&eacute; or catering business, we have covered you.</p>
+
+<h3>Restaurants and Takeout Brands</h3>
+
+<p>For restaurants and takeout businesses we manufacture special boxes. They are foldable, easy to assemble, stack neatly and offer enhanced brand identity.</p>
+
+<h3>Bakeries and Caf&eacute;s</h3>
+
+<p>Bakeries and cafes require variations of packaging. Sometimes customers buy a single piece and sometimes they buy the whole product. Moreover, cafes need coffee holders with variations of 3, 4, 6 and 8 holding places. Don&rsquo;t hesitate, talk to our team and tell us your requirements.</p>
+
+<h3>Food Manufacturers</h3>
+
+<p>If you own a food manufacturing business, we also have solution for you. Food manufacturing businesses need packaging for multiple products. These packaging boxes should be best at filling, sealing, case packing, palletizing, storage, and retail distribution.</p>
+
+<h3>&nbsp;Caterers and Meal Services</h3>
+
+<p>For catering service businesses, box must be multiple purposes. Hence, we manufacture boxes that can hold multiple portions and hold bulk orders with brand identification. Moreover, also manufacture sleeves and trays with branding for these businesses.</p>
+
+<h3>Grocery and Specialty Retailers</h3>
+
+<p>For retailing items, packaging is all about branding. The front part of the box must have product details, brand name, logo and necessary labeling.</p>
+
+<h2>Review Your Design Before Production</h2>
+
+<p>You can order custom food boxes at <a href="https://www.premiumboxes.com/">wholesale rate at Premiumboxes</a>. Before placing order for large quantity, businesses can follow this guide for a smooth and cost-efficient process.</p>
+
+<ul>
+	<li><strong>Custom Dielines:</strong> We have a special design team that assists the customers. We use custom logo, name, design, artwork, color and printing method. After finalizing these aspects, we share the custom dieline with the brand.&nbsp;</li>
+	<li><strong>Digital Proofs: </strong>As the size, style and branding elements are confirmed, we share the digital proof. Without getting final call, we don&rsquo;t process it for manufacturing.</li>
+	<li><strong>Physical Samples:</strong> We have a policy of physical samples regardless of the original order quantity. Businesses can ask for samples. Just share the details required for the box, and we&rsquo;ll send you a physical sample.</li>
+</ul>
+
+<h2>PremiumBoxes: A Reliable Packaging Partner</h2>
+
+<p>PremiumBoxes is working for a decade in packaging industry. We have worked with top businesses and brands in USA. Brands choose us for following reasons:</p>
+
+<h3>Custom Fit</h3>
+
+<p>We offer complete customization for custom food boxes with logo. From size, style, printing, materials, finishes to branding elements; we have customized solutions for you.</p>
+
+<h3>Food-Safe Options</h3>
+
+<p>For food packaging, we use materials that are food safe. We only use materials and printing inks that are certified by institutes for food wrapping.</p>
+
+<h3>Flexible Orders</h3>
+
+<p>Startups and small business owners always face issue while buying packaging. &nbsp;It&rsquo;s not a big problem for us. We have don&rsquo;t have any minimum order limit. You can get boxes as much as you want to.</p>
+
+<h3>Expert Support</h3>
+
+<p>From design to customer support, we have dedicated teams. With skilled and professional team workers you can get support from experts 24/7. Just leave an email and the relevant team will approach you within minutes.</p>
+
+<h3>Quality Control</h3>
+
+<p>We understand that customers do free marketing. To keep the trust of businesses, of have strict quality control. We have a dedicated department that is responsible for quality control of products. We make sure that each box is in perfect condition when you receive your order.</p>
+
+<h3>Bulk Pricing</h3>
+
+<p>We have a special offer for businesses that get personalized food packaging in bulk. Bulk order prices are discounted. Hence, you can save your money by placing a bulk order.</p>
+
+<h3>Fast Production</h3>
+
+<p>As soon as the design and sample is approved, we start production process. You will get your boxes within 8-10 business days.</p>
+
+<h3>Safe Delivery</h3>
+
+<p>To deliver custom food packaging boxes safely, we use verified shipping services. We provide tracking id to our customers for a transparent process.</p>
+
+<h2>Request a Custom Packaging Quote</h2>
+
+<p>Give us a call or leave an email with all the details required and ask a custom quote. Our team will respond to you within 24 hours with a <a href="https://www.premiumboxes.com/request-quote/">custom quote</a>.</p>
+
+    [hero_title] => Custom Food Boxes
+    [hero_desc] => <p>Food packaging is all about handling heat, moisture, stacking, refrigeration and delivery. Tell us about your product and requirements; we&rsquo;ll help you decide the right box. PremiumBoxes has 24/7 customer support that help the businesses in getting right packaging.</p>
+
+    [mtitle] => Custom Food Boxes with Logo Printed Packaging
+    [mdescription] => Order custom food boxes made with food safe materials and durable designs. Perfect for restaurants bakeries and takeaway packaging needs
+    [mtags] => Food Boxes
     [robots] => index, follow
     [image_badge] => 
-    [feature_title] => Rigid
-    [feature_description] => <p>Premium packaging for luxury products.</p>
+    [show_home] => 1
+    [feature_title] => 
+    [feature_description] => <p>Safe food boxes to keep items fresh longer</p>
 
     [schema] => <script type="application/ld+json">
+{
+  "@context": "https://schema.org/", 
+  "@type": "BreadcrumbList", 
+  "itemListElement": [{
+    "@type": "ListItem", 
+    "position": 1, 
+    "name": "Home",
+    "item": "https://www.premiumboxes.com/"  
+  },{
+    "@type": "ListItem", 
+    "position": 2, 
+    "name": "CBD Boxes",
+    "item": "https://www.premiumboxes.com/cbd-boxes/"  
+  }]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/", 
+  "@type": "BreadcrumbList", 
+  "itemListElement": [{
+    "@type": "ListItem", 
+    "position": 1, 
+    "name": "Home",
+    "item": "https://www.premiumboxes.com/"  
+  },{
+    "@type": "ListItem", 
+    "position": 2, 
+    "name": "Food Boxes",
+    "item": "https://www.premiumboxes.com/food-boxes/"  
+  }]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "ItemList",
+  "name": "Custom Food Boxes",
+  "description": "Tell us about your product and requirements; we’ll help you decide the right box. PremiumBoxes has 24/7 customer support that helps businesses get the right packaging.",
+  "url": "https://www.premiumboxes.com/food-boxes/",
+  "itemListOrder": "https://schema.org/ItemListOrderAscending",
+  "numberOfItems": 2,
+  "itemListElement": [
     {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://hdvideosaver.com"
-        }
-      ]
+      "@type": "ListItem",
+      "position": 1,
+      "url": "https://www.premiumboxes.com/noodle-boxes/",
+      "name": "Custom Noodle Boxes"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "url": "https://www.premiumboxes.com/chinese-food-boxes/",
+      "name": "Custom Chinese Food Boxes"
     }
-    </script>
-    [parentcategory] => 109
-    [status] => 1
-    [show_home] => 0
-    [show_in_nav] => 1
-    [products_heading] => Premium Rigid Boxes for Luxury Packaging
-    [products_description] => <p>Premium Rigid Boxes for Luxury PackagingPremium Rigid Boxes for Luxury PackagingPremium Rigid Boxes for Luxury PackagingPremium Rigid Boxes for Luxury Packaging</p>
+  ]
+}
+</script>
 
-    [why_choose_title] => 
-    [why_choose_desc] => 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://www.premiumboxes.com/food-boxes/",
+  "name": "Premium Boxes",
+  "description": "Create premium custom food boxes with food-safe materials, vibrant printing, and durable packaging solutions for restaurants and food brands across the USA.",
+  "url": "https://www.premiumboxes.com/food-boxes/",
+  "logo": "https://www.premiumboxes.com/uploads/Premium-boxes-logo.svg",
+  "image": "https://www.premiumboxes.com/images/1782909151-h-Food-Boxes.webp",
+  "telephone": "+1-886-472-5540",
+  "email": "support@premiumboxes.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1S285 Summit Avenue",
+    "addressLocality": "Oakbrook Terrace",
+    "addressRegion": "IL",
+    "postalCode": "60181",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.9339,
+    "longitude": -87.8656
+  },
+  "sameAs": [
+    "https://www.facebook.com/premiumboxesusa",
+    "https://www.pinterest.com/premiumboxes/",
+"https://www.instagram.com/premiumboxesusa/"
+  ],
+  "openingHours": [
+    "Mo-Fr 09:00-18:00"
+  ],
+  "paymentAccepted": "Credit Card, PayPal, Bank Transfer",
+  "priceRange": "$$$",
+  "serviceArea": {
+    "@type": "AdministrativeArea",
+    "name": "United States"
+  },
+  "department": {
+    "@type": "Organization",
+    "name": "Customer Support",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-886-472-5540",
+      "email": "support@premiumboxes.com",
+      "contactType": "Customer Service",
+      "areaServed": "US",
+      "availableLanguage": "English"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "1500"
+  },
+  "review": {
+    "@type": "Review",
+    "author": {
+      "@type": "Person",
+      "name": "John Vick"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5"
+    },
+    "datePublished": "2026-04-20",
+    "reviewBody": "Premium Boxes delivered high-quality custom food boxes with excellent printing and durable food-safe materials. The packaging kept our products fresh, enhanced our branding, and arrived on time. We highly recommend their custom food packaging services.",
+    "name": "Reliable Custom Food Boxes Packaging Experience"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which material is best for food boxes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We use different materials for food boxes. They are all food-grade and non-toxic. Paperboard is used for lightweight items; kraft paper has a natural appearance; while corrugated board is considered best for pizza, catering, and deliveries. Furthermore, we also have grease-resistant paper for burgers, fries and pastries."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can food boxes resist grease and moisture?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To make them resistant to grease and moisture, they are wrapped in a special paper. These papers make the boxes oil- and moisture-resistant with ventilation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I print my logo on food packaging?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes for sure. All the materials we use for food packaging are printable. Brands can get boxes with printed logos, designs, artwork, product names, ingredients, contact details, and barcode lines."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What information should appear on a food box?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Commonly food boxes must have a product name, net quantity, ingredients, allergen declaration, nutrition facts, storage directions, preparation instructions, manufacturer or distributor details, barcodes, and QR codes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I order boxes in custom dimensions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, brands can get boxes in custom dimensions. Measurements should match the finished food product or inner container, including liners, inserts, cake boards, toppings, and required clearance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you provide samples before production?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, physical samples are available at Premium Boxes. Before placing a bulk order, you can request a sample by filling out the requirements form on our website."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does production take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our usual production time is 4–5 business days. However, production time may vary depending on order quantity, material availability, printing, finishes, sampling, and proof approval."
+      }
+    }
+  ]
+}
+</script>
+    [parentcategory] => 110
+    [status] => 1
+    [show_in_nav] => 1
+    [products_heading] => Food Packaging Built Around Your Product
+    [products_description] => <p>We have customized packaging boxes for your food products. &nbsp;Check out this section and select the boxes according to your food product.</p>
+
+    [why_choose_title] => Food Packaging That Works
+    [why_choose_desc] => <p>Order customized boxes for your bakery items. We create boxes with great effort so your customers will love them. From using high-quality material to printing that is suitable for food, we try our best. With our finest designers, you can get box designs that are innovative, interactive, and attractive to customers at first glance. Using modern and trendy designs so businesses can get packaging that will not only protect their products but also uplift their brand identity.&nbsp;</p>
+
+    [old_why_choose_img] => customized-food-boxes.webp
     [faq_question] => Array
         (
-            [0] => hassan
+            [0] => Which material is best for food boxes?
+            [1] => Can food boxes resist grease and moisture?
+            [2] => Can I print my logo on food packaging?
+            [3] => What information should appear on a food box?
+            [4] => Can I order boxes in custom dimensions?
+            [5] => Do you provide samples before production?
+            [6] => How long does production take?
         )
 
     [faq_answer] => Array
         (
-            [0] => hlo hassan
+            [0] => We use different materials for food boxes. They are all food-grade and non-toxic. Paperboard is used for lightweight items; kraft paper has a natural appearance; while corrugated board is considered best for pizza, catering, and deliveries. Furthermore, we also have grease-resistant paper for burgers, fries and pastries.
+            [1] => To make them resistant to grease and moisture, they are wrapped in a special paper. These papers make the boxes oil- and moisture-resistant with ventilation.
+            [2] => Yes for sure. All the materials we use for food packaging is printable. Brands can get boxes that have printed logos, design, artwork, product name, ingredients, contact details and barcode lines.
+            [3] => Commonly food boxes must have a product name, net quantity, ingredients, allergen declaration, nutrition facts, storage directions, preparation instructions, manufacturer or distributor details, barcodes, and QR codes.
+            [4] => Yes, brands can get boxes that have custom dimensions.  However, measurements should replicate the finished food or inner container, including liners, inserts, cake boards, toppings, and required clearance.
+            [5] => Yes, physical samples are available at Premiumboxes. Before ordering large quantity, you can ask for a sample. All you have to do is just fill the form of requirements available at our site.
+            [6] => Our usual production time is 4-5 business days. However, quantity, material availability, printing, finishes, sampling, and proofing matters how long will it take
         )
 
     [submit] => 
